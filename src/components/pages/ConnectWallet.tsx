@@ -1,5 +1,3 @@
-import React from 'react'
-import { Button } from '../Button'
 import "./ConnectWallet.css"
 import Footer from './Footer'
 import {
@@ -8,17 +6,11 @@ import {
     useBalance,
     useConnect,
     useDisconnect,
-    useEnsAvatar,
     useEnsName,
 } from "wagmi"
 
 export interface ConnectWalletProps {
     returnPath: string
-}
-
-export interface walletConnector {
-    ready: boolean,
-    id: string
 }
 
 function ConnectWallet({ returnPath }: ConnectWalletProps) {
@@ -35,13 +27,9 @@ function ConnectWallet({ returnPath }: ConnectWalletProps) {
             console.log('Error', error)
         }
     })
-
     const coinbaseConnector = connectors[0]
     const metamaskConnector = connectors[1]
     const walletConnectConnector = connectors[2]
-    console.log(coinbaseConnector)
-    console.log(isConnected)
-    console.log(connector?.id)
 
     return (
         <>
@@ -104,7 +92,10 @@ function ConnectWallet({ returnPath }: ConnectWalletProps) {
                     </div>
                 </div>
             </div>
-            <div className="connect-provider-notice"><p>Wallets are provided by external providers and by selecting you agree to Terms of those Providers.</p></div>
+            <div className="connect-provider-notice">
+                <p>Wallets are provided by external providers and by selecting you agree to Terms of those Providers.&nbsp;
+                    <button className="disconnect-button" onClick={() => disconnect()}>Disconnect my wallets.</button></p>
+            </div>
             <Footer />
 
         </>
