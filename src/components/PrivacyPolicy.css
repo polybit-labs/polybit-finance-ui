@@ -1,0 +1,136 @@
+.privacy-policy-container {
+    background-color: #e3e3e3;
+}
+
+/* Small devices (landscape phones, 576px and up) */
+
+@media (max-width: 767px) {
+    .privacy-policy-container {
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 73px;
+        padding-bottom: 73px;
+    }
+
+    .privacy-policy-container h1 {
+        font-size: 24px;
+    }
+
+    .privacy-policy-container h2 {
+        font-size: 16px;
+    }
+
+    .privacy-policy-container h3 {
+        font-size: 12px;
+    }
+
+    .privacy-policy-container p {
+        font-size: 12px;
+    }
+
+    .privacy-policy-container ul {
+        padding-left: 25px;
+        font-size: 12px;
+    }
+}
+
+/* Medium devices (tablets, 768px and up) */
+
+@media (min-width: 768px) {
+    .privacy-policy-container {
+        padding-left: 53px;
+        padding-right: 53px;
+        padding-top: 95px;
+        padding-bottom: 65px;
+    }
+
+    .privacy-policy-container h1 {
+        font-size: 30px;
+    }
+
+    .privacy-policy-container h2 {
+        font-size: 32px;
+    }
+
+    .privacy-policy-container h3 {
+        font-size: 16px;
+    }
+
+    .privacy-policy-container p {
+        font-size: 15px;
+    }
+
+    .privacy-policy-container ul {
+        padding-left: 30px;
+        font-size: 15px;
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+
+@media (min-width: 992px) {
+    .privacy-policy-container {
+        padding-left: 87px;
+        padding-right: 87px;
+        padding-top: 118px;
+        padding-bottom: 58px;
+    }
+
+    .privacy-policy-container h1 {
+        font-size: 40px;
+    }
+
+    .privacy-policy-container h2 {
+        font-size: 27px;
+    }
+
+    .privacy-policy-container h3 {
+        font-size: 20px;
+    }
+
+    .privacy-policy-container p {
+        font-size: 17px;
+    }
+
+    .privacy-policy-container ul {
+        padding-left: 35px;
+        font-size: 17px;
+    }
+}
+
+/*Extra large devices (large desktops, 1200px and up)*/
+
+@media (min-width: 1200px) {
+    .privacy-policy-container {
+        padding-left: 120px;
+        padding-right: 120px;
+        padding-top: 140px;
+        padding-bottom: 50px;
+    }
+
+    .privacy-policy-container h1 {
+        font-size: 48px;
+    }
+
+    .privacy-policy-container h2 {
+        font-size: 32px;
+    }
+
+    .privacy-policy-container h3 {
+        font-size: 24px;
+    }
+
+    .privacy-policy-container p {
+        font-size: 20px;
+    }
+
+    .privacy-policy-container ul {
+        padding-left: 40px;
+        font-size: 20px;
+    }
+
+    .email-link {
+        text-decoration: none;
+        color: #000000
+    }
+}
