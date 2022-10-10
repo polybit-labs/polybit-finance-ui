@@ -1,17 +1,12 @@
 import ReactDOM from 'react-dom/client';
 import App from './App';
-/* import { Buffer } from 'buffer';
-
-// @ts-ignore
-window.Buffer = Buffer; */
-
+/* import { Buffer } from 'buffer'; */
 import {
   Chain,
   WagmiConfig,
   createClient,
   configureChains,
 } from 'wagmi'
-
 //import { alchemyProvider } from 'wagmi/providers/alchemy'
 import { publicProvider } from 'wagmi/providers/public'
 import { infuraProvider } from 'wagmi/providers/infura'
@@ -20,6 +15,8 @@ import { InjectedConnector } from 'wagmi/connectors/injected'
 import { MetaMaskConnector } from 'wagmi/connectors/metaMask'
 import { WalletConnectConnector } from 'wagmi/connectors/walletConnect'
 import { jsonRpcProvider } from 'wagmi/providers/jsonRpc'
+
+window.Buffer = window.Buffer || require("buffer").Buffer;
 
 const bscTestnet: Chain = {
   id: 97,

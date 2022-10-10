@@ -63,9 +63,9 @@ function ConnectWallet({ returnPath }: ConnectWalletProps) {
                         onClick={() => connect({ connector: coinbaseConnector })}>{coinbaseConnector.id != connector?.id &&
                             "Use Coinbase"}
                         {!coinbaseConnector.ready && ' (unsupported)'}
-                        {isLoading &&
+                        {/* {isLoading &&
                             coinbaseConnector.id === pendingConnector?.id &&
-                            ' (connecting)'}
+                            '...'} */}
                         {coinbaseConnector.id === connector?.id &&
                             'Connected'}</button>
                     </div>
@@ -79,9 +79,9 @@ function ConnectWallet({ returnPath }: ConnectWalletProps) {
                             onClick={() => connect({ connector: metamaskConnector })}>{metamaskConnector.id != connector?.id &&
                                 "Use MetaMask"}
                             {!metamaskConnector.ready && ' (unsupported)'}
-                            {isLoading &&
+                            {/* {isLoading &&
                                 metamaskConnector.id === pendingConnector?.id &&
-                                ' (connecting)'}
+                                '...'} */}
                             {metamaskConnector.id === connector?.id &&
                                 'Connected'}</button>
                     </div>
@@ -96,9 +96,9 @@ function ConnectWallet({ returnPath }: ConnectWalletProps) {
                             onClick={() => connect({ connector: walletConnectConnector })}>{walletConnectConnector.id != connector?.id &&
                                 "Use WalletConnect"}
                             {!walletConnectConnector.ready && ' (unsupported)'}
-                            {isLoading &&
+                            {/* {isLoading &&
                                 walletConnectConnector.id === pendingConnector?.id &&
-                                ' (connecting)'}
+                                '...'} */}
                             {walletConnectConnector.id === connector?.id &&
                                 'Connected'}</button>
                     </div>
