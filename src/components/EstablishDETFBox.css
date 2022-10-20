@@ -1,0 +1,128 @@
+.establish-detf-container {
+    width: 100%;
+    height: 700px;
+    display: flex;
+    background-color: #e3e3e3;
+    padding-left: 120px;
+    padding-right: 120px;
+    padding-bottom: 158px;
+}
+
+.establish-detf-box {
+    width: 100%;
+    background-color: #EEEEEE;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: top;
+    align-items: center;
+    padding-top: 90px;
+    padding-bottom: 140px;
+    padding-left: 230px;
+    padding-right: 230px;
+}
+
+.establish-detf-box-header {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 60px;
+}
+
+.establish-detf-box-how-it-works {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: right;
+    cursor: pointer;
+}
+
+.establish-detf-box-how-it-works-link {
+    text-decoration: none;
+    color: #000000;
+    font-size: 16px;
+    font-weight: 700;
+    margin-top: 24px;
+}
+
+.establish-detf-button {
+    display: flex;
+    flex-direction: column;
+    border-radius: 4px;
+    outline: none;
+    border: 2px solid #000000;
+    cursor: pointer;
+    background-color: #000000;
+    color: #fff;
+    height: 66px;
+    font-size: 16px;
+    font-weight: 700;
+    padding: 32px;
+    justify-content: center;
+    margin-top: 60px;
+}
+
+.establish-detf-box-inactive {
+    display: none;
+}
+
+.confirming-detf-box-inactive {
+    display: none;
+}
+
+.confirming-detf-box {
+    width: 100%;
+    background-color: #EEEEEE;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-top: 90px;
+    padding-bottom: 140px;
+    padding-left: 230px;
+    padding-right: 230px;
+    font-size: 36px;
+    font-weight: 700;
+}
+
+.success-detf-box-inactive {
+    display: none;
+}
+
+.success-detf-box {
+    width: 100%;
+    background-color: #EEEEEE;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-top: 90px;
+    padding-bottom: 140px;
+    padding-left: 230px;
+    padding-right: 230px;
+    color: #00BF6F;
+    font-size: 36px;
+    font-weight: 700;
+}
+
+.success-deposit-button {
+    display: flex;
+    flex-direction: column;
+    border-radius: 4px;
+    outline: none;
+    border: 2px solid #000000;
+    cursor: pointer;
+    background-color: #000000;
+    color: #fff;
+    height: 66px;
+    font-size: 16px;
+    font-weight: 700;
+    padding: 32px;
+    justify-content: center;
+    margin-top: 60px;
+    text-decoration: none;
+}

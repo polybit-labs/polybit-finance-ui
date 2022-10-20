@@ -1,7 +1,6 @@
 import "./Button.css"
 
-const STYLES = ["btn--primary", "btn--filled"]
-const SIZES = ["btn--medium", "btn--large"]
+const STYLES = ["btn--primary", "btn--secondary"]
 
 export interface ButtonProps {
     text: string,
@@ -11,12 +10,11 @@ export interface ButtonProps {
     buttonSize: string
 }
 
-export const Button = ({ text, type, onClick, buttonStyle, buttonSize }: ButtonProps) => {
+export const Button = ({ text, type, onClick, buttonStyle }: ButtonProps) => {
     const checkButtonStyle = STYLES.includes(buttonStyle) ? buttonStyle : STYLES[0]
-    const checkButtonSize = SIZES.includes(buttonSize) ? buttonSize : SIZES[0]
 
     return (
-        <button className={`btn ${checkButtonStyle} ${checkButtonSize}`} onClick={onClick} type={type}>
+        <button className={`btn ${checkButtonStyle}`} onClick={onClick} type={type}>
             {text}
         </button>
     )

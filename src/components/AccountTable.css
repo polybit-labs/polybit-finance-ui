@@ -1,0 +1,80 @@
+.account-table-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #e3e3e3;
+    padding-left: 120px;
+    padding-right: 120px;
+    cursor: default;
+}
+
+.account-detf-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #e3e3e3;
+    padding-left: 120px;
+    padding-right: 120px;
+    padding-top: 110px;
+}
+
+.account-detf-header {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    cursor: default;
+}
+
+.account-detf-header-item {
+    width: 20%;
+    font-size: 14px;
+    font-weight: 700;
+    padding-left: 20px;
+}
+
+.account-detf-row-items {
+    width: 100%;
+    height: 88px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #EEEEEE;
+    border: 1px solid #fff;
+    border-radius: 4px;
+    margin-top: 14px;
+    cursor: default;
+    font-size: 20px;
+    font-weight: 700;
+    color: #000;
+}
+
+.account-detf-row-item {
+    width: 20%;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+}
+
+.account-detf-row-item-link {
+    text-decoration: none;
+    color: #000000
+}
+
+.account-detf-row-item-none {
+    width: 20%;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+    color: #909090;
+}
+
+.chain-logo {
+    margin-right: 15px;
+}

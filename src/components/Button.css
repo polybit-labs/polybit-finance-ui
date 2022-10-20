@@ -4,6 +4,9 @@
     outline: none;
     border: 2px solid #000000;
     cursor: pointer;
+    height: 66px;
+    font-size: 16px;
+    font-weight: 700;
 }
 
 .btn--primary {
@@ -14,17 +17,4 @@
 .btn--filled {
     background-color: #000000;
     color: #fff;
-}
-
-.btn--medium {
-    padding: 8px 20px;
-    font-size: 20px;
-}
-
-.btn--large {
-    padding: 12px 26px;
-    width: 224px;
-    height: 66px;
-    font-size: 16px;
-    font-weight: 700;
 }

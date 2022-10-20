@@ -1,0 +1,7 @@
+[
+    "function getSymbol() external view returns (string memory)",
+    "function getDecimals() external view returns (uint8)",
+    "function getLatestPrice() external view returns (uint256)",
+    "function getDetfName() external view returns (string memory)",
+    "function getDetfId() external view returns (string memory)"
+]

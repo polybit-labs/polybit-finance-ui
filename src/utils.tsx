@@ -6,3 +6,13 @@ export const truncateAddress = (address: string) => {
     if (!match) return address;
     return `${match[1]}…${match[2]}`;
 };
+
+export const getNumValueColor = (num: number) => {
+    if (num > 0) {
+        return '#0FC421';
+    }
+    if (num < 0) {
+        return '#C20000';
+    }
+    return '#000000';
+}

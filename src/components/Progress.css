@@ -1,0 +1,95 @@
+.progress-section-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #E3E3E3;
+    padding-left: 120px;
+    padding-right: 120px;
+    padding-bottom: 90px;
+}
+
+.progress-bar-step-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.progress-bar-steps {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    color: #AAAAAA;
+}
+
+.progress-bar-step {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 170px;
+    height: 105px;
+}
+
+
+.progress-bar-step-title-active {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #7140FF;
+}
+
+.progress-bar-step-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #AAAAAA;
+}
+
+.progress-bar-step-image {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+}
+
+.progress-bar-step-line {
+    position: absolute;
+    display: flex;
+    width: 180px;
+    height: 8px;
+    background-color: #AAAAAA;
+    margin-left: 10px;
+    margin-bottom: 11px;
+
+}
+
+.progress-bar-step-line-active {
+    position: absolute;
+    display: flex;
+    width: 180px;
+    height: 8px;
+    background-color: #AAAAAA;
+    margin-left: 10px;
+}
+
+.progress-bar-circle {
+    position: relative;
+    display: flex;
+    width: 22px;
+    height: 22px;
+    background-color: #AAAAAA;
+    border-radius: 50%;
+    border: 1px solid #AAAAAA;
+    margin-bottom: 11px;
+}
+
+.progress-bar-circle-active {
+    position: relative;
+    display: flex;
+    width: 44px;
+    height: 44px;
+    background-color: #7140FF;
+    border-radius: 50%;
+}

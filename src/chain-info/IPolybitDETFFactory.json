@@ -1,0 +1,5 @@
+[
+    "function createDETF(address _walletOwner,address _polybitDETFOracleAddress,uint256 _riskWeighting) external returns (address)",
+    "function getListOfDETFs() external view returns (address[] memory)",
+    "function getDETFAccounts(address _walletOwner) external view returns (address[] memory)"
+]

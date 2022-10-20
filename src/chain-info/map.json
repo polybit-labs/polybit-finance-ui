@@ -1,0 +1,24 @@
+{
+  "5777": {
+    "router": [
+      "0x3B0957170Fd8303c301D02623AE648a9005d7D56"
+    ],
+    "rebalancer": [
+      "0x9aFe98e4b6fE75dE2D6e2c4597f21694D3023f08"
+    ],
+    "price_oracle_factory": [
+      "0x219220846d62E57653c9c94bC2Ba47D910A3A456"
+    ],
+    "detf_oracle_factory": [
+      "0xc91F9A23De8e825203c70F54e08d5cA2f3c2a5Cc"
+    ],
+    "detf_oracle": [
+      "0xb86B47e40Ec31Ca4Dc31295B649bf585073e5DcD",
+      "0xB7452Ad8e82308e90750DFa1af30149252c40735",
+      "0xc26A7866baeB8b7C263B48289ec532a38f21c56A"
+    ],
+    "detf_factory": [
+      "0x5AB8bFF07b99fDb579C3409231Bf12Bb45faa574"
+    ]
+  }
+}

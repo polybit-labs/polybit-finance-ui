@@ -1,0 +1,51 @@
+.title-section-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    background-color: #E3E3E3;
+    padding-left: 120px;
+    padding-right: 120px;
+    padding-top: 200px;
+    padding-bottom: 140px;
+}
+
+.title-section h1 {
+    color: #875CFF;
+    font-size: 62px;
+    font-weight: 700;
+}
+
+.title-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 80px;
+}
+
+.title-info p {
+    font-size: 24px;
+    font-weight: 700;
+    padding-right: 50px;
+    text-decoration: none;
+    color: #000000;
+    padding-bottom: 0px;
+}
+
+.switch-wallet {
+    border-radius: 4px;
+    outline: none;
+    border: 2px solid #000000;
+    cursor: pointer;
+    background-color: #000000;
+    color: #fff;
+    width: 228px;
+    height: 66px;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.switch-wallet-inactive {
+    display: none;
+}

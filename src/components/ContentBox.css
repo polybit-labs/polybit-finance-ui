@@ -1,0 +1,22 @@
+.content-container {
+    width: 100%;
+    display: flex;
+    background-color: #e3e3e3;
+    padding-left: 120px;
+    padding-right: 120px;
+    padding-bottom: 160px;
+}
+
+.content-container-box {
+    width: 100%;
+    background-color: #EEEEEE;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: top;
+    align-items: right;
+    padding-top: 90px;
+    padding-bottom: 140px;
+    padding-left: 150px;
+    padding-right: 150px;
+}

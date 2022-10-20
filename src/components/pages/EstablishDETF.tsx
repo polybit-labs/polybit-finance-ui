@@ -1,0 +1,74 @@
+import "./EstablishDETF.css"
+import { useState } from 'react'
+import { useLocation, Link } from 'react-router-dom'
+import Title from '../Title'
+import { Progress } from '../Progress'
+import { truncateAddress } from '../../utils'
+import map from "../../chain-info/map.json"
+import PolybitDETFFactoryInterface from "../../chain-info/IPolybitDETFFactory.json"
+import { Interface } from 'ethers/lib/utils'
+import { useAccount, usePrepareContractWrite, useContractWrite, useWaitForTransaction } from 'wagmi'
+import Footer from "./Footer"
+import ContentBox from "../ContentBox"
+
+function EstablishDETF() {
+    const location = useLocation()
+    const { detfName, detfOracleAddress, processOrigin, activeStage } = location.state
+    const { address: walletOwner, connector, isConnected } = useAccount()
+    const [detfAddress, setDETFAddress] = useState("")
+    const detfFactoryAddress: Array<string> = map["5777"]["detf_factory"]
+    const IPolybitDETFFactory = new Interface(PolybitDETFFactoryInterface)
+    const title = "Establishing your DETF"
+    const titleInfo = `You have chosen to invest in the ${detfName} DETF from your address ${truncateAddress(walletOwner ? walletOwner : "")} using ${connector?.name}.`
+    const [detfSuccess, setDETFSuccess] = useState(false)
+
+    const { config, error } = usePrepareContractWrite({
+        addressOrName: detfFactoryAddress[0],
+        contractInterface: IPolybitDETFFactory,
+        functionName: "createDETF",
+        args: [walletOwner,
+            detfOracleAddress,
+            0]
+    })
+    const { data, isLoading, isSuccess, write: createNewDETF } = useContractWrite(config)
+
+    const { data: waitForTransaction, isError: transactionError, isLoading: transactionLoading } = useWaitForTransaction({
+        hash: data?.hash,
+        onSettled(data, error) {
+            const response = data ? data.logs[0].address : []
+            console.log("Settled", response)
+            setDETFAddress((response.toString()))
+            setDETFSuccess(true)
+        }
+    })
+
+    return (
+        <>
+            <Title title={title} info={titleInfo}
+                switchButton={false} />
+            <Progress processOrigin={processOrigin} activeStage={activeStage} />
+            <ContentBox>
+                <div className={isSuccess ? "establish-detf-wrapper-inactive" : "establish-detf-wrapper"}>
+                    <div className="establish-detf-header">It’s time to establish your DETF, ready for you to invest into.</div>
+                    <div ><p>Polybit’s Decentralized Exchange Traded Fund technology is deployed on an investment-by-investment basis, ensuring you are the sole custodian of your funds. Polybit does not, and will not, have control over your source of funds, your DETFs, or the investments within. </p></div>
+                    <div className="establish-detf-how-it-works"><Link className="establish-detf-how-it-works-link" to="/how-it-works">Learn more about how Polybit works</Link></div>
+                    <button className="establish-detf-button" disabled={!createNewDETF} onClick={async () => createNewDETF?.()}>Establish DETF on the blockchain</button>
+                    {error && (
+                        <div>An error occurred preparing the transaction: {error.message}</div>
+                    )}
+                </div>
+                <div className={transactionLoading ? "confirming-detf-wrapper" : "confirming-detf-wrapper-inactive"}>
+                    {transactionLoading && (<div>Waiting for confirmation from the blockchain...</div>)}
+                </div>
+                <div className={detfSuccess ? "success-detf-wrapper" : "success-detf-wrapper-inactive"}>
+                    <div>Congratulations, your {detfName} DETF has been established on the blockchain.</div>
+                    <Link className="success-deposit-button-link" to="/deposit" state={{ detfName: detfName, detfAddress: detfAddress, processOrigin: "establish", activeStage: 2 }}>
+                        <button className="success-deposit-button">Deposit funds</button></Link>
+                </div>
+            </ContentBox>
+            <Footer />
+        </>
+    )
+}
+
+export default EstablishDETF
