@@ -155,7 +155,7 @@ export const AccountTable = () => {
                     <div className="account-detf-header-item" onClick={() => sorting("detfName")}>Strategy</div>
                     <div className="account-detf-header-item" onClick={() => sorting("marketValue")}>Market Value</div>
                     <div className="account-detf-header-item" onClick={() => sorting("return")}>Return</div>
-                    <div className="account-detf-header-item">Time Lock</div>
+                    <div className="account-detf-header-item" onClick={() => sorting("lockStatus")}>Time Lock</div>
                     <div className="account-detf-header-item"></div>
                 </div>
                 <div>

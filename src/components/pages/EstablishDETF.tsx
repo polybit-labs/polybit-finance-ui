@@ -10,6 +10,7 @@ import { Interface } from 'ethers/lib/utils'
 import { useAccount, usePrepareContractWrite, useContractWrite, useWaitForTransaction } from 'wagmi'
 import Footer from "./Footer"
 import ContentBox from "../ContentBox"
+import Connect from "../Connect"
 
 function EstablishDETF() {
     const location = useLocation()
@@ -20,6 +21,7 @@ function EstablishDETF() {
     const IPolybitDETFFactory = new Interface(PolybitDETFFactoryInterface)
     const title = "Establishing your DETF"
     const titleInfo = `You have chosen to invest in the ${detfName} DETF from your address ${truncateAddress(walletOwner ? walletOwner : "")} using ${connector?.name}.`
+    const titleInfoConnect = `You have chosen to invest in the ${detfName} DETF. Please connect your wallet to proceed.`
     const [detfSuccess, setDETFSuccess] = useState(false)
 
     const { config, error } = usePrepareContractWrite({
@@ -42,30 +44,41 @@ function EstablishDETF() {
         }
     })
 
+    if (isConnected) {
+        return (
+            <>
+                <Title title={title} info={titleInfo}
+                    switchButton={false} />
+                <Progress processOrigin={processOrigin} activeStage={activeStage} />
+                <ContentBox>
+                    <div className={isSuccess ? "establish-detf-wrapper-inactive" : "establish-detf-wrapper"}>
+                        <div className="establish-detf-header">It’s time to establish your DETF, ready for you to invest into.</div>
+                        <div ><p>Polybit’s Decentralized Exchange Traded Fund technology is deployed on an investment-by-investment basis, ensuring you are the sole custodian of your funds. Polybit does not, and will not, have control over your source of funds, your DETFs, or the investments within. </p></div>
+                        <div className="establish-detf-how-it-works"><Link className="establish-detf-how-it-works-link" to="/how-it-works">Learn more about how Polybit works</Link></div>
+                        <button className="establish-detf-button" disabled={!createNewDETF} onClick={async () => createNewDETF?.()}>Establish DETF on the blockchain</button>
+                        {error && (
+                            <div>An error occurred preparing the transaction: {error.message}</div>
+                        )}
+                    </div>
+                    <div className={transactionLoading ? "confirming-detf-wrapper" : "confirming-detf-wrapper-inactive"}>
+                        {transactionLoading && (<div>Waiting for confirmation from the blockchain...</div>)}
+                    </div>
+                    <div className={detfSuccess ? "success-detf-wrapper" : "success-detf-wrapper-inactive"}>
+                        <div>Congratulations, your {detfName} DETF has been established on the blockchain.</div>
+                        <Link className="success-deposit-button-link" to="/deposit" state={{ detfName: detfName, detfAddress: detfAddress, processOrigin: "establish", activeStage: 2 }}>
+                            <button className="success-deposit-button">Deposit funds</button></Link>
+                    </div>
+                </ContentBox>
+                <Footer />
+            </>
+        )
+    }
+
     return (
         <>
-            <Title title={title} info={titleInfo}
+            <Title title={title} info={titleInfoConnect}
                 switchButton={false} />
-            <Progress processOrigin={processOrigin} activeStage={activeStage} />
-            <ContentBox>
-                <div className={isSuccess ? "establish-detf-wrapper-inactive" : "establish-detf-wrapper"}>
-                    <div className="establish-detf-header">It’s time to establish your DETF, ready for you to invest into.</div>
-                    <div ><p>Polybit’s Decentralized Exchange Traded Fund technology is deployed on an investment-by-investment basis, ensuring you are the sole custodian of your funds. Polybit does not, and will not, have control over your source of funds, your DETFs, or the investments within. </p></div>
-                    <div className="establish-detf-how-it-works"><Link className="establish-detf-how-it-works-link" to="/how-it-works">Learn more about how Polybit works</Link></div>
-                    <button className="establish-detf-button" disabled={!createNewDETF} onClick={async () => createNewDETF?.()}>Establish DETF on the blockchain</button>
-                    {error && (
-                        <div>An error occurred preparing the transaction: {error.message}</div>
-                    )}
-                </div>
-                <div className={transactionLoading ? "confirming-detf-wrapper" : "confirming-detf-wrapper-inactive"}>
-                    {transactionLoading && (<div>Waiting for confirmation from the blockchain...</div>)}
-                </div>
-                <div className={detfSuccess ? "success-detf-wrapper" : "success-detf-wrapper-inactive"}>
-                    <div>Congratulations, your {detfName} DETF has been established on the blockchain.</div>
-                    <Link className="success-deposit-button-link" to="/deposit" state={{ detfName: detfName, detfAddress: detfAddress, processOrigin: "establish", activeStage: 2 }}>
-                        <button className="success-deposit-button">Deposit funds</button></Link>
-                </div>
-            </ContentBox>
+            <Connect />
             <Footer />
         </>
     )

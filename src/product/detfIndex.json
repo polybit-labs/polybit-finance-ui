@@ -1,0 +1,42 @@
+[
+    {
+        "chainId": 56,
+        "detfId": 56001,
+        "detfOracleAddress": "0xb86B47e40Ec31Ca4Dc31295B649bf585073e5DcD",
+        "detfName": "Binance Governance",
+        "liquidity": 10203040505,
+        "returnOneWeek": 0.1,
+        "returnOneMonth": 0.65,
+        "returnOneYear": -0.12
+    },
+    {
+        "chainId": 56,
+        "detfId": 56002,
+        "detfOracleAddress": "0xc26A7866baeB8b7C263B48289ec532a38f21c56A",
+        "detfName": "Binance Top 10",
+        "liquidity": 894562355,
+        "returnOneWeek": 0.23,
+        "returnOneMonth": 0.45,
+        "returnOneYear": 1.8
+    },
+    {
+        "chainId": 56,
+        "detfId": 56003,
+        "detfOracleAddress": "0xB7452Ad8e82308e90750DFa1af30149252c40735",
+        "detfName": "Binance Metaverse",
+        "liquidity": 156568332,
+        "returnOneWeek": 0.3,
+        "returnOneMonth": 2.65,
+        "returnOneYear": -0.4
+    },
+    {
+        "chainId": 56,
+        "detfId": 56004,
+        "detfOracleAddress": "0xB7452Ad8e82308e90750DFa1af30149252c40735",
+        "detfName": "Binance Defi",
+        "liquidity": 456485412,
+        "returnOneWeek": 0.7,
+        "returnOneMonth": 0.40,
+        "returnOneYear": 3.6
+    }
+]

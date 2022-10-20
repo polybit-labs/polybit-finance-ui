@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import Home from "./components/pages/Home"
 import Privacy from "./components/pages/Privacy"
 import ScrollToTop from './components/ScrollToTop';
-import ProductIndex from './components/pages/ProductIndex';
+import DETFIndex from './components/pages/DETFIndex';
 import Account from './components/pages/Account';
 import ConnectWallet from './components/pages/ConnectWallet';
 import HowItWorks from './components/pages/HowItWorks';
@@ -21,10 +21,10 @@ function App() {
           <Navbar />
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/detf-index" element={<AvailableDETFs />} />
+            <Route path="/detf-index" element={<DETFIndex />} />
             <Route path="/how-it-works" element={<AvailableDETFs />} />
             <Route path="/account" element={<Account />} />
-            <Route path="/connect-wallet" element={<ConnectWallet returnPath="/" />} />
+            <Route path="/connect-wallet" element={<ConnectWallet />} />
             <Route path="/establish-detf" element={<EstablishDETF />} />
             <Route path="/deposit" element={<Deposit />} />
           </Routes>

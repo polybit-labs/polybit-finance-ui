@@ -73,7 +73,6 @@ export function AvailableDETFs() {
                 }
                 </div >
             </div >
-            <Progress processOrigin="connect" activeStage={1} />
         </>
     )
 }

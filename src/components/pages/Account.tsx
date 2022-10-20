@@ -11,10 +11,13 @@ import {
     useAccount,
     useNetwork,
     useBalance,
-    useContractRead
+    useContractRead,
+    useContractReads
 } from "wagmi"
 import Table from '../AccountTable'
 import Title from '../Title'
+import ConnectWallet from './ConnectWallet'
+import { useEffect, useState } from 'react'
 
 function Account() {
     const { address: walletOwner, connector, isConnected } = useAccount()
@@ -30,11 +33,17 @@ function Account() {
         addressOrName: detfFactoryAddress[0],
         contractInterface: IPolybitDETFFactory,
         functionName: "getDETFAccounts",
-        args: [walletOwner]
+        args: [walletOwner],
     })
+    const [ownedDETFData, setOwnedDETFData] = useState(ownedDETFs)
+
+    useEffect(() => {
+        const data = ownedDETFs ? ownedDETFs : []
+        setOwnedDETFData(data)
+    }, [ownedDETFs])
 
     function GetBalanceOfDETF(detfAddress: string) {
-        const { data: balanceOfDETF, isError, isLoading } = useContractRead({
+        const { data, isError, isLoading, isSuccess } = useContractRead({
             addressOrName: detfAddress,
             contractInterface: IPolybitDETF,
             functionName: "getTotalBalanceInWeth"
@@ -45,7 +54,7 @@ function Account() {
 
     function GetTotalPortfolioWorth() {
         let totalBalance = 0
-        ownedDETFs?.map(index => {
+        ownedDETFData?.map((index: string) => {
             totalBalance = totalBalance + Number(GetBalanceOfDETF(index))
         })
         return totalBalance

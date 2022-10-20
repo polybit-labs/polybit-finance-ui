@@ -346,7 +346,7 @@ function Deposit() {
                     </div>
                     <div className={depositSuccess ? "success-detf-wrapper" : "success-detf-wrapper-inactive"}>
                         <div>Congratulations, your deposit of BNB X into {detfName} DETF has been confirmed on the blockchain.</div>
-                        <Link className="success-deposit-button-link" to="/deposit" state={{ detfName: detfName, detfAddress: detfAddress, processOrigin: "establish", activeStage: 2 }}>
+                        <Link className="success-deposit-button-link" to="/account">
                             <button className="success-deposit-button">Go To My Account</button></Link>
                         {/* 
                         validate the deposit amount is available - transactionrecipt emit event */}
