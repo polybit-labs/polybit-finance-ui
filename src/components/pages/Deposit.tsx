@@ -6,7 +6,6 @@ import { useLocation } from 'react-router-dom'
 import PolybitDETFInterface from "../../chain-info/IPolybitDETF.json"
 import { Interface, parseUnits } from 'ethers/lib/utils'
 import Title from "../Title"
-
 import {
     useAccount,
     useNetwork,
@@ -20,6 +19,7 @@ import Footer from './Footer'
 import DateTypeDropDown from '../DateTypeDropdown'
 import { Progress } from '../Progress'
 import ContentBox from '../ContentBox'
+import { OwnedDETFCount } from '../OwnedDETFCount'
 
 function Deposit() {
     const ethers = require("ethers")
@@ -41,7 +41,7 @@ function Deposit() {
     const [internalActiveStage, setInternalActiveStage] = useState(activeStage ? activeStage : 1)
     const moment = require('moment')
     const [depositSuccess, setDepositSuccess] = useState(false)
-
+    const ownedDETFCount = OwnedDETFCount()
     const onChangeDeposit = (e: ChangeEvent<HTMLInputElement>) => {
         setdepositInputValue(e.target.value);
     }
@@ -78,16 +78,6 @@ function Deposit() {
         let now = moment().unix()
         return now
     }
-
-    /* const { config: detfDepositIncreaseTimeConfig, error: detfDepositIncreaseTimeError } = usePrepareContractWrite({
-        addressOrName: detfAddress,
-        contractInterface: IPolybitDETF,
-        functionName: 'deposit',
-        args: [(Number(GetUnlockTimeOfDETF()) + GetTimeLockInputValueInSeconds())],
-        overrides: { from: walletOwner, value: Number(depositInputValue) > 0 ? parseUnits(depositInputValue).toString() : 0 }
-    })
-
-    const { write: detfDepositIncreaseTime } = useContractWrite(detfDepositIncreaseTimeConfig) */
 
     function GetTimeLockInputValueInSeconds() {
         if (selectDateFormat === "Days") {
@@ -346,7 +336,7 @@ function Deposit() {
                     </div>
                     <div className={depositSuccess ? "success-detf-wrapper" : "success-detf-wrapper-inactive"}>
                         <div>Congratulations, your deposit of BNB X into {detfName} DETF has been confirmed on the blockchain.</div>
-                        <Link className="success-deposit-button-link" to="/account">
+                        <Link className="success-deposit-button-link" to="/account" state={{ detfCount: ownedDETFCount }}>
                             <button className="success-deposit-button">Go To My Account</button></Link>
                         {/* 
                         validate the deposit amount is available - transactionrecipt emit event */}

@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from 'react'
 import { Link } from 'react-router-dom'
 import "./Navbar.css"
 import currencyContext, { CurrencyState } from '../context/currency'
+import { OwnedDETFCount } from './OwnedDETFCount'
 
 function CurrencyComponent() {
     const user = useContext(currencyContext)
@@ -11,12 +12,14 @@ function CurrencyComponent() {
 }
 
 function Navbar() {
-    const [selectedCurrency, setSelectedCurrency] = useState<CurrencyState>({ currency: "AUD" })
+    const [selectedCurrency, setSelectedCurrency] = useState<CurrencyState>({ currency: "USD" })
     const [click, setClick] = useState(false)
     const [button, setButton] = useState(true)
     const handleClick = () => setClick(!click)
     const closeMobileMenu = () => setClick(false)
+    const ownedDETFCount = OwnedDETFCount()
 
+    console.log(currencyContext)
 
     const showButton = () => {
         if (window.innerWidth <= 960) {
@@ -54,7 +57,7 @@ function Navbar() {
                         </Link>
                     </li>
                     <li className="nav-item">
-                        <Link to="/account" className="nav-links" onClick={closeMobileMenu}>
+                        <Link to="/account" state={{ detfCount: { ownedDETFCount } }} className="nav-links" onClick={closeMobileMenu}>
                             Account
                         </Link>
                     </li>

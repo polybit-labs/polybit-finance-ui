@@ -12,6 +12,7 @@ import Footer from "./Footer"
 import ContentBox from "../ContentBox"
 import Connect from "../Connect"
 
+
 function EstablishDETF() {
     const location = useLocation()
     const { detfName, detfOracleAddress, processOrigin, activeStage } = location.state

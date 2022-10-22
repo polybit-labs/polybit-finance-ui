@@ -1,22 +1,19 @@
 import Footer from './Footer'
 import "./Account.css"
 import { getNumValueColor, truncateAddress } from '../../utils'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import PolybitDETFFactoryInterface from "../../chain-info/IPolybitDETFFactory.json"
 import PolybitDETFInterface from "../../chain-info/IPolybitDETF.json"
 import { Interface } from 'ethers/lib/utils'
 import map from "../../chain-info/map.json"
-
 import {
     useAccount,
     useNetwork,
     useBalance,
-    useContractRead,
-    useContractReads
+    useContractRead
 } from "wagmi"
 import Table from '../AccountTable'
 import Title from '../Title'
-import ConnectWallet from './ConnectWallet'
 import { useEffect, useState } from 'react'
 
 function Account() {
@@ -35,6 +32,17 @@ function Account() {
         functionName: "getDETFAccounts",
         args: [walletOwner],
     })
+
+    const previousCount = ownedDETFs ? ownedDETFs.length : 0
+    const location = useLocation()
+    const { detfCount } = location.state
+
+    useEffect(() => {
+        if (detfCount > previousCount) {
+            window.location.reload();
+        }
+    }, [detfCount])
+
     const [ownedDETFData, setOwnedDETFData] = useState(ownedDETFs)
 
     useEffect(() => {
