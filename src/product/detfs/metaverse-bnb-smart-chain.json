@@ -1,0 +1,125 @@
+[
+    {
+        "chainId": 56,
+        "chainName": "BNB Smart Chain",
+        "detfId": "1003",
+        "detfOracleAddress": "0xB7452Ad8e82308e90750DFa1af30149252c40735",
+        "detfName": "Metaverse",
+        "descriptionTitle": "Wafer gingerbread bonbon gummies biscuit candy danish cupcake. Cookie liquorice chocolate cake bonbon candy canes tiramisu sugar plum gummies bear claw.",
+        "description": "Lemon drops pastry candy apple pie liquorice bear claw lemon drops sweet tootsie roll. Ice cream chocolate bar chocolate danish pastry gummi bears. Pudding cheesecake croissant apple pie cookie sweet icing candy cupcake. Croissant soufflé jelly beans pie sweet roll pastry. Halvah cotton candy candy gummi bears croissant. Marshmallow macaroon chocolate cupcake pie. \n\nMuffin jujubes sesame snaps lollipop lemon drops pudding danish shortbread danish. Pudding liquorice lollipop cheesecake icing. Bonbon jelly beans soufflé cookie jelly bear claw. Lemon drops sweet tart liquorice dragée icing wafer donut. Jujubes muffin jelly-o tootsie roll jujubes cake chocolate bar fruitcake gingerbread. Candy canes tiramisu cupcake liquorice candy lollipop. Jelly-o chocolate dessert soufflé topping. Topping oat cake toffee topping sesame snaps candy canes croissant. Halvah jelly-o soufflé marshmallow cotton candy cotton candy croissant tart cake. Cake marzipan biscuit cake jelly-o cake brownie soufflé muffin.",
+        "type": "Themed",
+        "tokens": [
+            {
+                "id": "axie-infinity",
+                "symbol": "AXS",
+                "name": "Axie Infinity",
+                "market_cap_rank": 50,
+                "market_cap_usd": 1158120832,
+                "address": "0x715D400F88C167884bbCc41C5FeA407ed4D2f8A0"
+            },
+            {
+                "id": "radio-caca",
+                "symbol": "RACA",
+                "name": "Radio Caca",
+                "market_cap_rank": 203,
+                "market_cap_usd": 125222410,
+                "address": "0x12BB890508c125661E03b09EC06E404bc9289040"
+            },
+            {
+                "id": "merit-circle",
+                "symbol": "MC",
+                "name": "Merit Circle",
+                "market_cap_rank": 234,
+                "market_cap_usd": 102985477,
+                "address": "0x949D48EcA67b17269629c7194F4b727d4Ef9E5d6"
+            },
+            {
+                "id": "mobox",
+                "symbol": "MBOX",
+                "name": "Mobox",
+                "market_cap_rank": 279,
+                "market_cap_usd": 84410529,
+                "address": "0x3203c9E46cA618C8C1cE5dC67e7e9D75f5da2377"
+            },
+            {
+                "id": "adshares",
+                "symbol": "ADS",
+                "name": "Adshares",
+                "market_cap_rank": 359,
+                "market_cap_usd": 57580497,
+                "address": "0xcfcEcFe2bD2FED07A9145222E8a7ad9Cf1Ccd22A"
+            },
+            {
+                "id": "floki-inu",
+                "symbol": "FLOKI",
+                "name": "Floki Inu",
+                "market_cap_rank": 369,
+                "market_cap_usd": 55932492,
+                "address": "0xfb5B838b6cfEEdC2873aB27866079AC55363D37E"
+            },
+            {
+                "id": "my-neighbor-alice",
+                "symbol": "ALICE",
+                "name": "My Neighbor Alice",
+                "market_cap_rank": 462,
+                "market_cap_usd": 38090088,
+                "address": "0xAC51066d7bEC65Dc4589368da368b212745d63E8"
+            },
+            {
+                "id": "phantasma",
+                "symbol": "SOUL",
+                "name": "Phantasma",
+                "market_cap_rank": 593,
+                "market_cap_usd": 24644183,
+                "address": "0x298Eff8af1ecEbbB2c034eaA3b9a5d0Cc56c59CD"
+            },
+            {
+                "id": "ovr",
+                "symbol": "OVR",
+                "name": "Ovr",
+                "market_cap_rank": 635,
+                "market_cap_usd": 21474759,
+                "address": "0x7E35D0e9180bF3A1fc47b0d110bE7a21A10B41Fe"
+            },
+            {
+                "id": "redfox-labs-2",
+                "symbol": "RFOX",
+                "name": "RFOX",
+                "market_cap_rank": 694,
+                "market_cap_usd": 17057267,
+                "address": "0x0a3A21356793B49154Fd3BbE91CBc2A16c0457f5"
+            },
+            {
+                "id": "rainicorn",
+                "symbol": "RAINI",
+                "name": "Rainicorn",
+                "market_cap_rank": 853,
+                "market_cap_usd": 9917884,
+                "address": "0xeB953eDA0DC65e3246f43DC8fa13f35623bDd5eD"
+            },
+            {
+                "id": "revv",
+                "symbol": "REVV",
+                "name": "REVV",
+                "market_cap_rank": 872,
+                "market_cap_usd": 9209296,
+                "address": "0x833F307aC507D47309fD8CDD1F835BeF8D702a93"
+            },
+            {
+                "id": "bondly",
+                "symbol": "BONDLY",
+                "name": "Forj",
+                "market_cap_rank": 989,
+                "market_cap_usd": 6610044,
+                "address": "0x5D0158A5c3ddF47d4Ea4517d8DB0D76aA2e87563"
+            }
+        ],
+        "returns": {
+            "returnOneWeek": 0.56,
+            "returnOneMonth": 1.24,
+            "returnOneYear": -31.44,
+            "returnTwoYear": 200.89
+        },
+        "returnChart": {}
+    }
+]

@@ -50,6 +50,20 @@
     align-items: center;
 }
 
+.detf-index-chain-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+    font-size: 16px;
+}
+
+.detf-index-chain-logo {
+    height: 26px;
+    width: 26px;
+    margin-right: 5px;
+}
+
 .detf-index-row-item-link {
     text-decoration: none;
     color: #000000;
@@ -64,8 +78,4 @@
     justify-content: left;
     align-items: center;
     color: #909090;
-}
-
-.chain-logo {
-    margin-right: 15px;
 }

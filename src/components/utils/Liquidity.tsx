@@ -7,7 +7,7 @@ import { GetTokenDecimals } from "./ERC20Utils"
 import baseTokens from "../../chain-info/baseTokens.json"
 import factoryAddresses from "../../chain-info/factoryAddresses.json"
 
-export const GetTokenLiquiditySingle = (chain: string, baseToken: string, tokenAddress: string) => {
+export const GetTokenLiquiditySingle = (chain: string, baseToken: string, tokenAddress: string, chainId: number) => {
     const IUniswapV2Factory = new Interface(UniswapV2Factory)
     const IUniswapV2Pair = new Interface(UniswapV2Pair)
 
@@ -15,17 +15,21 @@ export const GetTokenLiquiditySingle = (chain: string, baseToken: string, tokenA
         addressOrName: factoryAddresses[0],
         contractInterface: IUniswapV2Factory,
         functionName: "getPair",
-        chainId: 56,
+        chainId: chainId,
         args: [baseToken, tokenAddress]
     })
 
     const pairAddress = pairAddressData ? pairAddressData.toString() : ""
+    console.log("Pair", pairAddress)
+    console.log("Token", tokenAddress)
+    console.log("Base", baseToken)
+
 
     const { data: tokenReservesData } = useContractRead({
         addressOrName: pairAddress,
         contractInterface: IUniswapV2Pair,
         functionName: "getReserves",
-        chainId: 56,
+        chainId: chainId,
     })
 
     const tokenReserves = tokenReservesData ? tokenReservesData : []
@@ -34,7 +38,7 @@ export const GetTokenLiquiditySingle = (chain: string, baseToken: string, tokenA
         addressOrName: pairAddress,
         contractInterface: IUniswapV2Pair,
         functionName: "token0",
-        chainId: 56,
+        chainId: chainId,
     })
 
     const token0 = token0Address ? token0Address.toString() : ""
@@ -58,11 +62,11 @@ export const GetTokenLiquiditySingle = (chain: string, baseToken: string, tokenA
     return liquidity
 }
 
-export const GetTokenLiquidity = (chain: string, tokenAddress: string) => {
+export const GetTokenLiquidity = (chain: string, tokenAddress: string, chainId: number) => {
     let liquidity = 0;
     baseTokens.map(baseToken => {
         liquidity = liquidity +
-            GetTokenLiquiditySingle(chain, baseToken, tokenAddress)
+            GetTokenLiquiditySingle(chain, baseToken, tokenAddress, chainId)
     })
     if (liquidity > 0) {
         return liquidity
@@ -71,12 +75,12 @@ export const GetTokenLiquidity = (chain: string, tokenAddress: string) => {
 }
 
 interface GetTotalLiquidityProps {
-    tokens: Array<any>
+    tokens: Array<any>,
 }
-export const GetTotalLiquidity = (props: GetTotalLiquidityProps) => {
+export const GetTotalLiquidity = (props: GetTotalLiquidityProps, chainId: number) => {
     let totalLiquidity = 0
     props.tokens?.map(token => {
-        totalLiquidity = totalLiquidity + GetTokenLiquidity("binance-smart-chain", token.address)
+        totalLiquidity = totalLiquidity + GetTokenLiquidity("binance-smart-chain", token.address, chainId)
     })
     return totalLiquidity
 }

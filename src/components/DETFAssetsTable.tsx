@@ -1,7 +1,7 @@
 import { GetTokenName } from './utils/ERC20Utils'
 import { GetTokenLiquidity } from './utils/Liquidity'
 import { CurrencyContext, FormatCurrency } from './utils/Currency'
-import { useContext, useEffect } from 'react'
+import "./DETFAssetsTable.css"
 
 interface DETFAssetsTableProps {
     tokens: Array<any>
@@ -14,7 +14,7 @@ export const DETFAssetsTable = (props: DETFAssetsTableProps) => {
         targetAssets.push({
             "tokenLogo": "",
             "tokenName": GetTokenName(token.address),
-            "tokenLiquidity": GetTokenLiquidity("binance-smart-chain", token.address),
+            "tokenLiquidity": GetTokenLiquidity("binance-smart-chain", token.address, 56),
             "tokenWeight": `${parseFloat(((1 / props.tokens.length) * 100).toString()).toFixed(2)}%`,
         })
     })
@@ -41,7 +41,7 @@ export const DETFAssetsTable = (props: DETFAssetsTableProps) => {
                                     <td className="detf-assets-body-item">{index + 1}</td>
                                     <td className="detf-assets-body-item">
                                         <div className="detf-assets-token-logo">
-                                            {/* <img className="detf-chain-logo-small" src={require("../../assets/images/binance-icon-circle.png")} alt="BNB Smart Chain"></img> */}
+                                            <img className="detf-token-logo" src={require("../assets/images/mobox.png")} alt="Mobox"></img>
                                             <b>{token.tokenName}</b>
                                         </div>
                                     </td>

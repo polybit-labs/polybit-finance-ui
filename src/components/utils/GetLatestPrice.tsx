@@ -18,6 +18,8 @@ export const GetLatestPrice = (chain: string, tokenAddress: string) => {
     if (data) {
         /* console.log(data[(tokenAddress).toLowerCase()][currency.toLowerCase()]) */
         return data[(tokenAddress).toLowerCase()][currency.toLowerCase()]
+    } else {
+        console.log("Could not get price for " + tokenAddress)
     }
 
 }

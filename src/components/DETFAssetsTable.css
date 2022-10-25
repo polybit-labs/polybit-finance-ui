@@ -1,0 +1,40 @@
+.detf-assets-wrapper {
+    margin-top: 50px;
+    width: 100%;
+}
+
+.detf-assets-table {
+    width: 100%;
+}
+
+.detf-assets-header-row {}
+
+.detf-assets-header-item {
+    text-align: left;
+    font-size: 14px;
+}
+
+.detf-assets-body-row {
+    width: 100%;
+}
+
+.detf-assets-body-item {
+    font-size: 16px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-right: 24px;
+}
+
+.detf-assets-token-logo {
+    display: flex;
+    flex-direction: row;
+    text-align: left;
+    align-items: center;
+}
+
+.detf-token-logo {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    margin-right: 10px;
+}

@@ -3,6 +3,8 @@ import "./DETFIndexList.css"
 import { getNumValueColor } from '../utils'
 import { Link } from "react-router-dom"
 import detfIndex from "../product/detfIndex.json"
+import { GetTotalLiquidity } from "./utils/Liquidity"
+import { FormatCurrency } from "./utils/Currency"
 
 interface DETFIndex {
     "chainId": number;
@@ -32,6 +34,23 @@ const DETFIndexList = () => {
             setOrder("asc")
         }
     }
+
+    const GetDETFLiquidity = (urlId: string) => {
+        let productFile
+        try {
+            productFile = require(`../product/detfs/${urlId}.json`)
+        } catch {
+            console.log("File not found.")
+        }
+
+        if (productFile) {
+            const chainId: number = productFile[0].chainId
+            const tokens: Array<any> = [] = productFile[0].tokens
+            const totalLiquidity: number = GetTotalLiquidity({ tokens }, chainId)
+            return totalLiquidity ? totalLiquidity : 0
+        }
+    }
+
     return (
         <>
             <div className="detf-index-container">
@@ -40,18 +59,23 @@ const DETFIndexList = () => {
                         <div className="detf-index-header-item" onClick={() => sorting("detfName")}>DETF Strategy</div>
                         <div className="detf-index-header-item" onClick={() => sorting("liquidity")}>Total Liquidity</div>
                         <div className="detf-index-header-item" onClick={() => sorting("returnOneWeek")}>1 Week</div>
-                        <div className="detf-index-header-item" onClick={() => sorting("returnOneMonth")}>1 Week</div>
-                        <div className="detf-index-header-item" onClick={() => sorting("returnOneYear")}>1 Week</div>
+                        <div className="detf-index-header-item" onClick={() => sorting("returnOneMonth")}>1 Month</div>
+                        <div className="detf-index-header-item" onClick={() => sorting("returnOneYear")}>1 Year</div>
                         <div className="detf-index-header-item"></div>
                     </div>
                     <div>
                         {detfIndexData.map((index) =>
                             <div className="detf-index-row-items" key={index.detfId}>
                                 <div className="detf-index-row-item">
-                                    <img className="chain-logo" src={require("../assets/images/bsc-logo.png")} alt="Binance Smart Chain"></img>
-                                    {index.detfName}
+                                    <div className="detf-index-row-item-name">
+                                        {index.detfName}
+                                        <div className="detf-index-chain-title">
+                                            <img className="detf-index-chain-logo" src={require("../assets/images/bsc-logo.png")} alt="Binance Smart Chain"></img>
+                                            {index.chainName}
+                                        </div>
+                                    </div>
                                 </div>
-                                <div className="detf-index-row-item">{"$" + parseFloat((index.liquidity).toString()).toFixed(0)}</div>
+                                <div className="detf-index-row-item">{FormatCurrency(Number(GetDETFLiquidity(index.urlId)), 0)}</div>
                                 <div className="detf-index-row-item" style={{ color: getNumValueColor(index.returnOneWeek) }}>{parseFloat((index.returnOneWeek).toString()).toFixed(2) + "%"}</div>
                                 <div className="detf-index-row-item" style={{ color: getNumValueColor(index.returnOneMonth) }}>{parseFloat((index.returnOneMonth).toString()).toFixed(2) + "%"}</div>
                                 <div className="detf-index-row-item" style={{ color: getNumValueColor(index.returnOneYear) }}>{parseFloat((index.returnOneYear).toString()).toFixed(2) + "%"}</div>
