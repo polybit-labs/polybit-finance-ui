@@ -7,7 +7,7 @@ import { GetTokenDecimals } from "./ERC20Utils"
 import baseTokens from "../../chain-info/baseTokens.json"
 import factoryAddresses from "../../chain-info/factoryAddresses.json"
 
-export const GetTokenLiquiditySingle = (chain: string, baseToken: string, tokenAddress: string, currency: string) => {
+export const GetTokenLiquiditySingle = (chain: string, baseToken: string, tokenAddress: string) => {
     const IUniswapV2Factory = new Interface(UniswapV2Factory)
     const IUniswapV2Pair = new Interface(UniswapV2Pair)
 
@@ -50,7 +50,7 @@ export const GetTokenLiquiditySingle = (chain: string, baseToken: string, tokenA
         tokenBalance = tokenReserves.reserve1;
     }
 
-    let tokenPrice = Number(GetLatestPrice(chain, tokenAddress, currency))
+    let tokenPrice = Number(GetLatestPrice(chain, tokenAddress))
     let tokenDecimals = Number(GetTokenDecimals(tokenAddress))
     let liquidity = Number((((2 * tokenBalance) * tokenPrice) /
         10 ** tokenDecimals))
@@ -58,11 +58,25 @@ export const GetTokenLiquiditySingle = (chain: string, baseToken: string, tokenA
     return liquidity
 }
 
-export const GetTokenLiquidity = (chain: string, tokenAddress: string, currency: string) => {
+export const GetTokenLiquidity = (chain: string, tokenAddress: string) => {
     let liquidity = 0;
     baseTokens.map(baseToken => {
         liquidity = liquidity +
-            GetTokenLiquiditySingle(chain, baseToken, tokenAddress, currency)
+            GetTokenLiquiditySingle(chain, baseToken, tokenAddress)
     })
-    return liquidity;
+    if (liquidity > 0) {
+        return liquidity
+    }
+    else { return 0 }
+}
+
+interface GetTotalLiquidityProps {
+    tokens: Array<any>
+}
+export const GetTotalLiquidity = (props: GetTotalLiquidityProps) => {
+    let totalLiquidity = 0
+    props.tokens?.map(token => {
+        totalLiquidity = totalLiquidity + GetTokenLiquidity("binance-smart-chain", token.address)
+    })
+    return totalLiquidity
 }

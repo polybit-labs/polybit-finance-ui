@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import Products from "../../product/detfIndex.json"
 import { ReturnChart } from '../ReturnChart'
@@ -7,6 +7,8 @@ import { GetTargetList, GetTargetPercentage } from '../utils/DETFOracleUtils'
 import { GetTokenName } from '../utils/ERC20Utils'
 import { getNumValueColor } from '../../utils'
 import { DETFAssetsTable } from '../DETFAssetsTable'
+import { FormatCurrency } from '../utils/Currency'
+import { GetTotalLiquidity } from '../utils/Liquidity'
 
 const DETF = () => {
     const urlId = useParams().urlId
@@ -19,13 +21,16 @@ const DETF = () => {
 
     const title = "Invest in Decentralized ETFs"
 
-    const detfOracleAddress = "0xb86B47e40Ec31Ca4Dc31295B649bf585073e5DcD"
-    const detfName = productFile[0].detfName
-    const chainName = productFile[0].chainName
+    const detfOracleAddress: string = productFile[0].detfOracleAddress
+    const detfName: string = productFile[0].detfName
+    const chainName: string = productFile[0].chainName
+    const descriptionTitle: string = productFile[0].descriptionTitle
+    const description: string = productFile[0].description
     const returnOneWeek: number = productFile[0].returns.returnOneWeek
     const returnOneMonth: number = productFile[0].returns.returnOneMonth
     const returnOneYear: number = productFile[0].returns.returnOneYear
     const tokens: Array<any> = [] = productFile[0].tokens
+    const totalLiquidity: number = GetTotalLiquidity({ tokens })
 
     return (
         <>
@@ -50,8 +55,8 @@ const DETF = () => {
                             <p>“BNB” is the currency utilised for investment in the Binance Governance Top 20 DETF on the Binance Smart Chain. This can be purchased via Coinbase Wallet, and other exchanges.</p>
                         </div>
                         <div className="detf-description">
-                            <h2>With a single transaction, get diversified exposure to the top 20 Governance assets on the Binance (BNB) chain.</h2>
-                            <p>Polybit’s PGT20 aims to track the performance of an index (before fees and expenses) comprising 20 of the largest governance assets by liquidity on the Binance chain. The smart contract you generate at the time of investment will automatically facilitate ongoing trades to maintain pooled asset positions, as asset positions shift, leave, or enter the pool over time.</p>
+                            <h2>{descriptionTitle}</h2>
+                            <p>{description}</p>
                         </div>
                         <div className="detf-chart">
                             <p>Value of USD$100 invested since inception</p>
@@ -88,7 +93,7 @@ const DETF = () => {
                                     </div>
                                     <div className="detf-summary-info-results">
                                         <ul>
-                                            <li>$100,000,000</li>
+                                            <li>{FormatCurrency(totalLiquidity, 0)}</li>
                                             <li>Ecosystem Rank</li>
                                             <li>5</li>
                                             <li>Equally Balanced</li>
@@ -110,7 +115,7 @@ const DETF = () => {
                         <div className="detf-assets-box">
                             <h2>Assets in DETF</h2>
                             <p>Holdings as of 11 August 2022. These holdings will rebalance through automated buys and sells over time to maintain a reflection of the top assets in this fund. Holding weighting is determined according to oracle data including, but not limited to, market capitalisation and daily trading volume. Assets that do not meet our risk criteria for certification or minimum liquidity thresholds may be excluded from pool inclusion. Learn more about our pool policies.</p>
-                            <DETFAssetsTable />
+                            <DETFAssetsTable tokens={tokens} />
                         </div>
                     </div>
 

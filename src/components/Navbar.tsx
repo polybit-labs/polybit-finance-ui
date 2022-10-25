@@ -1,18 +1,16 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { Link } from 'react-router-dom'
 import "./Navbar.css"
-import currencyContext, { CurrencyState } from '../context/currency'
+import { CurrencyContext } from "./utils/Currency"
 import { OwnedDETFCount } from './OwnedDETFCount'
+import CurrencyTypeDropDown from "./CurrencyDropDown"
 
-function CurrencyComponent() {
-    const user = useContext(currencyContext)
-    return (
-        <div>{user.currency}</div>
-    )
+interface NavbarProps {
+    setCurrency: Function;
 }
 
-function Navbar() {
-    const [selectedCurrency, setSelectedCurrency] = useState<CurrencyState>({ currency: "USD" })
+function Navbar(props: NavbarProps) {
+    const currency = useContext(CurrencyContext).currency
     const [click, setClick] = useState(false)
     const [button, setButton] = useState(true)
     const handleClick = () => setClick(!click)
@@ -31,6 +29,32 @@ function Navbar() {
     }, [])
 
     window.addEventListener("resize", showButton)
+
+    const [showDropDown, setShowDropDown] = useState<boolean>(false)
+    const [selectCurrencyFormat, setCurrencyFormat] = useState<string>(currency)
+    const currencyFormats = () => {
+        return ["AUD", "BNB", "USD"]
+    }
+    const toggleDropDown = () => {
+        setShowDropDown(!showDropDown)
+    }
+    const dismissHandler = (event: React.FocusEvent<HTMLButtonElement>): void => {
+        if (event.currentTarget === event.target) {
+            setShowDropDown(false)
+        }
+    }
+    const currencyFormatSelection = (currencyFormat: string): void => {
+        setCurrencyFormat(currencyFormat)
+    }
+
+    function SetCurrency(currency: string) {
+        props.setCurrency({ currency: currency })
+    }
+
+    useEffect(() => {
+        SetCurrency(selectCurrencyFormat)
+    }, [selectCurrencyFormat, setCurrencyFormat])
+
     return (
         <>
             <nav className="navbar">
@@ -60,9 +84,23 @@ function Navbar() {
                     </li>
                     <li className="nav-item">
                         <div className="nav-currency">Base currency is&nbsp;</div>
-                        <Link to="/connect-wallet" className="nav-links" onClick={closeMobileMenu}>
-                            <currencyContext.Provider value={selectedCurrency}><CurrencyComponent /></currencyContext.Provider>
-                        </Link>
+                        <button
+                            className="currency-format"
+                            onClick={(): void => toggleDropDown()}
+                            onBlur={(e: React.FocusEvent<HTMLButtonElement>): void =>
+                                dismissHandler(e)
+                            }
+                        >
+                            <div>{selectCurrencyFormat ? selectCurrencyFormat : "Select ..."} </div>
+                            {showDropDown && (
+                                <CurrencyTypeDropDown
+                                    currencyFormats={currencyFormats()}
+                                    showDropDown={false}
+                                    toggleDropDown={(): void => toggleDropDown()}
+                                    currencyFormatSelection={currencyFormatSelection}
+                                />
+                            )}
+                        </button>
                     </li>
                 </ul>
             </nav>

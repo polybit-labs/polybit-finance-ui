@@ -62,7 +62,16 @@
 
 .nav-currency {
     border-bottom: 2px solid #E3E3E3;
+}
 
+.currency-format {
+    border: none;
+    border-bottom: 2px solid #000000;
+    font-size: 16px;
+    font-weight: 700;
+    color: #000000;
+    position: relative;
+    background-color: #E3E3E3;
 }
 
 .nav-links-mobile {

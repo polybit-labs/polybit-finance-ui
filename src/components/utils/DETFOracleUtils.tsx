@@ -7,9 +7,10 @@ export const GetTargetList = (detfOracleAddress: string) => {
     const { data, isError, isLoading } = useContractRead({
         addressOrName: detfOracleAddress,
         contractInterface: IPolybitDETFOracle,
-        functionName: "getTargetList"
+        functionName: "getTargetList",
+        chainId: 56
     })
-    return data
+    if (data) { return data }
 }
 
 export const GetTokenLiquidity = (detfOracleAddress: string, tokenAddress: string, chainId: number) => {

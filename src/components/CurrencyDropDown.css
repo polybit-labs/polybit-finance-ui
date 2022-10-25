@@ -1,0 +1,27 @@
+.currency-dropdown {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    font-size: 16px;
+    font-weight: 700;
+    background-color: #ffffff;
+    color: #000000;
+    text-align: left;
+    border-radius: 4px;
+}
+
+.currency-dropdown>p {
+    margin: 0;
+    border-bottom: 1px solid #EEEEEE;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.currency-dropdown>p:hover {
+    color: #ffffff;
+    background-color: #000000;
+}
+
+.currency-dropdown>p:last-child {
+    border-bottom: 2px solid #000000;
+}
