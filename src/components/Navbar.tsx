@@ -18,9 +18,6 @@ function Navbar() {
     const handleClick = () => setClick(!click)
     const closeMobileMenu = () => setClick(false)
     const ownedDETFCount = OwnedDETFCount()
-
-    console.log(currencyContext)
-
     const showButton = () => {
         if (window.innerWidth <= 960) {
             setButton(false)
@@ -47,7 +44,7 @@ function Navbar() {
                 </div>
                 <ul className={click ? "nav-menu active" : "nav-menu"}>
                     <li className="nav-item">
-                        <Link to="/detf-index" className="nav-links" onClick={closeMobileMenu}>
+                        <Link to="/detfs" className="nav-links" onClick={closeMobileMenu}>
                             DETF Index
                         </Link>
                     </li>

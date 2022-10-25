@@ -38,7 +38,7 @@ const DETFIndexList = () => {
                 <div className="detf-index-wrapper">
                     <div className="detf-index-header">
                         <div className="detf-index-header-item" onClick={() => sorting("detfName")}>DETF Strategy</div>
-                        <div className="detf-index-header-item" onClick={() => sorting("liquidity")}>Liquidity</div>
+                        <div className="detf-index-header-item" onClick={() => sorting("liquidity")}>Total Liquidity</div>
                         <div className="detf-index-header-item" onClick={() => sorting("returnOneWeek")}>1 Week</div>
                         <div className="detf-index-header-item" onClick={() => sorting("returnOneMonth")}>1 Week</div>
                         <div className="detf-index-header-item" onClick={() => sorting("returnOneYear")}>1 Week</div>
@@ -48,7 +48,7 @@ const DETFIndexList = () => {
                         {detfIndexData.map((index) =>
                             <div className="detf-index-row-items" key={index.detfId}>
                                 <div className="detf-index-row-item">
-                                    <img className="chain-logo" src={require("../assets/images/binance-icon-circle.png")} alt="Binance Smart Chain"></img>
+                                    <img className="chain-logo" src={require("../assets/images/bsc-logo.png")} alt="Binance Smart Chain"></img>
                                     {index.detfName}
                                 </div>
                                 <div className="detf-index-row-item">{"$" + parseFloat((index.liquidity).toString()).toFixed(0)}</div>
@@ -56,7 +56,7 @@ const DETFIndexList = () => {
                                 <div className="detf-index-row-item" style={{ color: getNumValueColor(index.returnOneMonth) }}>{parseFloat((index.returnOneMonth).toString()).toFixed(2) + "%"}</div>
                                 <div className="detf-index-row-item" style={{ color: getNumValueColor(index.returnOneYear) }}>{parseFloat((index.returnOneYear).toString()).toFixed(2) + "%"}</div>
                                 <div className="detf-index-row-item">
-                                    <Link className="detf-index-row-item-link" to="/establish-detf" state={{ detfName: index.detfName, detfOracleAddress: index.detfOracleAddress, processOrigin: "establish", activeStage: 1 }}><u>View this DETF</u></Link>
+                                    <Link className="detf-index-row-item-link" to={`/detfs/${index.urlId}`} ><u>View this DETF</u></Link>
                                 </div>
                             </div>)
                         }

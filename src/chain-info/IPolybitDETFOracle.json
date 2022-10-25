@@ -3,5 +3,8 @@
     "function getDecimals() external view returns (uint8)",
     "function getLatestPrice() external view returns (uint256)",
     "function getDetfName() external view returns (string memory)",
-    "function getDetfId() external view returns (string memory)"
+    "function getDetfId() external view returns (string memory)",
+    "function getTargetList() external view returns (address[] memory)",
+    "function getTokenLiquidity(address tokenAddress) external view returns (uint256)",
+    "function getTargetPercentage(address tokenAddress, uint256 riskWeighting) external view returns (uint256)"
 ]

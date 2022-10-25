@@ -1,0 +1,54 @@
+[
+    {
+        "chainId": "56",
+        "chainName": "BNB Smart Chain",
+        "detfId": "1001",
+        "detfOracleAddress": "0xB7452Ad8e82308e90750DFa1af30149252c40735",
+        "detfName": "Metaverse",
+        "description": "Polybit’s PGT20 aims to track the performance of an index (before fees and expenses) comprising 20 of the largest governance assets by liquidity on the Binance chain. The smart contract you generate at the time of investment will automatically facilitate ongoing trades to maintain pooled asset positions, as asset positions shift, leave, or enter the pool over time.",
+        "type": "Themed",
+        "tokens": [
+            {
+                "rank": 1,
+                "tokenName": "The Sandbox",
+                "tokenLiquidity": "$1,120,360,281",
+                "tokenSymbol": "SAND",
+                "tokenWeight": "20%"
+            },
+            {
+                "rank": 2,
+                "tokenName": "Decentraland",
+                "tokenLiquidity": "$1,103,919,689",
+                "tokenSymbol": "MANA",
+                "tokenWeight": "20%"
+            },
+            {
+                "rank": 3,
+                "tokenName": "Axie Infinity",
+                "tokenLiquidity": "$887,894,578",
+                "tokenSymbol": "AXS",
+                "tokenWeight": "20%"
+            },
+            {
+                "rank": 4,
+                "tokenName": "Enjin Coin",
+                "tokenLiquidity": "$414,071,609",
+                "tokenSymbol": "ENJ",
+                "tokenWeight": "20%"
+            },
+            {
+                "rank": 5,
+                "tokenName": "Merit Circle",
+                "tokenLiquidity": "$187,006,873",
+                "tokenSymbol": "MC",
+                "tokenWeight": "20%"
+            }
+        ],
+        "returns": {
+            "returnOneWeek": 0.56,
+            "returnOneMonth": 1.24,
+            "returnOneYear": -31.44
+        },
+        "returnChart": {}
+    }
+]

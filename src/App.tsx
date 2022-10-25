@@ -12,6 +12,7 @@ import Deposit from './components/pages/Deposit';
 import Title from './components/Title';
 import { AvailableDETFs } from './components/AvailableDETFs';
 import EstablishDETF from './components/pages/EstablishDETF';
+import DETF from './components/pages/DETF';
 
 function App() {
   return (
@@ -21,12 +22,13 @@ function App() {
           <Navbar />
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/detf-index" element={<DETFIndex />} />
+            <Route path="/detfs" element={<DETFIndex />} />
             <Route path="/how-it-works" element={<AvailableDETFs />} />
             <Route path="/account" element={<Account />} />
             <Route path="/connect-wallet" element={<ConnectWallet />} />
             <Route path="/establish-detf" element={<EstablishDETF />} />
             <Route path="/deposit" element={<Deposit />} />
+            <Route path="/detfs/:urlId" element={<DETF />} />
           </Routes>
         </ScrollToTop>
       </Router>
