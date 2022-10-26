@@ -17,7 +17,7 @@ import { jsonRpcProvider } from 'wagmi/providers/jsonRpc'
 
 window.Buffer = window.Buffer || require("buffer").Buffer;
 
-const bscTestnet: Chain = {
+/* const bscTestnet: Chain = {
   id: 97,
   name: 'BSC Testnet',
   network: 'bsc',
@@ -30,11 +30,11 @@ const bscTestnet: Chain = {
     default: 'http://data-seed-prebsc-1-s2.binance.org:8545/',
   },
   testnet: true,
-}
+} */
 
 const mainnet: Chain = {
   id: 56,
-  name: "Binance Smart Chain",
+  name: "BNB Smart Chain",
   network: "BSC",
   rpcUrls: { default: "https://bsc-dataseed.binance.org/" },
   nativeCurrency: {
@@ -53,7 +53,7 @@ const mainnet: Chain = {
 
 const testnet: Chain = {
   id: 97, //97 // 0x61
-  name: "Binance Smart Chain Testnet",
+  name: "tBNB Smart Chain",
   network: "BSC",
   rpcUrls: { default: "https://data-seed-prebsc-1-s1.binance.org:8545/" },
   testnet: true,
@@ -73,7 +73,7 @@ const testnet: Chain = {
 
 const bscMainFork: Chain = {
   id: 5777,
-  name: "Binance Smart Chain Testnet",
+  name: "tBNB Smart Chain",
   network: "BSC",
   rpcUrls: { default: "HTTP://127.0.0.1:8545" },
   testnet: true,

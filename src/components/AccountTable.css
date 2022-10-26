@@ -60,6 +60,20 @@
     align-items: center;
 }
 
+.account-index-chain-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+    font-size: 16px;
+}
+
+.account-index-chain-logo {
+    height: 26px;
+    width: 26px;
+    margin-right: 5px;
+}
+
 .account-detf-row-item-link {
     text-decoration: none;
     color: #000000

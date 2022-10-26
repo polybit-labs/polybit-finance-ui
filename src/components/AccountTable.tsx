@@ -14,6 +14,7 @@ import {
     useAccount,
     useBalance,
     useContractRead,
+    useNetwork
 } from "wagmi"
 
 interface DETFSummary {
@@ -25,7 +26,7 @@ interface DETFSummary {
 }
 
 export const AccountTable = () => {
-
+    const { chain } = useNetwork()
     const { address: walletOwner, connector, isConnected } = useAccount()
     const { data: walletBalance } = useBalance({
         addressOrName: walletOwner,
@@ -161,7 +162,15 @@ export const AccountTable = () => {
                 <div>
                     {detfData.length > 0 ? detfData.map((index) =>
                         <div className="account-detf-row-items" key={index.detfId}>
-                            <div className="account-detf-row-item"><img className="chain-logo" src={require("../assets/images/binance-icon-circle.png")} alt="Binance Smart Chain"></img>{index.detfName}</div>
+                            <div className="account-detf-row-item">
+                                <div className="account-index-row-item-name">
+                                    {index.detfName}
+                                    <div className="account-index-chain-title">
+                                        <img className="account-index-chain-logo" src={require("../assets/images/bsc-logo.png")} alt="Binance Smart Chain"></img>
+                                        {chain?.name}
+                                    </div>
+                                </div>
+                            </div>
                             <div className="account-detf-row-item">{index.marketValue}</div>
                             <div className="account-detf-row-item" style={{ color: getNumValueColor(index.return) }}> {parseFloat((index.return).toString()).toFixed(5) + "%"}</div>
                             <div className="account-detf-row-item">{index.lockStatus}</div>

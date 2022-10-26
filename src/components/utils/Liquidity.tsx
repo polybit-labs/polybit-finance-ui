@@ -20,10 +20,9 @@ export const GetTokenLiquiditySingle = (chain: string, baseToken: string, tokenA
     })
 
     const pairAddress = pairAddressData ? pairAddressData.toString() : ""
-    console.log("Pair", pairAddress)
+    /* console.log("Pair", pairAddress)
     console.log("Token", tokenAddress)
-    console.log("Base", baseToken)
-
+    console.log("Base", baseToken) */
 
     const { data: tokenReservesData } = useContractRead({
         addressOrName: pairAddress,
