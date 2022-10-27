@@ -2,6 +2,8 @@ import { GetTokenName } from './utils/ERC20Utils'
 import { GetTokenLiquidity } from './utils/Liquidity'
 import { CurrencyContext, FormatCurrency } from './utils/Currency'
 import "./DETFAssetsTable.css"
+import { useConnect } from 'wagmi'
+import { useContext, useEffect, useState } from "react"
 
 interface DETFAssetsTableProps {
     tokens: Array<any>
@@ -9,19 +11,33 @@ interface DETFAssetsTableProps {
 
 export const DETFAssetsTable = (props: DETFAssetsTableProps) => {
     const targetAssets: Array<any> = []
+    const [liquidityCurrency, setLiquidityCurrency] = useState("BNB")
+    const currency = useContext(CurrencyContext).currency
+    useEffect(() => {
+        setLiquidityCurrency(currency)
+    }, [currency])
 
     props.tokens?.map(token => {
         targetAssets.push({
-            "tokenLogo": "",
-            "tokenName": GetTokenName(token.address),
-            "tokenLiquidity": GetTokenLiquidity("binance-smart-chain", token.address, 56),
-            "tokenWeight": `${parseFloat(((1 / props.tokens.length) * 100).toString()).toFixed(2)}%`,
+            "tokenLogo": token.image,
+            "tokenName": token.name,
+            "tokenLiquidityAUD": token.token_liquidity.liquidity_aud,
+            "tokenLiquidityBNB": token.token_liquidity.liquidity_bnb,
+            "tokenLiquidityCNY": token.token_liquidity.liquidity_cny,
+            "tokenLiquidityEURO": token.token_liquidity.liquidity_euro,
+            "tokenLiquidityIDR": token.token_liquidity.liquidity_idr,
+            "tokenLiquidityJPY": token.token_liquidity.liquidity_jpy,
+            "tokenLiquidityKRW": token.token_liquidity.liquidity_krw,
+            "tokenLiquidityRUB": token.token_liquidity.liquidity_rub,
+            "tokenLiquidityUSD": token.token_liquidity.liquidity_usd,
+            "tokenWeight": `${parseFloat((token.risk_weighting.rw_equally_balanced * 100).toString()).toFixed(2)
+                }% `,
         })
     })
 
     if (targetAssets) {
         const sorted = [...targetAssets].sort((a, b) =>
-            a.tokenLiquidity < b.tokenLiquidity ? 1 : -1)
+            a.tokenLiquidityBNB < b.tokenLiquidityBNB ? 1 : -1)
 
         return (
             <div className="detf-assets-wrapper">
@@ -41,11 +57,25 @@ export const DETFAssetsTable = (props: DETFAssetsTableProps) => {
                                     <td className="detf-assets-body-item">{index + 1}</td>
                                     <td className="detf-assets-body-item">
                                         <div className="detf-assets-token-logo">
-                                            <img className="detf-token-logo" src={require("../assets/images/mobox.png")} alt="Mobox"></img>
+                                            <img className="detf-token-logo" src={token.tokenLogo} alt={token.tokenName}></img>
                                             <b>{token.tokenName}</b>
                                         </div>
                                     </td>
-                                    <td className="detf-assets-body-item">{FormatCurrency(token.tokenLiquidity.toString(), 0)}</td>
+                                    <td className="detf-assets-body-item">
+                                        {FormatCurrency((() => {
+                                            switch (liquidityCurrency) {
+                                                case "AUD": return (token.tokenLiquidityAUD)
+                                                case "BNB": return (token.tokenLiquidityBNB)
+                                                case "CNY": return (token.tokenLiquidityCNY)
+                                                case "EURO": return (token.tokenLiquidityEURO)
+                                                case "IDR": return (token.tokenLiquidityIDR)
+                                                case "JPY": return (token.tokenLiquidityJPY)
+                                                case "KRW": return (token.tokenLiquidityKRW)
+                                                case "RUB": return (token.tokenLiquidityRUB)
+                                                case "USD": return (token.tokenLiquidityUSD)
+                                            }
+                                        })(), 0)}
+                                    </td>
                                     <td className="detf-assets-body-item">{token.tokenWeight}</td>
                                 </tr>)
                         })}

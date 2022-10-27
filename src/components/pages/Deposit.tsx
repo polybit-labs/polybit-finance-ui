@@ -212,7 +212,7 @@ function Deposit() {
             <ContentBox>
                 <div>
                     <div className={!depositSuccess && depositStage === "input" ? "deposit-box" : "deposit-box-inactive"}>
-                        <div className="deposit-box-balance"><img className="chain-logo" src={require("../../assets/images/binance-icon-circle.png")} alt="Binance Smart Chain"></img>Available {walletBalance?.symbol} in your {connector?.name} is {parseFloat((walletBalance ? walletBalance.formatted : 0).toString()).toFixed(4)} (USD:$xxx)</div>
+                        <div className="deposit-box-balance"><img className="chain-logo" src={require("../../assets/images/bsc-logo.png")} alt="Binance Smart Chain"></img>Available {walletBalance?.symbol} in your {connector?.name} is {parseFloat((walletBalance ? walletBalance.formatted : 0).toString()).toFixed(4)} (USD:$xxx)</div>
                         <div className="deposit-box-notification"><p>{walletBalance?.symbol} is required to invest in the {detfName}, but you do not currently have any BNB in your {connector?.name}. [insert Banxa or CB speil]</p></div>
                         <div className="deposit-box-form">
                             <div className="deposit-amount-input-title">{walletBalance?.symbol} amount:</div>

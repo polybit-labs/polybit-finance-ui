@@ -1,10 +1,9 @@
-import { useState } from 'react'
+import { useState, useContext, useEffect } from 'react'
 import "./DETFIndexList.css"
 import { getNumValueColor } from '../utils'
 import { Link } from "react-router-dom"
 import detfIndex from "../product/detfIndex.json"
-import { GetTotalLiquidity } from "./utils/Liquidity"
-import { FormatCurrency } from "./utils/Currency"
+import { FormatCurrency, CurrencyContext } from "./utils/Currency"
 
 interface DETFIndex {
     "chainId": number;
@@ -34,20 +33,37 @@ const DETFIndexList = () => {
             setOrder("asc")
         }
     }
+    const [liquidityCurrency, setLiquidityCurrency] = useState("BNB")
+    const currency = useContext(CurrencyContext).currency
+    useEffect(() => {
+        setLiquidityCurrency(currency)
+    }, [currency])
 
     const GetDETFLiquidity = (urlId: string) => {
-        let productFile
+        console.log(urlId)
+        let productData
         try {
-            productFile = require(`../product/detfs/${urlId}.json`)
+            productData = require(`../product/detfs/${urlId}-data.json`)
         } catch {
-            console.log("File not found.")
+            console.log("Product file not found.")
         }
 
-        if (productFile) {
-            const chainId: number = productFile[0].chainId
-            const tokens: Array<any> = [] = productFile[0].tokens
-            const totalLiquidity: number = GetTotalLiquidity({ tokens }, chainId)
-            return totalLiquidity ? totalLiquidity : 0
+        if (productData) {
+            const liquidity = (() => {
+                switch (liquidityCurrency) {
+                    case "AUD": return (productData.total_liquidity.liquidity_aud)
+                    case "BNB": return (productData.total_liquidity.liquidity_bnb)
+                    case "CNY": return (productData.total_liquidity.liquidity_cny)
+                    case "EURO": return (productData.total_liquidity.liquidity_euro)
+                    case "IDR": return (productData.total_liquidity.liquidity_idr)
+                    case "JPY": return (productData.total_liquidity.liquidity_jpy)
+                    case "KRW": return (productData.total_liquidity.liquidity_krw)
+                    case "RUB": return (productData.total_liquidity.liquidity_rub)
+                    case "USD": return (productData.total_liquidity.liquidity_usd)
+                }
+            })()
+
+            return liquidity ? liquidity : 0
         }
     }
 

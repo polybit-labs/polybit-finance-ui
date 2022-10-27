@@ -3,36 +3,43 @@ import { ReturnChart } from '../ReturnChart'
 import "./DETF.css"
 import { getNumValueColor } from '../../utils'
 import { DETFAssetsTable } from '../DETFAssetsTable'
-import { FormatCurrency } from '../utils/Currency'
+import { FormatCurrency, CurrencyContext } from '../utils/Currency'
 import { GetTotalLiquidity } from '../utils/Liquidity'
 import Footer from './Footer'
 import { GetDepositFee } from '../utils/DETFFactoryUtils'
 import { ErrorPage } from '../Error'
+import { useEffect, useContext, useState } from 'react'
 
 const DETF = () => {
     const urlId = useParams().urlId
-    let productFile
+    let productContent
+    let productData
     try {
-        productFile = require(`../../product/detfs/${urlId}.json`)
+        productContent = require(`../../product/detfs/${urlId}.json`)
+        productData = require(`../../product/detfs/${urlId}-data.json`)
     } catch {
-        console.log("File not found.")
+        console.log("Product file not found.")
     }
+    const [liquidityCurrency, setLiquidityCurrency] = useState("BNB")
+    const currency = useContext(CurrencyContext).currency
+    useEffect(() => {
+        setLiquidityCurrency(currency)
+    }, [currency])
 
-    if (productFile) {
-        const chainId: number = productFile[0].chainId
-        const detfOracleAddress: string = productFile[0].detfOracleAddress
-        const detfName: string = productFile[0].detfName
-        const chainName: string = productFile[0].chainName
-        const descriptionTitle: string = productFile[0].descriptionTitle
-        const description: string = productFile[0].description
-        const type: string = productFile[0].type
-        const tokens: Array<any> = [] = productFile[0].tokens
-        const returnOneWeek: number = productFile[0].returns.returnOneWeek
-        const returnOneMonth: number = productFile[0].returns.returnOneMonth
-        const returnOneYear: number = productFile[0].returns.returnOneYear
-        const returnTwoYear: number = productFile[0].returns.returnTwoYear
+    if (productContent && productData) {
+        const chainId: number = productContent[0].chainId
+        const detfOracleAddress: string = productContent[0].detfOracleAddress
+        const detfName: string = productContent[0].detfName
+        const chainName: string = productContent[0].chainName
+        const descriptionTitle: string = productContent[0].descriptionTitle
+        const description: string = productContent[0].description
+        const type: string = productContent[0].type
+        const returnOneWeek: number = productContent[0].returns.returnOneWeek
+        const returnOneMonth: number = productContent[0].returns.returnOneMonth
+        const returnOneYear: number = productContent[0].returns.returnOneYear
+        const returnTwoYear: number = productContent[0].returns.returnTwoYear
+        const tokens: Array<any> = [] = productData.tokens
         const tokenCount: number = tokens.length
-        const totalLiquidity: number = GetTotalLiquidity({ tokens }, chainId)
         const depositFee = GetDepositFee(56)
 
         return (
@@ -93,7 +100,22 @@ const DETF = () => {
                                         </div>
                                         <div className="detf-summary-info-results">
                                             <ul>
-                                                <li>{FormatCurrency(totalLiquidity, 0)}</li>
+                                                <li>
+                                                    {FormatCurrency((() => {
+                                                        switch (liquidityCurrency) {
+                                                            case "AUD": return (productData.total_liquidity.liquidity_aud)
+                                                            case "BNB": return (productData.total_liquidity.liquidity_bnb)
+                                                            case "CNY": return (productData.total_liquidity.liquidity_cny)
+                                                            case "EURO": return (productData.total_liquidity.liquidity_euro)
+                                                            case "IDR": return (productData.total_liquidity.liquidity_idr)
+                                                            case "JPY": return (productData.total_liquidity.liquidity_jpy)
+                                                            case "KRW": return (productData.total_liquidity.liquidity_krw)
+                                                            case "RUB": return (productData.total_liquidity.liquidity_rub)
+                                                            case "USD": return (productData.total_liquidity.liquidity_usd)
+                                                        }
+                                                    })(), 0)}
+
+                                                </li>
                                                 <li>{type}</li>
                                                 <li>{tokenCount}</li>
                                                 <li>Equally Balanced</li>

@@ -31,6 +31,7 @@ export const GetTokenLiquiditySingle = (chain: string, baseToken: string, tokenA
         chainId: chainId,
     })
 
+    console.log(pairAddress)
     const tokenReserves = tokenReservesData ? tokenReservesData : []
 
     const { data: token0Address } = useContractRead({
@@ -40,7 +41,7 @@ export const GetTokenLiquiditySingle = (chain: string, baseToken: string, tokenA
         chainId: chainId,
     })
 
-    const token0 = token0Address ? token0Address.toString() : ""
+    const token0 = token0Address ? token0Address.toString() : "0x0000000000000000000000000000000000000000"
 
     let tokenBalance = 0
     let baseTokenBalance = 0
@@ -52,6 +53,7 @@ export const GetTokenLiquiditySingle = (chain: string, baseToken: string, tokenA
         baseTokenBalance = tokenReserves.reserve0;
         tokenBalance = tokenReserves.reserve1;
     }
+
 
     let tokenPrice = Number(GetLatestPrice(chain, tokenAddress))
     let tokenDecimals = Number(GetTokenDecimals(tokenAddress))

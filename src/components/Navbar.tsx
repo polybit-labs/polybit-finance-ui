@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { Link } from 'react-router-dom'
 import "./Navbar.css"
-import { CurrencyContext } from "./utils/Currency"
+import { CurrencyContext, CurrencyFormats } from "./utils/Currency"
 import { OwnedDETFCount } from './OwnedDETFCount'
 import CurrencyTypeDropDown from "./CurrencyDropDown"
 
@@ -32,9 +32,6 @@ function Navbar(props: NavbarProps) {
 
     const [showDropDown, setShowDropDown] = useState<boolean>(false)
     const [selectCurrencyFormat, setCurrencyFormat] = useState<string>(currency)
-    const currencyFormats = () => {
-        return ["AUD", "BNB", "USD"]
-    }
     const toggleDropDown = () => {
         setShowDropDown(!showDropDown)
     }
@@ -94,7 +91,7 @@ function Navbar(props: NavbarProps) {
                             <div>{selectCurrencyFormat ? selectCurrencyFormat : "Select ..."} </div>
                             {showDropDown && (
                                 <CurrencyTypeDropDown
-                                    currencyFormats={currencyFormats()}
+                                    currencyFormats={CurrencyFormats()}
                                     showDropDown={false}
                                     toggleDropDown={(): void => toggleDropDown()}
                                     currencyFormatSelection={currencyFormatSelection}
