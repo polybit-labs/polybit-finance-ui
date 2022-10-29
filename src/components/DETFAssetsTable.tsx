@@ -29,8 +29,9 @@ export const DETFAssetsTable = (props: DETFAssetsTableProps) => {
             "tokenLiquidityJPY": token.token_liquidity.liquidity_jpy,
             "tokenLiquidityKRW": token.token_liquidity.liquidity_krw,
             "tokenLiquidityRUB": token.token_liquidity.liquidity_rub,
+            "tokenLiquidityTWD": token.token_liquidity.liquidity_twd,
             "tokenLiquidityUSD": token.token_liquidity.liquidity_usd,
-            "tokenWeight": `${parseFloat((token.risk_weighting.rw_equally_balanced * 100).toString()).toFixed(2)
+            "tokenWeight": `${parseFloat((token.risk_weighting.rw_liquidity * 100).toString()).toFixed(2)
                 }% `,
         })
     })
@@ -72,6 +73,7 @@ export const DETFAssetsTable = (props: DETFAssetsTableProps) => {
                                                 case "JPY": return (token.tokenLiquidityJPY)
                                                 case "KRW": return (token.tokenLiquidityKRW)
                                                 case "RUB": return (token.tokenLiquidityRUB)
+                                                case "TWD": return (token.tokenLiquidityTWD)
                                                 case "USD": return (token.tokenLiquidityUSD)
                                             }
                                         })(), 0)}

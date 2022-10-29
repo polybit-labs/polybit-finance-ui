@@ -111,6 +111,7 @@ const DETF = () => {
                                                             case "JPY": return (productData.total_liquidity.liquidity_jpy)
                                                             case "KRW": return (productData.total_liquidity.liquidity_krw)
                                                             case "RUB": return (productData.total_liquidity.liquidity_rub)
+                                                            case "TWD": return (productData.total_liquidity.liquidity_twd)
                                                             case "USD": return (productData.total_liquidity.liquidity_usd)
                                                         }
                                                     })(), 0)}
