@@ -14,11 +14,13 @@ const DETF = () => {
     const urlId = useParams().urlId
     let productContent
     let productData
+    let performanceData
     try {
         productContent = require(`../../product/detfs/${urlId}.json`)
-        productData = require(`../../product/detfs/${urlId}-data.json`)
+        productData = require(`../../product/detfs/${urlId}/token_data.json`)
+        performanceData = require(`../../product/detfs/${urlId}/rw_liquidity.json`)
     } catch {
-        console.log("Product file not found.")
+        console.log("DETF data not found.")
     }
     const [liquidityCurrency, setLiquidityCurrency] = useState("BNB")
     const currency = useContext(CurrencyContext).currency
@@ -34,10 +36,11 @@ const DETF = () => {
         const descriptionTitle: string = productContent[0].descriptionTitle
         const description: string = productContent[0].description
         const type: string = productContent[0].type
-        const returnOneWeek: number = productContent[0].returns.returnOneWeek
-        const returnOneMonth: number = productContent[0].returns.returnOneMonth
-        const returnOneYear: number = productContent[0].returns.returnOneYear
-        const returnTwoYear: number = productContent[0].returns.returnTwoYear
+        const returnOneWeek: number = performanceData.at(-1).rw_liquidity_7d
+        const returnOneMonth: number = performanceData.at(-1).rw_liquidity_30d
+        const returnThreeMonths: number = performanceData.at(-1).rw_liquidity_90d
+        const returnOneYear: number = performanceData.at(-1).rw_liquidity_365d
+        const returnTwoYear: number = performanceData.at(-1).rw_liquidity_730d
         const tokens: Array<any> = [] = productData.tokens
         const tokenCount: number = tokens.length
         const depositFee = GetDepositFee(56)
@@ -63,8 +66,8 @@ const DETF = () => {
                                 <p>{description}</p>
                             </div>
                             <div className="detf-chart">
-                                <p>Value of USD$100 invested since inception</p>
-                                <ReturnChart height={300} width="100%" />
+                                <p>{detfName} DETF Index Value - 3 Months</p>
+                                <ReturnChart height={300} width="100%" performanceData={performanceData} />
                             </div>
                             <div className="detf-summary">
                                 <div className="detf-summary-line"></div>
@@ -72,19 +75,19 @@ const DETF = () => {
                                     <div className="detf-summary-info-returns">
                                         <div className="detf-summary-info-return">
                                             <div className="detf-summary-info-return-title">1 Week</div>
-                                            <div className="detf-summary-info-return-result" style={{ color: getNumValueColor(Number(returnOneWeek)) }}>{returnOneWeek + "%"}</div>
+                                            <div className="detf-summary-info-return-result" style={{ color: getNumValueColor(Number(returnOneWeek)) }}>{returnOneWeek ? parseFloat((returnOneWeek * 100).toString()).toFixed(2) + "%" : ""}</div>
                                         </div>
                                         <div className="detf-summary-info-return">
                                             <div className="detf-summary-info-return-title">1 Month</div>
-                                            <div className="detf-summary-info-return-result" style={{ color: getNumValueColor(Number(returnOneMonth)) }}>{returnOneMonth + "%"}</div>
+                                            <div className="detf-summary-info-return-result" style={{ color: getNumValueColor(Number(returnOneMonth)) }}>{returnOneMonth ? parseFloat((returnOneMonth * 100).toString()).toFixed(2) + "%" : ""}</div>
+                                        </div>
+                                        <div className="detf-summary-info-return">
+                                            <div className="detf-summary-info-return-title">3 Months</div>
+                                            <div className="detf-summary-info-return-result" style={{ color: getNumValueColor(Number(returnThreeMonths)) }}>{returnThreeMonths ? parseFloat((returnThreeMonths * 100).toString()).toFixed(2) + "%" : ""}</div>
                                         </div>
                                         <div className="detf-summary-info-return">
                                             <div className="detf-summary-info-return-title">1 Year</div>
-                                            <div className="detf-summary-info-return-result" style={{ color: getNumValueColor(Number(returnOneYear)) }}>{returnOneYear + "%"}</div>
-                                        </div>
-                                        <div className="detf-summary-info-return">
-                                            <div className="detf-summary-info-return-title">2 Years</div>
-                                            <div className="detf-summary-info-return-result" style={{ color: getNumValueColor(Number(returnTwoYear)) }}>{returnTwoYear + "%"}</div>
+                                            <div className="detf-summary-info-return-result" style={{ color: getNumValueColor(Number(returnOneYear)) }}>{returnOneYear ? parseFloat((returnOneYear * 100).toString()).toFixed(2) + "%" : ""}</div>
                                         </div>
                                     </div>
                                     <div className="detf-summary-info-text">
@@ -119,7 +122,7 @@ const DETF = () => {
                                                 </li>
                                                 <li>{type}</li>
                                                 <li>{tokenCount}</li>
-                                                <li>Equally Balanced</li>
+                                                <li>Liquidity Weighted</li>
                                                 <li>Every 90 Days</li>
                                                 <li>{parseFloat((depositFee).toString()).toFixed(2)}%</li>
                                             </ul>

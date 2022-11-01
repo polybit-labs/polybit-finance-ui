@@ -1,0 +1,5552 @@
+[
+    {
+        "date": "2021-04-24",
+        "rw_index_price": 7.531144319,
+        "rw_market_cap_7d": null,
+        "rw_market_cap_30d": null,
+        "rw_market_cap_90d": null,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-04-25",
+        "rw_index_price": 5.6319274233,
+        "rw_market_cap_7d": null,
+        "rw_market_cap_30d": null,
+        "rw_market_cap_90d": null,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-04-26",
+        "rw_index_price": 6.4957979269,
+        "rw_market_cap_7d": null,
+        "rw_market_cap_30d": null,
+        "rw_market_cap_90d": null,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-04-27",
+        "rw_index_price": 7.2151877173,
+        "rw_market_cap_7d": null,
+        "rw_market_cap_30d": null,
+        "rw_market_cap_90d": null,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-04-28",
+        "rw_index_price": 8.5306361953,
+        "rw_market_cap_7d": null,
+        "rw_market_cap_30d": null,
+        "rw_market_cap_90d": null,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-04-29",
+        "rw_index_price": 11.3357680697,
+        "rw_market_cap_7d": null,
+        "rw_market_cap_30d": null,
+        "rw_market_cap_90d": null,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-04-30",
+        "rw_index_price": 11.8456293561,
+        "rw_market_cap_7d": null,
+        "rw_market_cap_30d": null,
+        "rw_market_cap_90d": null,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-05-01",
+        "rw_index_price": 15.733412602,
+        "rw_market_cap_7d": 1.0891131461,
+        "rw_market_cap_30d": null,
+        "rw_market_cap_90d": null,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-05-02",
+        "rw_index_price": 16.2857008297,
+        "rw_market_cap_7d": 1.8916744847,
+        "rw_market_cap_30d": null,
+        "rw_market_cap_90d": null,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-05-03",
+        "rw_index_price": 15.1111861963,
+        "rw_market_cap_7d": 1.3263017671,
+        "rw_market_cap_30d": null,
+        "rw_market_cap_90d": null,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-05-04",
+        "rw_index_price": 13.8829387527,
+        "rw_market_cap_7d": 0.924127174,
+        "rw_market_cap_30d": null,
+        "rw_market_cap_90d": null,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-05-05",
+        "rw_index_price": 11.5301733673,
+        "rw_market_cap_7d": 0.351619399,
+        "rw_market_cap_30d": null,
+        "rw_market_cap_90d": null,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-05-06",
+        "rw_index_price": 12.2011077488,
+        "rw_market_cap_7d": 0.0763371016,
+        "rw_market_cap_30d": null,
+        "rw_market_cap_90d": null,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-05-07",
+        "rw_index_price": 11.7137402039,
+        "rw_market_cap_7d": -0.0111339928,
+        "rw_market_cap_30d": null,
+        "rw_market_cap_90d": null,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-05-08",
+        "rw_index_price": 11.216971811,
+        "rw_market_cap_7d": -0.2870604684,
+        "rw_market_cap_30d": null,
+        "rw_market_cap_90d": null,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-05-09",
+        "rw_index_price": 12.1004850495,
+        "rw_market_cap_7d": -0.2569871462,
+        "rw_market_cap_30d": null,
+        "rw_market_cap_90d": null,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-05-10",
+        "rw_index_price": 11.7341392487,
+        "rw_market_cap_7d": -0.2234799376,
+        "rw_market_cap_30d": null,
+        "rw_market_cap_90d": null,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-05-11",
+        "rw_index_price": 9.8462091206,
+        "rw_market_cap_7d": -0.2907691018,
+        "rw_market_cap_30d": null,
+        "rw_market_cap_90d": null,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-05-12",
+        "rw_index_price": 11.1245334689,
+        "rw_market_cap_7d": -0.0351807285,
+        "rw_market_cap_30d": null,
+        "rw_market_cap_90d": null,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-05-13",
+        "rw_index_price": 8.8706356535,
+        "rw_market_cap_7d": -0.2729647311,
+        "rw_market_cap_30d": null,
+        "rw_market_cap_90d": null,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-05-14",
+        "rw_index_price": 8.8984510659,
+        "rw_market_cap_7d": -0.2403407527,
+        "rw_market_cap_30d": null,
+        "rw_market_cap_90d": null,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-05-15",
+        "rw_index_price": 9.4100952632,
+        "rw_market_cap_7d": -0.1610841659,
+        "rw_market_cap_30d": null,
+        "rw_market_cap_90d": null,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-05-16",
+        "rw_index_price": 8.4060119377,
+        "rw_market_cap_7d": -0.3053161172,
+        "rw_market_cap_30d": null,
+        "rw_market_cap_90d": null,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-05-17",
+        "rw_index_price": 9.3945810437,
+        "rw_market_cap_7d": -0.1993804706,
+        "rw_market_cap_30d": null,
+        "rw_market_cap_90d": null,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-05-18",
+        "rw_index_price": 11.418814078,
+        "rw_market_cap_7d": 0.1597167944,
+        "rw_market_cap_30d": null,
+        "rw_market_cap_90d": null,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-05-19",
+        "rw_index_price": 9.9662073924,
+        "rw_market_cap_7d": -0.1041235644,
+        "rw_market_cap_30d": null,
+        "rw_market_cap_90d": null,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-05-20",
+        "rw_index_price": 5.7634628978,
+        "rw_market_cap_7d": -0.3502762234,
+        "rw_market_cap_30d": null,
+        "rw_market_cap_90d": null,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-05-21",
+        "rw_index_price": 6.1644018559,
+        "rw_market_cap_7d": -0.3072500135,
+        "rw_market_cap_30d": null,
+        "rw_market_cap_90d": null,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-05-22",
+        "rw_index_price": 5.2319233931,
+        "rw_market_cap_7d": -0.4440095188,
+        "rw_market_cap_30d": null,
+        "rw_market_cap_90d": null,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-05-23",
+        "rw_index_price": 5.1477919815,
+        "rw_market_cap_7d": -0.3876059159,
+        "rw_market_cap_30d": null,
+        "rw_market_cap_90d": null,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-05-24",
+        "rw_index_price": 4.3467006637,
+        "rw_market_cap_7d": -0.5373183069,
+        "rw_market_cap_30d": -0.4228366262,
+        "rw_market_cap_90d": null,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-05-25",
+        "rw_index_price": 5.1158117582,
+        "rw_market_cap_7d": -0.5519839693,
+        "rw_market_cap_30d": -0.0916410362,
+        "rw_market_cap_90d": null,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-05-26",
+        "rw_index_price": 5.7783307656,
+        "rw_market_cap_7d": -0.4202076539,
+        "rw_market_cap_30d": -0.1104509668,
+        "rw_market_cap_90d": null,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-05-27",
+        "rw_index_price": 6.4565808243,
+        "rw_market_cap_7d": 0.1202606729,
+        "rw_market_cap_30d": -0.105140285,
+        "rw_market_cap_90d": null,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-05-28",
+        "rw_index_price": 6.7388628804,
+        "rw_market_cap_7d": 0.0931900674,
+        "rw_market_cap_30d": -0.2100398228,
+        "rw_market_cap_90d": null,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-05-29",
+        "rw_index_price": 5.9466353307,
+        "rw_market_cap_7d": 0.1366059638,
+        "rw_market_cap_30d": -0.4754095802,
+        "rw_market_cap_90d": null,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-05-30",
+        "rw_index_price": 5.2021611993,
+        "rw_market_cap_7d": 0.0105616579,
+        "rw_market_cap_30d": -0.5608370781,
+        "rw_market_cap_90d": null,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-05-31",
+        "rw_index_price": 6.1366028005,
+        "rw_market_cap_7d": 0.4117840807,
+        "rw_market_cap_30d": -0.6099636515,
+        "rw_market_cap_90d": null,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-06-01",
+        "rw_index_price": 6.4512416056,
+        "rw_market_cap_7d": 0.2610396767,
+        "rw_market_cap_30d": -0.6038708022,
+        "rw_market_cap_90d": null,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-06-02",
+        "rw_index_price": 5.8053351424,
+        "rw_market_cap_7d": 0.0046733872,
+        "rw_market_cap_30d": -0.6158253186,
+        "rw_market_cap_90d": null,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-06-03",
+        "rw_index_price": 5.627049051,
+        "rw_market_cap_7d": -0.1284784928,
+        "rw_market_cap_30d": -0.5946788248,
+        "rw_market_cap_90d": null,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-06-04",
+        "rw_index_price": 6.1224340567,
+        "rw_market_cap_7d": -0.0914737152,
+        "rw_market_cap_30d": -0.4690076323,
+        "rw_market_cap_90d": null,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-06-05",
+        "rw_index_price": 5.2946350397,
+        "rw_market_cap_7d": -0.1096418823,
+        "rw_market_cap_30d": -0.5660529233,
+        "rw_market_cap_90d": null,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-06-06",
+        "rw_index_price": 5.1010569431,
+        "rw_market_cap_7d": -0.0194350487,
+        "rw_market_cap_30d": -0.5645236402,
+        "rw_market_cap_90d": null,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-06-07",
+        "rw_index_price": 5.2013116122,
+        "rw_market_cap_7d": -0.152411883,
+        "rw_market_cap_30d": -0.536299841,
+        "rw_market_cap_90d": null,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-06-08",
+        "rw_index_price": 4.6892671228,
+        "rw_market_cap_7d": -0.2731217633,
+        "rw_market_cap_30d": -0.6124727973,
+        "rw_market_cap_90d": null,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-06-09",
+        "rw_index_price": 4.444546324,
+        "rw_market_cap_7d": -0.2344031456,
+        "rw_market_cap_30d": -0.6212294545,
+        "rw_market_cap_90d": null,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-06-10",
+        "rw_index_price": 4.7029939751,
+        "rw_market_cap_7d": -0.1642166378,
+        "rw_market_cap_30d": -0.5223548558,
+        "rw_market_cap_90d": null,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-06-11",
+        "rw_index_price": 4.6191602796,
+        "rw_market_cap_7d": -0.2455353154,
+        "rw_market_cap_30d": -0.5847771691,
+        "rw_market_cap_90d": null,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-06-12",
+        "rw_index_price": 5.0965393324,
+        "rw_market_cap_7d": -0.0374144216,
+        "rw_market_cap_30d": -0.4254595126,
+        "rw_market_cap_90d": null,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-06-13",
+        "rw_index_price": 4.4140678845,
+        "rw_market_cap_7d": -0.1346758263,
+        "rw_market_cap_30d": -0.5039509852,
+        "rw_market_cap_90d": null,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-06-14",
+        "rw_index_price": 5.0851545186,
+        "rw_market_cap_7d": -0.0223322697,
+        "rw_market_cap_30d": -0.4596064783,
+        "rw_market_cap_90d": null,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-06-15",
+        "rw_index_price": 4.8356309436,
+        "rw_market_cap_7d": 0.0312125151,
+        "rw_market_cap_30d": -0.4247413661,
+        "rw_market_cap_90d": null,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-06-16",
+        "rw_index_price": 4.6631071181,
+        "rw_market_cap_7d": 0.0491750514,
+        "rw_market_cap_30d": -0.5036386299,
+        "rw_market_cap_90d": null,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-06-17",
+        "rw_index_price": 4.3050520119,
+        "rw_market_cap_7d": -0.084614602,
+        "rw_market_cap_30d": -0.6229860665,
+        "rw_market_cap_90d": null,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-06-18",
+        "rw_index_price": 4.6180441031,
+        "rw_market_cap_7d": -0.0002416406,
+        "rw_market_cap_30d": -0.5366297408,
+        "rw_market_cap_90d": null,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-06-19",
+        "rw_index_price": 4.3099596418,
+        "rw_market_cap_7d": -0.1543360385,
+        "rw_market_cap_30d": -0.2521926976,
+        "rw_market_cap_90d": null,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-06-20",
+        "rw_index_price": 4.0727437539,
+        "rw_market_cap_7d": -0.0773264344,
+        "rw_market_cap_30d": -0.3393124184,
+        "rw_market_cap_90d": null,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-06-21",
+        "rw_index_price": 4.1126582382,
+        "rw_market_cap_7d": -0.1912422281,
+        "rw_market_cap_30d": -0.2139299586,
+        "rw_market_cap_90d": null,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-06-22",
+        "rw_index_price": 3.0787010874,
+        "rw_market_cap_7d": -0.3633300135,
+        "rw_market_cap_30d": -0.4019375494,
+        "rw_market_cap_90d": null,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-06-23",
+        "rw_index_price": 2.9486482129,
+        "rw_market_cap_7d": -0.367664491,
+        "rw_market_cap_30d": -0.3216353181,
+        "rw_market_cap_90d": null,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-06-24",
+        "rw_index_price": 3.9210484171,
+        "rw_market_cap_7d": -0.0891983636,
+        "rw_market_cap_30d": -0.2335432572,
+        "rw_market_cap_90d": null,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-06-25",
+        "rw_index_price": 3.6509980107,
+        "rw_market_cap_7d": -0.2094059889,
+        "rw_market_cap_30d": -0.3681569715,
+        "rw_market_cap_90d": null,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-06-26",
+        "rw_index_price": 3.1562163444,
+        "rw_market_cap_7d": -0.2676923668,
+        "rw_market_cap_30d": -0.5111628848,
+        "rw_market_cap_90d": null,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-06-27",
+        "rw_index_price": 3.0064659232,
+        "rw_market_cap_7d": -0.2618082293,
+        "rw_market_cap_30d": -0.5538615377,
+        "rw_market_cap_90d": null,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-06-28",
+        "rw_index_price": 3.1122513709,
+        "rw_market_cap_7d": -0.2432506689,
+        "rw_market_cap_30d": -0.4766365856,
+        "rw_market_cap_90d": null,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-06-29",
+        "rw_index_price": 3.2065659195,
+        "rw_market_cap_7d": 0.041532071,
+        "rw_market_cap_30d": -0.3836088893,
+        "rw_market_cap_90d": null,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-06-30",
+        "rw_index_price": 3.2689467104,
+        "rw_market_cap_7d": 0.1086255377,
+        "rw_market_cap_30d": -0.4673035201,
+        "rw_market_cap_90d": null,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-07-01",
+        "rw_index_price": 3.2366844518,
+        "rw_market_cap_7d": -0.174535964,
+        "rw_market_cap_30d": -0.4982850357,
+        "rw_market_cap_90d": null,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-07-02",
+        "rw_index_price": 3.469530002,
+        "rw_market_cap_7d": -0.0497036723,
+        "rw_market_cap_30d": -0.4023549172,
+        "rw_market_cap_90d": null,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-07-03",
+        "rw_index_price": 3.2785141026,
+        "rw_market_cap_7d": 0.0387482177,
+        "rw_market_cap_30d": -0.4173652881,
+        "rw_market_cap_90d": null,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-07-04",
+        "rw_index_price": 3.3639955739,
+        "rw_market_cap_7d": 0.1189202405,
+        "rw_market_cap_30d": -0.4505460504,
+        "rw_market_cap_90d": null,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-07-05",
+        "rw_index_price": 4.0621354265,
+        "rw_market_cap_7d": 0.3052080126,
+        "rw_market_cap_30d": -0.2327827327,
+        "rw_market_cap_90d": null,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-07-06",
+        "rw_index_price": 3.9983496167,
+        "rw_market_cap_7d": 0.2469257508,
+        "rw_market_cap_30d": -0.2161723225,
+        "rw_market_cap_90d": null,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-07-07",
+        "rw_index_price": 5.0923705469,
+        "rw_market_cap_7d": 0.5578016401,
+        "rw_market_cap_30d": -0.0209449219,
+        "rw_market_cap_90d": null,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-07-08",
+        "rw_index_price": 4.7638525871,
+        "rw_market_cap_7d": 0.4718310228,
+        "rw_market_cap_30d": 0.0159055695,
+        "rw_market_cap_90d": null,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-07-09",
+        "rw_index_price": 4.7883456318,
+        "rw_market_cap_7d": 0.3801136261,
+        "rw_market_cap_30d": 0.0773530711,
+        "rw_market_cap_90d": null,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-07-10",
+        "rw_index_price": 5.6783370615,
+        "rw_market_cap_7d": 0.7319849431,
+        "rw_market_cap_30d": 0.2073876963,
+        "rw_market_cap_90d": null,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-07-11",
+        "rw_index_price": 5.3921880767,
+        "rw_market_cap_7d": 0.6029117632,
+        "rw_market_cap_30d": 0.1673524516,
+        "rw_market_cap_90d": null,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-07-12",
+        "rw_index_price": 6.040205258,
+        "rw_market_cap_7d": 0.4869531967,
+        "rw_market_cap_30d": 0.1851581758,
+        "rw_market_cap_90d": null,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-07-13",
+        "rw_index_price": 5.5695583021,
+        "rw_market_cap_7d": 0.3929643068,
+        "rw_market_cap_30d": 0.2617745009,
+        "rw_market_cap_90d": null,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-07-14",
+        "rw_index_price": 5.7946155116,
+        "rw_market_cap_7d": 0.1379013876,
+        "rw_market_cap_30d": 0.1395161131,
+        "rw_market_cap_90d": null,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-07-15",
+        "rw_index_price": 6.1724099664,
+        "rw_market_cap_7d": 0.2956761053,
+        "rw_market_cap_30d": 0.2764435579,
+        "rw_market_cap_90d": null,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-07-16",
+        "rw_index_price": 5.6262356502,
+        "rw_market_cap_7d": 0.1749852836,
+        "rw_market_cap_30d": 0.2065422277,
+        "rw_market_cap_90d": null,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-07-17",
+        "rw_index_price": 4.6695694407,
+        "rw_market_cap_7d": -0.1776519446,
+        "rw_market_cap_30d": 0.0846720151,
+        "rw_market_cap_90d": null,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-07-18",
+        "rw_index_price": 4.5697855206,
+        "rw_market_cap_7d": -0.1525174093,
+        "rw_market_cap_30d": -0.0104500047,
+        "rw_market_cap_90d": null,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-07-19",
+        "rw_index_price": 4.5231530048,
+        "rw_market_cap_7d": -0.2511590564,
+        "rw_market_cap_30d": 0.0494652806,
+        "rw_market_cap_90d": null,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-07-20",
+        "rw_index_price": 3.8518116291,
+        "rw_market_cap_7d": -0.3084170377,
+        "rw_market_cap_30d": -0.0542465075,
+        "rw_market_cap_90d": null,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-07-21",
+        "rw_index_price": 3.5589662165,
+        "rw_market_cap_7d": -0.3858149502,
+        "rw_market_cap_30d": -0.1346311776,
+        "rw_market_cap_90d": null,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-07-22",
+        "rw_index_price": 4.1972842783,
+        "rw_market_cap_7d": -0.3199926283,
+        "rw_market_cap_30d": 0.3633295858,
+        "rw_market_cap_90d": null,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-07-23",
+        "rw_index_price": 4.8518453856,
+        "rw_market_cap_7d": -0.137639145,
+        "rw_market_cap_30d": 0.6454473492,
+        "rw_market_cap_90d": -0.3557625269,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-07-24",
+        "rw_index_price": 6.3185490274,
+        "rw_market_cap_7d": 0.3531331117,
+        "rw_market_cap_30d": 0.6114437659,
+        "rw_market_cap_90d": 0.1219159184,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-07-25",
+        "rw_index_price": 8.7559873994,
+        "rw_market_cap_7d": 0.9160609092,
+        "rw_market_cap_30d": 1.3982449111,
+        "rw_market_cap_90d": 0.3479463952,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-07-26",
+        "rw_index_price": 9.9141488677,
+        "rw_market_cap_7d": 1.1918667923,
+        "rw_market_cap_30d": 2.1411499675,
+        "rw_market_cap_90d": 0.3740666572,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-07-27",
+        "rw_index_price": 7.7332813965,
+        "rw_market_cap_7d": 1.0076997894,
+        "rw_market_cap_30d": 1.5722165473,
+        "rw_market_cap_90d": -0.0934695585,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-07-28",
+        "rw_index_price": 11.4535178134,
+        "rw_market_cap_7d": 2.2182148176,
+        "rw_market_cap_30d": 2.6801390532,
+        "rw_market_cap_90d": 0.0103874517,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-07-29",
+        "rw_index_price": 11.466703243,
+        "rw_market_cap_7d": 1.7319339084,
+        "rw_market_cap_30d": 2.5760073333,
+        "rw_market_cap_90d": -0.0319886856,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-07-30",
+        "rw_index_price": 12.7668578,
+        "rw_market_cap_7d": 1.6313406107,
+        "rw_market_cap_30d": 2.9054958465,
+        "rw_market_cap_90d": -0.188551262,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-07-31",
+        "rw_index_price": 12.7861212364,
+        "rw_market_cap_7d": 1.0235850321,
+        "rw_market_cap_30d": 2.9503762035,
+        "rw_market_cap_90d": -0.2148866438,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-08-01",
+        "rw_index_price": 11.8680777256,
+        "rw_market_cap_7d": 0.3554242582,
+        "rw_market_cap_30d": 2.4206586249,
+        "rw_market_cap_90d": -0.2146164059,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-08-02",
+        "rw_index_price": 10.091983084,
+        "rw_market_cap_7d": 0.0179374164,
+        "rw_market_cap_30d": 2.0782185979,
+        "rw_market_cap_90d": -0.2730657922,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-08-03",
+        "rw_index_price": 11.0842285617,
+        "rw_market_cap_7d": 0.4333150436,
+        "rw_market_cap_30d": 2.294959318,
+        "rw_market_cap_90d": -0.0386763313,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-08-04",
+        "rw_index_price": 10.410806295,
+        "rw_market_cap_7d": -0.0910385381,
+        "rw_market_cap_30d": 1.5628900078,
+        "rw_market_cap_90d": -0.1467326976,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-08-05",
+        "rw_index_price": 10.8982100011,
+        "rw_market_cap_7d": -0.0495777409,
+        "rw_market_cap_30d": 1.7256771033,
+        "rw_market_cap_90d": -0.0696216741,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-08-06",
+        "rw_index_price": 10.8452655408,
+        "rw_market_cap_7d": -0.1505141116,
+        "rw_market_cap_30d": 1.1297086378,
+        "rw_market_cap_90d": -0.0331378447,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-08-07",
+        "rw_index_price": 11.2445067371,
+        "rw_market_cap_7d": -0.1205693635,
+        "rw_market_cap_30d": 1.3603809168,
+        "rw_market_cap_90d": -0.0707391736,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-08-08",
+        "rw_index_price": 10.7153917211,
+        "rw_market_cap_7d": -0.097124912,
+        "rw_market_cap_30d": 1.2378066549,
+        "rw_market_cap_90d": -0.0868191101,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-08-09",
+        "rw_index_price": 10.0589811939,
+        "rw_market_cap_7d": -0.0032701095,
+        "rw_market_cap_30d": 0.7714660269,
+        "rw_market_cap_90d": 0.0216095424,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-08-10",
+        "rw_index_price": 10.2038569009,
+        "rw_market_cap_7d": -0.0794256141,
+        "rw_market_cap_30d": 0.8923406891,
+        "rw_market_cap_90d": -0.0827609149,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-08-11",
+        "rw_index_price": 12.4219805346,
+        "rw_market_cap_7d": 0.19318141,
+        "rw_market_cap_30d": 1.0565494059,
+        "rw_market_cap_90d": 0.4003484102,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-08-12",
+        "rw_index_price": 11.1398311657,
+        "rw_market_cap_7d": 0.0221707202,
+        "rw_market_cap_30d": 1.0001282977,
+        "rw_market_cap_90d": 0.251884298,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-08-13",
+        "rw_index_price": 10.6010079644,
+        "rw_market_cap_7d": -0.0225220466,
+        "rw_market_cap_30d": 0.82945839,
+        "rw_market_cap_90d": 0.126556923,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-08-14",
+        "rw_index_price": 11.225724617,
+        "rw_market_cap_7d": -0.0016703374,
+        "rw_market_cap_30d": 0.8186939426,
+        "rw_market_cap_90d": 0.3354400042,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-08-15",
+        "rw_index_price": 10.8487044538,
+        "rw_market_cap_7d": 0.0124412375,
+        "rw_market_cap_30d": 0.928234992,
+        "rw_market_cap_90d": 0.1547832099,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-08-16",
+        "rw_index_price": 11.0204875076,
+        "rw_market_cap_7d": 0.0955868487,
+        "rw_market_cap_30d": 1.3600650226,
+        "rw_market_cap_90d": -0.0348833572,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-08-17",
+        "rw_index_price": 10.5785815399,
+        "rw_market_cap_7d": 0.0367238234,
+        "rw_market_cap_30d": 1.3148967259,
+        "rw_market_cap_90d": 0.0614450536,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-08-18",
+        "rw_index_price": 10.2575348596,
+        "rw_market_cap_7d": -0.1742432029,
+        "rw_market_cap_30d": 1.267784187,
+        "rw_market_cap_90d": 0.7797520417,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-08-19",
+        "rw_index_price": 9.7977693089,
+        "rw_market_cap_7d": -0.1204741649,
+        "rw_market_cap_30d": 1.5436782097,
+        "rw_market_cap_90d": 0.5894111931,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-08-20",
+        "rw_index_price": 9.4339617591,
+        "rw_market_cap_7d": -0.1100882302,
+        "rw_market_cap_30d": 1.6507590084,
+        "rw_market_cap_90d": 0.8031536493,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-08-21",
+        "rw_index_price": 9.8621003673,
+        "rw_market_cap_7d": -0.1214731606,
+        "rw_market_cap_30d": 1.3496384122,
+        "rw_market_cap_90d": 0.9157923247,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-08-22",
+        "rw_index_price": 13.4760776954,
+        "rw_market_cap_7d": 0.2421831337,
+        "rw_market_cap_30d": 1.7775158985,
+        "rw_market_cap_90d": 2.1003003745,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-08-23",
+        "rw_index_price": 12.6054097047,
+        "rw_market_cap_7d": 0.1438159787,
+        "rw_market_cap_30d": 0.9949848691,
+        "rw_market_cap_90d": 1.4640096822,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-08-24",
+        "rw_index_price": 13.329120077,
+        "rw_market_cap_7d": 0.2600101466,
+        "rw_market_cap_30d": 0.5222863475,
+        "rw_market_cap_90d": 1.3067423133,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-08-25",
+        "rw_index_price": 12.3707074234,
+        "rw_market_cap_7d": 0.206011736,
+        "rw_market_cap_30d": 0.2477831016,
+        "rw_market_cap_90d": 0.9159842895,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-08-26",
+        "rw_index_price": 15.8402730558,
+        "rw_market_cap_7d": 0.6167223943,
+        "rw_market_cap_30d": 1.0483249275,
+        "rw_market_cap_90d": 1.3505854529,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-08-27",
+        "rw_index_price": 15.0848706615,
+        "rw_market_cap_7d": 0.5989963757,
+        "rw_market_cap_30d": 0.3170513119,
+        "rw_market_cap_90d": 1.5367068641,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-08-28",
+        "rw_index_price": 15.4813011383,
+        "rw_market_cap_7d": 0.5697772849,
+        "rw_market_cap_30d": 0.3501091648,
+        "rw_market_cap_90d": 1.9759364513,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-08-29",
+        "rw_index_price": 15.9874456885,
+        "rw_market_cap_7d": 0.1863574884,
+        "rw_market_cap_30d": 0.2522615932,
+        "rw_market_cap_90d": 1.6052599799,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-08-30",
+        "rw_index_price": 15.6935656459,
+        "rw_market_cap_7d": 0.2449865584,
+        "rw_market_cap_30d": 0.2273906493,
+        "rw_market_cap_90d": 1.4326426765,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-08-31",
+        "rw_index_price": 14.8086310395,
+        "rw_market_cap_7d": 0.110998397,
+        "rw_market_cap_30d": 0.2477699744,
+        "rw_market_cap_90d": 1.5508658288,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-09-01",
+        "rw_index_price": 13.7880972786,
+        "rw_market_cap_7d": 0.1145762976,
+        "rw_market_cap_30d": 0.366242607,
+        "rw_market_cap_90d": 1.4503247001,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-09-02",
+        "rw_index_price": 13.9660627098,
+        "rw_market_cap_7d": -0.1183193206,
+        "rw_market_cap_30d": 0.2599941107,
+        "rw_market_cap_90d": 1.281129136,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-09-03",
+        "rw_index_price": 13.7183506424,
+        "rw_market_cap_7d": -0.0905887793,
+        "rw_market_cap_30d": 0.3177029957,
+        "rw_market_cap_90d": 1.5909907934,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-09-04",
+        "rw_index_price": 13.6568487074,
+        "rw_market_cap_7d": -0.1178487786,
+        "rw_market_cap_30d": 0.2531276885,
+        "rw_market_cap_90d": 1.6772586269,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-09-05",
+        "rw_index_price": 14.0213633763,
+        "rw_market_cap_7d": -0.1229766375,
+        "rw_market_cap_30d": 0.2928557004,
+        "rw_market_cap_90d": 1.69573608,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-09-06",
+        "rw_index_price": 14.2056265988,
+        "rw_market_cap_7d": -0.0948120447,
+        "rw_market_cap_30d": 0.2633392403,
+        "rw_market_cap_90d": 2.0293916356,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-09-07",
+        "rw_index_price": 13.6651288776,
+        "rw_market_cap_7d": -0.0772186274,
+        "rw_market_cap_30d": 0.2752803848,
+        "rw_market_cap_90d": 2.0745835191,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-09-08",
+        "rw_index_price": 10.2299141508,
+        "rw_market_cap_7d": -0.2580619396,
+        "rw_market_cap_30d": 0.0169930685,
+        "rw_market_cap_90d": 1.1751918469,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-09-09",
+        "rw_index_price": 10.290968587,
+        "rw_market_cap_7d": -0.2631446098,
+        "rw_market_cap_30d": 0.0085371332,
+        "rw_market_cap_90d": 1.2278873137,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-09-10",
+        "rw_index_price": 9.9708995681,
+        "rw_market_cap_7d": -0.2731706728,
+        "rw_market_cap_30d": -0.1973180492,
+        "rw_market_cap_90d": 0.9564058899,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-09-11",
+        "rw_index_price": 9.3118294957,
+        "rw_market_cap_7d": -0.3181567948,
+        "rw_market_cap_30d": -0.1640959942,
+        "rw_market_cap_90d": 1.109580038,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-09-12",
+        "rw_index_price": 9.5737801702,
+        "rw_market_cap_7d": -0.3172004809,
+        "rw_market_cap_30d": -0.0968990682,
+        "rw_market_cap_90d": 0.8826920864,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-09-13",
+        "rw_index_price": 9.8549368808,
+        "rw_market_cap_7d": -0.3062652455,
+        "rw_market_cap_30d": -0.122111292,
+        "rw_market_cap_90d": 1.0379836666,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-09-14",
+        "rw_index_price": 8.973401315,
+        "rw_market_cap_7d": -0.3433357713,
+        "rw_market_cap_30d": -0.1728596393,
+        "rw_market_cap_90d": 0.9243395204,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-09-15",
+        "rw_index_price": 9.1694912926,
+        "rw_market_cap_7d": -0.1036590183,
+        "rw_market_cap_30d": -0.1679595584,
+        "rw_market_cap_90d": 1.1299374008,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-09-16",
+        "rw_index_price": 9.8531233184,
+        "rw_market_cap_7d": -0.0425465557,
+        "rw_market_cap_30d": -0.0685780243,
+        "rw_market_cap_90d": 1.1336139496,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-09-17",
+        "rw_index_price": 10.7343213573,
+        "rw_market_cap_7d": 0.0765649863,
+        "rw_market_cap_30d": 0.0464815869,
+        "rw_market_cap_90d": 1.4905851213,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-09-18",
+        "rw_index_price": 9.8974935223,
+        "rw_market_cap_7d": 0.0628946253,
+        "rw_market_cap_30d": 0.0101782569,
+        "rw_market_cap_90d": 1.4301783074,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-09-19",
+        "rw_index_price": 9.8326980299,
+        "rw_market_cap_7d": 0.0270444751,
+        "rw_market_cap_30d": 0.042266047,
+        "rw_market_cap_90d": 1.390837619,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-09-20",
+        "rw_index_price": 9.2955059287,
+        "rw_market_cap_7d": -0.0567665688,
+        "rw_market_cap_30d": -0.0574517007,
+        "rw_market_cap_90d": 2.0192947171,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-09-21",
+        "rw_index_price": 7.5759610141,
+        "rw_market_cap_7d": -0.1557313946,
+        "rw_market_cap_30d": -0.4378215097,
+        "rw_market_cap_90d": 1.5692997154,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-09-22",
+        "rw_index_price": 5.5657603885,
+        "rw_market_cap_7d": -0.393013177,
+        "rw_market_cap_30d": -0.5584625554,
+        "rw_market_cap_90d": 0.4194571952,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-09-23",
+        "rw_index_price": 6.7660067477,
+        "rw_market_cap_7d": -0.3133135018,
+        "rw_market_cap_30d": -0.4923890918,
+        "rw_market_cap_90d": 0.8531937645,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-09-24",
+        "rw_index_price": 6.7662213809,
+        "rw_market_cap_7d": -0.3696647272,
+        "rw_market_cap_30d": -0.4530449109,
+        "rw_market_cap_90d": 1.1437761682,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-09-25",
+        "rw_index_price": 5.9619497093,
+        "rw_market_cap_7d": -0.39763035,
+        "rw_market_cap_30d": -0.6236207742,
+        "rw_market_cap_90d": 0.9830425029,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-09-26",
+        "rw_index_price": 5.7002339716,
+        "rw_market_cap_7d": -0.4202777351,
+        "rw_market_cap_30d": -0.6221224497,
+        "rw_market_cap_90d": 0.8315467783,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-09-27",
+        "rw_index_price": 5.7115401391,
+        "rw_market_cap_7d": -0.3855589805,
+        "rw_market_cap_30d": -0.6310684685,
+        "rw_market_cap_90d": 0.7812015354,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-09-28",
+        "rw_index_price": 5.4438931985,
+        "rw_market_cap_7d": -0.2814253943,
+        "rw_market_cap_30d": -0.6594894954,
+        "rw_market_cap_90d": 0.6653355594,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-09-29",
+        "rw_index_price": 5.8488633605,
+        "rw_market_cap_7d": 0.0508651024,
+        "rw_market_cap_30d": -0.6273081916,
+        "rw_market_cap_90d": 0.8070539305,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-09-30",
+        "rw_index_price": 5.9917505461,
+        "rw_market_cap_7d": -0.1144332589,
+        "rw_market_cap_30d": -0.5953879511,
+        "rw_market_cap_90d": 0.7269631744,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-10-01",
+        "rw_index_price": 6.7768141645,
+        "rw_market_cap_7d": 0.001565539,
+        "rw_market_cap_30d": -0.5085025854,
+        "rw_market_cap_90d": 1.0670382839,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-10-02",
+        "rw_index_price": 8.2020955047,
+        "rw_market_cap_7d": 0.3757404716,
+        "rw_market_cap_30d": -0.4127123961,
+        "rw_market_cap_90d": 1.4382004449,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-10-03",
+        "rw_index_price": 6.8450601128,
+        "rw_market_cap_7d": 0.2008384475,
+        "rw_market_cap_30d": -0.501028929,
+        "rw_market_cap_90d": 0.6850890958,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-10-04",
+        "rw_index_price": 7.4214861959,
+        "rw_market_cap_7d": 0.2993844069,
+        "rw_market_cap_30d": -0.4565740344,
+        "rw_market_cap_90d": 0.8561373835,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-10-05",
+        "rw_index_price": 7.2463594933,
+        "rw_market_cap_7d": 0.3310987613,
+        "rw_market_cap_30d": -0.4831915201,
+        "rw_market_cap_90d": 0.422983545,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-10-06",
+        "rw_index_price": 6.4758605322,
+        "rw_market_cap_7d": 0.1071998324,
+        "rw_market_cap_30d": -0.5441341157,
+        "rw_market_cap_90d": 0.3593746687,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-10-07",
+        "rw_index_price": 6.4168655993,
+        "rw_market_cap_7d": 0.0709500587,
+        "rw_market_cap_30d": -0.5304204112,
+        "rw_market_cap_90d": 0.3401007556,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-10-08",
+        "rw_index_price": 5.9137836601,
+        "rw_market_cap_7d": -0.1273504752,
+        "rw_market_cap_30d": -0.4219126795,
+        "rw_market_cap_90d": 0.0414640054,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-10-09",
+        "rw_index_price": 4.9250361554,
+        "rw_market_cap_7d": -0.3995392821,
+        "rw_market_cap_30d": -0.521421515,
+        "rw_market_cap_90d": -0.0866349457,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-10-10",
+        "rw_index_price": 4.2482743364,
+        "rw_market_cap_7d": -0.3793663947,
+        "rw_market_cap_30d": -0.5739326921,
+        "rw_market_cap_90d": -0.2966672232,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-10-11",
+        "rw_index_price": 3.9675513264,
+        "rw_market_cap_7d": -0.4653966575,
+        "rw_market_cap_30d": -0.5739235423,
+        "rw_market_cap_90d": -0.28763627,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-10-12",
+        "rw_index_price": 3.6919181567,
+        "rw_market_cap_7d": -0.4905140767,
+        "rw_market_cap_30d": -0.6143719522,
+        "rw_market_cap_90d": -0.3628709016,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-10-13",
+        "rw_index_price": 4.002805549,
+        "rw_market_cap_7d": -0.3818882403,
+        "rw_market_cap_30d": -0.5938273784,
+        "rw_market_cap_90d": -0.3515003749,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-10-14",
+        "rw_index_price": 4.1271150206,
+        "rw_market_cap_7d": -0.3568331833,
+        "rw_market_cap_30d": -0.54007239,
+        "rw_market_cap_90d": -0.2664518024,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-10-15",
+        "rw_index_price": 4.9611593415,
+        "rw_market_cap_7d": -0.161085419,
+        "rw_market_cap_30d": -0.4589493372,
+        "rw_market_cap_90d": 0.0624447081,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-10-16",
+        "rw_index_price": 4.5963258181,
+        "rw_market_cap_7d": -0.0667427257,
+        "rw_market_cap_30d": -0.5335158539,
+        "rw_market_cap_90d": 0.0058077775,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-10-17",
+        "rw_index_price": 4.4160563,
+        "rw_market_cap_7d": 0.0394941452,
+        "rw_market_cap_30d": -0.588604053,
+        "rw_market_cap_90d": -0.0236774446,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-10-18",
+        "rw_index_price": 4.3086423721,
+        "rw_market_cap_7d": 0.0859701659,
+        "rw_market_cap_30d": -0.564673383,
+        "rw_market_cap_90d": 0.1186015275,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-10-19",
+        "rw_index_price": 4.2707599961,
+        "rw_market_cap_7d": 0.1567862057,
+        "rw_market_cap_30d": -0.5656573625,
+        "rw_market_cap_90d": 0.2000001507,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-10-20",
+        "rw_index_price": 4.0857773737,
+        "rw_market_cap_7d": 0.0207284175,
+        "rw_market_cap_30d": -0.5604566976,
+        "rw_market_cap_90d": -0.0265664409,
+        "rw_market_cap_180d": null,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-10-21",
+        "rw_index_price": 4.4884242145,
+        "rw_market_cap_7d": 0.0875452204,
+        "rw_market_cap_30d": -0.4075439134,
+        "rw_market_cap_90d": -0.0749037,
+        "rw_market_cap_180d": -0.4040182973,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-10-22",
+        "rw_index_price": 3.9438188176,
+        "rw_market_cap_7d": -0.205061046,
+        "rw_market_cap_30d": -0.2914141928,
+        "rw_market_cap_90d": -0.3758347367,
+        "rw_market_cap_180d": -0.2997390554,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-10-23",
+        "rw_index_price": 3.9815395909,
+        "rw_market_cap_7d": -0.1337560155,
+        "rw_market_cap_30d": -0.4115377446,
+        "rw_market_cap_90d": -0.5452780584,
+        "rw_market_cap_180d": -0.387059198,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-10-24",
+        "rw_index_price": 3.971601942,
+        "rw_market_cap_7d": -0.1006450842,
+        "rw_market_cap_30d": -0.4130251261,
+        "rw_market_cap_90d": -0.5994006147,
+        "rw_market_cap_180d": -0.4495497418,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-10-25",
+        "rw_index_price": 3.9162830005,
+        "rw_market_cap_7d": -0.0910633415,
+        "rw_market_cap_30d": -0.3431204234,
+        "rw_market_cap_90d": -0.4935806937,
+        "rw_market_cap_180d": -0.5409154826,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-10-26",
+        "rw_index_price": 4.1490267063,
+        "rw_market_cap_7d": -0.0285038939,
+        "rw_market_cap_30d": -0.2721304552,
+        "rw_market_cap_90d": -0.6377508837,
+        "rw_market_cap_180d": -0.6339880385,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-10-27",
+        "rw_index_price": 3.910886859,
+        "rw_market_cap_7d": -0.0428047098,
+        "rw_market_cap_30d": -0.3152658016,
+        "rw_market_cap_90d": -0.6589353735,
+        "rw_market_cap_180d": -0.6698455826,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-10-28",
+        "rw_index_price": 3.1398890811,
+        "rw_market_cap_7d": -0.3004473439,
+        "rw_market_cap_30d": -0.4232272812,
+        "rw_market_cap_90d": -0.7540593676,
+        "rw_market_cap_180d": -0.8004317842,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-10-29",
+        "rw_index_price": 3.111860832,
+        "rw_market_cap_7d": -0.210952385,
+        "rw_market_cap_30d": -0.4679546024,
+        "rw_market_cap_90d": -0.756621983,
+        "rw_market_cap_180d": -0.8089206682,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-10-30",
+        "rw_index_price": 3.2148720984,
+        "rw_market_cap_7d": -0.1925555366,
+        "rw_market_cap_30d": -0.4634502766,
+        "rw_market_cap_90d": -0.7291160226,
+        "rw_market_cap_180d": -0.7872521683,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-10-31",
+        "rw_index_price": 4.9980399935,
+        "rw_market_cap_7d": 0.2584443422,
+        "rw_market_cap_30d": -0.2624794081,
+        "rw_market_cap_90d": -0.5047514495,
+        "rw_market_cap_180d": -0.6399868873,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-11-01",
+        "rw_index_price": 3.9021422673,
+        "rw_market_cap_7d": -0.0036107537,
+        "rw_market_cap_30d": -0.5242505693,
+        "rw_market_cap_90d": -0.647955449,
+        "rw_market_cap_180d": -0.6615712407,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-11-02",
+        "rw_index_price": 3.906888883,
+        "rw_market_cap_7d": -0.0583601506,
+        "rw_market_cap_30d": -0.4292396533,
+        "rw_market_cap_90d": -0.6247275406,
+        "rw_market_cap_180d": -0.6797922809,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-11-03",
+        "rw_index_price": 4.0083301303,
+        "rw_market_cap_7d": 0.0249159014,
+        "rw_market_cap_30d": -0.4599019624,
+        "rw_market_cap_90d": -0.6322028911,
+        "rw_market_cap_180d": -0.6578095416,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-11-04",
+        "rw_index_price": 3.9634800511,
+        "rw_market_cap_7d": 0.2622993834,
+        "rw_market_cap_30d": -0.4530384457,
+        "rw_market_cap_90d": -0.6345428301,
+        "rw_market_cap_180d": -0.6466532931,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-11-05",
+        "rw_index_price": 4.1536568965,
+        "rw_market_cap_7d": 0.3347823443,
+        "rw_market_cap_30d": -0.3585938308,
+        "rw_market_cap_90d": -0.6306056821,
+        "rw_market_cap_180d": -0.6567363309,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-11-06",
+        "rw_index_price": 3.6392975953,
+        "rw_market_cap_7d": 0.1320194036,
+        "rw_market_cap_30d": -0.4328543213,
+        "rw_market_cap_90d": -0.6603672838,
+        "rw_market_cap_180d": -0.689853894,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-11-07",
+        "rw_index_price": 3.6823798405,
+        "rw_market_cap_7d": -0.2632352192,
+        "rw_market_cap_30d": -0.3773225312,
+        "rw_market_cap_90d": -0.6339211925,
+        "rw_market_cap_180d": -0.626010397,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-11-08",
+        "rw_index_price": 4.4172315831,
+        "rw_market_cap_7d": 0.1320016751,
+        "rw_market_cap_30d": -0.1031067705,
+        "rw_market_cap_90d": -0.5671017708,
+        "rw_market_cap_180d": -0.6029288243,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-11-09",
+        "rw_index_price": 4.0212105729,
+        "rw_market_cap_7d": 0.0292615668,
+        "rw_market_cap_30d": -0.05344847,
+        "rw_market_cap_90d": -0.6762826538,
+        "rw_market_cap_180d": -0.5466829289,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-11-10",
+        "rw_index_price": 3.0806755317,
+        "rw_market_cap_7d": -0.2314316856,
+        "rw_market_cap_30d": -0.2235322802,
+        "rw_market_cap_90d": -0.7234540196,
+        "rw_market_cap_180d": -0.6537964294,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-11-11",
+        "rw_index_price": 2.2675716405,
+        "rw_market_cap_7d": -0.4278836751,
+        "rw_market_cap_30d": -0.3858012165,
+        "rw_market_cap_90d": -0.7860984872,
+        "rw_market_cap_180d": -0.75902777,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-11-12",
+        "rw_index_price": 2.3052986671,
+        "rw_market_cap_7d": -0.4449954042,
+        "rw_market_cap_30d": -0.4240792767,
+        "rw_market_cap_90d": -0.7946414378,
+        "rw_market_cap_180d": -0.7257559608,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-11-13",
+        "rw_index_price": 2.3416992791,
+        "rw_market_cap_7d": -0.3565518571,
+        "rw_market_cap_30d": -0.4326062474,
+        "rw_market_cap_90d": -0.784149408,
+        "rw_market_cap_180d": -0.7507393605,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-11-14",
+        "rw_index_price": 2.2179754711,
+        "rw_market_cap_7d": -0.3976787927,
+        "rw_market_cap_30d": -0.5529320229,
+        "rw_market_cap_90d": -0.7987407118,
+        "rw_market_cap_180d": -0.8057613115,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-11-15",
+        "rw_index_price": 2.0243265917,
+        "rw_market_cap_7d": -0.5417205203,
+        "rw_market_cap_30d": -0.5595772206,
+        "rw_market_cap_90d": -0.8086391276,
+        "rw_market_cap_180d": -0.7968809486,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-11-16",
+        "rw_index_price": 7.8979835627,
+        "rw_market_cap_7d": 0.9640810695,
+        "rw_market_cap_30d": 0.7884698532,
+        "rw_market_cap_90d": -0.2300310288,
+        "rw_market_cap_180d": 0.3703538485,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-11-17",
+        "rw_index_price": 7.1395953203,
+        "rw_market_cap_7d": 1.3175421257,
+        "rw_market_cap_30d": 0.6570405951,
+        "rw_market_cap_90d": -0.2713039984,
+        "rw_market_cap_180d": 0.1581975814,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-11-18",
+        "rw_index_price": 8.1997777967,
+        "rw_market_cap_7d": 2.6161052865,
+        "rw_market_cap_30d": 0.9199809412,
+        "rw_market_cap_90d": -0.130823507,
+        "rw_market_cap_180d": 0.5672587652,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-11-19",
+        "rw_index_price": 9.8674414771,
+        "rw_market_cap_7d": 3.2803310556,
+        "rw_market_cap_30d": 1.4150707625,
+        "rw_market_cap_90d": 0.0005415793,
+        "rw_market_cap_180d": 0.9168298782,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-11-20",
+        "rw_index_price": 9.5901823595,
+        "rw_market_cap_7d": 3.0953945047,
+        "rw_market_cap_30d": 1.1366479417,
+        "rw_market_cap_90d": -0.2883550706,
+        "rw_market_cap_180d": 1.206313041,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-11-21",
+        "rw_index_price": 11.4297513853,
+        "rw_market_cap_7d": 4.1532361536,
+        "rw_market_cap_30d": 1.8981431232,
+        "rw_market_cap_90d": -0.0932661728,
+        "rw_market_cap_180d": 1.2342009295,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-11-22",
+        "rw_index_price": 10.4017311127,
+        "rw_market_cap_7d": 4.1383660893,
+        "rw_market_cap_30d": 1.6124896853,
+        "rw_market_cap_90d": -0.2196235721,
+        "rw_market_cap_180d": 0.8001273265,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-11-23",
+        "rw_index_price": 10.6857840057,
+        "rw_market_cap_7d": 0.3529762275,
+        "rw_market_cap_30d": 1.690547583,
+        "rw_market_cap_90d": -0.136202673,
+        "rw_market_cap_180d": 0.6550221079,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-11-24",
+        "rw_index_price": 13.0833599038,
+        "rw_market_cap_7d": 0.8325072104,
+        "rw_market_cap_30d": 2.3407595677,
+        "rw_market_cap_90d": -0.1740445472,
+        "rw_market_cap_180d": 0.941478872,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-11-25",
+        "rw_index_price": 14.9427836017,
+        "rw_market_cap_7d": 0.8223400648,
+        "rw_market_cap_30d": 2.6015154058,
+        "rw_market_cap_90d": -0.0094191765,
+        "rw_market_cap_180d": 1.5128131743,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-11-26",
+        "rw_index_price": 13.0303772456,
+        "rw_market_cap_7d": 0.3205426428,
+        "rw_market_cap_30d": 2.331821583,
+        "rw_market_cap_90d": -0.15831511,
+        "rw_market_cap_180d": 1.5048007446,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-11-27",
+        "rw_index_price": 10.9553562061,
+        "rw_market_cap_7d": 0.1423511874,
+        "rw_market_cap_30d": 2.4890901949,
+        "rw_market_cap_90d": -0.3147525615,
+        "rw_market_cap_180d": 0.7852477278,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-11-28",
+        "rw_index_price": 10.461049579,
+        "rw_market_cap_7d": -0.0847526577,
+        "rw_market_cap_30d": 2.3616701208,
+        "rw_market_cap_90d": -0.3334179233,
+        "rw_market_cap_180d": 0.6215560071,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-11-29",
+        "rw_index_price": 11.6288406758,
+        "rw_market_cap_7d": 0.1179716674,
+        "rw_market_cap_30d": 2.6172016553,
+        "rw_market_cap_90d": -0.214725477,
+        "rw_market_cap_180d": 1.003129947,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-11-30",
+        "rw_index_price": 10.899133833,
+        "rw_market_cap_7d": 0.0199657627,
+        "rw_market_cap_30d": 1.1806815966,
+        "rw_market_cap_90d": -0.2095258967,
+        "rw_market_cap_180d": 0.9369182202,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-12-01",
+        "rw_index_price": 13.8668588837,
+        "rw_market_cap_7d": 0.0598851507,
+        "rw_market_cap_30d": 2.553652823,
+        "rw_market_cap_90d": -0.0071032064,
+        "rw_market_cap_180d": 1.2649258049,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-12-02",
+        "rw_index_price": 13.2570296181,
+        "rw_market_cap_7d": -0.1128139193,
+        "rw_market_cap_30d": 2.3932446034,
+        "rw_market_cap_90d": -0.033628024,
+        "rw_market_cap_180d": 1.5038608929,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-12-03",
+        "rw_index_price": 12.3858205208,
+        "rw_market_cap_7d": -0.0494656995,
+        "rw_market_cap_30d": 2.0900200627,
+        "rw_market_cap_90d": -0.093068922,
+        "rw_market_cap_180d": 1.4280890527,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-12-04",
+        "rw_index_price": 11.2447497929,
+        "rw_market_cap_7d": 0.0264157168,
+        "rw_market_cap_30d": 1.8370900441,
+        "rw_market_cap_90d": -0.1980273607,
+        "rw_market_cap_180d": 1.1619065788,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-12-05",
+        "rw_index_price": 9.5617186176,
+        "rw_market_cap_7d": -0.085969477,
+        "rw_market_cap_30d": 1.3020001064,
+        "rw_market_cap_90d": -0.3269062402,
+        "rw_market_cap_180d": 1.0390646059,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-12-06",
+        "rw_index_price": 9.7616911955,
+        "rw_market_cap_7d": -0.1605619625,
+        "rw_market_cap_30d": 1.6823008946,
+        "rw_market_cap_90d": -0.285649533,
+        "rw_market_cap_180d": 1.1963301727,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-12-07",
+        "rw_index_price": 8.5670604335,
+        "rw_market_cap_7d": -0.213968691,
+        "rw_market_cap_30d": 1.3265010142,
+        "rw_market_cap_90d": -0.1625481595,
+        "rw_market_cap_180d": 0.8216184156,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-12-08",
+        "rw_index_price": 8.1747818322,
+        "rw_market_cap_7d": -0.4104806358,
+        "rw_market_cap_30d": 0.8506572903,
+        "rw_market_cap_90d": -0.2056353332,
+        "rw_market_cap_180d": 0.7697549635,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-12-09",
+        "rw_index_price": 8.4285415573,
+        "rw_market_cap_7d": -0.3642209605,
+        "rw_market_cap_30d": 1.0960209381,
+        "rw_market_cap_90d": -0.1546859439,
+        "rw_market_cap_180d": 0.6537773983,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-12-10",
+        "rw_index_price": 7.6154334775,
+        "rw_market_cap_7d": -0.3851490529,
+        "rw_market_cap_30d": 1.4720011566,
+        "rw_market_cap_90d": -0.1821764476,
+        "rw_market_cap_180d": 0.7252642408,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-12-11",
+        "rw_index_price": 7.3159145687,
+        "rw_market_cap_7d": -0.3493928541,
+        "rw_market_cap_30d": 2.2263212496,
+        "rw_market_cap_90d": -0.2358384631,
+        "rw_market_cap_180d": 0.4386808782,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-12-12",
+        "rw_index_price": 7.7783082627,
+        "rw_market_cap_7d": -0.1865156701,
+        "rw_market_cap_30d": 2.3741000131,
+        "rw_market_cap_90d": -0.2107196264,
+        "rw_market_cap_180d": 0.6085405097,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-12-13",
+        "rw_index_price": 7.9396117318,
+        "rw_market_cap_7d": -0.1866561262,
+        "rw_market_cap_30d": 2.3905343024,
+        "rw_market_cap_90d": -0.1152059901,
+        "rw_market_cap_180d": 0.7026440806,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-12-14",
+        "rw_index_price": 6.8716209921,
+        "rw_market_cap_7d": -0.1979021223,
+        "rw_market_cap_30d": 2.0981501291,
+        "rw_market_cap_90d": -0.2505995401,
+        "rw_market_cap_180d": 0.5961760678,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-12-15",
+        "rw_index_price": 6.9416298107,
+        "rw_market_cap_7d": -0.1508483097,
+        "rw_market_cap_30d": 2.4291056784,
+        "rw_market_cap_90d": -0.295489401,
+        "rw_market_cap_180d": 0.5031536416,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-12-16",
+        "rw_index_price": 7.335426307,
+        "rw_market_cap_7d": -0.1296920995,
+        "rw_market_cap_30d": -0.0712279598,
+        "rw_market_cap_90d": -0.3166380936,
+        "rw_market_cap_180d": 0.7019709966,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-12-17",
+        "rw_index_price": 7.24145541,
+        "rw_market_cap_7d": -0.049107916,
+        "rw_market_cap_30d": 0.0142669276,
+        "rw_market_cap_90d": -0.2683546199,
+        "rw_market_cap_180d": 0.7780287314,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-12-18",
+        "rw_index_price": 7.1595015882,
+        "rw_market_cap_7d": -0.021379826,
+        "rw_market_cap_30d": -0.1268663901,
+        "rw_market_cap_90d": -0.2718680502,
+        "rw_market_cap_180d": 0.7408452571,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-12-19",
+        "rw_index_price": 7.1730359955,
+        "rw_market_cap_7d": -0.0778154127,
+        "rw_market_cap_30d": -0.2730601937,
+        "rw_market_cap_90d": -0.2283329116,
+        "rw_market_cap_180d": 1.3298903634,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-12-20",
+        "rw_index_price": 6.9333973462,
+        "rw_market_cap_7d": -0.1267334499,
+        "rw_market_cap_30d": -0.2770317512,
+        "rw_market_cap_90d": -0.0848161265,
+        "rw_market_cap_180d": 1.3513816657,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-12-21",
+        "rw_index_price": 6.837068367,
+        "rw_market_cap_7d": -0.0050283077,
+        "rw_market_cap_30d": -0.4018182779,
+        "rw_market_cap_90d": 0.2284158659,
+        "rw_market_cap_180d": 0.7436837396,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-12-22",
+        "rw_index_price": 7.1932197008,
+        "rw_market_cap_7d": 0.036243634,
+        "rw_market_cap_30d": -0.3084593687,
+        "rw_market_cap_90d": 0.063141077,
+        "rw_market_cap_180d": 0.9702064147,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-12-23",
+        "rw_index_price": 7.4545996209,
+        "rw_market_cap_7d": 0.0162462697,
+        "rw_market_cap_30d": -0.3023815925,
+        "rw_market_cap_90d": 0.1017374693,
+        "rw_market_cap_180d": 1.3618785303,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-12-24",
+        "rw_index_price": 8.4463933775,
+        "rw_market_cap_7d": 0.1663944469,
+        "rw_market_cap_30d": -0.3544171039,
+        "rw_market_cap_90d": 0.4167166429,
+        "rw_market_cap_180d": 1.8094093175,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-12-25",
+        "rw_index_price": 7.9246327138,
+        "rw_market_cap_7d": 0.1068693283,
+        "rw_market_cap_30d": -0.4696682409,
+        "rw_market_cap_90d": 0.3902293754,
+        "rw_market_cap_180d": 1.5462701336,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-12-26",
+        "rw_index_price": 8.3922016062,
+        "rw_market_cap_7d": 0.1699650764,
+        "rw_market_cap_30d": -0.3559509868,
+        "rw_market_cap_90d": 0.4693412638,
+        "rw_market_cap_180d": 1.617192915,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-12-27",
+        "rw_index_price": 8.6314422837,
+        "rw_market_cap_7d": 0.2449080664,
+        "rw_market_cap_30d": -0.2121258203,
+        "rw_market_cap_90d": 0.5855274835,
+        "rw_market_cap_180d": 1.6404352987,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-12-28",
+        "rw_index_price": 8.3376011015,
+        "rw_market_cap_7d": 0.219470196,
+        "rw_market_cap_30d": -0.2029861785,
+        "rw_market_cap_90d": 0.4255079299,
+        "rw_market_cap_180d": 1.5759697078,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-12-29",
+        "rw_index_price": 7.4539065274,
+        "rw_market_cap_7d": 0.0362406318,
+        "rw_market_cap_30d": -0.3590155085,
+        "rw_market_cap_90d": 0.2440281801,
+        "rw_market_cap_180d": 1.148390855,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-12-30",
+        "rw_index_price": 7.1465555653,
+        "rw_market_cap_7d": -0.0413226828,
+        "rw_market_cap_30d": -0.3443005954,
+        "rw_market_cap_90d": 0.0545597669,
+        "rw_market_cap_180d": 1.1798154108,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2021-12-31",
+        "rw_index_price": 7.290944453,
+        "rw_market_cap_7d": -0.1367979057,
+        "rw_market_cap_30d": -0.4742180249,
+        "rw_market_cap_90d": -0.1110875936,
+        "rw_market_cap_180d": 1.1673466248,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-01-01",
+        "rw_index_price": 7.1545193229,
+        "rw_market_cap_7d": -0.0971796951,
+        "rw_market_cap_30d": -0.4603225965,
+        "rw_market_cap_90d": 0.0452091297,
+        "rw_market_cap_180d": 0.7612705072,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-01-02",
+        "rw_index_price": 7.5367617521,
+        "rw_market_cap_7d": -0.1019327102,
+        "rw_market_cap_30d": -0.3915008102,
+        "rw_market_cap_90d": 0.0155326781,
+        "rw_market_cap_180d": 0.884968168,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-01-03",
+        "rw_index_price": 7.3187181428,
+        "rw_market_cap_7d": -0.1520863024,
+        "rw_market_cap_30d": -0.3491435312,
+        "rw_market_cap_90d": 0.0099855175,
+        "rw_market_cap_180d": 0.4371927721,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-01-04",
+        "rw_index_price": 7.0841707767,
+        "rw_market_cap_7d": -0.1503346478,
+        "rw_market_cap_30d": -0.2591111431,
+        "rw_market_cap_90d": 0.0939350441,
+        "rw_market_cap_180d": 0.4870675881,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-01-05",
+        "rw_index_price": 7.4854047951,
+        "rw_market_cap_7d": 0.0042257396,
+        "rw_market_cap_30d": -0.2331856596,
+        "rw_market_cap_90d": 0.1665204264,
+        "rw_market_cap_180d": 0.5632549048,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-01-06",
+        "rw_index_price": 6.7385454283,
+        "rw_market_cap_7d": -0.0570918582,
+        "rw_market_cap_30d": -0.2134355208,
+        "rw_market_cap_90d": 0.1394643118,
+        "rw_market_cap_180d": 0.1867110661,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-01-07",
+        "rw_index_price": 6.6171031985,
+        "rw_market_cap_7d": -0.0924216689,
+        "rw_market_cap_30d": -0.190546814,
+        "rw_market_cap_90d": 0.3435643901,
+        "rw_market_cap_180d": 0.2271647621,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-01-08",
+        "rw_index_price": 6.1032161391,
+        "rw_market_cap_7d": -0.1469425319,
+        "rw_market_cap_30d": -0.2758870443,
+        "rw_market_cap_90d": 0.436634185,
+        "rw_market_cap_180d": 0.0104319106,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-01-09",
+        "rw_index_price": 5.8664027925,
+        "rw_market_cap_7d": -0.2216282025,
+        "rw_market_cap_30d": -0.2296692224,
+        "rw_market_cap_90d": 0.4785953123,
+        "rw_market_cap_180d": 0.0532976718,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-01-10",
+        "rw_index_price": 5.9581947007,
+        "rw_market_cap_7d": -0.1858964118,
+        "rw_market_cap_30d": -0.1855844345,
+        "rw_market_cap_90d": 0.6138479912,
+        "rw_market_cap_180d": 0.0282295156,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-01-11",
+        "rw_index_price": 5.5191571317,
+        "rw_market_cap_7d": -0.2209169844,
+        "rw_market_cap_30d": -0.2904424786,
+        "rw_market_cap_90d": 0.3788221946,
+        "rw_market_cap_180d": -0.1058343237,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-01-12",
+        "rw_index_price": 5.878117142,
+        "rw_market_cap_7d": -0.214722877,
+        "rw_market_cap_30d": -0.2596467761,
+        "rw_market_cap_90d": 0.424267827,
+        "rw_market_cap_180d": 0.0447690974,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-01-13",
+        "rw_index_price": 6.2074057409,
+        "rw_market_cap_7d": -0.0788211184,
+        "rw_market_cap_30d": -0.0966606354,
+        "rw_market_cap_90d": 0.2512006395,
+        "rw_market_cap_180d": 0.3293314983,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-01-14",
+        "rw_index_price": 5.7497673124,
+        "rw_market_cap_7d": -0.1310748616,
+        "rw_market_cap_30d": -0.1716977901,
+        "rw_market_cap_90d": 0.2509485924,
+        "rw_market_cap_180d": 0.2582138235,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-01-15",
+        "rw_index_price": 5.8217794367,
+        "rw_market_cap_7d": -0.046112852,
+        "rw_market_cap_30d": -0.2063474987,
+        "rw_market_cap_90d": 0.3183209274,
+        "rw_market_cap_180d": 0.2871064566,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-01-16",
+        "rw_index_price": 6.0407287921,
+        "rw_market_cap_7d": 0.0297159956,
+        "rw_market_cap_30d": -0.1658128857,
+        "rw_market_cap_90d": 0.4020028284,
+        "rw_market_cap_180d": 0.5682825054,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-01-17",
+        "rw_index_price": 6.0242929375,
+        "rw_market_cap_7d": 0.0110936685,
+        "rw_market_cap_30d": -0.1585597317,
+        "rw_market_cap_90d": 0.4105903734,
+        "rw_market_cap_180d": 0.6927086606,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-01-18",
+        "rw_index_price": 5.58096307,
+        "rw_market_cap_7d": 0.0111984379,
+        "rw_market_cap_30d": -0.2219524517,
+        "rw_market_cap_90d": 0.3659488904,
+        "rw_market_cap_180d": 0.32966049,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-01-19",
+        "rw_index_price": 5.4633245101,
+        "rw_market_cap_7d": -0.0705655607,
+        "rw_market_cap_30d": -0.2120277784,
+        "rw_market_cap_90d": 0.217203243,
+        "rw_market_cap_180d": 0.1260302165,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-01-20",
+        "rw_index_price": 5.3773745553,
+        "rw_market_cap_7d": -0.133716277,
+        "rw_market_cap_30d": -0.2134970331,
+        "rw_market_cap_90d": 0.3634943196,
+        "rw_market_cap_180d": -0.148954209,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-01-21",
+        "rw_index_price": 5.1055276831,
+        "rw_market_cap_7d": -0.1120462089,
+        "rw_market_cap_30d": -0.2902305372,
+        "rw_market_cap_90d": 0.2822998658,
+        "rw_market_cap_180d": -0.4169101153,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-01-22",
+        "rw_index_price": 4.2089463876,
+        "rw_market_cap_7d": -0.2770343787,
+        "rw_market_cap_30d": -0.4353893433,
+        "rw_market_cap_90d": 0.0597603811,
+        "rw_market_cap_180d": -0.5754606428,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-01-23",
+        "rw_index_price": 3.7411857644,
+        "rw_market_cap_7d": -0.3806731119,
+        "rw_market_cap_30d": -0.5570670703,
+        "rw_market_cap_90d": -0.044710057,
+        "rw_market_cap_180d": -0.5162227297,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-01-24",
+        "rw_index_price": 3.7389336114,
+        "rw_market_cap_7d": -0.3793572706,
+        "rw_market_cap_30d": -0.5281884036,
+        "rw_market_cap_90d": -0.0988407942,
+        "rw_market_cap_180d": -0.6735558741,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-01-25",
+        "rw_index_price": 3.5550236508,
+        "rw_market_cap_7d": -0.3630089276,
+        "rw_market_cap_30d": -0.5763896272,
+        "rw_market_cap_90d": -0.0909929694,
+        "rw_market_cap_180d": -0.6899698566,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-01-26",
+        "rw_index_price": 3.6046266275,
+        "rw_market_cap_7d": -0.3402137067,
+        "rw_market_cap_30d": -0.5823842054,
+        "rw_market_cap_90d": 0.1480108164,
+        "rw_market_cap_180d": -0.7176574938,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-01-27",
+        "rw_index_price": 3.6385081609,
+        "rw_market_cap_7d": -0.3233671705,
+        "rw_market_cap_30d": -0.5636025139,
+        "rw_market_cap_90d": 0.1692387151,
+        "rw_market_cap_180d": -0.7154330001,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-01-28",
+        "rw_index_price": 2.0097776488,
+        "rw_market_cap_7d": -0.6063526097,
+        "rw_market_cap_30d": -0.7303725716,
+        "rw_market_cap_90d": -0.3748498891,
+        "rw_market_cap_180d": -0.8306568515,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-01-29",
+        "rw_index_price": 1.9955839302,
+        "rw_market_cap_7d": -0.5258709077,
+        "rw_market_cap_30d": -0.720762833,
+        "rw_market_cap_90d": -0.6007266983,
+        "rw_market_cap_180d": -0.8022604761,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-01-30",
+        "rw_index_price": 1.8575126772,
+        "rw_market_cap_7d": -0.5034962725,
+        "rw_market_cap_30d": -0.7452301702,
+        "rw_market_cap_90d": -0.5239761777,
+        "rw_market_cap_180d": -0.8324184072,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-01-31",
+        "rw_index_price": 1.9222987368,
+        "rw_market_cap_7d": -0.4858697863,
+        "rw_market_cap_30d": -0.7313168572,
+        "rw_market_cap_90d": -0.5079719965,
+        "rw_market_cap_180d": -0.815355441,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-02-01",
+        "rw_index_price": 1.9614466146,
+        "rw_market_cap_7d": -0.4482606004,
+        "rw_market_cap_30d": -0.7397494204,
+        "rw_market_cap_90d": -0.5106574182,
+        "rw_market_cap_180d": -0.8200212132,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-02-02",
+        "rw_index_price": 2.0758415431,
+        "rw_market_cap_7d": -0.4241174586,
+        "rw_market_cap_30d": -0.7163654205,
+        "rw_market_cap_90d": -0.4762578551,
+        "rw_market_cap_180d": -0.808594678,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-02-03",
+        "rw_index_price": 2.05677409,
+        "rw_market_cap_7d": -0.4347204956,
+        "rw_market_cap_30d": -0.7096662185,
+        "rw_market_cap_90d": -0.504828121,
+        "rw_market_cap_180d": -0.8170863215,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-02-04",
+        "rw_index_price": 1.9604949072,
+        "rw_market_cap_7d": -0.0245214895,
+        "rw_market_cap_30d": -0.738090997,
+        "rw_market_cap_90d": -0.4612985457,
+        "rw_market_cap_180d": -0.8170393619,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-02-05",
+        "rw_index_price": 2.1200450193,
+        "rw_market_cap_7d": 0.0623682558,
+        "rw_market_cap_30d": -0.6853853637,
+        "rw_market_cap_90d": -0.4242731301,
+        "rw_market_cap_180d": -0.789238594,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-02-06",
+        "rw_index_price": 2.4912288204,
+        "rw_market_cap_7d": 0.3411638322,
+        "rw_market_cap_30d": -0.6235167043,
+        "rw_market_cap_90d": -0.4360203278,
+        "rw_market_cap_180d": -0.7558541986,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-02-07",
+        "rw_index_price": 2.6894201105,
+        "rw_market_cap_7d": 0.3990645985,
+        "rw_market_cap_30d": -0.5593437871,
+        "rw_market_cap_90d": -0.3311914256,
+        "rw_market_cap_180d": -0.7834950632,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-02-08",
+        "rw_index_price": 2.853572936,
+        "rw_market_cap_7d": 0.4548307942,
+        "rw_market_cap_30d": -0.5135736435,
+        "rw_market_cap_90d": -0.0737184404,
+        "rw_market_cap_180d": -0.7438405579,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-02-09",
+        "rw_index_price": 2.70234863,
+        "rw_market_cap_7d": 0.3018087238,
+        "rw_market_cap_30d": -0.5464484184,
+        "rw_market_cap_90d": 0.1917368262,
+        "rw_market_cap_180d": -0.7450856901,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-02-10",
+        "rw_index_price": 2.6268637036,
+        "rw_market_cap_7d": 0.2771765827,
+        "rw_market_cap_30d": -0.5240462192,
+        "rw_market_cap_90d": 0.1394895339,
+        "rw_market_cap_180d": -0.7659960677,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-02-11",
+        "rw_index_price": 2.5494200797,
+        "rw_market_cap_7d": 0.3003961757,
+        "rw_market_cap_30d": -0.5662862753,
+        "rw_market_cap_90d": 0.0887051563,
+        "rw_market_cap_180d": -0.7650023475,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-02-12",
+        "rw_index_price": 2.3234784946,
+        "rw_market_cap_7d": 0.0959571488,
+        "rw_market_cap_30d": -0.6256925048,
+        "rw_market_cap_90d": 0.0475672634,
+        "rw_market_cap_180d": -0.7891673582,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-02-13",
+        "rw_index_price": 2.3125814134,
+        "rw_market_cap_7d": -0.0717105573,
+        "rw_market_cap_30d": -0.5977956519,
+        "rw_market_cap_90d": 0.1423954133,
+        "rw_market_cap_180d": -0.7813902171,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-02-14",
+        "rw_index_price": 2.1611874849,
+        "rw_market_cap_7d": -0.1964113466,
+        "rw_market_cap_30d": -0.6287754443,
+        "rw_market_cap_90d": -0.7263621192,
+        "rw_market_cap_180d": -0.7893073224,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-02-15",
+        "rw_index_price": 2.2167323034,
+        "rw_market_cap_7d": -0.22317307,
+        "rw_market_cap_30d": -0.6330356188,
+        "rw_market_cap_90d": -0.6895156933,
+        "rw_market_cap_180d": -0.7737513271,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-02-16",
+        "rw_index_price": 2.6108613836,
+        "rw_market_cap_7d": -0.0338547164,
+        "rw_market_cap_30d": -0.5666111508,
+        "rw_market_cap_90d": -0.6815936421,
+        "rw_market_cap_180d": -0.7232486785,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-02-17",
+        "rw_index_price": 1.8744616348,
+        "rw_market_cap_7d": -0.2864260021,
+        "rw_market_cap_30d": -0.6641329442,
+        "rw_market_cap_90d": -0.8100356978,
+        "rw_market_cap_180d": -0.809932817,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-02-18",
+        "rw_index_price": 1.6518553733,
+        "rw_market_cap_7d": -0.3520662262,
+        "rw_market_cap_30d": -0.6976464842,
+        "rw_market_cap_90d": -0.8277555826,
+        "rw_market_cap_180d": -0.8774231337,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-02-19",
+        "rw_index_price": 1.7032616295,
+        "rw_market_cap_7d": -0.2669346269,
+        "rw_market_cap_30d": -0.6832540468,
+        "rw_market_cap_90d": -0.8509799932,
+        "rw_market_cap_180d": -0.8648785189,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-02-20",
+        "rw_index_price": 1.728426393,
+        "rw_market_cap_7d": -0.2525986834,
+        "rw_market_cap_30d": -0.6614597941,
+        "rw_market_cap_90d": -0.8338328136,
+        "rw_market_cap_180d": -0.8703270446,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-02-21",
+        "rw_index_price": 1.6088674225,
+        "rw_market_cap_7d": -0.2555632338,
+        "rw_market_cap_30d": -0.6177505546,
+        "rw_market_cap_90d": -0.849438523,
+        "rw_market_cap_180d": -0.8699453986,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-02-22",
+        "rw_index_price": 1.3759830597,
+        "rw_market_cap_7d": -0.3792741426,
+        "rw_market_cap_30d": -0.6322066996,
+        "rw_market_cap_90d": -0.8948295339,
+        "rw_market_cap_180d": -0.91313388,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-02-23",
+        "rw_index_price": 1.4076601381,
+        "rw_market_cap_7d": -0.4608445523,
+        "rw_market_cap_30d": -0.6235129359,
+        "rw_market_cap_90d": -0.9057966591,
+        "rw_market_cap_180d": -0.906683977,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-02-24",
+        "rw_index_price": 1.5124591368,
+        "rw_market_cap_7d": -0.1931234501,
+        "rw_market_cap_30d": -0.5745572223,
+        "rw_market_cap_90d": -0.8839282157,
+        "rw_market_cap_180d": -0.902304133,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-02-25",
+        "rw_index_price": 1.4619836824,
+        "rw_market_cap_7d": -0.1149445006,
+        "rw_market_cap_30d": -0.5944146694,
+        "rw_market_cap_90d": -0.8665507853,
+        "rw_market_cap_180d": -0.9085542675,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-02-26",
+        "rw_index_price": 1.5156773845,
+        "rw_market_cap_7d": -0.1101323729,
+        "rw_market_cap_30d": -0.5834343864,
+        "rw_market_cap_90d": -0.8551123027,
+        "rw_market_cap_180d": -0.9034204579,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-02-27",
+        "rw_index_price": 1.4811569419,
+        "rw_market_cap_7d": -0.1430604463,
+        "rw_market_cap_30d": -0.263024473,
+        "rw_market_cap_90d": -0.8726307305,
+        "rw_market_cap_180d": -0.8999801577,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-02-28",
+        "rw_index_price": 1.3950835452,
+        "rw_market_cap_7d": -0.1328784922,
+        "rw_market_cap_30d": -0.3009146225,
+        "rw_market_cap_90d": -0.8720005125,
+        "rw_market_cap_180d": -0.8988197199,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-03-01",
+        "rw_index_price": 1.5582188624,
+        "rw_market_cap_7d": 0.1324404407,
+        "rw_market_cap_30d": -0.1611261223,
+        "rw_market_cap_90d": -0.8876300051,
+        "rw_market_cap_180d": -0.8884281923,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-03-02",
+        "rw_index_price": 1.6946728895,
+        "rw_market_cap_7d": 0.2038934992,
+        "rw_market_cap_30d": -0.1184133574,
+        "rw_market_cap_90d": -0.8721679789,
+        "rw_market_cap_180d": -0.8764667172,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-03-03",
+        "rw_index_price": 1.5807375036,
+        "rw_market_cap_7d": 0.0451439415,
+        "rw_market_cap_30d": -0.1940960861,
+        "rw_market_cap_90d": -0.8723752293,
+        "rw_market_cap_180d": -0.8842531291,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-03-04",
+        "rw_index_price": 1.4803698755,
+        "rw_market_cap_7d": 0.0125761958,
+        "rw_market_cap_30d": -0.2868579587,
+        "rw_market_cap_90d": -0.8683501276,
+        "rw_market_cap_180d": -0.8944204044,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-03-05",
+        "rw_index_price": 1.3262329439,
+        "rw_market_cap_7d": -0.12498995,
+        "rw_market_cap_30d": -0.3551878399,
+        "rw_market_cap_90d": -0.8612976394,
+        "rw_market_cap_180d": -0.9066403066,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-03-06",
+        "rw_index_price": 1.3784383091,
+        "rw_market_cap_7d": -0.0693502693,
+        "rw_market_cap_30d": -0.2968926856,
+        "rw_market_cap_90d": -0.8587910351,
+        "rw_market_cap_180d": -0.89912731,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-03-07",
+        "rw_index_price": 1.2722790278,
+        "rw_market_cap_7d": -0.0880266403,
+        "rw_market_cap_30d": -0.399881127,
+        "rw_market_cap_90d": -0.8514917646,
+        "rw_market_cap_180d": -0.8756315049,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-03-08",
+        "rw_index_price": 1.2006837243,
+        "rw_market_cap_7d": -0.2294511681,
+        "rw_market_cap_30d": -0.5180355516,
+        "rw_market_cap_90d": -0.8531234534,
+        "rw_market_cap_180d": -0.883326461,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-03-09",
+        "rw_index_price": 0.9296677083,
+        "rw_market_cap_7d": -0.4514176075,
+        "rw_market_cap_30d": -0.6543241033,
+        "rw_market_cap_90d": -0.8897000505,
+        "rw_market_cap_180d": -0.9067619023,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-03-10",
+        "rw_index_price": 0.9672820975,
+        "rw_market_cap_7d": -0.3880817686,
+        "rw_market_cap_30d": -0.6610277294,
+        "rw_market_cap_90d": -0.8729839739,
+        "rw_market_cap_180d": -0.8961233023,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-03-11",
+        "rw_index_price": 0.793950475,
+        "rw_market_cap_7d": -0.463681011,
+        "rw_market_cap_30d": -0.7061998344,
+        "rw_market_cap_90d": -0.8914762512,
+        "rw_market_cap_180d": -0.9170703253,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-03-12",
+        "rw_index_price": 0.7612890705,
+        "rw_market_cap_7d": -0.4259763536,
+        "rw_market_cap_30d": -0.7101908754,
+        "rw_market_cap_90d": -0.9021266521,
+        "rw_market_cap_180d": -0.9227504874,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-03-13",
+        "rw_index_price": 0.8815153499,
+        "rw_market_cap_7d": -0.360497061,
+        "rw_market_cap_30d": -0.6542290708,
+        "rw_market_cap_90d": -0.8889724863,
+        "rw_market_cap_180d": -0.901763521,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-03-14",
+        "rw_index_price": 0.7946482581,
+        "rw_market_cap_7d": -0.3754135369,
+        "rw_market_cap_30d": -0.6579919892,
+        "rw_market_cap_90d": -0.8843579617,
+        "rw_market_cap_180d": -0.9133378033,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-03-15",
+        "rw_index_price": 0.783524628,
+        "rw_market_cap_7d": -0.3474346223,
+        "rw_market_cap_30d": -0.6611904673,
+        "rw_market_cap_90d": -0.8871267052,
+        "rw_market_cap_180d": -0.9204795675,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-03-16",
+        "rw_index_price": 0.8190912261,
+        "rw_market_cap_7d": -0.1189419415,
+        "rw_market_cap_30d": -0.6209994589,
+        "rw_market_cap_90d": -0.888337611,
+        "rw_market_cap_180d": -0.9236941769,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-03-17",
+        "rw_index_price": 0.9440536761,
+        "rw_market_cap_7d": -0.0240141127,
+        "rw_market_cap_30d": -0.574123734,
+        "rw_market_cap_90d": -0.8696320529,
+        "rw_market_cap_180d": -0.9046168938,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-03-18",
+        "rw_index_price": 0.9379259122,
+        "rw_market_cap_7d": 0.1813405769,
+        "rw_market_cap_30d": -0.6407599737,
+        "rw_market_cap_90d": -0.8689956416,
+        "rw_market_cap_180d": -0.9046115411,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-03-19",
+        "rw_index_price": 0.9267988306,
+        "rw_market_cap_7d": 0.2174072458,
+        "rw_market_cap_30d": -0.5055653243,
+        "rw_market_cap_90d": -0.8707940639,
+        "rw_market_cap_180d": -0.9002960315,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-03-20",
+        "rw_index_price": 0.9542625976,
+        "rw_market_cap_7d": 0.0825252194,
+        "rw_market_cap_30d": -0.4223086276,
+        "rw_market_cap_90d": -0.8623672422,
+        "rw_market_cap_180d": -0.8740407196,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-03-21",
+        "rw_index_price": 0.921097757,
+        "rw_market_cap_7d": 0.1591263778,
+        "rw_market_cap_30d": -0.4592153425,
+        "rw_market_cap_90d": -0.8652788436,
+        "rw_market_cap_180d": -0.834506394,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-03-22",
+        "rw_index_price": 0.9331031393,
+        "rw_market_cap_7d": 0.1909046709,
+        "rw_market_cap_30d": -0.4601429699,
+        "rw_market_cap_90d": -0.8702801835,
+        "rw_market_cap_180d": -0.8620895346,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-03-23",
+        "rw_index_price": 0.9963332557,
+        "rw_market_cap_7d": 0.2163886316,
+        "rw_market_cap_30d": -0.3807238299,
+        "rw_market_cap_90d": -0.86634651,
+        "rw_market_cap_180d": -0.8527489422,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-03-24",
+        "rw_index_price": 1.0221501673,
+        "rw_market_cap_7d": 0.0827246301,
+        "rw_market_cap_30d": -0.2571491632,
+        "rw_market_cap_90d": -0.8789838311,
+        "rw_market_cap_180d": -0.8285543795,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-03-25",
+        "rw_index_price": 1.0303897419,
+        "rw_market_cap_7d": 0.098583298,
+        "rw_market_cap_30d": -0.2680124172,
+        "rw_market_cap_90d": -0.869976341,
+        "rw_market_cap_180d": -0.8192372897,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-03-26",
+        "rw_index_price": 0.8774496247,
+        "rw_market_cap_7d": -0.0532469445,
+        "rw_market_cap_30d": -0.4198523429,
+        "rw_market_cap_90d": -0.8954446442,
+        "rw_market_cap_180d": -0.8463725014,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-03-27",
+        "rw_index_price": 0.9081900233,
+        "rw_market_cap_7d": -0.0482808132,
+        "rw_market_cap_30d": -0.3787960603,
+        "rw_market_cap_90d": -0.8947811972,
+        "rw_market_cap_180d": -0.8331726964,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-03-28",
+        "rw_index_price": 0.8767312049,
+        "rw_market_cap_7d": -0.0481670396,
+        "rw_market_cap_30d": -0.4215581668,
+        "rw_market_cap_90d": -0.8948461081,
+        "rw_market_cap_180d": -0.8501022932,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-03-29",
+        "rw_index_price": 0.9091456573,
+        "rw_market_cap_7d": -0.0256750632,
+        "rw_market_cap_30d": -0.386192218,
+        "rw_market_cap_90d": -0.8780309823,
+        "rw_market_cap_180d": -0.8482671049,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-03-30",
+        "rw_index_price": 0.9623950889,
+        "rw_market_cap_7d": -0.0340630674,
+        "rw_market_cap_30d": -0.3101523617,
+        "rw_market_cap_90d": -0.8653344146,
+        "rw_market_cap_180d": -0.8579870916,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-03-31",
+        "rw_index_price": 1.1252574912,
+        "rw_market_cap_7d": 0.1008729708,
+        "rw_market_cap_30d": -0.2778565846,
+        "rw_market_cap_90d": -0.8456636862,
+        "rw_market_cap_180d": -0.8628085359,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-04-01",
+        "rw_index_price": 1.0043670473,
+        "rw_market_cap_7d": -0.0252551957,
+        "rw_market_cap_30d": -0.4073386944,
+        "rw_market_cap_90d": -0.8596178161,
+        "rw_market_cap_180d": -0.8532712597,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-04-02",
+        "rw_index_price": 1.4369998708,
+        "rw_market_cap_7d": 0.6377007071,
+        "rw_market_cap_30d": -0.0909307411,
+        "rw_market_cap_90d": -0.8093345766,
+        "rw_market_cap_180d": -0.8063730319,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-04-03",
+        "rw_index_price": 1.3293423251,
+        "rw_market_cap_7d": 0.4637270737,
+        "rw_market_cap_30d": -0.1020201457,
+        "rw_market_cap_90d": -0.8183640497,
+        "rw_market_cap_180d": -0.8165503207,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-04-04",
+        "rw_index_price": 1.5777285861,
+        "rw_market_cap_7d": 0.7995579231,
+        "rw_market_cap_30d": 0.1896315751,
+        "rw_market_cap_90d": -0.7772881773,
+        "rw_market_cap_180d": -0.7563677324,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-04-05",
+        "rw_index_price": 1.4450653589,
+        "rw_market_cap_7d": 0.5894761717,
+        "rw_market_cap_30d": 0.0483351698,
+        "rw_market_cap_90d": -0.8069489362,
+        "rw_market_cap_180d": -0.7748019907,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-04-06",
+        "rw_index_price": 1.3273149314,
+        "rw_market_cap_7d": 0.3791788287,
+        "rw_market_cap_30d": 0.0432577307,
+        "rw_market_cap_90d": -0.8030264921,
+        "rw_market_cap_180d": -0.7755557173,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-04-07",
+        "rw_index_price": 1.1115411364,
+        "rw_market_cap_7d": -0.0121895255,
+        "rw_market_cap_30d": -0.0742431884,
+        "rw_market_cap_90d": -0.8320199787,
+        "rw_market_cap_180d": -0.7743080251,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-04-08",
+        "rw_index_price": 1.1913893609,
+        "rw_market_cap_7d": 0.1862091295,
+        "rw_market_cap_30d": 0.2815217204,
+        "rw_market_cap_90d": -0.8047931887,
+        "rw_market_cap_180d": -0.7195592218,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-04-09",
+        "rw_index_price": 1.0882474116,
+        "rw_market_cap_7d": -0.2426948438,
+        "rw_market_cap_30d": 0.1250569141,
+        "rw_market_cap_90d": -0.8144949384,
+        "rw_market_cap_180d": -0.7257130854,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-04-10",
+        "rw_index_price": 1.122655955,
+        "rw_market_cap_7d": -0.1554801696,
+        "rw_market_cap_30d": 0.4140125742,
+        "rw_market_cap_90d": -0.8115778333,
+        "rw_market_cap_180d": -0.6959152648,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-04-11",
+        "rw_index_price": 1.060939986,
+        "rw_market_cap_7d": -0.3275522828,
+        "rw_market_cap_30d": 0.3936099008,
+        "rw_market_cap_90d": -0.8077713751,
+        "rw_market_cap_180d": -0.7349509055,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-04-12",
+        "rw_index_price": 0.9220003931,
+        "rw_market_cap_7d": -0.3619663032,
+        "rw_market_cap_30d": 0.0459266457,
+        "rw_market_cap_90d": -0.8431469855,
+        "rw_market_cap_180d": -0.7765992979,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-04-13",
+        "rw_index_price": 0.969990567,
+        "rw_market_cap_7d": -0.2692084267,
+        "rw_market_cap_30d": 0.2206539902,
+        "rw_market_cap_90d": -0.8437365612,
+        "rw_market_cap_180d": -0.8044830855,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-04-14",
+        "rw_index_price": 0.9746863498,
+        "rw_market_cap_7d": -0.123121657,
+        "rw_market_cap_30d": 0.24397666,
+        "rw_market_cap_90d": -0.8304824705,
+        "rw_market_cap_180d": -0.7879422851,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-04-15",
+        "rw_index_price": 1.0329460159,
+        "rw_market_cap_7d": -0.1329903978,
+        "rw_market_cap_30d": 0.2610878776,
+        "rw_market_cap_90d": -0.8225721144,
+        "rw_market_cap_180d": -0.7660931053,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-04-16",
+        "rw_index_price": 1.0392195542,
+        "rw_market_cap_7d": -0.0450521241,
+        "rw_market_cap_30d": 0.1008055797,
+        "rw_market_cap_90d": -0.8279645404,
+        "rw_market_cap_180d": -0.758805799,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-04-17",
+        "rw_index_price": 1.0633006926,
+        "rw_market_cap_7d": -0.0528703938,
+        "rw_market_cap_30d": 0.1336723709,
+        "rw_market_cap_90d": -0.8234978439,
+        "rw_market_cap_180d": -0.7510277577,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-04-18",
+        "rw_index_price": 0.9868482999,
+        "rw_market_cap_7d": -0.0698358881,
+        "rw_market_cap_30d": 0.0647923447,
+        "rw_market_cap_90d": -0.8231759846,
+        "rw_market_cap_180d": -0.7584674323,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-04-19",
+        "rw_index_price": 1.048882595,
+        "rw_market_cap_7d": 0.1376162123,
+        "rw_market_cap_30d": 0.0991550938,
+        "rw_market_cap_90d": -0.808013858,
+        "rw_market_cap_180d": -0.7663138454,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-04-20",
+        "rw_index_price": 1.0397603282,
+        "rw_market_cap_7d": 0.0719282884,
+        "rw_market_cap_30d": 0.1288273371,
+        "rw_market_cap_90d": -0.8066416394,
+        "rw_market_cap_180d": -0.7363569737,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-04-21",
+        "rw_index_price": 1.0288929796,
+        "rw_market_cap_7d": 0.0556144341,
+        "rw_market_cap_30d": 0.1026572908,
+        "rw_market_cap_90d": -0.7984747036,
+        "rw_market_cap_180d": -0.7415841395,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-04-22",
+        "rw_index_price": 0.9837135266,
+        "rw_market_cap_7d": -0.0476622094,
+        "rw_market_cap_30d": -0.0126661727,
+        "rw_market_cap_90d": -0.7662803381,
+        "rw_market_cap_180d": -0.7523131621,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-04-23",
+        "rw_index_price": 0.9896172956,
+        "rw_market_cap_7d": -0.0477302976,
+        "rw_market_cap_30d": -0.0318278789,
+        "rw_market_cap_90d": -0.7354803108,
+        "rw_market_cap_180d": -0.7473070012,
+        "rw_market_cap_365d": null,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-04-24",
+        "rw_index_price": 0.9491896978,
+        "rw_market_cap_7d": -0.1073177094,
+        "rw_market_cap_30d": -0.0788051751,
+        "rw_market_cap_90d": -0.7461335781,
+        "rw_market_cap_180d": -0.7712259368,
+        "rw_market_cap_365d": -0.8739647446,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-04-25",
+        "rw_index_price": 0.9291704131,
+        "rw_market_cap_7d": -0.0584465584,
+        "rw_market_cap_30d": 0.0589444532,
+        "rw_market_cap_90d": -0.7386317211,
+        "rw_market_cap_180d": -0.7624143969,
+        "rw_market_cap_365d": -0.8350173319,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-04-26",
+        "rw_index_price": 0.9543082938,
+        "rw_market_cap_7d": -0.090166718,
+        "rw_market_cap_30d": 0.0507804196,
+        "rw_market_cap_90d": -0.7352546068,
+        "rw_market_cap_180d": -0.696069425,
+        "rw_market_cap_365d": -0.853088365,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-04-27",
+        "rw_index_price": 0.8833375243,
+        "rw_market_cap_7d": -0.1504412119,
+        "rw_market_cap_30d": 0.0075351709,
+        "rw_market_cap_90d": -0.7572253558,
+        "rw_market_cap_180d": -0.7161384869,
+        "rw_market_cap_365d": -0.877572482,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-04-28",
+        "rw_index_price": 0.9677604534,
+        "rw_market_cap_7d": -0.059415826,
+        "rw_market_cap_30d": 0.064472393,
+        "rw_market_cap_90d": -0.51847387,
+        "rw_market_cap_180d": -0.6989738864,
+        "rw_market_cap_365d": -0.8865547151,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-04-29",
+        "rw_index_price": 1.1545934002,
+        "rw_market_cap_7d": 0.1737089803,
+        "rw_market_cap_30d": 0.1997083251,
+        "rw_market_cap_90d": -0.4214257879,
+        "rw_market_cap_180d": -0.768990764,
+        "rw_market_cap_365d": -0.898145993,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-04-30",
+        "rw_index_price": 0.9465277138,
+        "rw_market_cap_7d": -0.043541662,
+        "rw_market_cap_30d": -0.1588345591,
+        "rw_market_cap_90d": -0.4904327031,
+        "rw_market_cap_180d": -0.7574338276,
+        "rw_market_cap_365d": -0.9200947721,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-05-01",
+        "rw_index_price": 0.83235601,
+        "rw_market_cap_7d": -0.123087817,
+        "rw_market_cap_30d": -0.1712631232,
+        "rw_market_cap_90d": -0.5669996583,
+        "rw_market_cap_180d": -0.7869517064,
+        "rw_market_cap_365d": -0.9470962829,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-05-02",
+        "rw_index_price": 0.8857915203,
+        "rw_market_cap_7d": -0.0466856157,
+        "rw_market_cap_30d": -0.3835827419,
+        "rw_market_cap_90d": -0.5483988635,
+        "rw_market_cap_180d": -0.7790123339,
+        "rw_market_cap_365d": -0.9456092477,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-05-03",
+        "rw_index_price": 0.8261912798,
+        "rw_market_cap_7d": -0.1342511795,
+        "rw_market_cap_30d": -0.3784962202,
+        "rw_market_cap_90d": -0.6019969431,
+        "rw_market_cap_180d": -0.7915490253,
+        "rw_market_cap_365d": -0.9453258487,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-05-04",
+        "rw_index_price": 0.8109173063,
+        "rw_market_cap_7d": -0.0819847635,
+        "rw_market_cap_30d": -0.4860223023,
+        "rw_market_cap_90d": -0.6057334103,
+        "rw_market_cap_180d": -0.804770272,
+        "rw_market_cap_365d": -0.9415889301,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-05-05",
+        "rw_index_price": 0.842493752,
+        "rw_market_cap_7d": -0.1294397812,
+        "rw_market_cap_30d": -0.4169857115,
+        "rw_market_cap_90d": -0.5702647587,
+        "rw_market_cap_180d": -0.7685010006,
+        "rw_market_cap_365d": -0.926931389,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-05-06",
+        "rw_index_price": 0.7263722172,
+        "rw_market_cap_7d": -0.3708848352,
+        "rw_market_cap_30d": -0.4527506622,
+        "rw_market_cap_90d": -0.6573788714,
+        "rw_market_cap_180d": -0.8027438101,
+        "rw_market_cap_365d": -0.9404666992,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-05-07",
+        "rw_index_price": 0.7462940999,
+        "rw_market_cap_7d": -0.2115454318,
+        "rw_market_cap_30d": -0.328595159,
+        "rw_market_cap_90d": -0.7004313318,
+        "rw_market_cap_180d": -0.8310493607,
+        "rw_market_cap_365d": -0.9362890002,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-05-08",
+        "rw_index_price": 0.696098376,
+        "rw_market_cap_7d": -0.1637011475,
+        "rw_market_cap_30d": -0.4157255396,
+        "rw_market_cap_90d": -0.7411715733,
+        "rw_market_cap_180d": -0.8268933289,
+        "rw_market_cap_365d": -0.9379423977,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-05-09",
+        "rw_index_price": 0.7207688524,
+        "rw_market_cap_7d": -0.1862996699,
+        "rw_market_cap_30d": -0.3376792403,
+        "rw_market_cap_90d": -0.747415304,
+        "rw_market_cap_180d": -0.7660354539,
+        "rw_market_cap_365d": -0.940434714,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-05-10",
+        "rw_index_price": 0.5720190737,
+        "rw_market_cap_7d": -0.3076432931,
+        "rw_market_cap_30d": -0.4904769612,
+        "rw_market_cap_90d": -0.7883252119,
+        "rw_market_cap_180d": -0.7477393598,
+        "rw_market_cap_365d": -0.9512517227,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-05-11",
+        "rw_index_price": 0.5615452638,
+        "rw_market_cap_7d": -0.3075184616,
+        "rw_market_cap_30d": -0.4707096809,
+        "rw_market_cap_90d": -0.7862297678,
+        "rw_market_cap_180d": -0.7564110578,
+        "rw_market_cap_365d": -0.9429683793,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-05-12",
+        "rw_index_price": 0.3814226919,
+        "rw_market_cap_7d": -0.5472694118,
+        "rw_market_cap_30d": -0.5863096212,
+        "rw_market_cap_90d": -0.8503884492,
+        "rw_market_cap_180d": -0.8371171332,
+        "rw_market_cap_365d": -0.9657133764,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-05-13",
+        "rw_index_price": 0.3241994892,
+        "rw_market_cap_7d": -0.5536730597,
+        "rw_market_cap_30d": -0.6657704721,
+        "rw_market_cap_90d": -0.8604680482,
+        "rw_market_cap_180d": -0.8538308951,
+        "rw_market_cap_365d": -0.9634525076,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-05-14",
+        "rw_index_price": 0.3645763832,
+        "rw_market_cap_7d": -0.5114843018,
+        "rw_market_cap_30d": -0.625955177,
+        "rw_market_cap_90d": -0.842350898,
+        "rw_market_cap_180d": -0.8199023889,
+        "rw_market_cap_365d": -0.959029231,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-05-15",
+        "rw_index_price": 0.3813894788,
+        "rw_market_cap_7d": -0.4521040532,
+        "rw_market_cap_30d": -0.6307750135,
+        "rw_market_cap_90d": -0.8235278145,
+        "rw_market_cap_180d": -0.9517105251,
+        "rw_market_cap_365d": -0.9594701788,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-05-16",
+        "rw_index_price": 0.3879538626,
+        "rw_market_cap_7d": -0.4617499615,
+        "rw_market_cap_30d": -0.6266872953,
+        "rw_market_cap_90d": -0.8249884021,
+        "rw_market_cap_180d": -0.9456616454,
+        "rw_market_cap_365d": -0.9538480476,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-05-17",
+        "rw_index_price": 0.3604820993,
+        "rw_market_cap_7d": -0.3698075539,
+        "rw_market_cap_30d": -0.6609782145,
+        "rw_market_cap_90d": -0.8619298207,
+        "rw_market_cap_180d": -0.9560375771,
+        "rw_market_cap_365d": -0.96162872,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-05-18",
+        "rw_index_price": 0.4327204103,
+        "rw_market_cap_7d": -0.2294113437,
+        "rw_market_cap_30d": -0.5615127368,
+        "rw_market_cap_90d": -0.7691494975,
+        "rw_market_cap_180d": -0.9561466454,
+        "rw_market_cap_365d": -0.9621046102,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-05-19",
+        "rw_index_price": 0.2020842241,
+        "rw_market_cap_7d": -0.470183006,
+        "rw_market_cap_30d": -0.8073337998,
+        "rw_market_cap_90d": -0.8776622776,
+        "rw_market_cap_180d": -0.9789280103,
+        "rw_market_cap_365d": -0.9797230565,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-05-20",
+        "rw_index_price": 0.4526102514,
+        "rw_market_cap_7d": 0.39608564,
+        "rw_market_cap_30d": -0.5646975181,
+        "rw_market_cap_90d": -0.7342685095,
+        "rw_market_cap_180d": -0.9604006915,
+        "rw_market_cap_365d": -0.921469044,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-05-21",
+        "rw_index_price": 0.4151412965,
+        "rw_market_cap_7d": 0.1386949774,
+        "rw_market_cap_30d": -0.5965165428,
+        "rw_market_cap_90d": -0.759815461,
+        "rw_market_cap_180d": -0.9600892109,
+        "rw_market_cap_365d": -0.9326550562,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-05-22",
+        "rw_index_price": 0.4314313654,
+        "rw_market_cap_7d": 0.1312094052,
+        "rw_market_cap_30d": -0.5614258077,
+        "rw_market_cap_90d": -0.7318415679,
+        "rw_market_cap_180d": -0.9596256704,
+        "rw_market_cap_365d": -0.9175386692,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-05-23",
+        "rw_index_price": 0.4394547132,
+        "rw_market_cap_7d": 0.1327499365,
+        "rw_market_cap_30d": -0.555934688,
+        "rw_market_cap_90d": -0.6806249103,
+        "rw_market_cap_180d": -0.9664111729,
+        "rw_market_cap_365d": -0.9146323871,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-05-24",
+        "rw_index_price": 0.3831465339,
+        "rw_market_cap_7d": 0.0628725661,
+        "rw_market_cap_30d": -0.5963435604,
+        "rw_market_cap_90d": -0.727813182,
+        "rw_market_cap_180d": -0.9743590924,
+        "rw_market_cap_365d": -0.9118534807,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-05-25",
+        "rw_index_price": 0.381085609,
+        "rw_market_cap_7d": -0.1193260128,
+        "rw_market_cap_30d": -0.5898646753,
+        "rw_market_cap_90d": -0.7480357652,
+        "rw_market_cap_180d": -0.9707540617,
+        "rw_market_cap_365d": -0.9255082816,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-05-26",
+        "rw_index_price": 0.3706759608,
+        "rw_market_cap_7d": 0.834264711,
+        "rw_market_cap_30d": -0.6115762975,
+        "rw_market_cap_90d": -0.7464568413,
+        "rw_market_cap_180d": -0.9661648646,
+        "rw_market_cap_365d": -0.9358506849,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-05-27",
+        "rw_index_price": 0.325768655,
+        "rw_market_cap_7d": -0.2802446388,
+        "rw_market_cap_30d": -0.631207046,
+        "rw_market_cap_90d": -0.7850672852,
+        "rw_market_cap_180d": -0.9688588939,
+        "rw_market_cap_365d": -0.9495447104,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-05-28",
+        "rw_index_price": 0.3171903779,
+        "rw_market_cap_7d": -0.2359459765,
+        "rw_market_cap_30d": -0.6722428812,
+        "rw_market_cap_90d": -0.7858495822,
+        "rw_market_cap_180d": -0.9727238177,
+        "rw_market_cap_365d": -0.952931172,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-05-29",
+        "rw_index_price": 0.3440051924,
+        "rw_market_cap_7d": -0.2026421351,
+        "rw_market_cap_30d": -0.7020551197,
+        "rw_market_cap_90d": -0.7534160635,
+        "rw_market_cap_180d": -0.9684373825,
+        "rw_market_cap_365d": -0.9421512884,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-05-30",
+        "rw_index_price": 0.3470051755,
+        "rw_market_cap_7d": -0.2103732987,
+        "rw_market_cap_30d": -0.6333914259,
+        "rw_market_cap_90d": -0.7773065236,
+        "rw_market_cap_180d": -0.9749759352,
+        "rw_market_cap_365d": -0.9332959587,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-05-31",
+        "rw_index_price": 0.3188039321,
+        "rw_market_cap_7d": -0.1679320994,
+        "rw_market_cap_30d": -0.6169860874,
+        "rw_market_cap_90d": -0.8118787796,
+        "rw_market_cap_180d": -0.9759520842,
+        "rw_market_cap_365d": -0.9480487914,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-06-01",
+        "rw_index_price": 0.3296246029,
+        "rw_market_cap_7d": -0.1350379151,
+        "rw_market_cap_30d": -0.6278756396,
+        "rw_market_cap_90d": -0.7914741681,
+        "rw_market_cap_180d": -0.9733869385,
+        "rw_market_cap_365d": -0.948905246,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-06-02",
+        "rw_index_price": 0.2927453165,
+        "rw_market_cap_7d": -0.2102392725,
+        "rw_market_cap_30d": -0.6456688377,
+        "rw_market_cap_90d": -0.8022485317,
+        "rw_market_cap_180d": -0.9739660444,
+        "rw_market_cap_365d": -0.9495730549,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-06-03",
+        "rw_index_price": 0.3026248929,
+        "rw_market_cap_7d": -0.0710435511,
+        "rw_market_cap_30d": -0.6268116483,
+        "rw_market_cap_90d": -0.7718161849,
+        "rw_market_cap_180d": -0.9683503662,
+        "rw_market_cap_365d": -0.9462196099,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-06-04",
+        "rw_index_price": 0.2940306177,
+        "rw_market_cap_7d": -0.0730153302,
+        "rw_market_cap_30d": -0.6509996459,
+        "rw_market_cap_90d": -0.7866929439,
+        "rw_market_cap_180d": -0.9698791314,
+        "rw_market_cap_365d": -0.951974882,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-06-05",
+        "rw_index_price": 0.3230358788,
+        "rw_market_cap_7d": -0.0609563867,
+        "rw_market_cap_30d": -0.5552750075,
+        "rw_market_cap_90d": -0.7460966724,
+        "rw_market_cap_180d": -0.9622932648,
+        "rw_market_cap_365d": -0.9389880745,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-06-06",
+        "rw_index_price": 0.3031676867,
+        "rw_market_cap_7d": -0.1263309366,
+        "rw_market_cap_30d": -0.5937691498,
+        "rw_market_cap_90d": -0.7475041257,
+        "rw_market_cap_180d": -0.962914278,
+        "rw_market_cap_365d": -0.9405676725,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-06-07",
+        "rw_index_price": 0.3163890901,
+        "rw_market_cap_7d": -0.0075746933,
+        "rw_market_cap_30d": -0.5454822178,
+        "rw_market_cap_90d": -0.6596750783,
+        "rw_market_cap_180d": -0.9624621783,
+        "rw_market_cap_365d": -0.9391712872,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-06-08",
+        "rw_index_price": 0.3180912632,
+        "rw_market_cap_7d": -0.034989317,
+        "rw_market_cap_30d": -0.558677845,
+        "rw_market_cap_90d": -0.6711494361,
+        "rw_market_cap_180d": -0.9582307082,
+        "rw_market_cap_365d": -0.932166103,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-06-09",
+        "rw_index_price": 0.3253055883,
+        "rw_market_cap_7d": 0.1112238864,
+        "rw_market_cap_30d": -0.4313029001,
+        "rw_market_cap_90d": -0.5902696723,
+        "rw_market_cap_180d": -0.9555345288,
+        "rw_market_cap_365d": -0.9268079204,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-06-10",
+        "rw_index_price": 0.3209173637,
+        "rw_market_cap_7d": 0.0604460215,
+        "rw_market_cap_30d": -0.4285102477,
+        "rw_market_cap_90d": -0.578455312,
+        "rw_market_cap_180d": -0.9587420101,
+        "rw_market_cap_365d": -0.9317631778,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-06-11",
+        "rw_index_price": 0.3126876096,
+        "rw_market_cap_7d": 0.063452548,
+        "rw_market_cap_30d": -0.1802071133,
+        "rw_market_cap_90d": -0.6452839878,
+        "rw_market_cap_180d": -0.9606167631,
+        "rw_market_cap_365d": -0.9323063954,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-06-12",
+        "rw_index_price": 0.30216856,
+        "rw_market_cap_7d": -0.0645975269,
+        "rw_market_cap_30d": -0.067954855,
+        "rw_market_cap_90d": -0.6197455202,
+        "rw_market_cap_180d": -0.9560265969,
+        "rw_market_cap_365d": -0.9407110315,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-06-13",
+        "rw_index_price": 0.2981264528,
+        "rw_market_cap_7d": -0.016628533,
+        "rw_market_cap_30d": -0.1822661409,
+        "rw_market_cap_90d": -0.6195059579,
+        "rw_market_cap_180d": -0.9570523838,
+        "rw_market_cap_365d": -0.9324599302,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-06-14",
+        "rw_index_price": 0.258924239,
+        "rw_market_cap_7d": -0.1816271573,
+        "rw_market_cap_30d": -0.3211028268,
+        "rw_market_cap_90d": -0.6838883988,
+        "rw_market_cap_180d": -0.9647022234,
+        "rw_market_cap_365d": -0.9490823262,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-06-15",
+        "rw_index_price": 0.255743581,
+        "rw_market_cap_7d": -0.1960056419,
+        "rw_market_cap_30d": -0.3407886719,
+        "rw_market_cap_90d": -0.7291005931,
+        "rw_market_cap_180d": -0.9646834004,
+        "rw_market_cap_365d": -0.9471126759,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-06-16",
+        "rw_index_price": 0.2794972059,
+        "rw_market_cap_7d": -0.1408164631,
+        "rw_market_cap_30d": -0.2246571841,
+        "rw_market_cap_90d": -0.702005028,
+        "rw_market_cap_180d": -0.9609613599,
+        "rw_market_cap_365d": -0.9400620233,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-06-17",
+        "rw_index_price": 0.2342230072,
+        "rw_market_cap_7d": -0.2701454215,
+        "rw_market_cap_30d": -0.4587197607,
+        "rw_market_cap_90d": -0.7472774032,
+        "rw_market_cap_180d": -0.9673467403,
+        "rw_market_cap_365d": -0.9455934547,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-06-18",
+        "rw_index_price": 0.2420696775,
+        "rw_market_cap_7d": -0.2258417986,
+        "rw_market_cap_30d": 0.1978652891,
+        "rw_market_cap_90d": -0.7463280253,
+        "rw_market_cap_180d": -0.9650864266,
+        "rw_market_cap_365d": -0.9475817744,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-06-19",
+        "rw_index_price": 0.2480310914,
+        "rw_market_cap_7d": -0.1791631418,
+        "rw_market_cap_30d": -0.4519985117,
+        "rw_market_cap_90d": -0.7307222935,
+        "rw_market_cap_180d": -0.963722596,
+        "rw_market_cap_365d": -0.9424516441,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-06-20",
+        "rw_index_price": 0.267434563,
+        "rw_market_cap_7d": -0.1029492334,
+        "rw_market_cap_30d": -0.3557986996,
+        "rw_market_cap_90d": -0.7133922803,
+        "rw_market_cap_180d": -0.9628212992,
+        "rw_market_cap_365d": -0.9343355293,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-06-21",
+        "rw_index_price": 0.2670680987,
+        "rw_market_cap_7d": 0.0314526738,
+        "rw_market_cap_30d": -0.3809719921,
+        "rw_market_cap_90d": -0.7319490269,
+        "rw_market_cap_180d": -0.964174052,
+        "rw_market_cap_365d": -0.9350619275,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-06-22",
+        "rw_index_price": 0.2771075134,
+        "rw_market_cap_7d": 0.0835365344,
+        "rw_market_cap_30d": -0.3694287373,
+        "rw_market_cap_90d": -0.7288974534,
+        "rw_market_cap_180d": -0.9671922084,
+        "rw_market_cap_365d": -0.9099920695,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-06-23",
+        "rw_index_price": 0.2789108431,
+        "rw_market_cap_7d": -0.0020979202,
+        "rw_market_cap_30d": -0.272051765,
+        "rw_market_cap_90d": -0.7293151982,
+        "rw_market_cap_180d": -0.9648045716,
+        "rw_market_cap_365d": -0.9054106075,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-06-24",
+        "rw_index_price": 0.3426125051,
+        "rw_market_cap_7d": 0.4627619601,
+        "rw_market_cap_30d": -0.1009565908,
+        "rw_market_cap_90d": -0.609535983,
+        "rw_market_cap_180d": -0.9591748958,
+        "rw_market_cap_365d": -0.9126222202,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-06-25",
+        "rw_index_price": 0.3376885728,
+        "rw_market_cap_7d": 0.3950056708,
+        "rw_market_cap_30d": -0.0889925205,
+        "rw_market_cap_90d": -0.6281741,
+        "rw_market_cap_180d": -0.960876924,
+        "rw_market_cap_365d": -0.9075078727,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-06-26",
+        "rw_index_price": 0.3409705784,
+        "rw_market_cap_7d": 0.374709019,
+        "rw_market_cap_30d": 0.0466647823,
+        "rw_market_cap_90d": -0.6110888075,
+        "rw_market_cap_180d": -0.9591044745,
+        "rw_market_cap_365d": -0.8919685658,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-06-27",
+        "rw_index_price": 0.3122072431,
+        "rw_market_cap_7d": 0.1674154587,
+        "rw_market_cap_30d": -0.0157102333,
+        "rw_market_cap_90d": -0.6565927136,
+        "rw_market_cap_180d": -0.9581149506,
+        "rw_market_cap_365d": -0.8961547375,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-06-28",
+        "rw_index_price": 0.3165513997,
+        "rw_market_cap_7d": 0.1852834588,
+        "rw_market_cap_30d": -0.0798063321,
+        "rw_market_cap_90d": -0.671079577,
+        "rw_market_cap_180d": -0.9557057387,
+        "rw_market_cap_365d": -0.8982886142,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-06-29",
+        "rw_index_price": 0.3479713887,
+        "rw_market_cap_7d": 0.255727008,
+        "rw_market_cap_30d": 0.0027844345,
+        "rw_market_cap_90d": -0.6907628775,
+        "rw_market_cap_180d": -0.9522734824,
+        "rw_market_cap_365d": -0.8914816045,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-06-30",
+        "rw_index_price": 0.3227084207,
+        "rw_market_cap_7d": 0.1570307454,
+        "rw_market_cap_30d": 0.0122473039,
+        "rw_market_cap_90d": -0.6786947346,
+        "rw_market_cap_180d": -0.9548944651,
+        "rw_market_cap_365d": -0.9012806114,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-07-01",
+        "rw_index_price": 0.2827586793,
+        "rw_market_cap_7d": -0.1746983106,
+        "rw_market_cap_30d": -0.1421796892,
+        "rw_market_cap_90d": -0.8032298506,
+        "rw_market_cap_180d": -0.9624827361,
+        "rw_market_cap_365d": -0.9126394051,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-07-02",
+        "rw_index_price": 0.2788018049,
+        "rw_market_cap_7d": -0.174381879,
+        "rw_market_cap_30d": -0.047630178,
+        "rw_market_cap_90d": -0.7902708733,
+        "rw_market_cap_180d": -0.9619056508,
+        "rw_market_cap_365d": -0.9196427744,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-07-03",
+        "rw_index_price": 0.2740117934,
+        "rw_market_cap_7d": -0.1963770166,
+        "rw_market_cap_30d": -0.0945497219,
+        "rw_market_cap_90d": -0.8263251386,
+        "rw_market_cap_180d": -0.9613205551,
+        "rw_market_cap_365d": -0.9164219568,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-07-04",
+        "rw_index_price": 0.2747661103,
+        "rw_market_cap_7d": -0.1199239722,
+        "rw_market_cap_30d": -0.0655187121,
+        "rw_market_cap_90d": -0.809859043,
+        "rw_market_cap_180d": -0.963293086,
+        "rw_market_cap_365d": -0.9183215006,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-07-05",
+        "rw_index_price": 0.2847429986,
+        "rw_market_cap_7d": -0.1004841589,
+        "rw_market_cap_30d": -0.1185406413,
+        "rw_market_cap_90d": -0.7854744252,
+        "rw_market_cap_180d": -0.957744145,
+        "rw_market_cap_365d": -0.9299031252,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-07-06",
+        "rw_index_price": 0.2716298198,
+        "rw_market_cap_7d": -0.2193903619,
+        "rw_market_cap_30d": -0.104027798,
+        "rw_market_cap_90d": -0.7556277398,
+        "rw_market_cap_180d": -0.9589503425,
+        "rw_market_cap_365d": -0.9320645151,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-07-07",
+        "rw_index_price": 0.2873285044,
+        "rw_market_cap_7d": -0.1096343139,
+        "rw_market_cap_30d": -0.0918507831,
+        "rw_market_cap_90d": -0.7588290497,
+        "rw_market_cap_180d": -0.9529217878,
+        "rw_market_cap_365d": -0.9435766699,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-07-08",
+        "rw_index_price": 0.3068142329,
+        "rw_market_cap_7d": 0.0850745012,
+        "rw_market_cap_30d": -0.035452185,
+        "rw_market_cap_90d": -0.7180657361,
+        "rw_market_cap_180d": -0.947699767,
+        "rw_market_cap_365d": -0.9355953554,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-07-09",
+        "rw_index_price": 0.3016643255,
+        "rw_market_cap_7d": 0.0820027708,
+        "rw_market_cap_30d": -0.0726740139,
+        "rw_market_cap_90d": -0.7312940584,
+        "rw_market_cap_180d": -0.9493698443,
+        "rw_market_cap_365d": -0.9370003027,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-07-10",
+        "rw_index_price": 0.3051795449,
+        "rw_market_cap_7d": 0.1137460221,
+        "rw_market_cap_30d": -0.0490400974,
+        "rw_market_cap_90d": -0.7123498511,
+        "rw_market_cap_180d": -0.9447054074,
+        "rw_market_cap_365d": -0.946255472,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-07-11",
+        "rw_index_price": 0.2817761382,
+        "rw_market_cap_7d": 0.0255127091,
+        "rw_market_cap_30d": -0.0988573595,
+        "rw_market_cap_90d": -0.6943860976,
+        "rw_market_cap_180d": -0.9520635381,
+        "rw_market_cap_365d": -0.9477436369,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-07-12",
+        "rw_index_price": 0.2650723524,
+        "rw_market_cap_7d": -0.0690821065,
+        "rw_market_cap_30d": -0.1227666027,
+        "rw_market_cap_90d": -0.7267268761,
+        "rw_market_cap_180d": -0.9572974019,
+        "rw_market_cap_365d": -0.9561153403,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-07-13",
+        "rw_index_price": 0.2547908387,
+        "rw_market_cap_7d": -0.0619923876,
+        "rw_market_cap_30d": -0.145359842,
+        "rw_market_cap_90d": -0.7385919698,
+        "rw_market_cap_180d": -0.9556867565,
+        "rw_market_cap_365d": -0.9542529542,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-07-14",
+        "rw_index_price": 0.2632412298,
+        "rw_market_cap_7d": -0.0838318309,
+        "rw_market_cap_30d": 0.0166727951,
+        "rw_market_cap_90d": -0.7451549009,
+        "rw_market_cap_180d": -0.9547833729,
+        "rw_market_cap_365d": -0.954571407,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-07-15",
+        "rw_index_price": 0.2737092637,
+        "rw_market_cap_7d": -0.107899066,
+        "rw_market_cap_30d": 0.0702488121,
+        "rw_market_cap_90d": -0.736620368,
+        "rw_market_cap_180d": -0.954689364,
+        "rw_market_cap_365d": -0.9556560136,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-07-16",
+        "rw_index_price": 0.2744819114,
+        "rw_market_cap_7d": -0.0901081491,
+        "rw_market_cap_30d": -0.0179439879,
+        "rw_market_cap_90d": -0.7418586169,
+        "rw_market_cap_180d": -0.9544374893,
+        "rw_market_cap_365d": -0.9512139326,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-07-17",
+        "rw_index_price": 0.2811266675,
+        "rw_market_cap_7d": -0.0788154967,
+        "rw_market_cap_30d": 0.2002521479,
+        "rw_market_cap_90d": -0.7151267651,
+        "rw_market_cap_180d": -0.9496275707,
+        "rw_market_cap_365d": -0.9397960195,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-07-18",
+        "rw_index_price": 0.2773838222,
+        "rw_market_cap_7d": -0.0155879627,
+        "rw_market_cap_30d": 0.1458842146,
+        "rw_market_cap_90d": -0.7355434978,
+        "rw_market_cap_180d": -0.9492280164,
+        "rw_market_cap_365d": -0.9393004724,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-07-19",
+        "rw_index_price": 0.3044097622,
+        "rw_market_cap_7d": 0.1484025376,
+        "rw_market_cap_30d": 0.227304853,
+        "rw_market_cap_90d": -0.7072308359,
+        "rw_market_cap_180d": -0.9433906344,
+        "rw_market_cap_365d": -0.932699654,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-07-20",
+        "rw_index_price": 0.3170244461,
+        "rw_market_cap_7d": 0.2442537091,
+        "rw_market_cap_30d": 0.1854281007,
+        "rw_market_cap_90d": -0.6918781133,
+        "rw_market_cap_180d": -0.9379056454,
+        "rw_market_cap_365d": -0.917694717,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-07-21",
+        "rw_index_price": 0.3036047768,
+        "rw_market_cap_7d": 0.1533329222,
+        "rw_market_cap_30d": 0.1368065985,
+        "rw_market_cap_90d": -0.6913687079,
+        "rw_market_cap_180d": -0.9278667988,
+        "rw_market_cap_365d": -0.9146929871,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-07-22",
+        "rw_index_price": 0.3128415005,
+        "rw_market_cap_7d": 0.1429700854,
+        "rw_market_cap_30d": 0.1289535123,
+        "rw_market_cap_90d": -0.6838762803,
+        "rw_market_cap_180d": -0.9163790519,
+        "rw_market_cap_365d": -0.9254657346,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-07-23",
+        "rw_index_price": 0.2995819012,
+        "rw_market_cap_7d": 0.0914449685,
+        "rw_market_cap_30d": 0.0741134976,
+        "rw_market_cap_90d": -0.6843814236,
+        "rw_market_cap_180d": -0.9198750413,
+        "rw_market_cap_365d": -0.9382540297,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-07-24",
+        "rw_index_price": 0.3107550028,
+        "rw_market_cap_7d": 0.1053914079,
+        "rw_market_cap_30d": -0.0929840618,
+        "rw_market_cap_90d": -0.6655565024,
+        "rw_market_cap_180d": -0.9125870786,
+        "rw_market_cap_365d": -0.9508186133,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-07-25",
+        "rw_index_price": 0.302892785,
+        "rw_market_cap_7d": 0.0919626912,
+        "rw_market_cap_30d": -0.1030410578,
+        "rw_market_cap_90d": -0.6826048909,
+        "rw_market_cap_180d": -0.915971107,
+        "rw_market_cap_365d": -0.9654073526,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-07-26",
+        "rw_index_price": 0.2764562338,
+        "rw_market_cap_7d": -0.0918286201,
+        "rw_market_cap_30d": -0.1892079513,
+        "rw_market_cap_90d": -0.6870321636,
+        "rw_market_cap_180d": -0.9240193449,
+        "rw_market_cap_365d": -0.9721149806,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-07-27",
+        "rw_index_price": 0.2831638106,
+        "rw_market_cap_7d": -0.1068076484,
+        "rw_market_cap_30d": -0.093026133,
+        "rw_market_cap_90d": -0.7074029946,
+        "rw_market_cap_180d": -0.8591068964,
+        "rw_market_cap_365d": -0.9633837441,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-07-28",
+        "rw_index_price": 0.3311990178,
+        "rw_market_cap_7d": 0.0908886918,
+        "rw_market_cap_30d": 0.0462724792,
+        "rw_market_cap_90d": -0.7131466214,
+        "rw_market_cap_180d": -0.8340340324,
+        "rw_market_cap_365d": -0.9710832058,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-07-29",
+        "rw_index_price": 0.3756427225,
+        "rw_market_cap_7d": 0.2007445362,
+        "rw_market_cap_30d": 0.079521865,
+        "rw_market_cap_90d": -0.6031360551,
+        "rw_market_cap_180d": -0.7977711124,
+        "rw_market_cap_365d": -0.9672405647,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-07-30",
+        "rw_index_price": 0.3968614737,
+        "rw_market_cap_7d": 0.3247177888,
+        "rw_market_cap_30d": 0.2297834462,
+        "rw_market_cap_90d": -0.5232070545,
+        "rw_market_cap_180d": -0.7935484917,
+        "rw_market_cap_365d": -0.9689147103,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-07-31",
+        "rw_index_price": 0.3811119058,
+        "rw_market_cap_7d": 0.2264063406,
+        "rw_market_cap_30d": 0.3478345095,
+        "rw_market_cap_90d": -0.5697498823,
+        "rw_market_cap_180d": -0.8056985579,
+        "rw_market_cap_365d": -0.9701933136,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-08-01",
+        "rw_index_price": 0.409397665,
+        "rw_market_cap_7d": 0.3516256748,
+        "rw_market_cap_30d": 0.4684182731,
+        "rw_market_cap_90d": -0.5044759307,
+        "rw_market_cap_180d": -0.8027799057,
+        "rw_market_cap_365d": -0.9655042986,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-08-02",
+        "rw_index_price": 0.3949102135,
+        "rw_market_cap_7d": 0.4284728115,
+        "rw_market_cap_30d": 0.441216119,
+        "rw_market_cap_90d": -0.5130080337,
+        "rw_market_cap_180d": -0.8079953382,
+        "rw_market_cap_365d": -0.9608689184,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-08-03",
+        "rw_index_price": 0.3858572985,
+        "rw_market_cap_7d": 0.3626645926,
+        "rw_market_cap_30d": 0.4043118275,
+        "rw_market_cap_90d": -0.5420057447,
+        "rw_market_cap_180d": -0.8031837282,
+        "rw_market_cap_365d": -0.9651886195,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-08-04",
+        "rw_index_price": 0.3768738434,
+        "rw_market_cap_7d": 0.137907491,
+        "rw_market_cap_30d": 0.3235578934,
+        "rw_market_cap_90d": -0.4811560321,
+        "rw_market_cap_180d": -0.8222330941,
+        "rw_market_cap_365d": -0.9637997449,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-08-05",
+        "rw_index_price": 0.3818746044,
+        "rw_market_cap_7d": 0.0165899179,
+        "rw_market_cap_30d": 0.4058640715,
+        "rw_market_cap_90d": -0.4883054757,
+        "rw_market_cap_180d": -0.8467123528,
+        "rw_market_cap_365d": -0.9649598783,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-08-06",
+        "rw_index_price": 0.4009703283,
+        "rw_market_cap_7d": 0.0103533724,
+        "rw_market_cap_30d": 0.3955118348,
+        "rw_market_cap_90d": -0.4239746246,
+        "rw_market_cap_180d": -0.8509082583,
+        "rw_market_cap_365d": -0.9630280765,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-08-07",
+        "rw_index_price": 0.4024488865,
+        "rw_market_cap_7d": 0.05598613,
+        "rw_market_cap_30d": 0.3117021421,
+        "rw_market_cap_90d": -0.4416394588,
+        "rw_market_cap_180d": -0.8589666725,
+        "rw_market_cap_365d": -0.9642092894,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-08-08",
+        "rw_index_price": 0.4138021574,
+        "rw_market_cap_7d": 0.0107584699,
+        "rw_market_cap_30d": 0.3717305048,
+        "rw_market_cap_90d": -0.2765937773,
+        "rw_market_cap_180d": -0.8468731411,
+        "rw_market_cap_365d": -0.9613824517,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-08-09",
+        "rw_index_price": 0.4215464585,
+        "rw_market_cap_7d": 0.0674488632,
+        "rw_market_cap_30d": 0.3813063997,
+        "rw_market_cap_90d": -0.2493099209,
+        "rw_market_cap_180d": -0.8395248075,
+        "rw_market_cap_365d": -0.9580925294,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-08-10",
+        "rw_index_price": 0.4052283822,
+        "rw_market_cap_7d": 0.0502027142,
+        "rw_market_cap_30d": 0.438121712,
+        "rw_market_cap_90d": 0.0624128843,
+        "rw_market_cap_180d": -0.8410507607,
+        "rw_market_cap_365d": -0.9602867439,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-08-11",
+        "rw_index_price": 0.4084689079,
+        "rw_market_cap_7d": 0.0838345909,
+        "rw_market_cap_30d": 0.5409713768,
+        "rw_market_cap_90d": 0.2599307569,
+        "rw_market_cap_180d": -0.8241994024,
+        "rw_market_cap_365d": -0.9671172478,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-08-12",
+        "rw_index_price": 0.4161242925,
+        "rw_market_cap_7d": 0.0896883106,
+        "rw_market_cap_30d": 0.6331995868,
+        "rw_market_cap_90d": 0.1413912466,
+        "rw_market_cap_180d": -0.8200606949,
+        "rw_market_cap_365d": -0.9626453681,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-08-13",
+        "rw_index_price": 0.4296696418,
+        "rw_market_cap_7d": 0.0715746563,
+        "rw_market_cap_30d": 0.6322277558,
+        "rw_market_cap_90d": 0.1265901806,
+        "rw_market_cap_180d": -0.8011881686,
+        "rw_market_cap_365d": -0.9594689823,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-08-14",
+        "rw_index_price": 0.7753929037,
+        "rw_market_cap_7d": 0.9266866668,
+        "rw_market_cap_30d": 1.832907053,
+        "rw_market_cap_90d": 0.9986729829,
+        "rw_market_cap_180d": -0.6502090476,
+        "rw_market_cap_365d": -0.9309271401,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-08-15",
+        "rw_index_price": 0.7211752967,
+        "rw_market_cap_7d": 0.7428021671,
+        "rw_market_cap_30d": 1.6274055472,
+        "rw_market_cap_90d": 1.0005855996,
+        "rw_market_cap_180d": -0.7237787876,
+        "rw_market_cap_365d": -0.9335242932,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-08-16",
+        "rw_index_price": 0.7239971177,
+        "rw_market_cap_7d": 0.7174788286,
+        "rw_market_cap_30d": 1.5753413012,
+        "rw_market_cap_90d": 0.6731291165,
+        "rw_market_cap_180d": -0.6137573028,
+        "rw_market_cap_365d": -0.9343044382,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-08-17",
+        "rw_index_price": 0.7322851158,
+        "rw_market_cap_7d": 0.8070923656,
+        "rw_market_cap_30d": 1.6399705286,
+        "rw_market_cap_90d": 2.6236629518,
+        "rw_market_cap_180d": -0.5566893279,
+        "rw_market_cap_365d": -0.9307766251,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-08-18",
+        "rw_index_price": 0.6554509598,
+        "rw_market_cap_7d": 0.6046532481,
+        "rw_market_cap_30d": 1.1531863993,
+        "rw_market_cap_90d": 0.4481575653,
+        "rw_market_cap_180d": -0.6151789317,
+        "rw_market_cap_365d": -0.9361005379,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-08-19",
+        "rw_index_price": 0.6326283316,
+        "rw_market_cap_7d": 0.5202869503,
+        "rw_market_cap_30d": 0.9955190818,
+        "rw_market_cap_90d": 0.5238867754,
+        "rw_market_cap_180d": -0.6339859573,
+        "rw_market_cap_365d": -0.9354313914,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-08-20",
+        "rw_index_price": 0.58366633,
+        "rw_market_cap_7d": 0.3584071883,
+        "rw_market_cap_30d": 0.9224543702,
+        "rw_market_cap_90d": 0.3528602155,
+        "rw_market_cap_180d": -0.6372191258,
+        "rw_market_cap_365d": -0.9381313657,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-08-21",
+        "rw_index_price": 0.5879820994,
+        "rw_market_cap_7d": -0.2416978585,
+        "rw_market_cap_30d": 0.8794888093,
+        "rw_market_cap_90d": 0.3379810974,
+        "rw_market_cap_180d": -0.572682167,
+        "rw_market_cap_365d": -0.9403796273,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-08-22",
+        "rw_index_price": 0.6037308606,
+        "rw_market_cap_7d": -0.1628514408,
+        "rw_market_cap_30d": 1.0152447735,
+        "rw_market_cap_90d": 0.5757179231,
+        "rw_market_cap_180d": -0.5711103524,
+        "rw_market_cap_365d": -0.9551998086,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-08-23",
+        "rw_index_price": 0.600872064,
+        "rw_market_cap_7d": -0.170062906,
+        "rw_market_cap_30d": 0.9335877412,
+        "rw_market_cap_90d": 0.5767377453,
+        "rw_market_cap_180d": -0.6027184806,
+        "rw_market_cap_365d": -0.9523322067,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-08-24",
+        "rw_index_price": 0.6243701615,
+        "rw_market_cap_7d": -0.1473674011,
+        "rw_market_cap_30d": 1.0613569959,
+        "rw_market_cap_90d": 0.6844096392,
+        "rw_market_cap_180d": -0.5729294595,
+        "rw_market_cap_365d": -0.9531574359,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-08-25",
+        "rw_index_price": 0.6444381073,
+        "rw_market_cap_7d": -0.0168019473,
+        "rw_market_cap_30d": 1.3310673752,
+        "rw_market_cap_90d": 0.9782078397,
+        "rw_market_cap_180d": -0.5748184186,
+        "rw_market_cap_365d": -0.9479061233,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-08-26",
+        "rw_index_price": 0.656138849,
+        "rw_market_cap_7d": 0.0371632382,
+        "rw_market_cap_30d": 1.3171705725,
+        "rw_market_cap_90d": 1.0685963217,
+        "rw_market_cap_180d": -0.5570092335,
+        "rw_market_cap_365d": -0.9585778069,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-08-27",
+        "rw_index_price": 0.5931415595,
+        "rw_market_cap_7d": 0.0162339834,
+        "rw_market_cap_30d": 0.790891662,
+        "rw_market_cap_90d": 0.7242226938,
+        "rw_market_cap_180d": -0.5748343807,
+        "rw_market_cap_365d": -0.9606797053,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-08-28",
+        "rw_index_price": 0.58034542,
+        "rw_market_cap_7d": -0.0129879454,
+        "rw_market_cap_30d": 0.544939873,
+        "rw_market_cap_90d": 0.6724402427,
+        "rw_market_cap_180d": -0.6275584682,
+        "rw_market_cap_365d": -0.9625131367,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-08-29",
+        "rw_index_price": 0.5577018956,
+        "rw_market_cap_7d": -0.0762408683,
+        "rw_market_cap_30d": 0.4052810175,
+        "rw_market_cap_90d": 0.7493570169,
+        "rw_market_cap_180d": -0.6709088231,
+        "rw_market_cap_365d": -0.9651162602,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-08-30",
+        "rw_index_price": 0.5937509461,
+        "rw_market_cap_7d": -0.0118513046,
+        "rw_market_cap_30d": 0.5579438403,
+        "rw_market_cap_90d": 0.8012943842,
+        "rw_market_cap_180d": -0.6243835901,
+        "rw_market_cap_365d": -0.9621659628,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-08-31",
+        "rw_index_price": 0.578983534,
+        "rw_market_cap_7d": -0.0726918585,
+        "rw_market_cap_30d": 0.4142326241,
+        "rw_market_cap_90d": 0.9777721502,
+        "rw_market_cap_180d": -0.6088926534,
+        "rw_market_cap_365d": -0.9609022919,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-09-01",
+        "rw_index_price": 0.5760281826,
+        "rw_market_cap_7d": -0.1061543753,
+        "rw_market_cap_30d": 0.4586307541,
+        "rw_market_cap_90d": 0.9034395254,
+        "rw_market_cap_180d": -0.5656659072,
+        "rw_market_cap_365d": -0.9582227938,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-09-02",
+        "rw_index_price": 0.593532894,
+        "rw_market_cap_7d": -0.0954157113,
+        "rw_market_cap_30d": 0.538218653,
+        "rw_market_cap_90d": 1.0186091455,
+        "rw_market_cap_180d": -0.5694164257,
+        "rw_market_cap_365d": -0.9575017737,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-09-03",
+        "rw_index_price": 0.594273832,
+        "rw_market_cap_7d": 0.0019089415,
+        "rw_market_cap_30d": 0.576850828,
+        "rw_market_cap_90d": 0.8396527164,
+        "rw_market_cap_180d": -0.5329060536,
+        "rw_market_cap_365d": -0.9566803731,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-09-04",
+        "rw_index_price": 0.6028696153,
+        "rw_market_cap_7d": 0.0388117051,
+        "rw_market_cap_30d": 0.5787109389,
+        "rw_market_cap_90d": 0.988568181,
+        "rw_market_cap_180d": -0.4978947386,
+        "rw_market_cap_365d": -0.9558558766,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-09-05",
+        "rw_index_price": 0.6331191922,
+        "rw_market_cap_7d": 0.1352286897,
+        "rw_market_cap_30d": 0.5789676877,
+        "rw_market_cap_90d": 1.0010778249,
+        "rw_market_cap_180d": -0.3189833458,
+        "rw_market_cap_365d": -0.9548461034,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-09-06",
+        "rw_index_price": 0.6363529941,
+        "rw_market_cap_7d": 0.0717507033,
+        "rw_market_cap_30d": 0.5812020244,
+        "rw_market_cap_90d": 1.0005359081,
+        "rw_market_cap_180d": -0.3421226385,
+        "rw_market_cap_365d": -0.9552041587,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-09-07",
+        "rw_index_price": 0.597609171,
+        "rw_market_cap_7d": 0.0321695453,
+        "rw_market_cap_30d": 0.4441905638,
+        "rw_market_cap_90d": 0.8370701043,
+        "rw_market_cap_180d": -0.2472966641,
+        "rw_market_cap_365d": -0.9562675789,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-09-08",
+        "rw_index_price": 0.6347656035,
+        "rw_market_cap_7d": 0.1019696999,
+        "rw_market_cap_30d": 0.5058022448,
+        "rw_market_cap_90d": 0.9779721362,
+        "rw_market_cap_180d": -0.1661963529,
+        "rw_market_cap_365d": -0.9379500557,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-09-09",
+        "rw_index_price": 0.6450141225,
+        "rw_market_cap_7d": 0.0867369425,
+        "rw_market_cap_30d": 0.5917298758,
+        "rw_market_cap_90d": 1.0628067843,
+        "rw_market_cap_180d": -0.2682894035,
+        "rw_market_cap_365d": -0.9373223116,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-09-10",
+        "rw_index_price": 0.6827888215,
+        "rw_market_cap_7d": 0.1489464699,
+        "rw_market_cap_30d": 0.6715808922,
+        "rw_market_cap_90d": 1.2596289353,
+        "rw_market_cap_180d": -0.1407659747,
+        "rw_market_cap_365d": -0.9315218435,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-09-11",
+        "rw_index_price": 0.6948163187,
+        "rw_market_cap_7d": 0.1525150731,
+        "rw_market_cap_30d": 0.6697326525,
+        "rw_market_cap_90d": 1.3306094182,
+        "rw_market_cap_180d": -0.1132170019,
+        "rw_market_cap_365d": -0.9253834793,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-09-12",
+        "rw_index_price": 0.6923721946,
+        "rw_market_cap_7d": 0.0935890164,
+        "rw_market_cap_30d": 0.6114058972,
+        "rw_market_cap_90d": 1.6740339074,
+        "rw_market_cap_180d": -0.1547068598,
+        "rw_market_cap_365d": -0.9276803747,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-09-13",
+        "rw_index_price": 0.6849270967,
+        "rw_market_cap_7d": 0.0763320092,
+        "rw_market_cap_30d": -0.1166709246,
+        "rw_market_cap_90d": 1.6781790341,
+        "rw_market_cap_180d": -0.274482888,
+        "rw_market_cap_365d": -0.9304990884,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-09-14",
+        "rw_index_price": 0.6386801324,
+        "rw_market_cap_7d": 0.0687254537,
+        "rw_market_cap_30d": -0.114389892,
+        "rw_market_cap_90d": 1.2851038181,
+        "rw_market_cap_180d": -0.3190505517,
+        "rw_market_cap_365d": -0.9288251901,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-09-15",
+        "rw_index_price": 0.6577179709,
+        "rw_market_cap_7d": 0.0361588078,
+        "rw_market_cap_30d": -0.0915461473,
+        "rw_market_cap_90d": 1.8080843923,
+        "rw_market_cap_180d": -0.2903336202,
+        "rw_market_cap_365d": -0.9282710513,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-09-16",
+        "rw_index_price": 0.6496502522,
+        "rw_market_cap_7d": 0.0071876406,
+        "rw_market_cap_30d": -0.1128452045,
+        "rw_market_cap_90d": 1.6837324651,
+        "rw_market_cap_180d": -0.3192122861,
+        "rw_market_cap_365d": -0.9340665664,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-09-17",
+        "rw_index_price": 0.6600688316,
+        "rw_market_cap_7d": -0.033275281,
+        "rw_market_cap_30d": 0.0070453353,
+        "rw_market_cap_90d": 1.6612342338,
+        "rw_market_cap_180d": -0.2833889492,
+        "rw_market_cap_365d": -0.9385085643,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-09-18",
+        "rw_index_price": 0.6710816507,
+        "rw_market_cap_7d": -0.0341596294,
+        "rw_market_cap_30d": 0.0607834287,
+        "rw_market_cap_90d": 1.5093302941,
+        "rw_market_cap_180d": -0.2808065663,
+        "rw_market_cap_365d": -0.9321968083,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-09-19",
+        "rw_index_price": 0.5927148787,
+        "rw_market_cap_7d": -0.1439360458,
+        "rw_market_cap_30d": 0.0155029479,
+        "rw_market_cap_90d": 1.2193398675,
+        "rw_market_cap_180d": -0.405103789,
+        "rw_market_cap_365d": -0.9397200161,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-09-20",
+        "rw_index_price": 0.6025014565,
+        "rw_market_cap_7d": -0.1203422096,
+        "rw_market_cap_30d": 0.0246935359,
+        "rw_market_cap_90d": 1.1742516075,
+        "rw_market_cap_180d": -0.4105548522,
+        "rw_market_cap_365d": -0.9351835757,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-09-21",
+        "rw_index_price": 0.5828104849,
+        "rw_market_cap_7d": -0.0874767269,
+        "rw_market_cap_30d": -0.0346518242,
+        "rw_market_cap_90d": 1.0895942176,
+        "rw_market_cap_180d": -0.4343786033,
+        "rw_market_cap_365d": -0.9230710818,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-09-22",
+        "rw_index_price": 0.5600124792,
+        "rw_market_cap_7d": -0.148552261,
+        "rw_market_cap_30d": -0.0680004733,
+        "rw_market_cap_90d": 0.6345360161,
+        "rw_market_cap_180d": -0.3617725013,
+        "rw_market_cap_365d": -0.8993825749,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-09-23",
+        "rw_index_price": 0.5806325116,
+        "rw_market_cap_7d": -0.1062383034,
+        "rw_market_cap_30d": -0.0700508329,
+        "rw_market_cap_90d": 0.7194319217,
+        "rw_market_cap_180d": -0.3606706782,
+        "rw_market_cap_365d": -0.9141838704,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-09-24",
+        "rw_index_price": 0.572223193,
+        "rw_market_cap_7d": -0.1330855729,
+        "rw_market_cap_30d": -0.1120587275,
+        "rw_market_cap_90d": 0.6782186772,
+        "rw_market_cap_180d": -0.347321973,
+        "rw_market_cap_365d": -0.9154294309,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-09-25",
+        "rw_index_price": 0.5614180487,
+        "rw_market_cap_7d": -0.163413203,
+        "rw_market_cap_30d": -0.1443609084,
+        "rw_market_cap_90d": 0.7982223704,
+        "rw_market_cap_180d": -0.3824773355,
+        "rw_market_cap_365d": -0.9058331459,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-09-26",
+        "rw_index_price": 0.5428546673,
+        "rw_market_cap_7d": -0.0841217476,
+        "rw_market_cap_30d": -0.0847805914,
+        "rw_market_cap_90d": 0.7149021225,
+        "rw_market_cap_180d": -0.4359336685,
+        "rw_market_cap_365d": -0.9047662482,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-09-27",
+        "rw_index_price": 0.5426676614,
+        "rw_market_cap_7d": -0.0993089634,
+        "rw_market_cap_30d": -0.0649229878,
+        "rw_market_cap_90d": 0.5595180494,
+        "rw_market_cap_180d": -0.5177391258,
+        "rw_market_cap_365d": -0.9049875081,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-09-28",
+        "rw_index_price": 0.5310819829,
+        "rw_market_cap_7d": -0.088756986,
+        "rw_market_cap_30d": -0.0477314366,
+        "rw_market_cap_90d": 0.6457022775,
+        "rw_market_cap_180d": -0.471227193,
+        "rw_market_cap_365d": -0.9024444522,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-09-29",
+        "rw_index_price": 0.5408435178,
+        "rw_market_cap_7d": -0.0342295255,
+        "rw_market_cap_30d": -0.0891071057,
+        "rw_market_cap_90d": 0.9127388738,
+        "rw_market_cap_180d": -0.623630086,
+        "rw_market_cap_365d": -0.90753015,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-09-30",
+        "rw_index_price": 0.5404045495,
+        "rw_market_cap_7d": -0.0692829998,
+        "rw_market_cap_30d": -0.0666322655,
+        "rw_market_cap_90d": 0.9383107995,
+        "rw_market_cap_180d": -0.5934797687,
+        "rw_market_cap_365d": -0.9098085701,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-10-01",
+        "rw_index_price": 0.542547487,
+        "rw_market_cap_7d": -0.0518603691,
+        "rw_market_cap_30d": -0.0581233638,
+        "rw_market_cap_90d": 0.980015094,
+        "rw_market_cap_180d": -0.6561211531,
+        "rw_market_cap_365d": -0.9199406279,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-10-02",
+        "rw_index_price": 0.5489943353,
+        "rw_market_cap_7d": -0.0221291665,
+        "rw_market_cap_30d": -0.0750397479,
+        "rw_market_cap_90d": 0.9980423881,
+        "rw_market_cap_180d": -0.6200903081,
+        "rw_market_cap_365d": -0.9330665761,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-10-03",
+        "rw_index_price": 0.5348769324,
+        "rw_market_cap_7d": -0.0146958944,
+        "rw_market_cap_30d": -0.0999487045,
+        "rw_market_cap_90d": 0.8784550806,
+        "rw_market_cap_180d": -0.5970233441,
+        "rw_market_cap_365d": -0.9218594251,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-10-04",
+        "rw_index_price": 0.5706491082,
+        "rw_market_cap_7d": 0.0515627682,
+        "rw_market_cap_30d": -0.053445233,
+        "rw_market_cap_90d": 1.100833806,
+        "rw_market_cap_180d": -0.4866144945,
+        "rw_market_cap_365d": -0.9231085132,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-10-05",
+        "rw_index_price": 0.5667416476,
+        "rw_market_cap_7d": 0.0671453105,
+        "rw_market_cap_30d": -0.1048420984,
+        "rw_market_cap_90d": 0.9724518761,
+        "rw_market_cap_180d": -0.5243019065,
+        "rw_market_cap_365d": -0.9217894657,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-10-06",
+        "rw_index_price": 0.5638389459,
+        "rw_market_cap_7d": 0.0425177105,
+        "rw_market_cap_30d": -0.1139525528,
+        "rw_market_cap_90d": 0.8377209576,
+        "rw_market_cap_180d": -0.4818834946,
+        "rw_market_cap_365d": -0.9129321975,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-10-07",
+        "rw_index_price": 0.5500022825,
+        "rw_market_cap_7d": 0.0177602744,
+        "rw_market_cap_30d": -0.0796622455,
+        "rw_market_cap_90d": 0.8232261363,
+        "rw_market_cap_180d": -0.5100883044,
+        "rw_market_cap_365d": -0.9142880158,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-10-08",
+        "rw_index_price": 0.5404431393,
+        "rw_market_cap_7d": -0.0038786423,
+        "rw_market_cap_30d": -0.1485941639,
+        "rw_market_cap_90d": 0.7709022386,
+        "rw_market_cap_180d": -0.4905997074,
+        "rw_market_cap_365d": -0.9086129675,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-10-09",
+        "rw_index_price": 0.5415815359,
+        "rw_market_cap_7d": -0.0135025062,
+        "rw_market_cap_30d": -0.1603570884,
+        "rw_market_cap_90d": 0.9220276755,
+        "rw_market_cap_180d": -0.4126016215,
+        "rw_market_cap_365d": -0.8900350132,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-10-10",
+        "rw_index_price": 0.5498910679,
+        "rw_market_cap_7d": 0.0280702618,
+        "rw_market_cap_30d": -0.1946396153,
+        "rw_market_cap_90d": 1.0744942385,
+        "rw_market_cap_180d": -0.4330964789,
+        "rw_market_cap_365d": -0.8705613093,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-10-11",
+        "rw_index_price": 0.5035151677,
+        "rw_market_cap_7d": -0.1176448705,
+        "rw_market_cap_30d": -0.2753262205,
+        "rw_market_cap_90d": 0.9761902361,
+        "rw_market_cap_180d": -0.4834080032,
+        "rw_market_cap_365d": -0.8730917066,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-10-12",
+        "rw_index_price": 0.5012292975,
+        "rw_market_cap_7d": -0.1155947341,
+        "rw_market_cap_30d": -0.2760695744,
+        "rw_market_cap_90d": 0.9040683629,
+        "rw_market_cap_180d": -0.5147575093,
+        "rw_market_cap_365d": -0.8642360756,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-10-13",
+        "rw_index_price": 0.4927601279,
+        "rw_market_cap_7d": -0.126062271,
+        "rw_market_cap_30d": -0.2805655809,
+        "rw_market_cap_90d": 0.8003048971,
+        "rw_market_cap_180d": -0.5258363588,
+        "rw_market_cap_365d": -0.8768963114,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-10-14",
+        "rw_index_price": 0.481579703,
+        "rw_market_cap_7d": -0.1244041737,
+        "rw_market_cap_30d": -0.245976697,
+        "rw_market_cap_90d": 0.7545043333,
+        "rw_market_cap_180d": -0.5470898247,
+        "rw_market_cap_365d": -0.8833132344,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-10-15",
+        "rw_index_price": 0.4824643722,
+        "rw_market_cap_7d": -0.1072800501,
+        "rw_market_cap_30d": -0.2664570628,
+        "rw_market_cap_90d": 0.7161814512,
+        "rw_market_cap_180d": -0.5111058384,
+        "rw_market_cap_365d": -0.9027516879,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-10-16",
+        "rw_index_price": 0.4842543751,
+        "rw_market_cap_7d": -0.1058513945,
+        "rw_market_cap_30d": -0.2545921849,
+        "rw_market_cap_90d": 0.7457917017,
+        "rw_market_cap_180d": -0.5383140331,
+        "rw_market_cap_365d": -0.8946431576,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-10-17",
+        "rw_index_price": 0.4949567847,
+        "rw_market_cap_7d": -0.099900301,
+        "rw_market_cap_30d": -0.2501436804,
+        "rw_market_cap_90d": 0.6259556892,
+        "rw_market_cap_180d": -0.5239703119,
+        "rw_market_cap_365d": -0.8879188237,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-10-18",
+        "rw_index_price": 0.5049814528,
+        "rw_market_cap_7d": 0.0029120972,
+        "rw_market_cap_30d": -0.2475111601,
+        "rw_market_cap_90d": 0.5928785903,
+        "rw_market_cap_180d": -0.5091992434,
+        "rw_market_cap_365d": -0.8827980117,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-10-19",
+        "rw_index_price": 0.5025757844,
+        "rw_market_cap_7d": 0.0026863691,
+        "rw_market_cap_30d": -0.1520783391,
+        "rw_market_cap_90d": 0.6553619138,
+        "rw_market_cap_180d": -0.4891035136,
+        "rw_market_cap_365d": -0.882321698,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-10-20",
+        "rw_index_price": 0.4731337445,
+        "rw_market_cap_7d": -0.0398294876,
+        "rw_market_cap_30d": -0.2147176751,
+        "rw_market_cap_90d": 0.5123752559,
+        "rw_market_cap_180d": -0.5219023085,
+        "rw_market_cap_365d": -0.8841998227,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-10-21",
+        "rw_index_price": 0.477065635,
+        "rw_market_cap_7d": -0.00937346,
+        "rw_market_cap_30d": -0.181439512,
+        "rw_market_cap_90d": 0.5924381048,
+        "rw_market_cap_180d": -0.4973969523,
+        "rw_market_cap_365d": -0.8937119995,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-10-22",
+        "rw_index_price": 0.4823237479,
+        "rw_market_cap_7d": -0.000291471,
+        "rw_market_cap_30d": -0.138726786,
+        "rw_market_cap_90d": 0.5521029219,
+        "rw_market_cap_180d": -0.4809092702,
+        "rw_market_cap_365d": -0.8777013422,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-10-23",
+        "rw_index_price": 0.4805900084,
+        "rw_market_cap_7d": -0.0075670285,
+        "rw_market_cap_30d": -0.1722991759,
+        "rw_market_cap_90d": 0.5866670721,
+        "rw_market_cap_180d": -0.4963996315,
+        "rw_market_cap_365d": -0.879295434,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-10-24",
+        "rw_index_price": 0.486965877,
+        "rw_market_cap_7d": -0.0161446574,
+        "rw_market_cap_30d": -0.148993115,
+        "rw_market_cap_90d": 0.7614573934,
+        "rw_market_cap_180d": -0.4487204907,
+        "rw_market_cap_365d": -0.8773880454,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-10-25",
+        "rw_index_price": 0.4782542978,
+        "rw_market_cap_7d": -0.0529270032,
+        "rw_market_cap_30d": -0.1481315947,
+        "rw_market_cap_90d": 0.6889668807,
+        "rw_market_cap_180d": -0.5058133486,
+        "rw_market_cap_365d": -0.8778805572,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-10-26",
+        "rw_index_price": 0.5062220058,
+        "rw_market_cap_7d": 0.0072550679,
+        "rw_market_cap_30d": -0.0674815262,
+        "rw_market_cap_90d": 0.5284526179,
+        "rw_market_cap_180d": -0.5615582025,
+        "rw_market_cap_365d": -0.877990179,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-10-27",
+        "rw_index_price": 0.5188487034,
+        "rw_market_cap_7d": 0.0966216414,
+        "rw_market_cap_30d": -0.0438923482,
+        "rw_market_cap_90d": 0.3812292169,
+        "rw_market_cap_180d": -0.4518399241,
+        "rw_market_cap_365d": -0.8673322133,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-10-28",
+        "rw_index_price": 0.5166261905,
+        "rw_market_cap_7d": 0.0829247646,
+        "rw_market_cap_30d": -0.0272195121,
+        "rw_market_cap_90d": 0.3017796503,
+        "rw_market_cap_180d": -0.3793206461,
+        "rw_market_cap_365d": -0.8354635539,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-10-29",
+        "rw_index_price": 0.5216081372,
+        "rw_market_cap_7d": 0.0814481756,
+        "rw_market_cap_30d": -0.0355655194,
+        "rw_market_cap_90d": 0.3686482349,
+        "rw_market_cap_180d": -0.4111389359,
+        "rw_market_cap_365d": -0.8323806348,
+        "rw_market_cap_730d": null
+    },
+    {
+        "date": "2022-10-30",
+        "rw_index_price": 0.5018420717,
+        "rw_market_cap_7d": 0.0442207763,
+        "rw_market_cap_30d": -0.0713585365,
+        "rw_market_cap_90d": 0.2258058964,
+        "rw_market_cap_180d": -0.3925836741,
+        "rw_market_cap_365d": -0.8438998329,
+        "rw_market_cap_730d": null
+    }
+]

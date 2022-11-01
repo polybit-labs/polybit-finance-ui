@@ -1,0 +1,376 @@
+{
+    "tokens": [
+        {
+            "id": "dai",
+            "symbol": "dai",
+            "name": "Dai",
+            "image": "https://raw.githubusercontent.com/polybit-labs/token-list/main/assets/logos/dai.png",
+            "address": "0x1AF3F329e8BE154074D8769D1FFa4eE058B1DBc3",
+            "category": "binance-smart-chain",
+            "market_cap": {
+                "market_cap_aud": 10210682169,
+                "market_cap_bnb": 20093044,
+                "market_cap_cny": 47501563459,
+                "market_cap_eur": 6611415197,
+                "market_cap_idr": 102307752134800,
+                "market_cap_jpy": 967399696424,
+                "market_cap_krw": 9249129548860,
+                "market_cap_rub": 403066462640,
+                "market_cap_twd": 209779818438,
+                "market_cap_usd": 6527225343
+            },
+            "risk_weighting": {
+                "rw_equally_balanced": 0.1,
+                "rw_liquidity": 0.02807990570808573
+            },
+            "token_liquidity": {
+                "liquidity_aud": 14384648.848287325,
+                "liquidity_bnb": 28306.76515395896,
+                "liquidity_cny": 66919457.3651713,
+                "liquidity_eur": 9314058.006258657,
+                "liquidity_idr": 144129556134.41284,
+                "liquidity_jpy": 1362857515.102508,
+                "liquidity_krw": 13030028601.84462,
+                "liquidity_rub": 567833708.9884168,
+                "liquidity_twd": 295534517.0486962,
+                "liquidity_usd": 9195452.660263568
+            }
+        },
+        {
+            "id": "uniswap",
+            "symbol": "uni",
+            "name": "Uniswap",
+            "image": "https://raw.githubusercontent.com/polybit-labs/token-list/main/assets/logos/uniswap.png",
+            "address": "0xBf5140A22578168FD562DCcF235E5D43A02ce9B1",
+            "category": "binance-smart-chain",
+            "market_cap": {
+                "market_cap_aud": 8809454719,
+                "market_cap_bnb": 17335645,
+                "market_cap_cny": 40982851631,
+                "market_cap_eur": 5704120630,
+                "market_cap_idr": 88267903646500,
+                "market_cap_jpy": 834641964170,
+                "market_cap_krw": 7979857428175,
+                "market_cap_rub": 347753038700,
+                "market_cap_twd": 180991414770,
+                "market_cap_usd": 5631484278
+            },
+            "risk_weighting": {
+                "rw_equally_balanced": 0.1,
+                "rw_liquidity": 0.01550397319407246
+            },
+            "token_liquidity": {
+                "liquidity_aud": 7942306.233805216,
+                "liquidity_bnb": 15629.230835754208,
+                "liquidity_cny": 36948752.034189805,
+                "liquidity_eur": 5142642.114196565,
+                "liquidity_idr": 79579354646.4097,
+                "liquidity_jpy": 752484947.818222,
+                "liquidity_krw": 7194369392.160198,
+                "liquidity_rub": 313522370.5652294,
+                "liquidity_twd": 163175734.20222494,
+                "liquidity_usd": 5077155.636994755
+            }
+        },
+        {
+            "id": "chainlink",
+            "symbol": "link",
+            "name": "Chainlink",
+            "image": "https://raw.githubusercontent.com/polybit-labs/token-list/main/assets/logos/chainlink.png",
+            "address": "0xF8A0BF9cF54Bb92F17374d9e9A321E6a111a51bD",
+            "category": "binance-smart-chain",
+            "market_cap": {
+                "market_cap_aud": 6052823033,
+                "market_cap_bnb": 11911020,
+                "market_cap_cny": 28158604161,
+                "market_cap_eur": 3919202020,
+                "market_cap_idr": 60647340534000,
+                "market_cap_jpy": 573467968920,
+                "market_cap_krw": 5482821171300,
+                "market_cap_rub": 238935061200,
+                "market_cap_twd": 124356051428,
+                "market_cap_usd": 3869294847
+            },
+            "risk_weighting": {
+                "rw_equally_balanced": 0.1,
+                "rw_liquidity": 0.031111328137862833
+            },
+            "token_liquidity": {
+                "liquidity_aud": 15937572.409231087,
+                "liquidity_bnb": 31362.678649332087,
+                "liquidity_cny": 74143881.341313,
+                "liquidity_eur": 10319575.782776231,
+                "liquidity_idr": 159689350878.8042,
+                "liquidity_jpy": 1509987526.2507427,
+                "liquidity_krw": 14436711422.4673,
+                "liquidity_rub": 629135333.7056017,
+                "liquidity_twd": 327439537.4240597,
+                "liquidity_usd": 10188166.15923553
+            }
+        },
+        {
+            "id": "pancakeswap-token",
+            "symbol": "cake",
+            "name": "PancakeSwap",
+            "image": "https://raw.githubusercontent.com/polybit-labs/token-list/main/assets/logos/pancakeswap-token.png",
+            "address": "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
+            "category": "binance-smart-chain",
+            "market_cap": {
+                "market_cap_aud": 1161875314,
+                "market_cap_bnb": 2286391,
+                "market_cap_cny": 5405211235,
+                "market_cap_eur": 752314094,
+                "market_cap_idr": 11641617054700,
+                "market_cap_jpy": 110080581086,
+                "market_cap_krw": 1052460073165,
+                "market_cap_rub": 45865003460,
+                "market_cap_twd": 23870882324,
+                "market_cap_usd": 742734116
+            },
+            "risk_weighting": {
+                "rw_equally_balanced": 0.1,
+                "rw_liquidity": 0.7893863125064504
+            },
+            "token_liquidity": {
+                "liquidity_aud": 404383299.18536574,
+                "liquidity_bnb": 795763.8175912898,
+                "liquidity_cny": 1881249325.8912163,
+                "liquidity_eur": 261838126.540238,
+                "liquidity_idr": 4051790630029.57,
+                "liquidity_jpy": 38312844761.75024,
+                "liquidity_krw": 366302021694.53455,
+                "liquidity_rub": 15963022180.881273,
+                "liquidity_twd": 8308108476.456453,
+                "liquidity_usd": 258503876.1445305
+            }
+        },
+        {
+            "id": "injective-protocol",
+            "symbol": "inj",
+            "name": "Injective",
+            "image": "https://raw.githubusercontent.com/polybit-labs/token-list/main/assets/logos/injective-protocol.png",
+            "address": "0xa2B726B1145A4773F68593CF171187d8EBe4d495",
+            "category": "binance-smart-chain",
+            "market_cap": {
+                "market_cap_aud": 269349918,
+                "market_cap_bnb": 530039,
+                "market_cap_cny": 1253054599,
+                "market_cap_eur": 174404032,
+                "market_cap_idr": 2698799576300,
+                "market_cap_jpy": 25519257694,
+                "market_cap_krw": 243984902285,
+                "market_cap_rub": 10632582340,
+                "market_cap_twd": 5533829776,
+                "market_cap_usd": 172183169
+            },
+            "risk_weighting": {
+                "rw_equally_balanced": 0.1,
+                "rw_liquidity": 0.0023537013252937526
+            },
+            "token_liquidity": {
+                "liquidity_aud": 1205743.6164520243,
+                "liquidity_bnb": 2372.717036527194,
+                "liquidity_cny": 5609292.8917132085,
+                "liquidity_eur": 780718.813698908,
+                "liquidity_idr": 12081163334.885513,
+                "liquidity_jpy": 114236834.44063829,
+                "liquidity_krw": 1092197242.6690154,
+                "liquidity_rub": 47596703.75273551,
+                "liquidity_twd": 24772162.402499247,
+                "liquidity_usd": 770777.129315859
+            }
+        },
+        {
+            "id": "mobox",
+            "symbol": "mbox",
+            "name": "Mobox",
+            "image": "https://raw.githubusercontent.com/polybit-labs/token-list/main/assets/logos/mobox.png",
+            "address": "0x3203c9E46cA618C8C1cE5dC67e7e9D75f5da2377",
+            "category": "binance-smart-chain",
+            "market_cap": {
+                "market_cap_aud": 165967813,
+                "market_cap_bnb": 326599,
+                "market_cap_cny": 772106163,
+                "market_cap_eur": 107464134,
+                "market_cap_idr": 1662944128300,
+                "market_cap_jpy": 15724435454,
+                "market_cap_krw": 150338418685,
+                "market_cap_rub": 6551575940,
+                "market_cap_twd": 3409830731,
+                "market_cap_usd": 106095685
+            },
+            "risk_weighting": {
+                "rw_equally_balanced": 0.1,
+                "rw_liquidity": 0.09580988461261435
+            },
+            "token_liquidity": {
+                "liquidity_aud": 49081060.338123865,
+                "liquidity_bnb": 96583.93911117119,
+                "liquidity_cny": 228332158.77393758,
+                "liquidity_eur": 31779979.32513977,
+                "liquidity_idr": 491776442772.35034,
+                "liquidity_jpy": 4650130332.446448,
+                "liquidity_krw": 44459035931.95876,
+                "liquidity_rub": 1937473818.570094,
+                "liquidity_twd": 1008376889.5750539,
+                "liquidity_usd": 31375292.620263964
+            }
+        },
+        {
+            "id": "my-neighbor-alice",
+            "symbol": "alice",
+            "name": "My Neighbor Alice",
+            "image": "https://raw.githubusercontent.com/polybit-labs/token-list/main/assets/logos/my-neighbor-alice.png",
+            "address": "0xAC51066d7bEC65Dc4589368da368b212745d63E8",
+            "category": "binance-smart-chain",
+            "market_cap": {
+                "market_cap_aud": 160347453,
+                "market_cap_bnb": 315539,
+                "market_cap_cny": 745959439,
+                "market_cap_eur": 103824952,
+                "market_cap_idr": 1606629926300,
+                "market_cap_jpy": 15191940694,
+                "market_cap_krw": 145247334785,
+                "market_cap_rub": 6329712340,
+                "market_cap_twd": 3294359686,
+                "market_cap_usd": 102502844
+            },
+            "risk_weighting": {
+                "rw_equally_balanced": 0.1,
+                "rw_liquidity": 0.003200111710581092
+            },
+            "token_liquidity": {
+                "liquidity_aud": 1639338.9532909233,
+                "liquidity_bnb": 3225.9656282167844,
+                "liquidity_cny": 7626440.822354735,
+                "liquidity_eur": 1061471.7303084508,
+                "liquidity_idr": 16425649189.1914,
+                "liquidity_jpy": 155317341.1361253,
+                "liquidity_krw": 1484960368.152609,
+                "liquidity_rub": 64712870.502028696,
+                "liquidity_twd": 33680436.06414708,
+                "liquidity_usd": 1047954.9343262225
+            }
+        },
+        {
+            "id": "coin98",
+            "symbol": "c98",
+            "name": "Coin98",
+            "image": "https://raw.githubusercontent.com/polybit-labs/token-list/main/assets/logos/coin98.png",
+            "address": "0xaEC945e04baF28b135Fa7c640f624f8D90F1C3a6",
+            "category": "binance-smart-chain",
+            "market_cap": {
+                "market_cap_aud": 154027343,
+                "market_cap_bnb": 303102,
+                "market_cap_cny": 716557376,
+                "market_cap_eur": 99732682,
+                "market_cap_idr": 1543304453400,
+                "market_cap_jpy": 14593148892,
+                "market_cap_krw": 139522397130,
+                "market_cap_rub": 6080226120,
+                "market_cap_twd": 3164512182,
+                "market_cap_usd": 98462684
+            },
+            "risk_weighting": {
+                "rw_equally_balanced": 0.1,
+                "rw_liquidity": 0.005126281103846419
+            },
+            "token_liquidity": {
+                "liquidity_aud": 2626068.418570501,
+                "liquidity_bnb": 5167.696673496075,
+                "liquidity_cny": 12216848.3518786,
+                "liquidity_eur": 1700378.9134471486,
+                "liquidity_idr": 26312361152.439964,
+                "liquidity_jpy": 248803924.04214203,
+                "liquidity_krw": 2378768294.260346,
+                "liquidity_rub": 103663995.27033126,
+                "liquidity_twd": 53952923.703901894,
+                "liquidity_usd": 1678726.2643852
+            }
+        },
+        {
+            "id": "radio-caca",
+            "symbol": "raca",
+            "name": "Radio Caca",
+            "image": "https://raw.githubusercontent.com/polybit-labs/token-list/main/assets/logos/radio-caca.png",
+            "address": "0x12BB890508c125661E03b09EC06E404bc9289040",
+            "category": "binance-smart-chain",
+            "market_cap": {
+                "market_cap_aud": 144983950,
+                "market_cap_bnb": 285306,
+                "market_cap_cny": 674486208,
+                "market_cap_eur": 93877086,
+                "market_cap_idr": 1452692560200,
+                "market_cap_jpy": 13736342676,
+                "market_cap_krw": 131330631390,
+                "market_cap_rub": 5723238360,
+                "market_cap_twd": 2978714468,
+                "market_cap_usd": 92681654
+            },
+            "risk_weighting": {
+                "rw_equally_balanced": 0.1,
+                "rw_liquidity": 0.024398202491150905
+            },
+            "token_liquidity": {
+                "liquidity_aud": 12498602.346216373,
+                "liquidity_bnb": 24595.317209233865,
+                "liquidity_cny": 58145297.50800559,
+                "liquidity_eur": 8092843.174526311,
+                "liquidity_idr": 125231976634.25607,
+                "liquidity_jpy": 1184166142.3557737,
+                "liquidity_krw": 11321593441.168486,
+                "liquidity_rub": 493382063.21723133,
+                "liquidity_twd": 256785441.69762942,
+                "liquidity_usd": 7989788.795419621
+            }
+        },
+        {
+            "id": "stargate-finance",
+            "symbol": "stg",
+            "name": "Stargate Finance",
+            "image": "https://raw.githubusercontent.com/polybit-labs/token-list/main/assets/logos/stargate-finance.png",
+            "address": "0xB0D502E938ed5f4df2E681fE6E419ff29631d62b",
+            "category": "binance-smart-chain",
+            "market_cap": {
+                "market_cap_aud": 122230130,
+                "market_cap_bnb": 240530,
+                "market_cap_cny": 568632162,
+                "market_cap_eur": 79143991,
+                "market_cap_idr": 1224706601000,
+                "market_cap_jpy": 11580557380,
+                "market_cap_krw": 110719566950,
+                "market_cap_rub": 4825031800,
+                "market_cap_twd": 2511234222,
+                "market_cap_usd": 78136170
+            },
+            "risk_weighting": {
+                "rw_equally_balanced": 0.1,
+                "rw_liquidity": 0.005030299210042043
+            },
+            "token_liquidity": {
+                "liquidity_aud": 2576899.2421308523,
+                "liquidity_bnb": 5070.939335519319,
+                "liquidity_cny": 11988106.26431451,
+                "liquidity_eur": 1668541.8789592767,
+                "liquidity_idr": 25819701814.663715,
+                "liquidity_jpy": 244145445.24791312,
+                "liquidity_krw": 2334229440.229575,
+                "liquidity_rub": 101723043.07051754,
+                "liquidity_twd": 52942736.45734261,
+                "liquidity_usd": 1647294.6431434508
+            }
+        }
+    ],
+    "total_liquidity": {
+        "liquidity_aud": 512275539,
+        "liquidity_bnb": 1008079,
+        "liquidity_cny": 2383179561,
+        "liquidity_eur": 331698336,
+        "liquidity_idr": 5132836186586,
+        "liquidity_jpy": 48534974770,
+        "liquidity_krw": 464033915829,
+        "liquidity_rub": 20222066088,
+        "liquidity_twd": 10524768855,
+        "liquidity_usd": 327474484
+    }
+}

@@ -1,1 +1,88 @@
-{"tokens": [{"id": "pancakeswap-token", "symbol": "cake", "name": "PancakeSwap", "image": "https://raw.githubusercontent.com/polybit-labs/token-list/main/assets/logos/pancakeswap-token.png", "address": "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82", "category": "governance", "risk_weighting": {"rw_equally_balanced": 0.3333333333333333, "rw_liquidity": 0.9579142902548973}, "token_liquidity": {"liquidity_bnb": 798897.7767482322, "liquidity_usd": 232814790.09996983, "liquidity_aud": 357442843.27269405, "liquidity_euro": 231033248.05782127, "liquidity_idr": 3621267809377.6895, "liquidity_krw": 330091778987.9416, "liquidity_cny": 1679738498.4575307, "liquidity_twd": 7449258407.466751, "liquidity_jpy": 33877260223.008785, "liquidity_rub": 14347429139.554804}}, {"id": "alpaca-finance", "symbol": "alpaca", "name": "Alpaca Finance", "image": "https://raw.githubusercontent.com/polybit-labs/token-list/main/assets/logos/alpaca-finance.png", "address": "0x8F0528cE5eF7B51152A59745bEfDD91D97091d2F", "category": "governance", "risk_weighting": {"rw_equally_balanced": 0.3333333333333333, "rw_liquidity": 0.02327120793599986}, "token_liquidity": {"liquidity_bnb": 19408.120821925546, "liquidity_usd": 5655914.569925543, "liquidity_aud": 8683581.418145929, "liquidity_euro": 5612634.460492648, "liquidity_idr": 87973712305.24878, "liquidity_krw": 8019124993.686484, "liquidity_cny": 40806932.596556, "liquidity_twd": 180969469.954379, "liquidity_jpy": 823001363.4537528, "liquidity_rub": 348551024.0845855}}, {"id": "uniswap", "symbol": "uni", "name": "Uniswap", "image": "https://raw.githubusercontent.com/polybit-labs/token-list/main/assets/logos/uniswap.png", "address": "0xBf5140A22578168FD562DCcF235E5D43A02ce9B1", "category": "governance", "risk_weighting": {"rw_equally_balanced": 0.3333333333333333, "rw_liquidity": 0.018814501809102765}, "token_liquidity": {"liquidity_bnb": 15691.240666133226, "liquidity_usd": 4572741.354924545, "liquidity_aud": 7020574.898841328, "liquidity_euro": 4537749.888239068, "liquidity_idr": 71125726428.66867, "liquidity_krw": 6483369583.395591, "liquidity_cny": 32991931.88739174, "liquidity_twd": 146311718.29210597, "liquidity_jpy": 665387060.4473795, "liquidity_rub": 281799461.86030656}}], "total_liquidity": {"liquidity_bnb": 833997.138236291, "liquidity_usd": 243043446.02481994, "liquidity_aud": 373146999.5896813, "liquidity_euro": 241183632.406553, "liquidity_idr": 3780367248111.607, "liquidity_krw": 344594273565.0237, "liquidity_cny": 1753537362.9414785, "liquidity_twd": 7776539595.713237, "liquidity_jpy": 35365648646.90992, "liquidity_rub": 14977779625.499697}}
+{
+    "tokens": [
+        {
+            "id": "pancakeswap-token",
+            "symbol": "cake",
+            "name": "PancakeSwap",
+            "image": "https://raw.githubusercontent.com/polybit-labs/token-list/main/assets/logos/pancakeswap-token.png",
+            "address": "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
+            "category": "governance",
+            "risk_weighting": {
+                "rw_equally_balanced": 0.3333333333333333,
+                "rw_liquidity": 0.9579142902548973
+            },
+            "token_liquidity": {
+                "liquidity_bnb": 798897.7767482322,
+                "liquidity_usd": 232814790.09996983,
+                "liquidity_aud": 357442843.27269405,
+                "liquidity_euro": 231033248.05782127,
+                "liquidity_idr": 3621267809377.6895,
+                "liquidity_krw": 330091778987.9416,
+                "liquidity_cny": 1679738498.4575307,
+                "liquidity_twd": 7449258407.466751,
+                "liquidity_jpy": 33877260223.008785,
+                "liquidity_rub": 14347429139.554804
+            }
+        },
+        {
+            "id": "alpaca-finance",
+            "symbol": "alpaca",
+            "name": "Alpaca Finance",
+            "image": "https://raw.githubusercontent.com/polybit-labs/token-list/main/assets/logos/alpaca-finance.png",
+            "address": "0x8F0528cE5eF7B51152A59745bEfDD91D97091d2F",
+            "category": "governance",
+            "risk_weighting": {
+                "rw_equally_balanced": 0.3333333333333333,
+                "rw_liquidity": 0.02327120793599986
+            },
+            "token_liquidity": {
+                "liquidity_bnb": 19408.120821925546,
+                "liquidity_usd": 5655914.569925543,
+                "liquidity_aud": 8683581.418145929,
+                "liquidity_euro": 5612634.460492648,
+                "liquidity_idr": 87973712305.24878,
+                "liquidity_krw": 8019124993.686484,
+                "liquidity_cny": 40806932.596556,
+                "liquidity_twd": 180969469.954379,
+                "liquidity_jpy": 823001363.4537528,
+                "liquidity_rub": 348551024.0845855
+            }
+        },
+        {
+            "id": "uniswap",
+            "symbol": "uni",
+            "name": "Uniswap",
+            "image": "https://raw.githubusercontent.com/polybit-labs/token-list/main/assets/logos/uniswap.png",
+            "address": "0xBf5140A22578168FD562DCcF235E5D43A02ce9B1",
+            "category": "governance",
+            "risk_weighting": {
+                "rw_equally_balanced": 0.3333333333333333,
+                "rw_liquidity": 0.018814501809102765
+            },
+            "token_liquidity": {
+                "liquidity_bnb": 15691.240666133226,
+                "liquidity_usd": 4572741.354924545,
+                "liquidity_aud": 7020574.898841328,
+                "liquidity_euro": 4537749.888239068,
+                "liquidity_idr": 71125726428.66867,
+                "liquidity_krw": 6483369583.395591,
+                "liquidity_cny": 32991931.88739174,
+                "liquidity_twd": 146311718.29210597,
+                "liquidity_jpy": 665387060.4473795,
+                "liquidity_rub": 281799461.86030656
+            }
+        }
+    ],
+    "total_liquidity": {
+        "liquidity_bnb": 833997.138236291,
+        "liquidity_usd": 243043446.02481994,
+        "liquidity_aud": 373146999.5896813,
+        "liquidity_euro": 241183632.406553,
+        "liquidity_idr": 3780367248111.607,
+        "liquidity_krw": 344594273565.0237,
+        "liquidity_cny": 1753537362.9414785,
+        "liquidity_twd": 7776539595.713237,
+        "liquidity_jpy": 35365648646.90992,
+        "liquidity_rub": 14977779625.499697
+    }
+}
