@@ -46,9 +46,8 @@ const Account = () => {
             <>
                 <Title title="Account" info={`You are currently connected to ${truncateAddress(walletOwner ? walletOwner : "")} on the ${chain?.name} network via ${connector?.name}.`}
                     switchButton={true} />
-                {/* <AccountSummary totalDeposited={totalDeposited} totalPortfolioWorth={totalPortfolioWorth} totalReturn={totalReturn} totalReturnPercentage={totalReturnPercentage} /> */}
                 <AccountSummary data={ownedDETFsData} />
-                {/* <AccountTable data={ownedDETFs} /> */}
+                <AccountTable data={ownedDETFsData} />
                 <Footer />
             </>
         )

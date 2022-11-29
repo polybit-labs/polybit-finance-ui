@@ -1,16 +1,8 @@
-import React, { useEffect, useState } from 'react'
 import "./AccountSummary.css"
 import { getNumValueColor } from '../utils'
-import { GetTotalAccountDeposits, GetTotalPortfolioWorth } from './utils/AccountUtils'
 import { useAccount, useBalance } from 'wagmi'
 import { GetOwnedAssets, GetOwnedAssetsPrices, GetTotalBalanceInWeth, GetTotalDeposited } from './utils/DETFUtils'
 
-interface AccountSummaryProps {
-    totalDeposited: number;
-    totalPortfolioWorth: number;
-    totalReturn: number;
-    totalReturnPercentage: number;
-}
 const AccountSummary = (props: any) => {
     const ownedDETFsData: Array<string> = props.data
     const { address: walletOwner, connector } = useAccount()

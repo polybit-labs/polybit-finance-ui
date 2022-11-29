@@ -23,22 +23,30 @@ export const AccountTable = (props: any) => {
     const { data: walletBalance } = useBalance({
         addressOrName: walletOwner,
     })
+    const ownedDETFsData: Array<string> = props.data
+    console.log("hrr", ownedDETFsData)
 
     const GetDETFAccountData = () => {
-        const ownedDETFs: Array<string> = props.data
-        let detfAccounts: Array<any> = []
 
-        ownedDETFs?.map(((detfAddress, index) =>
+        let detfAccounts: Array<any> = []
+        let count = 0
+
+        for (let i = 0; i < ownedDETFsData.length; i++) {
             detfAccounts.push({
-                "detfAddress": detfAddress,
-                "productId": GetProductId(detfAddress),
-                "category": GetProductCategory(detfAddress),
-                "dimension": GetProductDimension(detfAddress),
-                "marketValue": `${walletBalance?.symbol} ${parseFloat((Number(GetTotalBalanceInWeth(detfAddress, GetOwnedAssetsPrices(GetOwnedAssets(detfAddress)))) / 10 ** 18).toString()).toFixed(4)}`,
-                "return": GetTotalReturnPercentageOfDETF(detfAddress),
-                "lockStatus": GetTimeToUnlock(Number(GetTimeLockRemaining(detfAddress)))
+                "detfAddress": ownedDETFsData[i],
+                "productId": GetProductId(ownedDETFsData[i]),
+                "category": GetProductCategory(ownedDETFsData[i]),
+                "dimension": GetProductDimension(ownedDETFsData[i]),
+                "marketValue": `${walletBalance?.symbol} ${parseFloat((Number(GetTotalBalanceInWeth(ownedDETFsData[i], GetOwnedAssetsPrices(GetOwnedAssets(ownedDETFsData[i])))) / 10 ** 18).toString()).toFixed(4)}`,
+                "return": GetTotalReturnPercentageOfDETF(ownedDETFsData[i]),
+                "lockStatus": GetTimeToUnlock(Number(GetTimeLockRemaining(ownedDETFsData[i])))
             })
-        ))
+            if (ownedDETFsData[i] !== undefined) {
+                count++
+            }
+        }
+        console.log(count)
+        console.log("DETF Accounts", detfAccounts[count - 1])
         return detfAccounts
     }
 
