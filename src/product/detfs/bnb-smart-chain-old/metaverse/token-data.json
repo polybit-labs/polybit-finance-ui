@@ -1,0 +1,386 @@
+{
+    "tokens": [
+        {
+            "id": "axie-infinity",
+            "symbol": "axs",
+            "name": "Axie Infinity",
+            "image": null,
+            "address": "0x715D400F88C167884bbCc41C5FeA407ed4D2f8A0",
+            "category": "metaverse",
+            "market_cap": {
+                "market_cap_aud": 1342205323,
+                "market_cap_bnb": 3054215,
+                "market_cap_cny": 6476982124,
+                "market_cap_eur": 869351757,
+                "market_cap_idr": 14123679725660,
+                "market_cap_jpy": 126154350575,
+                "market_cap_krw": 1208226074495,
+                "market_cap_rub": 54940135684,
+                "market_cap_twd": 28125013706,
+                "market_cap_usd": 903620049
+            },
+            "dimension": {
+                "market_cap": 0.6632548580432667,
+                "liquidity": 0.011970946539721318,
+                "equally_balanced": 0.1
+            },
+            "token_liquidity": {
+                "liquidity_aud": 778868.6664962376,
+                "liquidity_bnb": 1772.3311939567598,
+                "liquidity_cny": 3758529.593088282,
+                "liquidity_eur": 504476.3510478521,
+                "liquidity_idr": 8195833676.162899,
+                "liquidity_jpy": 73206139.96638396,
+                "liquidity_krw": 701121814.0109365,
+                "liquidity_rub": 31881225.21625238,
+                "liquidity_twd": 16320671.309358278,
+                "liquidity_usd": 524361.907044047
+            }
+        },
+        {
+            "id": "mobox",
+            "symbol": "mbox",
+            "name": "Mobox",
+            "image": "https://raw.githubusercontent.com/polybit-labs/token-list/main/assets/logos/mobox.png",
+            "address": "0x3203c9E46cA618C8C1cE5dC67e7e9D75f5da2377",
+            "category": "metaverse",
+            "market_cap": {
+                "market_cap_aud": 142785827,
+                "market_cap_bnb": 324912,
+                "market_cap_cny": 689031131,
+                "market_cap_eur": 92482951,
+                "market_cap_idr": 1502498359488,
+                "market_cap_jpy": 13420490160,
+                "market_cap_krw": 128532912816,
+                "market_cap_rub": 5844614529,
+                "market_cap_twd": 2991981394,
+                "market_cap_usd": 96128464
+            },
+            "dimension": {
+                "market_cap": 0.07055805253937716,
+                "liquidity": 0.6450386916334588,
+                "equally_balanced": 0.1
+            },
+            "token_liquidity": {
+                "liquidity_aud": 41968312.52432656,
+                "liquidity_bnb": 95499.73268176071,
+                "liquidity_cny": 202523418.10622948,
+                "liquidity_eur": 27183043.910536367,
+                "liquidity_idr": 441621705833.8504,
+                "liquidity_jpy": 3944616458.420126,
+                "liquidity_krw": 37779025750.775764,
+                "liquidity_rub": 1717877841.399316,
+                "liquidity_twd": 879417883.3759348,
+                "liquidity_usd": 28254550.911225725
+            }
+        },
+        {
+            "id": "my-neighbor-alice",
+            "symbol": "alice",
+            "name": "My Neighbor Alice",
+            "image": "https://raw.githubusercontent.com/polybit-labs/token-list/main/assets/logos/my-neighbor-alice.png",
+            "address": "0xAC51066d7bEC65Dc4589368da368b212745d63E8",
+            "category": "metaverse",
+            "market_cap": {
+                "market_cap_aud": 136299397,
+                "market_cap_bnb": 310152,
+                "market_cap_cny": 657730041,
+                "market_cap_eur": 88281665,
+                "market_cap_idr": 1434243337248,
+                "market_cap_jpy": 12810828360,
+                "market_cap_krw": 122693960136,
+                "market_cap_rub": 5579107221,
+                "market_cap_twd": 2856062605,
+                "market_cap_usd": 91761570
+            },
+            "dimension": {
+                "market_cap": 0.06735276355195532,
+                "liquidity": 0.021202293711337878,
+                "equally_balanced": 0.1
+            },
+            "token_liquidity": {
+                "liquidity_aud": 1379490.099201106,
+                "liquidity_bnb": 3139.0572502642017,
+                "liquidity_cny": 6656904.538917785,
+                "liquidity_eur": 893501.2557152023,
+                "liquidity_idr": 14516017779.770754,
+                "liquidity_jpy": 129658759.72216286,
+                "liquidity_krw": 1241789074.8037663,
+                "liquidity_rub": 56466303.53492754,
+                "liquidity_twd": 28906291.204210427,
+                "liquidity_usd": 928721.4780631667
+            }
+        },
+        {
+            "id": "floki",
+            "symbol": "floki",
+            "name": "FLOKI",
+            "image": "https://raw.githubusercontent.com/polybit-labs/token-list/main/assets/logos/floki.png",
+            "address": "0xfb5B838b6cfEEdC2873aB27866079AC55363D37E",
+            "category": "metaverse",
+            "market_cap": {
+                "market_cap_aud": 131373930,
+                "market_cap_bnb": 298944,
+                "market_cap_cny": 633961572,
+                "market_cap_eur": 85091420,
+                "market_cap_idr": 1382413913856,
+                "market_cap_jpy": 12347881920,
+                "market_cap_krw": 118260153792,
+                "market_cap_rub": 5377494355,
+                "market_cap_twd": 2752852728,
+                "market_cap_usd": 88445571
+            },
+            "dimension": {
+                "market_cap": 0.06491882866231954,
+                "liquidity": 0.06195484567750039,
+                "equally_balanced": 0.1
+            },
+            "token_liquidity": {
+                "liquidity_aud": 4030983.5045791026,
+                "liquidity_bnb": 9172.583408226239,
+                "liquidity_cny": 19452022.45632314,
+                "liquidity_eur": 2610884.1413175166,
+                "liquidity_idr": 42416997596.66239,
+                "liquidity_jpy": 378873557.6767848,
+                "liquidity_krw": 3628609788.2104425,
+                "liquidity_rub": 164999182.12219605,
+                "liquidity_twd": 84466559.84715806,
+                "liquidity_usd": 2713800.527157815
+            }
+        },
+        {
+            "id": "radio-caca",
+            "symbol": "raca",
+            "name": "Radio Caca",
+            "image": "https://raw.githubusercontent.com/polybit-labs/token-list/main/assets/logos/radio-caca.png",
+            "address": "0x12BB890508c125661E03b09EC06E404bc9289040",
+            "category": "metaverse",
+            "market_cap": {
+                "market_cap_aud": 125406502,
+                "market_cap_bnb": 285365,
+                "market_cap_cny": 605164994,
+                "market_cap_eur": 81226293,
+                "market_cap_idr": 1319620218260,
+                "market_cap_jpy": 11787001325,
+                "market_cap_krw": 112888396445,
+                "market_cap_rub": 5133231229,
+                "market_cap_twd": 2627809285,
+                "market_cap_usd": 84428088
+            },
+            "dimension": {
+                "market_cap": 0.061970006225991546,
+                "liquidity": 0.16248477141598439,
+                "equally_balanced": 0.1
+            },
+            "token_liquidity": {
+                "liquidity_aud": 10571787.01941308,
+                "liquidity_bnb": 24056.312336533654,
+                "liquidity_cny": 51015499.88271683,
+                "liquidity_eur": 6847388.743470939,
+                "liquidity_idr": 111244182489.32866,
+                "liquidity_jpy": 993645981.0605226,
+                "liquidity_krw": 9516508766.146358,
+                "liquidity_rub": 432732163.2032683,
+                "liquidity_twd": 221524717.21908045,
+                "liquidity_usd": 7117300.567886847
+            }
+        },
+        {
+            "id": "everdome",
+            "symbol": "dome",
+            "name": "Everdome",
+            "image": "https://raw.githubusercontent.com/polybit-labs/token-list/main/assets/logos/everdome.png",
+            "address": "0x475bFaa1848591ae0E6aB69600f48d828f61a80E",
+            "category": "metaverse",
+            "market_cap": {
+                "market_cap_aud": 61019460,
+                "market_cap_bnb": 138851,
+                "market_cap_cny": 294457150,
+                "market_cap_eur": 39522548,
+                "market_cap_idr": 642092011724,
+                "market_cap_jpy": 5735240555,
+                "market_cap_krw": 54928483643,
+                "market_cap_rub": 2497693443,
+                "market_cap_twd": 1278621930,
+                "market_cap_usd": 41080456
+            },
+            "dimension": {
+                "market_cap": 0.03015295265531916,
+                "liquidity": 0.012306208501761978,
+                "equally_balanced": 0.1
+            },
+            "token_liquidity": {
+                "liquidity_aud": 800681.8987611276,
+                "liquidity_bnb": 1821.9676392871424,
+                "liquidity_cny": 3863792.1136070644,
+                "liquidity_eur": 518604.8688466922,
+                "liquidity_idr": 8425368681.578876,
+                "liquidity_jpy": 75256373.34075542,
+                "liquidity_krw": 720757644.3285185,
+                "liquidity_rub": 32774100.485788904,
+                "liquidity_twd": 16777752.983463187,
+                "liquidity_usd": 539047.345759494
+            }
+        },
+        {
+            "id": "media-licensing-token",
+            "symbol": "mlt",
+            "name": "Media Licensing Token",
+            "image": "https://raw.githubusercontent.com/polybit-labs/token-list/main/assets/logos/media-licensing-token.png",
+            "address": "0x4518231a8FDF6ac553B9BBD51Bbb86825B583263",
+            "category": "metaverse",
+            "market_cap": {
+                "market_cap_aud": 29184538,
+                "market_cap_bnb": 66410,
+                "market_cap_cny": 140833694,
+                "market_cap_eur": 18902942,
+                "market_cap_idr": 307101356840,
+                "market_cap_jpy": 2743065050,
+                "market_cap_krw": 26271331130,
+                "market_cap_rub": 1194603003,
+                "market_cap_twd": 611542461,
+                "market_cap_usd": 19648062
+            },
+            "dimension": {
+                "market_cap": 0.01442162883839328,
+                "liquidity": 0.026242724231100502,
+                "equally_balanced": 0.1
+            },
+            "token_liquidity": {
+                "liquidity_aud": 1707436.8813931388,
+                "liquidity_bnb": 3885.3066977498265,
+                "liquidity_cny": 8239453.354717125,
+                "liquidity_eur": 1105913.6984475106,
+                "liquidity_idr": 17966917009.76527,
+                "liquidity_jpy": 160482593.1505566,
+                "liquidity_krw": 1537000132.482947,
+                "liquidity_rub": 69890062.4711332,
+                "liquidity_twd": 35778196.40383208,
+                "liquidity_usd": 1149506.8395962638
+            }
+        },
+        {
+            "id": "magiccraft",
+            "symbol": "mcrt",
+            "name": "MagicCraft",
+            "image": "https://raw.githubusercontent.com/polybit-labs/token-list/main/assets/logos/magiccraft.png",
+            "address": "0x4b8285aB433D8f69CB48d5Ad62b415ed1a221e4f",
+            "category": "metaverse",
+            "market_cap": {
+                "market_cap_aud": 23682499,
+                "market_cap_bnb": 53890,
+                "market_cap_cny": 114282906,
+                "market_cap_eur": 15339249,
+                "market_cap_idr": 249204820360,
+                "market_cap_jpy": 2225926450,
+                "market_cap_krw": 21318506770,
+                "market_cap_rub": 969389487,
+                "market_cap_twd": 496250915,
+                "market_cap_usd": 15943895
+            },
+            "dimension": {
+                "market_cap": 0.011702779372097785,
+                "liquidity": 0.013395634976540815,
+                "equally_balanced": 0.1
+            },
+            "token_liquidity": {
+                "liquidity_aud": 871563.5239393186,
+                "liquidity_bnb": 1983.2601919158026,
+                "liquidity_cny": 4205840.391190086,
+                "liquidity_eur": 564515.181026914,
+                "liquidity_idr": 9171237703.720852,
+                "liquidity_jpy": 81918562.22708222,
+                "liquidity_krw": 784563849.1005481,
+                "liquidity_rub": 35675479.31023903,
+                "liquidity_twd": 18263029.97067394,
+                "liquidity_usd": 586767.3603802094
+            }
+        },
+        {
+            "id": "redfox-labs-2",
+            "symbol": "rfox",
+            "name": "RFOX",
+            "image": "https://raw.githubusercontent.com/polybit-labs/token-list/main/assets/logos/redfox-labs-2.png",
+            "address": "0x0a3A21356793B49154Fd3BbE91CBc2A16c0457f5",
+            "category": "metaverse",
+            "market_cap": {
+                "market_cap_aud": 18707812,
+                "market_cap_bnb": 42570,
+                "market_cap_cny": 90276921,
+                "market_cap_eur": 12117124,
+                "market_cap_idr": 196857472680,
+                "market_cap_jpy": 1758353850,
+                "market_cap_krw": 16840394010,
+                "market_cap_rub": 765761931,
+                "market_cap_twd": 392009676,
+                "market_cap_usd": 12594760
+            },
+            "dimension": {
+                "market_cap": 0.009244522506405691,
+                "liquidity": 0.02447532873461193,
+                "equally_balanced": 0.1
+            },
+            "token_liquidity": {
+                "liquidity_aud": 1592444.389449928,
+                "liquidity_bnb": 3623.638987507232,
+                "liquidity_cny": 7684542.491636962,
+                "liquidity_eur": 1031432.6014040584,
+                "liquidity_idr": 16756880737.265392,
+                "liquidity_jpy": 149674408.3789862,
+                "liquidity_krw": 1433486217.9849484,
+                "liquidity_rub": 65183105.19897634,
+                "liquidity_twd": 33368605.74396922,
+                "liquidity_usd": 1072089.8308438896
+            }
+        },
+        {
+            "id": "ariva",
+            "symbol": "arv",
+            "name": "Ariva",
+            "image": "https://raw.githubusercontent.com/polybit-labs/token-list/main/assets/logos/ariva.png",
+            "address": "0x6679eB24F59dFe111864AEc72B443d1Da666B360",
+            "category": "metaverse",
+            "market_cap": {
+                "market_cap_aud": 12999226,
+                "market_cap_bnb": 29580,
+                "market_cap_cny": 62729418,
+                "market_cap_eur": 8419651,
+                "market_cap_idr": 136787503920,
+                "market_cap_jpy": 1221801900,
+                "market_cap_krw": 11701640940,
+                "market_cap_rub": 532093914,
+                "market_cap_twd": 272390092,
+                "market_cap_usd": 8751538
+            },
+            "dimension": {
+                "market_cap": 0.006423607604873863,
+                "liquidity": 0.02092855457798195,
+                "equally_balanced": 0.1
+            },
+            "token_liquidity": {
+                "liquidity_aud": 1361679.7420119466,
+                "liquidity_bnb": 3098.52942705126,
+                "liquidity_cny": 6570958.400064795,
+                "liquidity_eur": 881965.4161158706,
+                "liquidity_idr": 14328603994.21939,
+                "liquidity_jpy": 127984757.98435229,
+                "liquidity_krw": 1225756551.635489,
+                "liquidity_rub": 55737276.892626174,
+                "liquidity_twd": 28533087.096649963,
+                "liquidity_usd": 916730.9162873859
+            }
+        }
+    ],
+    "total_liquidity": {
+        "liquidity_aud": 65063248,
+        "liquidity_bnb": 148052,
+        "liquidity_cny": 313970961,
+        "liquidity_eur": 42141726,
+        "liquidity_idr": 684643745502,
+        "liquidity_jpy": 6115317591,
+        "liquidity_krw": 58568619589,
+        "liquidity_rub": 2663216739,
+        "liquidity_twd": 1363356795,
+        "liquidity_usd": 43802877
+    }
+}

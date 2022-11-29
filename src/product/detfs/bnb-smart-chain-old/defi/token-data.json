@@ -1,0 +1,386 @@
+{
+    "tokens": [
+        {
+            "id": "dai",
+            "symbol": "dai",
+            "name": "Dai",
+            "image": "https://raw.githubusercontent.com/polybit-labs/token-list/main/assets/logos/dai.png",
+            "address": "0x1AF3F329e8BE154074D8769D1FFa4eE058B1DBc3",
+            "category": "decentralized-finance-defi",
+            "market_cap": {
+                "market_cap_aud": 7541358603,
+                "market_cap_bnb": 17160512,
+                "market_cap_cny": 36391782983,
+                "market_cap_eur": 4884568135,
+                "market_cap_idr": 79355767493888,
+                "market_cap_jpy": 708814948160,
+                "market_cap_krw": 6788578423616,
+                "market_cap_rub": 308688438009,
+                "market_cap_twd": 158024119198,
+                "market_cap_usd": 5077109080
+            },
+            "dimension": {
+                "market_cap": 0.35419789800139684,
+                "liquidity": 0.03003899463378276,
+                "equally_balanced": 0.1
+            },
+            "token_liquidity": {
+                "liquidity_aud": 10794806.630204387,
+                "liquidity_bnb": 24563.797911537768,
+                "liquidity_cny": 52091709.3170608,
+                "liquidity_eur": 6991839.43754011,
+                "liquidity_idr": 113590960213.47397,
+                "liquidity_jpy": 1014607672.7360675,
+                "liquidity_krw": 9717266507.21896,
+                "liquidity_rub": 441860965.9721148,
+                "liquidity_twd": 226197943.81020758,
+                "liquidity_usd": 7267445.250107564
+            }
+        },
+        {
+            "id": "uniswap",
+            "symbol": "uni",
+            "name": "Uniswap",
+            "image": "https://raw.githubusercontent.com/polybit-labs/token-list/main/assets/logos/uniswap.png",
+            "address": "0xBf5140A22578168FD562DCcF235E5D43A02ce9B1",
+            "category": "decentralized-finance-defi",
+            "market_cap": {
+                "market_cap_aud": 7010268996,
+                "market_cap_bnb": 15952007,
+                "market_cap_cny": 33828942684,
+                "market_cap_eur": 4540579272,
+                "market_cap_idr": 73767248818268,
+                "market_cap_jpy": 658897649135,
+                "market_cap_krw": 6310502305151,
+                "market_cap_rub": 286949487518,
+                "market_cap_twd": 146895492140,
+                "market_cap_usd": 4719560791
+            },
+            "dimension": {
+                "market_cap": 0.3292540075904244,
+                "liquidity": 0.017426556008725835,
+                "equally_balanced": 0.1
+            },
+            "token_liquidity": {
+                "liquidity_aud": 6262403.407238553,
+                "liquidity_bnb": 14250.223927635174,
+                "liquidity_cny": 30220022.376618084,
+                "liquidity_eur": 4056183.7387620755,
+                "liquidity_idr": 65897652513.9376,
+                "liquidity_jpy": 588605499.3309709,
+                "liquidity_krw": 5637288834.204981,
+                "liquidity_rub": 256337303.07747978,
+                "liquidity_twd": 131224469.557782,
+                "liquidity_usd": 4216071.251230143
+            }
+        },
+        {
+            "id": "chainlink",
+            "symbol": "link",
+            "name": "Chainlink",
+            "image": "https://raw.githubusercontent.com/polybit-labs/token-list/main/assets/logos/chainlink.png",
+            "address": "0xF8A0BF9cF54Bb92F17374d9e9A321E6a111a51bD",
+            "category": "decentralized-finance-defi",
+            "market_cap": {
+                "market_cap_aud": 5121675144,
+                "market_cap_bnb": 11654474,
+                "market_cap_cny": 24715293377,
+                "market_cap_eur": 3317329479,
+                "market_cap_idr": 53894063825576,
+                "market_cap_jpy": 481388048570,
+                "market_cap_krw": 4610428333082,
+                "market_cap_rub": 209644174654,
+                "market_cap_twd": 107321272731,
+                "market_cap_usd": 3448092677
+            },
+            "dimension": {
+                "market_cap": 0.2405516917625728,
+                "liquidity": 0.037478409302480566,
+                "equally_balanced": 0.1
+            },
+            "token_liquidity": {
+                "liquidity_aud": 13468233.080375364,
+                "liquidity_bnb": 30647.233150628872,
+                "liquidity_cny": 64992667.925544135,
+                "liquidity_eur": 8723428.443995,
+                "liquidity_idr": 141722735792.0487,
+                "liquidity_jpy": 1265883965.2867255,
+                "liquidity_krw": 12123830903.756727,
+                "liquidity_rub": 551291624.0834574,
+                "liquidity_twd": 282217804.71854955,
+                "liquidity_usd": 9067290.399945058
+            }
+        },
+        {
+            "id": "pancakeswap-token",
+            "symbol": "cake",
+            "name": "PancakeSwap",
+            "image": "https://raw.githubusercontent.com/polybit-labs/token-list/main/assets/logos/pancakeswap-token.png",
+            "address": "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
+            "category": "decentralized-finance-defi",
+            "market_cap": {
+                "market_cap_aud": 916934168,
+                "market_cap_bnb": 2086502,
+                "market_cap_cny": 4424782196,
+                "market_cap_eur": 593901929,
+                "market_cap_idr": 9648661274648,
+                "market_cap_jpy": 86182965110,
+                "market_cap_krw": 825405585686,
+                "market_cap_rub": 37532623926,
+                "market_cap_twd": 19213741452,
+                "market_cap_usd": 617312481
+            },
+            "dimension": {
+                "market_cap": 0.04306600074494925,
+                "liquidity": 0.8471378596066148,
+                "equally_balanced": 0.1
+            },
+            "token_liquidity": {
+                "liquidity_aud": 304427278.4447401,
+                "liquidity_bnb": 692730.3473461524,
+                "liquidity_cny": 1469052465.7065651,
+                "liquidity_eur": 197178766.06860882,
+                "liquidity_idr": 3203409570761.149,
+                "liquidity_jpy": 28613226997.132824,
+                "liquidity_krw": 274039276297.70648,
+                "liquidity_rub": 12461041307.166794,
+                "liquidity_twd": 6379069749.268306,
+                "liquidity_usd": 204951200.56583267
+            }
+        },
+        {
+            "id": "injective-protocol",
+            "symbol": "inj",
+            "name": "Injective",
+            "image": "https://raw.githubusercontent.com/polybit-labs/token-list/main/assets/logos/injective-protocol.png",
+            "address": "0xa2B726B1145A4773F68593CF171187d8EBe4d495",
+            "category": "decentralized-finance-defi",
+            "market_cap": {
+                "market_cap_aud": 244428970,
+                "market_cap_bnb": 556203,
+                "market_cap_cny": 1179523016,
+                "market_cap_eur": 158317621,
+                "market_cap_idr": 2572062881772,
+                "market_cap_jpy": 22973964915,
+                "market_cap_krw": 220030013379,
+                "market_cap_rub": 10005146424,
+                "market_cap_twd": 5121845383,
+                "market_cap_usd": 164558219
+            },
+            "dimension": {
+                "market_cap": 0.01148018972056725,
+                "liquidity": 0.0029894744437931105,
+                "equally_balanced": 0.1
+            },
+            "token_liquidity": {
+                "liquidity_aud": 1074296.8910947414,
+                "liquidity_bnb": 2444.584014687893,
+                "liquidity_cny": 5184155.9824281745,
+                "liquidity_eur": 695826.3939407619,
+                "liquidity_idr": 11304548529.137577,
+                "liquidity_jpy": 100973542.72668342,
+                "liquidity_krw": 967060324.1224277,
+                "liquidity_rub": 43973910.631410226,
+                "liquidity_twd": 22511171.911814786,
+                "liquidity_usd": 723254.6265855602
+            }
+        },
+        {
+            "id": "coin98",
+            "symbol": "c98",
+            "name": "Coin98",
+            "image": "https://raw.githubusercontent.com/polybit-labs/token-list/main/assets/logos/coin98.png",
+            "address": "0xaEC945e04baF28b135Fa7c640f624f8D90F1C3a6",
+            "category": "decentralized-finance-defi",
+            "market_cap": {
+                "market_cap_aud": 120858970,
+                "market_cap_bnb": 275017,
+                "market_cap_cny": 583220301,
+                "market_cap_eur": 78280838,
+                "market_cap_idr": 1271767713508,
+                "market_cap_jpy": 11359577185,
+                "market_cap_krw": 108794800081,
+                "market_cap_rub": 4947088301,
+                "market_cap_twd": 2532518796,
+                "market_cap_usd": 81366529
+            },
+            "dimension": {
+                "market_cap": 0.005676429894087668,
+                "liquidity": 0.006005099410170001,
+                "equally_balanced": 0.1
+            },
+            "token_liquidity": {
+                "liquidity_aud": 2157991.228342798,
+                "liquidity_bnb": 4910.552105636004,
+                "liquidity_cny": 10413660.533859104,
+                "liquidity_eur": 1397739.5513482322,
+                "liquidity_idr": 22707983955.34311,
+                "liquidity_jpy": 202830354.72329515,
+                "liquidity_krw": 1942580039.1248636,
+                "liquidity_rub": 88332484.44181213,
+                "liquidity_twd": 45219261.01443865,
+                "liquidity_usd": 1452835.9459734682
+            }
+        },
+        {
+            "id": "venus",
+            "symbol": "xvs",
+            "name": "Venus",
+            "image": "https://raw.githubusercontent.com/polybit-labs/token-list/main/assets/logos/venus.png",
+            "address": "0xcF6BB5389c92Bdda8a3747Ddb454cB7a64626C63",
+            "category": "decentralized-finance-defi",
+            "market_cap": {
+                "market_cap_aud": 97312704,
+                "market_cap_bnb": 221437,
+                "market_cap_cny": 469594802,
+                "market_cap_eur": 63029827,
+                "market_cap_idr": 1023996433588,
+                "market_cap_jpy": 9146455285,
+                "market_cap_krw": 87598927141,
+                "market_cap_rub": 3983275187,
+                "market_cap_twd": 2039122543,
+                "market_cap_usd": 65514350
+            },
+            "dimension": {
+                "market_cap": 0.004570523300221772,
+                "liquidity": 0.005273427457185911,
+                "equally_balanced": 0.1
+            },
+            "token_liquidity": {
+                "liquidity_aud": 1895057.7531883195,
+                "liquidity_bnb": 4312.241735740044,
+                "liquidity_cny": 9144841.681731839,
+                "liquidity_eur": 1227436.487661046,
+                "liquidity_idr": 19941202952.384342,
+                "liquidity_jpy": 178117144.8947425,
+                "liquidity_krw": 1705892644.9666111,
+                "liquidity_rub": 77569898.01501262,
+                "liquidity_twd": 39709666.12531841,
+                "liquidity_usd": 1275819.8399360494
+            }
+        },
+        {
+            "id": "stargate-finance",
+            "symbol": "stg",
+            "name": "Stargate Finance",
+            "image": "https://raw.githubusercontent.com/polybit-labs/token-list/main/assets/logos/stargate-finance.png",
+            "address": "0xB0D502E938ed5f4df2E681fE6E419ff29631d62b",
+            "category": "decentralized-finance-defi",
+            "market_cap": {
+                "market_cap_aud": 91807149,
+                "market_cap_bnb": 208909,
+                "market_cap_cny": 443027049,
+                "market_cap_eur": 59463857,
+                "market_cap_idr": 966062902516,
+                "market_cap_jpy": 8628986245,
+                "market_cap_krw": 82642938037,
+                "market_cap_rub": 3757917764,
+                "market_cap_twd": 1923757328,
+                "market_cap_usd": 61807816
+            },
+            "dimension": {
+                "market_cap": 0.004311941780849768,
+                "liquidity": 0.005371351819633925,
+                "equally_balanced": 0.1
+            },
+            "token_liquidity": {
+                "liquidity_aud": 1930247.8309488958,
+                "liquidity_bnb": 4392.317459948336,
+                "liquidity_cny": 9314655.867788639,
+                "liquidity_eur": 1250229.2417996945,
+                "liquidity_idr": 20311499045.65813,
+                "liquidity_jpy": 181424672.68316603,
+                "liquidity_krw": 1737570040.9333422,
+                "liquidity_rub": 79010324.16478865,
+                "liquidity_twd": 40447050.63850565,
+                "liquidity_usd": 1299511.0437003148
+            }
+        },
+        {
+            "id": "seedify-fund",
+            "symbol": "sfund",
+            "name": "Seedify.fund",
+            "image": "https://raw.githubusercontent.com/polybit-labs/token-list/main/assets/logos/seedify-fund.png",
+            "address": "0x477bC8d23c634C154061869478bce96BE6045D12",
+            "category": "decentralized-finance-defi",
+            "market_cap": {
+                "market_cap_aud": 87249070,
+                "market_cap_bnb": 198537,
+                "market_cap_cny": 421031459,
+                "market_cap_eur": 56511571,
+                "market_cap_idr": 918099413988,
+                "market_cap_jpy": 8200570785,
+                "market_cap_krw": 78539847441,
+                "market_cap_rub": 3571343117,
+                "market_cap_twd": 1828245832,
+                "market_cap_usd": 58739156
+            },
+            "dimension": {
+                "market_cap": 0.0040978607209099195,
+                "liquidity": 0.04441481329269764,
+                "equally_balanced": 0.1
+            },
+            "token_liquidity": {
+                "liquidity_aud": 15960897.721660076,
+                "liquidity_bnb": 36319.341286260584,
+                "liquidity_cny": 77021337.48553424,
+                "liquidity_eur": 10337937.303721212,
+                "liquidity_idr": 167952401574.2457,
+                "liquidity_jpy": 1500170391.8289933,
+                "liquidity_krw": 14367677177.455683,
+                "liquidity_rub": 653323206.8596412,
+                "liquidity_twd": 334449922.97524637,
+                "liquidity_usd": 10745440.312953057
+            }
+        },
+        {
+            "id": "polkastarter",
+            "symbol": "pols",
+            "name": "Polkastarter",
+            "image": "https://raw.githubusercontent.com/polybit-labs/token-list/main/assets/logos/polkastarter.png",
+            "address": "0x7e624FA0E1c4AbFD309cC15719b7E2580887f570",
+            "category": "decentralized-finance-defi",
+            "market_cap": {
+                "market_cap_aud": 59476516,
+                "market_cap_bnb": 135340,
+                "market_cap_cny": 287011477,
+                "market_cap_eur": 38523177,
+                "market_cap_idr": 625856010160,
+                "market_cap_jpy": 5590218700,
+                "market_cap_krw": 53539556620,
+                "market_cap_rub": 2434536522,
+                "market_cap_twd": 1246290570,
+                "market_cap_usd": 40041692
+            },
+            "dimension": {
+                "market_cap": 0.0027934564840203513,
+                "liquidity": 0.0038640140249154237,
+                "equally_balanced": 0.1
+            },
+            "token_liquidity": {
+                "liquidity_aud": 1388571.246271005,
+                "liquidity_bnb": 3159.721581647943,
+                "liquidity_cny": 6700726.766553343,
+                "liquidity_eur": 899383.1510002704,
+                "liquidity_idr": 14611576343.332542,
+                "liquidity_jpy": 130512299.92996828,
+                "liquidity_krw": 1249963739.6488547,
+                "liquidity_rub": 56838019.72715769,
+                "liquidity_twd": 29096580.55954743,
+                "liquidity_usd": 934835.2271463604
+            }
+        }
+    ],
+    "total_liquidity": {
+        "liquidity_aud": 359359784,
+        "liquidity_bnb": 817730,
+        "liquidity_cny": 1734136243,
+        "liquidity_eur": 232758769,
+        "liquidity_idr": 3781450131680,
+        "liquidity_jpy": 33776352541,
+        "liquidity_krw": 323488406509,
+        "liquidity_rub": 14709579044,
+        "liquidity_twd": 7530143620,
+        "liquidity_usd": 241933704
+    }
+}

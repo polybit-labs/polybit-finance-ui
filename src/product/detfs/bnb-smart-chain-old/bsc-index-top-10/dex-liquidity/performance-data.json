@@ -1,0 +1,5592 @@
+[
+    {
+        "date": "2021-04-24",
+        "index_price": 23.3057866649,
+        "performance_7d": null,
+        "performance_30d": null,
+        "performance_90d": null,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-04-25",
+        "index_price": 22.7542002632,
+        "performance_7d": null,
+        "performance_30d": null,
+        "performance_90d": null,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-04-26",
+        "index_price": 22.8147030858,
+        "performance_7d": null,
+        "performance_30d": null,
+        "performance_90d": null,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-04-27",
+        "index_price": 24.9211077933,
+        "performance_7d": null,
+        "performance_30d": null,
+        "performance_90d": null,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-04-28",
+        "index_price": 26.9316562438,
+        "performance_7d": null,
+        "performance_30d": null,
+        "performance_90d": null,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-04-29",
+        "index_price": 26.8892090173,
+        "performance_7d": null,
+        "performance_30d": null,
+        "performance_90d": null,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-04-30",
+        "index_price": 31.377131628,
+        "performance_7d": null,
+        "performance_30d": null,
+        "performance_90d": null,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-05-01",
+        "index_price": 29.8410104452,
+        "performance_7d": 0.2804120657,
+        "performance_30d": null,
+        "performance_90d": null,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-05-02",
+        "index_price": 26.3242114792,
+        "performance_7d": 0.156894603,
+        "performance_30d": null,
+        "performance_90d": null,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-05-03",
+        "index_price": 28.3420088216,
+        "performance_7d": 0.2422694573,
+        "performance_30d": null,
+        "performance_90d": null,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-05-04",
+        "index_price": 28.1928148952,
+        "performance_7d": 0.1312825709,
+        "performance_30d": null,
+        "performance_90d": null,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-05-05",
+        "index_price": 25.0771154878,
+        "performance_7d": -0.0688609991,
+        "performance_30d": null,
+        "performance_90d": null,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-05-06",
+        "index_price": 27.246989596,
+        "performance_7d": 0.0133057309,
+        "performance_30d": null,
+        "performance_90d": null,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-05-07",
+        "index_price": 26.1900721573,
+        "performance_7d": -0.1653133732,
+        "performance_30d": null,
+        "performance_90d": null,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-05-08",
+        "index_price": 25.416563998,
+        "performance_7d": -0.1482673134,
+        "performance_30d": null,
+        "performance_90d": null,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-05-09",
+        "index_price": 26.3913573011,
+        "performance_7d": 0.0025507249,
+        "performance_30d": null,
+        "performance_90d": null,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-05-10",
+        "index_price": 27.8111816164,
+        "performance_7d": -0.018729343,
+        "performance_30d": null,
+        "performance_90d": null,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-05-11",
+        "index_price": 25.69238324,
+        "performance_7d": -0.0886903867,
+        "performance_30d": null,
+        "performance_90d": null,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-05-12",
+        "index_price": 26.8280215073,
+        "performance_7d": 0.06982087,
+        "performance_30d": null,
+        "performance_90d": null,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-05-13",
+        "index_price": 21.4975742408,
+        "performance_7d": -0.2110110306,
+        "performance_30d": null,
+        "performance_90d": null,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-05-14",
+        "index_price": 20.6848816371,
+        "performance_7d": -0.2102014262,
+        "performance_30d": null,
+        "performance_90d": null,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-05-15",
+        "index_price": 22.5223995418,
+        "performance_7d": -0.1138692255,
+        "performance_30d": null,
+        "performance_90d": null,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-05-16",
+        "index_price": 20.0042774341,
+        "performance_7d": -0.2420140728,
+        "performance_30d": null,
+        "performance_90d": null,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-05-17",
+        "index_price": 20.2251781897,
+        "performance_7d": -0.2727681093,
+        "performance_30d": null,
+        "performance_90d": null,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-05-18",
+        "index_price": 18.5551688365,
+        "performance_7d": -0.2777949533,
+        "performance_30d": null,
+        "performance_90d": null,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-05-19",
+        "index_price": 19.0083101182,
+        "performance_7d": -0.2914755151,
+        "performance_30d": null,
+        "performance_90d": null,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-05-20",
+        "index_price": 13.0598611331,
+        "performance_7d": -0.3924960562,
+        "performance_30d": null,
+        "performance_90d": null,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-05-21",
+        "index_price": 13.823856013,
+        "performance_7d": -0.3316927669,
+        "performance_30d": null,
+        "performance_90d": null,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-05-22",
+        "index_price": 11.3048177084,
+        "performance_7d": -0.498063353,
+        "performance_30d": null,
+        "performance_90d": null,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-05-23",
+        "index_price": 10.2762595853,
+        "performance_7d": -0.4862968873,
+        "performance_30d": null,
+        "performance_90d": null,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-05-24",
+        "index_price": 8.1952593355,
+        "performance_7d": -0.5947991529,
+        "performance_30d": -0.6483594631,
+        "performance_90d": null,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-05-25",
+        "index_price": 11.9738422069,
+        "performance_7d": -0.3546896656,
+        "performance_30d": -0.4737744211,
+        "performance_90d": null,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-05-26",
+        "index_price": 12.1123152303,
+        "performance_7d": -0.3627884249,
+        "performance_30d": -0.4691004663,
+        "performance_90d": null,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-05-27",
+        "index_price": 13.8545939704,
+        "performance_7d": 0.0608530848,
+        "performance_30d": -0.4440618738,
+        "performance_90d": null,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-05-28",
+        "index_price": 12.5309020403,
+        "performance_7d": -0.0935306308,
+        "performance_30d": -0.5347147637,
+        "performance_90d": null,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-05-29",
+        "index_price": 10.7651510636,
+        "performance_7d": -0.0477377574,
+        "performance_30d": -0.5996479087,
+        "performance_90d": null,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-05-30",
+        "index_price": 9.6764724393,
+        "performance_7d": -0.0583662899,
+        "performance_30d": -0.6916074881,
+        "performance_90d": null,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-05-31",
+        "index_price": 10.6873502885,
+        "performance_7d": 0.304089334,
+        "performance_30d": -0.6418569569,
+        "performance_90d": null,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-06-01",
+        "index_price": 12.3097020148,
+        "performance_7d": 0.02804946,
+        "performance_30d": -0.5323809785,
+        "performance_90d": null,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-06-02",
+        "index_price": 12.1783484204,
+        "performance_7d": 0.0054517397,
+        "performance_30d": -0.5703075072,
+        "performance_90d": null,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-06-03",
+        "index_price": 13.3146467201,
+        "performance_7d": -0.0389724341,
+        "performance_30d": -0.5277290767,
+        "performance_90d": null,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-06-04",
+        "index_price": 14.6999080063,
+        "performance_7d": 0.1730925642,
+        "performance_30d": -0.4138118472,
+        "performance_90d": null,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-06-05",
+        "index_price": 12.8870086639,
+        "performance_7d": 0.1971043033,
+        "performance_30d": -0.5270300002,
+        "performance_90d": null,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-06-06",
+        "index_price": 12.7320002931,
+        "performance_7d": 0.3157687755,
+        "performance_30d": -0.5138615802,
+        "performance_90d": null,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-06-07",
+        "index_price": 12.745918156,
+        "performance_7d": 0.1926172355,
+        "performance_30d": -0.4985192272,
+        "performance_90d": null,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-06-08",
+        "index_price": 11.2633058025,
+        "performance_7d": -0.0850058118,
+        "performance_30d": -0.5732199116,
+        "performance_90d": null,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-06-09",
+        "index_price": 10.8761597414,
+        "performance_7d": -0.1069265416,
+        "performance_30d": -0.6089285277,
+        "performance_90d": null,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-06-10",
+        "index_price": 11.8821547686,
+        "performance_7d": -0.1075876801,
+        "performance_30d": -0.5375222821,
+        "performance_90d": null,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-06-11",
+        "index_price": 10.5945747305,
+        "performance_7d": -0.2792761202,
+        "performance_30d": -0.6050929537,
+        "performance_90d": null,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-06-12",
+        "index_price": 9.9165445544,
+        "performance_7d": -0.2305006683,
+        "performance_30d": -0.5387133244,
+        "performance_90d": null,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-06-13",
+        "index_price": 9.7794287228,
+        "performance_7d": -0.231901626,
+        "performance_30d": -0.5272185312,
+        "performance_90d": null,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-06-14",
+        "index_price": 10.5097014541,
+        "performance_7d": -0.1754457132,
+        "performance_30d": -0.5333667075,
+        "performance_90d": null,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-06-15",
+        "index_price": 11.230227412,
+        "performance_7d": -0.0029368279,
+        "performance_30d": -0.4386086951,
+        "performance_90d": null,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-06-16",
+        "index_price": 11.1645170952,
+        "performance_7d": 0.0265127913,
+        "performance_30d": -0.447989185,
+        "performance_90d": null,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-06-17",
+        "index_price": 10.1515151813,
+        "performance_7d": -0.1456503152,
+        "performance_30d": -0.4529009533,
+        "performance_90d": null,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-06-18",
+        "index_price": 10.4315264943,
+        "performance_7d": -0.0153897858,
+        "performance_30d": -0.4512123156,
+        "performance_90d": null,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-06-19",
+        "index_price": 9.817077139,
+        "performance_7d": -0.0100304511,
+        "performance_30d": -0.2483015678,
+        "performance_90d": null,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-06-20",
+        "index_price": 9.6025212766,
+        "performance_7d": -0.0180897526,
+        "performance_30d": -0.3053659364,
+        "performance_90d": null,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-06-21",
+        "index_price": 10.1729868054,
+        "performance_7d": -0.0320384599,
+        "performance_30d": -0.1001193413,
+        "performance_90d": null,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-06-22",
+        "index_price": 7.4982891795,
+        "performance_7d": -0.3323119021,
+        "performance_30d": -0.2703289444,
+        "performance_90d": null,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-06-23",
+        "index_price": 7.2761827394,
+        "performance_7d": -0.3482760896,
+        "performance_30d": -0.1121473474,
+        "performance_90d": null,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-06-24",
+        "index_price": 8.3627957474,
+        "performance_7d": -0.1762022124,
+        "performance_30d": -0.3015779227,
+        "performance_90d": null,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-06-25",
+        "index_price": 8.5011381684,
+        "performance_7d": -0.1850532927,
+        "performance_30d": -0.2981409411,
+        "performance_90d": null,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-06-26",
+        "index_price": 7.3903207112,
+        "performance_7d": -0.2471974492,
+        "performance_30d": -0.4665797694,
+        "performance_90d": null,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-06-27",
+        "index_price": 7.2325348261,
+        "performance_7d": -0.2468087685,
+        "performance_30d": -0.422824087,
+        "performance_90d": null,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-06-28",
+        "index_price": 7.8567852541,
+        "performance_7d": -0.2276815645,
+        "performance_30d": -0.270164886,
+        "performance_90d": null,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-06-29",
+        "index_price": 7.8445813389,
+        "performance_7d": 0.0461828226,
+        "performance_30d": -0.1893139377,
+        "performance_90d": null,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-06-30",
+        "index_price": 8.195064073,
+        "performance_7d": 0.1262861814,
+        "performance_30d": -0.2331996377,
+        "performance_90d": null,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-07-01",
+        "index_price": 8.234841299,
+        "performance_7d": -0.0153004393,
+        "performance_30d": -0.33102838,
+        "performance_90d": null,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-07-02",
+        "index_price": 7.6483861067,
+        "performance_7d": -0.1003103402,
+        "performance_30d": -0.3719685262,
+        "performance_90d": null,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-07-03",
+        "index_price": 7.7704279174,
+        "performance_7d": 0.0514331138,
+        "performance_30d": -0.4163999931,
+        "performance_90d": null,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-07-04",
+        "index_price": 8.1661276438,
+        "performance_7d": 0.1290823812,
+        "performance_30d": -0.4444776362,
+        "performance_90d": null,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-07-05",
+        "index_price": 8.5434072963,
+        "performance_7d": 0.0873922374,
+        "performance_30d": -0.3370527235,
+        "performance_90d": null,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-07-06",
+        "index_price": 8.4014268225,
+        "performance_7d": 0.0709847294,
+        "performance_30d": -0.3401330012,
+        "performance_90d": null,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-07-07",
+        "index_price": 9.2689876539,
+        "performance_7d": 0.131045172,
+        "performance_30d": -0.2727877631,
+        "performance_90d": null,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-07-08",
+        "index_price": 9.2318493958,
+        "performance_7d": 0.1210719261,
+        "performance_30d": -0.1803605835,
+        "performance_90d": null,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-07-09",
+        "index_price": 8.5184289416,
+        "performance_7d": 0.113755088,
+        "performance_30d": -0.2167797142,
+        "performance_90d": null,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-07-10",
+        "index_price": 8.3870470554,
+        "performance_7d": 0.0793545921,
+        "performance_30d": -0.2941476341,
+        "performance_90d": null,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-07-11",
+        "index_price": 8.5579367223,
+        "performance_7d": 0.0479797887,
+        "performance_30d": -0.19223405,
+        "performance_90d": null,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-07-12",
+        "index_price": 8.6232229432,
+        "performance_7d": 0.0093423671,
+        "performance_30d": -0.130420592,
+        "performance_90d": null,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-07-13",
+        "index_price": 8.4547252646,
+        "performance_7d": 0.006343975,
+        "performance_30d": -0.1354581638,
+        "performance_90d": null,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-07-14",
+        "index_price": 8.1138405155,
+        "performance_7d": -0.1246249517,
+        "performance_30d": -0.227966603,
+        "performance_90d": null,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-07-15",
+        "index_price": 9.783619922,
+        "performance_7d": 0.0597681464,
+        "performance_30d": -0.1288137307,
+        "performance_90d": null,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-07-16",
+        "index_price": 9.6568304992,
+        "performance_7d": 0.133639849,
+        "performance_30d": -0.1350427057,
+        "performance_90d": null,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-07-17",
+        "index_price": 8.0891857254,
+        "performance_7d": -0.035514446,
+        "performance_30d": -0.2031548413,
+        "performance_90d": null,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-07-18",
+        "index_price": 6.9528968623,
+        "performance_7d": -0.187549863,
+        "performance_30d": -0.3334727313,
+        "performance_90d": null,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-07-19",
+        "index_price": 7.1022287766,
+        "performance_7d": -0.176383491,
+        "performance_30d": -0.2765434481,
+        "performance_90d": null,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-07-20",
+        "index_price": 6.7458247658,
+        "performance_7d": -0.2021237172,
+        "performance_30d": -0.2974944214,
+        "performance_90d": null,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-07-21",
+        "index_price": 6.12126707,
+        "performance_7d": -0.2455771027,
+        "performance_30d": -0.3982822167,
+        "performance_90d": null,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-07-22",
+        "index_price": 7.2910276858,
+        "performance_7d": -0.2547719817,
+        "performance_30d": -0.027641171,
+        "performance_90d": null,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-07-23",
+        "index_price": 7.4397945866,
+        "performance_7d": -0.2295821505,
+        "performance_30d": 0.0224859453,
+        "performance_90d": -0.6807747924,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-07-24",
+        "index_price": 8.1549601574,
+        "performance_7d": 0.0081311561,
+        "performance_30d": -0.0248524054,
+        "performance_90d": -0.641606382,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-07-25",
+        "index_price": 8.1054747257,
+        "performance_7d": 0.1657694464,
+        "performance_30d": -0.0465424082,
+        "performance_90d": -0.644725829,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-07-26",
+        "index_price": 8.2868510968,
+        "performance_7d": 0.1667958549,
+        "performance_30d": 0.1213114316,
+        "performance_90d": -0.667476616,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-07-27",
+        "index_price": 8.3451874699,
+        "performance_7d": 0.2370892752,
+        "performance_30d": 0.153839929,
+        "performance_90d": -0.6901346358,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-07-28",
+        "index_price": 8.7238578638,
+        "performance_7d": 0.4251719071,
+        "performance_30d": 0.1103597186,
+        "performance_90d": -0.6755628677,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-07-29",
+        "index_price": 8.9663418322,
+        "performance_7d": 0.2297775044,
+        "performance_30d": 0.142998134,
+        "performance_90d": -0.7142395953,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-07-30",
+        "index_price": 9.0582384563,
+        "performance_7d": 0.2175387843,
+        "performance_30d": 0.1053285704,
+        "performance_90d": -0.6964500089,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-07-31",
+        "index_price": 9.3342253299,
+        "performance_7d": 0.1446071041,
+        "performance_30d": 0.133503973,
+        "performance_90d": -0.6454129182,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-08-01",
+        "index_price": 10.0997810286,
+        "performance_7d": 0.2460443553,
+        "performance_30d": 0.3205113978,
+        "performance_90d": -0.6436462534,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-08-02",
+        "index_price": 9.7916408787,
+        "performance_7d": 0.1815876458,
+        "performance_30d": 0.2601160429,
+        "performance_90d": -0.6526902008,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-08-03",
+        "index_price": 9.7939126683,
+        "performance_7d": 0.1736000783,
+        "performance_30d": 0.1993337718,
+        "performance_90d": -0.609448197,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-08-04",
+        "index_price": 9.9516726699,
+        "performance_7d": 0.1407421837,
+        "performance_30d": 0.164836502,
+        "performance_90d": -0.6347606537,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-08-05",
+        "index_price": 10.8956714094,
+        "performance_7d": 0.2151746624,
+        "performance_30d": 0.2968834508,
+        "performance_90d": -0.5839770374,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-08-06",
+        "index_price": 10.73097085,
+        "performance_7d": 0.1846642039,
+        "performance_30d": 0.1577284651,
+        "performance_90d": -0.5777961627,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-08-07",
+        "index_price": 11.093961064,
+        "performance_7d": 0.1885250968,
+        "performance_30d": 0.2017051609,
+        "performance_90d": -0.5796365857,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-08-08",
+        "index_price": 11.3053564447,
+        "performance_7d": 0.1193664905,
+        "performance_30d": 0.327164495,
+        "performance_90d": -0.5934960046,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-08-09",
+        "index_price": 10.8210762123,
+        "performance_7d": 0.1051340982,
+        "performance_30d": 0.2902128891,
+        "performance_90d": -0.5788216254,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-08-10",
+        "index_price": 11.4895912855,
+        "performance_7d": 0.1731359748,
+        "performance_30d": 0.3425655807,
+        "performance_90d": -0.5717316954,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-08-11",
+        "index_price": 12.5537403613,
+        "performance_7d": 0.2614703857,
+        "performance_30d": 0.4558060767,
+        "performance_90d": -0.4160392135,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-08-12",
+        "index_price": 13.0510288272,
+        "performance_7d": 0.1978177697,
+        "performance_30d": 0.5436372465,
+        "performance_90d": -0.3690547011,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-08-13",
+        "index_price": 12.7978457187,
+        "performance_7d": 0.192608376,
+        "performance_30d": 0.5772858358,
+        "performance_90d": -0.4317725474,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-08-14",
+        "index_price": 14.0736306213,
+        "performance_7d": 0.268584822,
+        "performance_30d": 0.4384891005,
+        "performance_90d": -0.2964689343,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-08-15",
+        "index_price": 13.7686384202,
+        "performance_7d": 0.2178862725,
+        "performance_30d": 0.4257926989,
+        "performance_90d": -0.3192327756,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-08-16",
+        "index_price": 13.8524015148,
+        "performance_7d": 0.2801315916,
+        "performance_30d": 0.7124593235,
+        "performance_90d": -0.2534478324,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-08-17",
+        "index_price": 14.1999643229,
+        "performance_7d": 0.2358981247,
+        "performance_30d": 1.0423090697,
+        "performance_90d": -0.252960193,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-08-18",
+        "index_price": 14.2097942047,
+        "performance_7d": 0.1319171654,
+        "performance_30d": 1.0007514052,
+        "performance_90d": 0.0880509417,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-08-19",
+        "index_price": 14.1851281279,
+        "performance_7d": 0.0868973102,
+        "performance_30d": 1.1028011578,
+        "performance_90d": 0.0261339611,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-08-20",
+        "index_price": 14.8246762989,
+        "performance_7d": 0.1583727937,
+        "performance_30d": 1.4218313185,
+        "performance_90d": 0.311359164,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-08-21",
+        "index_price": 16.2703315215,
+        "performance_7d": 0.1560862978,
+        "performance_30d": 1.2315553064,
+        "performance_90d": 0.583293161,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-08-22",
+        "index_price": 15.7652392557,
+        "performance_7d": 0.1450107683,
+        "performance_30d": 1.1190422763,
+        "performance_90d": 0.9237023028,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-08-23",
+        "index_price": 15.5750954295,
+        "performance_7d": 0.1243606686,
+        "performance_30d": 0.9098922777,
+        "performance_90d": 0.3007600368,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-08-24",
+        "index_price": 17.1628754216,
+        "performance_7d": 0.2086562354,
+        "performance_30d": 1.1174423464,
+        "performance_90d": 0.4169772744,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-08-25",
+        "index_price": 15.9338448296,
+        "performance_7d": 0.1213283317,
+        "performance_30d": 0.9227864292,
+        "performance_90d": 0.1500766362,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-08-26",
+        "index_price": 17.4783706409,
+        "performance_7d": 0.2321616332,
+        "performance_30d": 1.0944251647,
+        "performance_90d": 0.394821425,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-08-27",
+        "index_price": 16.7088522958,
+        "performance_7d": 0.1270972775,
+        "performance_30d": 0.9153054253,
+        "performance_90d": 0.5521242755,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-08-28",
+        "index_price": 17.340515779,
+        "performance_7d": 0.0657751968,
+        "performance_30d": 0.9339565793,
+        "performance_90d": 0.7920286435,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-08-29",
+        "index_price": 16.6546715344,
+        "performance_7d": 0.0564173029,
+        "performance_30d": 0.838621451,
+        "performance_90d": 0.558353669,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-08-30",
+        "index_price": 16.4768235447,
+        "performance_7d": 0.0578955114,
+        "performance_30d": 0.7652052487,
+        "performance_90d": 0.3385233473,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-08-31",
+        "index_price": 15.2934210806,
+        "performance_7d": -0.1089243087,
+        "performance_30d": 0.5142329361,
+        "performance_90d": 0.2557877762,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-09-01",
+        "index_price": 15.5146508688,
+        "performance_7d": -0.0263083998,
+        "performance_30d": 0.5844791553,
+        "performance_90d": 0.165231883,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-09-02",
+        "index_price": 16.3851880362,
+        "performance_7d": -0.0625448806,
+        "performance_30d": 0.6729971556,
+        "performance_90d": 0.1146456175,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-09-03",
+        "index_price": 15.9077182685,
+        "performance_7d": -0.047946682,
+        "performance_30d": 0.5984969358,
+        "performance_90d": 0.2343995945,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-09-04",
+        "index_price": 15.9095449475,
+        "performance_7d": -0.0825218148,
+        "performance_30d": 0.4601711404,
+        "performance_90d": 0.2495715191,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-09-05",
+        "index_price": 16.5163793564,
+        "performance_7d": -0.0083035068,
+        "performance_30d": 0.5391318817,
+        "performance_90d": 0.2958171514,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-09-06",
+        "index_price": 16.7655661301,
+        "performance_7d": 0.0175241657,
+        "performance_30d": 0.5112335471,
+        "performance_90d": 0.4885120252,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-09-07",
+        "index_price": 17.0471228403,
+        "performance_7d": 0.1146703377,
+        "performance_30d": 0.5078801738,
+        "performance_90d": 0.5673843751,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-09-08",
+        "index_price": 14.0747658923,
+        "performance_7d": -0.0928080811,
+        "performance_30d": 0.3006807841,
+        "performance_90d": 0.1845297563,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-09-09",
+        "index_price": 13.3905199211,
+        "performance_7d": -0.1827667835,
+        "performance_30d": 0.16544789,
+        "performance_90d": 0.2639034847,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-09-10",
+        "index_price": 13.353938181,
+        "performance_7d": -0.160537171,
+        "performance_30d": 0.0637417851,
+        "performance_90d": 0.3466321971,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-09-11",
+        "index_price": 12.1600394364,
+        "performance_7d": -0.2356764775,
+        "performance_30d": -0.0682696669,
+        "performance_90d": 0.2434304478,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-09-12",
+        "index_price": 12.7489593415,
+        "performance_7d": -0.2281020515,
+        "performance_30d": -0.0038198911,
+        "performance_90d": 0.2130657942,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-09-13",
+        "index_price": 13.427520611,
+        "performance_7d": -0.1991012706,
+        "performance_30d": -0.045909263,
+        "performance_90d": 0.1956588338,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-09-14",
+        "index_price": 12.4564849602,
+        "performance_7d": -0.2692910659,
+        "performance_30d": -0.0953001611,
+        "performance_90d": 0.1157208909,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-09-15",
+        "index_price": 13.3799666622,
+        "performance_7d": -0.0493648872,
+        "performance_30d": -0.0341049061,
+        "performance_90d": 0.3180265629,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-09-16",
+        "index_price": 14.6684415071,
+        "performance_7d": 0.0954347997,
+        "performance_30d": 0.0329914339,
+        "performance_90d": 0.40616443,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-09-17",
+        "index_price": 14.327629084,
+        "performance_7d": 0.0729141389,
+        "performance_30d": 0.0082925113,
+        "performance_90d": 0.459459764,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-09-18",
+        "index_price": 13.4717586513,
+        "performance_7d": 0.1078712961,
+        "performance_30d": -0.0502899565,
+        "performance_90d": 0.4029397346,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-09-19",
+        "index_price": 14.1795470634,
+        "performance_7d": 0.1122121174,
+        "performance_30d": -0.0435172561,
+        "performance_90d": 0.3938430605,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-09-20",
+        "index_price": 14.3746010347,
+        "performance_7d": 0.070532785,
+        "performance_30d": -0.1165145581,
+        "performance_90d": 0.9170507686,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-09-21",
+        "index_price": 11.4927972924,
+        "performance_7d": -0.0773643344,
+        "performance_30d": -0.2710039406,
+        "performance_90d": 0.5795091608,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-09-22",
+        "index_price": 10.6631466103,
+        "performance_7d": -0.2030513319,
+        "performance_30d": -0.3153719887,
+        "performance_90d": 0.2750695978,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-09-23",
+        "index_price": 12.3146554045,
+        "performance_7d": -0.1604659978,
+        "performance_30d": -0.2824829697,
+        "performance_90d": 0.4485890196,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-09-24",
+        "index_price": 12.430994024,
+        "performance_7d": -0.1323760581,
+        "performance_30d": -0.2198371355,
+        "performance_90d": 0.6820642175,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-09-25",
+        "index_price": 11.4655612354,
+        "performance_7d": -0.1489187468,
+        "performance_30d": -0.344014298,
+        "performance_90d": 0.5852756345,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-09-26",
+        "index_price": 11.292941426,
+        "performance_7d": -0.2035753064,
+        "performance_30d": -0.3241342238,
+        "performance_90d": 0.4373488724,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-09-27",
+        "index_price": 11.3987125068,
+        "performance_7d": -0.2070240781,
+        "performance_30d": -0.3426543563,
+        "performance_90d": 0.4530683047,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-09-28",
+        "index_price": 11.1983440679,
+        "performance_7d": -0.025620675,
+        "performance_30d": -0.3276154354,
+        "performance_90d": 0.3664742543,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-09-29",
+        "index_price": 10.9888956768,
+        "performance_7d": 0.0305490563,
+        "performance_30d": -0.3330695296,
+        "performance_90d": 0.3344392779,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-09-30",
+        "index_price": 11.0244917561,
+        "performance_7d": -0.1047665246,
+        "performance_30d": -0.2791350151,
+        "performance_90d": 0.4414141235,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-10-01",
+        "index_price": 11.2023068348,
+        "performance_7d": -0.0988406226,
+        "performance_30d": -0.2779530181,
+        "performance_90d": 0.4416589349,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-10-02",
+        "index_price": 11.8981045223,
+        "performance_7d": 0.0377254352,
+        "performance_30d": -0.273849986,
+        "performance_90d": 0.4570069244,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-10-03",
+        "index_price": 12.0356670825,
+        "performance_7d": 0.065769017,
+        "performance_30d": -0.2434070758,
+        "performance_90d": 0.4087666273,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-10-04",
+        "index_price": 11.8498241881,
+        "performance_7d": 0.0395756697,
+        "performance_30d": -0.2551751651,
+        "performance_90d": 0.4104537763,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-10-05",
+        "index_price": 11.432038275,
+        "performance_7d": 0.0208686397,
+        "performance_30d": -0.3078362982,
+        "performance_90d": 0.233364279,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-10-06",
+        "index_price": 11.7619836262,
+        "performance_7d": 0.0703517416,
+        "performance_30d": -0.2984439932,
+        "performance_90d": 0.2740658044,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-10-07",
+        "index_price": 11.6534811617,
+        "performance_7d": 0.0570538234,
+        "performance_30d": -0.3163960118,
+        "performance_90d": 0.3680317394,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-10-08",
+        "index_price": 11.494554298,
+        "performance_7d": 0.0260881502,
+        "performance_30d": -0.1833218125,
+        "performance_90d": 0.3705126753,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-10-09",
+        "index_price": 12.334505899,
+        "performance_7d": 0.0366782268,
+        "performance_30d": -0.0788628095,
+        "performance_90d": 0.4412943563,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-10-10",
+        "index_price": 12.5584546358,
+        "performance_7d": 0.0434365249,
+        "performance_30d": -0.0595692098,
+        "performance_90d": 0.4563527719,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-10-11",
+        "index_price": 11.7663363732,
+        "performance_7d": -0.0070454898,
+        "performance_30d": -0.0323767916,
+        "performance_90d": 0.3916876072,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-10-12",
+        "index_price": 11.8182446486,
+        "performance_7d": 0.0337828097,
+        "performance_30d": -0.0730031894,
+        "performance_90d": 0.4565537277,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-10-13",
+        "index_price": 12.2219050629,
+        "performance_7d": 0.0391023701,
+        "performance_30d": -0.0897869073,
+        "performance_90d": 0.2492211636,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-10-14",
+        "index_price": 12.7967609729,
+        "performance_7d": 0.0981062908,
+        "performance_30d": 0.0273171777,
+        "performance_90d": 0.3251512465,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-10-15",
+        "index_price": 12.3083383714,
+        "performance_7d": 0.0707973578,
+        "performance_30d": -0.0800920001,
+        "performance_90d": 0.5215794011,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-10-16",
+        "index_price": 12.2816285004,
+        "performance_7d": -0.0042869491,
+        "performance_30d": -0.1627175597,
+        "performance_90d": 0.766404528,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-10-17",
+        "index_price": 12.3750146841,
+        "performance_7d": -0.0146068889,
+        "performance_30d": -0.1362831483,
+        "performance_90d": 0.74241285,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-10-18",
+        "index_price": 12.1018606062,
+        "performance_7d": 0.0285156078,
+        "performance_30d": -0.1016866528,
+        "performance_90d": 0.7939779088,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-10-19",
+        "index_price": 12.4856669202,
+        "performance_7d": 0.056473892,
+        "performance_30d": -0.1194593971,
+        "performance_90d": 1.0397193551,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-10-20",
+        "index_price": 12.6004227593,
+        "performance_7d": 0.0309704334,
+        "performance_30d": -0.123424523,
+        "performance_90d": 0.7282094243,
+        "performance_180d": null,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-10-21",
+        "index_price": 12.8643334185,
+        "performance_7d": 0.0052804335,
+        "performance_30d": 0.1193387555,
+        "performance_90d": 0.7291248123,
+        "performance_180d": -0.4480197728,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-10-22",
+        "index_price": 12.5731945857,
+        "performance_7d": 0.0215184378,
+        "performance_30d": 0.1791261102,
+        "performance_90d": 0.541784919,
+        "performance_180d": -0.4474341247,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-10-23",
+        "index_price": 12.6932024913,
+        "performance_7d": 0.0335113532,
+        "performance_30d": 0.0307395598,
+        "performance_90d": 0.5660035866,
+        "performance_180d": -0.443639374,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-10-24",
+        "index_price": 12.8426530153,
+        "performance_7d": 0.0377889112,
+        "performance_30d": 0.0331155329,
+        "performance_90d": 0.5497627344,
+        "performance_180d": -0.4846676511,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-10-25",
+        "index_price": 12.424072841,
+        "performance_7d": 0.0266250162,
+        "performance_30d": 0.0835991877,
+        "performance_90d": 0.4887709696,
+        "performance_180d": -0.5386814413,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-10-26",
+        "index_price": 12.8578567126,
+        "performance_7d": 0.0298093642,
+        "performance_30d": 0.1385746395,
+        "performance_90d": 0.4738727881,
+        "performance_180d": -0.5218209392,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-10-27",
+        "index_price": 13.1067573184,
+        "performance_7d": 0.0401839342,
+        "performance_30d": 0.1498454155,
+        "performance_90d": 0.4617731025,
+        "performance_180d": -0.5822831266,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-10-28",
+        "index_price": 11.5610824956,
+        "performance_7d": -0.101307303,
+        "performance_30d": 0.0323921488,
+        "performance_90d": 0.2763058238,
+        "performance_180d": -0.6125773785,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-10-29",
+        "index_price": 11.5824388496,
+        "performance_7d": -0.0787990458,
+        "performance_30d": 0.0540129955,
+        "performance_90d": 0.240857001,
+        "performance_180d": -0.560008137,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-10-30",
+        "index_price": 12.3777929284,
+        "performance_7d": -0.0248486986,
+        "performance_30d": 0.1227540645,
+        "performance_90d": 0.2255506227,
+        "performance_180d": -0.563270444,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-10-31",
+        "index_price": 11.7879462287,
+        "performance_7d": -0.0821253043,
+        "performance_30d": 0.0522784639,
+        "performance_90d": 0.2038785301,
+        "performance_180d": -0.5818811895,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-11-01",
+        "index_price": 11.1266420679,
+        "performance_7d": -0.1044287803,
+        "performance_30d": -0.0648391055,
+        "performance_90d": 0.1360773212,
+        "performance_180d": -0.5563029539,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-11-02",
+        "index_price": 11.734651301,
+        "performance_7d": -0.0873555707,
+        "performance_30d": -0.0250103114,
+        "performance_90d": 0.1791637135,
+        "performance_180d": -0.569323016,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-11-03",
+        "index_price": 11.6196751851,
+        "performance_7d": -0.1134591949,
+        "performance_30d": -0.019422145,
+        "performance_90d": 0.0664487528,
+        "performance_180d": -0.5563328304,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-11-04",
+        "index_price": 11.8660791502,
+        "performance_7d": 0.0263813233,
+        "performance_30d": 0.0379670593,
+        "performance_90d": 0.1057787143,
+        "performance_180d": -0.5331359836,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-11-05",
+        "index_price": 11.616387582,
+        "performance_7d": 0.0029310522,
+        "performance_30d": -0.0123785281,
+        "performance_90d": 0.0470910719,
+        "performance_180d": -0.5598412219,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-11-06",
+        "index_price": 11.7360935678,
+        "performance_7d": -0.0518427933,
+        "performance_30d": 0.0070890753,
+        "performance_90d": 0.0381002691,
+        "performance_180d": -0.5780080929,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-11-07",
+        "index_price": 11.6813251878,
+        "performance_7d": -0.0090449209,
+        "performance_30d": 0.0162486413,
+        "performance_90d": 0.0794975434,
+        "performance_180d": -0.5453389793,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-11-08",
+        "index_price": 12.2880993138,
+        "performance_7d": 0.1043852439,
+        "performance_30d": -0.0037623384,
+        "performance_90d": 0.0694983841,
+        "performance_180d": -0.5419677403,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-11-09",
+        "index_price": 12.2013218246,
+        "performance_7d": 0.0397685889,
+        "performance_30d": -0.0284376399,
+        "performance_90d": -0.0280727916,
+        "performance_180d": -0.432432623,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-11-10",
+        "index_price": 11.8834151355,
+        "performance_7d": 0.0226977042,
+        "performance_30d": 0.0099503158,
+        "performance_90d": -0.0894652603,
+        "performance_180d": -0.4255023865,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-11-11",
+        "index_price": 10.8272023596,
+        "performance_7d": -0.0875501316,
+        "performance_30d": -0.0838569786,
+        "performance_90d": -0.1539824282,
+        "performance_180d": -0.5192695903,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-11-12",
+        "index_price": 11.2330846532,
+        "performance_7d": -0.0329967407,
+        "performance_30d": -0.0809055875,
+        "performance_90d": -0.2018346257,
+        "performance_180d": -0.4384658636,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-11-13",
+        "index_price": 10.7877326945,
+        "performance_7d": -0.0808072011,
+        "performance_30d": -0.1569950617,
+        "performance_90d": -0.2164996737,
+        "performance_180d": -0.4666186575,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-11-14",
+        "index_price": 10.8711406086,
+        "performance_7d": -0.069357249,
+        "performance_30d": -0.1167661889,
+        "performance_90d": -0.2152161777,
+        "performance_180d": -0.4141179364,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-11-15",
+        "index_price": 10.7037851134,
+        "performance_7d": -0.1289307777,
+        "performance_30d": -0.128471838,
+        "performance_90d": -0.2462104221,
+        "performance_180d": -0.4368891792,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-11-16",
+        "index_price": 10.8072342976,
+        "performance_7d": -0.1142570901,
+        "performance_30d": -0.1266891738,
+        "performance_90d": -0.2394517372,
+        "performance_180d": -0.1724847464,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-11-17",
+        "index_price": 9.6972658919,
+        "performance_7d": -0.1839664119,
+        "performance_30d": -0.1986962825,
+        "performance_90d": -0.3163779837,
+        "performance_180d": -0.2985122326,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-11-18",
+        "index_price": 9.4489905664,
+        "performance_7d": -0.127291589,
+        "performance_30d": -0.2432129876,
+        "performance_90d": -0.3626174106,
+        "performance_180d": -0.1641625004,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-11-19",
+        "index_price": 8.2813092688,
+        "performance_7d": -0.2627751393,
+        "performance_30d": -0.342775284,
+        "performance_90d": -0.4910177916,
+        "performance_180d": -0.1941319504,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-11-20",
+        "index_price": 5.3680745202,
+        "performance_7d": -0.5023908478,
+        "performance_30d": -0.5827164653,
+        "performance_90d": -0.6594993306,
+        "performance_180d": -0.3449780781,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-11-21",
+        "index_price": 5.398049879,
+        "performance_7d": -0.5034513789,
+        "performance_30d": -0.5706699803,
+        "performance_90d": -0.6534178616,
+        "performance_180d": -0.549179805,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-11-22",
+        "index_price": 5.1511232588,
+        "performance_7d": -0.5187568506,
+        "performance_30d": -0.5941825349,
+        "performance_90d": -0.6998682836,
+        "performance_180d": -0.5747201785,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-11-23",
+        "index_price": 4.9142675642,
+        "performance_7d": -0.5452798164,
+        "performance_30d": -0.6173479453,
+        "performance_90d": -0.6915830663,
+        "performance_180d": -0.6452968904,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-11-24",
+        "index_price": 5.0599243486,
+        "performance_7d": -0.4782112396,
+        "performance_30d": -0.5927322374,
+        "performance_90d": -0.7105036589,
+        "performance_180d": -0.596204301,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-11-25",
+        "index_price": 4.6984129949,
+        "performance_7d": -0.5027603254,
+        "performance_30d": -0.6345881666,
+        "performance_90d": -0.7188069586,
+        "performance_180d": -0.5635534544,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-11-26",
+        "index_price": 4.8238224942,
+        "performance_7d": -0.4175048489,
+        "performance_30d": -0.6319591202,
+        "performance_90d": -0.7218178193,
+        "performance_180d": -0.501489564,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-11-27",
+        "index_price": 4.0308861229,
+        "performance_7d": -0.2491001927,
+        "performance_30d": -0.6513400778,
+        "performance_90d": -0.7579726436,
+        "performance_180d": -0.6228357812,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-11-28",
+        "index_price": 4.0936037837,
+        "performance_7d": -0.2416513601,
+        "performance_30d": -0.6465680642,
+        "performance_90d": -0.7515538251,
+        "performance_180d": -0.6674489944,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-11-29",
+        "index_price": 4.2489473423,
+        "performance_7d": -0.1751415897,
+        "performance_30d": -0.6567281932,
+        "performance_90d": -0.7221715586,
+        "performance_180d": -0.6511064394,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-11-30",
+        "index_price": 4.580865818,
+        "performance_7d": -0.0678436292,
+        "performance_30d": -0.6113940691,
+        "performance_90d": -0.7047393553,
+        "performance_180d": -0.655952883,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-12-01",
+        "index_price": 4.365171447,
+        "performance_7d": -0.1373049978,
+        "performance_30d": -0.6076829451,
+        "performance_90d": -0.7335903966,
+        "performance_180d": -0.7030477031,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-12-02",
+        "index_price": 4.1513265095,
+        "performance_7d": -0.1164406973,
+        "performance_30d": -0.6462335008,
+        "performance_90d": -0.7390369606,
+        "performance_180d": -0.67786733,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-12-03",
+        "index_price": 3.9945384594,
+        "performance_7d": -0.1719142932,
+        "performance_30d": -0.6562263234,
+        "performance_90d": -0.7489218911,
+        "performance_180d": -0.686259946,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-12-04",
+        "index_price": 3.7801361028,
+        "performance_7d": -0.0622071705,
+        "performance_30d": -0.6814334327,
+        "performance_90d": -0.7711280408,
+        "performance_180d": -0.7034237898,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-12-05",
+        "index_price": 3.4274819437,
+        "performance_7d": -0.1627225973,
+        "performance_30d": -0.7049442506,
+        "performance_90d": -0.7955641988,
+        "performance_180d": -0.6956948516,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-12-06",
+        "index_price": 3.2208960281,
+        "performance_7d": -0.2419543551,
+        "performance_30d": -0.7255563779,
+        "performance_90d": -0.8110592586,
+        "performance_180d": -0.7038572341,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-12-07",
+        "index_price": 3.4479995799,
+        "performance_7d": -0.2473039559,
+        "performance_30d": -0.7048280461,
+        "performance_90d": -0.7550225982,
+        "performance_180d": -0.7098169779,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-12-08",
+        "index_price": 3.3232490155,
+        "performance_7d": -0.2386899218,
+        "performance_30d": -0.7295554886,
+        "performance_90d": -0.7518207631,
+        "performance_180d": -0.6863253977,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-12-09",
+        "index_price": 3.4216849732,
+        "performance_7d": -0.1757610573,
+        "performance_30d": -0.7195644027,
+        "performance_90d": -0.7437695961,
+        "performance_180d": -0.6549518883,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-12-10",
+        "index_price": 3.0977097989,
+        "performance_7d": -0.2245137128,
+        "performance_30d": -0.739324953,
+        "performance_90d": -0.7452549545,
+        "performance_180d": -0.6832422541,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-12-11",
+        "index_price": 2.8453884137,
+        "performance_7d": -0.2472788449,
+        "performance_30d": -0.7372000338,
+        "performance_90d": -0.7768140648,
+        "performance_180d": -0.7292607762,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-12-12",
+        "index_price": 2.9909275789,
+        "performance_7d": -0.1273688299,
+        "performance_30d": -0.733739425,
+        "performance_90d": -0.7772539201,
+        "performance_180d": -0.7336716819,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-12-13",
+        "index_price": 3.0631643098,
+        "performance_7d": -0.0489713785,
+        "performance_30d": -0.7160511484,
+        "performance_90d": -0.7540907953,
+        "performance_180d": -0.7256339631,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-12-14",
+        "index_price": 2.8134043099,
+        "performance_7d": -0.1840473745,
+        "performance_30d": -0.7412043123,
+        "performance_90d": -0.7897300957,
+        "performance_180d": -0.7228586807,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-12-15",
+        "index_price": 3.0697522862,
+        "performance_7d": -0.0762797877,
+        "performance_30d": -0.7132087151,
+        "performance_90d": -0.7907240326,
+        "performance_180d": -0.7057235786,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-12-16",
+        "index_price": 3.1465711557,
+        "performance_7d": -0.0804030235,
+        "performance_30d": -0.7088458463,
+        "performance_90d": -0.7803843792,
+        "performance_180d": -0.6794798379,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-12-17",
+        "index_price": 2.957735334,
+        "performance_7d": -0.0451864358,
+        "performance_30d": -0.6949928602,
+        "performance_90d": -0.7804492041,
+        "performance_180d": -0.6919834647,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-12-18",
+        "index_price": 2.9075801159,
+        "performance_7d": 0.0218570167,
+        "performance_30d": -0.692286695,
+        "performance_90d": -0.7949454871,
+        "performance_180d": -0.7141861902,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-12-19",
+        "index_price": 2.9936776414,
+        "performance_7d": 0.0009194681,
+        "performance_30d": -0.6385018909,
+        "performance_90d": -0.791738384,
+        "performance_180d": -0.6007519089,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-12-20",
+        "index_price": 2.938801819,
+        "performance_7d": -0.0405993536,
+        "performance_30d": -0.4525407932,
+        "performance_90d": -0.74429186,
+        "performance_180d": -0.5961066504,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-12-21",
+        "index_price": 2.8603742063,
+        "performance_7d": 0.0166950396,
+        "performance_30d": -0.4701097118,
+        "performance_90d": -0.7317513947,
+        "performance_180d": -0.6579643587,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-12-22",
+        "index_price": 2.9165204148,
+        "performance_7d": -0.0499166894,
+        "performance_30d": -0.4338088475,
+        "performance_90d": -0.7631667051,
+        "performance_180d": -0.6569258896,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-12-23",
+        "index_price": 2.9600235886,
+        "performance_7d": -0.059285984,
+        "performance_30d": -0.397667394,
+        "performance_90d": -0.7618835965,
+        "performance_180d": -0.5994729181,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-12-24",
+        "index_price": 3.109124714,
+        "performance_7d": 0.0511842213,
+        "performance_30d": -0.3855392888,
+        "performance_90d": -0.7288292609,
+        "performance_180d": -0.5701196346,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-12-25",
+        "index_price": 3.1480276461,
+        "performance_7d": 0.0826967859,
+        "performance_30d": -0.3299806446,
+        "performance_90d": -0.7212393541,
+        "performance_180d": -0.5993236999,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-12-26",
+        "index_price": 3.2241722815,
+        "performance_7d": 0.0769938075,
+        "performance_30d": -0.331614651,
+        "performance_90d": -0.7171459251,
+        "performance_180d": -0.5889937089,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-12-27",
+        "index_price": 3.3398695446,
+        "performance_7d": 0.1364732127,
+        "performance_30d": -0.1714304392,
+        "performance_90d": -0.701753266,
+        "performance_180d": -0.5924535165,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-12-28",
+        "index_price": 3.4110959933,
+        "performance_7d": 0.1925348739,
+        "performance_30d": -0.1667254152,
+        "performance_90d": -0.6895870073,
+        "performance_180d": -0.5857727102,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-12-29",
+        "index_price": 3.2014093695,
+        "performance_7d": 0.0976811111,
+        "performance_30d": -0.2465405872,
+        "performance_90d": -0.7096093461,
+        "performance_180d": -0.5814268102,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-12-30",
+        "index_price": 3.0788073447,
+        "performance_7d": 0.0401293275,
+        "performance_30d": -0.3278983784,
+        "performance_90d": -0.7251630945,
+        "performance_180d": -0.6037789196,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2021-12-31",
+        "index_price": 3.1361846814,
+        "performance_7d": 0.0087034036,
+        "performance_30d": -0.2815437562,
+        "performance_90d": -0.7364130837,
+        "performance_180d": -0.6159520377,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-01-01",
+        "index_price": 3.0779403039,
+        "performance_7d": -0.0222638903,
+        "performance_30d": -0.2585646306,
+        "performance_90d": -0.7442650845,
+        "performance_180d": -0.6397291856,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-01-02",
+        "index_price": 3.1666343475,
+        "performance_7d": -0.0178458001,
+        "performance_30d": -0.2072590163,
+        "performance_90d": -0.732769508,
+        "performance_180d": -0.6230837435,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-01-03",
+        "index_price": 3.261562832,
+        "performance_7d": -0.0234460393,
+        "performance_30d": -0.1371837565,
+        "performance_90d": -0.7146997978,
+        "performance_180d": -0.6481209217,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-01-04",
+        "index_price": 3.1713213413,
+        "performance_7d": -0.0702925548,
+        "performance_30d": -0.074737258,
+        "performance_90d": -0.7303752971,
+        "performance_180d": -0.656480386,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-01-05",
+        "index_price": 3.1531801722,
+        "performance_7d": -0.0150649891,
+        "performance_30d": -0.0210239186,
+        "performance_90d": -0.7294216099,
+        "performance_180d": -0.6298401743,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-01-06",
+        "index_price": 2.8951591067,
+        "performance_7d": -0.059649149,
+        "performance_30d": -0.1603365837,
+        "performance_90d": -0.7481277628,
+        "performance_180d": -0.6548059063,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-01-07",
+        "index_price": 2.8958891873,
+        "performance_7d": -0.0766203264,
+        "performance_30d": -0.1285969923,
+        "performance_90d": -0.7652204952,
+        "performance_180d": -0.6616136247,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-01-08",
+        "index_price": 2.7491139763,
+        "performance_7d": -0.1068332376,
+        "performance_30d": -0.196561344,
+        "performance_90d": -0.7810945649,
+        "performance_180d": -0.6811964628,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-01-09",
+        "index_price": 2.6821104088,
+        "performance_7d": -0.1530091212,
+        "performance_30d": -0.1341634359,
+        "performance_90d": -0.7720522069,
+        "performance_180d": -0.6827678813,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-01-10",
+        "index_price": 2.8261563894,
+        "performance_7d": -0.1334962608,
+        "performance_30d": -0.0067590155,
+        "performance_90d": -0.7608649615,
+        "performance_180d": -0.6516869682,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-01-11",
+        "index_price": 2.7250803552,
+        "performance_7d": -0.1407113749,
+        "performance_30d": -0.0888845406,
+        "performance_90d": -0.7770330942,
+        "performance_180d": -0.7214650225,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-01-12",
+        "index_price": 2.8838257571,
+        "performance_7d": -0.0854230968,
+        "performance_30d": -0.0585468276,
+        "performance_90d": -0.7746440866,
+        "performance_180d": -0.7013693305,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-01-13",
+        "index_price": 2.9964541961,
+        "performance_7d": 0.0349877453,
+        "performance_30d": 0.065063484,
+        "performance_90d": -0.7565508759,
+        "performance_180d": -0.6295728275,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-01-14",
+        "index_price": 2.8703609999,
+        "performance_7d": -0.0088153191,
+        "performance_30d": -0.0649535427,
+        "performance_90d": -0.766288241,
+        "performance_180d": -0.5871704907,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-01-15",
+        "index_price": 2.9894000454,
+        "performance_7d": 0.0874049134,
+        "performance_30d": -0.0499499622,
+        "performance_90d": -0.7584326062,
+        "performance_180d": -0.5790898689,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-01-16",
+        "index_price": 3.1328358422,
+        "performance_7d": 0.1680487991,
+        "performance_30d": 0.0592008711,
+        "performance_90d": -0.7411277535,
+        "performance_180d": -0.5355889086,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-01-17",
+        "index_price": 3.2812478749,
+        "performance_7d": 0.1610284155,
+        "performance_30d": 0.1285150345,
+        "performance_90d": -0.73719883,
+        "performance_180d": -0.463959367,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-01-18",
+        "index_price": 3.0722533265,
+        "performance_7d": 0.1273991685,
+        "performance_30d": 0.0262472098,
+        "performance_90d": -0.7561785517,
+        "performance_180d": -0.5786254752,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-01-19",
+        "index_price": 2.9307021844,
+        "performance_7d": 0.0162549444,
+        "performance_30d": -0.002756101,
+        "performance_90d": -0.7721839065,
+        "performance_180d": -0.6060775401,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-01-20",
+        "index_price": 2.8420499595,
+        "performance_7d": -0.0515289828,
+        "performance_30d": -0.0064062411,
+        "performance_90d": -0.7739595979,
+        "performance_180d": -0.651494317,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-01-21",
+        "index_price": 2.7682343604,
+        "performance_7d": -0.0355797196,
+        "performance_30d": -0.0508434824,
+        "performance_90d": -0.7819120618,
+        "performance_180d": -0.6584735066,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-01-22",
+        "index_price": 2.3827003632,
+        "performance_7d": -0.2029503154,
+        "performance_30d": -0.1950400759,
+        "performance_90d": -0.8144697703,
+        "performance_180d": -0.712472164,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-01-23",
+        "index_price": 2.0149507213,
+        "performance_7d": -0.3568285021,
+        "performance_30d": -0.3519234812,
+        "performance_90d": -0.8378188258,
+        "performance_180d": -0.7585493761,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-01-24",
+        "index_price": 2.1747554597,
+        "performance_7d": -0.3372169545,
+        "performance_30d": -0.3091688815,
+        "performance_90d": -0.830861744,
+        "performance_180d": -0.7507117271,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-01-25",
+        "index_price": 2.05709515,
+        "performance_7d": -0.3304278875,
+        "performance_30d": -0.3619772858,
+        "performance_90d": -0.8430507943,
+        "performance_180d": -0.7705758727,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-01-26",
+        "index_price": 2.050247739,
+        "performance_7d": -0.3004244,
+        "performance_30d": -0.3861293947,
+        "performance_90d": -0.8226595356,
+        "performance_180d": -0.7736593324,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-01-27",
+        "index_price": 2.0113266643,
+        "performance_7d": -0.2922972175,
+        "performance_30d": -0.410357648,
+        "performance_90d": -0.8263468782,
+        "performance_180d": -0.7845213081,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-01-28",
+        "index_price": 1.9719342125,
+        "performance_7d": -0.287656334,
+        "performance_30d": -0.3840418438,
+        "performance_90d": -0.8406877362,
+        "performance_180d": -0.8047547559,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-01-29",
+        "index_price": 1.9577094651,
+        "performance_7d": -0.1783652299,
+        "performance_30d": -0.3641338201,
+        "performance_90d": -0.8339227693,
+        "performance_180d": -0.8000631876,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-01-30",
+        "index_price": 1.9653573419,
+        "performance_7d": -0.0246127009,
+        "performance_30d": -0.3733285691,
+        "performance_90d": -0.8233647375,
+        "performance_180d": -0.7993286842,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-01-31",
+        "index_price": 2.0316907861,
+        "performance_7d": -0.0657842577,
+        "performance_30d": -0.3399187166,
+        "performance_90d": -0.8268639831,
+        "performance_180d": -0.7958442914,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-02-01",
+        "index_price": 2.0308903833,
+        "performance_7d": -0.0127387237,
+        "performance_30d": -0.3586596492,
+        "performance_90d": -0.8252196941,
+        "performance_180d": -0.8136057608,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-02-02",
+        "index_price": 2.1131039371,
+        "performance_7d": 0.0306578551,
+        "performance_30d": -0.3521191999,
+        "performance_90d": -0.8219206268,
+        "performance_180d": -0.8030836197,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-02-03",
+        "index_price": 2.0171951673,
+        "performance_7d": 0.0029177274,
+        "performance_30d": -0.3639259633,
+        "performance_90d": -0.8263491853,
+        "performance_180d": -0.8181717823,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-02-04",
+        "index_price": 2.005134812,
+        "performance_7d": 0.0168365655,
+        "performance_30d": -0.3640912658,
+        "performance_90d": -0.829148021,
+        "performance_180d": -0.8226385146,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-02-05",
+        "index_price": 2.2158292034,
+        "performance_7d": 0.1318478267,
+        "performance_30d": -0.2346433748,
+        "performance_90d": -0.8103101174,
+        "performance_180d": -0.7952302377,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-02-06",
+        "index_price": 2.1962674657,
+        "performance_7d": 0.1174901474,
+        "performance_30d": -0.2415913305,
+        "performance_90d": -0.8212687406,
+        "performance_180d": -0.8088472069,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-02-07",
+        "index_price": 2.316963884,
+        "performance_7d": 0.1404116709,
+        "performance_30d": -0.1571961352,
+        "performance_90d": -0.8101055019,
+        "performance_180d": -0.8154363706,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-02-08",
+        "index_price": 2.3973311762,
+        "performance_7d": 0.1804335655,
+        "performance_30d": -0.1061772967,
+        "performance_90d": -0.7982624398,
+        "performance_180d": -0.8163109432,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-02-09",
+        "index_price": 2.202708976,
+        "performance_7d": 0.0424044636,
+        "performance_30d": -0.2205990495,
+        "performance_90d": -0.7965578824,
+        "performance_180d": -0.8278843936,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-02-10",
+        "index_price": 2.2853709561,
+        "performance_7d": 0.1329448896,
+        "performance_30d": -0.1613564893,
+        "performance_90d": -0.7965500104,
+        "performance_180d": -0.8376132629,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-02-11",
+        "index_price": 2.229107609,
+        "performance_7d": 0.1116996202,
+        "performance_30d": -0.2270311049,
+        "performance_90d": -0.7933664402,
+        "performance_180d": -0.8381025385,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-02-12",
+        "index_price": 2.1553782224,
+        "performance_7d": -0.0272814263,
+        "performance_30d": -0.2806904156,
+        "performance_90d": -0.8017339394,
+        "performance_180d": -0.8444040032,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-02-13",
+        "index_price": 2.1671752317,
+        "performance_7d": -0.0132462163,
+        "performance_30d": -0.244981648,
+        "performance_90d": -0.7975318816,
+        "performance_180d": -0.8473816425,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-02-14",
+        "index_price": 2.1952255053,
+        "performance_7d": -0.0525421995,
+        "performance_30d": -0.2656635205,
+        "performance_90d": -0.7968744412,
+        "performance_180d": -0.8455132092,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-02-15",
+        "index_price": 2.2062367501,
+        "performance_7d": -0.0797113173,
+        "performance_30d": -0.295770075,
+        "performance_90d": -0.7724887845,
+        "performance_180d": -0.8444683241,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-02-16",
+        "index_price": 2.3159755317,
+        "performance_7d": 0.05142148,
+        "performance_30d": -0.2941784285,
+        "performance_90d": -0.7548970427,
+        "performance_180d": -0.8437756424,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-02-17",
+        "index_price": 2.3398153254,
+        "performance_7d": 0.02382299,
+        "performance_30d": -0.2384041689,
+        "performance_90d": -0.7174582847,
+        "performance_180d": -0.8561912938,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-02-18",
+        "index_price": 2.1970064014,
+        "performance_7d": -0.0144009233,
+        "performance_30d": -0.2503481203,
+        "performance_90d": -0.5907272909,
+        "performance_180d": -0.8606423686,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-02-19",
+        "index_price": 2.1710480476,
+        "performance_7d": 0.0072701046,
+        "performance_30d": -0.2360978594,
+        "performance_90d": -0.5978088205,
+        "performance_180d": -0.860607721,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-02-20",
+        "index_price": 2.1786177856,
+        "performance_7d": 0.0052799394,
+        "performance_30d": -0.2129937346,
+        "performance_90d": -0.5770596672,
+        "performance_180d": -0.873062192,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-02-21",
+        "index_price": 2.0931483097,
+        "performance_7d": -0.04649964,
+        "performance_30d": -0.1215226463,
+        "performance_90d": -0.5740670848,
+        "performance_180d": -0.8686350763,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-02-22",
+        "index_price": 1.9557578921,
+        "performance_7d": -0.1135321755,
+        "performance_30d": -0.0293768123,
+        "performance_90d": -0.6134808038,
+        "performance_180d": -0.8881041069,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-02-23",
+        "index_price": 2.0364879975,
+        "performance_7d": -0.1206781032,
+        "performance_30d": -0.0635783952,
+        "performance_90d": -0.5665583252,
+        "performance_180d": -0.8781192172,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-02-24",
+        "index_price": 1.9614000671,
+        "performance_7d": -0.1617286861,
+        "performance_30d": -0.0465195219,
+        "performance_90d": -0.5933929846,
+        "performance_180d": -0.8868891738,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-02-25",
+        "index_price": 1.8553642368,
+        "performance_7d": -0.1555034907,
+        "performance_30d": -0.095053636,
+        "performance_90d": -0.5397130606,
+        "performance_180d": -0.8885979689,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-02-26",
+        "index_price": 1.9319938729,
+        "performance_7d": -0.1101100342,
+        "performance_30d": -0.0394430168,
+        "performance_90d": -0.5280457086,
+        "performance_180d": -0.8827447616,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-02-27",
+        "index_price": 1.9124818937,
+        "performance_7d": -0.1221581379,
+        "performance_30d": -0.0301492405,
+        "performance_90d": -0.5498927759,
+        "performance_180d": -0.8749474115,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-02-28",
+        "index_price": 1.8958333133,
+        "performance_7d": -0.0942670882,
+        "performance_30d": -0.0316064017,
+        "performance_90d": -0.5861408326,
+        "performance_180d": -0.8778036754,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-03-01",
+        "index_price": 2.0617680868,
+        "performance_7d": 0.0542041503,
+        "performance_30d": 0.0490550715,
+        "performance_90d": -0.5276776384,
+        "performance_180d": -0.8741687869,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-03-02",
+        "index_price": 2.0325604975,
+        "performance_7d": -0.0019285653,
+        "performance_30d": 0.0004280727,
+        "performance_90d": -0.5103828878,
+        "performance_180d": -0.8722280302,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-03-03",
+        "index_price": 2.0348439408,
+        "performance_7d": 0.0374446167,
+        "performance_30d": 0.0019467115,
+        "performance_90d": -0.4905934787,
+        "performance_180d": -0.872099174,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-03-04",
+        "index_price": 1.9793105009,
+        "performance_7d": 0.0668042758,
+        "performance_30d": -0.0633160697,
+        "performance_90d": -0.4763917364,
+        "performance_180d": -0.8801607508,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-03-05",
+        "index_price": 1.8342076222,
+        "performance_7d": -0.0506141619,
+        "performance_30d": -0.0907138526,
+        "performance_90d": -0.464852725,
+        "performance_180d": -0.8905967381,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-03-06",
+        "index_price": 1.8826364277,
+        "performance_7d": -0.0156056202,
+        "performance_30d": -0.0610923433,
+        "performance_90d": -0.4154929525,
+        "performance_180d": -0.8895628051,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-03-07",
+        "index_price": 1.8399184153,
+        "performance_7d": -0.0294935729,
+        "performance_30d": -0.1696479077,
+        "performance_90d": -0.466380905,
+        "performance_180d": -0.8692753805,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-03-08",
+        "index_price": 1.811122307,
+        "performance_7d": -0.1215683672,
+        "performance_30d": -0.1753635041,
+        "performance_90d": -0.455014566,
+        "performance_180d": -0.8647459309,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-03-09",
+        "index_price": 1.808277212,
+        "performance_7d": -0.1103451955,
+        "performance_30d": -0.2195488137,
+        "performance_90d": -0.4715243437,
+        "performance_180d": -0.8645884691,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-03-10",
+        "index_price": 1.8510975326,
+        "performance_7d": -0.0903000002,
+        "performance_30d": -0.2278507237,
+        "performance_90d": -0.4024302944,
+        "performance_180d": -0.8477720782,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-03-11",
+        "index_price": 1.8360769304,
+        "performance_7d": -0.0723653871,
+        "performance_30d": -0.1664459761,
+        "performance_90d": -0.35471835,
+        "performance_180d": -0.8559822115,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-03-12",
+        "index_price": 1.8000811972,
+        "performance_7d": -0.018605541,
+        "performance_30d": -0.2123461653,
+        "performance_90d": -0.398152864,
+        "performance_180d": -0.8659409098,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-03-13",
+        "index_price": 1.8129486174,
+        "performance_7d": -0.0370160745,
+        "performance_30d": -0.1866930918,
+        "performance_90d": -0.4081451616,
+        "performance_180d": -0.8544574474,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-03-14",
+        "index_price": 1.7643097491,
+        "performance_7d": -0.0410934885,
+        "performance_30d": -0.1814384451,
+        "performance_90d": -0.3728915027,
+        "performance_180d": -0.8681379563,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-03-15",
+        "index_price": 1.7758266011,
+        "performance_7d": -0.0194883061,
+        "performance_30d": -0.1805800587,
+        "performance_90d": -0.4215081754,
+        "performance_180d": -0.8789355638,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-03-16",
+        "index_price": 1.7498873199,
+        "performance_7d": -0.0322903434,
+        "performance_30d": -0.2028667143,
+        "performance_90d": -0.4438748615,
+        "performance_180d": -0.8778662325,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-03-17",
+        "index_price": 1.7868219744,
+        "performance_7d": -0.0347229452,
+        "performance_30d": -0.1901041562,
+        "performance_90d": -0.3958817228,
+        "performance_180d": -0.8673653514,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-03-18",
+        "index_price": 1.9435553546,
+        "performance_7d": 0.058536994,
+        "performance_30d": -0.1608048842,
+        "performance_90d": -0.3315557002,
+        "performance_180d": -0.8629324797,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-03-19",
+        "index_price": 1.9392252487,
+        "performance_7d": 0.0772987639,
+        "performance_30d": -0.1712058522,
+        "performance_90d": -0.3522264315,
+        "performance_180d": -0.8650936298,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-03-20",
+        "index_price": 1.9521813092,
+        "performance_7d": 0.0767990281,
+        "performance_30d": -0.1114357664,
+        "performance_90d": -0.3357220291,
+        "performance_180d": -0.8301387156,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-03-21",
+        "index_price": 1.9153550583,
+        "performance_7d": 0.0856115596,
+        "performance_30d": -0.1177739892,
+        "performance_90d": -0.3303830478,
+        "performance_180d": -0.8203761865,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-03-22",
+        "index_price": 1.9794342756,
+        "performance_7d": 0.1146551552,
+        "performance_30d": -0.091426551,
+        "performance_90d": -0.3213027875,
+        "performance_180d": -0.8392619029,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-03-23",
+        "index_price": 2.0524732509,
+        "performance_7d": 0.1729173802,
+        "performance_30d": -0.0194324781,
+        "performance_90d": -0.3066024005,
+        "performance_180d": -0.8348906574,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-03-24",
+        "index_price": 2.0834767274,
+        "performance_7d": 0.1660236763,
+        "performance_30d": 0.0653040112,
+        "performance_90d": -0.3298831925,
+        "performance_180d": -0.8182839301,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-03-25",
+        "index_price": 2.1456117544,
+        "performance_7d": 0.1039622562,
+        "performance_30d": 0.0535842867,
+        "performance_90d": -0.3184266482,
+        "performance_180d": -0.8100041722,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-03-26",
+        "index_price": 2.1320183048,
+        "performance_7d": 0.099417567,
+        "performance_30d": 0.086987984,
+        "performance_90d": -0.3387393357,
+        "performance_180d": -0.8129597265,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-03-27",
+        "index_price": 2.1541042695,
+        "performance_7d": 0.1034345321,
+        "performance_30d": 0.1610142239,
+        "performance_90d": -0.3550334105,
+        "performance_180d": -0.8076408211,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-03-28",
+        "index_price": 2.3253275737,
+        "performance_7d": 0.2140451785,
+        "performance_30d": 0.2035895177,
+        "performance_90d": -0.3183048562,
+        "performance_180d": -0.7883929703,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-03-29",
+        "index_price": 2.3064819448,
+        "performance_7d": 0.1652227979,
+        "performance_30d": 0.206015049,
+        "performance_90d": -0.2795417022,
+        "performance_180d": -0.7907856438,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-03-30",
+        "index_price": 2.4281117148,
+        "performance_7d": 0.1830174711,
+        "performance_30d": 0.2807622367,
+        "performance_90d": -0.2113466538,
+        "performance_180d": -0.7832489548,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-03-31",
+        "index_price": 2.4639950995,
+        "performance_7d": 0.1826362479,
+        "performance_30d": 0.1950883881,
+        "performance_90d": -0.2143335454,
+        "performance_180d": -0.792908602,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-04-01",
+        "index_price": 2.4724071867,
+        "performance_7d": 0.1523087444,
+        "performance_30d": 0.216400294,
+        "performance_90d": -0.1967332233,
+        "performance_180d": -0.7945766388,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-04-02",
+        "index_price": 2.5632016734,
+        "performance_7d": 0.2022418699,
+        "performance_30d": 0.2596551617,
+        "performance_90d": -0.1905596314,
+        "performance_180d": -0.7836928521,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-04-03",
+        "index_price": 2.5063935723,
+        "performance_7d": 0.1635432917,
+        "performance_30d": 0.2662963042,
+        "performance_90d": -0.2315360147,
+        "performance_180d": -0.7807570696,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-04-04",
+        "index_price": 2.685073243,
+        "performance_7d": 0.1547075231,
+        "performance_30d": 0.4638872996,
+        "performance_90d": -0.1533266566,
+        "performance_180d": -0.7717159513,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-04-05",
+        "index_price": 2.7209627979,
+        "performance_7d": 0.179702622,
+        "performance_30d": 0.445293822,
+        "performance_90d": -0.1370734784,
+        "performance_180d": -0.766510731,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-04-06",
+        "index_price": 2.6394265406,
+        "performance_7d": 0.087028461,
+        "performance_30d": 0.4345345525,
+        "performance_90d": -0.0883310922,
+        "performance_180d": -0.7703759126,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-04-07",
+        "index_price": 2.3531826212,
+        "performance_7d": -0.0449726861,
+        "performance_30d": 0.2992952559,
+        "performance_90d": -0.1874058471,
+        "performance_180d": -0.8092195471,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-04-08",
+        "index_price": 2.4715512862,
+        "performance_7d": -0.000346181,
+        "performance_30d": 0.36679889,
+        "performance_90d": -0.1009644171,
+        "performance_180d": -0.8031962245,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-04-09",
+        "index_price": 2.3154110723,
+        "performance_7d": -0.0966723,
+        "performance_30d": 0.2508314832,
+        "performance_90d": -0.136720448,
+        "performance_180d": -0.8032173313,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-04-10",
+        "index_price": 2.3616255039,
+        "performance_7d": -0.0577595115,
+        "performance_30d": 0.2862345062,
+        "performance_90d": -0.1643684289,
+        "performance_180d": -0.800171212,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-04-11",
+        "index_price": 2.3672004452,
+        "performance_7d": -0.1183851497,
+        "performance_30d": 0.315052037,
+        "performance_90d": -0.1313282044,
+        "performance_180d": -0.8063149376,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-04-12",
+        "index_price": 2.0921165264,
+        "performance_7d": -0.2311116756,
+        "performance_30d": 0.1539855605,
+        "performance_90d": -0.2745343503,
+        "performance_180d": -0.8365120259,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-04-13",
+        "index_price": 2.2172341131,
+        "performance_7d": -0.1599561196,
+        "performance_30d": 0.2567147658,
+        "performance_90d": -0.2600473867,
+        "performance_180d": -0.8198591844,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-04-14",
+        "index_price": 2.2674665228,
+        "performance_7d": -0.036425604,
+        "performance_30d": 0.2768513105,
+        "performance_90d": -0.2100413422,
+        "performance_180d": -0.8153773726,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-04-15",
+        "index_price": 2.1862981355,
+        "performance_7d": -0.1154146193,
+        "performance_30d": 0.2493936671,
+        "performance_90d": -0.2686498621,
+        "performance_180d": -0.8233296532,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-04-16",
+        "index_price": 2.2359514406,
+        "performance_7d": -0.0343177212,
+        "performance_30d": 0.2513565832,
+        "performance_90d": -0.2862851572,
+        "performance_180d": -0.8152390353,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-04-17",
+        "index_price": 2.2443435325,
+        "performance_7d": -0.0496615451,
+        "performance_30d": 0.1547618272,
+        "performance_90d": -0.3160091471,
+        "performance_180d": -0.8202464036,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-04-18",
+        "index_price": 2.2511353749,
+        "performance_7d": -0.0490305206,
+        "performance_30d": 0.1608426491,
+        "performance_90d": -0.2672689601,
+        "performance_180d": -0.8213444566,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-04-19",
+        "index_price": 2.2689243911,
+        "performance_7d": 0.0845114803,
+        "performance_30d": 0.1622508526,
+        "performance_90d": -0.2258086123,
+        "performance_180d": -0.8236267425,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-04-20",
+        "index_price": 2.3037183058,
+        "performance_7d": 0.0390054402,
+        "performance_30d": 0.2027630573,
+        "performance_90d": -0.1894166751,
+        "performance_180d": -0.8167754193,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-04-21",
+        "index_price": 2.4166630088,
+        "performance_7d": 0.0657987602,
+        "performance_30d": 0.2208857039,
+        "performance_90d": -0.1270020186,
+        "performance_180d": -0.8096096702,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-04-22",
+        "index_price": 2.3978125156,
+        "performance_7d": 0.0967454423,
+        "performance_30d": 0.1682551841,
+        "performance_90d": 0.0063424477,
+        "performance_180d": -0.8132930546,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-04-23",
+        "index_price": 2.4269110465,
+        "performance_7d": 0.085404183,
+        "performance_30d": 0.1648371276,
+        "performance_90d": 0.2044518116,
+        "performance_180d": -0.804660591,
+        "performance_365d": null,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-04-24",
+        "index_price": 2.4742851596,
+        "performance_7d": 0.1024538462,
+        "performance_30d": 0.1531840067,
+        "performance_90d": 0.1377302899,
+        "performance_180d": -0.807566283,
+        "performance_365d": -0.8938338707,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-04-25",
+        "index_price": 2.4574576116,
+        "performance_7d": 0.091652523,
+        "performance_30d": 0.1526437677,
+        "performance_90d": 0.1946251546,
+        "performance_180d": -0.8125045309,
+        "performance_365d": -0.8919998249,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-04-26",
+        "index_price": 2.4214256787,
+        "performance_7d": 0.067213032,
+        "performance_30d": 0.1240986395,
+        "performance_90d": 0.1810405311,
+        "performance_180d": -0.7905537237,
+        "performance_365d": -0.8938655625,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-04-27",
+        "index_price": 2.0718419362,
+        "performance_7d": -0.1006530916,
+        "performance_30d": -0.1090107219,
+        "performance_90d": 0.0300872419,
+        "performance_180d": -0.8211221347,
+        "performance_365d": -0.9168639712,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-04-28",
+        "index_price": 2.0859380158,
+        "performance_7d": -0.1368519284,
+        "performance_30d": -0.0956191873,
+        "performance_90d": 0.057813188,
+        "performance_180d": -0.8314773863,
+        "performance_365d": -0.9225469835,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-04-29",
+        "index_price": 2.1741176479,
+        "performance_7d": -0.0932912253,
+        "performance_30d": -0.1046055935,
+        "performance_90d": 0.1105415214,
+        "performance_180d": -0.8155643396,
+        "performance_365d": -0.9191453476,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-04-30",
+        "index_price": 2.0687755373,
+        "performance_7d": -0.1475684532,
+        "performance_30d": -0.1603978686,
+        "performance_90d": 0.0526205556,
+        "performance_180d": -0.8140700919,
+        "performance_365d": -0.9340674106,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-05-01",
+        "index_price": 1.9325575423,
+        "performance_7d": -0.2189430815,
+        "performance_30d": -0.218349812,
+        "performance_90d": -0.0487934702,
+        "performance_180d": -0.8353118902,
+        "performance_365d": -0.9352382003,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-05-02",
+        "index_price": 2.0286594003,
+        "performance_7d": -0.1744885484,
+        "performance_30d": -0.2085447582,
+        "performance_90d": -0.0010985246,
+        "performance_180d": -0.8254116946,
+        "performance_365d": -0.9229356062,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-05-03",
+        "index_price": 2.0226368503,
+        "performance_7d": -0.1646917483,
+        "performance_30d": -0.1930090818,
+        "performance_90d": -0.042812417,
+        "performance_180d": -0.8295446352,
+        "performance_365d": -0.9286346687,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-05-04",
+        "index_price": 1.9739443101,
+        "performance_7d": -0.0472514937,
+        "performance_30d": -0.2648452644,
+        "performance_90d": -0.0214410871,
+        "performance_180d": -0.8300724476,
+        "performance_365d": -0.9299841354,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-05-05",
+        "index_price": 2.0751851154,
+        "performance_7d": -0.0051549472,
+        "performance_30d": -0.2373342565,
+        "performance_90d": 0.0349354582,
+        "performance_180d": -0.8231792288,
+        "performance_365d": -0.9172478543,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-05-06",
+        "index_price": 1.9897166759,
+        "performance_7d": -0.0848164643,
+        "performance_30d": -0.2461556913,
+        "performance_90d": -0.1020442041,
+        "performance_180d": -0.8296668705,
+        "performance_365d": -0.9269748069,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-05-07",
+        "index_price": 2.0389299553,
+        "performance_7d": -0.0144266894,
+        "performance_30d": -0.1335436796,
+        "performance_90d": -0.0716385927,
+        "performance_180d": -0.8340727965,
+        "performance_365d": -0.9221487462,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-05-08",
+        "index_price": 1.9900402566,
+        "performance_7d": 0.029744374,
+        "performance_30d": -0.1948213789,
+        "performance_90d": -0.1411000101,
+        "performance_180d": -0.8368996175,
+        "performance_365d": -0.9217030179,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-05-09",
+        "index_price": 1.9289199912,
+        "performance_7d": -0.0491651822,
+        "performance_30d": -0.1669211509,
+        "performance_90d": -0.1953886011,
+        "performance_180d": -0.8376796595,
+        "performance_365d": -0.9269109213,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-05-10",
+        "index_price": 1.6736155731,
+        "performance_7d": -0.1725575588,
+        "performance_30d": -0.2913289722,
+        "performance_90d": -0.2402012289,
+        "performance_180d": -0.845424929,
+        "performance_365d": -0.9398222055,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-05-11",
+        "index_price": 1.7071547128,
+        "performance_7d": -0.1351555846,
+        "performance_30d": -0.2788296757,
+        "performance_90d": -0.2530076099,
+        "performance_180d": -0.848024406,
+        "performance_365d": -0.9335540539,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-05-12",
+        "index_price": 1.4216019227,
+        "performance_7d": -0.3149517544,
+        "performance_30d": -0.320495821,
+        "performance_90d": -0.3622551388,
+        "performance_180d": -0.8682205091,
+        "performance_365d": -0.9470105568,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-05-13",
+        "index_price": 1.400161873,
+        "performance_7d": -0.2963008804,
+        "performance_30d": -0.368509683,
+        "performance_90d": -0.3503869258,
+        "performance_180d": -0.8712037749,
+        "performance_365d": -0.9348688435,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-05-14",
+        "index_price": 1.4426485649,
+        "performance_7d": -0.2924481976,
+        "performance_30d": -0.3637619121,
+        "performance_90d": -0.3343184512,
+        "performance_180d": -0.8652207093,
+        "performance_365d": -0.9302558946,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-05-15",
+        "index_price": 1.188667487,
+        "performance_7d": -0.402691738,
+        "performance_30d": -0.4563104328,
+        "performance_90d": -0.4585214666,
+        "performance_180d": -0.8900118704,
+        "performance_365d": -0.9472228754,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-05-16",
+        "index_price": 1.4401335377,
+        "performance_7d": -0.2533990294,
+        "performance_30d": -0.3559191351,
+        "performance_90d": -0.3472443346,
+        "performance_180d": -0.8514907652,
+        "performance_365d": -0.92800872,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-05-17",
+        "index_price": 1.3899030875,
+        "performance_7d": -0.1695207013,
+        "performance_30d": -0.3807084043,
+        "performance_90d": -0.3998627928,
+        "performance_180d": -0.8529045957,
+        "performance_365d": -0.9312785739,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-05-18",
+        "index_price": 1.4137812166,
+        "performance_7d": -0.1718493901,
+        "performance_30d": -0.3719697037,
+        "performance_90d": -0.3957723068,
+        "performance_180d": -0.8292804712,
+        "performance_365d": -0.9238066099,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-05-19",
+        "index_price": 1.3450065064,
+        "performance_7d": -0.0538796515,
+        "performance_30d": -0.4072052327,
+        "performance_90d": -0.3878003698,
+        "performance_180d": -0.7494433989,
+        "performance_365d": -0.929241132,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-05-20",
+        "index_price": 1.3832783066,
+        "performance_7d": -0.0120582961,
+        "performance_30d": -0.3995453771,
+        "performance_90d": -0.3628522832,
+        "performance_180d": -0.7437448083,
+        "performance_365d": -0.8940816987,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-05-21",
+        "index_price": 1.3513593301,
+        "performance_7d": -0.0632789142,
+        "performance_30d": -0.4408159825,
+        "performance_90d": -0.3797171128,
+        "performance_180d": -0.7376573492,
+        "performance_365d": -0.9022444006,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-05-22",
+        "index_price": 1.3750722146,
+        "performance_7d": 0.1568182268,
+        "performance_30d": -0.4265305541,
+        "performance_90d": -0.3430603038,
+        "performance_180d": -0.7201877601,
+        "performance_365d": -0.8783640524,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-05-23",
+        "index_price": 1.4098607928,
+        "performance_7d": -0.0210207902,
+        "performance_30d": -0.4190719125,
+        "performance_90d": -0.2791230456,
+        "performance_180d": -0.721367219,
+        "performance_365d": -0.8628040893,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-05-24",
+        "index_price": 1.4024611255,
+        "performance_7d": 0.0090351897,
+        "performance_30d": -0.4331853303,
+        "performance_90d": -0.3113334686,
+        "performance_180d": -0.7015032252,
+        "performance_365d": -0.8288692196,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-05-25",
+        "index_price": 1.4059228114,
+        "performance_7d": -0.0055584309,
+        "performance_30d": -0.427895397,
+        "performance_90d": -0.2832044645,
+        "performance_180d": -0.7085459067,
+        "performance_365d": -0.88258382,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-05-26",
+        "index_price": 1.4137651042,
+        "performance_7d": 0.0511213867,
+        "performance_30d": -0.4161435073,
+        "performance_90d": -0.238012097,
+        "performance_180d": -0.6492669202,
+        "performance_365d": -0.8832787062,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-05-27",
+        "index_price": 1.3582716059,
+        "performance_7d": -0.0180778521,
+        "performance_30d": -0.3444134988,
+        "performance_90d": -0.2969586369,
+        "performance_180d": -0.6681966117,
+        "performance_365d": -0.9019623665,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-05-28",
+        "index_price": 1.3345512717,
+        "performance_7d": -0.0124378898,
+        "performance_30d": -0.3602152789,
+        "performance_90d": -0.3021888071,
+        "performance_180d": -0.685910141,
+        "performance_365d": -0.8934991857,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-05-29",
+        "index_price": 1.3506403835,
+        "performance_7d": -0.0177676712,
+        "performance_30d": -0.3787638931,
+        "performance_90d": -0.2875742957,
+        "performance_180d": -0.7051560912,
+        "performance_365d": -0.8745358634,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-05-30",
+        "index_price": 1.3706422667,
+        "performance_7d": -0.0278173039,
+        "performance_30d": -0.3374620678,
+        "performance_90d": -0.3352102618,
+        "performance_180d": -0.6860049409,
+        "performance_365d": -0.8583531059,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-05-31",
+        "index_price": 1.4337605007,
+        "performance_7d": 0.0223174637,
+        "performance_30d": -0.2581020387,
+        "performance_90d": -0.2946037756,
+        "performance_180d": -0.6546259377,
+        "performance_365d": -0.8658450914,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-06-01",
+        "index_price": 1.4258886996,
+        "performance_7d": 0.0142012691,
+        "performance_30d": -0.2971276009,
+        "performance_90d": -0.2992638546,
+        "performance_180d": -0.6430404378,
+        "performance_365d": -0.8841654576,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-06-02",
+        "index_price": 1.3844190579,
+        "performance_7d": -0.0207573706,
+        "performance_30d": -0.3155375085,
+        "performance_90d": -0.3005548865,
+        "performance_180d": -0.6337647587,
+        "performance_365d": -0.8863212802,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-06-03",
+        "index_price": 1.3925794225,
+        "performance_7d": 0.0252584361,
+        "performance_30d": -0.2945193968,
+        "performance_90d": -0.2407732878,
+        "performance_180d": -0.5937018939,
+        "performance_365d": -0.8954099608,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-06-04",
+        "index_price": 1.369764315,
+        "performance_7d": 0.0263856804,
+        "performance_30d": -0.3399315055,
+        "performance_90d": -0.2724222825,
+        "performance_180d": -0.5747256965,
+        "performance_365d": -0.9068181709,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-06-05",
+        "index_price": 1.3819161604,
+        "performance_7d": 0.0231562578,
+        "performance_30d": -0.3054708858,
+        "performance_90d": -0.2489253062,
+        "performance_180d": -0.5992122016,
+        "performance_365d": -0.8927667237,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-06-06",
+        "index_price": 1.4031885379,
+        "performance_7d": 0.0237452704,
+        "performance_30d": -0.3118014995,
+        "performance_90d": -0.225238112,
+        "performance_180d": -0.5777660562,
+        "performance_365d": -0.8897904095,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-06-07",
+        "index_price": 1.4113053896,
+        "performance_7d": -0.015661689,
+        "performance_30d": -0.2908156582,
+        "performance_90d": -0.2195304015,
+        "performance_180d": -0.5875408167,
+        "performance_365d": -0.8892739329,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-06-08",
+        "index_price": 1.4094461054,
+        "performance_7d": -0.011531471,
+        "performance_30d": -0.269308156,
+        "performance_90d": -0.2385889557,
+        "performance_180d": -0.5450038264,
+        "performance_365d": -0.874863905,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-06-09",
+        "index_price": 1.4082701322,
+        "performance_7d": 0.0172282187,
+        "performance_30d": -0.1585462308,
+        "performance_90d": -0.2330004757,
+        "performance_180d": -0.5050692814,
+        "performance_365d": -0.8705177043,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-06-10",
+        "index_price": 1.4102765911,
+        "performance_7d": 0.0127081934,
+        "performance_30d": -0.1739022946,
+        "performance_90d": -0.2165483461,
+        "performance_180d": -0.528481866,
+        "performance_365d": -0.8813113767,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-06-11",
+        "index_price": 1.3769185135,
+        "performance_7d": 0.0052229412,
+        "performance_30d": -0.031431731,
+        "performance_90d": -0.2405088041,
+        "performance_180d": -0.550491461,
+        "performance_365d": -0.8700355089,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-06-12",
+        "index_price": 1.3299382465,
+        "performance_7d": -0.0376129286,
+        "performance_30d": -0.0501539343,
+        "performance_90d": -0.2461991171,
+        "performance_180d": -0.5272850611,
+        "performance_365d": -0.8658869287,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-06-13",
+        "index_price": 1.3051441989,
+        "performance_7d": -0.0698725342,
+        "performance_30d": -0.0953138341,
+        "performance_90d": -0.2650497531,
+        "performance_180d": -0.5748372907,
+        "performance_365d": -0.8665418773,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-06-14",
+        "index_price": 1.2400855282,
+        "performance_7d": -0.1213202066,
+        "performance_30d": 0.0432568752,
+        "performance_90d": -0.2913340681,
+        "performance_180d": -0.6058930605,
+        "performance_365d": -0.882005637,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-06-15",
+        "index_price": 1.2366583696,
+        "performance_7d": -0.122592652,
+        "performance_30d": -0.1412890977,
+        "performance_90d": -0.3079006262,
+        "performance_180d": -0.5818901186,
+        "performance_365d": -0.889881271,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-06-16",
+        "index_price": 1.2638361309,
+        "performance_7d": -0.1025612899,
+        "performance_30d": -0.0907019761,
+        "performance_90d": -0.3497297991,
+        "performance_180d": -0.5653305909,
+        "performance_365d": -0.8867988539,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-06-17",
+        "index_price": 1.2001250913,
+        "performance_7d": -0.1490143856,
+        "performance_30d": -0.1511238959,
+        "performance_90d": -0.3811316699,
+        "performance_180d": -0.5991134534,
+        "performance_365d": -0.8817787227,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-06-18",
+        "index_price": 1.2107455787,
+        "performance_7d": -0.1206846543,
+        "performance_30d": -0.0998217682,
+        "performance_90d": -0.3797986012,
+        "performance_180d": -0.5880138732,
+        "performance_365d": -0.8839339976,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-06-19",
+        "index_price": 1.1737420324,
+        "performance_7d": -0.1174462157,
+        "performance_30d": -0.151478031,
+        "performance_90d": -0.3871934985,
+        "performance_180d": -0.5896543782,
+        "performance_365d": -0.8804387481,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-06-20",
+        "index_price": 1.229012194,
+        "performance_7d": -0.0583322555,
+        "performance_30d": -0.0905363461,
+        "performance_90d": -0.3791093702,
+        "performance_180d": -0.5786032603,
+        "performance_365d": -0.8720115105,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-06-21",
+        "index_price": 1.2363596395,
+        "performance_7d": -0.0030045417,
+        "performance_30d": -0.1008765748,
+        "performance_90d": -0.3976244811,
+        "performance_180d": -0.5823142612,
+        "performance_365d": -0.8784664069,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-06-22",
+        "index_price": 1.2419945338,
+        "performance_7d": 0.0043149866,
+        "performance_30d": -0.1190658395,
+        "performance_90d": -0.4038836539,
+        "performance_180d": -0.6005324173,
+        "performance_365d": -0.8343629455,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-06-23",
+        "index_price": 1.2370003696,
+        "performance_7d": -0.0212335766,
+        "performance_30d": -0.1179788536,
+        "performance_90d": -0.4234742762,
+        "performance_180d": -0.60705543,
+        "performance_365d": -0.8299932239,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-06-24",
+        "index_price": 1.2771983602,
+        "performance_7d": 0.0642210295,
+        "performance_30d": -0.0915586902,
+        "performance_90d": -0.4009439988,
+        "performance_180d": -0.6038678307,
+        "performance_365d": -0.8472761504,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-06-25",
+        "index_price": 1.305693614,
+        "performance_7d": 0.078421129,
+        "performance_30d": -0.076442324,
+        "performance_90d": -0.3938577475,
+        "performance_180d": -0.6090584987,
+        "performance_365d": -0.8464095527,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-06-26",
+        "index_price": 1.3063296109,
+        "performance_7d": 0.1129614301,
+        "performance_30d": -0.0382412433,
+        "performance_90d": -0.4382169524,
+        "performance_180d": -0.6170352246,
+        "performance_365d": -0.8232377644,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-06-27",
+        "index_price": 1.292206844,
+        "performance_7d": 0.0514190586,
+        "performance_30d": -0.0317293375,
+        "performance_90d": -0.439749855,
+        "performance_180d": -0.5963631342,
+        "performance_365d": -0.8213341691,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-06-28",
+        "index_price": 1.2873865647,
+        "performance_7d": 0.0412719112,
+        "performance_30d": -0.0468324652,
+        "performance_90d": -0.4697992861,
+        "performance_180d": -0.5818554328,
+        "performance_365d": -0.8361433432,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-06-29",
+        "index_price": 1.2671763424,
+        "performance_7d": 0.0202752974,
+        "performance_30d": -0.0754871835,
+        "performance_90d": -0.4857228642,
+        "performance_180d": -0.5959497061,
+        "performance_365d": -0.8384647583,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-06-30",
+        "index_price": 1.2668246646,
+        "performance_7d": 0.0241101747,
+        "performance_30d": -0.1164321628,
+        "performance_90d": -0.4876148753,
+        "performance_180d": -0.5884180525,
+        "performance_365d": -0.8454161367,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-07-01",
+        "index_price": 1.2592373792,
+        "performance_7d": -0.0140627968,
+        "performance_30d": -0.1168754058,
+        "performance_90d": -0.5087248139,
+        "performance_180d": -0.6023420323,
+        "performance_365d": -0.8470841959,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-07-02",
+        "index_price": 1.2619321744,
+        "performance_7d": -0.0335158563,
+        "performance_30d": -0.0884752943,
+        "performance_90d": -0.496514758,
+        "performance_180d": -0.6130897243,
+        "performance_365d": -0.8350067378,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-07-03",
+        "index_price": 1.2659870463,
+        "performance_7d": -0.0308823778,
+        "performance_30d": -0.0909049596,
+        "performance_90d": -0.5285093062,
+        "performance_180d": -0.6008013979,
+        "performance_365d": -0.8370762769,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-07-04",
+        "index_price": 1.272228323,
+        "performance_7d": -0.0154607763,
+        "performance_30d": -0.0712064046,
+        "performance_90d": -0.532434503,
+        "performance_180d": -0.596525332,
+        "performance_365d": -0.8442066572,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-07-05",
+        "index_price": 1.3049636676,
+        "performance_7d": 0.0136533216,
+        "performance_30d": -0.0556853556,
+        "performance_90d": -0.5055881846,
+        "performance_180d": -0.5492601203,
+        "performance_365d": -0.8472548923,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-07-06",
+        "index_price": 1.2931835041,
+        "performance_7d": 0.0205237115,
+        "performance_30d": -0.0783964741,
+        "performance_90d": -0.4504534019,
+        "performance_180d": -0.5534416476,
+        "performance_365d": -0.8460757284,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-07-07",
+        "index_price": 1.3058632872,
+        "performance_7d": 0.0308161213,
+        "performance_30d": -0.0747124635,
+        "performance_90d": -0.4716422457,
+        "performance_180d": -0.5249875784,
+        "performance_365d": -0.8591147884,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-07-08",
+        "index_price": 1.330786115,
+        "performance_7d": 0.056819101,
+        "performance_30d": -0.0558091509,
+        "performance_90d": -0.4252484447,
+        "performance_180d": -0.5038287348,
+        "performance_365d": -0.8558483725,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-07-09",
+        "index_price": 1.3237880977,
+        "performance_7d": 0.0490168367,
+        "performance_30d": -0.0599899356,
+        "performance_90d": -0.4394589255,
+        "performance_180d": -0.5315941812,
+        "performance_365d": -0.8445971544,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-07-10",
+        "index_price": 1.3278826717,
+        "performance_7d": 0.0488911996,
+        "performance_30d": -0.0584239432,
+        "performance_90d": -0.4390493317,
+        "performance_180d": -0.5127179758,
+        "performance_365d": -0.8416745891,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-07-11",
+        "index_price": 1.3073881059,
+        "performance_7d": 0.027636378,
+        "performance_30d": -0.0504971114,
+        "performance_90d": -0.3750882949,
+        "performance_180d": -0.5466480238,
+        "performance_365d": -0.8472309216,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-07-12",
+        "index_price": 1.3023372445,
+        "performance_7d": -0.0020126408,
+        "performance_30d": -0.0207535967,
+        "performance_90d": -0.4126298,
+        "performance_180d": -0.5653738855,
+        "performance_365d": -0.8489732606,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-07-13",
+        "index_price": 1.2873798103,
+        "performance_7d": -0.004487912,
+        "performance_30d": -0.0136110543,
+        "performance_90d": -0.4322386693,
+        "performance_180d": -0.5514920213,
+        "performance_365d": -0.8477325082,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-07-14",
+        "index_price": 1.3139641894,
+        "performance_7d": 0.0062034842,
+        "performance_30d": 0.0595754564,
+        "performance_90d": -0.3990004528,
+        "performance_180d": -0.5604588983,
+        "performance_365d": -0.8380589085,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-07-15",
+        "index_price": 1.339565562,
+        "performance_7d": 0.0065971886,
+        "performance_30d": 0.0832139215,
+        "performance_90d": -0.4008968452,
+        "performance_180d": -0.5724111861,
+        "performance_365d": -0.8630807848,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-07-16",
+        "index_price": 1.3393722254,
+        "performance_7d": 0.0117723734,
+        "performance_30d": 0.0597673169,
+        "performance_90d": -0.403223167,
+        "performance_180d": -0.591810105,
+        "performance_365d": -0.8613031237,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-07-17",
+        "index_price": 1.3756629335,
+        "performance_7d": 0.0359822918,
+        "performance_30d": 0.146266288,
+        "performance_90d": -0.3889026183,
+        "performance_180d": -0.55222998,
+        "performance_365d": -0.8299380209,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-07-18",
+        "index_price": 1.3524412221,
+        "performance_7d": 0.0344603993,
+        "performance_30d": 0.1170317248,
+        "performance_90d": -0.4039284749,
+        "performance_180d": -0.5385265588,
+        "performance_365d": -0.8054852173,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-07-19",
+        "index_price": 1.4081740934,
+        "performance_7d": 0.0812668527,
+        "performance_30d": 0.1997304813,
+        "performance_90d": -0.3887385928,
+        "performance_180d": -0.5045216961,
+        "performance_365d": -0.8017278607,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-07-20",
+        "index_price": 1.4236565344,
+        "performance_7d": 0.1058558811,
+        "performance_30d": 0.158374621,
+        "performance_90d": -0.4108998527,
+        "performance_180d": -0.4857167605,
+        "performance_365d": -0.7889573797,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-07-21",
+        "index_price": 1.3816343952,
+        "performance_7d": 0.0515007991,
+        "performance_30d": 0.1175020206,
+        "performance_90d": -0.4237938178,
+        "performance_180d": -0.4201392602,
+        "performance_365d": -0.7742894764,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-07-22",
+        "index_price": 1.3859035642,
+        "performance_7d": 0.0345918136,
+        "performance_30d": 0.1158692945,
+        "performance_90d": -0.4289434027,
+        "performance_180d": -0.3121898468,
+        "performance_365d": -0.8099165682,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-07-23",
+        "index_price": 1.3753315374,
+        "performance_7d": 0.0268478854,
+        "performance_30d": 0.1118279115,
+        "performance_90d": -0.4441499469,
+        "performance_180d": -0.3675925579,
+        "performance_365d": -0.8151385067,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-07-24",
+        "index_price": 1.3889498759,
+        "performance_7d": 0.0096585741,
+        "performance_30d": 0.0874973843,
+        "performance_90d": -0.4348021022,
+        "performance_180d": -0.324800374,
+        "performance_365d": -0.8296803603,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-07-25",
+        "index_price": 1.396118322,
+        "performance_7d": 0.0322950079,
+        "performance_30d": 0.0692541551,
+        "performance_90d": -0.4234312726,
+        "performance_180d": -0.319048964,
+        "performance_365d": -0.8277561316,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-07-26",
+        "index_price": 1.3602336382,
+        "performance_7d": -0.0340444093,
+        "performance_30d": 0.0412637261,
+        "performance_90d": -0.3434664998,
+        "performance_180d": -0.3237132176,
+        "performance_365d": -0.835856392,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-07-27",
+        "index_price": 1.3527677054,
+        "performance_7d": -0.0497934911,
+        "performance_30d": 0.0468662286,
+        "performance_90d": -0.3514823091,
+        "performance_180d": -0.3139894339,
+        "performance_365d": -0.8378984642,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-07-28",
+        "index_price": 1.4234202371,
+        "performance_7d": 0.0302437765,
+        "performance_30d": 0.105666531,
+        "performance_90d": -0.3452883111,
+        "performance_180d": -0.2729154849,
+        "performance_365d": -0.8368359206,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-07-29",
+        "index_price": 1.4521359939,
+        "performance_7d": 0.047790071,
+        "performance_30d": 0.145962046,
+        "performance_90d": -0.2980698158,
+        "performance_180d": -0.2611338595,
+        "performance_365d": -0.8380458808,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-07-30",
+        "index_price": 1.539216179,
+        "performance_7d": 0.1191600986,
+        "performance_30d": 0.215019112,
+        "performance_90d": -0.2035341017,
+        "performance_180d": -0.2423964367,
+        "performance_365d": -0.830075551,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-07-31",
+        "index_price": 1.5202434473,
+        "performance_7d": 0.0945272206,
+        "performance_30d": 0.2072731261,
+        "performance_90d": -0.2506167141,
+        "performance_180d": -0.2514399301,
+        "performance_365d": -0.8371323389,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-08-01",
+        "index_price": 1.5359579959,
+        "performance_7d": 0.1001631966,
+        "performance_30d": 0.2171478207,
+        "performance_90d": -0.2406160326,
+        "performance_180d": -0.2731270957,
+        "performance_365d": -0.8479216538,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-08-02",
+        "index_price": 1.5089802936,
+        "performance_7d": 0.1093537545,
+        "performance_30d": 0.1919397579,
+        "performance_90d": -0.2355507266,
+        "performance_180d": -0.2519413501,
+        "performance_365d": -0.8458909684,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-08-03",
+        "index_price": 1.4966259748,
+        "performance_7d": 0.1063436604,
+        "performance_30d": 0.1763815879,
+        "performance_90d": -0.27879881,
+        "performance_180d": -0.2536033159,
+        "performance_365d": -0.8471881437,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-08-04",
+        "index_price": 1.5464446263,
+        "performance_7d": 0.0864287201,
+        "performance_30d": 0.1850480322,
+        "performance_90d": -0.2227814919,
+        "performance_180d": -0.302092136,
+        "performance_365d": -0.8446045527,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-08-05",
+        "index_price": 1.5718886116,
+        "performance_7d": 0.0824665308,
+        "performance_30d": 0.2155186071,
+        "performance_90d": -0.2290619854,
+        "performance_180d": -0.2842908999,
+        "performance_365d": -0.8557327445,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-08-06",
+        "index_price": 1.5937954305,
+        "performance_7d": 0.0354591201,
+        "performance_30d": 0.2204917973,
+        "performance_90d": -0.1991139751,
+        "performance_180d": -0.3121190013,
+        "performance_365d": -0.8514770515,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-08-07",
+        "index_price": 1.6103239946,
+        "performance_7d": 0.0592540277,
+        "performance_30d": 0.2100547011,
+        "performance_90d": -0.1651680723,
+        "performance_180d": -0.3282847148,
+        "performance_365d": -0.8548467959,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-08-08",
+        "index_price": 1.6691917601,
+        "performance_7d": 0.086743104,
+        "performance_30d": 0.2609206587,
+        "performance_90d": -0.0026432671,
+        "performance_180d": -0.24220958,
+        "performance_365d": -0.8523539025,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-08-09",
+        "index_price": 1.699109823,
+        "performance_7d": 0.1259986829,
+        "performance_30d": 0.2795632169,
+        "performance_90d": -0.004712455,
+        "performance_180d": -0.2565277779,
+        "performance_365d": -0.8429814383,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-08-10",
+        "index_price": 1.6765213692,
+        "performance_7d": 0.1202006362,
+        "performance_30d": 0.2823440581,
+        "performance_90d": 0.1793184452,
+        "performance_180d": -0.2478957218,
+        "performance_365d": -0.8540834632,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-08-11",
+        "index_price": 1.6957343321,
+        "performance_7d": 0.0965373756,
+        "performance_30d": 0.3020700585,
+        "performance_90d": 0.211098777,
+        "performance_180d": -0.2132544003,
+        "performance_365d": -0.8649219847,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-08-12",
+        "index_price": 1.6643043864,
+        "performance_7d": 0.0587928268,
+        "performance_30d": 0.2927842841,
+        "performance_90d": 0.1536450574,
+        "performance_180d": -0.2320397714,
+        "performance_365d": -0.8724771504,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-08-13",
+        "index_price": 1.6770762672,
+        "performance_7d": 0.0522531532,
+        "performance_30d": 0.2763485342,
+        "performance_90d": 0.4108876414,
+        "performance_180d": -0.2360346292,
+        "performance_365d": -0.8689563616,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-08-14",
+        "index_price": 1.6855654371,
+        "performance_7d": 0.0467244124,
+        "performance_30d": 0.2582926024,
+        "performance_90d": 0.1704230149,
+        "performance_180d": -0.2359997462,
+        "performance_365d": -0.8802323663,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-08-15",
+        "index_price": 1.6406415282,
+        "performance_7d": -0.0171042253,
+        "performance_30d": 0.2249332165,
+        "performance_90d": 0.1803999451,
+        "performance_180d": -0.2915980736,
+        "performance_365d": -0.8808421372,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-08-16",
+        "index_price": 1.6370524432,
+        "performance_7d": -0.036523466,
+        "performance_30d": 0.1900098515,
+        "performance_90d": 0.1579248783,
+        "performance_180d": -0.3003497219,
+        "performance_365d": -0.8818217591,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-08-17",
+        "index_price": 1.621116797,
+        "performance_7d": -0.0330473403,
+        "performance_30d": 0.1986597055,
+        "performance_90d": 0.2052854683,
+        "performance_180d": -0.262124682,
+        "performance_365d": -0.8858365584,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-08-18",
+        "index_price": 1.5789152691,
+        "performance_7d": -0.0688899557,
+        "performance_30d": 0.1212500475,
+        "performance_90d": 0.1414299362,
+        "performance_180d": -0.2727405223,
+        "performance_365d": -0.8888854232,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-08-19",
+        "index_price": 1.539536411,
+        "performance_7d": -0.0749670411,
+        "performance_30d": 0.0813959504,
+        "performance_90d": 0.1392502177,
+        "performance_180d": -0.2933425857,
+        "performance_365d": -0.891468276,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-08-20",
+        "index_price": 1.4700925574,
+        "performance_7d": -0.123419378,
+        "performance_30d": 0.0640242907,
+        "performance_90d": 0.0691020747,
+        "performance_180d": -0.2976644079,
+        "performance_365d": -0.9008347617,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-08-21",
+        "index_price": 1.4968815166,
+        "performance_7d": -0.1119410237,
+        "performance_30d": 0.0800762443,
+        "performance_90d": 0.0617229192,
+        "performance_180d": -0.2346284156,
+        "performance_365d": -0.9079993229,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-08-22",
+        "index_price": 1.5558095884,
+        "performance_7d": -0.0517065662,
+        "performance_30d": 0.1312251236,
+        "performance_90d": 0.1093423983,
+        "performance_180d": -0.2360330185,
+        "performance_365d": -0.9013139247,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-08-23",
+        "index_price": 1.5532402503,
+        "performance_7d": -0.0511970116,
+        "performance_30d": 0.1182838757,
+        "performance_90d": 0.1047834474,
+        "performance_180d": -0.2080961572,
+        "performance_365d": -0.9002741102,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-08-24",
+        "index_price": 1.5461790622,
+        "performance_7d": -0.0462259937,
+        "performance_30d": 0.1074842567,
+        "performance_90d": 0.0936605081,
+        "performance_180d": -0.1666439228,
+        "performance_365d": -0.9099114208,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-08-25",
+        "index_price": 1.5425769762,
+        "performance_7d": -0.0230147201,
+        "performance_30d": 0.1340529545,
+        "performance_90d": 0.1356911015,
+        "performance_180d": -0.20156218,
+        "performance_365d": -0.9031886533,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-08-26",
+        "index_price": 1.5703105973,
+        "performance_7d": 0.0199892552,
+        "performance_30d": 0.1608131914,
+        "performance_90d": 0.1766581252,
+        "performance_180d": -0.17891479,
+        "performance_365d": -0.9101569231,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-08-27",
+        "index_price": 1.4842667402,
+        "performance_7d": 0.0096416941,
+        "performance_30d": 0.0427466897,
+        "performance_90d": 0.0989355556,
+        "performance_180d": -0.2170900628,
+        "performance_365d": -0.9111688395,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-08-28",
+        "index_price": 1.4806278933,
+        "performance_7d": -0.0108583232,
+        "performance_30d": 0.0196206826,
+        "performance_90d": 0.0802438603,
+        "performance_180d": -0.2818649669,
+        "performance_365d": -0.9146145413,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-08-29",
+        "index_price": 1.4898387546,
+        "performance_7d": -0.0424028971,
+        "performance_30d": -0.0320795903,
+        "performance_90d": 0.0391127067,
+        "performance_180d": -0.26701382,
+        "performance_365d": -0.9105452935,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-08-30",
+        "index_price": 1.5401641049,
+        "performance_7d": -0.0084186239,
+        "performance_30d": 0.0131035971,
+        "performance_90d": 0.0801432856,
+        "performance_180d": -0.2431045576,
+        "performance_365d": -0.9065254234,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-08-31",
+        "index_price": 1.508753316,
+        "performance_7d": -0.0242053117,
+        "performance_30d": -0.0177118645,
+        "performance_90d": 0.0898096984,
+        "performance_180d": -0.2377379318,
+        "performance_365d": -0.9013462516,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-09-01",
+        "index_price": 1.4957632019,
+        "performance_7d": -0.030347772,
+        "performance_30d": -0.0087589558,
+        "performance_90d": 0.074095436,
+        "performance_180d": -0.1845180536,
+        "performance_365d": -0.9035902764,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-09-02",
+        "index_price": 1.4914943888,
+        "performance_7d": -0.0501914771,
+        "performance_30d": -0.0034287698,
+        "performance_90d": 0.0888693569,
+        "performance_180d": -0.2077629186,
+        "performance_365d": -0.9089730075,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-09-03",
+        "index_price": 1.5060917927,
+        "performance_7d": 0.0147042657,
+        "performance_30d": -0.0260939402,
+        "performance_90d": 0.089857573,
+        "performance_180d": -0.181435557,
+        "performance_365d": -0.9053232043,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-09-04",
+        "index_price": 1.5148162456,
+        "performance_7d": 0.0230904419,
+        "performance_30d": -0.0363081491,
+        "performance_90d": 0.079552893,
+        "performance_180d": -0.1636035624,
+        "performance_365d": -0.9047856962,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-09-05",
+        "index_price": 1.5111960203,
+        "performance_7d": 0.0143352867,
+        "performance_30d": -0.0518256036,
+        "performance_90d": 0.0707788912,
+        "performance_180d": -0.1642896287,
+        "performance_365d": -0.9085031902,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-09-06",
+        "index_price": 1.5252517898,
+        "performance_7d": -0.0096822897,
+        "performance_30d": -0.0528292475,
+        "performance_90d": 0.0821639677,
+        "performance_180d": -0.1760284032,
+        "performance_365d": -0.9090247369,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-09-07",
+        "index_price": 1.507424711,
+        "performance_7d": -0.0008805979,
+        "performance_30d": -0.0969134002,
+        "performance_90d": 0.0704087778,
+        "performance_180d": -0.1789969766,
+        "performance_365d": -0.9115730716,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-09-08",
+        "index_price": 1.5633659682,
+        "performance_7d": 0.0451961689,
+        "performance_30d": -0.07989116,
+        "performance_90d": 0.1085527322,
+        "performance_180d": -0.1315025285,
+        "performance_365d": -0.8889241938,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-09-09",
+        "index_price": 1.5579174137,
+        "performance_7d": 0.0445345456,
+        "performance_30d": -0.0707440762,
+        "performance_90d": 0.1314521509,
+        "performance_180d": -0.1406720529,
+        "performance_365d": -0.8836551962,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-09-10",
+        "index_price": 1.6280128594,
+        "performance_7d": 0.0809519495,
+        "performance_30d": -0.0399363694,
+        "performance_90d": 0.2241266568,
+        "performance_180d": -0.0772522454,
+        "performance_365d": -0.8780874348,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-09-11",
+        "index_price": 1.6158462515,
+        "performance_7d": 0.066694562,
+        "performance_30d": -0.0291161492,
+        "performance_90d": 0.2380595592,
+        "performance_180d": -0.0900878214,
+        "performance_365d": -0.8671183379,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-09-12",
+        "index_price": 1.6441103505,
+        "performance_7d": 0.0879530706,
+        "performance_30d": -0.0196567785,
+        "performance_90d": 0.3258039975,
+        "performance_180d": -0.0604478747,
+        "performance_365d": -0.8710396428,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-09-13",
+        "index_price": 1.6171238016,
+        "performance_7d": 0.0602339971,
+        "performance_30d": -0.0406045556,
+        "performance_90d": 0.3076560523,
+        "performance_180d": -0.094972065,
+        "performance_365d": -0.8795664629,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-09-14",
+        "index_price": 1.5457579524,
+        "performance_7d": 0.0254296225,
+        "performance_30d": -0.0578332159,
+        "performance_90d": 0.2230683351,
+        "performance_180d": -0.204675108,
+        "performance_365d": -0.8759073722,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-09-15",
+        "index_price": 1.545025361,
+        "performance_7d": -0.0117314868,
+        "performance_30d": -0.0562151094,
+        "performance_90d": 0.2873869335,
+        "performance_180d": -0.2032769983,
+        "performance_365d": -0.8845269648,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-09-16",
+        "index_price": 1.525429845,
+        "performance_7d": -0.0208532034,
+        "performance_30d": -0.0590253289,
+        "performance_90d": 0.2599094903,
+        "performance_180d": -0.2186023717,
+        "performance_365d": -0.8960060042,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-09-17",
+        "index_price": 1.5394873376,
+        "performance_7d": -0.0543764266,
+        "performance_30d": -0.024971531,
+        "performance_90d": 0.3116062092,
+        "performance_180d": -0.1962391876,
+        "performance_365d": -0.8925511452,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-09-18",
+        "index_price": 1.5870149044,
+        "performance_7d": -0.0178428778,
+        "performance_30d": 0.0308394741,
+        "performance_90d": 0.2912930499,
+        "performance_180d": -0.198248245,
+        "performance_365d": -0.882196902,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-09-19",
+        "index_price": 1.5538424712,
+        "performance_7d": -0.0549037838,
+        "performance_30d": 0.0569691434,
+        "performance_90d": 0.2567884146,
+        "performance_180d": -0.2429414266,
+        "performance_365d": -0.8904166357,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-09-20",
+        "index_price": 1.571101728,
+        "performance_7d": -0.0284592148,
+        "performance_30d": 0.0495832239,
+        "performance_90d": 0.264982804,
+        "performance_180d": -0.245923073,
+        "performance_365d": -0.8907029333,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-09-21",
+        "index_price": 1.5580705613,
+        "performance_7d": 0.0079654184,
+        "performance_30d": 0.0014532452,
+        "performance_90d": 0.2595554533,
+        "performance_180d": -0.2738338807,
+        "performance_365d": -0.8644306933,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-09-22",
+        "index_price": 1.5278194894,
+        "performance_7d": -0.0111363037,
+        "performance_30d": -0.0163662775,
+        "performance_90d": 0.1962272557,
+        "performance_180d": -0.2833928836,
+        "performance_365d": -0.8567196396,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-09-23",
+        "index_price": 1.6001999684,
+        "performance_7d": 0.0490157733,
+        "performance_30d": 0.0349383248,
+        "performance_90d": 0.2255554835,
+        "performance_180d": -0.2571390387,
+        "performance_365d": -0.8700572679,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-09-24",
+        "index_price": 1.6087310885,
+        "performance_7d": 0.0449784478,
+        "performance_30d": 0.0428854529,
+        "performance_90d": 0.2314894151,
+        "performance_180d": -0.3081701233,
+        "performance_365d": -0.8705870918,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-09-25",
+        "index_price": 1.6082041507,
+        "performance_7d": 0.0133516366,
+        "performance_30d": 0.0241312473,
+        "performance_90d": 0.2445408087,
+        "performance_180d": -0.3027458315,
+        "performance_365d": -0.859736116,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-09-26",
+        "index_price": 1.6300529737,
+        "performance_7d": 0.0490464792,
+        "performance_30d": 0.0982210471,
+        "performance_90d": 0.2661721182,
+        "performance_180d": -0.3286746389,
+        "performance_365d": -0.8556573605,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-09-27",
+        "index_price": 1.6398945597,
+        "performance_7d": 0.0437863637,
+        "performance_30d": 0.1075669769,
+        "performance_90d": 0.2941328723,
+        "performance_180d": -0.3344570531,
+        "performance_365d": -0.856133352,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-09-28",
+        "index_price": 1.6694959347,
+        "performance_7d": 0.0715149725,
+        "performance_30d": 0.1205883385,
+        "performance_90d": 0.3178587229,
+        "performance_180d": -0.3247487939,
+        "performance_365d": -0.8509158207,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-09-29",
+        "index_price": 1.71354557,
+        "performance_7d": 0.1215628429,
+        "performance_30d": 0.112573371,
+        "performance_90d": 0.3607804202,
+        "performance_180d": -0.3314823458,
+        "performance_365d": -0.8440657168,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-09-30",
+        "index_price": 1.726088465,
+        "performance_7d": 0.0786704781,
+        "performance_30d": 0.1440494922,
+        "performance_90d": 0.3678139761,
+        "performance_180d": -0.3113258492,
+        "performance_365d": -0.8434314703,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-10-01",
+        "index_price": 1.6874827259,
+        "performance_7d": 0.0489526422,
+        "performance_30d": 0.1281750506,
+        "performance_90d": 0.3329383826,
+        "performance_180d": -0.3715319572,
+        "performance_365d": -0.8493629258,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-10-02",
+        "index_price": 1.6349894274,
+        "performance_7d": 0.0166553959,
+        "performance_30d": 0.0962089027,
+        "performance_90d": 0.2851383654,
+        "performance_180d": -0.3991136414,
+        "performance_365d": -0.8625840423,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-10-03",
+        "index_price": 1.6569808404,
+        "performance_7d": 0.0165196268,
+        "performance_30d": 0.1001858243,
+        "performance_90d": 0.2697524702,
+        "performance_180d": -0.3722193761,
+        "performance_365d": -0.8623274614,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-10-04",
+        "index_price": 1.6743320533,
+        "performance_7d": 0.0209998218,
+        "performance_30d": 0.1053037345,
+        "performance_90d": 0.2947366309,
+        "performance_180d": -0.2884818891,
+        "performance_365d": -0.8587040595,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-10-05",
+        "index_price": 1.7257919256,
+        "performance_7d": 0.0337203522,
+        "performance_30d": 0.142004017,
+        "performance_90d": 0.3215716703,
+        "performance_180d": -0.3017373602,
+        "performance_365d": -0.8490390004,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-10-06",
+        "index_price": 1.6991892807,
+        "performance_7d": -0.0083781194,
+        "performance_30d": 0.1140385424,
+        "performance_90d": 0.2768312365,
+        "performance_180d": -0.266139261,
+        "performance_365d": -0.8555354832,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-10-07",
+        "index_price": 1.6347232598,
+        "performance_7d": -0.0529319366,
+        "performance_30d": 0.0844476993,
+        "performance_90d": 0.234882881,
+        "performance_180d": -0.307797423,
+        "performance_365d": -0.8597223236,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-10-08",
+        "index_price": 1.6682320092,
+        "performance_7d": -0.0114079489,
+        "performance_30d": 0.0670770908,
+        "performance_90d": 0.2563097967,
+        "performance_180d": -0.29527218,
+        "performance_365d": -0.8548676211,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-10-09",
+        "index_price": 1.6543499198,
+        "performance_7d": 0.0118413563,
+        "performance_30d": 0.0618983428,
+        "performance_90d": 0.2653854753,
+        "performance_180d": -0.209245805,
+        "performance_365d": -0.8658762715,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-10-10",
+        "index_price": 1.6697421671,
+        "performance_7d": 0.0077015536,
+        "performance_30d": 0.0256320504,
+        "performance_90d": 0.2821119677,
+        "performance_180d": -0.2469256371,
+        "performance_365d": -0.8670423857,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-10-11",
+        "index_price": 1.632771854,
+        "performance_7d": -0.0248219576,
+        "performance_30d": 0.0104747605,
+        "performance_90d": 0.2682907102,
+        "performance_180d": -0.2799135786,
+        "performance_365d": -0.8612336243,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-10-12",
+        "index_price": 1.6339914914,
+        "performance_7d": -0.0531932227,
+        "performance_30d": -0.0061546106,
+        "performance_90d": 0.2435586179,
+        "performance_180d": -0.2526218337,
+        "performance_365d": -0.8617399165,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-10-13",
+        "index_price": 1.6137714351,
+        "performance_7d": -0.0502697648,
+        "performance_30d": -0.0020730426,
+        "performance_90d": 0.2046976131,
+        "performance_180d": -0.2782618594,
+        "performance_365d": -0.867960729,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-10-14",
+        "index_price": 1.591681146,
+        "performance_7d": -0.0263299085,
+        "performance_30d": 0.029709175,
+        "performance_90d": 0.1883784924,
+        "performance_180d": -0.2908032469,
+        "performance_365d": -0.8756184358,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-10-15",
+        "index_price": 1.5925309564,
+        "performance_7d": -0.0453780124,
+        "performance_30d": 0.0307474534,
+        "performance_90d": 0.157646192,
+        "performance_180d": -0.2925654431,
+        "performance_365d": -0.8706136516,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-10-16",
+        "index_price": 1.6128966008,
+        "performance_7d": -0.025057165,
+        "performance_30d": 0.0573390878,
+        "performance_90d": 0.1925816623,
+        "performance_180d": -0.2891360298,
+        "performance_365d": -0.8686740443,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-10-17",
+        "index_price": 1.6441115114,
+        "performance_7d": -0.015350068,
+        "performance_30d": 0.067960399,
+        "performance_90d": 0.1675484722,
+        "performance_180d": -0.2863226779,
+        "performance_365d": -0.8671426618,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-10-18",
+        "index_price": 1.6675839387,
+        "performance_7d": 0.0213208506,
+        "performance_30d": 0.0507676608,
+        "performance_90d": 0.171338661,
+        "performance_180d": -0.3099642223,
+        "performance_365d": -0.8622043343,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-10-19",
+        "index_price": 1.6314207439,
+        "performance_7d": -0.0015732931,
+        "performance_30d": 0.0499267295,
+        "performance_90d": 0.1807904823,
+        "performance_180d": -0.3196212242,
+        "performance_365d": -0.8693365157,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-10-20",
+        "index_price": 1.6354734727,
+        "performance_7d": 0.0134480244,
+        "performance_30d": 0.0409723595,
+        "performance_90d": 0.1800773986,
+        "performance_180d": -0.3261090162,
+        "performance_365d": -0.870204873,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-10-21",
+        "index_price": 1.6258007764,
+        "performance_7d": 0.021436222,
+        "performance_30d": 0.0434705699,
+        "performance_90d": 0.1821155352,
+        "performance_180d": -0.342921017,
+        "performance_365d": -0.8736195088,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-10-22",
+        "index_price": 1.6180904183,
+        "performance_7d": 0.0160495856,
+        "performance_30d": 0.059084813,
+        "performance_90d": 0.1649739464,
+        "performance_180d": -0.3415591745,
+        "performance_365d": -0.8713063409,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-10-23",
+        "index_price": 1.6249098816,
+        "performance_7d": 0.0074482647,
+        "performance_30d": 0.0154417658,
+        "performance_90d": 0.1638769121,
+        "performance_180d": -0.32894497,
+        "performance_365d": -0.8719858221,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-10-24",
+        "index_price": 1.6554897868,
+        "performance_7d": 0.0069206227,
+        "performance_30d": 0.0290655776,
+        "performance_90d": 0.2170628195,
+        "performance_180d": -0.2009574872,
+        "performance_365d": -0.8710944082,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-10-25",
+        "index_price": 1.6351431704,
+        "performance_7d": -0.0194537544,
+        "performance_30d": 0.016750995,
+        "performance_90d": 0.2087390643,
+        "performance_180d": -0.2161113331,
+        "performance_365d": -0.8683891191,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-10-26",
+        "index_price": 1.659127944,
+        "performance_7d": 0.0169834791,
+        "performance_30d": 0.0178368254,
+        "performance_90d": 0.1655924939,
+        "performance_180d": -0.2368729698,
+        "performance_365d": -0.8709638798,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-10-27",
+        "index_price": 1.6732435969,
+        "performance_7d": 0.0230943056,
+        "performance_30d": 0.0203360862,
+        "performance_90d": 0.1522637025,
+        "performance_180d": -0.1911913271,
+        "performance_365d": -0.8723373329,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-10-28",
+        "index_price": 1.6560076779,
+        "performance_7d": 0.0185797066,
+        "performance_30d": -0.0080792391,
+        "performance_90d": 0.0758772552,
+        "performance_180d": -0.1431004554,
+        "performance_365d": -0.8567601539,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-10-29",
+        "index_price": 1.685252307,
+        "performance_7d": 0.0415068824,
+        "performance_30d": -0.0165115323,
+        "performance_90d": 0.1085410761,
+        "performance_180d": -0.1692778459,
+        "performance_365d": -0.8544993564,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-10-30",
+        "index_price": 1.7158634713,
+        "performance_7d": 0.0559745441,
+        "performance_30d": -0.0059237947,
+        "performance_90d": 0.1171291636,
+        "performance_180d": -0.1516700237,
+        "performance_365d": -0.8613756522,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-10-31",
+        "index_price": 1.7490186751,
+        "performance_7d": 0.0564962037,
+        "performance_30d": 0.0364661209,
+        "performance_90d": 0.1590732381,
+        "performance_180d": -0.1139473053,
+        "performance_365d": -0.851626514,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-11-01",
+        "index_price": 1.7073753888,
+        "performance_7d": 0.0441748587,
+        "performance_30d": 0.0442730455,
+        "performance_90d": 0.1408163546,
+        "performance_180d": -0.1772418874,
+        "performance_365d": -0.8465507043,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-11-02",
+        "index_price": 1.7287812012,
+        "performance_7d": 0.041981848,
+        "performance_30d": 0.0433320404,
+        "performance_90d": 0.1179069536,
+        "performance_180d": -0.1311420254,
+        "performance_365d": -0.8526772414,
+        "performance_730d": null
+    },
+    {
+        "date": "2022-11-03",
+        "index_price": 1.7531933315,
+        "performance_7d": 0.0477812883,
+        "performance_30d": 0.0471001425,
+        "performance_90d": 0.1153419642,
+        "performance_180d": -0.1401404805,
+        "performance_365d": -0.8491185594,
+        "performance_730d": null
+    }
+]

@@ -2,33 +2,121 @@
     {
         "chainId": 56,
         "chainName": "BNB Smart Chain",
-        "detfId": 56001,
-        "detfOracleAddress": "0xb86B47e40Ec31Ca4Dc31295B649bf585073e5DcD",
-        "urlId": "governance-bnb-smart-chain",
-        "detfName": "Governance"
+        "productId": 5610001000,
+        "category": "BSC Index Top 10",
+        "dimension": "Market Cap",
+        "urlChainId": "bnb-smart-chain",
+        "urlCategoryId": "bsc-index-top-10",
+        "urlDimensionId": "market-cap"
     },
     {
         "chainId": 56,
         "chainName": "BNB Smart Chain",
-        "detfId": 56002,
-        "detfOracleAddress": "0xc26A7866baeB8b7C263B48289ec532a38f21c56A",
-        "urlId": "bsc-top-10-bnb-smart-chain",
-        "detfName": "Top 10 Index"
+        "productId": 5610001001,
+        "category": "BSC Index Top 10",
+        "dimension": "DEX Liquidity",
+        "urlChainId": "bnb-smart-chain",
+        "urlCategoryId": "bsc-index-top-10",
+        "urlDimensionId": "dex-liquidity"
     },
     {
         "chainId": 56,
         "chainName": "BNB Smart Chain",
-        "detfId": 56003,
-        "detfOracleAddress": "0xB7452Ad8e82308e90750DFa1af30149252c40735",
-        "urlId": "metaverse-bnb-smart-chain",
-        "detfName": "Metaverse"
+        "productId": 5610001002,
+        "category": "BSC Index Top 10",
+        "dimension": "Equally Balanced",
+        "urlChainId": "bnb-smart-chain",
+        "urlCategoryId": "bsc-index-top-10",
+        "urlDimensionId": "equally-balanced"
     },
     {
         "chainId": 56,
         "chainName": "BNB Smart Chain",
-        "detfId": 56004,
-        "detfOracleAddress": "0xB7452Ad8e82308e90750DFa1af30149252c40735",
-        "urlId": "defi-bnb-smart-chain",
-        "detfName": "Defi"
+        "productId": 5610011000,
+        "category": "Defi",
+        "dimension": "Market Cap",
+        "urlChainId": "bnb-smart-chain",
+        "urlCategoryId": "defi",
+        "urlDimensionId": "market-cap"
+    },
+    {
+        "chainId": 56,
+        "chainName": "BNB Smart Chain",
+        "productId": 5610011001,
+        "category": "Defi",
+        "dimension": "DEX Liquidity",
+        "urlChainId": "bnb-smart-chain",
+        "urlCategoryId": "defi",
+        "urlDimensionId": "dex-liquidity"
+    },
+    {
+        "chainId": 56,
+        "chainName": "BNB Smart Chain",
+        "productId": 5610011002,
+        "category": "Defi",
+        "dimension": "Equally Balanced",
+        "urlChainId": "bnb-smart-chain",
+        "urlCategoryId": "defi",
+        "urlDimensionId": "equally-balanced"
+    },
+    {
+        "chainId": 56,
+        "chainName": "BNB Smart Chain",
+        "productId": 5610021000,
+        "category": "Metaverse",
+        "dimension": "Market Cap",
+        "urlChainId": "bnb-smart-chain",
+        "urlCategoryId": "metaverse",
+        "urlDimensionId": "market-cap"
+    },
+    {
+        "chainId": 56,
+        "chainName": "BNB Smart Chain",
+        "productId": 5610021001,
+        "category": "Metaverse",
+        "dimension": "DEX Liquidity",
+        "urlChainId": "bnb-smart-chain",
+        "urlCategoryId": "metaverse",
+        "urlDimensionId": "dex-liquidity"
+    },
+    {
+        "chainId": 56,
+        "chainName": "BNB Smart Chain",
+        "productId": 5610021002,
+        "category": "Metaverse",
+        "dimension": "Equally Balanced",
+        "urlChainId": "bnb-smart-chain",
+        "urlCategoryId": "metaverse",
+        "urlDimensionId": "equally-balanced"
+    },
+    {
+        "chainId": 56,
+        "chainName": "BNB Smart Chain",
+        "productId": 5610041000,
+        "category": "Governance",
+        "dimension": "Market Cap",
+        "urlChainId": "bnb-smart-chain",
+        "urlCategoryId": "governance",
+        "urlDimensionId": "market-cap"
+    },
+    {
+        "chainId": 56,
+        "chainName": "BNB Smart Chain",
+        "productId": 5610041001,
+        "category": "Governance",
+        "dimension": "DEX Liquidity",
+        "urlChainId": "bnb-smart-chain",
+        "urlCategoryId": "governance",
+        "urlDimensionId": "dex-liquidity"
+    },
+    {
+        "chainId": 56,
+        "chainName": "BNB Smart Chain",
+        "productId": 5610041002,
+        "category": "Governance",
+        "dimension": "Equally Balanced",
+        "urlChainId": "bnb-smart-chain",
+        "urlCategoryId": "governance",
+        "urlDimensionId": "equally-balanced"
     }
 ]

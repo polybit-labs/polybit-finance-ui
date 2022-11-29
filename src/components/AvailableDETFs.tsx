@@ -5,6 +5,8 @@ import { useContractRead, usePrepareContractWrite, useContractWrite, useAccount 
 import "./AvailableDETFs.css"
 import { Progress } from './Progress'
 import { Link } from 'react-router-dom'
+import { GetLatestPrice } from './utils/GetLatestPrice'
+import { GetProductData } from './utils/GetProductDataFromS3'
 
 
 export function AvailableDETFs() {
@@ -57,6 +59,9 @@ export function AvailableDETFs() {
         const liquidity = data ? data : "0"
         return liquidity
     }
+    const price = GetLatestPrice("binance-smart-chain", "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56", "bnb")
+    //Rebalance()
+    //GetProductData("defi", "dex-liquidity", "content.json")
 
     return (
         <>
@@ -72,6 +77,7 @@ export function AvailableDETFs() {
                     : "No DETF Oracles are available."
                 }
                 </div >
+                <div>{price}</div>
             </div >
         </>
     )

@@ -7,9 +7,9 @@ import { FormatCurrency, CurrencyContext } from "./utils/Currency"
 
 interface DETFIndex {
     "chainId": number;
-    "detfId": number;
-    "detfOracleAddress": string;
-    "detfName": string;
+    "productId": number;
+    "category": string;
+    "dimension": string;
     "liquidity": number;
     "returnOneWeek": number;
     "returnOneMonth": number;
@@ -26,8 +26,31 @@ const DETFIndexList = () => {
         setLiquidityCurrency(currency)
     }, [currency])
 
-    const GetDETFData = (urlId: string) => {
-        console.log(urlId)
+    const GetDETFIndex = () => {
+        let detfIndex: Array<any> = []
+        {
+            detfIndexInfo?.map((index =>
+                detfIndex.push({
+                    "chainId": index.chainId,
+                    "chainName": "BNB Smart Chain",
+                    "productId": index.productId,
+                    "category": index.category,
+                    "dimension": index.dimension,
+                    "urlChainId": index.urlChainId,
+                    "urlCategoryId": index.urlCategoryId,
+                    "urlDimensionId": index.urlDimensionId,
+                    "liquidity": GetDETFData(`${index.urlChainId}/${index.urlCategoryId}/${index.urlDimensionId}`)[0],
+                    "returnOneWeek": GetDETFData(`${index.urlChainId}/${index.urlCategoryId}/${index.urlDimensionId}`)[1],
+                    "returnOneMonth": GetDETFData(`${index.urlChainId}/${index.urlCategoryId}/${index.urlDimensionId}`)[2],
+                    "returnThreeMonths": GetDETFData(`${index.urlChainId}/${index.urlCategoryId}/${index.urlDimensionId}`)[3],
+                    "returnOneYear": GetDETFData(`${index.urlChainId}/${index.urlCategoryId}/${index.urlDimensionId}`)[4],
+                })))
+        }
+        return detfIndex
+    }
+
+    const GetDETFData = (url: string,) => {
+        console.log(url)
         let productData
         let performanceData
         let liquidity = 0
@@ -38,10 +61,15 @@ const DETFIndexList = () => {
         let returnTwoYear: number = 0
 
         try {
-            productData = require(`../product/detfs/${urlId}/token_data.json`)
-            performanceData = require(`../product/detfs/${urlId}/rw_liquidity.json`)
+            productData = require(`../product/detfs/${url}/product-data.json`)
         } catch {
-            console.log("Product file not found.")
+            console.log(`Token data ${url} file not found.`)
+        }
+
+        try {
+            performanceData = require(`../product/detfs/${url}/performance-data.json`)
+        } catch {
+            console.log(`Performance data ${url} file not found.`)
         }
 
         if (productData) {
@@ -60,33 +88,13 @@ const DETFIndexList = () => {
                 }
             })()
 
-            returnOneWeek = performanceData.at(-1).rw_liquidity_7d
-            returnOneMonth = performanceData.at(-1).rw_liquidity_30d
-            returnThreeMonths = performanceData.at(-1).rw_liquidity_90d
-            returnOneYear = performanceData.at(-1).rw_liquidity_365d
-            returnTwoYear = performanceData.at(-1).rw_liquidity_730d
+            returnOneWeek = performanceData.at(-1).performance_7d
+            returnOneMonth = performanceData.at(-1).performance_30d
+            returnThreeMonths = performanceData.at(-1).performance_90d
+            returnOneYear = performanceData.at(-1).performance_365d
+            returnTwoYear = performanceData.at(-1).performance_730d
         }
         return [liquidity, returnOneWeek, returnOneMonth, returnThreeMonths, returnOneYear, returnTwoYear]
-    }
-
-    const GetDETFIndex = () => {
-        let detfIndex: Array<any> = []
-        {
-            detfIndexInfo?.map((index => detfIndex.push({
-                "chainId": index.chainId,
-                "chainName": "BNB Smart Chain",
-                "detfId": index.detfName,
-                "detfOracleAddress": index.detfOracleAddress,
-                "urlId": index.urlId,
-                "detfName": index.detfName,
-                "liquidity": GetDETFData(index.urlId)[0],
-                "returnOneWeek": GetDETFData(index.urlId)[1],
-                "returnOneMonth": GetDETFData(index.urlId)[2],
-                "returnThreeMonths": GetDETFData(index.urlId)[3],
-                "returnOneYear": GetDETFData(index.urlId)[4],
-            })))
-        }
-        return detfIndex
     }
 
     const [detfIndexData, setDETFIndexData] = useState(GetDETFIndex())
@@ -111,7 +119,8 @@ const DETFIndexList = () => {
             <div className="detf-index-container">
                 <div className="detf-index-wrapper">
                     <div className="detf-index-header">
-                        <div className="detf-index-header-item" onClick={() => sorting("detfName")}>Strategy</div>
+                        <div className="detf-index-header-item" onClick={() => sorting("category")}>Category</div>
+                        <div className="detf-index-header-item" onClick={() => sorting("dimension")}>Dimension</div>
                         <div className="detf-index-header-item" onClick={() => sorting("liquidity")}>Total Liquidity</div>
                         <div className="detf-index-header-item" onClick={() => sorting("returnOneWeek")}>1 Week</div>
                         <div className="detf-index-header-item" onClick={() => sorting("returnOneMonth")}>1 Month</div>
@@ -121,23 +130,26 @@ const DETFIndexList = () => {
                     </div>
                     <div>
                         {detfIndexData.map((index) =>
-                            <div className="detf-index-row-items" key={index.detfId}>
+                            <div className="detf-index-row-items" key={index.productId}>
                                 <div className="detf-index-row-item">
                                     <div className="detf-index-row-item-name">
-                                        {index.detfName}
-                                        <div className="detf-index-chain-title">
+                                        {index.category}
+                                        {/* <div className="detf-index-chain-title">
                                             <img className="detf-index-chain-logo" src={require("../assets/images/bsc-logo.png")} alt="Binance Smart Chain"></img>
-                                            {index.chainName}
-                                        </div>
+                                            {index.dimension}
+                                        </div> */}
                                     </div>
                                 </div>
-                                <div className="detf-index-row-item">{FormatCurrency(Number(GetDETFData(index.urlId)[0]), 0)}</div>
+                                <div className="detf-index-row-item">
+                                    {index.dimension}
+                                </div>
+                                <div className="detf-index-row-item">{FormatCurrency(Number(GetDETFData(`${index.urlChainId}/${index.urlCategoryId}/${index.urlDimensionId}`)[0]), 0)}</div>
                                 <div className="detf-index-row-item" style={{ color: getNumValueColor(index.returnOneWeek) }}>{parseFloat((index.returnOneWeek * 100).toString()).toFixed(2) + "%"}</div>
                                 <div className="detf-index-row-item" style={{ color: getNumValueColor(index.returnOneMonth) }}>{parseFloat((index.returnOneMonth * 100).toString()).toFixed(2) + "%"}</div>
                                 <div className="detf-index-row-item" style={{ color: getNumValueColor(index.returnThreeMonths) }}>{parseFloat((index.returnThreeMonths * 100).toString()).toFixed(2) + "%"}</div>
                                 <div className="detf-index-row-item" style={{ color: getNumValueColor(index.returnOneYear) }}>{parseFloat((index.returnOneYear * 100).toString()).toFixed(2) + "%"}</div>
                                 <div className="detf-index-row-item">
-                                    <Link className="detf-index-row-item-link" to={`/detfs/${index.urlId}`} ><u>View this DETF</u></Link>
+                                    <Link className="detf-index-row-item-link" to={`/detfs/${index.urlChainId}/${index.urlCategoryId}/${index.urlDimensionId}`} ><u>View this DETF</u></Link>
                                 </div>
                             </div>)
                         }

@@ -26,7 +26,7 @@ function Deposit() {
     const utils = ethers.utils
     const location = useLocation()
     const [title, setTitle] = useState("Your investment amount")
-    const { detfName, detfAddress, processOrigin, activeStage } = location.state
+    const { category, dimension, productId, detfAddress, processOrigin, activeStage } = location.state
     const IPolybitDETF = new Interface(PolybitDETFInterface)
     const { address: walletOwner, connector, isConnected } = useAccount()
     const { chain, chains } = useNetwork()
@@ -185,7 +185,10 @@ function Deposit() {
         contractInterface: IPolybitDETF,
         functionName: 'deposit',
         args: [Number(timeLockValue)],
-        overrides: { from: walletOwner, value: Number(depositInputValue) > 0 ? parseUnits(depositInputValue).toString() : 0 }
+        overrides: { from: walletOwner, value: Number(depositInputValue) > 0 ? parseUnits(depositInputValue).toString() : 0 },
+        onError(error) {
+            console.log('Error', error)
+        }
     })
 
     const { data, isLoading, isSuccess, write: detfDeposit } = useContractWrite(detfDepositConfig)
@@ -206,14 +209,14 @@ function Deposit() {
 
     return (
         <>
-            <Title title={title} info={`You are about to deposit funds from your address ${truncateAddress(walletOwner ? walletOwner : "")} into the ${detfName} DETF using ${connector?.name}.`}
+            <Title title={title} info={`You are about to deposit funds from your address ${truncateAddress(walletOwner ? walletOwner : "")} into the ${category} ${dimension} DETF using ${connector?.name}.`}
                 switchButton={false} />
             <Progress processOrigin={processOrigin} activeStage={internalActiveStage} />
             <ContentBox>
                 <div>
                     <div className={!depositSuccess && depositStage === "input" ? "deposit-box" : "deposit-box-inactive"}>
                         <div className="deposit-box-balance"><img className="chain-logo" src={require("../../assets/images/bsc-logo.png")} alt="Binance Smart Chain"></img>Available {walletBalance?.symbol} in your {connector?.name} is {parseFloat((walletBalance ? walletBalance.formatted : 0).toString()).toFixed(4)} (USD:$xxx)</div>
-                        <div className="deposit-box-notification"><p>{walletBalance?.symbol} is required to invest in the {detfName}, but you do not currently have any BNB in your {connector?.name}. [insert Banxa or CB speil]</p></div>
+                        <div className="deposit-box-notification"><p>{walletBalance?.symbol} is required to invest in the {category} {dimension}, but you do not currently have any BNB in your {connector?.name}. [insert Banxa or CB speil]</p></div>
                         <div className="deposit-box-form">
                             <div className="deposit-amount-input-title">{walletBalance?.symbol} amount:</div>
                             <div><input className="deposit-amount-input" type="number" value={depositInputValue} onChange={onChangeDeposit} placeholder="BNB 10.000" /></div>
@@ -319,7 +322,7 @@ function Deposit() {
                             </div>
                             <div className="deposit-summary-info-results">
                                 <ul>
-                                    <li>{detfName}</li>
+                                    <li>{category}</li>
                                     <li>{chain?.name}</li>
                                     <li>{walletBalance?.symbol} {depositInputValue} {"(USD $302)"}</li>
                                     <li>0.05%</li> {/* get from detf factory */}
@@ -330,12 +333,13 @@ function Deposit() {
                         </div>
                         <button className="deposit-confirmation-button-primary" onClick={() => detfDeposit?.()}>Finalize and commit funds</button>
                         <div className="deposit-back-button" onClick={() => { setDepositStage("input"); setInternalActiveStage(activeStage) }}>Make changes to investment setup</div>
+                        <div>{detfDepositError && (<div>Error</div>)}</div>
                     </div>
                     <div className={transactionLoading ? "confirming-detf-wrapper" : "confirming-detf-wrapper-inactive"}>
                         {transactionLoading && (<div>Waiting for confirmation from the blockchain...</div>)}
                     </div>
                     <div className={depositSuccess ? "success-detf-wrapper" : "success-detf-wrapper-inactive"}>
-                        <div>Congratulations, your deposit of BNB X into {detfName} DETF has been confirmed on the blockchain.</div>
+                        <div>Congratulations, your deposit of BNB X into {category} {dimension} DETF has been confirmed on the blockchain.</div>
                         <Link className="success-deposit-button-link" to="/account" state={{ detfCount: { ownedDETFCount } }}>
                             <button className="success-deposit-button">Go To My Account</button></Link>
                         {/* 

@@ -1,17 +1,797 @@
 [
-    "function getDETFOracleAddress() external view returns (address)",
-    "function getRiskWeighting() external view returns (uint256)",
-    "function getOwnedAssets() external view returns (address[] memory)",
-    "function getTargetAssets() external view returns (address[] memory)",
-    "function getEthBalance() external view returns (uint256)",
-    "function getWethBalance() external view returns (uint256)",
-    "function getTokenBalance(address tokenAddress) external view returns (uint256, uint256)",
-    "function getTotalBalanceInWeth() external view returns (uint256)",
-    "function getTotalDeposited() external view returns (uint256)",
-    "function getValueAtClose() external view returns (uint256)",
-    "function getCreatedAt() external view returns (uint256)",
-    "function checkForDeposits() external view",
-    "function deposit(uint256 lockDuration) public payable",
-    "function getTimeLockRemaining() external view returns (uint256)",
-    "function getTimeLock() external view returns (uint256)"
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "_owner",
+                "type": "address"
+            },
+            {
+                "internalType": "address",
+                "name": "_walletOwner",
+                "type": "address"
+            },
+            {
+                "internalType": "address",
+                "name": "_polybitDETFFactoryAddress",
+                "type": "address"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_productId",
+                "type": "uint256"
+            },
+            {
+                "internalType": "string",
+                "name": "_productCategory",
+                "type": "string"
+            },
+            {
+                "internalType": "string",
+                "name": "_productDimension",
+                "type": "string"
+            }
+        ],
+        "stateMutability": "nonpayable",
+        "type": "constructor",
+        "name": "constructor"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": false,
+                "internalType": "string",
+                "name": "msg",
+                "type": "string"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "ref",
+                "type": "uint256"
+            }
+        ],
+        "name": "Deposited",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": false,
+                "internalType": "string",
+                "name": "",
+                "type": "string"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "name": "EthBalance",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": false,
+                "internalType": "string",
+                "name": "msg",
+                "type": "string"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "amount",
+                "type": "uint256"
+            }
+        ],
+        "name": "EthWrap",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": false,
+                "internalType": "string",
+                "name": "msg",
+                "type": "string"
+            }
+        ],
+        "name": "LiquidityTest",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": false,
+                "internalType": "string",
+                "name": "msg",
+                "type": "string"
+            },
+            {
+                "indexed": false,
+                "internalType": "address[]",
+                "name": "",
+                "type": "address[]"
+            }
+        ],
+        "name": "OwnedAssets",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "previousOwner",
+                "type": "address"
+            },
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "newOwner",
+                "type": "address"
+            }
+        ],
+        "name": "OwnershipTransferred",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": false,
+                "internalType": "string",
+                "name": "msg",
+                "type": "string"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "ref",
+                "type": "uint256"
+            }
+        ],
+        "name": "SellToClose",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": false,
+                "internalType": "string",
+                "name": "msg",
+                "type": "string"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            },
+            {
+                "indexed": false,
+                "internalType": "address[]",
+                "name": "",
+                "type": "address[]"
+            }
+        ],
+        "name": "SwapFailure",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": false,
+                "internalType": "string",
+                "name": "msg",
+                "type": "string"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256[]",
+                "name": "",
+                "type": "uint256[]"
+            },
+            {
+                "indexed": false,
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "name": "SwapSuccess",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": false,
+                "internalType": "string",
+                "name": "msg",
+                "type": "string"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "ref",
+                "type": "uint256"
+            }
+        ],
+        "name": "TransferToClose",
+        "type": "event"
+    },
+    {
+        "stateMutability": "payable",
+        "type": "fallback"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "lockTimestamp",
+                "type": "uint256"
+            }
+        ],
+        "name": "deposit",
+        "outputs": [],
+        "stateMutability": "payable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "name": "deposits",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "getDeposits",
+        "outputs": [
+            {
+                "internalType": "uint256[][]",
+                "name": "",
+                "type": "uint256[][]"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "getEthBalance",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "getLastRebalance",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "getOwnedAssets",
+        "outputs": [
+            {
+                "internalType": "address[]",
+                "name": "",
+                "type": "address[]"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "getProductCategory",
+        "outputs": [
+            {
+                "internalType": "string",
+                "name": "",
+                "type": "string"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "getProductDimension",
+        "outputs": [
+            {
+                "internalType": "string",
+                "name": "",
+                "type": "string"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "getProductId",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "getTimeLock",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "getTimeLockRemaining",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "tokenAddress",
+                "type": "address"
+            },
+            {
+                "internalType": "uint256",
+                "name": "tokenPrice",
+                "type": "uint256"
+            }
+        ],
+        "name": "getTokenBalance",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256[]",
+                "name": "ownedAssetsPrices",
+                "type": "uint256[]"
+            }
+        ],
+        "name": "getTotalBalanceInWeth",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "getTotalDeposited",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "getValueAtClose",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "getWethBalance",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "getcreationTimestamp",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "owner",
+        "outputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "polybitDETFFactoryAddress",
+        "outputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "components": [
+                    {
+                        "internalType": "address[]",
+                        "name": "sellList",
+                        "type": "address[]"
+                    },
+                    {
+                        "internalType": "uint256[]",
+                        "name": "sellListPrices",
+                        "type": "uint256[]"
+                    },
+                    {
+                        "components": [
+                            {
+                                "internalType": "address[]",
+                                "name": "swapFactory",
+                                "type": "address[]"
+                            },
+                            {
+                                "internalType": "address[][]",
+                                "name": "path",
+                                "type": "address[][]"
+                            },
+                            {
+                                "internalType": "uint256[]",
+                                "name": "amountsIn",
+                                "type": "uint256[]"
+                            },
+                            {
+                                "internalType": "uint256[]",
+                                "name": "amountsOut",
+                                "type": "uint256[]"
+                            }
+                        ],
+                        "internalType": "struct PolybitDETF.SwapOrder[]",
+                        "name": "sellOrders",
+                        "type": "tuple[]"
+                    },
+                    {
+                        "internalType": "address[]",
+                        "name": "adjustList",
+                        "type": "address[]"
+                    },
+                    {
+                        "internalType": "uint256[]",
+                        "name": "adjustListPrices",
+                        "type": "uint256[]"
+                    },
+                    {
+                        "internalType": "address[]",
+                        "name": "adjustToSellList",
+                        "type": "address[]"
+                    },
+                    {
+                        "internalType": "uint256[]",
+                        "name": "adjustToSellPrices",
+                        "type": "uint256[]"
+                    },
+                    {
+                        "components": [
+                            {
+                                "internalType": "address[]",
+                                "name": "swapFactory",
+                                "type": "address[]"
+                            },
+                            {
+                                "internalType": "address[][]",
+                                "name": "path",
+                                "type": "address[][]"
+                            },
+                            {
+                                "internalType": "uint256[]",
+                                "name": "amountsIn",
+                                "type": "uint256[]"
+                            },
+                            {
+                                "internalType": "uint256[]",
+                                "name": "amountsOut",
+                                "type": "uint256[]"
+                            }
+                        ],
+                        "internalType": "struct PolybitDETF.SwapOrder[]",
+                        "name": "adjustToSellOrders",
+                        "type": "tuple[]"
+                    },
+                    {
+                        "internalType": "address[]",
+                        "name": "adjustToBuyList",
+                        "type": "address[]"
+                    },
+                    {
+                        "internalType": "uint256[]",
+                        "name": "adjustToBuyWeights",
+                        "type": "uint256[]"
+                    },
+                    {
+                        "internalType": "uint256[]",
+                        "name": "adjustToBuyPrices",
+                        "type": "uint256[]"
+                    },
+                    {
+                        "components": [
+                            {
+                                "internalType": "address[]",
+                                "name": "swapFactory",
+                                "type": "address[]"
+                            },
+                            {
+                                "internalType": "address[][]",
+                                "name": "path",
+                                "type": "address[][]"
+                            },
+                            {
+                                "internalType": "uint256[]",
+                                "name": "amountsIn",
+                                "type": "uint256[]"
+                            },
+                            {
+                                "internalType": "uint256[]",
+                                "name": "amountsOut",
+                                "type": "uint256[]"
+                            }
+                        ],
+                        "internalType": "struct PolybitDETF.SwapOrder[]",
+                        "name": "adjustToBuyOrders",
+                        "type": "tuple[]"
+                    },
+                    {
+                        "internalType": "address[]",
+                        "name": "buyList",
+                        "type": "address[]"
+                    },
+                    {
+                        "internalType": "uint256[]",
+                        "name": "buyListWeights",
+                        "type": "uint256[]"
+                    },
+                    {
+                        "internalType": "uint256[]",
+                        "name": "buyListPrices",
+                        "type": "uint256[]"
+                    },
+                    {
+                        "components": [
+                            {
+                                "internalType": "address[]",
+                                "name": "swapFactory",
+                                "type": "address[]"
+                            },
+                            {
+                                "internalType": "address[][]",
+                                "name": "path",
+                                "type": "address[][]"
+                            },
+                            {
+                                "internalType": "uint256[]",
+                                "name": "amountsIn",
+                                "type": "uint256[]"
+                            },
+                            {
+                                "internalType": "uint256[]",
+                                "name": "amountsOut",
+                                "type": "uint256[]"
+                            }
+                        ],
+                        "internalType": "struct PolybitDETF.SwapOrder[]",
+                        "name": "buyOrders",
+                        "type": "tuple[]"
+                    }
+                ],
+                "internalType": "struct PolybitDETF.SwapOrders[]",
+                "name": "orderData",
+                "type": "tuple[]"
+            }
+        ],
+        "name": "rebalance",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "unixTimeLock",
+                "type": "uint256"
+            }
+        ],
+        "name": "setTimeLock",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "amountIn",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "amountOut",
+                "type": "uint256"
+            },
+            {
+                "internalType": "address[]",
+                "name": "path",
+                "type": "address[]"
+            }
+        ],
+        "name": "swap",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "newOwner",
+                "type": "address"
+            }
+        ],
+        "name": "transferOwnership",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address[]",
+                "name": "adjustToSellList",
+                "type": "address[]"
+            },
+            {
+                "internalType": "address[]",
+                "name": "adjustToBuyList",
+                "type": "address[]"
+            },
+            {
+                "internalType": "address[]",
+                "name": "buyList",
+                "type": "address[]"
+            }
+        ],
+        "name": "updateOwnedAssetsForRebalance",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "walletOwner",
+        "outputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "stateMutability": "payable",
+        "type": "receive"
+    }
 ]

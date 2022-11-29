@@ -32,7 +32,7 @@ function App() {
               <Route path="/connect-wallet" element={<ConnectWallet />} />
               <Route path="/establish-detf" element={<EstablishDETF />} />
               <Route path="/deposit" element={<Deposit />} />
-              <Route path="/detfs/:urlId" element={<DETF />} />
+              <Route path="/detfs/:urlChainId/:urlCategoryId/:urlDimensionId" element={<DETF />} />
             </Routes>
           </CurrencyContext.Provider>
         </ScrollToTop>

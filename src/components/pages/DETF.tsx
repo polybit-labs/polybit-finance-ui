@@ -9,18 +9,37 @@ import Footer from './Footer'
 import { GetDepositFee } from '../utils/DETFFactoryUtils'
 import { ErrorPage } from '../Error'
 import { useEffect, useContext, useState } from 'react'
+import { GetProductData } from '../utils/GetProductDataFromS3'
 
 const DETF = () => {
-    const urlId = useParams().urlId
+    const urlChainId = useParams().urlChainId
+    const urlCategoryId = useParams().urlCategoryId
+    const urlDimensionId = useParams().urlDimensionId
+    console.log(urlDimensionId)
     let productContent
     let productData
     let performanceData
-    try {
-        productContent = require(`../../product/detfs/${urlId}.json`)
-        productData = require(`../../product/detfs/${urlId}/token_data.json`)
-        performanceData = require(`../../product/detfs/${urlId}/rw_liquidity.json`)
-    } catch {
-        console.log("DETF data not found.")
+
+    if (urlChainId && urlCategoryId && urlDimensionId) {
+        try {
+            productContent = require(`../../product/detfs/${urlChainId}/${urlCategoryId}/${urlDimensionId}/content.json`)
+            console.log("local", productContent)
+            //productContent = GetProductData(urlCategoryId?.toString(), urlDimensionId, "content.json")
+            console.log("s3", GetProductData(urlCategoryId, urlDimensionId, "content.json"))
+        } catch {
+            console.log("Product content not found.")
+        }
+        try {
+            productData = require(`../../product/detfs/${urlChainId}/${urlCategoryId}/${urlDimensionId}/product-data.json`)
+            console.log(productData)
+        } catch {
+            console.log("Product data not found.")
+        }
+        try {
+            performanceData = require(`../../product/detfs/${urlChainId}/${urlCategoryId}/${urlDimensionId}/performance-data.json`)
+        } catch {
+            console.log("Performance data not found." + `../product/detfs/${urlChainId}/${urlCategoryId}/${urlDimensionId}/performance-data.json`)
+        }
     }
     const [liquidityCurrency, setLiquidityCurrency] = useState("BNB")
     const currency = useContext(CurrencyContext).currency
@@ -28,19 +47,23 @@ const DETF = () => {
         setLiquidityCurrency(currency)
     }, [currency])
 
-    if (productContent && productData) {
-        const chainId: number = productContent[0].chainId
-        const detfOracleAddress: string = productContent[0].detfOracleAddress
-        const detfName: string = productContent[0].detfName
-        const chainName: string = productContent[0].chainName
-        const descriptionTitle: string = productContent[0].descriptionTitle
-        const description: string = productContent[0].description
-        const type: string = productContent[0].type
-        const returnOneWeek: number = performanceData.at(-1).rw_liquidity_7d
-        const returnOneMonth: number = performanceData.at(-1).rw_liquidity_30d
-        const returnThreeMonths: number = performanceData.at(-1).rw_liquidity_90d
-        const returnOneYear: number = performanceData.at(-1).rw_liquidity_365d
-        const returnTwoYear: number = performanceData.at(-1).rw_liquidity_730d
+    if (productContent && productData && performanceData) {
+        const chainId: number = productContent.chainId
+        const chainName: string = productContent.chainName
+        const productId: number = productContent.productId
+        const category: string = productContent.category
+        const dimension: string = productContent.dimension
+        const detfOracleAddress: string = ""
+        const detfName: string = productContent.detfName
+        const descriptionTitle: string = productContent.descriptionTitle
+        const description: string = productContent.description
+        const assetTableDescription: string = productContent.assetTableDescription
+        const rebalancingPeriod: string = productContent.rebalancingPeriod
+        const returnOneWeek: number = performanceData.at(-1).performance_7d
+        const returnOneMonth: number = performanceData.at(-1).performance_30d
+        const returnThreeMonths: number = performanceData.at(-1).performance_90d
+        const returnOneYear: number = performanceData.at(-1).performance_365d
+        const returnTwoYear: number = performanceData.at(-1).performance_730d
         const tokens: Array<any> = [] = productData.tokens
         const tokenCount: number = tokens.length
         const depositFee = GetDepositFee(56)
@@ -51,11 +74,12 @@ const DETF = () => {
                     <div className="detf-title-section">
                         <div className="detf-name-wrapper">
                             <div className="detf-text">
-                                <h1>{detfName}</h1>
-                                <div className="detf-chain-title"><img className="detf-chain-logo" src={require("../../assets/images/bsc-logo.png")} alt="BNB Smart Chain"></img><h2>{chainName}</h2></div>
+                                <h1>{category}</h1>
+                                <h2>{dimension}</h2>
+                                {/* <div className="detf-chain-title"><img className="detf-chain-logo" src={require("../../assets/images/bsc-logo.png")} alt="BNB Smart Chain"></img><h2>{chainName}</h2></div> */}
                             </div>
                         </div>
-                        <Link to="/establish-detf" state={{ detfName: detfName, detfOracleAddress: detfOracleAddress, processOrigin: "establish", activeStage: 1 }}>
+                        <Link to="/establish-detf" state={{ category: category, dimension: dimension, productId: productId.toString(), processOrigin: "establish", activeStage: 1 }}>
                             <button className={"invest-button"}>Invest in this DETF</button>
                         </Link>
                     </div>
@@ -94,10 +118,8 @@ const DETF = () => {
                                         <div className="detf-summary-info-titles">
                                             <ul>
                                                 <li>Total Liquidity</li>
-                                                <li>Type</li>
-                                                <li>Assets</li>
-                                                <li>Risk Weighting</li>
-                                                <li>Rebalancing</li>
+                                                <li>Total Assets</li>
+                                                <li>Rebalance Frequency</li>
                                                 <li>Deposit Fee</li>
                                             </ul>
                                         </div>
@@ -120,10 +142,8 @@ const DETF = () => {
                                                     })(), 0)}
 
                                                 </li>
-                                                <li>{type}</li>
                                                 <li>{tokenCount}</li>
-                                                <li>Liquidity Weighted</li>
-                                                <li>Every 90 Days</li>
+                                                <li>{rebalancingPeriod}</li>
                                                 <li>{parseFloat((depositFee).toString()).toFixed(2)}%</li>
                                             </ul>
                                         </div>
@@ -135,14 +155,14 @@ const DETF = () => {
                         <div className="detf-rhs">
                             <div className="detf-assets-box">
                                 <h2>Assets in DETF</h2>
-                                <p>Holdings as of 11 August 2022. These holdings will rebalance through automated buys and sells over time to maintain a reflection of the top assets in this fund. Holding weighting is determined according to oracle data including, but not limited to, market capitalisation and daily trading volume. Assets that do not meet our risk criteria for certification or minimum liquidity thresholds may be excluded from pool inclusion. Learn more about our pool policies.</p>
+                                <p>{assetTableDescription}</p>
                                 <DETFAssetsTable tokens={tokens} />
                             </div>
                             <div className="native-token-message-box">
                                 <p>“BNB” is the currency utilised for investment in the Binance Governance Top 20 DETF on the Binance Smart Chain. This can be purchased via Coinbase Wallet, and other exchanges.</p>
                             </div>
                             <div className="invest-button-bottom-wrapper">
-                                <Link to="/establish-detf" state={{ detfName: detfName, detfOracleAddress: detfOracleAddress, processOrigin: "establish", activeStage: 1 }}>
+                                <Link to="/establish-detf" state={{ category: category, dimension: dimension, productId: productId.toString(), processOrigin: "establish", activeStage: 1 }}>
                                     <button className={"invest-button"}>Invest in this DETF</button>
                                 </Link>
                             </div>

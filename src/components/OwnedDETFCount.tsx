@@ -4,23 +4,18 @@ import PolybitDETFFactoryInterface from "../chain-info/IPolybitDETFFactory.json"
 import map from "../chain-info/map.json"
 
 export const OwnedDETFCount = () => {
-    const detfFactoryAddress: Array<string> = map["5777"]["detf_factory"]
+    const detfFactoryAddress: string = map["5777"]["detf_factory"][0]
     const IPolybitDETFFactory = new Interface(PolybitDETFFactoryInterface)
     const { address: walletOwner, connector, isConnected } = useAccount()
 
     const { data: ownedDETFs, isError, isLoading } = useContractRead({
-        addressOrName: detfFactoryAddress[0],
+        addressOrName: detfFactoryAddress,
         contractInterface: IPolybitDETFFactory,
         functionName: "getDETFAccounts",
         args: [walletOwner],
+        onSuccess(data) {
+            console.log('OwnedDETFCount Success', data.length)
+            return data.length
+        },
     })
-
-    const detfCount = ownedDETFs ? ownedDETFs.length : 0
-
-    if (isConnected) {
-        return (
-            detfCount
-        )
-    }
-    return 0
 }

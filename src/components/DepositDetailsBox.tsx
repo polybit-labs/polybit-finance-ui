@@ -5,8 +5,6 @@ import PolybitDETFInterface from "../chain-info/IPolybitDETF.json"
 import { Interface, parseUnits } from 'ethers/lib/utils'
 
 import {
-    useAccount,
-    useNetwork,
     useBalance,
     useContractRead,
     usePrepareContractWrite,
@@ -42,6 +40,8 @@ const DepositBox = (props: DepositDetailsBoxProps) => {
 
     const onChangeDeposit = (e: ChangeEvent<HTMLInputElement>) => {
         setdepositInputValue(e.target.value);
+        console.log("Deposit", depositInputValue)
+
     }
 
     const onChangeTimeLock = (e: ChangeEvent<HTMLInputElement>) => {
@@ -185,6 +185,7 @@ const DepositBox = (props: DepositDetailsBoxProps) => {
     })
 
     const { write: detfDeposit } = useContractWrite(detfDepositConfig)
+
 
 
     return (

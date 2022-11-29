@@ -24,15 +24,14 @@ export const DETFAssetsTable = (props: DETFAssetsTableProps) => {
             "tokenLiquidityAUD": token.token_liquidity.liquidity_aud,
             "tokenLiquidityBNB": token.token_liquidity.liquidity_bnb,
             "tokenLiquidityCNY": token.token_liquidity.liquidity_cny,
-            "tokenLiquidityEURO": token.token_liquidity.liquidity_euro,
+            "tokenLiquidityEUR": token.token_liquidity.liquidity_eur,
             "tokenLiquidityIDR": token.token_liquidity.liquidity_idr,
             "tokenLiquidityJPY": token.token_liquidity.liquidity_jpy,
             "tokenLiquidityKRW": token.token_liquidity.liquidity_krw,
             "tokenLiquidityRUB": token.token_liquidity.liquidity_rub,
             "tokenLiquidityTWD": token.token_liquidity.liquidity_twd,
             "tokenLiquidityUSD": token.token_liquidity.liquidity_usd,
-            "tokenWeight": `${parseFloat((token.risk_weighting.rw_liquidity * 100).toString()).toFixed(2)
-                }% `,
+            "tokenWeight": `${parseFloat((token.dimension.weight * 100).toString()).toFixed(2)}% `,
         })
     })
 
@@ -68,7 +67,7 @@ export const DETFAssetsTable = (props: DETFAssetsTableProps) => {
                                                 case "AUD": return (token.tokenLiquidityAUD)
                                                 case "BNB": return (token.tokenLiquidityBNB)
                                                 case "CNY": return (token.tokenLiquidityCNY)
-                                                case "EURO": return (token.tokenLiquidityEURO)
+                                                case "EURO": return (token.tokenLiquidityEUR)
                                                 case "IDR": return (token.tokenLiquidityIDR)
                                                 case "JPY": return (token.tokenLiquidityJPY)
                                                 case "KRW": return (token.tokenLiquidityKRW)

@@ -10,9 +10,10 @@ import factoryAddresses from "../../chain-info/factoryAddresses.json"
 export const GetTokenLiquiditySingle = (chain: string, baseToken: string, tokenAddress: string, chainId: number) => {
     const IUniswapV2Factory = new Interface(UniswapV2Factory)
     const IUniswapV2Pair = new Interface(UniswapV2Pair)
+    const swapFactory = factoryAddresses["56"]["pancakeswap"]
 
     const { data: pairAddressData } = useContractRead({
-        addressOrName: factoryAddresses[0],
+        addressOrName: swapFactory,
         contractInterface: IUniswapV2Factory,
         functionName: "getPair",
         chainId: chainId,
@@ -55,7 +56,7 @@ export const GetTokenLiquiditySingle = (chain: string, baseToken: string, tokenA
     }
 
 
-    let tokenPrice = Number(GetLatestPrice(chain, tokenAddress))
+    let tokenPrice = Number(GetLatestPrice(chain, tokenAddress, "bnb"))
     let tokenDecimals = Number(GetTokenDecimals(tokenAddress))
     let liquidity = Number((((2 * tokenBalance) * tokenPrice) /
         10 ** tokenDecimals))
