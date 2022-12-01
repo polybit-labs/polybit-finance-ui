@@ -1,8 +1,8 @@
 import { useContractRead } from "wagmi"
 import { Interface } from "ethers/lib/utils"
-import PolybitRebalancer from "../../chain-info/IPolybitRebalancer.json"
-import PolybitRouter from "../../chain-info/IPolybitRouter.json"
-import map from "../../chain-info/map.json"
+import PolybitRebalancer from "../../chain_info/IPolybitRebalancer.json"
+import PolybitRouter from "../../chain_info/IPolybitRouter.json"
+import map from "../../chain_info/map.json"
 
 const IPolybitRebalancer = new Interface(PolybitRebalancer)
 const rebalancerAddress: string = map["5777"]["rebalancer"][0]

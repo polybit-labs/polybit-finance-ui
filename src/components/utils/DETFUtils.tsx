@@ -1,18 +1,30 @@
 import { Interface } from 'ethers/lib/utils'
 import { useContractRead } from 'wagmi'
-import PolybitDETFInterface from "../../chain-info/IPolybitDETF.json"
+import PolybitDETFInterface from "../../chain_info/IPolybitDETF.json"
 import { GetLatestPrice } from './GetLatestPrice'
 import detfIndexInfo from "../../product/detfIndex.json"
+import axios from "axios"
+import { setTimeout } from "timers/promises"
+import { count } from 'console'
 
 const IPolybitDETF = new Interface(PolybitDETFInterface)
 
 export const GetProductId = (detfAddress: string) => {
-    const { data, isError, isLoading } = useContractRead({
+    const { data, isError, isLoading, isSuccess } = useContractRead({
         addressOrName: detfAddress,
         contractInterface: IPolybitDETF,
-        functionName: "getProductId"
+        functionName: "getProductId",
+        onError(error) {
+            console.log('getProductId Error', error)
+        },
+        onSuccess(data) {
+            console.log('getProductId Success', data.toString())
+        },
     })
-    return data
+    if (isSuccess) {
+        return data!.toString()
+    }
+    return ""
 }
 
 export const GetProductCategory = (detfAddress: string) => {
@@ -70,18 +82,122 @@ export const GetOwnedAssetsPrices = (_ownedAssets: any) => {
     return ownedAssetsPrices
 }
 
-export const GetTargetAssets = (productId: number) => {
-    const productData = detfIndexInfo.find(item => item.productId === productId)
+export const GetTargetAssets = (productId: string) => {
+    const productData = detfIndexInfo.find(item => item.productId === Number(productId))
     const urlChainId = productData?.urlChainId
     const urlCategoryId = productData?.urlCategoryId
     const urlDimensionId = productData?.urlDimensionId
+    let tokenData
+    let tokens: Array<any> = Array(10)
+    let targetAssets: Array<string> = []
 
-    console.log("productDataLocation", `../../product/detfs/${urlChainId}/${urlCategoryId}/${urlDimensionId}/product-data.json`)
-    let tokens
     try {
-        tokens = require(`../../product/detfs/${urlChainId}/${urlCategoryId}/${urlDimensionId}/product-data.json`)
+        tokenData = require(`../../product/detfs/${urlChainId}/${urlCategoryId}/${urlDimensionId}/product-data.json`)
     } catch {
         console.log(`Token data file not found.`)
+    }
+
+    if (tokenData) {
+        let index = 0
+        tokenData.tokens.map((token: any) => {
+            tokens[index] = token
+            index++
+        })
+
+        for (let i = 0; i < tokens.length; i++) {
+            if (tokens[i] !== undefined) {
+                targetAssets.push(tokens[i].address)
+            }
+        }
+    }
+    return targetAssets
+}
+
+export const GetTargetAssetsWeights = (productId: string) => {
+    const productData = detfIndexInfo.find(item => item.productId === Number(productId))
+    const urlChainId = productData?.urlChainId
+    const urlCategoryId = productData?.urlCategoryId
+    const urlDimensionId = productData?.urlDimensionId
+    let tokenData
+    let tokens: Array<any> = Array(10)
+    let targetAssetsWeights: Array<string> = []
+
+    try {
+        tokenData = require(`../../product/detfs/${urlChainId}/${urlCategoryId}/${urlDimensionId}/product-data.json`)
+    } catch {
+        console.log(`Token data file not found.`)
+    }
+
+    if (tokenData) {
+        let index = 0
+        tokenData.tokens.map((token: any) => {
+            tokens[index] = token
+            index++
+        })
+
+        for (let i = 0; i < tokens.length; i++) {
+            if (tokens[i] !== undefined) {
+                targetAssetsWeights.push((Math.round(10 ** 8 * Number(tokens[i].dimension.weight))).toString())
+            }
+        }
+    }
+    return targetAssetsWeights
+}
+
+export const GetTargetAssetsPrices = (productId: string) => {
+    const productData = detfIndexInfo.find(item => item.productId === Number(productId))
+    const urlChainId = productData?.urlChainId
+    const urlCategoryId = productData?.urlCategoryId
+    const urlDimensionId = productData?.urlDimensionId
+    let tokenData
+    let tokens: Array<any> = Array(10)
+    let targetAssetsPrices: Array<string> = Array(10)
+
+    try {
+        tokenData = require(`../../product/detfs/${urlChainId}/${urlCategoryId}/${urlDimensionId}/product-data.json`)
+    } catch {
+        console.log(`Token data file not found.`)
+    }
+
+    if (tokenData) {
+        const coingGeckoID = process.env.REACT_APP_COINGECKO_API_KEY;
+        const url0 = `https://pro-api.coingecko.com/api/v3/coins/binance-smart-chain/contract/${tokenData.tokens[0].address.toLowerCase()}?x_cg_pro_api_key=${coingGeckoID}`
+        const url1 = `https://pro-api.coingecko.com/api/v3/coins/binance-smart-chain/contract/${tokenData.tokens[1].address.toLowerCase()}?x_cg_pro_api_key=${coingGeckoID}`
+
+        axios.get(url0).then(response => { targetAssetsPrices[0] = response.data })
+        axios.get(url1).then(response => { targetAssetsPrices[1] = response.data })
+
+    }
+
+
+    //targetAssetsPrices[0] = Math.round(Number(GetLatestPrice("binance-smart-chain", tokenData.tokens[0].address, "bnb")) * 10 ** 18).toString()
+    //targetAssetsPrices[1] = Math.round(Number(GetLatestPrice("binance-smart-chain", tokenData.tokens[1].address, "bnb")) * 10 ** 18).toString()
+
+    console.log(targetAssetsPrices)
+    return targetAssetsPrices
+}
+
+export const GetTargetAssets1 = (productId: string) => {
+    const productData = detfIndexInfo.find(item => item.productId === Number(productId))
+    const urlChainId = productData?.urlChainId
+    const urlCategoryId = productData?.urlCategoryId
+    const urlDimensionId = productData?.urlDimensionId
+    //console.log("productDataLocation", `../../product/detfs/${urlChainId}/${urlCategoryId}/${urlDimensionId}/product-data.json`)
+    let tokens: Array<any> = Array(10)
+    let tokenData
+
+    try {
+        tokenData = require(`../../product/detfs/${urlChainId}/${urlCategoryId}/${urlDimensionId}/product-data.json`)
+    } catch {
+        console.log(`Token data file not found.`)
+    }
+
+    if (tokenData) {
+        let index = 0
+        tokenData.tokens.map((token: any) => {
+            tokens[index] = token
+            index++
+        })
     }
 
     let targetAssets: Array<string> = []
@@ -89,11 +205,88 @@ export const GetTargetAssets = (productId: number) => {
     let targetAssetsPrices: Array<string> = []
 
     if (tokens) {
-        tokens.tokens?.map((token: any) => {
-            targetAssets.push(token.address)
-            targetAssetsWeights.push((Math.round(10 ** 8 * token.dimension.weight).toString()))
-            targetAssetsPrices.push(Math.round(Number(GetLatestPrice("binance-smart-chain", token.address, "bnb")) * 10 ** 18).toString())
+        let promises = []
+        let prices: any = []
+
+        for (let i = 0; i < tokens.length; i++) {
+            if (tokens[i] !== undefined) {
+                targetAssets.push(tokens[i].address)
+                targetAssetsWeights.push((Math.round(10 ** 8 * Number(tokens[i].dimension.weight))).toString())
+                const coingGeckoID = process.env.REACT_APP_COINGECKO_API_KEY;
+                const url = `https://pro-api.coingecko.com/api/v3/coins/binance-smart-chain/contract/${tokens[i].address.toLowerCase()}?x_cg_pro_api_key=${coingGeckoID}`
+                promises.push(
+                    axios.get(url).then(response => {
+                        prices.push(response);
+                    })
+                )
+            }
+        }
+        Promise.all(promises).then(() => {
+            let priceData: Array<string> = []
+            for (let i = 0; i < prices.length; i++) {
+                priceData[i] = Math.round(10 ** 18 * Number(prices[i].data.market_data.current_price.bnb)).toString()
+            }
+            console.log("priceData", priceData)
+            return [targetAssets, targetAssetsWeights, priceData]
+        });
+    }
+    return [targetAssets, targetAssetsWeights, targetAssetsPrices]
+}
+export const GetTargetAssets2 = (productId: string) => {
+    const productData = detfIndexInfo.find(item => item.productId === Number(productId))
+    const urlChainId = productData?.urlChainId
+    const urlCategoryId = productData?.urlCategoryId
+    const urlDimensionId = productData?.urlDimensionId
+    //console.log("productDataLocation", `../../product/detfs/${urlChainId}/${urlCategoryId}/${urlDimensionId}/product-data.json`)
+    let tokens: Array<any> = Array(10)
+    let tokenData
+
+    try {
+        tokenData = require(`../../product/detfs/${urlChainId}/${urlCategoryId}/${urlDimensionId}/product-data.json`)
+    } catch {
+        console.log(`Token data file not found.`)
+    }
+
+    if (tokenData) {
+        let index = 0
+        tokenData.tokens.map((token: any) => {
+            tokens[index] = token
+            index++
         })
+    }
+
+    let targetAssets: Array<string> = []
+    let targetAssetsWeights: Array<string> = []
+    let targetAssetsPrices: Array<string> = []
+
+    if (tokens) {
+        let count = 0
+        for (let i = 0; i < tokens.length; i++) {
+            if (tokens[i] !== undefined) {
+                count++
+            }
+        }
+        console.log("token count", count)
+        targetAssetsPrices = Array(count)
+    }
+
+    async function fetchPrice(address: string, index: number) {
+        const coingGeckoID = process.env.REACT_APP_COINGECKO_API_KEY;
+        const url = `https://pro-api.coingecko.com/api/v3/coins/binance-smart-chain/contract/${address.toLowerCase()}?x_cg_pro_api_key=${coingGeckoID}`
+        await axios.get(url).then(response => {
+            targetAssetsPrices[index] = (Math.round(10 ** 18 * Number(response.data.market_data.current_price.bnb)).toString())
+        })
+    }
+
+    if (tokens) {
+        for (let i = 0; i < tokens.length; i++) {
+            if (tokens[i] !== undefined) {
+                targetAssets.push(tokens[i].address)
+                targetAssetsWeights.push((Math.round(10 ** 8 * Number(tokens[i].dimension.weight))).toString())
+                fetchPrice(tokens[i].address, i)
+            }
+        }
+
     }
 
     return [targetAssets, targetAssetsWeights, targetAssetsPrices]

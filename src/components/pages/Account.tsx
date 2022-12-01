@@ -1,20 +1,17 @@
 import Footer from './Footer'
 import { truncateAddress } from '../../utils'
-import { Link, useLocation } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import {
     useAccount,
     useNetwork
 } from "wagmi"
 import AccountTable from '../AccountTable'
 import Title from '../Title'
-import { useEffect, useState } from 'react'
 import AccountSummary from '../AccountSummary'
-import { GetListOfOwnedDETFs } from '../utils/DETFFactoryUtils'
 import { Interface } from 'ethers/lib/utils'
 import { useContractRead } from 'wagmi'
-import PolybitDETFFactoryInterface from "../../chain-info/IPolybitDETFFactory.json"
-import map from "../../chain-info/map.json"
-import { GetOwnedAssets, GetOwnedAssetsPrices, GetTotalBalanceInWeth, GetTotalDeposited } from '../utils/DETFUtils'
+import PolybitDETFFactoryInterface from "../../chain_info/IPolybitDETFFactory.json"
+import map from "../../chain_info/map.json"
 
 const IPolybitDETFFactory = new Interface(PolybitDETFFactoryInterface)
 const detfFactoryAddress: string = map["5777"]["detf_factory"][0]

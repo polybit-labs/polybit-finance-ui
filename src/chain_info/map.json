@@ -1,0 +1,25 @@
+{
+  "5777": {
+    "router": [
+      "0xDca782DDfcF27dd177aF810829ebaD77F3D92f63"
+    ],
+    "rebalancer": [
+      "0xe5D61ac754D09AA7edCe81b7bEfE82E3B7fD81E6"
+    ],
+    "price_oracle_factory": [
+      ""
+    ],
+    "detf_oracle_factory": [
+      ""
+    ],
+    "detf_oracle": [],
+    "detf_factory": [
+      "0xF9F45729E0C72523858b2f2b4A2243fC49d285aa"
+    ]
+  },
+  "56": {
+    "router": "0xDca782DDfcF27dd177aF810829ebaD77F3D92f63",
+    "rebalancer": "0xe5D61ac754D09AA7edCe81b7bEfE82E3B7fD81E6",
+    "detf_factory": "0xF9F45729E0C72523858b2f2b4A2243fC49d285aa"
+  }
+}

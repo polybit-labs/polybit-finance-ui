@@ -1,7 +1,7 @@
 import { Interface } from "ethers/lib/utils"
 import { useContractRead, useAccount } from "wagmi"
-import PolybitDETFFactoryInterface from "../chain-info/IPolybitDETFFactory.json"
-import map from "../chain-info/map.json"
+import PolybitDETFFactoryInterface from "../chain_info/IPolybitDETFFactory.json"
+import map from "../chain_info/map.json"
 
 export const OwnedDETFCount = () => {
     const detfFactoryAddress: string = map["5777"]["detf_factory"][0]

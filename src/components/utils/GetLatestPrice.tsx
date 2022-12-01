@@ -15,7 +15,7 @@ export const GetLatestPrice = (chain: string, tokenAddress: string, currency: st
         })
     }, [currency])
 
-    if (data) {
+    if (data!) {
         /* console.log(data[(tokenAddress).toLowerCase()][currency.toLowerCase()]) */
         return data["market_data"]["current_price"]["bnb"]
     } else {

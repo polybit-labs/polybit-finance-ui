@@ -1,83 +1,52 @@
-import { useState, ChangeEvent } from 'react'
-import map from "../chain-info/map.json"
+import { useAccount, useNetwork } from "wagmi"
 import { Interface } from 'ethers/lib/utils'
-import { useContractRead, usePrepareContractWrite, useContractWrite, useAccount } from 'wagmi'
-import "./AvailableDETFs.css"
-import { Progress } from './Progress'
-import { Link } from 'react-router-dom'
-import { GetLatestPrice } from './utils/GetLatestPrice'
-import { GetProductData } from './utils/GetProductDataFromS3'
+import { useContractRead } from 'wagmi'
+import PolybitDETFFactoryInterface from "../chain_info/IPolybitDETFFactory.json"
+import map from "../chain_info/map.json"
+import { Rebalancer } from "./Rebalancer"
+import { Flask } from "./Flask"
 
 
 export function AvailableDETFs() {
-    const detfFactoryAddress: Array<string> = map["5777"]["detf_factory"]
-    const detfOracleFactoryAddress: Array<string> = map["5777"]["detf_oracle_factory"]
-    const [selectedDETFOracleAddress, setSelectedDETFOracleAddress] = useState("0xFfCCB1487c32bd782C411f19156B5A694B729f86")
+    const IPolybitDETFFactory = new Interface(PolybitDETFFactoryInterface)
+    const detfFactoryAddress: string = map["5777"]["detf_factory"][0]
+    const { address: walletOwner, connector, isConnected } = useAccount()
+    const { chain, chains } = useNetwork()
+    const array = Array(10)
+    let ownedDETFsData: Array<string> = Array(10)
 
-    const { address } = useAccount()
+    const { data: ownedDETFs, isError, isLoading, isSuccess } = useContractRead({
+        addressOrName: detfFactoryAddress,
+        contractInterface: IPolybitDETFFactory,
+        functionName: "getDETFAccounts",
+        args: [walletOwner],
+    })
 
-    const IPolybitDETFFactory = new Interface([
-        "function getListOfDETFs() external view returns (address[] memory)",
-        "function createDETF(address _walletOwner,address _polybitDETFOracleAddress,uint256 _riskWeighting) external"
-    ])
-
-    const IPolybitDETFOracleFactory = new Interface([
-        "function getListOfOracles() external view returns (address[] memory)"
-    ])
-
-    const IPolybitDETFOracle = new Interface([
-        "function getDetfName() external view returns (string)",
-        "function getTotalLiquidity() external view returns (uint256)"
-    ])
-
-    function GetListOfDETFOracles() {
-        const { data, isError, isLoading } = useContractRead({
-            addressOrName: detfOracleFactoryAddress[0],
-            contractInterface: IPolybitDETFOracleFactory,
-            functionName: "getListOfOracles"
+    if (isSuccess && ownedDETFs) {
+        let index = 0
+        ownedDETFs.map((address) => {
+            ownedDETFsData[index] = address
+            index++
         })
-        return data
-    }
-    const detfOracles = GetListOfDETFOracles()
-
-    function GetNameOfDETF(_address: string) {
-        const { data, isError, isLoading } = useContractRead({
-            addressOrName: _address,
-            contractInterface: IPolybitDETFOracle,
-            functionName: "getDetfName"
-        })
-        const name = data ? data : ""
-        return name
     }
 
-    function GetLiquidityOfDETF(_address: string) {
-        const { data, isError, isLoading } = useContractRead({
-            addressOrName: _address,
-            contractInterface: IPolybitDETFOracle,
-            functionName: "getTotalLiquidity"
-        })
-        const liquidity = data ? data : "0"
-        return liquidity
-    }
-    const price = GetLatestPrice("binance-smart-chain", "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56", "bnb")
-    //Rebalance()
-    //GetProductData("defi", "dex-liquidity", "content.json")
+
+    //"0x4D9De6e0d0D956e0FD2fEE0b27f3B9aec5A9FAb7" 
+    //"0x395f090d100a3df563a13e94f549d7B6Be9cFe8a"
+    //"0x2B722190dfb54b7E94Aa9a3460e7772ee55AA087"
+    //"0xEaA68d32FdcdC94f04E8Ada9914a9c5f8bC11545"
+    //"0x35EfcC904EB9d853FFcf7Fe91D6e8681B6D9D218"
+    //"0xBe7985A4c9004CCF8b05a288bF10e5F87296f10a"
+
+    console.log("addresses", ownedDETFsData)
+    let detfAddress = ownedDETFsData[0]
 
     return (
         <>
+            {/* <Rebalancer detfAddress={"0x35EfcC904EB9d853FFcf7Fe91D6e8681B6D9D218"} /> */}
+            <Flask />
             <div>
-                <div><b>List of available DETF Strategies</b></div>
-                <div>{detfOracles ? detfOracles.map(oracleAddress =>
-                    <div key={oracleAddress}>
-                        <div>Strategy Name: {GetNameOfDETF(oracleAddress)}</div>
-                        <div>Address: {oracleAddress}</div>
-                        <div>Total Liquidity: {GetLiquidityOfDETF(oracleAddress).toString()}</div>
-                        <Link to="/establish-detf" state={{ detfName: GetNameOfDETF(oracleAddress), detfOracleAddress: oracleAddress, processOrigin: "establish", activeStage: 1 }}><u>Deposit</u></Link>
-                    </div>)
-                    : "No DETF Oracles are available."
-                }
-                </div >
-                <div>{price}</div>
+
             </div >
         </>
     )

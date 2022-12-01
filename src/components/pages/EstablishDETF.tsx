@@ -4,8 +4,8 @@ import { useLocation, Link } from 'react-router-dom'
 import Title from '../Title'
 import { Progress } from '../Progress'
 import { truncateAddress } from '../../utils'
-import map from "../../chain-info/map.json"
-import PolybitDETFFactoryInterface from "../../chain-info/IPolybitDETFFactory.json"
+import map from "../../chain_info/map.json"
+import PolybitDETFFactoryInterface from "../../chain_info/IPolybitDETFFactory.json"
 import { Interface } from 'ethers/lib/utils'
 import { useAccount, usePrepareContractWrite, useContractWrite, useWaitForTransaction } from 'wagmi'
 import Footer from "./Footer"

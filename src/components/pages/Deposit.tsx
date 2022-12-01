@@ -1,9 +1,9 @@
-import { useState, ChangeEvent } from 'react'
+import { useState, ChangeEvent, useEffect } from 'react'
 import "./Deposit.css"
 import { Link } from 'react-router-dom'
 import { truncateAddress } from '../../utils'
 import { useLocation } from 'react-router-dom'
-import PolybitDETFInterface from "../../chain-info/IPolybitDETF.json"
+import PolybitDETFInterface from "../../chain_info/IPolybitDETF.json"
 import { Interface, parseUnits } from 'ethers/lib/utils'
 import Title from "../Title"
 import {
@@ -20,6 +20,7 @@ import DateTypeDropDown from '../DateTypeDropdown'
 import { Progress } from '../Progress'
 import ContentBox from '../ContentBox'
 import { OwnedDETFCount } from '../OwnedDETFCount'
+import { GetOrderData } from '../OrderData'
 
 function Deposit() {
     const ethers = require("ethers")
@@ -180,15 +181,25 @@ function Deposit() {
 
     let prettyTimeLockValue = PrettyTimeLockValue()
 
+    const emptyArray = [[[], [], [[[], [], [], [],]], [], [[[], [], [], [],]], [], [], [[[], [], [], [],]], [], [], [], [
+        [[], [], [], [],]], [], [], [], [[[], [], [], [],]],]]
+    const [orderData, setOrderData] = useState<Array<any> | undefined>(emptyArray)
+    //const orderDataResponse: any | undefined = GetOrderData(detfAddress, depositInputValue)
+    const orderDataResponse: any | undefined = GetOrderData(detfAddress, depositInputValue)
+
+
     const { config: detfDepositConfig, error: detfDepositError } = usePrepareContractWrite({
         addressOrName: detfAddress,
         contractInterface: IPolybitDETF,
         functionName: 'deposit',
-        args: [Number(timeLockValue)],
+        args: [Number(timeLockValue), orderData],
         overrides: { from: walletOwner, value: Number(depositInputValue) > 0 ? parseUnits(depositInputValue).toString() : 0 },
         onError(error) {
-            console.log('Error', error)
-        }
+            console.log('detfDepositConfig Error', error)
+        },
+        onSuccess(data) {
+            console.log('detfDepositConfig Success', data)
+        },
     })
 
     const { data, isLoading, isSuccess, write: detfDeposit } = useContractWrite(detfDepositConfig)
@@ -331,7 +342,7 @@ function Deposit() {
                                 </ul>
                             </div>
                         </div>
-                        <button className="deposit-confirmation-button-primary" onClick={() => detfDeposit?.()}>Finalize and commit funds</button>
+                        <button className="deposit-confirmation-button-primary" disabled={!detfDeposit} onClick={() => detfDeposit?.()}>Finalize and commit funds</button>
                         <div className="deposit-back-button" onClick={() => { setDepositStage("input"); setInternalActiveStage(activeStage) }}>Make changes to investment setup</div>
                         <div>{detfDepositError && (<div>Error</div>)}</div>
                     </div>

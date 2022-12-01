@@ -1,7 +1,7 @@
 import { useState, ChangeEvent } from 'react'
 import "./DepositDetailsBox.css"
 import { useLocation } from 'react-router-dom'
-import PolybitDETFInterface from "../chain-info/IPolybitDETF.json"
+import PolybitDETFInterface from "../chain_info/IPolybitDETF.json"
 import { Interface, parseUnits } from 'ethers/lib/utils'
 
 import {

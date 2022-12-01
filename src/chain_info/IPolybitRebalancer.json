@@ -1,0 +1,447 @@
+[
+    {
+        "inputs": [
+            {
+                "internalType": "uint256[]",
+                "name": "ownedAssetsPrices",
+                "type": "uint256[]"
+            },
+            {
+                "internalType": "address[]",
+                "name": "adjustToBuyList",
+                "type": "address[]"
+            },
+            {
+                "internalType": "uint256[]",
+                "name": "adjustToBuyWeights",
+                "type": "uint256[]"
+            },
+            {
+                "internalType": "uint256[]",
+                "name": "adjustToBuyPrices",
+                "type": "uint256[]"
+            },
+            {
+                "internalType": "address[]",
+                "name": "buyList",
+                "type": "address[]"
+            },
+            {
+                "internalType": "uint256[]",
+                "name": "buyListWeights",
+                "type": "uint256[]"
+            },
+            {
+                "internalType": "address",
+                "name": "detfAddress",
+                "type": "address"
+            }
+        ],
+        "name": "calcTotalTargetBuyPercentage",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address[]",
+                "name": "ownedAssetsList",
+                "type": "address[]"
+            },
+            {
+                "internalType": "uint256[]",
+                "name": "ownedAssetsPrices",
+                "type": "uint256[]"
+            },
+            {
+                "internalType": "address[]",
+                "name": "targetAssetsList",
+                "type": "address[]"
+            },
+            {
+                "internalType": "uint256[]",
+                "name": "targetAssetsWeights",
+                "type": "uint256[]"
+            }
+        ],
+        "name": "createAdjustList",
+        "outputs": [
+            {
+                "internalType": "address[]",
+                "name": "",
+                "type": "address[]"
+            },
+            {
+                "internalType": "uint256[]",
+                "name": "",
+                "type": "uint256[]"
+            },
+            {
+                "internalType": "uint256[]",
+                "name": "",
+                "type": "uint256[]"
+            }
+        ],
+        "stateMutability": "pure",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "detfAddress",
+                "type": "address"
+            },
+            {
+                "internalType": "uint256[]",
+                "name": "ownedAssetsPrices",
+                "type": "uint256[]"
+            },
+            {
+                "internalType": "address[]",
+                "name": "adjustList",
+                "type": "address[]"
+            },
+            {
+                "internalType": "uint256[]",
+                "name": "adjustListWeights",
+                "type": "uint256[]"
+            },
+            {
+                "internalType": "uint256[]",
+                "name": "adjustListPrices",
+                "type": "uint256[]"
+            }
+        ],
+        "name": "createAdjustToBuyList",
+        "outputs": [
+            {
+                "internalType": "address[]",
+                "name": "",
+                "type": "address[]"
+            },
+            {
+                "internalType": "uint256[]",
+                "name": "",
+                "type": "uint256[]"
+            },
+            {
+                "internalType": "uint256[]",
+                "name": "",
+                "type": "uint256[]"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "totalBalance",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "wethBalance",
+                "type": "uint256"
+            },
+            {
+                "internalType": "address[]",
+                "name": "adjustToBuyList",
+                "type": "address[]"
+            },
+            {
+                "internalType": "uint256[]",
+                "name": "adjustToBuyWeights",
+                "type": "uint256[]"
+            },
+            {
+                "internalType": "uint256[]",
+                "name": "adjustToBuyPrices",
+                "type": "uint256[]"
+            },
+            {
+                "internalType": "uint256",
+                "name": "totalTargetPercentage",
+                "type": "uint256"
+            },
+            {
+                "internalType": "address",
+                "name": "detfAddress",
+                "type": "address"
+            }
+        ],
+        "name": "createAdjustToBuyOrder",
+        "outputs": [
+            {
+                "internalType": "uint256[]",
+                "name": "",
+                "type": "uint256[]"
+            },
+            {
+                "internalType": "uint256[]",
+                "name": "",
+                "type": "uint256[]"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "detfAddress",
+                "type": "address"
+            },
+            {
+                "internalType": "uint256[]",
+                "name": "ownedAssetsPrices",
+                "type": "uint256[]"
+            },
+            {
+                "internalType": "address[]",
+                "name": "adjustList",
+                "type": "address[]"
+            },
+            {
+                "internalType": "uint256[]",
+                "name": "adjustListWeights",
+                "type": "uint256[]"
+            },
+            {
+                "internalType": "uint256[]",
+                "name": "adjustListPrices",
+                "type": "uint256[]"
+            }
+        ],
+        "name": "createAdjustToSellList",
+        "outputs": [
+            {
+                "internalType": "address[]",
+                "name": "",
+                "type": "address[]"
+            },
+            {
+                "internalType": "uint256[]",
+                "name": "",
+                "type": "uint256[]"
+            },
+            {
+                "internalType": "uint256[]",
+                "name": "",
+                "type": "uint256[]"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256[]",
+                "name": "ownedAssetsPrices",
+                "type": "uint256[]"
+            },
+            {
+                "internalType": "address[]",
+                "name": "adjustToSellList",
+                "type": "address[]"
+            },
+            {
+                "internalType": "uint256[]",
+                "name": "adjustToSellWeights",
+                "type": "uint256[]"
+            },
+            {
+                "internalType": "uint256[]",
+                "name": "adjustToSellPrices",
+                "type": "uint256[]"
+            },
+            {
+                "internalType": "address",
+                "name": "detfAddress",
+                "type": "address"
+            }
+        ],
+        "name": "createAdjustToSellOrder",
+        "outputs": [
+            {
+                "internalType": "uint256[]",
+                "name": "",
+                "type": "uint256[]"
+            },
+            {
+                "internalType": "uint256[]",
+                "name": "",
+                "type": "uint256[]"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address[]",
+                "name": "ownedAssetsList",
+                "type": "address[]"
+            },
+            {
+                "internalType": "address[]",
+                "name": "targetAssetsList",
+                "type": "address[]"
+            },
+            {
+                "internalType": "uint256[]",
+                "name": "targetAssetsWeights",
+                "type": "uint256[]"
+            },
+            {
+                "internalType": "uint256[]",
+                "name": "targetAssetsPrices",
+                "type": "uint256[]"
+            }
+        ],
+        "name": "createBuyList",
+        "outputs": [
+            {
+                "internalType": "address[]",
+                "name": "",
+                "type": "address[]"
+            },
+            {
+                "internalType": "uint256[]",
+                "name": "",
+                "type": "uint256[]"
+            },
+            {
+                "internalType": "uint256[]",
+                "name": "",
+                "type": "uint256[]"
+            }
+        ],
+        "stateMutability": "pure",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address[]",
+                "name": "buyList",
+                "type": "address[]"
+            },
+            {
+                "internalType": "uint256[]",
+                "name": "buyListWeights",
+                "type": "uint256[]"
+            },
+            {
+                "internalType": "uint256[]",
+                "name": "buyListPrices",
+                "type": "uint256[]"
+            },
+            {
+                "internalType": "uint256",
+                "name": "wethBalance",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "totalTargetPercentage",
+                "type": "uint256"
+            }
+        ],
+        "name": "createBuyOrder",
+        "outputs": [
+            {
+                "internalType": "uint256[]",
+                "name": "",
+                "type": "uint256[]"
+            },
+            {
+                "internalType": "uint256[]",
+                "name": "",
+                "type": "uint256[]"
+            }
+        ],
+        "stateMutability": "pure",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address[]",
+                "name": "ownedAssetsList",
+                "type": "address[]"
+            },
+            {
+                "internalType": "uint256[]",
+                "name": "ownedAssetsPrices",
+                "type": "uint256[]"
+            },
+            {
+                "internalType": "address[]",
+                "name": "targetAssetsList",
+                "type": "address[]"
+            }
+        ],
+        "name": "createSellList",
+        "outputs": [
+            {
+                "internalType": "address[]",
+                "name": "",
+                "type": "address[]"
+            },
+            {
+                "internalType": "uint256[]",
+                "name": "",
+                "type": "uint256[]"
+            }
+        ],
+        "stateMutability": "pure",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address[]",
+                "name": "sellList",
+                "type": "address[]"
+            },
+            {
+                "internalType": "uint256[]",
+                "name": "sellListPrices",
+                "type": "uint256[]"
+            },
+            {
+                "internalType": "address",
+                "name": "detfAddress",
+                "type": "address"
+            }
+        ],
+        "name": "createSellOrder",
+        "outputs": [
+            {
+                "internalType": "uint256[]",
+                "name": "",
+                "type": "uint256[]"
+            },
+            {
+                "internalType": "uint256[]",
+                "name": "",
+                "type": "uint256[]"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    }
+]

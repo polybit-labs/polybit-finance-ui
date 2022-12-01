@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import "./AccountTable.css"
 import { getNumValueColor } from '../utils'
 import { Link } from 'react-router-dom'
@@ -27,7 +27,6 @@ export const AccountTable = (props: any) => {
     console.log("hrr", ownedDETFsData)
 
     const GetDETFAccountData = () => {
-
         let detfAccounts: Array<any> = []
         let count = 0
 
@@ -45,12 +44,32 @@ export const AccountTable = (props: any) => {
                 count++
             }
         }
-        console.log(count)
-        console.log("DETF Accounts", detfAccounts[count - 1])
+        detfAccounts = detfAccounts.slice(0, count)
+        console.log(detfAccounts)
         return detfAccounts
     }
 
-    const [detfData, setDETFData] = useState<Array<any>>(GetDETFAccountData())
+    let detfAccounts = GetDETFAccountData()
+    const [detfData, setDETFData] = useState<Array<any>>(detfAccounts)
+    //const detfAccounts = GetDETFAccountData()
+
+    const [timerValue, setTimerValue] = useState(1)
+
+    useEffect(() => {
+        const refresh = window.setInterval(() => {
+            setTimerValue((v) => v + 1)
+            if (detfData.length !== detfAccounts.length) {
+                setDETFData(((detfData) => detfAccounts))
+            }
+        }, 5000)
+        return () => window.clearInterval(refresh)
+
+    }, [timerValue])
+
+    console.log(timerValue)
+
+    console.log("detfData", detfData)
+
 
     const [order, setOrder] = useState("asc")
     const sorting = (column: any) => {
@@ -68,7 +87,6 @@ export const AccountTable = (props: any) => {
         }
     }
 
-    console.log(detfData)
 
     return (
         <>
@@ -101,27 +119,14 @@ export const AccountTable = (props: any) => {
                             </div>
                         </div>) :
                         <div>
-                            <div className="account-detf-row-items">
-                                <div className="account-detf-row-item-none">-</div>
-                                <div className="account-detf-row-item-none">-</div>
-                                <div className="account-detf-row-item-none">-</div>
-                                <div className="account-detf-row-item-none">-</div>
-                                <div className="account-detf-row-item-none"></div>
+                            <div className="account-detf-row-loading">
+                                <img height="90px" width="90px" src={require("../assets/images/loading.gif")} alt="Loading"></img>
                             </div>
-                            <div className="account-detf-row-items">
+                            {/* <div className="account-detf-row-item-none">-</div>
                                 <div className="account-detf-row-item-none">-</div>
                                 <div className="account-detf-row-item-none">-</div>
                                 <div className="account-detf-row-item-none">-</div>
-                                <div className="account-detf-row-item-none">-</div>
-                                <div className="account-detf-row-item-none"></div>
-                            </div>
-                            <div className="account-detf-row-items">
-                                <div className="account-detf-row-item-none">-</div>
-                                <div className="account-detf-row-item-none">-</div>
-                                <div className="account-detf-row-item-none">-</div>
-                                <div className="account-detf-row-item-none">-</div>
-                                <div className="account-detf-row-item-none"></div>
-                            </div>
+                                <div className="account-detf-row-item-none"></div> */}
                         </div>
                     }
                 </div>
