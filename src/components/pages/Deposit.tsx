@@ -181,42 +181,7 @@ function Deposit() {
 
     let prettyTimeLockValue = PrettyTimeLockValue()
 
-    const emptyArray = [[[], [], [[[], [], [], [],]], [], [[[], [], [], [],]], [], [], [[[], [], [], [],]], [], [], [], [
-        [[], [], [], [],]], [], [], [], [[[], [], [], [],]],]]
-    const [orderData, setOrderData] = useState<Array<any> | undefined>(emptyArray)
-    //const orderDataResponse: any | undefined = GetOrderData(detfAddress, depositInputValue)
-    const orderDataResponse: any | undefined = GetOrderData(detfAddress, depositInputValue)
 
-
-    const { config: detfDepositConfig, error: detfDepositError } = usePrepareContractWrite({
-        addressOrName: detfAddress,
-        contractInterface: IPolybitDETF,
-        functionName: 'deposit',
-        args: [Number(timeLockValue), orderData],
-        overrides: { from: walletOwner, value: Number(depositInputValue) > 0 ? parseUnits(depositInputValue).toString() : 0 },
-        onError(error) {
-            console.log('detfDepositConfig Error', error)
-        },
-        onSuccess(data) {
-            console.log('detfDepositConfig Success', data)
-        },
-    })
-
-    const { data, isLoading, isSuccess, write: detfDeposit } = useContractWrite(detfDepositConfig)
-
-    const { data: waitForTransaction, isError: transactionError, isLoading: transactionLoading } = useWaitForTransaction({
-        hash: data?.hash,
-        onSettled(data, error) {
-            console.log(data)
-            const response = data ? data.logs[2].data : []
-            const confirmedAmount = utils.defaultAbiCoder.decode(["uint256"], response)[0].toString()
-            console.log(confirmedAmount)
-            console.log(parseUnits(depositInputValue).toString())
-            if (confirmedAmount === parseUnits(depositInputValue).toString()) {
-                setDepositSuccess(true)
-            }
-        }
-    })
 
     return (
         <>
@@ -312,49 +277,10 @@ function Deposit() {
                                 </div>
                             </div>
                             <div>
-                                <button className="deposit-button-primary" disabled={Number(depositInputValue) === 0} onClick={() => { setTitle("Finalizing your investment"); setDepositStage("summary"); setInternalActiveStage(activeStage + 1) }}>View investment summary</button>
+                                <Link className="success-deposit-summary-button-link" to="/deposit-summary" state={{ category: category, dimension: dimension, productId: productId.toString(), detfAddress: detfAddress, processOrigin: "establish", activeStage: 2, depositInputValue: depositInputValue, timeLockInputValue: timeLockInputValue }}>
+                                    <button className="success-deposit-button">View investment summary</button></Link>
                             </div>
                         </div>
-                    </div>
-                    <div className={!depositSuccess && !transactionLoading && depositStage === "summary" ? "deposit-summary" : "deposit-summary-inactive"}>
-                        <p>Polybit PGT20 aims to track the performance of an index (before fees and expenses) comprising 20 of the largest governance assets by liquidity on the Binance chain. The smart contract you generate at the time of investment will automatically facilitate ongoing trades to maintain pooled asset positions, as asset positions shift, leave, or enter the pool over time.
-                            Your holdings will rebalance through automated buys and sells over time to maintain a reflection of the top assets in this fund. Holding weighting is determined according to oracle data including, but not limited to, market capitalisation and daily trading volume. Assets that do not meet our risk criteria for certification or minimum liquidity thresholds may be excluded from pool inclusion. Learn more about our pool policies.</p>
-                        <div className="deposit-summary-info">
-                            <div className="deposit-summary-info-bar"></div>
-                            <div className="deposit-summary-info-titles">
-                                <ul>
-                                    <li>DETF Strategy</li>
-                                    <li>Ecosystem</li>
-                                    <li>Investment</li>
-                                    <li>Deposit Fee</li>
-                                    <li>Time Locked</li>
-                                    <li>Your Wallet Address</li>
-                                </ul>
-                            </div>
-                            <div className="deposit-summary-info-results">
-                                <ul>
-                                    <li>{category}</li>
-                                    <li>{chain?.name}</li>
-                                    <li>{walletBalance?.symbol} {depositInputValue} {"(USD $302)"}</li>
-                                    <li>0.05%</li> {/* get from detf factory */}
-                                    <li>{prettyTimeLockValue}</li>
-                                    <li>{walletOwner}</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <button className="deposit-confirmation-button-primary" disabled={!detfDeposit} onClick={() => detfDeposit?.()}>Finalize and commit funds</button>
-                        <div className="deposit-back-button" onClick={() => { setDepositStage("input"); setInternalActiveStage(activeStage) }}>Make changes to investment setup</div>
-                        <div>{detfDepositError && (<div>Error</div>)}</div>
-                    </div>
-                    <div className={transactionLoading ? "confirming-detf-wrapper" : "confirming-detf-wrapper-inactive"}>
-                        {transactionLoading && (<div>Waiting for confirmation from the blockchain...</div>)}
-                    </div>
-                    <div className={depositSuccess ? "success-detf-wrapper" : "success-detf-wrapper-inactive"}>
-                        <div>Congratulations, your deposit of BNB X into {category} {dimension} DETF has been confirmed on the blockchain.</div>
-                        <Link className="success-deposit-button-link" to="/account" state={{ detfCount: { ownedDETFCount } }}>
-                            <button className="success-deposit-button">Go To My Account</button></Link>
-                        {/* 
-                        validate the deposit amount is available - transactionrecipt emit event */}
                     </div>
                 </div>
             </ContentBox>

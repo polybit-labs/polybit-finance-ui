@@ -1,6 +1,6 @@
 import { Interface } from 'ethers/lib/utils'
 import { useContractRead } from 'wagmi'
-import PolybitDETFOracleInterface from "../../chain-info/IPolybitDETFOracle.json"
+import PolybitDETFOracleInterface from "../../chain_info/IPolybitDETFOracle.json"
 
 export const GetTargetList = (detfOracleAddress: string, chainId: number) => {
     const IPolybitDETFOracle = new Interface(PolybitDETFOracleInterface)

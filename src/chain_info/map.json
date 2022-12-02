@@ -1,10 +1,10 @@
 {
   "5777": {
     "router": [
-      "0xDca782DDfcF27dd177aF810829ebaD77F3D92f63"
+      "0x50FD14cA4D2d2D120312E01062ec33aE2E058f0e"
     ],
     "rebalancer": [
-      "0xe5D61ac754D09AA7edCe81b7bEfE82E3B7fD81E6"
+      "0x1A84E86b388cCff2a8a0b0C7D66d9049e0FB62C5"
     ],
     "price_oracle_factory": [
       ""
@@ -14,12 +14,12 @@
     ],
     "detf_oracle": [],
     "detf_factory": [
-      "0xF9F45729E0C72523858b2f2b4A2243fC49d285aa"
+      "0x44290b9035708b36154d0B247CfA8c220923f23F"
     ]
   },
   "56": {
-    "router": "0xDca782DDfcF27dd177aF810829ebaD77F3D92f63",
-    "rebalancer": "0xe5D61ac754D09AA7edCe81b7bEfE82E3B7fD81E6",
-    "detf_factory": "0xF9F45729E0C72523858b2f2b4A2243fC49d285aa"
+    "router": "0x50FD14cA4D2d2D120312E01062ec33aE2E058f0e",
+    "rebalancer": "0x1A84E86b388cCff2a8a0b0C7D66d9049e0FB62C5",
+    "detf_factory": "0x44290b9035708b36154d0B247CfA8c220923f23F"
   }
 }

@@ -2,14 +2,12 @@ import './App.css';
 import Navbar from './components/Navbar';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import Home from "./components/pages/Home"
-import Privacy from "./components/pages/Privacy"
 import ScrollToTop from './components/ScrollToTop';
 import DETFIndex from './components/pages/DETFIndex';
 import Account from './components/pages/Account';
+import DepositSummary from "./components/pages/DepositSummary";
 import ConnectWallet from './components/pages/ConnectWallet';
-import HowItWorks from './components/pages/HowItWorks';
 import Deposit from './components/pages/Deposit';
-import Title from './components/Title';
 import { AvailableDETFs } from './components/AvailableDETFs';
 import EstablishDETF from './components/pages/EstablishDETF';
 import DETF from './components/pages/DETF';
@@ -32,6 +30,7 @@ function App() {
               <Route path="/connect-wallet" element={<ConnectWallet />} />
               <Route path="/establish-detf" element={<EstablishDETF />} />
               <Route path="/deposit" element={<Deposit />} />
+              <Route path="/deposit-summary" element={<DepositSummary />} />
               <Route path="/detfs/:urlChainId/:urlCategoryId/:urlDimensionId" element={<DETF />} />
             </Routes>
           </CurrencyContext.Provider>

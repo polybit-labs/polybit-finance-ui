@@ -12,6 +12,8 @@ import { Interface } from 'ethers/lib/utils'
 import { useContractRead } from 'wagmi'
 import PolybitDETFFactoryInterface from "../../chain_info/IPolybitDETFFactory.json"
 import map from "../../chain_info/map.json"
+import { GetDETFAccounts } from '../api/GetDETFAccounts'
+import { useEffect, useState } from 'react'
 
 const IPolybitDETFFactory = new Interface(PolybitDETFFactoryInterface)
 const detfFactoryAddress: string = map["5777"]["detf_factory"][0]
@@ -19,9 +21,15 @@ const detfFactoryAddress: string = map["5777"]["detf_factory"][0]
 const Account = () => {
     const { address: walletOwner, connector, isConnected } = useAccount()
     const { chain, chains } = useNetwork()
-    const array = Array(10)
-    console.log(array)
     let ownedDETFsData: Array<string> = Array(10)
+    const [detfAccounts, setDETFAccounts] = useState<Array<string>>([])
+    const { response: detfAccountsData, isLoading: detfAccountsLoading, isSuccess: detfAccountsSuccess } = GetDETFAccounts(walletOwner ? walletOwner : "")
+
+    useEffect(() => {
+        { detfAccountsSuccess && setDETFAccounts(detfAccountsData ? detfAccountsData : []) }
+    }, [])
+
+    console.log("detfAccounts", detfAccounts)
 
     const { data: ownedDETFs, isError, isLoading, isSuccess } = useContractRead({
         addressOrName: detfFactoryAddress,

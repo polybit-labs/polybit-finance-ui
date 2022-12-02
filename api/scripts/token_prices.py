@@ -3,7 +3,7 @@ import os
 from pathlib import Path
 import requests
 
-path = str(Path(os.path.abspath(os.path.dirname(__file__))).parent)
+path = str(Path(os.path.abspath(os.path.dirname(__file__))).parent.parent)
 load_dotenv(dotenv_path=path + "/.env", verbose=True)
 
 api_key = os.getenv("REACT_APP_COINGECKO_API_KEY")
@@ -21,9 +21,11 @@ def get_token_price(token):
         res = requests.get(url)
         data = res.json()
         price = int(10**18 * data["market_data"]["current_price"]["bnb"])
+        print(price)
+        return price
     except:
-        print("Could not retrieve data for", price)
-    return price
+        print("Could not retrieve data for", token)
+    return ""
 
 
 def get_token_prices(tokens):

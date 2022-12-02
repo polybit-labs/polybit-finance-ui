@@ -1,11 +1,11 @@
 import { Interface } from "ethers/lib/utils"
-import UniswapV2Pair from "../../chain-info/IUniswapV2Pair.json"
-import UniswapV2Factory from "../../chain-info/IUniswapV2Factory.json"
+import UniswapV2Pair from "../../chain_info/IUniswapV2Pair.json"
+import UniswapV2Factory from "../../chain_info/IUniswapV2Factory.json"
 import { useContractRead } from "wagmi"
 import { GetLatestPrice } from "./GetLatestPrice"
 import { GetTokenDecimals } from "./ERC20Utils"
-import baseTokens from "../../chain-info/baseTokens.json"
-import factoryAddresses from "../../chain-info/factoryAddresses.json"
+import baseTokens from "../../chain_info/baseTokens.json"
+import factoryAddresses from "../../chain_info/factoryAddresses.json"
 
 export const GetTokenLiquiditySingle = (chain: string, baseToken: string, tokenAddress: string, chainId: number) => {
     const IUniswapV2Factory = new Interface(UniswapV2Factory)

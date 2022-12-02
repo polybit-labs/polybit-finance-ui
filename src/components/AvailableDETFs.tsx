@@ -5,6 +5,15 @@ import PolybitDETFFactoryInterface from "../chain_info/IPolybitDETFFactory.json"
 import map from "../chain_info/map.json"
 import { Rebalancer } from "./Rebalancer"
 import { Flask } from "./Flask"
+import { GetPrice } from "./api/GetPrice"
+import { GetPrices } from "./api/GetPrices"
+import { GetOrderData } from "./api/GetOrderData"
+import { GetOwnedAssets } from "./api/GetOwnedAssets"
+import { GetTargetAssets } from "./api/GetTargetAssets"
+import { GetDETFAccounts } from "./api/GetDETFAccounts"
+import { GetProductData } from "./api/GetProductData"
+import { GetPerformanceData } from "./api/GetPerformanceData"
+import { GetDETFAccountsData } from "./api/GetDETFAccountsData"
 
 
 export function AvailableDETFs() {
@@ -41,13 +50,64 @@ export function AvailableDETFs() {
     console.log("addresses", ownedDETFsData)
     let detfAddress = ownedDETFsData[0]
 
+    const { response: price } = GetPrice("0x3203c9E46cA618C8C1cE5dC67e7e9D75f5da2377")
+    console.log("GetPrice", price)
+
+    const { response: prices } = GetPrices(["0x3203c9E46cA618C8C1cE5dC67e7e9D75f5da2377", "0x3203c9E46cA618C8C1cE5dC67e7e9D75f5da2377", "0x3203c9E46cA618C8C1cE5dC67e7e9D75f5da2377", "0x3203c9E46cA618C8C1cE5dC67e7e9D75f5da2377"])
+    console.log("GetPrices", prices)
+
+    const { response: detfAccounts, isLoading: detfAccountsLoading, isSuccess: detfAccountsSuccess } = GetDETFAccounts(walletOwner ? walletOwner : "")
+    console.log(detfAccounts)
+
+    const { response: detfAccountsData, isLoading: detfAccountsDataLoading, isSuccess: detfAccountsDataSuccess } = GetDETFAccountsData(walletOwner ? walletOwner : "")
+    console.log(detfAccountsData)
+
+    const { response: ownedAssets, isLoading: ownedAssetsLoading, isSuccess: ownedAssetsSuccess } = GetOwnedAssets(detfAddress)
+    console.log(ownedAssets)
+
+    const { response: targetAssets, isLoading: targetAssetsLoading, isSuccess: targetAssetsSuccess } = GetTargetAssets(detfAddress)
+    console.log(targetAssets)
+
+    const { response: orderData, isLoading: orderDataLoading, isSuccess: orderDataSuccess } = GetOrderData(detfAddress, Math.round(10 ** 18 * 2).toString())
+    console.log(orderData)
+
+    const { response: productData, isLoading: productDataLoading, isSuccess: productDataSuccess } = GetProductData(detfAddress)
+    console.log(productData)
+
+    const { response: performanceData, isLoading: performanceDataLoading, isSuccess: performanceDataSuccess } = GetPerformanceData(detfAddress)
+    console.log(performanceData)
+
     return (
         <>
-            {/* <Rebalancer detfAddress={"0x35EfcC904EB9d853FFcf7Fe91D6e8681B6D9D218"} /> */}
-            <Flask />
-            <div>
-
-            </div >
+            <div><b>DETF Accounts</b></div>
+            {detfAccountsLoading && (<div>DETF Accounts loading...</div>)}
+            {detfAccountsSuccess && (
+                <div>{JSON.stringify(detfAccounts)}</div>)}
+            <div><b>DETF Accounts Data</b></div>
+            {detfAccountsDataLoading && (<div>DETF Accounts Data loading...</div>)}
+            {detfAccountsDataSuccess && (
+                <div>{JSON.stringify(detfAccountsData)}</div>)}
+            <div><b>Owned Assets</b></div>
+            {ownedAssetsLoading && (<div>Owned Assets loading...</div>)}
+            {ownedAssetsSuccess && (
+                <div>{JSON.stringify(ownedAssets)}</div>)}
+            <div><b>Target Assets</b></div>
+            {targetAssetsLoading && (<div>Target Assets loading...</div>)}
+            {targetAssetsSuccess && (
+                <div>{JSON.stringify(targetAssets)}</div>
+            )}
+            <div><b>Product Data</b></div>
+            {productDataLoading && (<div>Product Data loading...</div>)}
+            {productDataSuccess && (
+                <div>{JSON.stringify(productData)}</div>)}
+            <div><b>Performance Data</b></div>
+            {performanceDataLoading && (<div>Performance Data loading...</div>)}
+            {performanceDataSuccess && (
+                <div>{JSON.stringify(performanceData)}</div>)}
+            <div><b>OrderData</b></div>
+            {orderDataLoading && (<div>Order Data loading...</div>)}
+            {orderDataSuccess && (
+                <div>{JSON.stringify(orderData)}</div>)}
         </>
     )
 }
