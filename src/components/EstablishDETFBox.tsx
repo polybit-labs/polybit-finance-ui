@@ -1,8 +1,8 @@
 import "./EstablishDETFBox.css"
-import { Link, Navigate } from 'react-router-dom'
-import { usePrepareContractWrite, useContractWrite, useContractRead, useWaitForTransaction } from 'wagmi'
+import { Link } from 'react-router-dom'
+import { usePrepareContractWrite, useContractWrite, useWaitForTransaction } from 'wagmi'
 import { Interface } from 'ethers/lib/utils'
-import { useEffect, useInsertionEffect, useRef, useState } from "react"
+import { useState } from "react"
 
 interface EstablishDETFBoxProps {
     detfName: string | "";

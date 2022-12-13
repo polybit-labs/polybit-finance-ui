@@ -1,30 +1,27 @@
-import { useState, ChangeEvent, useEffect } from 'react'
+import { useState, ChangeEvent } from 'react'
 import "./Deposit.css"
 import { Link } from 'react-router-dom'
-import { truncateAddress } from '../../utils'
+import { TruncateAddress } from '../utils/Formatting'
 import { useLocation } from 'react-router-dom'
 import PolybitDETFInterface from "../../chain_info/IPolybitDETF.json"
-import { Interface, parseUnits } from 'ethers/lib/utils'
-import Title from "../Title"
+import { Interface } from 'ethers/lib/utils'
+import TitleContainer from "../containers/Title"
+import SubTitleContainer from '../containers/SubTitle'
+import MainContainer from '../containers/Main'
+import ContentBoxContainer from '../containers/ContentBox'
+
 import {
     useAccount,
     useNetwork,
     useBalance,
-    useContractRead,
-    usePrepareContractWrite,
-    useContractWrite,
-    useWaitForTransaction
+    useContractRead
 } from "wagmi"
 import Footer from './Footer'
-import DateTypeDropDown from '../DateTypeDropdown'
+import DateTypeDropDown from '../dropdowns/DateTypeDropdown'
 import { Progress } from '../Progress'
-import ContentBox from '../ContentBox'
-import { OwnedDETFCount } from '../OwnedDETFCount'
-import { GetOrderData } from '../OrderData'
+
 
 function Deposit() {
-    const ethers = require("ethers")
-    const utils = ethers.utils
     const location = useLocation()
     const [title, setTitle] = useState("Your investment amount")
     const { category, dimension, productId, detfAddress, processOrigin, activeStage } = location.state
@@ -42,7 +39,6 @@ function Deposit() {
     const [internalActiveStage, setInternalActiveStage] = useState(activeStage ? activeStage : 1)
     const moment = require('moment')
     const [depositSuccess, setDepositSuccess] = useState(false)
-    const ownedDETFCount = OwnedDETFCount()
     const onChangeDeposit = (e: ChangeEvent<HTMLInputElement>) => {
         setdepositInputValue(e.target.value);
     }
@@ -185,105 +181,107 @@ function Deposit() {
 
     return (
         <>
-            <Title title={title} info={`You are about to deposit funds from your address ${truncateAddress(walletOwner ? walletOwner : "")} into the ${category} ${dimension} DETF using ${connector?.name}.`}
-                switchButton={false} />
+            <TitleContainer title={title} />
+            <SubTitleContainer info={`You are about to deposit funds from your address ${TruncateAddress(walletOwner ? walletOwner : "")} into the ${category} ${dimension} DETF using ${connector?.name}.`} />
             <Progress processOrigin={processOrigin} activeStage={internalActiveStage} />
-            <ContentBox>
-                <div>
-                    <div className={!depositSuccess && depositStage === "input" ? "deposit-box" : "deposit-box-inactive"}>
-                        <div className="deposit-box-balance"><img className="chain-logo" src={require("../../assets/images/bsc-logo.png")} alt="Binance Smart Chain"></img>Available {walletBalance?.symbol} in your {connector?.name} is {parseFloat((walletBalance ? walletBalance.formatted : 0).toString()).toFixed(4)} (USD:$xxx)</div>
-                        <div className="deposit-box-notification"><p>{walletBalance?.symbol} is required to invest in the {category} {dimension}, but you do not currently have any BNB in your {connector?.name}. [insert Banxa or CB speil]</p></div>
-                        <div className="deposit-box-form">
-                            <div className="deposit-amount-input-title">{walletBalance?.symbol} amount:</div>
-                            <div><input className="deposit-amount-input" type="number" value={depositInputValue} onChange={onChangeDeposit} placeholder="BNB 10.000" /></div>
-                            <div className="timelock">
-                                <div className={Number(lockTimeLeftOfDETF) === 0 ? "timelock-new" : "timelock-new-inactive"}>
-                                    <div className="timelock-selector">
-                                        <div className={checkboxTickNew === false ? "timelock-checkbox" : "timelock-checkbox-ticked"}
-                                            onClick={() => {
-                                                setCheckboxTickNew(!checkboxTickNew);
-                                                settimeLockInputValue("0")
-                                            }}  ></div>
-                                        <div>Time lock my DETF</div>
-                                    </div>
-                                    <div className={checkboxTickNew ? "timelock-new-inputs" : "timelock-new-inputs-inactive"}>
-                                        <div className="timelock-amount-input-title">Lock term:</div>
-                                        <div className="timelock-amount-input-group">
-                                            <input className="timelock-amount-input" type="number" value={timeLockInputValue} onChange={onChangeTimeLock} placeholder="12 months" />
-                                            <button
-                                                className="timelock-date-format"
-                                                onClick={(): void => toggleDropDown()}
-                                                onBlur={(e: React.FocusEvent<HTMLButtonElement>): void =>
-                                                    dismissHandler(e)
-                                                }
-                                            >
-                                                <div>{selectDateFormat ? selectDateFormat : "Select ..."} </div>
-                                                {showDropDown && (
-                                                    <DateTypeDropDown
-                                                        dateFormats={dateFormats()}
-                                                        showDropDown={false}
-                                                        toggleDropDown={(): void => toggleDropDown()}
-                                                        dateFormatSelection={dateFormatSelection}
-                                                    />
-                                                )}
-                                            </button>
+            <MainContainer>
+                <ContentBoxContainer>
+                    <div>
+                        <div className={!depositSuccess && depositStage === "input" ? "deposit-box" : "deposit-box-inactive"}>
+                            <div className="deposit-box-balance"><img className="chain-logo" src={require("../../assets/images/bsc-logo.png")} alt="Binance Smart Chain"></img>Available {walletBalance?.symbol} in your {connector?.name} is {parseFloat((walletBalance ? walletBalance.formatted : 0).toString()).toFixed(4)} (USD:$xxx)</div>
+                            <div className="deposit-box-notification"><p>{walletBalance?.symbol} is required to invest in the {category} {dimension}, but you do not currently have any BNB in your {connector?.name}. [insert Banxa or CB speil]</p></div>
+                            <div className="deposit-box-form">
+                                <div className="deposit-amount-input-title">{walletBalance?.symbol} amount:</div>
+                                <div><input className="deposit-amount-input" type="number" value={depositInputValue} onChange={onChangeDeposit} placeholder="BNB 10.000" /></div>
+                                <div className="timelock">
+                                    <div className={Number(lockTimeLeftOfDETF) === 0 ? "timelock-new" : "timelock-new-inactive"}>
+                                        <div className="timelock-selector">
+                                            <div className={checkboxTickNew === false ? "timelock-checkbox" : "timelock-checkbox-ticked"}
+                                                onClick={() => {
+                                                    setCheckboxTickNew(!checkboxTickNew);
+                                                    settimeLockInputValue("0")
+                                                }}  ></div>
+                                            <div>Time lock my DETF</div>
                                         </div>
-                                        <div className={Number(timeLockInputValue) > 0 ? "deposit-lock-set" : "deposit-lock-set-inactive"}>
-                                            <p>Withdrawals from your DETF will be locked until:</p>
-                                            <b>{GetTimeToUnlock(Number(GetTimeLockInputValueInSeconds()))}</b>
+                                        <div className={checkboxTickNew ? "timelock-new-inputs" : "timelock-new-inputs-inactive"}>
+                                            <div className="timelock-amount-input-title">Lock term:</div>
+                                            <div className="timelock-amount-input-group">
+                                                <input className="timelock-amount-input" type="number" value={timeLockInputValue} onChange={onChangeTimeLock} placeholder="12 months" />
+                                                <button
+                                                    className="timelock-date-format"
+                                                    onClick={(): void => toggleDropDown()}
+                                                    onBlur={(e: React.FocusEvent<HTMLButtonElement>): void =>
+                                                        dismissHandler(e)
+                                                    }
+                                                >
+                                                    <div>{selectDateFormat ? selectDateFormat : "Select ..."} </div>
+                                                    {showDropDown && (
+                                                        <DateTypeDropDown
+                                                            dateFormats={dateFormats()}
+                                                            showDropDown={false}
+                                                            toggleDropDown={(): void => toggleDropDown()}
+                                                            dateFormatSelection={dateFormatSelection}
+                                                        />
+                                                    )}
+                                                </button>
+                                            </div>
+                                            <div className={Number(timeLockInputValue) > 0 ? "deposit-lock-set" : "deposit-lock-set-inactive"}>
+                                                <p>Withdrawals from your DETF will be locked until:</p>
+                                                <b>{GetTimeToUnlock(Number(GetTimeLockInputValueInSeconds()))}</b>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className={Number(lockTimeLeftOfDETF) > 0 ? "timelock-existing" : "timelock-existing-inactive"}>
+                                        <div className="timelock-existing-message">
+                                            Your DETF is currently locked from withdrawals until:
+                                            <b>{GetTimeToUnlock(Number(GetTimeLockRemainingOfDETF(detfAddress)))}</b>
+                                        </div>
+                                        <div className="timelock-selector">
+                                            <div className={checkboxTickExisting === false ? "timelock-checkbox" : "timelock-checkbox-ticked"}
+                                                onClick={() => {
+                                                    setCheckboxTickExisting(!checkboxTickExisting);
+                                                    settimeLockInputValue("0")
+                                                }} ></div>
+                                            <div>Increase lock time</div>
+                                        </div>
+                                        <div className={checkboxTickExisting ? "timelock-existing-inputs" : "timelock-existing-inputs-inactive"}>
+                                            <div className="timelock-amount-input-title">Lock term:</div>
+                                            <div className="timelock-amount-input-group">
+                                                <input className="timelock-amount-input" type="number" value={timeLockInputValue} onChange={onChangeTimeLock} placeholder="12 months" />
+                                                <button
+                                                    className="timelock-date-format"
+                                                    onClick={(): void => toggleDropDown()}
+                                                    onBlur={(e: React.FocusEvent<HTMLButtonElement>): void =>
+                                                        dismissHandler(e)
+                                                    }
+                                                >
+                                                    <div>{selectDateFormat ? selectDateFormat : "Select ..."} </div>
+                                                    {showDropDown && (
+                                                        <DateTypeDropDown
+                                                            dateFormats={dateFormats()}
+                                                            showDropDown={false}
+                                                            toggleDropDown={(): void => toggleDropDown()}
+                                                            dateFormatSelection={dateFormatSelection}
+                                                        />
+                                                    )}
+                                                </button>
+                                            </div>
+                                            <div className={Number(timeLockInputValue) > 0 ? "deposit-lock-set" : "deposit-lock-set-inactive"}>
+                                                <p>Withdrawals from your DETF will be locked until:</p>
+                                                <div className="deposit-lock-set-lock-date">{GetTimeLockUnlockIncrease(Number(GetTimeLockInputValueInSeconds()))}</div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div className={Number(lockTimeLeftOfDETF) > 0 ? "timelock-existing" : "timelock-existing-inactive"}>
-                                    <div className="timelock-existing-message">
-                                        Your DETF is currently locked from withdrawals until:
-                                        <b>{GetTimeToUnlock(Number(GetTimeLockRemainingOfDETF(detfAddress)))}</b>
-                                    </div>
-                                    <div className="timelock-selector">
-                                        <div className={checkboxTickExisting === false ? "timelock-checkbox" : "timelock-checkbox-ticked"}
-                                            onClick={() => {
-                                                setCheckboxTickExisting(!checkboxTickExisting);
-                                                settimeLockInputValue("0")
-                                            }} ></div>
-                                        <div>Increase lock time</div>
-                                    </div>
-                                    <div className={checkboxTickExisting ? "timelock-existing-inputs" : "timelock-existing-inputs-inactive"}>
-                                        <div className="timelock-amount-input-title">Lock term:</div>
-                                        <div className="timelock-amount-input-group">
-                                            <input className="timelock-amount-input" type="number" value={timeLockInputValue} onChange={onChangeTimeLock} placeholder="12 months" />
-                                            <button
-                                                className="timelock-date-format"
-                                                onClick={(): void => toggleDropDown()}
-                                                onBlur={(e: React.FocusEvent<HTMLButtonElement>): void =>
-                                                    dismissHandler(e)
-                                                }
-                                            >
-                                                <div>{selectDateFormat ? selectDateFormat : "Select ..."} </div>
-                                                {showDropDown && (
-                                                    <DateTypeDropDown
-                                                        dateFormats={dateFormats()}
-                                                        showDropDown={false}
-                                                        toggleDropDown={(): void => toggleDropDown()}
-                                                        dateFormatSelection={dateFormatSelection}
-                                                    />
-                                                )}
-                                            </button>
-                                        </div>
-                                        <div className={Number(timeLockInputValue) > 0 ? "deposit-lock-set" : "deposit-lock-set-inactive"}>
-                                            <p>Withdrawals from your DETF will be locked until:</p>
-                                            <div className="deposit-lock-set-lock-date">{GetTimeLockUnlockIncrease(Number(GetTimeLockInputValueInSeconds()))}</div>
-                                        </div>
-                                    </div>
+                                <div>
+                                    <Link className="success-deposit-summary-button-link" to="/deposit-summary" state={{ category: category, dimension: dimension, productId: productId.toString(), detfAddress: detfAddress, processOrigin: "establish", activeStage: 2, depositInputValue: depositInputValue, timeLockInputValue: timeLockInputValue }}>
+                                        <button className="success-deposit-button">View investment summary</button></Link>
                                 </div>
-                            </div>
-                            <div>
-                                <Link className="success-deposit-summary-button-link" to="/deposit-summary" state={{ category: category, dimension: dimension, productId: productId.toString(), detfAddress: detfAddress, processOrigin: "establish", activeStage: 2, depositInputValue: depositInputValue, timeLockInputValue: timeLockInputValue }}>
-                                    <button className="success-deposit-button">View investment summary</button></Link>
                             </div>
                         </div>
                     </div>
-                </div>
-            </ContentBox>
+                </ContentBoxContainer>
+            </MainContainer>
             <Footer />
         </>
     )

@@ -17,11 +17,48 @@
     cursor: default;
 }
 
-.detf-index-header-item {
-    width: 16%;
+.detf-index-header-item-detf,
+.detf-index-header-item-liquidity,
+.detf-index-header-item-one-week,
+.detf-index-header-item-one-month,
+.detf-index-header-item-three-months,
+.detf-index-header-item-one-year,
+.detf-index-header-item-view {
     font-size: 14px;
     font-weight: 700;
     padding-left: 20px;
+}
+
+.detf-index-header-item-detf {
+    width: 25%;
+}
+
+.detf-index-header-item-liquidity {
+    width: 15%;
+}
+
+.detf-index-header-item-one-week {
+    width: 10%;
+}
+
+.detf-index-header-item-one-month {
+    width: 10%;
+}
+
+.detf-index-header-item-three-months {
+    width: 10%;
+}
+
+.detf-index-header-item-one-year {
+    width: 10%;
+}
+
+.detf-index-header-item-logos {
+    width: 10%;
+}
+
+.detf-index-header-item-view {
+    width: 10%;
 }
 
 .detf-index-row-items {
@@ -41,8 +78,14 @@
     color: #000;
 }
 
-.detf-index-row-item {
-    width: 16%;
+.detf-index-row-item-detf,
+.detf-index-row-item-liquidity,
+.detf-index-row-item-one-week,
+.detf-index-row-item-one-month,
+.detf-index-row-item-three-months,
+.detf-index-row-item-one-year,
+.detf-index-row-item-logos,
+.detf-index-row-item-view {
     padding-left: 20px;
     display: flex;
     flex-direction: row;
@@ -50,12 +93,52 @@
     align-items: center;
 }
 
-.detf-index-chain-title {
+.detf-index-row-item-detf {
+    width: 25%;
+}
+
+.detf-index-row-item-liquidity {
+    width: 15%;
+}
+
+.detf-index-row-item-one-week {
+    width: 10%;
+}
+
+.detf-index-row-item-one-month {
+    width: 10%;
+}
+
+.detf-index-row-item-three-months {
+    width: 10%;
+}
+
+.detf-index-row-item-one-year {
+    width: 10%;
+}
+
+.detf-index-row-item-logos {
+    width: 10%;
+}
+
+.detf-index-row-item-view {
+    width: 10%;
+}
+
+.detf-index-chain-name {
     display: flex;
     flex-direction: row;
     justify-content: left;
     align-items: center;
+}
+
+.detf-index-chain-name-category {
     font-size: 16px;
+}
+
+.detf-index-chain-name-dimension {
+    color: #000000;
+    font-size: 24px;
 }
 
 .detf-index-chain-logo {
@@ -78,4 +161,20 @@
     justify-content: left;
     align-items: center;
     color: #909090;
+}
+
+.token-logo-chain-items {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: left;
+    background-color: black;
+}
+
+.token-logo-chain-item {
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    border-radius: 50%;
+    background-color: #fff;
 }

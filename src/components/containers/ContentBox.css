@@ -1,0 +1,10 @@
+.main-content-box {
+    width: 100%;
+    background-color: #EEEEEE;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: top;
+    align-items: center;
+    padding: 90px;
+}

@@ -31,9 +31,8 @@ def get_product_url(provider, detf_address):
     return product_data_file_url
 
 
-def get_product_data(provider, detf_address):
+def get_product_data(url):
     print("Getting product data from S3 Bucket")
-    url = get_product_url(provider, detf_address)
 
     try:
         res = requests.get(url + "/product-data.json")
@@ -44,9 +43,8 @@ def get_product_data(provider, detf_address):
     return ""
 
 
-def get_performance_data(provider, detf_address):
+def get_performance_data(url):
     print("Getting performance data from S3 Bucket")
-    url = get_product_url(provider, detf_address)
 
     try:
         res = requests.get(url + "/performance-data.json")

@@ -2,8 +2,8 @@ import React, { useState, useEffect, useContext } from 'react'
 import { Link } from 'react-router-dom'
 import "./Navbar.css"
 import { CurrencyContext, CurrencyFormats } from "./utils/Currency"
-import { OwnedDETFCount } from './OwnedDETFCount'
-import CurrencyTypeDropDown from "./CurrencyDropDown"
+import CurrencyTypeDropDown from "./dropdowns/CurrencyDropDown"
+import sortDown from "../assets/icons/sort-down-solid.svg"
 
 interface NavbarProps {
     setCurrency: Function;
@@ -15,7 +15,6 @@ function Navbar(props: NavbarProps) {
     const [button, setButton] = useState(true)
     const handleClick = () => setClick(!click)
     const closeMobileMenu = () => setClick(false)
-    const ownedDETFCount = OwnedDETFCount()
     const showButton = () => {
         if (window.innerWidth <= 960) {
             setButton(false)
@@ -75,7 +74,7 @@ function Navbar(props: NavbarProps) {
                         </Link>
                     </li>
                     <li className="nav-item">
-                        <Link to="/account" state={{ detfCount: { ownedDETFCount } }} className="nav-links" onClick={closeMobileMenu}>
+                        <Link to="/account" className="nav-links" onClick={closeMobileMenu}>
                             Account
                         </Link>
                     </li>
@@ -88,7 +87,7 @@ function Navbar(props: NavbarProps) {
                                 dismissHandler(e)
                             }
                         >
-                            <div>{selectCurrencyFormat ? selectCurrencyFormat : "Select ..."} </div>
+                            <div>{selectCurrencyFormat ? selectCurrencyFormat : "Select ..."} <img src={sortDown} height="20px" width="20px"></img></div>
                             {showDropDown && (
                                 <CurrencyTypeDropDown
                                     currencyFormats={CurrencyFormats()}

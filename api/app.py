@@ -1,15 +1,26 @@
 import time
 from flask import Flask, request
 from scripts import rebalance
-from scripts.token_prices import get_token_price, get_token_prices
+from scripts.token_prices import (
+    get_token_price,
+    get_token_prices,
+    get_token_price_vs_currency,
+)
 from scripts.rebalance import rebalance
+from scripts.sell_to_close import sell_to_close
 from scripts.detf_functions import (
     get_owned_assets,
+    get_owned_assets_detailed,
     get_target_assets,
     get_detf_account_data,
+    get_owner,
+    get_status,
 )
 from scripts.detf_factory_functions import get_detf_accounts
-from scripts.polybit_s3_interface import get_product_data, get_performance_data
+from scripts.polybit_s3_interface import (
+    get_product_data,
+    get_performance_data,
+)
 
 app = Flask(__name__)
 
@@ -26,14 +37,23 @@ def rebalancer():
         detf_address=detf_address,
         weth_input_amount=weth_input_amount,
     )
-    return order_data  # {"data": provider}
+    return order_data
 
 
 @app.route("/api/get_price", methods=["POST"])
 def get_price():
     data = request.json
-    price = get_token_price(data["token_address"])
+    token_address = data["token_address"]
+    price = get_token_price(token_address)
     return {"token_price": price}
+
+
+@app.route("/api/get_price_vs_currency", methods=["POST"])
+def get_price_vs_currency():
+    data = request.json
+    token_address = data["token_address"]
+    prices = get_token_price_vs_currency(token_address)
+    return prices
 
 
 @app.route("/api/get_prices", methods=["POST"])
@@ -73,6 +93,17 @@ def get_owned_assets_data():
     return [owned_assets, owned_assets_prices]
 
 
+@app.route("/api/get_owned_assets_detailed", methods=["POST"])
+def get_owned_assets_detailed_data():
+    data = request.json
+    provider = data["rpc_provider"]
+    detf_address = data["detf_address"]
+    owned_assets_detailed = get_owned_assets_detailed(
+        provider=provider, detf_address=detf_address
+    )
+    return owned_assets_detailed
+
+
 @app.route("/api/get_target_assets", methods=["POST"])
 def get_target_assets_data():
     data = request.json
@@ -91,21 +122,46 @@ def get_target_assets_data():
 @app.route("/api/get_product_data", methods=["POST"])
 def get_product_data_from_s3():
     data = request.json
-    provider = data["rpc_provider"]
-    detf_address = data["detf_address"]
-    product_data = get_product_data(provider=provider, detf_address=detf_address)
+    url = data["url"]
+    product_data = get_product_data(url=url)
     return product_data
 
 
 @app.route("/api/get_performance_data", methods=["POST"])
 def get_performance_data_from_s3():
     data = request.json
-    provider = data["rpc_provider"]
-    detf_address = data["detf_address"]
-    performance_data = get_performance_data(
-        provider=provider, detf_address=detf_address
-    )
+    print(data)
+    url = data["url"]
+    performance_data = get_performance_data(url=url)
     return performance_data
 
 
-app.run()
+@app.route("/api/get_owner", methods=["POST"])
+def get_owned_address():
+    data = request.json
+    provider = data["rpc_provider"]
+    detf_address = data["detf_address"]
+    owner = get_owner(provider=provider, detf_address=detf_address)
+    return {"owner": owner}
+
+
+@app.route("/api/get_status", methods=["POST"])
+def get_detf_status():
+    data = request.json
+    provider = data["rpc_provider"]
+    detf_address = data["detf_address"]
+    status = get_status(provider=provider, detf_address=detf_address)
+    return {"status": status}
+
+
+@app.route("/api/sell_to_close", methods=["POST"])
+def sell_to_close_order():
+    data = request.json
+    provider = data["rpc_provider"]
+    detf_address = data["detf_address"]
+
+    order_data = sell_to_close(
+        provider=provider,
+        detf_address=detf_address,
+    )
+    return order_data

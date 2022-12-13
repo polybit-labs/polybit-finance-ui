@@ -13,7 +13,6 @@ export const GetPrice = (token_address: string) => {
             body: JSON.stringify({ "token_address": token_address })
         }).then(res => res.json()).then(data => {
             setResponse(data.token_price);
-            console.log(data.token_price)
         });
     }, []);
 

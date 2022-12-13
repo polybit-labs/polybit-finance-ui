@@ -1,8 +1,5 @@
-import { GetTokenName } from './utils/ERC20Utils'
-import { GetTokenLiquidity } from './utils/Liquidity'
 import { CurrencyContext, FormatCurrency } from './utils/Currency'
 import "./DETFAssetsTable.css"
-import { useConnect } from 'wagmi'
 import { useContext, useEffect, useState } from "react"
 
 interface DETFAssetsTableProps {
@@ -31,13 +28,13 @@ export const DETFAssetsTable = (props: DETFAssetsTableProps) => {
             "tokenLiquidityRUB": token.token_liquidity.liquidity_rub,
             "tokenLiquidityTWD": token.token_liquidity.liquidity_twd,
             "tokenLiquidityUSD": token.token_liquidity.liquidity_usd,
-            "tokenWeight": `${parseFloat((token.dimension.weight * 100).toString()).toFixed(2)}% `,
+            "tokenWeight": token.dimension.weight,
         })
     })
 
     if (targetAssets) {
         const sorted = [...targetAssets].sort((a, b) =>
-            a.tokenLiquidityBNB < b.tokenLiquidityBNB ? 1 : -1)
+            a.tokenWeight < b.tokenWeight ? 1 : -1)
 
         return (
             <div className="detf-assets-wrapper">
@@ -77,7 +74,7 @@ export const DETFAssetsTable = (props: DETFAssetsTableProps) => {
                                             }
                                         })(), 0)}
                                     </td>
-                                    <td className="detf-assets-body-item">{token.tokenWeight}</td>
+                                    <td className="detf-assets-body-item">{`${parseFloat((token.tokenWeight * 100).toString()).toFixed(2)}%`}</td>
                                 </tr>)
                         })}
                     </tbody>

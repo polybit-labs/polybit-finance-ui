@@ -1,0 +1,259 @@
+.account-detf-row {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #EEEEEE;
+    border: 1px solid #fff;
+    border-radius: 4px;
+    margin-top: 14px;
+    cursor: default;
+    font-size: 20px;
+    font-weight: 700;
+    color: #000;
+}
+
+.account-detf-row-items {
+    width: 100%;
+    height: 88px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 4px;
+    cursor: default;
+    font-size: 20px;
+    font-weight: 700;
+    color: #000;
+}
+
+.account-detf-row-item-detf {
+    width: 30%;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+}
+
+.account-detf-row-item-value {
+    width: 15%;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+}
+
+.account-detf-row-item-return {
+    width: 10%;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+}
+
+.account-detf-row-item-timelock {
+    width: 25%;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+}
+
+.account-detf-row-item-deposit {
+    width: 10%;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+    font-size: 16px;
+}
+
+.account-detf-row-item-link {
+    text-decoration: none;
+}
+
+.account-detf-row-item-toggle {
+    width: 10%;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+    font-size: 16px;
+}
+
+.account-detf-row-loading {
+    width: 100%;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #EEEEEE;
+    border: 1px solid #fff;
+    border-radius: 4px;
+    margin-top: 14px;
+    cursor: default;
+    font-size: 20px;
+    font-weight: 700;
+    color: #000;
+}
+
+.account-index-chain-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+    font-size: 16px;
+}
+
+.account-index-chain-logo {
+    height: 26px;
+    width: 26px;
+    margin-right: 5px;
+}
+
+.account-detf-row-item-link {
+    text-decoration: none;
+    color: #000000
+}
+
+.account-detf-row-item-none {
+    width: 20%;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+    color: #909090;
+}
+
+.chain-logo {
+    margin-right: 15px;
+}
+
+.account-detf-row-expanded {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-bottom: 50px;
+}
+
+.account-detf-expanded-divider {
+    height: 2px;
+    width: 100%;
+    background-color: #D6D6D6;
+}
+
+.account-detf-expanded-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    font-weight: 500
+}
+
+.account-detf-expanded-content h2 {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.account-detf-expanded-content p {
+    font-size: 16px;
+}
+
+.account-detf-expanded-content-left,
+.account-detf-expanded-content-right {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: left;
+    background-color: #EEEEEE;
+    color: #000;
+    margin-top: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.account-detf-expanded-content-right h2 {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.account-detf-expanded-content-right h3 {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.account-detf-expanded-content-right p {
+    font-size: 16px;
+}
+
+.account-detf-expanded-content-right-proof-of-assets {
+    margin-top: 50px;
+}
+
+.account-detf-expanded-content-left-current-value {
+    margin-top: 50px;
+}
+
+.account-detf-expanded-content-left-invested-summary {
+    display: flex;
+    flex-direction: row;
+    margin-top: 30px;
+}
+
+.account-detf-expanded-content-left-invested-summary-line {
+    background-color: #000000;
+    width: 10px;
+}
+
+.account-detf-expanded-content-left-invested-summary-table {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+}
+
+.account-detf-expanded-content-left-invested-summary-table ul {
+    list-style-type: none;
+}
+
+.account-detf-expanded-content-left-deposit {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 50px;
+}
+
+.button-primary {
+    border-radius: 4px;
+    outline: none;
+    border: 2px solid #000000;
+    cursor: pointer;
+    background-color: #000000;
+    color: #fff;
+    width: 228px;
+    height: 66px;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.account-detf-expanded-content-left-close {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}

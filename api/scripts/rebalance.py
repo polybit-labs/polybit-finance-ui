@@ -172,7 +172,7 @@ def rebalance(provider, detf_address, weth_input_amount):
                     sellOrder[0][3].append(str(sellListAmountsOut[i]))
                     wethBalance = wethBalance + sellListAmountsOut[i]  # simulate SELL
                 else:
-                    print("PolybitRouter: INSUFFICIENT_TOKEN_LIQUIDITY")
+                    print("PolybitRouter: CANNOT_GET_PATH_FOR_TOKEN")
 
     adjustToSellOrder = [
         [
@@ -218,7 +218,7 @@ def rebalance(provider, detf_address, weth_input_amount):
                     wethBalance = wethBalance + adjustToSellListAmountsOut[i]
                     # simulate SELL
                 else:
-                    print("PolybitRouter: INSUFFICIENT_TOKEN_LIQUIDITY")
+                    print("PolybitRouter: CANNOT_GET_PATH_FOR_TOKEN")
 
     print("Sell orders passed")
 
@@ -295,7 +295,7 @@ def rebalance(provider, detf_address, weth_input_amount):
                     adjustToBuyOrder[0][3].append(str(adjustToBuyListAmountsOut[i]))
 
                 else:
-                    print("PolybitRouter: INSUFFICIENT_TOKEN_LIQUIDITY")
+                    print("PolybitRouter: CANNOT_GET_PATH_FOR_TOKEN")
 
     print("Adjust to buy passed")
     buyOrder = [
@@ -345,7 +345,7 @@ def rebalance(provider, detf_address, weth_input_amount):
                     buyOrder[0][3].append(str(buyListAmountsOut[i]))
 
                 else:
-                    print("PolybitRouter: INSUFFICIENT_TOKEN_LIQUIDITY")
+                    print("PolybitRouter: CANNOT_GET_PATH_FOR_TOKEN")
 
     print("Buy list passed")
 

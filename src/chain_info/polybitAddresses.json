@@ -1,0 +1,12 @@
+{
+  "5777": {
+    "router": "0x1824f1aabA58a677824EcbfF7dd5B25d695786b0",
+    "rebalancer": "0x5e7599a8887649012E791799583EecEf644a70f4",
+    "detf_factory": "0x0bB1B04cDD8E98AF3aa9A3Ba0Cd1Bf7D03bF30CA"
+  },
+  "56": {
+    "router": "0x1824f1aabA58a677824EcbfF7dd5B25d695786b0",
+    "rebalancer": "0x5e7599a8887649012E791799583EecEf644a70f4",
+    "detf_factory": "0x0bB1B04cDD8E98AF3aa9A3Ba0Cd1Bf7D03bF30CA"
+  }
+}

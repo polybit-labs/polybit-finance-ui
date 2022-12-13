@@ -1,0 +1,215 @@
+.close-table-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #e3e3e3;
+    padding-left: 120px;
+    padding-right: 120px;
+    cursor: default;
+}
+
+.close-table-container-inactive {
+    display: none;
+}
+
+
+.close-detf-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #e3e3e3;
+    padding-bottom: 100px;
+}
+
+.close-detf-header {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    cursor: default;
+}
+
+.close-detf-header-item-detf {
+    width: 30%;
+    font-size: 14px;
+    font-weight: 700;
+    padding-left: 20px;
+}
+
+.close-detf-header-item-value {
+    width: 15%;
+    font-size: 14px;
+    font-weight: 700;
+    padding-left: 20px;
+}
+
+.close-detf-header-item-return {
+    width: 15%;
+    font-size: 14px;
+    font-weight: 700;
+    padding-left: 20px;
+}
+
+.close-detf-header-item-return-percentage {
+    width: 15%;
+    font-size: 14px;
+    font-weight: 700;
+    padding-left: 20px;
+}
+
+.close-detf-header-item-timelock {
+    width: 25%;
+    font-size: 14px;
+    font-weight: 700;
+    padding-left: 20px;
+}
+
+.close-detf-row {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #EEEEEE;
+    border: 1px solid #fff;
+    border-radius: 4px;
+    margin-top: 14px;
+    cursor: default;
+    font-size: 20px;
+    font-weight: 700;
+    color: #000;
+}
+
+.close-detf-row-items {
+    width: 100%;
+    height: 88px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 4px;
+    cursor: default;
+    font-size: 20px;
+    font-weight: 700;
+    color: #000;
+}
+
+.close-detf-row-item-detf {
+    width: 30%;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+}
+
+.close-detf-row-item-value {
+    width: 15%;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+}
+
+.close-detf-row-item-return {
+    width: 15%;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+}
+
+.close-detf-row-item-return-percentage {
+    width: 15%;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+}
+
+.close-detf-row-item-timelock {
+    width: 25%;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+}
+
+.close-index-chain-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+    font-size: 16px;
+}
+
+.close-index-chain-logo {
+    height: 26px;
+    width: 26px;
+    margin-right: 5px;
+}
+
+.close-detf-button {
+    width: 100%;
+    padding-bottom: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.button-primary {
+    border-radius: 4px;
+    outline: none;
+    border: 2px solid #000000;
+    cursor: pointer;
+    background-color: #000000;
+    color: #fff;
+    width: 228px;
+    height: 66px;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.confirming-close-wrapper-inactive {
+    display: none;
+}
+
+.confirming-close-wrapper {
+    width: 100%;
+    background-color: #EEEEEE;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 36px;
+    font-weight: 700;
+}
+
+.success-close-wrapper-inactive {
+    display: none;
+}
+
+.success-close-wrapper {
+    width: 100%;
+    background-color: #EEEEEE;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.success-close-button-link {
+    text-decoration: none;
+}

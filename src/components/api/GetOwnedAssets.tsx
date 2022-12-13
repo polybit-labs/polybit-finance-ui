@@ -16,7 +16,6 @@ export const GetOwnedAssets = (detfAddress: string) => {
             body: JSON.stringify({ "rpc_provider": rpc, "detf_address": detfAddress })
         }).then(res => res.json()).then(data => {
             setResponse(data);
-            console.log(data)
         });
     }, []);
 

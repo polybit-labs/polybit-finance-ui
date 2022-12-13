@@ -16,7 +16,6 @@ export const GetOrderData = (detfAddress: string, weth_input_amount: string) => 
             body: JSON.stringify({ "rpc_provider": rpc, "detf_address": detfAddress, "weth_input_amount": weth_input_amount })
         }).then(res => res.json()).then(data => {
             setResponse(data);
-            console.log(data)
         });
     }, []);
 

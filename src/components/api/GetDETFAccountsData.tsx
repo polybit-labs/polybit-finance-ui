@@ -16,7 +16,6 @@ export const GetDETFAccountsData = (wallet_owner: string) => {
             body: JSON.stringify({ "rpc_provider": rpc, "wallet_owner": wallet_owner })
         }).then(res => res.json()).then(data => {
             setResponse(data);
-            console.log(data)
         });
     }, []);
 

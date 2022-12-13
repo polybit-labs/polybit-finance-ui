@@ -1,8 +1,18 @@
 import { useState, useEffect } from "react"
 import { useNetwork } from "wagmi"
 
-export const GetPerformanceData = (detfAddress: string) => {
-    const [response, setResponse] = useState<Array<any>>()
+export interface PerformanceData {
+    date: string;
+    index_price: number;
+    performance_7d: number;
+    performance_30d: number;
+    performance_90d: number;
+    performance_180d: number;
+    performance_365d: number;
+    performance_730d: number;
+}
+export const GetPerformanceData = (url: string) => {
+    const [response, setResponse] = useState<Array<PerformanceData>>()
     const network = useNetwork()
     const rpc = network.chain?.rpcUrls.default
     let isLoading: boolean
@@ -13,10 +23,9 @@ export const GetPerformanceData = (detfAddress: string) => {
             method: "POST",
             cache: "no-cache",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ "rpc_provider": rpc, "detf_address": detfAddress })
+            body: JSON.stringify({ "url": url })
         }).then(res => res.json()).then(data => {
             setResponse(data);
-            console.log(data)
         });
     }, []);
 

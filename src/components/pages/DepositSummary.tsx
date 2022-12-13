@@ -1,11 +1,14 @@
 import { useState, ChangeEvent, useEffect } from 'react'
 import "./Deposit.css"
 import { Link } from 'react-router-dom'
-import { truncateAddress } from '../../utils'
+import { TruncateAddress } from '../utils/Formatting'
 import { useLocation } from 'react-router-dom'
 import PolybitDETFInterface from "../../chain_info/IPolybitDETF.json"
 import { Interface, parseUnits } from 'ethers/lib/utils'
-import Title from "../Title"
+import Title from "../containers/Title"
+import SubTitle from "../containers/SubTitle"
+import MainContainer from '../containers/Main'
+import ContentBox from '../containers/ContentBox'
 import {
     useAccount,
     useNetwork,
@@ -16,11 +19,9 @@ import {
     useWaitForTransaction
 } from "wagmi"
 import Footer from './Footer'
-import DateTypeDropDown from '../DateTypeDropdown'
 import { Progress } from '../Progress'
-import ContentBox from '../ContentBox'
-import { OwnedDETFCount } from '../OwnedDETFCount'
-import { GetOrderData } from '../OrderData'
+
+import { GetOrderData } from '../api/GetOrderData'
 
 function DepositSummary() {
     const ethers = require("ethers")
@@ -41,29 +42,18 @@ function DepositSummary() {
     const rpc = network.chain?.rpcUrls.default
     const wethAmount = Math.round(10 ** 18 * depositInputValue).toString()
 
-    console.log("detfAddress", detfAddress)
+    console.log("detfAddress", detfAddress, "rpc", rpc, "weth", wethAmount)
+
+    const { response: detfOrderData, isLoading: orderDataLoading, isSuccess: orderDataSuccess } = GetOrderData(detfAddress, wethAmount)
 
     useEffect(() => {
-        fetch('/api/rebalancer', {
-            method: "POST",
-            cache: "no-cache",
-            headers: { "content_type": "application/json" }, body: JSON.stringify({ "rpc_provider": rpc, "detf_address": detfAddress, "weth_input_amount": wethAmount })
-        }).then(res => res.json()).then(data => {
-            setOrderData(data);
-            console.log(data)
-        });
-    }, []);
-
-    console.log("orderData", orderData)
+        setOrderData(detfOrderData ? detfOrderData : [])
+    }, [orderDataLoading, orderDataSuccess])
 
     const [depositStage, setDepositStage] = useState("summary")
     const [internalActiveStage, setInternalActiveStage] = useState(activeStage ? activeStage : 1)
     const moment = require('moment')
     const [depositSuccess, setDepositSuccess] = useState(false)
-    const ownedDETFCount = OwnedDETFCount()
-
-
-
 
     const [showDropDown, setShowDropDown] = useState<boolean>(false);
     const [selectDateFormat, setDateFormat] = useState<string>("Years");
@@ -180,15 +170,7 @@ function DepositSummary() {
     }
 
     let prettyTimeLockValue = PrettyTimeLockValue()
-
-    /* const emptyArray = [[[], [], [[[], [], [], [],]], [], [[[], [], [], [],]], [], [], [[[], [], [], [],]], [], [], [], [
-        [[], [], [], [],]], [], [], [], [[[], [], [], [],]],]]
-    const [orderData, setOrderData] = useState<Array<any> | undefined>(emptyArray)
-    //const orderDataResponse: any | undefined = GetOrderData(detfAddress, depositInputValue)
-    const orderDataResponse: any | undefined = GetOrderData(detfAddress, depositInputValue) */
     const depositAmount = (10 ** 18 * depositInputValue).toString()
-    console.log(depositAmount)
-    console.log(walletOwner)
 
     const { config: detfDepositConfig, error: detfDepositError } = usePrepareContractWrite({
         addressOrName: detfAddress,
@@ -222,53 +204,53 @@ function DepositSummary() {
 
     return (
         <>
-            <Title title={title} info={`You are about to deposit funds from your address ${truncateAddress(walletOwner ? walletOwner : "")} into the ${category} ${dimension} DETF using ${connector?.name}.`}
-                switchButton={false} />
+            <Title title={title} />
+            <SubTitle info={`You are about to deposit funds from your address ${TruncateAddress(walletOwner ? walletOwner : "")} into the ${category} ${dimension} DETF using ${connector?.name}.`} />
             <Progress processOrigin={processOrigin} activeStage={internalActiveStage} />
-            <ContentBox>
-                <div>
-                    <div className={!depositSuccess && !transactionLoading && depositStage === "summary" ? "deposit-summary" : "deposit-summary-inactive"}>
-                        <p>Polybit PGT20 aims to track the performance of an index (before fees and expenses) comprising 20 of the largest governance assets by liquidity on the Binance chain. The smart contract you generate at the time of investment will automatically facilitate ongoing trades to maintain pooled asset positions, as asset positions shift, leave, or enter the pool over time.
-                            Your holdings will rebalance through automated buys and sells over time to maintain a reflection of the top assets in this fund. Holding weighting is determined according to oracle data including, but not limited to, market capitalisation and daily trading volume. Assets that do not meet our risk criteria for certification or minimum liquidity thresholds may be excluded from pool inclusion. Learn more about our pool policies.</p>
-                        <div className="deposit-summary-info">
-                            <div className="deposit-summary-info-bar"></div>
-                            <div className="deposit-summary-info-titles">
-                                <ul>
-                                    <li>DETF Strategy</li>
-                                    <li>Ecosystem</li>
-                                    <li>Investment</li>
-                                    <li>Deposit Fee</li>
-                                    <li>Time Locked</li>
-                                    <li>Your Wallet Address</li>
-                                </ul>
+            <MainContainer>
+                <ContentBox>
+                    <div>
+                        <div className={!depositSuccess && !transactionLoading && depositStage === "summary" ? "deposit-summary" : "deposit-summary-inactive"}>
+                            <p>Polybit PGT20 aims to track the performance of an index (before fees and expenses) comprising 20 of the largest governance assets by liquidity on the Binance chain. The smart contract you generate at the time of investment will automatically facilitate ongoing trades to maintain pooled asset positions, as asset positions shift, leave, or enter the pool over time.
+                                Your holdings will rebalance through automated buys and sells over time to maintain a reflection of the top assets in this fund. Holding weighting is determined according to oracle data including, but not limited to, market capitalisation and daily trading volume. Assets that do not meet our risk criteria for certification or minimum liquidity thresholds may be excluded from pool inclusion. Learn more about our pool policies.</p>
+                            <div className="deposit-summary-info">
+                                <div className="deposit-summary-info-bar"></div>
+                                <div className="deposit-summary-info-titles">
+                                    <ul>
+                                        <li>DETF Strategy</li>
+                                        <li>Ecosystem</li>
+                                        <li>Investment</li>
+                                        <li>Deposit Fee</li>
+                                        <li>Time Locked</li>
+                                        <li>Your Wallet Address</li>
+                                    </ul>
+                                </div>
+                                <div className="deposit-summary-info-results">
+                                    <ul>
+                                        <li>{category}</li>
+                                        <li>{chain?.name}</li>
+                                        <li>{walletBalance?.symbol} {depositInputValue} {"(USD $302)"}</li>
+                                        <li>0.05%</li> {/* get from detf factory */}
+                                        <li>{prettyTimeLockValue}</li>
+                                        <li>{walletOwner}</li>
+                                    </ul>
+                                </div>
                             </div>
-                            <div className="deposit-summary-info-results">
-                                <ul>
-                                    <li>{category}</li>
-                                    <li>{chain?.name}</li>
-                                    <li>{walletBalance?.symbol} {depositInputValue} {"(USD $302)"}</li>
-                                    <li>0.05%</li> {/* get from detf factory */}
-                                    <li>{prettyTimeLockValue}</li>
-                                    <li>{walletOwner}</li>
-                                </ul>
-                            </div>
+                            {orderDataLoading && (<img height="90px" width="90px" src={require("../../assets/images/loading.gif")} alt="Loading"></img>)}
+                            {orderDataSuccess && (<button className="deposit-confirmation-button-primary" disabled={!detfDeposit} onClick={() => detfDeposit?.()}>Finalize and commit funds</button>)}
+                            <div className="deposit-back-button" onClick={() => { setDepositStage("input"); setInternalActiveStage(activeStage) }}>Make changes to investment setup</div>
                         </div>
-                        <button className="deposit-confirmation-button-primary" disabled={!detfDeposit} onClick={() => detfDeposit?.()}>Finalize and commit funds</button>
-                        <div className="deposit-back-button" onClick={() => { setDepositStage("input"); setInternalActiveStage(activeStage) }}>Make changes to investment setup</div>
-                        <div>{detfDepositError && (<div>Error</div>)}</div>
+                        <div className={transactionLoading ? "confirming-detf-wrapper" : "confirming-detf-wrapper-inactive"}>
+                            {transactionLoading && (<div>Waiting for confirmation from the blockchain...</div>)}
+                        </div>
+                        <div className={depositSuccess ? "success-detf-wrapper" : "success-detf-wrapper-inactive"}>
+                            <div>Congratulations, your deposit of BNB X into {category} {dimension} DETF has been confirmed on the blockchain.</div>
+                            <Link className="success-deposit-button-link" to="/account">
+                                <button className="success-deposit-button">Go To My Account</button></Link>
+                        </div>
                     </div>
-                    <div className={transactionLoading ? "confirming-detf-wrapper" : "confirming-detf-wrapper-inactive"}>
-                        {transactionLoading && (<div>Waiting for confirmation from the blockchain...</div>)}
-                    </div>
-                    <div className={depositSuccess ? "success-detf-wrapper" : "success-detf-wrapper-inactive"}>
-                        <div>Congratulations, your deposit of BNB X into {category} {dimension} DETF has been confirmed on the blockchain.</div>
-                        <Link className="success-deposit-button-link" to="/account" state={{ detfCount: { ownedDETFCount } }}>
-                            <button className="success-deposit-button">Go To My Account</button></Link>
-                        {/* 
-                        validate the deposit amount is available - transactionrecipt emit event */}
-                    </div>
-                </div>
-            </ContentBox>
+                </ContentBox>
+            </MainContainer>
             <Footer />
         </>
     )

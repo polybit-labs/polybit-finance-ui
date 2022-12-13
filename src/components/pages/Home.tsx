@@ -1,15 +1,16 @@
-import React from 'react'
 import Hero from '../Hero'
+import TitleContainer from '../containers/Title'
+import MainContainer from '../containers/Main'
 import Footer from "./Footer"
-import "./Home.css"
 
 function Home() {
     return (
         <>
-            <div className="hp-title-section">
-                <h1>Invest in Decentralized ETFs</h1>
-            </div>
+            <TitleContainer title="Invest in Decentralized ETFs" />
             <Hero />
+            <MainContainer>
+
+            </MainContainer>
             <Footer />
         </>
     )

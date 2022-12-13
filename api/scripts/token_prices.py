@@ -28,6 +28,25 @@ def get_token_price(token):
     return ""
 
 
+def get_token_price_vs_currency(token):
+    print("Getting token price vs currency from CoinGecko")
+    url = (
+        "https://pro-api.coingecko.com/api/v3/coins/binance-smart-chain/contract/"
+        + token.lower()
+        + "?x_cg_pro_api_key="
+        + api_key
+    )
+    try:
+        res = requests.get(url)
+        data = res.json()
+        prices = data["market_data"]["current_price"]
+        print(prices)
+        return prices
+    except:
+        print("Could not retrieve data for", token)
+    return ""
+
+
 def get_token_prices(tokens):
     prices = []
     if tokens != []:

@@ -6,7 +6,7 @@ PATH = str(Path(os.path.abspath(os.path.dirname(__file__))).parent.parent)
 
 
 def get_polybit_addresses():
-    f = open(PATH + "/src/chain_info/map.json")
+    f = open(PATH + "/src/chain_info/polybitAddresses.json")
     json_file = json.load(f)
     rebalancer_address = json_file["56"]["rebalancer"]
     router_address = json_file["56"]["router"]

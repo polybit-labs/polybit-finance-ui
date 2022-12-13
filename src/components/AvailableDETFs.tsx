@@ -2,9 +2,7 @@ import { useAccount, useNetwork } from "wagmi"
 import { Interface } from 'ethers/lib/utils'
 import { useContractRead } from 'wagmi'
 import PolybitDETFFactoryInterface from "../chain_info/IPolybitDETFFactory.json"
-import map from "../chain_info/map.json"
-import { Rebalancer } from "./Rebalancer"
-import { Flask } from "./Flask"
+import polybitAddresses from "../chain_info/polybitAddresses.json"
 import { GetPrice } from "./api/GetPrice"
 import { GetPrices } from "./api/GetPrices"
 import { GetOrderData } from "./api/GetOrderData"
@@ -14,11 +12,14 @@ import { GetDETFAccounts } from "./api/GetDETFAccounts"
 import { GetProductData } from "./api/GetProductData"
 import { GetPerformanceData } from "./api/GetPerformanceData"
 import { GetDETFAccountsData } from "./api/GetDETFAccountsData"
+import InlineDropDown from "./InlineDropDown"
+import { useEffect, useState } from "react"
+import sortDown from "../assets/icons/sort-down-solid.svg"
 
 
 export function AvailableDETFs() {
     const IPolybitDETFFactory = new Interface(PolybitDETFFactoryInterface)
-    const detfFactoryAddress: string = map["5777"]["detf_factory"][0]
+    const detfFactoryAddress: string = polybitAddresses["5777"]["detf_factory"]
     const { address: walletOwner, connector, isConnected } = useAccount()
     const { chain, chains } = useNetwork()
     const array = Array(10)
@@ -47,7 +48,7 @@ export function AvailableDETFs() {
     //"0x35EfcC904EB9d853FFcf7Fe91D6e8681B6D9D218"
     //"0xBe7985A4c9004CCF8b05a288bF10e5F87296f10a"
 
-    console.log("addresses", ownedDETFsData)
+    /* console.log("addresses", ownedDETFsData)
     let detfAddress = ownedDETFsData[0]
 
     const { response: price } = GetPrice("0x3203c9E46cA618C8C1cE5dC67e7e9D75f5da2377")
@@ -71,11 +72,15 @@ export function AvailableDETFs() {
     const { response: orderData, isLoading: orderDataLoading, isSuccess: orderDataSuccess } = GetOrderData(detfAddress, Math.round(10 ** 18 * 2).toString())
     console.log(orderData)
 
-    const { response: productData, isLoading: productDataLoading, isSuccess: productDataSuccess } = GetProductData(detfAddress)
+    const S3PATH = "https://polybit-finance.s3.ap-southeast-1.amazonaws.com/detfs/"
+    const url = S3PATH + "bnb-smart-chain/defi/dex-liquidity"
+    console.log("url", url)
+
+    const { response: productData, isLoading: productDataLoading, isSuccess: productDataSuccess } = GetProductData(url ? url : "")
     console.log(productData)
 
-    const { response: performanceData, isLoading: performanceDataLoading, isSuccess: performanceDataSuccess } = GetPerformanceData(detfAddress)
-    console.log(performanceData)
+    const { response: performanceData, isLoading: performanceDataLoading, isSuccess: performanceDataSuccess } = GetPerformanceData(url ? url : "")
+    console.log(performanceData) 
 
     return (
         <>
@@ -109,6 +114,33 @@ export function AvailableDETFs() {
             {orderDataSuccess && (
                 <div>{JSON.stringify(orderData)}</div>)}
         </>
+    )*/
+
+    const categories = ["All", "Defi", "Metaverse", "BSC Index Top 10"]
+    const [showDropDown, setShowDropDown] = useState<boolean>(false)
+    const [selectDropDownOption, setDropDownOption] = useState<string>("all categories")
+    const toggleDropDown = () => {
+        setShowDropDown(!showDropDown)
+    }
+    const dismissHandler = (event: React.FocusEvent<HTMLButtonElement>): void => {
+        if (event.currentTarget === event.target) {
+            setShowDropDown(false)
+        }
+    }
+    const dropDownSelection = (selection: string): void => {
+        setDropDownOption(selection)
+    }
+
+    function SetFilterOption(filter: string) {
+        console.log(filter)
+    }
+
+    useEffect(() => {
+        SetFilterOption(selectDropDownOption)
+    }, [selectDropDownOption, setDropDownOption])
+
+    return (
+        <div></div>
     )
 }
 

@@ -1,13 +1,7 @@
 import { useEffect, useState } from 'react'
 import "./AccountTable.css"
-import { getNumValueColor } from '../utils'
-import { Link } from 'react-router-dom'
-import { GetProductCategory, GetProductDimension, GetOwnedAssets, GetOwnedAssetsPrices, GetProductId, GetTimeLockRemaining, GetTotalBalanceInWeth, GetTotalDeposited, GetTimeToUnlock, GetTotalReturnPercentageOfDETF } from './utils/DETFUtils'
-import {
-    useAccount,
-    useBalance
-} from "wagmi"
-import { Rebalancer } from './Rebalancer'
+import { useAccount, useBalance } from "wagmi"
+import { AccountTableRow } from './AccountTableRow'
 
 interface DETFSummary {
     "productId": number;
@@ -18,57 +12,28 @@ interface DETFSummary {
     "lockStatus": string;
 }
 
-export const AccountTable = (props: any) => {
+interface AccountTableProps {
+    detfAccounts: Array<string>;
+    detfAccountsData: Array<any>;
+    vsPrices: any;
+    currency: string;
+}
+
+export const AccountTable = (props: AccountTableProps) => {
     const { address: walletOwner, connector, isConnected } = useAccount()
     const { data: walletBalance } = useBalance({
         addressOrName: walletOwner,
     })
-    const ownedDETFsData: Array<string> = props.data
-    console.log("hrr", ownedDETFsData)
-
-    const GetDETFAccountData = () => {
-        let detfAccounts: Array<any> = []
-        let count = 0
-
-        for (let i = 0; i < ownedDETFsData.length; i++) {
-            detfAccounts.push({
-                "detfAddress": ownedDETFsData[i],
-                "productId": GetProductId(ownedDETFsData[i]),
-                "category": GetProductCategory(ownedDETFsData[i]),
-                "dimension": GetProductDimension(ownedDETFsData[i]),
-                "marketValue": `${walletBalance?.symbol} ${parseFloat((Number(GetTotalBalanceInWeth(ownedDETFsData[i], GetOwnedAssetsPrices(GetOwnedAssets(ownedDETFsData[i])))) / 10 ** 18).toString()).toFixed(4)}`,
-                "return": GetTotalReturnPercentageOfDETF(ownedDETFsData[i]),
-                "lockStatus": GetTimeToUnlock(Number(GetTimeLockRemaining(ownedDETFsData[i])))
-            })
-            if (ownedDETFsData[i] !== undefined) {
-                count++
-            }
-        }
-        detfAccounts = detfAccounts.slice(0, count)
-        console.log(detfAccounts)
-        return detfAccounts
-    }
-
-    let detfAccounts = GetDETFAccountData()
-    const [detfData, setDETFData] = useState<Array<any>>(detfAccounts)
-    //const detfAccounts = GetDETFAccountData()
-
-    const [timerValue, setTimerValue] = useState(1)
+    const detfAccounts: Array<string> = props.detfAccounts
+    const detfAccountsData: Array<any> = props.detfAccountsData
+    const [detfData, setDETFData] = useState<Array<any>>(detfAccountsData)
 
     useEffect(() => {
-        const refresh = window.setInterval(() => {
-            setTimerValue((v) => v + 1)
-            if (detfData.length !== detfAccounts.length) {
-                setDETFData(((detfData) => detfAccounts))
-            }
-        }, 5000)
-        return () => window.clearInterval(refresh)
-
-    }, [timerValue])
-
-    console.log(timerValue)
-
-    console.log("detfData", detfData)
+        if (detfData.length !== detfAccountsData.length) {
+            setDETFData(((detfData) => detfAccountsData))
+        }
+    }, [detfAccounts, detfAccountsData])
+    console.log(detfData)
 
 
     const [order, setOrder] = useState("asc")
@@ -92,31 +57,31 @@ export const AccountTable = (props: any) => {
         <>
             <div className="account-detf-container">
                 <div className="account-detf-header">
-                    <div className="account-detf-header-item" onClick={() => sorting("category")}>DETF</div>
-                    <div className="account-detf-header-item" onClick={() => sorting("marketValue")}>Market Value</div>
-                    <div className="account-detf-header-item" onClick={() => sorting("return")}>Return</div>
-                    <div className="account-detf-header-item" onClick={() => sorting("lockStatus")}>Time Lock</div>
-                    <div className="account-detf-header-item"></div>
+                    <div className="account-detf-header-item-detf" onClick={() => sorting("category")}>DETF</div>
+                    <div className="account-detf-header-item-value" onClick={() => sorting("marketValue")}>Market Value</div>
+                    <div className="account-detf-header-item-return" onClick={() => sorting("return")}>Return</div>
+                    <div className="account-detf-header-item-timelock" onClick={() => sorting("lockStatus")}>Time Lock</div>
+                    <div className="account-detf-header-item-deposit"></div>
+                    <div className="account-detf-header-item-toggle"></div>
                 </div>
                 <div>
                     {detfData.length > 0 ? detfData.map((data) =>
-                        <div className="account-detf-row-items" key={data.detfAddress}>
-                            <div className="account-detf-row-item">
-                                <div className="account-index-row-item-name">
-                                    {data.category}
-                                    <div className="account-index-chain-title">
-                                        {/* <img className="account-index-chain-logo" src={require("../assets/images/bsc-logo.png")} alt="Binance Smart Chain"></img> */}
-                                        {data.dimension}
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="account-detf-row-item">{data.marketValue}</div>
-                            <div className="account-detf-row-item" style={{ color: getNumValueColor(data.return) }}> {parseFloat((data.return).toString()).toFixed(2) + "%"}</div>
-                            <div className="account-detf-row-item">{data.lockStatus}</div>
-                            <div className="account-detf-row-item">
-                                <Link className="account-detf-row-item-link" to="/deposit" state={{ category: data.category, dimension: data.dimension, productId: data.productId, detfAddress: data.detfAddress, processOrigin: "deposit", activeStage: 1 }}><u>Deposit</u></Link>
-                                {/* <Rebalancer detfAddress={data.detfAddress} /> */}
-                            </div>
+                        <div key={data.detf_address}>
+                            <AccountTableRow
+                                category={data.category}
+                                dimension={data.dimension}
+                                status={data.status}
+                                balance_in_weth={data.balance_in_weth}
+                                final_balance_in_weth={data.final_balance_in_weth}
+                                return_percentage={data.return_percentage}
+                                final_return_percentage={data.final_return_percentage}
+                                lockStatus={data.time_lock_remaining}
+                                product_id={data.product_id}
+                                detf_address={data.detf_address}
+                                deposits={data.deposits}
+                                total_deposits={data.total_deposits}
+                                vsPrices={props.vsPrices}
+                                currency={props.currency} />
                         </div>) :
                         <div>
                             <div className="account-detf-row-loading">

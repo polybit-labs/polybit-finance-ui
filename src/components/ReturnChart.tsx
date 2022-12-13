@@ -1,4 +1,4 @@
-import { LineChart, Line, Tooltip, XAxis, YAxis, ResponsiveContainer } from 'recharts';
+import { LineChart, Line, Tooltip, XAxis, YAxis, ResponsiveContainer, AreaChart, Area } from 'recharts';
 
 interface chartProps {
     width: string | number
@@ -18,13 +18,12 @@ export const ReturnChart = (props: chartProps) => {
 
     return (
         <ResponsiveContainer width={props.width} height={props.height}>
-            <LineChart data={performanceData90d} margin={{ left: -15 }}>
-                <Line type="linear" dataKey="index_price" stroke="#875CFF" strokeWidth={3} dot={false} />
-                {/* <CartesianGrid stroke="#EEEEEE" strokeDasharray="5 5" /> */}
+            <AreaChart data={performanceData90d} margin={{ left: -15 }}>
+                <Area type="monotone" dataKey="index_price" stroke="#875CFF" strokeWidth={2} fillOpacity={1} fill="#DEDDE4" />
                 <XAxis dataKey="date" tickFormatter={formatXAxis} color={"#000000"} tick={{ fontSize: "14px" }} />
                 <YAxis type="number" domain={['auto', 'auto']} tickFormatter={formatYAxis} tick={{ fontSize: "14px" }} />
                 <Tooltip />
-            </LineChart >
+            </AreaChart >
         </ResponsiveContainer>
     )
 }
