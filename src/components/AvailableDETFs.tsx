@@ -12,7 +12,7 @@ import { GetDETFAccounts } from "./api/GetDETFAccounts"
 import { GetProductData } from "./api/GetProductData"
 import { GetPerformanceData } from "./api/GetPerformanceData"
 import { GetDETFAccountsData } from "./api/GetDETFAccountsData"
-import InlineDropDown from "./InlineDropDown"
+import InlineDropDown from "./dropdowns/InlineDropDown"
 import { useEffect, useState } from "react"
 import sortDown from "../assets/icons/sort-down-solid.svg"
 
