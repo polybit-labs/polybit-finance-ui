@@ -196,12 +196,12 @@ def rebalance(provider, detf_address, weth_input_amount):
 
         for i in range(0, len(adjustToSellList)):
             if adjustToSellList[i] != "0x0000000000000000000000000000000000000000":
-                path = router.getLiquidPath(
+                path = router.functions.getLiquidPath(
                     adjustToSellList[i],
                     weth_address,
                     adjustToSellListAmountsIn[i],
                     adjustToSellListAmountsOut[i],
-                )
+                ).call()
                 if len(path) > 0:
                     print(
                         "Adjust To Sell",

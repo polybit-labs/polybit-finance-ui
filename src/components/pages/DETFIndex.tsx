@@ -9,7 +9,7 @@ import { GetProductData } from '../api/GetProductData'
 import { GetPerformanceData } from '../api/GetPerformanceData'
 import { GetPriceVsCurrency } from '../api/GetPriceVsCurrency'
 import { Loading } from '../Loading'
-import DropDown from '../dropdowns/InlineDropDown'
+import InlineDropDown from '../dropdowns/InlineDropDown'
 import sortDown from "../../assets/icons/sort-down-solid.svg"
 
 
@@ -109,7 +109,7 @@ function DETFIndex() {
     >
         <div>{categoryFilter ? categoryFilter : "Select ..."} <img src={sortDown} height="20px" width="20px"></img></div>
         {showCategoryDropDown && (
-            <DropDown
+            <InlineDropDown
                 options={categories}
                 showDropDown={false}
                 toggleDropDown={(): void => toggleCategoryDropDown()}
@@ -125,7 +125,7 @@ function DETFIndex() {
     >
             <div>{dimensionFilter ? dimensionFilter : "Select ..."} <img src={sortDown} height="20px" width="20px"></img></div>
             {showDimensionDropDown && (
-                <DropDown
+                <InlineDropDown
                     options={dimensions}
                     showDropDown={false}
                     toggleDropDown={(): void => toggleDimensionDropDown()}

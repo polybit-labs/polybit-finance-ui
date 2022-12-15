@@ -40,17 +40,17 @@ function Deposit() {
     const moment = require('moment')
     const [depositSuccess, setDepositSuccess] = useState(false)
     const onChangeDeposit = (e: ChangeEvent<HTMLInputElement>) => {
-        setdepositInputValue(e.target.value);
+        setdepositInputValue(e.target.value)
     }
 
     const onChangeTimeLock = (e: ChangeEvent<HTMLInputElement>) => {
-        settimeLockInputValue(e.target.value);
+        settimeLockInputValue(e.target.value)
     }
 
-    const [showDropDown, setShowDropDown] = useState<boolean>(false);
-    const [selectDateFormat, setDateFormat] = useState<string>("Years");
+    const [showDropDown, setShowDropDown] = useState<boolean>(false)
+    const [selectDateFormat, setDateFormat] = useState<string>("Years")
     const dateFormats = () => {
-        return ["Days", "Months", "Years"];
+        return ["Days", "Months", "Years"]
     };
 
     const toggleDropDown = () => {

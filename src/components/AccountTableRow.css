@@ -11,7 +11,7 @@
     cursor: default;
     font-size: 20px;
     font-weight: 700;
-    color: #000;
+    color: #909090;
 }
 
 .account-detf-row-items {
@@ -25,7 +25,6 @@
     cursor: default;
     font-size: 20px;
     font-weight: 700;
-    color: #000;
 }
 
 .account-detf-row-item-detf {
@@ -72,6 +71,7 @@
     justify-content: left;
     align-items: center;
     font-size: 16px;
+    color: #000;
 }
 
 .account-detf-row-item-link {
@@ -86,6 +86,7 @@
     justify-content: left;
     align-items: center;
     font-size: 16px;
+    color: #000;
 }
 
 .account-detf-row-loading {
@@ -211,6 +212,7 @@
     display: flex;
     flex-direction: row;
     margin-top: 30px;
+    width: 100%;
 }
 
 .account-detf-expanded-content-left-invested-summary-line {
@@ -222,6 +224,7 @@
     padding-top: 10px;
     padding-bottom: 10px;
     padding-left: 10px;
+    width: 100%;
 }
 
 .account-detf-expanded-content-left-invested-summary-table ul {

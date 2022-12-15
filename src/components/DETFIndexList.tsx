@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import "./DETFIndexList.css"
-import { ColourCategories, ColourNumbers } from './utils/Formatting'
+import { ColourCategories, ColourNumbers, FormatPercentages } from './utils/Formatting'
 import { Link } from "react-router-dom"
 import { FormatCurrency } from "./utils/Currency"
 import { Loading } from './Loading'
@@ -26,12 +26,13 @@ interface DETFIndexListProps {
 }
 
 const DETFIndexList = (props: DETFIndexListProps) => {
-    const FormatIndex = () => {
-        const sorted = [...props.detfIndex].sort((a, b) =>
-            a.returnOneWeek < b.returnOneWeek ? 1 : -1)
+    console.log("DETFIndex", props.detfIndex)
+    const FormatIndex = (data: Array<any>) => {
+        /* const sorted = [...props.detfIndex].sort((a, b) =>
+            a.returnOneWeek < b.returnOneWeek ? 1 : -1) */
         const formatted: Array<any> = []
 
-        sorted.map((detf) => {
+        data.map((detf) => {
             formatted.push({
                 "chainId": detf.chainId,
                 "chainName": detf.chainName,
@@ -66,24 +67,25 @@ const DETFIndexList = (props: DETFIndexListProps) => {
         return formatted
     }
 
-    const detfIndex = FormatIndex()
+    /*  */
+    /* const detfIndex = props.detfIndex */
     let filteredData: any = []
     const filterData = () => {
         if (props.categoryFilter === "all categories" && props.dimensionFilter === "all dimensions") {
-            filteredData = detfIndex
+            filteredData = props.detfIndex
         }
         if (props.categoryFilter !== "all categories" && props.dimensionFilter === "all dimensions") {
-            filteredData = detfIndex.filter(detf => {
+            filteredData = props.detfIndex.filter(detf => {
                 return detf.category === props.categoryFilter
             })
         }
         if (props.categoryFilter === "all categories" && props.dimensionFilter !== "all dimensions") {
-            filteredData = detfIndex.filter(detf => {
+            filteredData = props.detfIndex.filter(detf => {
                 return detf.dimension === props.dimensionFilter
             })
         }
         if (props.categoryFilter !== "all categories" && props.dimensionFilter !== "all dimensions") {
-            filteredData = detfIndex.filter(detf => {
+            filteredData = props.detfIndex.filter(detf => {
                 return detf.category === props.categoryFilter && detf.dimension === props.dimensionFilter
             })
         }
@@ -110,19 +112,11 @@ const DETFIndexList = (props: DETFIndexListProps) => {
             setOrder("asc")
         }
     }
-    console.log(detfIndexData)
-    const logos = ["https://raw.githubusercontent.com/polybit-labs/token-list/main/assets/logos/dai.png",
-        "https://raw.githubusercontent.com/polybit-labs/token-list/main/assets/logos/uniswap.png",
-        "https://raw.githubusercontent.com/polybit-labs/token-list/main/assets/logos/chainlink.png",
-        "https://raw.githubusercontent.com/polybit-labs/token-list/main/assets/logos/pancakeswap-token.png",
-        "https://raw.githubusercontent.com/polybit-labs/token-list/main/assets/logos/injective-protocol.png",
-        "https://raw.githubusercontent.com/polybit-labs/token-list/main/assets/logos/coin98.png",
-        "https://raw.githubusercontent.com/polybit-labs/token-list/main/assets/logos/venus.png",
-        "https://raw.githubusercontent.com/polybit-labs/token-list/main/assets/logos/stargate-finance.png",
-        "https://raw.githubusercontent.com/polybit-labs/token-list/main/assets/logos/seedify-fund.png",
-        "https://raw.githubusercontent.com/polybit-labs/token-list/main/assets/logos/polkastarter.png"]
 
-    const FormatLogoChain = (logos: Array<string>) => {
+    const detfIndex = FormatIndex(detfIndexData)
+
+
+    /* const FormatLogoChain = (logos: Array<string>) => {
         const formatted = <div className="token-logo-chain-items">
             {logos[0] && (<img className="token-logo-chain-item" src={logos[0]} style={{ marginLeft: `${160}px` }}></img>)}
             {logos[1] && (<img className="token-logo-chain-item" src={logos[1]} style={{ marginLeft: "144px" }}></img>)}
@@ -136,9 +130,9 @@ const DETFIndexList = (props: DETFIndexListProps) => {
             {logos[9] && (<img className="token-logo-chain-item" src={logos[9]} style={{ marginLeft: "16px" }}></img>)}
         </div>
         return formatted
-    }
+    } */
 
-    if (detfIndexData) {
+    if (detfIndex) {
         return (
             <>
                 <div className="detf-index-container">
@@ -150,11 +144,11 @@ const DETFIndexList = (props: DETFIndexListProps) => {
                             <div className="detf-index-header-item-one-month" onClick={() => sorting("returnOneMonth")}>1 Month</div>
                             <div className="detf-index-header-item-three-months" onClick={() => sorting("returnThreeMonths")}>3 Months</div>
                             <div className="detf-index-header-item-one-year" onClick={() => sorting("returnOneYear")}>1 Year</div>
-                            <div className="detf-index-header-item-logos"></div>
+                            {/* <div className="detf-index-header-item-logos"></div> */}
                             <div className="detf-index-header-item-view"></div>
                         </div>
                         <div>
-                            {detfIndexData.map((detf: any) =>
+                            {detfIndex.map((detf: any) =>
                                 <div className="detf-index-row-items" key={detf.productId}>
                                     <div className="detf-index-row-item-detf">
                                         <div className="detf-index-row-item-name">
@@ -167,13 +161,13 @@ const DETFIndexList = (props: DETFIndexListProps) => {
                                         </div>
                                     </div>
                                     <div className="detf-index-row-item-liquidity">{detf.liquidity}</div>
-                                    <div className="detf-index-row-item-one-week" style={{ color: ColourNumbers(detf.returnOneWeek) }}>{parseFloat((detf.returnOneWeek * 100).toString()).toFixed(2) + "%"}</div>
-                                    <div className="detf-index-row-item-one-month" style={{ color: ColourNumbers(detf.returnOneMonth) }}>{parseFloat((detf.returnOneMonth * 100).toString()).toFixed(2) + "%"}</div>
-                                    <div className="detf-index-row-item-three-months" style={{ color: ColourNumbers(detf.returnThreeMonths) }}>{parseFloat((detf.returnThreeMonths * 100).toString()).toFixed(2) + "%"}</div>
-                                    <div className="detf-index-row-item-one-year" style={{ color: ColourNumbers(detf.returnOneYear) }}>{parseFloat((detf.returnOneYear * 100).toString()).toFixed(2) + "%"}</div>
-                                    <div className="detf-index-row-item-logos">{FormatLogoChain(detf.logos)}</div>
+                                    <div className="detf-index-row-item-one-week" >{FormatPercentages(detf.returnOneWeek * 100)}</div>
+                                    <div className="detf-index-row-item-one-month" >{FormatPercentages(detf.returnOneMonth * 100)}</div>
+                                    <div className="detf-index-row-item-three-months" >{FormatPercentages(detf.returnThreeMonths * 100)}</div>
+                                    <div className="detf-index-row-item-one-year" >{FormatPercentages(detf.returnOneYear * 100)}</div>
+                                    {/* <div className="detf-index-row-item-logos">{FormatLogoChain(detf.logos)}</div> */}
                                     <div className="detf-index-row-item-view">
-                                        <Link className="detf-index-row-item-link" to={`/detfs/${detf.urlChainId}/${detf.urlCategoryId}/${detf.urlDimensionId}`} ><u>View</u></Link>
+                                        <Link className="detf-index-row-item-link" to={`/detfs/${detf.urlChainId}/${detf.urlCategoryId}/${detf.urlDimensionId}`} >View</Link>
                                     </div>
                                 </div>)
                             }

@@ -1,3 +1,6 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { solid, regular, brands, icon } from '@fortawesome/fontawesome-svg-core/import.macro'
+
 export const TruncateAddress = (address: string) => {
     if (!address) return "No Account";
     const match = address.match(
@@ -9,12 +12,30 @@ export const TruncateAddress = (address: string) => {
 
 export const ColourNumbers = (num: number) => {
     if (num > 0) {
-        return '#0FC421';
+        return "#0FC421"
     }
     if (num < 0) {
-        return '#C20000';
+        return "#C20000"
     }
-    return '#000000';
+    return "#000000"
+}
+
+const ArrowNumbers = (num: number) => {
+    if (num > 0) {
+        return <FontAwesomeIcon icon={icon({ name: "sort-up", style: "solid" })} />
+    }
+    if (num < 0) {
+        return <FontAwesomeIcon icon={icon({ name: "sort-down", style: "solid" })} />
+    }
+    return "";
+}
+
+export const FormatPercentages = (percentage: number) => {
+    console.log("percentage", percentage)
+    return <div className="formatted-percentages" style={{ color: ColourNumbers(percentage), display: "flex", alignItems: "center", justifyContent: "center" }}>
+        <div style={{ width: "15px", paddingBottom: "0px" }}>{ArrowNumbers(percentage)}</div>
+        <div>{parseFloat(percentage.toString()).toFixed(2).replace("-", "") + "%"}</div>
+    </div>
 }
 
 export const ColourCategories = (category: string) => {

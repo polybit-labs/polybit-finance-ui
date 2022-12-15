@@ -20,6 +20,8 @@ from scripts.detf_factory_functions import get_detf_accounts
 from scripts.polybit_s3_interface import (
     get_product_data,
     get_performance_data,
+    get_top_detf_data,
+    get_historical_prices,
 )
 
 app = Flask(__name__)
@@ -60,6 +62,14 @@ def get_price_vs_currency():
 def get_prices():
     data = request.json
     prices = get_token_prices(data)
+    return prices
+
+
+@app.route("/api/get_historical_prices", methods=["POST"])
+def get_historical_prices_data():
+    data = request.json
+    date = data["date"]
+    prices = get_historical_prices(date)
     return prices
 
 
@@ -134,6 +144,12 @@ def get_performance_data_from_s3():
     url = data["url"]
     performance_data = get_performance_data(url=url)
     return performance_data
+
+
+@app.route("/api/get_top_detf_data")
+def get_top_detf_data_from_s3():
+    detf_data = get_top_detf_data()
+    return detf_data
 
 
 @app.route("/api/get_owner", methods=["POST"])

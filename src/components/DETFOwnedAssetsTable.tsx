@@ -1,5 +1,6 @@
 import { FormatCurrency } from './utils/Currency'
 import "./DETFAssetsTable.css"
+import FallbackLogo from "../assets/images/placeholder.png"
 
 interface DETFAssetsTableProps {
     tokens: Array<any>;
@@ -13,8 +14,8 @@ export const DETFOwnedAssetsTable = (props: DETFAssetsTableProps) => {
     props.tokens?.map(token => {
         ownedAssets.push({
             "tokenAddress": token.token_address,
-            "tokenLogo": "",
-            "tokenName": "",
+            "tokenLogo": token.image,
+            "tokenName": token.name,
             "tokenBalance": FormatCurrency((Number(token.token_balance)
                 / 10 ** 18 *
                 (() => {
@@ -57,7 +58,7 @@ export const DETFOwnedAssetsTable = (props: DETFAssetsTableProps) => {
                                     <td className="detf-assets-body-item">{index + 1}</td>
                                     <td className="detf-assets-body-item">
                                         <div className="detf-assets-token-logo">
-                                            <img className="detf-token-logo" src={token.tokenLogo} alt={token.tokenName}></img>
+                                            <img className="detf-token-logo" src={token.tokenLogo ? token.tokenLogo : FallbackLogo} alt={token.tokenName}></img>
                                             <b>{token.tokenName}</b>
                                         </div>
                                     </td>

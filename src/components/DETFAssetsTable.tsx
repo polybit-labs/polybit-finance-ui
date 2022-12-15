@@ -1,6 +1,7 @@
 import { CurrencyContext, FormatCurrency } from './utils/Currency'
 import "./DETFAssetsTable.css"
 import { useContext, useEffect, useState } from "react"
+import FallbackLogo from "../assets/images/placeholder.png"
 
 interface DETFAssetsTableProps {
     tokens: Array<any>
@@ -54,7 +55,7 @@ export const DETFAssetsTable = (props: DETFAssetsTableProps) => {
                                     <td className="detf-assets-body-item">{index + 1}</td>
                                     <td className="detf-assets-body-item">
                                         <div className="detf-assets-token-logo">
-                                            <img className="detf-token-logo" src={token.tokenLogo} alt={token.tokenName}></img>
+                                            <img className="detf-token-logo" src={token.tokenLogo ? token.tokenLogo : FallbackLogo} alt={token.tokenName}></img>
                                             <b>{token.tokenName}</b>
                                         </div>
                                     </td>

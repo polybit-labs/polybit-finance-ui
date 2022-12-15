@@ -1,16 +1,33 @@
 import { Link } from "react-router-dom"
-import { ColourNumbers } from "./utils/Formatting"
 import { GetTimeToUnlock } from "./utils/TimeLock"
 import "./AccountTableRow.css"
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { GetOwnedAssetsDetailed } from "./api/GetOwnedAssetsDetailed";
 import { DETFOwnedAssetsTable } from "./DETFOwnedAssetsTable";
 import { FormatCurrency } from "./utils/Currency";
 import BTC from "../product/detfs/BTC-USD.json"
 import { ReturnChartMarketValue } from "./ReturnChartMarketValue";
 import { GetOwner } from "./api/GetOwner";
+import { FormatPercentages } from './utils/Formatting'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { solid, regular, brands, icon } from '@fortawesome/fontawesome-svg-core/import.macro'
+import { GetHistoricalPrices } from "./api/GetHistoricalPrices";
+import { GetPriceVsCurrency } from "./api/GetPriceVsCurrency";
+import wethAddress from "../chain_info/weth.json"
 
-
+type Currencies = {
+    "date": string;
+    "aud": number;
+    "bnb": number;
+    "cny": number;
+    "eur": number;
+    "idr": number;
+    "jpy": number;
+    "krw": number;
+    "rub": number;
+    "twd": number;
+    "usd": number;
+}
 interface AccountTableRowItems {
     category: string;
     dimension: string;
@@ -26,6 +43,9 @@ interface AccountTableRowItems {
     total_deposits: string;
     vsPrices: any;
     currency: string;
+    close_timestamp: number;
+    creation_timestamp: number;
+    final_return: Currencies;
 }
 
 export const AccountTableRow = (props: AccountTableRowItems) => {
@@ -34,6 +54,11 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
     const ownedAssetsDetailed = ownedAssets ? ownedAssets : []
     const moment = require('moment')
     const { response: owner } = GetOwner(props.detf_address)
+
+    /*     
+    Loop through each deposit and get relative amounts in currency forOfStatement.
+     */
+
     const totalDeposited = FormatCurrency((Number(props.total_deposits)
         / 10 ** 18 *
         (() => {
@@ -66,28 +91,92 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
                 case "USD": return (props.vsPrices.usd)
             }
         })()), 2)
-    const depositHistory = <ul>
-        {props.deposits?.map((deposit) =>
-            <li key={deposit}><p>
-                {moment.unix(deposit[0]).local().format("D MMM YYYY hh:mm")}
-                &nbsp;&nbsp;&nbsp;&nbsp;+
-                {FormatCurrency((Number(deposit[1])
-                    / 10 ** 18 *
-                    (() => {
+    const { response: historicalPriceData, isSuccess: historicalPricesSuccess } = GetHistoricalPrices(props.close_timestamp.toString())
+    const { response: currentPriceData, isSuccess: currentPricesSuccess } = GetPriceVsCurrency(wethAddress["56"]["wethAddress"])
+
+    const [historicalPrices, setHistoricalPrices] = useState<Array<Currencies>>([])
+    const [currentPrices, setCurrentPrices] = useState<Currencies>()
+
+    useEffect(() => {
+        setHistoricalPrices(historicalPriceData ? historicalPriceData : [])
+        setCurrentPrices(currentPriceData ? currentPriceData : [])
+    }, [historicalPriceData, historicalPricesSuccess, currentPriceData, currentPricesSuccess])
+
+    const GetHistoricalPriceCurrency = (timestamp: number) => {
+        let price = 0
+        const latestPrices: Currencies = historicalPrices[historicalPrices.length - 1]
+        //Check if the timestamp is > the historical price data. If so, use real time prices.
+        if (latestPrices) {
+            const lastHistoricalPriceDate = moment(latestPrices.date)
+            if (moment.unix(timestamp) > lastHistoricalPriceDate) {
+                price = Number((() => {
+                    switch (props.currency) {
+                        case "AUD": return (currentPrices ? currentPrices.aud : 0)
+                        case "BNB": return (currentPrices ? currentPrices.bnb : 0)
+                        case "CNY": return (currentPrices ? currentPrices.cny : 0)
+                        case "EURO": return (currentPrices ? currentPrices.eur : 0)
+                        case "IDR": return (currentPrices ? currentPrices.idr : 0)
+                        case "JPY": return (currentPrices ? currentPrices.jpy : 0)
+                        case "KRW": return (currentPrices ? currentPrices.krw : 0)
+                        case "RUB": return (currentPrices ? currentPrices.rub : 0)
+                        case "TWD": return (currentPrices ? currentPrices.twd : 0)
+                        case "USD": return (currentPrices ? currentPrices.usd : 0)
+                    }
+                })())
+            }
+            if (moment.unix(timestamp) < lastHistoricalPriceDate) {
+                const historicalPricesFiltered = historicalPrices.filter(date => {
+                    return date.date === moment.unix(timestamp).local().format("YYYY-MM-DD")
+                })
+                if (historicalPricesFiltered.length > 0) {
+                    price = Number((() => {
                         switch (props.currency) {
-                            case "AUD": return (props.vsPrices.aud)
-                            case "BNB": return (props.vsPrices.bnb)
-                            case "CNY": return (props.vsPrices.cny)
-                            case "EURO": return (props.vsPrices.eur)
-                            case "IDR": return (props.vsPrices.idr)
-                            case "JPY": return (props.vsPrices.jpy)
-                            case "KRW": return (props.vsPrices.krw)
-                            case "RUB": return (props.vsPrices.rub)
-                            case "TWD": return (props.vsPrices.twd)
-                            case "USD": return (props.vsPrices.usd)
+                            case "AUD": return (historicalPricesFiltered[0].aud)
+                            case "BNB": return (historicalPricesFiltered[0].bnb)
+                            case "CNY": return (historicalPricesFiltered[0].cny)
+                            case "EURO": return (historicalPricesFiltered[0].eur)
+                            case "IDR": return (historicalPricesFiltered[0].idr)
+                            case "JPY": return (historicalPricesFiltered[0].jpy)
+                            case "KRW": return (historicalPricesFiltered[0].krw)
+                            case "RUB": return (historicalPricesFiltered[0].rub)
+                            case "TWD": return (historicalPricesFiltered[0].twd)
+                            case "USD": return (historicalPricesFiltered[0].usd)
                         }
-                    })()), 2)}</p></li>
+                    })())
+                }
+            }
+        }
+        return price
+    }
+    let totalDepositHistoricalPrices: number = 0
+    {
+        props.deposits?.map((deposit) => {
+            totalDepositHistoricalPrices = totalDepositHistoricalPrices + (Number(deposit[1]) / 10 ** 18 * GetHistoricalPriceCurrency(Number(deposit[0])))
+        })
+    }
+    console.log(totalDepositHistoricalPrices)
+
+    const transactionHistory = <ul>
+        {props.deposits?.map((deposit) =>
+            <li key={deposit}>
+                <div style={{ display: "flex", flexDirection: "row", width: "100%" }}>
+                    <div style={{ width: "150px" }}>
+                        <p>{moment.unix(deposit[0]).local().format("D MMM YYYY hh:mm")}</p>
+                    </div>
+                    <div style={{ width: "150px" }}><p>+{FormatCurrency((Number(deposit[1])
+                        / 10 ** 18 * GetHistoricalPriceCurrency(Number(deposit[0]))), 2)}</p>
+                    </div>
+                </div></li>
         )}
+        {props.status === 0 && <li>
+            <div style={{ display: "flex", flexDirection: "row", width: "100%" }}>
+                <div style={{ width: "150px" }}>
+                    <p>{moment.unix(props.close_timestamp).local().format("D MMM YYYY hh:mm")}</p>
+                </div>
+                <div style={{ width: "150px" }}><p>-{FormatCurrency((Number(props.final_balance_in_weth)
+                    / 10 ** 18 * GetHistoricalPriceCurrency(Number(props.close_timestamp))), 2)}</p>
+                </div>
+            </div></li>}
     </ul>
 
     return (
@@ -120,21 +209,24 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
                             }
                         })()), 2)}
                 </div>
-                <div className="account-detf-row-item-return" style={{ color: ColourNumbers(props.status === 1 ? props.return_percentage : props.final_return_percentage) }}> {parseFloat((props.status === 1 ? props.return_percentage : props.final_return_percentage).toString()).toFixed(2) + "%"}</div>
+                <div className="account-detf-row-item-return" > {FormatPercentages(props.status === 1 ? props.return_percentage : props.final_return_percentage)}</div>
                 <div className="account-detf-row-item-timelock">{GetTimeToUnlock(Number(props.lockStatus))}</div>
                 <div className="account-detf-row-item-deposit">
                     <Link className="account-detf-row-item-link" to="/deposit" state={{
                         category: props.category,
                         dimension: props.dimension,
-                        productId: props.product_id,
+                        productId: props.product_id.toString(),
                         detfAddress: props.detf_address,
                         processOrigin: "deposit",
                         activeStage: 1
                     }}>Deposit</Link>
+                    {/* <Link className="success-deposit-button-link" to="/deposit" state={{ category: category, dimension: dimension, productId: productId.toString(), detfAddress: detfAddress, processOrigin: "establish", activeStage: 2 }}>
+                                <button className="success-deposit-button">Deposit funds</button></Link> */}
 
                 </div>
                 <div className="account-detf-row-item-toggle" onClick={() => setIsActive(!isActive)}>
-                    {isActive ? 'Collapse' : 'Expand'}
+                    {isActive ? <div>Collapse <FontAwesomeIcon icon={icon({ name: "sort-up", style: "solid" })} /></div>
+                        : <div>Expand <FontAwesomeIcon icon={icon({ name: "sort-down", style: "solid" })} /></div>}
                 </div>
             </div>
             {isActive && <div className="account-detf-row-expanded">
@@ -147,8 +239,8 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
                                 <div className="account-detf-expanded-content-left-invested-summary-line">
                                 </div>
                                 <div className="account-detf-expanded-content-left-invested-summary-table">
-                                    <p><b>Deposit history</b></p>
-                                    {depositHistory}
+                                    <p><b>Transaction history</b></p>
+                                    {transactionHistory}
                                 </div>
                             </div>
                         </div>

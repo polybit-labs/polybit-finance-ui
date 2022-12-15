@@ -81,7 +81,11 @@ export const AccountTable = (props: AccountTableProps) => {
                                 deposits={data.deposits}
                                 total_deposits={data.total_deposits}
                                 vsPrices={props.vsPrices}
-                                currency={props.currency} />
+                                currency={props.currency}
+                                close_timestamp={data.close_timestamp}
+                                creation_timestamp={data.creation_timestamp}
+                                final_return={data.final_return}
+                            />
                         </div>) :
                         <div>
                             <div className="account-detf-row-loading">
