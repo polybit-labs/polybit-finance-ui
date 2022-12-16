@@ -21,7 +21,6 @@ def get_token_price(token):
         res = requests.get(url)
         data = res.json()
         price = int(10**18 * data["market_data"]["current_price"]["bnb"])
-        print(price)
         return price
     except:
         print("Could not retrieve data for", token)
@@ -40,7 +39,6 @@ def get_token_price_vs_currency(token):
         res = requests.get(url)
         data = res.json()
         prices = data["market_data"]["current_price"]
-        print(prices)
         return prices
     except:
         print("Could not retrieve data for", token)

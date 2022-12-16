@@ -8,7 +8,7 @@ import { FormatCurrency } from "./utils/Currency";
 import BTC from "../product/detfs/BTC-USD.json"
 import { ReturnChartMarketValue } from "./ReturnChartMarketValue";
 import { GetOwner } from "./api/GetOwner";
-import { FormatPercentages } from './utils/Formatting'
+import { ColourCategories, ColourNumbers, FormatPercentages } from './utils/Formatting'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { solid, regular, brands, icon } from '@fortawesome/fontawesome-svg-core/import.macro'
 import { GetHistoricalPrices } from "./api/GetHistoricalPrices";
@@ -34,6 +34,7 @@ interface AccountTableRowItems {
     status: number;
     balance_in_weth: string;
     final_balance_in_weth: string;
+    return_weth: string;
     return_percentage: number;
     final_return_percentage: number;
     lockStatus: string;
@@ -46,6 +47,7 @@ interface AccountTableRowItems {
     close_timestamp: number;
     creation_timestamp: number;
     final_return: Currencies;
+    final_return_weth: string;
 }
 
 export const AccountTableRow = (props: AccountTableRowItems) => {
@@ -54,10 +56,6 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
     const ownedAssetsDetailed = ownedAssets ? ownedAssets : []
     const moment = require('moment')
     const { response: owner } = GetOwner(props.detf_address)
-
-    /*     
-    Loop through each deposit and get relative amounts in currency forOfStatement.
-     */
 
     const totalDeposited = FormatCurrency((Number(props.total_deposits)
         / 10 ** 18 *
@@ -149,12 +147,43 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
         return price
     }
     let totalDepositHistoricalPrices: number = 0
-    {
-        props.deposits?.map((deposit) => {
-            totalDepositHistoricalPrices = totalDepositHistoricalPrices + (Number(deposit[1]) / 10 ** 18 * GetHistoricalPriceCurrency(Number(deposit[0])))
-        })
-    }
-    console.log(totalDepositHistoricalPrices)
+    props.deposits?.map((deposit) => {
+        totalDepositHistoricalPrices = totalDepositHistoricalPrices + (Number(deposit[1]) / 10 ** 18 * GetHistoricalPriceCurrency(Number(deposit[0])))
+    })
+
+    const finalMarketValue = FormatCurrency((Number(props.final_balance_in_weth) / 10 ** 18 * GetHistoricalPriceCurrency(Number(props.close_timestamp))), 2)
+    const currentReturnWeth = FormatCurrency((Number(props.return_weth)
+        / 10 ** 18 *
+        (() => {
+            switch (props.currency) {
+                case "AUD": return (props.vsPrices.aud)
+                case "BNB": return (props.vsPrices.bnb)
+                case "CNY": return (props.vsPrices.cny)
+                case "EURO": return (props.vsPrices.eur)
+                case "IDR": return (props.vsPrices.idr)
+                case "JPY": return (props.vsPrices.jpy)
+                case "KRW": return (props.vsPrices.krw)
+                case "RUB": return (props.vsPrices.rub)
+                case "TWD": return (props.vsPrices.twd)
+                case "USD": return (props.vsPrices.usd)
+            }
+        })()), 2)
+    const finalReturnWeth = FormatCurrency((Number(props.final_return_weth)
+        / 10 ** 18 *
+        (() => {
+            switch (props.currency) {
+                case "AUD": return (props.vsPrices.aud)
+                case "BNB": return (props.vsPrices.bnb)
+                case "CNY": return (props.vsPrices.cny)
+                case "EURO": return (props.vsPrices.eur)
+                case "IDR": return (props.vsPrices.idr)
+                case "JPY": return (props.vsPrices.jpy)
+                case "KRW": return (props.vsPrices.krw)
+                case "RUB": return (props.vsPrices.rub)
+                case "TWD": return (props.vsPrices.twd)
+                case "USD": return (props.vsPrices.usd)
+            }
+        })()), 2)
 
     const transactionHistory = <ul>
         {props.deposits?.map((deposit) =>
@@ -183,9 +212,9 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
         <div className="account-detf-row">
             <div className="account-detf-row-items">
                 <div className="account-detf-row-item-detf">
-                    <div className="account-index-row-item-name">
+                    <div className="account-index-row-item-name" style={{ color: ColourCategories(props.category) }}>
                         {props.category}
-                        <div className="account-index-chain-title">
+                        <div className="account-index-chain-title" style={{ color: "#000000" }}>
                             {/* <img className="account-index-chain-logo" src={require("../assets/images/bsc-logo.png")} alt="Binance Smart Chain"></img> */}
                             {props.dimension}
                         </div>
@@ -209,8 +238,18 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
                             }
                         })()), 2)}
                 </div>
-                <div className="account-detf-row-item-return" > {FormatPercentages(props.status === 1 ? props.return_percentage : props.final_return_percentage)}</div>
-                <div className="account-detf-row-item-timelock">{GetTimeToUnlock(Number(props.lockStatus))}</div>
+                {props.status === 1 && <div className="account-detf-row-item-return" >{FormatPercentages(props.return_percentage)}</div>}
+                {props.status === 0 && <div className="account-detf-row-item-return" >{FormatPercentages(props.final_return_percentage)}</div>}
+                {props.status === 1 && Number(props.total_deposits) === 0 &&
+                    <div className="account-detf-row-item-status">Deposit Required</div>
+                }
+                {props.status === 1 && Number(props.total_deposits) > 0 &&
+                    <div className="account-detf-row-item-status">{GetTimeToUnlock(Number(props.lockStatus))}</div>
+                }
+                {props.status === 0 &&
+                    <div className="account-detf-row-item-status">Closed</div>
+                }
+
                 <div className="account-detf-row-item-deposit">
                     <Link className="account-detf-row-item-link" to="/deposit" state={{
                         category: props.category,
@@ -220,8 +259,6 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
                         processOrigin: "deposit",
                         activeStage: 1
                     }}>Deposit</Link>
-                    {/* <Link className="success-deposit-button-link" to="/deposit" state={{ category: category, dimension: dimension, productId: productId.toString(), detfAddress: detfAddress, processOrigin: "establish", activeStage: 2 }}>
-                                <button className="success-deposit-button">Deposit funds</button></Link> */}
 
                 </div>
                 <div className="account-detf-row-item-toggle" onClick={() => setIsActive(!isActive)}>
@@ -257,7 +294,8 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
                                     <button className="button-primary">Deposit</button></Link>
                             </div>}
                         <div className="account-detf-expanded-content-left-current-value">
-                            <h2>Total market value: {totalValue}</h2>
+                            {props.status === 1 && <h2>Total market value: {totalValue} ({currentReturnWeth})</h2>}
+                            {props.status === 0 && <h2>Final market value: {finalMarketValue} ({finalReturnWeth})</h2>}
                             <p><b>Market value over time ({props.currency})</b></p>
                             <ReturnChartMarketValue height={300} width="100%" performanceData={BTC} />
                         </div>

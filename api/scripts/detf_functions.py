@@ -178,10 +178,12 @@ def get_detf_account_data(provider, wallet_owner):
         creation_timestamp, close_timestamp = get_detf_timestamps(
             provider, detf_accounts[i]
         )
-
+        print("STATUS",status)
         product_id, product_category, product_dimension = get_product_id(
             provider, detf_accounts[i]
         )
+        print("PRODUCT",product_category, product_dimension)
+
         owned_assets, owned_assets_prices = get_owned_assets(provider, detf_accounts[i])
         balance_in_weth = get_total_balance_in_weth(
             provider, detf_accounts[i], owned_assets_prices

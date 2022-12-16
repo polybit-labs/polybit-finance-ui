@@ -1,4 +1,4 @@
-import { Tooltip, XAxis, YAxis, ResponsiveContainer, AreaChart, Area } from 'recharts';
+import { Tooltip, XAxis, YAxis, ResponsiveContainer, AreaChart, Area, LineChart, Line } from 'recharts';
 
 interface chartProps {
     width: string | number
@@ -21,9 +21,15 @@ export const ReturnChartMini = (props: chartProps) => {
         <ResponsiveContainer width={props.width} height={props.height}>
             <AreaChart data={performanceData} margin={{ left: -15 }}>
                 <Area type="monotone" dataKey="index_price" stroke="#875CFF" strokeWidth={2} fillOpacity={1} fill="#DEDDE4" />
-                {/* <XAxis dataKey="date" tickFormatter={formatXAxis} color={"#000000"} tick={{ fontSize: "14px" }} />
-                <YAxis type="number" domain={['auto', 'auto']} tickFormatter={formatYAxis} tick={{ fontSize: "14px" }} /> */}
             </AreaChart >
         </ResponsiveContainer>
     )
+
+    /*     return (
+            <ResponsiveContainer width={props.width} height={props.height}>
+                <LineChart data={performanceData} margin={{ left: -15 }}>
+                    <Line type="linear" dataKey="index_price" stroke="#875CFF" strokeWidth={4} dot={false} />
+                </LineChart >
+            </ResponsiveContainer>
+        ) */
 }

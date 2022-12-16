@@ -1,12 +1,12 @@
 {
   "5777": {
-    "router": "0xbA4cdA4d6219E4771260e13cf7B16e0Fbe3AA183",
-    "rebalancer": "0x92c44f9540cD81b8c42dcd547D06B6AB39bDA2d6",
-    "detf_factory": "0xCdff1fba650663E6Ea951C7037B35581e18C595f"
+    "router": "0x9E2a0459486A37EF434ac11a14457956fCCC63dA",
+    "rebalancer": "0x3B9498ca4132587EAf9eD43dCB8a906B564279c4",
+    "detf_factory": "0xE6528b3eD71553012a84d0316Af1523aB381FE73"
   },
   "56": {
-    "router": "0xbA4cdA4d6219E4771260e13cf7B16e0Fbe3AA183",
-    "rebalancer": "0x92c44f9540cD81b8c42dcd547D06B6AB39bDA2d6",
-    "detf_factory": "0xCdff1fba650663E6Ea951C7037B35581e18C595f"
+    "router": "0x9E2a0459486A37EF434ac11a14457956fCCC63dA",
+    "rebalancer": "0x3B9498ca4132587EAf9eD43dCB8a906B564279c4",
+    "detf_factory": "0xE6528b3eD71553012a84d0316Af1523aB381FE73"
   }
 }

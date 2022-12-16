@@ -17,7 +17,7 @@ export const ColourNumbers = (num: number) => {
     if (num < 0) {
         return "#C20000"
     }
-    return "#000000"
+    return "#909090"
 }
 
 const ArrowNumbers = (num: number) => {
@@ -31,7 +31,6 @@ const ArrowNumbers = (num: number) => {
 }
 
 export const FormatPercentages = (percentage: number) => {
-    console.log("percentage", percentage)
     return <div className="formatted-percentages" style={{ color: ColourNumbers(percentage), display: "flex", alignItems: "center", justifyContent: "center" }}>
         <div style={{ width: "15px", paddingBottom: "0px" }}>{ArrowNumbers(percentage)}</div>
         <div>{parseFloat(percentage.toString()).toFixed(2).replace("-", "") + "%"}</div>

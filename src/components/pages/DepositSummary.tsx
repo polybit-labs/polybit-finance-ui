@@ -29,7 +29,6 @@ function DepositSummary() {
     const location = useLocation()
     const [title, setTitle] = useState("Finalizing your investment")
     const { category, dimension, productId, detfAddress, processOrigin, activeStage, depositInputValue, timeLockInputValue } = location.state
-    console.log(depositInputValue)
     const IPolybitDETF = new Interface(PolybitDETFInterface)
     const { address: walletOwner, connector, isConnected } = useAccount()
     const { chain, chains } = useNetwork()
@@ -42,13 +41,11 @@ function DepositSummary() {
     const rpc = network.chain?.rpcUrls.default
     const wethAmount = Math.round(10 ** 18 * depositInputValue).toString()
 
-    console.log("detfAddress", detfAddress, "rpc", rpc, "weth", wethAmount)
-
     const { response: detfOrderData, isLoading: orderDataLoading, isSuccess: orderDataSuccess } = GetOrderData(detfAddress, wethAmount)
 
     useEffect(() => {
         setOrderData(detfOrderData ? detfOrderData : [])
-    }, [orderDataLoading, orderDataSuccess])
+    }, [detfOrderData, orderDataSuccess])
 
     const [depositStage, setDepositStage] = useState("summary")
     const [internalActiveStage, setInternalActiveStage] = useState(activeStage ? activeStage : 1)
@@ -85,7 +82,7 @@ function DepositSummary() {
     /*     console.log(Number(depositInputValue) > 0 ? parseUnits(depositInputValue).toString() : 0)
      */
 
-    function GetTimeLockRemainingOfDETF(detfAddress: string) {
+    /* function GetTimeLockRemainingOfDETF(detfAddress: string) {
         const { data, isError, isLoading } = useContractRead({
             addressOrName: detfAddress,
             contractInterface: IPolybitDETF,
@@ -95,7 +92,7 @@ function DepositSummary() {
         return timeLockRemaining
     }
 
-    let lockTimeLeftOfDETF = GetTimeLockRemainingOfDETF(detfAddress)
+    let lockTimeLeftOfDETF = GetTimeLockRemainingOfDETF(detfAddress) */
 
     function GetUnlockTimeOfDETF() {
         const { data, isError, isLoading } = useContractRead({
@@ -109,7 +106,7 @@ function DepositSummary() {
 
     let unlockTimeOfDETF = GetUnlockTimeOfDETF()
 
-    function GetTimeToUnlock(timeToUnlock: number) {
+    /* function GetTimeToUnlock(timeToUnlock: number) {
         if (timeToUnlock > 0) {
             let now = moment().unix()
             let lockedUntil = moment.unix(now + timeToUnlock).format("hh:mm a [on the] Do [of] MMMM[,] YYYY")
@@ -124,32 +121,32 @@ function DepositSummary() {
             return lockedUntil
         }
         return 0
-    }
+    } */
 
     function SetTimeLockValue() {
         let timeLock = 0
         // Set lock value for the first time
         if (Number(unlockTimeOfDETF) === 0 && Number(timeLockInputValue) > 0) {
             timeLock = (Number(GetTimeNowInUnix()) + GetTimeLockInputValueInSeconds())
-            console.log("Set new value")
         }
 
         //Increase the lock value
         if (Number(unlockTimeOfDETF) > 0 && Number(timeLockInputValue) > 0) {
             timeLock = (Number(unlockTimeOfDETF) + GetTimeLockInputValueInSeconds())
-            console.log("Increase lock value")
         }
 
         //Return the existing lock value
         if (Number(unlockTimeOfDETF) > 0 && Number(timeLockInputValue) === 0) {
             timeLock = Number(unlockTimeOfDETF)
-            console.log("Existing time lock has not changed")
         }
         console.log(Number(timeLock))
         return timeLock
     }
 
-    let timeLockValue = SetTimeLockValue()
+    const [timeLockValue, setTimeLockValue] = useState<number>(0)
+    useEffect(() => {
+        setTimeLockValue(SetTimeLockValue())
+    }, [timeLockInputValue])
 
     function PrettyTimeLockValue() {
         // Set lock value for the first time
@@ -176,7 +173,7 @@ function DepositSummary() {
         addressOrName: detfAddress,
         contractInterface: IPolybitDETF,
         functionName: 'deposit',
-        args: [Number(0), orderData],
+        args: [Number(timeLockValue), orderData],
         overrides: { from: walletOwner, value: depositAmount },
         onError(error) {
             console.log('detfDepositConfig Error', error)

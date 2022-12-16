@@ -21,8 +21,8 @@ function DETFIndex() {
     const [vsPrices, setVsPrices] = useState({})
     const [showCategoryDropDown, setShowCategoryDropDown] = useState<boolean>(false)
     const [showDimensionDropDown, setShowDimensionDropDown] = useState<boolean>(false)
-    const [categoryFilter, setCategoryFilter] = useState<string>("all categories")
-    const [dimensionFilter, setDimensionFilter] = useState<string>("all dimensions")
+    const [categoryFilter, setCategoryFilter] = useState<string>("All Categories")
+    const [dimensionFilter, setDimensionFilter] = useState<string>("All Dimensions")
     const toggleCategoryDropDown = () => {
         setShowCategoryDropDown(!showCategoryDropDown)
     }
@@ -98,16 +98,17 @@ function DETFIndex() {
     }
 
     const { detfIndex: detfData, isLoading, isSuccess } = GetDETFIndex()
-    const categories = ["all categories"]
-    const dimensions = ["all dimensions"]
+    const categories = ["All Categories"]
+    const dimensions = ["All Dimensions"]
     const subTitle = <div>Displaying thematic investment strategies in <button
         className="inline-dropdown"
-        onClick={(): void => { toggleCategoryDropDown(); setDimensionFilter("all dimensions") }}
+        onClick={(): void => { toggleCategoryDropDown(); setDimensionFilter("All Dimensions") }}
         onBlur={(e: React.FocusEvent<HTMLButtonElement>): void =>
             dismissHandler(e)
         }
     >
-        <div>{categoryFilter ? categoryFilter : "Select ..."} <img src={sortDown} height="20px" width="20px"></img></div>
+        {categoryFilter === "All Categories" && <div>{categoryFilter.toLowerCase()} <img src={sortDown} height="20px" width="20px"></img></div>}
+        {categoryFilter !== "All Categories" && <div>{categoryFilter} <img src={sortDown} height="20px" width="20px"></img></div>}
         {showCategoryDropDown && (
             <InlineDropDown
                 options={categories}
@@ -123,7 +124,8 @@ function DETFIndex() {
             dismissHandler(e)
         }
     >
-            <div>{dimensionFilter ? dimensionFilter : "Select ..."} <img src={sortDown} height="20px" width="20px"></img></div>
+            {dimensionFilter === "All Dimensions" && <div>{dimensionFilter.toLowerCase()} <img src={sortDown} height="20px" width="20px"></img></div>}
+            {dimensionFilter !== "All Dimensions" && <div>{dimensionFilter} <img src={sortDown} height="20px" width="20px"></img></div>}
             {showDimensionDropDown && (
                 <InlineDropDown
                     options={dimensions}
@@ -140,14 +142,14 @@ function DETFIndex() {
                 categories.push(detf.category)
             }
         })
-        if (categoryFilter === "all categories") {
+        if (categoryFilter === "All Categories") {
             detfData.map((detf) => {
                 if (dimensions.indexOf(detf.dimension) === -1) {
                     dimensions.push(detf.dimension)
                 }
             })
         }
-        if (categoryFilter !== "all categories") {
+        if (categoryFilter !== "All Categories") {
             const filtered = detfData.filter(detf => {
                 return detf.category === categoryFilter
             })

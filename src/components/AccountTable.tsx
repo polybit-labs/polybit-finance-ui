@@ -60,7 +60,7 @@ export const AccountTable = (props: AccountTableProps) => {
                     <div className="account-detf-header-item-detf" onClick={() => sorting("category")}>DETF</div>
                     <div className="account-detf-header-item-value" onClick={() => sorting("marketValue")}>Market Value</div>
                     <div className="account-detf-header-item-return" onClick={() => sorting("return")}>Return</div>
-                    <div className="account-detf-header-item-timelock" onClick={() => sorting("lockStatus")}>Time Lock</div>
+                    <div className="account-detf-header-item-timelock" onClick={() => sorting("lockStatus")}>Status</div>
                     <div className="account-detf-header-item-deposit"></div>
                     <div className="account-detf-header-item-toggle"></div>
                 </div>
@@ -73,6 +73,7 @@ export const AccountTable = (props: AccountTableProps) => {
                                 status={data.status}
                                 balance_in_weth={data.balance_in_weth}
                                 final_balance_in_weth={data.final_balance_in_weth}
+                                return_weth={data.return_weth}
                                 return_percentage={data.return_percentage}
                                 final_return_percentage={data.final_return_percentage}
                                 lockStatus={data.time_lock_remaining}
@@ -85,6 +86,7 @@ export const AccountTable = (props: AccountTableProps) => {
                                 close_timestamp={data.close_timestamp}
                                 creation_timestamp={data.creation_timestamp}
                                 final_return={data.final_return}
+                                final_return_weth={data.final_return_weth}
                             />
                         </div>) :
                         <div>

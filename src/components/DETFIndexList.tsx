@@ -71,20 +71,20 @@ const DETFIndexList = (props: DETFIndexListProps) => {
     /* const detfIndex = props.detfIndex */
     let filteredData: any = []
     const filterData = () => {
-        if (props.categoryFilter === "all categories" && props.dimensionFilter === "all dimensions") {
+        if (props.categoryFilter === "All Categories" && props.dimensionFilter === "All Dimensions") {
             filteredData = props.detfIndex
         }
-        if (props.categoryFilter !== "all categories" && props.dimensionFilter === "all dimensions") {
+        if (props.categoryFilter !== "All Categories" && props.dimensionFilter === "All Dimensions") {
             filteredData = props.detfIndex.filter(detf => {
                 return detf.category === props.categoryFilter
             })
         }
-        if (props.categoryFilter === "all categories" && props.dimensionFilter !== "all dimensions") {
+        if (props.categoryFilter === "All Categories" && props.dimensionFilter !== "All Dimensions") {
             filteredData = props.detfIndex.filter(detf => {
                 return detf.dimension === props.dimensionFilter
             })
         }
-        if (props.categoryFilter !== "all categories" && props.dimensionFilter !== "all dimensions") {
+        if (props.categoryFilter !== "All Categories" && props.dimensionFilter !== "All Dimensions") {
             filteredData = props.detfIndex.filter(detf => {
                 return detf.category === props.categoryFilter && detf.dimension === props.dimensionFilter
             })

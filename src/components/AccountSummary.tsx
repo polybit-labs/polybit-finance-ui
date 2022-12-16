@@ -101,7 +101,6 @@ const AccountSummary = (props: AccountSummaryProps) => {
                     case "USD": return (inactive[i].final_return.usd)
                 }
             })())
-            console.log("detfreturn", inactive[i].final_return.bnb)
             totalReturn = totalReturn + detfReturn
             totalReturnBNB = totalReturnBNB + (10 ** 18 * inactive[i].final_return.bnb)
         }
