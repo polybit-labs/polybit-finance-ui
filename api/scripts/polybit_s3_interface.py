@@ -5,6 +5,8 @@ import os
 from pathlib import Path
 import json
 from scripts.utils import unix_to_datetime, datetime_to_unix
+import pandas as pd
+pd.options.mode.chained_assignment = None  # default='warn'
 
 PATH = str(Path(os.path.abspath(os.path.dirname(__file__))).parent.parent)
 S3PATH = "https://polybit-finance.s3.ap-southeast-1.amazonaws.com/detfs/"
@@ -39,7 +41,7 @@ def get_product_data(url):
     print("Getting product data from S3 Bucket")
 
     try:
-        res = requests.get(url + "/product-data.json")
+        res = requests.get(S3PATH+url + "/product-data.json")
         data = res.json()
         return data
     except:
@@ -51,12 +53,42 @@ def get_performance_data(url):
     print("Getting performance data from S3 Bucket")
 
     try:
-        res = requests.get(url + "/performance-data.json")
+        res = requests.get(S3PATH+url + "/performance-data.json")
         data = res.json()
         return data
     except:
         print("Could not retrieve performance data from S3")
     return ""
+
+def get_performance_data_range(url,start_date,end_date):
+    json = []
+
+    if (start_date == 0) or (end_date == 0):
+        print("Invalid dates")
+    else: 
+        data = get_performance_data(url)
+
+        start_date = unix_to_datetime(start_date)
+        end_date = unix_to_datetime(end_date)
+
+        df = pd.DataFrame(data)
+        df = df[["date","index_price"]]
+        date_filtered = df.loc[df['date'].between(start_date,end_date,inclusive="both")]
+        date_filtered["pct"] = date_filtered["index_price"].pct_change()
+        date_filtered["pct"] = date_filtered["pct"].fillna(0)
+
+        for i in date_filtered.index:
+            """ print(date_filtered["date"][i])
+            print(date_filtered["index_price"][i])
+            print(date_filtered["pct"][i]) """
+            json.append({
+                "date":date_filtered["date"][i],
+                "index_price":date_filtered["index_price"][i],
+                "pct":date_filtered["pct"][i]
+            })
+        print(json)
+
+    return json
 
 
 def get_top_detf_data():

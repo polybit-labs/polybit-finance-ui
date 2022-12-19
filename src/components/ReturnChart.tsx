@@ -15,6 +15,7 @@ export const ReturnChart = (props: chartProps) => {
     const formatYAxis = (tickItem: any) => {
         return `${parseFloat(tickItem).toString()}`
     }
+    console.log(performanceData90d)
 
     return (
         <ResponsiveContainer width={props.width} height={props.height}>

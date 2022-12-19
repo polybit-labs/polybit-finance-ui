@@ -22,11 +22,11 @@ interface TopDETFBoxProps {
 }
 
 export const TopDETFBox = (props: TopDETFBoxProps) => {
-    const S3PATH = "https://polybit-finance.s3.ap-southeast-1.amazonaws.com/detfs/"
+    //const S3PATH = "https://polybit-finance.s3.ap-southeast-1.amazonaws.com/detfs/"
     let productUrl = `${props.urlChainId}/${props.urlCategoryId}/${props.urlDimensionId}`
     const [performanceData, setPerformanceData] = useState<Array<PerformanceData> | undefined>()
     const [performanceDataPeriod, setPerformanceDataPeriod] = useState<number>(30)
-    const { response: performance, isLoading: performanceDataLoading, isSuccess: performanceDataSuccess } = GetPerformanceData((S3PATH + productUrl))
+    const { response: performance, isLoading: performanceDataLoading, isSuccess: performanceDataSuccess } = GetPerformanceData(productUrl)
     const [returnValue, setReturnValue] = useState<number>(0)
 
     useEffect(() => {

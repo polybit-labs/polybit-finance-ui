@@ -14,6 +14,12 @@ import { solid, regular, brands, icon } from '@fortawesome/fontawesome-svg-core/
 import { GetHistoricalPrices } from "./api/GetHistoricalPrices";
 import { GetPriceVsCurrency } from "./api/GetPriceVsCurrency";
 import wethAddress from "../chain_info/weth.json"
+import { GetPerformanceDataRange, PerformanceDataRange } from "./api/GetPerformanceDataRange";
+import { InvalidPortfolioRange } from "./InvalidPortfolioRange";
+import { ReturnChart } from "./ReturnChart";
+import { GetProductData, ProductData } from "./api/GetProductData";
+import { DETFAssetsTable } from "./DETFAssetsTable";
+import { Button } from "./Button";
 
 type Currencies = {
     "date": string;
@@ -51,11 +57,47 @@ interface AccountTableRowItems {
 }
 
 export const AccountTableRow = (props: AccountTableRowItems) => {
+    const moment = require('moment')
     const [isActive, setIsActive] = useState(false)
+    const [isDETFActive, setIsDETFActive] = useState(false)
+    const [isDETFDeposited, setIsDETFDeposited] = useState(false)
+    const [isDETFTimeLocked, setIsDETFTimeLocked] = useState(false)
+
+    useEffect(() => {
+        if (props.status === 1) {
+            setIsDETFActive(true)
+        }
+        if (Number(props.total_deposits) > 0) {
+            setIsDETFDeposited(true)
+        }
+        if (Number(props.lockStatus) > 0) {
+            setIsDETFTimeLocked(true)
+        }
+    }, [])
+
+    const productUrl = `bnb-smart-chain/${props.category.replaceAll(" ", "-").toLowerCase()}/${props.dimension.replaceAll(" ", "-").toLowerCase()}`
     const { response: ownedAssets, isLoading, isSuccess } = GetOwnedAssetsDetailed(props.detf_address)
     const ownedAssetsDetailed = ownedAssets ? ownedAssets : []
-    const moment = require('moment')
     const { response: owner } = GetOwner(props.detf_address)
+
+    const { response: performanceDataRange, isSuccess: performanceDataRangeSuccess } = GetPerformanceDataRange(productUrl, props.creation_timestamp, props.close_timestamp > 0 ? props.close_timestamp : moment.now())
+    const [performanceData, setPerformanceData] = useState<Array<PerformanceDataRange>>([])
+    const [validDateRange, setValidDateRange] = useState(false)
+    useEffect(() => {
+        if (performanceDataRangeSuccess
+            && performanceDataRange
+            && performanceDataRange.length > 2
+            && Number(props.total_deposits) > 0) {
+            setPerformanceData(performanceDataRange)
+            setValidDateRange(true)
+        }
+    }, [performanceDataRange, performanceDataRangeSuccess])
+
+    const { response: productDataResponse, isLoading: productDataLoading, isSuccess: productDataSuccess } = GetProductData(productUrl)
+    const [productData, setProductData] = useState<ProductData>()
+    useEffect(() => {
+        setProductData(productDataResponse)
+    }, [productDataResponse, productDataSuccess])
 
     const totalDeposited = FormatCurrency((Number(props.total_deposits)
         / 10 ** 18 *
@@ -73,6 +115,7 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
                 case "USD": return (props.vsPrices.usd)
             }
         })()), 2)
+
     const totalValue = FormatCurrency((Number(props.balance_in_weth)
         / 10 ** 18 *
         (() => {
@@ -197,7 +240,7 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
                     </div>
                 </div></li>
         )}
-        {props.status === 0 && <li>
+        {!isDETFActive && <li>
             <div style={{ display: "flex", flexDirection: "row", width: "100%" }}>
                 <div style={{ width: "150px" }}>
                     <p>{moment.unix(props.close_timestamp).local().format("D MMM YYYY hh:mm")}</p>
@@ -207,6 +250,7 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
                 </div>
             </div></li>}
     </ul>
+    const timeLock = moment.unix(moment().unix() + props.lockStatus).local().format("D MMM YYYY hh:mm")
 
     return (
         <div className="account-detf-row">
@@ -238,15 +282,15 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
                             }
                         })()), 2)}
                 </div>
-                {props.status === 1 && <div className="account-detf-row-item-return" >{FormatPercentages(props.return_percentage)}</div>}
-                {props.status === 0 && <div className="account-detf-row-item-return" >{FormatPercentages(props.final_return_percentage)}</div>}
-                {props.status === 1 && Number(props.total_deposits) === 0 &&
+                {isDETFActive && <div className="account-detf-row-item-return" >{FormatPercentages(props.return_percentage)}</div>}
+                {!isDETFActive && <div className="account-detf-row-item-return" >{FormatPercentages(props.final_return_percentage)}</div>}
+                {isDETFActive && !isDETFDeposited &&
                     <div className="account-detf-row-item-status">Deposit Required</div>
                 }
-                {props.status === 1 && Number(props.total_deposits) > 0 &&
+                {isDETFActive && isDETFDeposited &&
                     <div className="account-detf-row-item-status">{GetTimeToUnlock(Number(props.lockStatus))}</div>
                 }
-                {props.status === 0 &&
+                {!isDETFActive &&
                     <div className="account-detf-row-item-status">Closed</div>
                 }
 
@@ -272,16 +316,20 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
                     <div className="account-detf-expanded-content-left">
                         <div className="account-detf-expanded-content-left-invested">
                             <h2>Total invested: {totalDeposited}</h2>
-                            <div className="account-detf-expanded-content-left-invested-summary">
+                            {isDETFDeposited && <div className="account-detf-expanded-content-left-invested-summary">
                                 <div className="account-detf-expanded-content-left-invested-summary-line">
                                 </div>
                                 <div className="account-detf-expanded-content-left-invested-summary-table">
                                     <p><b>Transaction history</b></p>
                                     {transactionHistory}
+
                                 </div>
-                            </div>
+                            </div>}
+                            {!isDETFDeposited && <div className="account-detf-expanded-content-left-invested-no-deposits">
+                                <img className="account-detf-expanded-content-left-invested-no-deposits-icon" src={require("../assets/icons/info_dark_grey.png")}></img>
+                                <p>You have not yet deposited into this DETF.</p></div>}
                         </div>
-                        {props.status === 1 &&
+                        {isDETFActive &&
                             <div className="account-detf-expanded-content-left-deposit">
                                 <Link className="account-detf-row-item-link" to="/deposit" state={{
                                     category: props.category,
@@ -291,16 +339,17 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
                                     processOrigin: "deposit",
                                     activeStage: 1
                                 }}>
-                                    <button className="button-primary">Deposit</button></Link>
+                                    <Button text="Deposit" buttonStyle="primary" type="button" /></Link>
                             </div>}
                         <div className="account-detf-expanded-content-left-current-value">
-                            {props.status === 1 && <h2>Total market value: {totalValue} ({currentReturnWeth})</h2>}
-                            {props.status === 0 && <h2>Final market value: {finalMarketValue} ({finalReturnWeth})</h2>}
+                            {isDETFActive && <h2>Total market value: {totalValue} ({currentReturnWeth})</h2>}
+                            {!isDETFActive && <h2>Final market value: {finalMarketValue} ({finalReturnWeth})</h2>}
                             <p><b>Market value over time ({props.currency})</b></p>
-                            <ReturnChartMarketValue height={300} width="100%" performanceData={BTC} />
+                            {validDateRange && <ReturnChart height={300} width="100%" performanceData={performanceData} />}
+                            {!validDateRange && <InvalidPortfolioRange height={300} width="100%" />}
                         </div>
-                        {props.status === 1 &&
-                            <div className="account-detf-expanded-content-left-close">
+                        <div className="account-detf-expanded-content-left-close">
+                            {isDETFActive && isDETFDeposited && !isDETFTimeLocked &&
                                 < Link className="account-detf-row-item-link" to="/close-detf" state={{
                                     category: props.category,
                                     dimension: props.dimension,
@@ -313,14 +362,31 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
                                     currency: props.currency,
                                     vsPrices: props.vsPrices
                                 }}>
-                                    <button className="button-primary">Exit and withdraw</button></Link>
-                            </div>}
+                                    <Button text="Exit and withdraw" buttonStyle="primary" type="button" /></Link>}
+                            {isDETFActive && !isDETFDeposited &&
+                                <button className="button-disabled" >Exit and withdraw</button>
+                            }
+                            {isDETFActive && isDETFTimeLocked &&
+                                <button className="button-disabled" >Exit and withdraw</button>
+                            }
+                            {isDETFActive && isDETFTimeLocked &&
+                                <div className="account-detf-expanded-content-left-close-message">
+                                    <p>You have set a time lock on this DETF.</p>
+                                    <p>Withdrawals are locked until {timeLock}.</p>
+                                </div>
+                            }
+                            {!isDETFActive &&
+                                <Button text="Exit and withdraw" buttonStyle="disabled" type="button" />
+                            }
+                        </div>
                     </div>
                     <div className="account-detf-expanded-content-right">
                         <div className="account-detf-expanded-content-right-owned-assets">
                             <h2>Assets in DETF</h2>
                             <p>Wafer gingerbread bonbon gummies biscuit candy danish cupcake. Cookie liquorice chocolate cake bonbon candy canes tiramisu sugar plum gummies bear claw.</p>
-                            <DETFOwnedAssetsTable tokens={ownedAssetsDetailed} vsPrices={props.vsPrices} currency={props.currency} />
+                            {isDETFActive && isDETFDeposited && <DETFOwnedAssetsTable tokens={ownedAssetsDetailed} vsPrices={props.vsPrices} currency={props.currency} />}
+                            {isDETFActive && !isDETFDeposited && <DETFAssetsTable tokens={productData ? productData.tokens : []} />}
+                            {!isDETFActive && <div>"INSERT LAST ASSETS OWNED"</div>}
                         </div>
 
                         <div className="account-detf-expanded-content-right-proof-of-assets">

@@ -5,17 +5,14 @@ const STYLES = ["btn--primary", "btn--secondary"]
 export interface ButtonProps {
     text: string,
     type: "button" | "submit" | "reset" | undefined,
-    onClick: any,
     buttonStyle: string,
-    buttonSize: string
 }
 
-export const Button = ({ text, type, onClick, buttonStyle }: ButtonProps) => {
-    const checkButtonStyle = STYLES.includes(buttonStyle) ? buttonStyle : STYLES[0]
-
+export const Button = ({ text, type, buttonStyle }: ButtonProps) => {
     return (
-        <button className={`btn ${checkButtonStyle}`} onClick={onClick} type={type}>
+        <button className={`button-${buttonStyle}`} type={type}>
             {text}
         </button>
     )
+
 }

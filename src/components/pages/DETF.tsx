@@ -15,7 +15,7 @@ const DETF = () => {
     const urlChainId = useParams().urlChainId
     const urlCategoryId = useParams().urlCategoryId
     const urlDimensionId = useParams().urlDimensionId
-    const S3PATH = "https://polybit-finance.s3.ap-southeast-1.amazonaws.com/detfs/"
+    //const S3PATH = "https://polybit-finance.s3.ap-southeast-1.amazonaws.com/detfs/"
     const productUrl = `${urlChainId}/${urlCategoryId}/${urlDimensionId}`
     const productContent = require(`../../product/detfs/${urlChainId}/${urlCategoryId}/${urlDimensionId}/content.json`)
 
@@ -30,8 +30,8 @@ const DETF = () => {
     const [productData, setProductData] = useState<ProductData | undefined>()
     const [performanceData, setPerformanceData] = useState<Array<PerformanceData> | undefined>()
 
-    const { response: product, isLoading: productDataLoading, isSuccess: productDataSuccess } = GetProductData((S3PATH + productUrl))
-    const { response: performance, isLoading: performanceDataLoading, isSuccess: performanceDataSuccess } = GetPerformanceData((S3PATH + productUrl))
+    const { response: product, isLoading: productDataLoading, isSuccess: productDataSuccess } = GetProductData((productUrl))
+    const { response: performance, isLoading: performanceDataLoading, isSuccess: performanceDataSuccess } = GetPerformanceData((productUrl))
 
     useEffect(() => {
         setProductData(product ? product : undefined)

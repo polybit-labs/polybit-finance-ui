@@ -20,6 +20,7 @@ from scripts.detf_factory_functions import get_detf_accounts
 from scripts.polybit_s3_interface import (
     get_product_data,
     get_performance_data,
+    get_performance_data_range,
     get_top_detf_data,
     get_historical_prices,
 )
@@ -140,11 +141,19 @@ def get_product_data_from_s3():
 @app.route("/api/get_performance_data", methods=["POST"])
 def get_performance_data_from_s3():
     data = request.json
-    print(data)
     url = data["url"]
     performance_data = get_performance_data(url=url)
     return performance_data
 
+get_performance_data_range
+@app.route("/api/get_performance_data_range", methods=["POST"])
+def get_performance_data_range_from_s3():
+    data = request.json
+    url = data["url"]
+    start_date = data["start_date"]
+    end_date = data["end_date"]
+    performance_data_range = get_performance_data_range(url=url,start_date=start_date,end_date=end_date)
+    return performance_data_range
 
 @app.route("/api/get_top_detf_data")
 def get_top_detf_data_from_s3():

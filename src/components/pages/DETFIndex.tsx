@@ -46,7 +46,7 @@ function DETFIndex() {
         setVsPrices(prices ? prices : {})
     }, [pricesLoading, pricesSuccess])
 
-    const S3PATH = "https://polybit-finance.s3.ap-southeast-1.amazonaws.com/detfs/"
+    //const S3PATH = "https://polybit-finance.s3.ap-southeast-1.amazonaws.com/detfs/"
 
     const GetDETFIndex = () => {
         let detfIndex: Array<any> = []
@@ -55,9 +55,9 @@ function DETFIndex() {
 
         detfIndexInfo?.map((index => {
             const productUrl = `${index.urlChainId}/${index.urlCategoryId}/${index.urlDimensionId}`
-            const s3Url = S3PATH + productUrl
-            const { response: productData, isLoading: productDataLoading, isSuccess: productDataSuccess } = GetProductData(s3Url)
-            const { response: performanceData, isLoading: performanceDataLoading, isSuccess: performanceDataSuccess } = GetPerformanceData(s3Url)
+            //const s3Url = S3PATH + productUrl
+            const { response: productData, isLoading: productDataLoading, isSuccess: productDataSuccess } = GetProductData(productUrl)
+            const { response: performanceData, isLoading: performanceDataLoading, isSuccess: performanceDataSuccess } = GetPerformanceData(productUrl)
             const GetLogos = () => {
                 let logos: Array<string> = []
                 productData?.tokens.map((token) => {
