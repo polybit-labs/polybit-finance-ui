@@ -32,13 +32,14 @@ def get_product_url(provider, detf_address):
             urlDimensionId = detfIndex[i]["urlDimensionId"]
 
     product_data_file_url = (
-        S3PATH + str(urlChainId) + "/" + str(urlCategoryId) + "/" + str(urlDimensionId)
+        str(urlChainId) + "/" + str(urlCategoryId) + "/" + str(urlDimensionId)
     )
     return product_data_file_url
 
 
 def get_product_data(url):
     print("Getting product data from S3 Bucket")
+    print(S3PATH+url + "/product-data.json")
 
     try:
         res = requests.get(S3PATH+url + "/product-data.json")

@@ -1,16 +1,13 @@
 import { Link } from "react-router-dom"
-import { GetTimeToUnlock } from "./utils/TimeLock"
 import "./AccountTableRow.css"
 import { useEffect, useState } from "react";
 import { GetOwnedAssetsDetailed } from "./api/GetOwnedAssetsDetailed";
 import { DETFOwnedAssetsTable } from "./DETFOwnedAssetsTable";
 import { FormatCurrency } from "./utils/Currency";
-import BTC from "../product/detfs/BTC-USD.json"
-import { ReturnChartMarketValue } from "./ReturnChartMarketValue";
 import { GetOwner } from "./api/GetOwner";
-import { ColourCategories, ColourNumbers, FormatPercentages } from './utils/Formatting'
+import { ColourCategories, FormatPercentages } from './utils/Formatting'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { solid, regular, brands, icon } from '@fortawesome/fontawesome-svg-core/import.macro'
+import { icon } from '@fortawesome/fontawesome-svg-core/import.macro'
 import { GetHistoricalPrices } from "./api/GetHistoricalPrices";
 import { GetPriceVsCurrency } from "./api/GetPriceVsCurrency";
 import wethAddress from "../chain_info/weth.json"
@@ -43,7 +40,8 @@ interface AccountTableRowItems {
     return_weth: string;
     return_percentage: number;
     final_return_percentage: number;
-    lockStatus: string;
+    timeLockRemaining: number;
+    timeLock: number;
     product_id: string;
     detf_address: string;
     deposits: Array<string>;
@@ -54,11 +52,12 @@ interface AccountTableRowItems {
     creation_timestamp: number;
     final_return: Currencies;
     final_return_weth: string;
+    isPlaceholder: boolean;
 }
 
 export const AccountTableRow = (props: AccountTableRowItems) => {
     const moment = require('moment')
-    const [isActive, setIsActive] = useState(false)
+    const [isActive, setIsActive] = useState(props.isPlaceholder)
     const [isDETFActive, setIsDETFActive] = useState(false)
     const [isDETFDeposited, setIsDETFDeposited] = useState(false)
     const [isDETFTimeLocked, setIsDETFTimeLocked] = useState(false)
@@ -70,7 +69,7 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
         if (Number(props.total_deposits) > 0) {
             setIsDETFDeposited(true)
         }
-        if (Number(props.lockStatus) > 0) {
+        if (Number(props.timeLockRemaining) > 0) {
             setIsDETFTimeLocked(true)
         }
     }, [])
@@ -99,7 +98,7 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
         setProductData(productDataResponse)
     }, [productDataResponse, productDataSuccess])
 
-    const totalDeposited = FormatCurrency((Number(props.total_deposits)
+    const currentTotalDeposited = FormatCurrency((Number(props.total_deposits)
         / 10 ** 18 *
         (() => {
             switch (props.currency) {
@@ -116,7 +115,24 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
             }
         })()), 2)
 
-    const totalValue = FormatCurrency((Number(props.balance_in_weth)
+    const currentTotalValue = FormatCurrency((Number(props.balance_in_weth)
+        / 10 ** 18 *
+        (() => {
+            switch (props.currency) {
+                case "AUD": return (props.vsPrices.aud)
+                case "BNB": return (props.vsPrices.bnb)
+                case "CNY": return (props.vsPrices.cny)
+                case "EURO": return (props.vsPrices.eur)
+                case "IDR": return (props.vsPrices.idr)
+                case "JPY": return (props.vsPrices.jpy)
+                case "KRW": return (props.vsPrices.krw)
+                case "RUB": return (props.vsPrices.rub)
+                case "TWD": return (props.vsPrices.twd)
+                case "USD": return (props.vsPrices.usd)
+            }
+        })()), 2)
+
+    const currentReturnWeth = FormatCurrency((Number(props.return_weth)
         / 10 ** 18 *
         (() => {
             switch (props.currency) {
@@ -189,44 +205,13 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
         }
         return price
     }
+    const finalTotalDeposited = FormatCurrency(Number(props.total_deposits) / 10 ** 18 * GetHistoricalPriceCurrency(Number(props.close_timestamp)), 2)
     let totalDepositHistoricalPrices: number = 0
     props.deposits?.map((deposit) => {
         totalDepositHistoricalPrices = totalDepositHistoricalPrices + (Number(deposit[1]) / 10 ** 18 * GetHistoricalPriceCurrency(Number(deposit[0])))
     })
-
-    const finalMarketValue = FormatCurrency((Number(props.final_balance_in_weth) / 10 ** 18 * GetHistoricalPriceCurrency(Number(props.close_timestamp))), 2)
-    const currentReturnWeth = FormatCurrency((Number(props.return_weth)
-        / 10 ** 18 *
-        (() => {
-            switch (props.currency) {
-                case "AUD": return (props.vsPrices.aud)
-                case "BNB": return (props.vsPrices.bnb)
-                case "CNY": return (props.vsPrices.cny)
-                case "EURO": return (props.vsPrices.eur)
-                case "IDR": return (props.vsPrices.idr)
-                case "JPY": return (props.vsPrices.jpy)
-                case "KRW": return (props.vsPrices.krw)
-                case "RUB": return (props.vsPrices.rub)
-                case "TWD": return (props.vsPrices.twd)
-                case "USD": return (props.vsPrices.usd)
-            }
-        })()), 2)
-    const finalReturnWeth = FormatCurrency((Number(props.final_return_weth)
-        / 10 ** 18 *
-        (() => {
-            switch (props.currency) {
-                case "AUD": return (props.vsPrices.aud)
-                case "BNB": return (props.vsPrices.bnb)
-                case "CNY": return (props.vsPrices.cny)
-                case "EURO": return (props.vsPrices.eur)
-                case "IDR": return (props.vsPrices.idr)
-                case "JPY": return (props.vsPrices.jpy)
-                case "KRW": return (props.vsPrices.krw)
-                case "RUB": return (props.vsPrices.rub)
-                case "TWD": return (props.vsPrices.twd)
-                case "USD": return (props.vsPrices.usd)
-            }
-        })()), 2)
+    const finalMarketValue = FormatCurrency(Number(props.final_balance_in_weth) / 10 ** 18 * GetHistoricalPriceCurrency(Number(props.close_timestamp)), 2)
+    const finalReturnWeth = FormatCurrency(Number(props.final_return_weth) / 10 ** 18 * GetHistoricalPriceCurrency(Number(props.close_timestamp)), 2)
 
     const transactionHistory = <ul>
         {props.deposits?.map((deposit) =>
@@ -250,7 +235,7 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
                 </div>
             </div></li>}
     </ul>
-    const timeLock = moment.unix(moment().unix() + props.lockStatus).local().format("D MMM YYYY hh:mm")
+    const timeLock = moment.unix(props.timeLock).local().format("D MMM YYYY hh:mm")
 
     return (
         <div className="account-detf-row">
@@ -287,13 +272,15 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
                 {isDETFActive && !isDETFDeposited &&
                     <div className="account-detf-row-item-status">Deposit Required</div>
                 }
-                {isDETFActive && isDETFDeposited &&
-                    <div className="account-detf-row-item-status">{GetTimeToUnlock(Number(props.lockStatus))}</div>
+                {isDETFActive && isDETFDeposited && !isDETFTimeLocked &&
+                    <div className="account-detf-row-item-status">Unlocked</div>
+                }
+                {isDETFActive && isDETFDeposited && isDETFTimeLocked &&
+                    <div className="account-detf-row-item-status">Locked until {timeLock}</div>
                 }
                 {!isDETFActive &&
                     <div className="account-detf-row-item-status">Closed</div>
                 }
-
                 <div className="account-detf-row-item-deposit">
                     <Link className="account-detf-row-item-link" to="/deposit" state={{
                         category: props.category,
@@ -303,7 +290,6 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
                         processOrigin: "deposit",
                         activeStage: 1
                     }}>Deposit</Link>
-
                 </div>
                 <div className="account-detf-row-item-toggle" onClick={() => setIsActive(!isActive)}>
                     {isActive ? <div>Collapse <FontAwesomeIcon icon={icon({ name: "sort-up", style: "solid" })} /></div>
@@ -315,7 +301,8 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
                 <div className="account-detf-expanded-content">
                     <div className="account-detf-expanded-content-left">
                         <div className="account-detf-expanded-content-left-invested">
-                            <h2>Total invested: {totalDeposited}</h2>
+                            {isDETFActive && <h2>Total invested: {currentTotalDeposited}</h2>}
+                            {!isDETFActive && <h2>Total invested: {finalTotalDeposited}</h2>}
                             {isDETFDeposited && <div className="account-detf-expanded-content-left-invested-summary">
                                 <div className="account-detf-expanded-content-left-invested-summary-line">
                                 </div>
@@ -329,7 +316,19 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
                                 <img className="account-detf-expanded-content-left-invested-no-deposits-icon" src={require("../assets/icons/info_dark_grey.png")}></img>
                                 <p>You have not yet deposited into this DETF.</p></div>}
                         </div>
-                        {isDETFActive &&
+                        {isDETFActive && !isDETFDeposited &&
+                            <div className="account-detf-expanded-content-left-deposit">
+                                <Link className="account-detf-row-item-link" to="/deposit" state={{
+                                    category: props.category,
+                                    dimension: props.dimension,
+                                    productId: props.product_id,
+                                    detfAddress: props.detf_address,
+                                    processOrigin: "deposit",
+                                    activeStage: 1
+                                }}>
+                                    <Button text="Make your first deposit into this DETF" buttonStyle="primary" type="button" /></Link>
+                            </div>}
+                        {isDETFActive && isDETFDeposited &&
                             <div className="account-detf-expanded-content-left-deposit">
                                 <Link className="account-detf-row-item-link" to="/deposit" state={{
                                     category: props.category,
@@ -342,7 +341,7 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
                                     <Button text="Deposit" buttonStyle="primary" type="button" /></Link>
                             </div>}
                         <div className="account-detf-expanded-content-left-current-value">
-                            {isDETFActive && <h2>Total market value: {totalValue} ({currentReturnWeth})</h2>}
+                            {isDETFActive && <h2>Total market value: {currentTotalValue} ({currentReturnWeth})</h2>}
                             {!isDETFActive && <h2>Final market value: {finalMarketValue} ({finalReturnWeth})</h2>}
                             <p><b>Market value over time ({props.currency})</b></p>
                             {validDateRange && <ReturnChart height={300} width="100%" performanceData={performanceData} />}
@@ -358,7 +357,7 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
                                     totalValue: props.balance_in_weth,
                                     totalDeposited: props.total_deposits,
                                     returnPercentage: props.return_percentage,
-                                    lockTime: props.lockStatus,
+                                    lockTime: props.timeLockRemaining,
                                     currency: props.currency,
                                     vsPrices: props.vsPrices
                                 }}>
@@ -386,9 +385,8 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
                             <p>Wafer gingerbread bonbon gummies biscuit candy danish cupcake. Cookie liquorice chocolate cake bonbon candy canes tiramisu sugar plum gummies bear claw.</p>
                             {isDETFActive && isDETFDeposited && <DETFOwnedAssetsTable tokens={ownedAssetsDetailed} vsPrices={props.vsPrices} currency={props.currency} />}
                             {isDETFActive && !isDETFDeposited && <DETFAssetsTable tokens={productData ? productData.tokens : []} />}
-                            {!isDETFActive && <div>"INSERT LAST ASSETS OWNED"</div>}
+                            {!isDETFActive && <div>INSERT LAST ASSETS OWNED</div>}
                         </div>
-
                         <div className="account-detf-expanded-content-right-proof-of-assets">
                             <h2>Proof of assets</h2>
                             <p>Wafer gingerbread bonbon gummies biscuit candy danish cupcake. Cookie liquorice chocolate cake bonbon candy canes tiramisu sugar plum gummies bear claw.</p>

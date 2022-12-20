@@ -5,8 +5,12 @@ import {
     useConnect,
     useDisconnect,
 } from "wagmi"
+import { useNavigate } from "react-router-dom"
+import { useEffect } from "react";
 
 const Connect = () => {
+    const navigate = useNavigate();
+    const navToAccount = () => navigate("/account")
     const { address, connector, isConnected } = useAccount()
     const { chain, chains } = useNetwork()
     const { data } = useBalance({
@@ -19,9 +23,18 @@ const Connect = () => {
             console.log('Error', error)
         }
     })
+
+    useEffect(() => {
+        if (isConnected) {
+            navToAccount()
+        }
+    }, [isConnected])
+
     const coinbaseConnector = connectors[0]
     const metamaskConnector = connectors[1]
     const walletConnectConnector = connectors[2]
+
+    console.log("connected", isConnected)
     return (
         <><div className="connect-provider">
             <div className="connect-provider-box">
@@ -73,8 +86,8 @@ const Connect = () => {
             </div>
         </div>
             <div className="connect-provider-notice">
-                <p>Wallets are provided by external providers and by selecting you agree to Terms of those Providers.&nbsp;
-                    <button className="disconnect-button" onClick={() => disconnect()}>Disconnect my wallets.</button></p>
+                Wallets are provided by external providers and by selecting you agree to Terms of those Providers.&nbsp;
+                <button className="disconnect-button" onClick={() => disconnect()}>Disconnect my wallet.</button>
             </div>
         </>)
 }

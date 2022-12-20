@@ -16,6 +16,12 @@ import { GetPriceVsCurrency } from '../api/GetPriceVsCurrency'
 
 const Account = () => {
     const { address: walletOwner, connector, isConnected } = useAccount()
+    const [previousWalletOwner, setPreviousWalletOwner] = useState(walletOwner)
+    useEffect(() => {
+        if (previousWalletOwner !== walletOwner) {
+            window.location.reload()
+        }
+    }, [walletOwner])
     const { data: walletBalance } = useBalance({
         addressOrName: walletOwner,
     })
@@ -60,6 +66,9 @@ const Account = () => {
                 })()) : 0, 2)})`}</b></p></div>
     </div>
 
+    const subTitleNotConnected = <div><h2>You are not currently connected to a crypto wallet. Please connect your wallet to access all of the features of this app.
+        &nbsp;<Link className="sub-title-link" to="/connect-wallet">Connect wallet.</Link></h2></div>
+
     if (isConnected) {
         return (
             <>
@@ -76,16 +85,11 @@ const Account = () => {
 
     return (
         <>
-            <div className="account-title-section">
-                <div>
-                    <h1>Account</h1>
-                </div>
-                <div>
-                    <p>You are not currently connected to a crypto wallet. <Link to="/connect-wallet" className="account-switch-wallet">
-                        <u>Connect wallet</u>.
-                    </Link></p>
-                </div>
-            </div>
+            <TitleContainer title="Account" />
+            <SubTitleContainer info={subTitleNotConnected} />
+            <MainContainer>
+
+            </MainContainer>
             <Footer />
         </>
     )
