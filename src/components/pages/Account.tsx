@@ -9,7 +9,7 @@ import MainContainer from '../containers/Main'
 import AccountSummary from '../AccountSummary'
 import { GetDETFAccounts } from '../api/GetDETFAccounts'
 import { useEffect, useState, useContext } from 'react'
-import { GetDETFAccountsData } from '../api/GetDETFAccountsData'
+import { GetDETFAccountsDataAll } from '../api/GetDETFAccountsDataAll'
 import { CurrencyContext, FormatCurrency } from "../utils/Currency"
 import { GetPriceVsCurrency } from '../api/GetPriceVsCurrency'
 
@@ -30,7 +30,7 @@ const Account = () => {
     const [detfAccounts, setDETFAccounts] = useState<Array<string>>([])
     const [detfAccountsData, setDETFAccountsData] = useState<Array<string>>([])
     const { response: detfAccountsList, isLoading: detfAccountsLoading, isSuccess: detfAccountsSuccess } = GetDETFAccounts(walletOwner ? walletOwner : "")
-    const { response: detfAccountsListData, isLoading: detfAccountsDataLoading, isSuccess: detfAccountsDataSuccess } = GetDETFAccountsData(walletOwner ? walletOwner : "")
+    const { response: detfAccountsListData, isLoading: detfAccountsDataLoading, isSuccess: detfAccountsDataSuccess } = GetDETFAccountsDataAll(walletOwner ? walletOwner : "")
     const currency = useContext(CurrencyContext).currency
     const { response: prices, isLoading: pricesLoading, isSuccess: pricesSuccess } = GetPriceVsCurrency("0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c")
     const [vsPrices, setVsPrices] = useState<any>({})

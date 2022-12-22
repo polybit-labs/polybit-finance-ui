@@ -16,13 +16,27 @@ export const ReturnChart = (props: chartProps) => {
         return `${parseFloat(tickItem).toString()}`
     }
 
+    console.log(performanceData90d)
+
+    const CustomTooltip = ({ active, payload, label }: any) => {
+        if (active && payload && payload.length) {
+            return (
+                <div className="custom-tooltip">
+                    <p className="label">{`${label}`}</p>
+                    <p className="intro">{`Percent Change: ${parseFloat((payload[0].payload.pct).toString()).toFixed(2)}%`}</p>
+                </div>
+            );
+        }
+        return null;
+    };
+
     return (
         <ResponsiveContainer width={props.width} height={props.height}>
             <AreaChart data={performanceData90d} margin={{ left: -15 }}>
                 <Area type="monotone" dataKey="index_price" stroke="#875CFF" strokeWidth={2} fillOpacity={1} fill="#DEDDE4" />
                 <XAxis dataKey="date" tickFormatter={formatXAxis} color={"#000000"} tick={{ fontSize: "14px" }} />
                 <YAxis type="number" domain={['auto', 'auto']} tickFormatter={formatYAxis} tick={{ fontSize: "14px" }} />
-                <Tooltip />
+                <Tooltip content={<CustomTooltip />} />
             </AreaChart >
         </ResponsiveContainer>
     )

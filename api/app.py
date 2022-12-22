@@ -1,6 +1,4 @@
-import time
 from flask import Flask, request
-from scripts import rebalance
 from scripts.token_prices import (
     get_token_price,
     get_token_prices,
@@ -8,11 +6,13 @@ from scripts.token_prices import (
 )
 from scripts.rebalance import rebalance
 from scripts.sell_to_close import sell_to_close
+from scripts.first_deposit import first_deposit
 from scripts.detf_functions import (
     get_owned_assets,
     get_owned_assets_detailed,
     get_target_assets,
     get_detf_account_data,
+    get_detf_account_data_all,
     get_owner,
     get_status,
 )
@@ -87,9 +87,18 @@ def get_detfs_accounts_data():
 def get_detf_accounts_data():
     data = request.json
     provider = data["rpc_provider"]
-    wallet_owner = data["wallet_owner"]
-    account_data = get_detf_account_data(provider=provider, wallet_owner=wallet_owner)
+    detf_address = data["detf_address"]
+    account_data = get_detf_account_data(provider=provider, detf_address=detf_address)
     return account_data
+
+@app.route("/api/get_detf_accounts_data_all", methods=["POST"])
+def get_detf_accounts_data_all():
+    data = request.json
+    provider = data["rpc_provider"]
+    wallet_owner = data["wallet_owner"]
+    account_data = get_detf_account_data_all(provider=provider, wallet_owner=wallet_owner)
+    return account_data
+
 
 
 @app.route("/api/get_owned_assets", methods=["POST"])
@@ -186,6 +195,18 @@ def sell_to_close_order():
     detf_address = data["detf_address"]
 
     order_data = sell_to_close(
+        provider=provider,
+        detf_address=detf_address,
+    )
+    return order_data
+
+@app.route("/api/first_deposit", methods=["POST"])
+def first_deposit_order():
+    data = request.json
+    provider = data["rpc_provider"]
+    detf_address = data["detf_address"]
+
+    order_data = first_deposit(
         provider=provider,
         detf_address=detf_address,
     )

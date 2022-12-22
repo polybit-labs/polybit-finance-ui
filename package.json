@@ -2,7 +2,7 @@
   "name": "polybit-finance-ui",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://127.0.0.1:5000",
+  "proxy": "https://fierce-tor-79709.herokuapp.com",
   "dependencies": {
     "@babel/core": "^7.16.0",
     "@coinbase/wallet-sdk": "^3.5.3",

@@ -66,12 +66,10 @@ def rebalance(provider, detf_address, weth_input_amount):
     w3 = Web3(Web3.HTTPProvider(provider))
 
     (rebalancer_address, router_address, detf_factory_address) = get_polybit_addresses()
-    print("ROUTER ADDRESS", router_address)
     (detf_abi, detf_factory_abi, rebalancer_abi, router_abi) = get_polybit_abis()
 
     detf = w3.eth.contract(address=detf_address, abi=detf_abi)
     weth_balances = detf.functions.getWethBalance().call() + int(weth_input_amount)
-    print(weth_balances)
 
     rebalancer = w3.eth.contract(address=rebalancer_address, abi=rebalancer_abi)
     router = w3.eth.contract(address=router_address, abi=router_abi)

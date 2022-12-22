@@ -169,76 +169,76 @@ def get_detf_timestamps(provider, detf_address):
     return creation_timestamp, close_timestamp
 
 
-def get_detf_account_data(provider, wallet_owner):
+def get_detf_account_data(provider, detf_address):
+    status = get_status(provider, detf_address)
+    creation_timestamp, close_timestamp = get_detf_timestamps(
+        provider, detf_address
+    )
+    product_id, product_category, product_dimension = get_product_id(
+        provider, detf_address
+    )
+
+    owned_assets, owned_assets_prices = get_owned_assets(provider, detf_address)
+    balance_in_weth = get_total_balance_in_weth(
+        provider, detf_address, owned_assets_prices
+    )
+    deposits, total_deposits = get_deposits(provider, detf_address)
+    time_lock, time_lock_remaining = get_time_lock(provider, detf_address)
+
+    return_weth = 0
+    return_percentage = 0
+    if (status == 1) & (total_deposits > 0):
+        return_weth = balance_in_weth - total_deposits
+        return_percentage = return_weth / total_deposits
+
+    final_return_weth = 0
+    final_return_percentage = 0
+    final_return = {}
+
+    final_balance_in_weth = get_final_balance_in_weth(provider, detf_address)
+    if (status == 0) & (total_deposits > 0):
+        final_return_weth = final_balance_in_weth - total_deposits
+        final_return_percentage = final_return_weth / total_deposits
+        prices = get_historical_price(close_timestamp)
+        final_return = {
+            "aud": final_return_weth / 10**18 * prices["aud"],
+            "bnb": final_return_weth / 10**18 * prices["bnb"],
+            "cny": final_return_weth / 10**18 * prices["cny"],
+            "eur": final_return_weth / 10**18 * prices["eur"],
+            "idr": final_return_weth / 10**18 * prices["idr"],
+            "jpy": final_return_weth / 10**18 * prices["jpy"],
+            "krw": final_return_weth / 10**18 * prices["krw"],
+            "rub": final_return_weth / 10**18 * prices["rub"],
+            "twd": final_return_weth / 10**18 * prices["twd"],
+            "usd": final_return_weth / 10**18 * prices["usd"],
+        }
+
+    account_data = {
+            "detf_address": detf_address,
+            "product_id": product_id,
+            "category": product_category,
+            "dimension": product_dimension,
+            "status": status,
+            "creation_timestamp": creation_timestamp,
+            "close_timestamp": close_timestamp,
+            "balance_in_weth": balance_in_weth,
+            "deposits": deposits,
+            "total_deposits": total_deposits,
+            "time_lock": time_lock,
+            "time_lock_remaining": time_lock_remaining,
+            "return_weth": return_weth,
+            "return_percentage": return_percentage,
+            "final_return_weth": final_return_weth,
+            "final_return_percentage": final_return_percentage,
+            "final_return": final_return,
+            "final_balance_in_weth": final_balance_in_weth,
+        }
+    return account_data
+
+def get_detf_account_data_all(provider, wallet_owner):
     account_data = []
     detf_accounts = get_detf_accounts(provider, wallet_owner)
 
     for i in range(0, len(detf_accounts)):
-        status = get_status(provider, detf_accounts[i])
-        creation_timestamp, close_timestamp = get_detf_timestamps(
-            provider, detf_accounts[i]
-        )
-        print("STATUS",status)
-        product_id, product_category, product_dimension = get_product_id(
-            provider, detf_accounts[i]
-        )
-        print("PRODUCT",product_category, product_dimension)
-
-        owned_assets, owned_assets_prices = get_owned_assets(provider, detf_accounts[i])
-        balance_in_weth = get_total_balance_in_weth(
-            provider, detf_accounts[i], owned_assets_prices
-        )
-        deposits, total_deposits = get_deposits(provider, detf_accounts[i])
-        time_lock, time_lock_remaining = get_time_lock(provider, detf_accounts[i])
-
-        return_weth = 0
-        return_percentage = 0
-        if (status == 1) & (total_deposits > 0):
-            return_weth = balance_in_weth - total_deposits
-            return_percentage = return_weth / total_deposits
-
-        final_return_weth = 0
-        final_return_percentage = 0
-        final_return = {}
-
-        final_balance_in_weth = get_final_balance_in_weth(provider, detf_accounts[i])
-        if (status == 0) & (total_deposits > 0):
-            final_return_weth = final_balance_in_weth - total_deposits
-            final_return_percentage = final_return_weth / total_deposits
-            prices = get_historical_price(close_timestamp)
-            final_return = {
-                "aud": final_return_weth / 10**18 * prices["aud"],
-                "bnb": final_return_weth / 10**18 * prices["bnb"],
-                "cny": final_return_weth / 10**18 * prices["cny"],
-                "eur": final_return_weth / 10**18 * prices["eur"],
-                "idr": final_return_weth / 10**18 * prices["idr"],
-                "jpy": final_return_weth / 10**18 * prices["jpy"],
-                "krw": final_return_weth / 10**18 * prices["krw"],
-                "rub": final_return_weth / 10**18 * prices["rub"],
-                "twd": final_return_weth / 10**18 * prices["twd"],
-                "usd": final_return_weth / 10**18 * prices["usd"],
-            }
-
-        account_data.append(
-            {
-                "detf_address": detf_accounts[i],
-                "product_id": product_id,
-                "category": product_category,
-                "dimension": product_dimension,
-                "status": status,
-                "creation_timestamp": creation_timestamp,
-                "close_timestamp": close_timestamp,
-                "balance_in_weth": balance_in_weth,
-                "deposits": deposits,
-                "total_deposits": total_deposits,
-                "time_lock": time_lock,
-                "time_lock_remaining": time_lock_remaining,
-                "return_weth": return_weth,
-                "return_percentage": return_percentage,
-                "final_return_weth": final_return_weth,
-                "final_return_percentage": final_return_percentage,
-                "final_return": final_return,
-                "final_balance_in_weth": final_balance_in_weth,
-            }
-        )
+        account_data.append(get_detf_account_data(provider, detf_accounts[i]))
     return account_data
