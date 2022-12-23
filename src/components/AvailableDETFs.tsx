@@ -15,7 +15,7 @@ import { GetDETFAccountsDataAll } from "./api/GetDETFAccountsDataAll"
 import InlineDropDown from "./dropdowns/InlineDropDown"
 import { useEffect, useState } from "react"
 import sortDown from "../assets/icons/sort-down-solid.svg"
-
+import axios from "axios"
 
 export function AvailableDETFs() {
     const IPolybitDETFFactory = new Interface(PolybitDETFFactoryInterface)
@@ -139,6 +139,98 @@ export function AvailableDETFs() {
         SetFilterOption(selectDropDownOption)
     }, [selectDropDownOption, setDropDownOption])
 
+    const GetHeroku = () => {
+        const [response, setResponse] = useState<any>()
+        const network = useNetwork()
+        const rpc = network.chain?.rpcUrls.default
+        let isLoading: boolean
+        let isSuccess: boolean
+
+        useEffect(() => {
+            const token_address = "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82"
+            axios.post("https://fierce-tor-79709.herokuapp.com/api/get_price_vs_currency", { "token_address": token_address })
+                .then(res => {
+                    const prices = {
+                        "aud": res.data.aud,
+                        "bnb": res.data.bnb,
+                        "cny": res.data.cny,
+                        "eur": res.data.eur,
+                        "idr": res.data.idr,
+                        "jpy": res.data.jpy,
+                        "krw": res.data.krw,
+                        "rub": res.data.rub,
+                        "twd": res.data.twd,
+                        "usd": res.data.usd
+                    }
+                    setResponse(prices)
+                    console.log(prices)
+                })
+        }, []);
+
+        if (response === undefined) {
+            isLoading = true
+            isSuccess = false
+        } else {
+            isLoading = false
+            isSuccess = true
+        }
+        return { response, isLoading, isSuccess }
+    }
+    GetHeroku()
+
+    const GetHeroku2 = () => {
+        const [response, setResponse] = useState<any>()
+        const network = useNetwork()
+        const rpc = network.chain?.rpcUrls.default
+        let isLoading: boolean
+        let isSuccess: boolean
+
+        useEffect(() => {
+            axios.get("https://fierce-tor-79709.herokuapp.com/api")
+                .then((res) => {
+                    setResponse(res.data);
+                })
+        }, [])
+
+        if (response === undefined) {
+            isLoading = true
+            isSuccess = false
+        } else {
+            isLoading = false
+            isSuccess = true
+        }
+        console.log("heroku2", response)
+        return { response, isLoading, isSuccess }
+    }
+    GetHeroku2()
+
+    const GetHeroku3 = () => {
+        const token_address = "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82"
+        let data: any
+        useEffect(() => {
+            axios.post("https://fierce-tor-79709.herokuapp.com/api/get_price_vs_currency_test", { "token_address": token_address })
+                .then((res) => {
+                    console.log("heroku3", res.data)
+                })
+                .catch((err) => {
+                    console.log(err.response)
+                })
+            /* const prices = {
+                "aud": data.aud,
+                "bnb": data.bnb,
+                "cny": data.cny,
+                "eur": data.eur,
+                "idr": data.idr,
+                "jpy": data.jpy,
+                "krw": data.krw,
+                "rub": data.rub,
+                "twd": data.twd,
+                "usd": data.usd
+            }
+            console.log(prices); */
+        }, []);
+    }
+    GetHeroku3()
     return (
         <div></div>
     )

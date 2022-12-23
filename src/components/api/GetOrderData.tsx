@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react"
 import { useNetwork } from "wagmi"
+import axios from "axios"
+import apiURL from "./api-info.json"
 
 export const GetOrderData = (detfAddress: string, weth_input_amount: string) => {
     const [response, setResponse] = useState<Array<any>>()
@@ -9,15 +11,14 @@ export const GetOrderData = (detfAddress: string, weth_input_amount: string) => 
     let isSuccess: boolean
 
     useEffect(() => {
-        fetch('/api/rebalancer', {
-            method: "POST",
-            cache: "no-cache",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ "rpc_provider": rpc, "detf_address": detfAddress, "weth_input_amount": weth_input_amount })
-        }).then(res => res.json()).then(data => {
-            setResponse(data);
-        });
-    }, []);
+        axios.post(apiURL["apiURL"] + "/api/rebalancer", { "rpc_provider": rpc, "detf_address": detfAddress, "weth_input_amount": weth_input_amount })
+            .then(res => {
+                setResponse(res.data)
+            })
+            .catch((err) => {
+                console.log(err.response)
+            })
+    }, [])
 
     if (response === undefined) {
         isLoading = true

@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react"
 import { useNetwork } from "wagmi"
+import axios from "axios"
+import apiURL from "./api-info.json"
 
 export interface PerformanceDataRange {
     date: string;
@@ -15,15 +17,14 @@ export const GetPerformanceDataRange = (url: string, start_date: number, end_dat
     let isSuccess: boolean
 
     useEffect(() => {
-        fetch('/api/get_performance_data_range', {
-            method: "POST",
-            cache: "no-cache",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ "url": url, "start_date": start_date, "end_date": end_date })
-        }).then(res => res.json()).then(data => {
-            setResponse(data);
-        });
-    }, []);
+        axios.post(apiURL["apiURL"] + "/api/get_performance_data_range", { "url": url, "start_date": start_date, "end_date": end_date })
+            .then(res => {
+                setResponse(res.data)
+            })
+            .catch((err) => {
+                console.log(err.response)
+            })
+    }, [])
 
     if (response === undefined) {
         isLoading = true

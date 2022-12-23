@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react"
 import { useNetwork } from "wagmi"
+import axios from "axios"
+import apiURL from "./api-info.json"
 
 export interface PerformanceData {
     date: string;
@@ -19,15 +21,14 @@ export const GetPerformanceData = (url: string) => {
     let isSuccess: boolean
 
     useEffect(() => {
-        fetch('/api/get_performance_data', {
-            method: "POST",
-            cache: "no-cache",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ "url": url })
-        }).then(res => res.json()).then(data => {
-            setResponse(data);
-        });
-    }, []);
+        axios.post(apiURL["apiURL"] + "/api/get_performance_data", { "url": url })
+            .then(res => {
+                setResponse(res.data);
+            })
+            .catch((err) => {
+                console.log(err.response)
+            })
+    }, [])
 
     if (response === undefined) {
         isLoading = true

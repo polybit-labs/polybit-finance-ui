@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react"
+import axios from "axios"
+import apiURL from "./api-info.json"
 
 export const GetPrices = (token_addresses: Array<string>) => {
     const [response, setResponse] = useState<string>()
@@ -6,15 +8,14 @@ export const GetPrices = (token_addresses: Array<string>) => {
     let isSuccess: boolean
 
     useEffect(() => {
-        fetch('/api/get_prices', {
-            method: "POST",
-            cache: "no-cache",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(token_addresses)
-        }).then(res => res.json()).then(data => {
-            setResponse(data);
-        });
-    }, []);
+        axios.post(apiURL["apiURL"] + "/api/get_prices", { token_addresses })
+            .then(res => {
+                setResponse(res.data)
+            })
+            .catch((err) => {
+                console.log(err.response)
+            })
+    }, [])
 
     if (response === undefined) {
         isLoading = true

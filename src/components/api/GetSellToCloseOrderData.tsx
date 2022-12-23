@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react"
 import { useNetwork } from "wagmi"
+import axios from "axios"
+import apiURL from "./api-info.json"
 
 export const GetSellToCloseOrderData = (detfAddress: string) => {
     const [response, setResponse] = useState<Array<any>>()
@@ -9,15 +11,14 @@ export const GetSellToCloseOrderData = (detfAddress: string) => {
     let isSuccess: boolean
 
     useEffect(() => {
-        fetch('/api/sell_to_close', {
-            method: "POST",
-            cache: "no-cache",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ "rpc_provider": rpc, "detf_address": detfAddress })
-        }).then(res => res.json()).then(data => {
-            setResponse(data);
-        });
-    }, []);
+        axios.post(apiURL["apiURL"] + "/api/sell_to_close", { "rpc_provider": rpc, "detf_address": detfAddress })
+            .then(res => {
+                setResponse(res.data);
+            })
+            .catch((err) => {
+                console.log(err.response)
+            })
+    }, [])
 
     if (response === undefined) {
         isLoading = true

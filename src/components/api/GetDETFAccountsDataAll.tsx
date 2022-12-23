@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react"
 import { useNetwork } from "wagmi"
+import axios from "axios"
+import apiURL from "./api-info.json"
 
 export const GetDETFAccountsDataAll = (wallet_owner: string) => {
     const [response, setResponse] = useState<Array<string>>()
@@ -9,15 +11,14 @@ export const GetDETFAccountsDataAll = (wallet_owner: string) => {
     let isSuccess: boolean
 
     useEffect(() => {
-        fetch('/api/get_detf_accounts_data_all', {
-            method: "POST",
-            cache: "no-cache",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ "rpc_provider": rpc, "wallet_owner": wallet_owner })
-        }).then(res => res.json()).then(data => {
-            setResponse(data);
-        });
-    }, []);
+        axios.post(apiURL["apiURL"] + "/api/get_price_vs_currency", { "rpc_provider": rpc, "wallet_owner": wallet_owner })
+            .then(res => {
+                setResponse(res.data)
+            })
+            .catch((err) => {
+                console.log(err.response)
+            })
+    }, [])
 
     if (response === undefined) {
         isLoading = true

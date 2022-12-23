@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react"
+import axios from "axios"
+import apiURL from "./api-info.json"
 
 export const GetHistoricalPrices = (date: string) => {
     const [response, setResponse] = useState<Array<any>>()
@@ -6,15 +8,14 @@ export const GetHistoricalPrices = (date: string) => {
     let isSuccess: boolean
 
     useEffect(() => {
-        fetch('/api/get_historical_prices', {
-            method: "POST",
-            cache: "no-cache",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ "date": date })
-        }).then(res => res.json()).then(data => {
-            setResponse(data);
-        });
-    }, []);
+        axios.post(apiURL["apiURL"] + "/api/get_historical_prices", { "date": date })
+            .then(res => {
+                setResponse(res.data)
+            })
+            .catch((err) => {
+                console.log(err.response)
+            })
+    }, [])
 
     if (response === undefined) {
         isLoading = true
