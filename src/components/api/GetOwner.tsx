@@ -13,7 +13,7 @@ export const GetOwner = (detfAddress: string) => {
     useEffect(() => {
         axios.post(apiURL["apiURL"] + "/api/get_owner", { "rpc_provider": rpc, "detf_address": detfAddress })
             .then(res => {
-                setResponse(res.data)
+                setResponse(res.data.owner)
             })
             .catch((err) => {
                 console.log(err.response)

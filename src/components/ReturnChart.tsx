@@ -16,8 +16,6 @@ export const ReturnChart = (props: chartProps) => {
         return `${parseFloat(tickItem).toString()}`
     }
 
-    console.log(performanceData90d)
-
     const CustomTooltip = ({ active, payload, label }: any) => {
         if (active && payload && payload.length) {
             return (

@@ -17,21 +17,6 @@ import { jsonRpcProvider } from 'wagmi/providers/jsonRpc'
 
 window.Buffer = window.Buffer || require("buffer").Buffer;
 
-/* const bscTestnet: Chain = {
-  id: 97,
-  name: 'BSC Testnet',
-  network: 'bsc',
-  nativeCurrency: {
-    decimals: 18,
-    name: 'BNB',
-    symbol: 'BNB',
-  },
-  rpcUrls: {
-    default: 'http://data-seed-prebsc-1-s2.binance.org:8545/',
-  },
-  testnet: true,
-} */
-
 const mainnet: Chain = {
   id: 56,
   name: "BNB Smart Chain",
@@ -84,7 +69,20 @@ const bscMainFork: Chain = {
   },
 };
 
-const chains = [mainnet, testnet, bscMainFork];
+const polybitBSCFork: Chain = {
+  id: 56565656,
+  name: "BNB Smart Chain",
+  network: "BSC",
+  rpcUrls: { default: "HTTP://13.229.230.199:8545" },
+  testnet: true,
+  nativeCurrency: {
+    name: "BCS Fork",
+    symbol: "BNB",
+    decimals: 18
+  },
+}
+
+const chains = [mainnet, testnet, bscMainFork, polybitBSCFork];
 const infuraId = process.env.INFURA_ID;
 
 const { provider, webSocketProvider } = configureChains(chains, [

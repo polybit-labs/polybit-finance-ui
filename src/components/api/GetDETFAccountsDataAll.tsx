@@ -11,7 +11,7 @@ export const GetDETFAccountsDataAll = (wallet_owner: string) => {
     let isSuccess: boolean
 
     useEffect(() => {
-        axios.post(apiURL["apiURL"] + "/api/get_price_vs_currency", { "rpc_provider": rpc, "wallet_owner": wallet_owner })
+        axios.post(apiURL["apiURL"] + "/api/get_detf_accounts_data_all", { "rpc_provider": rpc, "wallet_owner": wallet_owner })
             .then(res => {
                 setResponse(res.data)
             })

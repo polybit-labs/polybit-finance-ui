@@ -78,7 +78,6 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
     const { response: ownedAssets, isLoading, isSuccess } = GetOwnedAssetsDetailed(props.detf_address)
     const ownedAssetsDetailed = ownedAssets ? ownedAssets : []
     const { response: owner } = GetOwner(props.detf_address)
-
     const { response: performanceDataRange, isSuccess: performanceDataRangeSuccess } = GetPerformanceDataRange(productUrl, props.creation_timestamp, props.close_timestamp > 0 ? props.close_timestamp : moment.now())
     const [performanceData, setPerformanceData] = useState<Array<PerformanceDataRange>>([])
     const [validDateRange, setValidDateRange] = useState(false)
