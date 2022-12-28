@@ -1,22 +1,22 @@
 import { Link } from "react-router-dom"
 import "./AccountTableRow.css"
 import { useEffect, useState } from "react";
-import { GetOwnedAssetsDetailed } from "./api/GetOwnedAssetsDetailed";
-import { DETFOwnedAssetsTable } from "./DETFOwnedAssetsTable";
-import { FormatCurrency } from "./utils/Currency";
-import { GetOwner } from "./api/GetOwner";
-import { ColourCategories, FormatPercentages } from './utils/Formatting'
+import { GetOwnedAssetsDetailed } from "../api/GetOwnedAssetsDetailed";
+import { DETFOwnedAssetsTable } from "../DETFOwnedAssetsTable";
+import { FormatCurrency } from "../utils/Currency";
+import { GetOwner } from "../api/GetOwner";
+import { ColourCategories, FormatPercentages } from '../utils/Formatting'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { icon } from '@fortawesome/fontawesome-svg-core/import.macro'
-import { GetHistoricalPrices } from "./api/GetHistoricalPrices";
-import { GetPriceVsCurrency } from "./api/GetPriceVsCurrency";
-import wethAddress from "../chain_info/weth.json"
-import { GetPerformanceDataRange, PerformanceDataRange } from "./api/GetPerformanceDataRange";
-import { InvalidPortfolioRange } from "./charts/InvalidPortfolioRange";
-import { DETFReturnChart } from "./charts/DETFReturnChart";
-import { GetProductData, ProductData } from "./api/GetProductData";
-import { DETFAssetsTable } from "./DETFAssetsTable";
-import { Button } from "./Button";
+import { GetHistoricalPrices } from "../api/GetHistoricalPrices";
+import { GetPriceVsCurrency } from "../api/GetPriceVsCurrency";
+import wethAddress from "../../chain_info/weth.json"
+import { GetPerformanceDataRange, PerformanceDataRange } from "../api/GetPerformanceDataRange";
+import { InvalidPortfolioRange } from "../charts/InvalidPortfolioRange";
+import { DETFReturnChart } from "../charts/DETFReturnChart";
+import { GetProductData, ProductData } from "../api/GetProductData";
+import { DETFAssetsTable } from "../DETFAssetsTable";
+import { Button } from "../Button";
 
 type Currencies = {
     "date": string;
@@ -312,7 +312,7 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
                                 </div>
                             </div>}
                             {!isDETFDeposited && <div className="account-detf-expanded-content-left-invested-no-deposits">
-                                <img className="account-detf-expanded-content-left-invested-no-deposits-icon" src={require("../assets/icons/info_dark_grey.png")}></img>
+                                <img className="account-detf-expanded-content-left-invested-no-deposits-icon" src={require("../../assets/icons/info_dark_grey.png")}></img>
                                 <p>You have not yet deposited into this DETF.</p></div>}
                         </div>
                         {isDETFActive && !isDETFDeposited &&

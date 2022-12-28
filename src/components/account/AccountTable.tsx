@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import "./AccountTable.css"
 import { useAccount, useBalance } from "wagmi"
 import { AccountTableRow } from './AccountTableRow'
-import { Button } from './Button';
+import { Button } from '../Button';
 
 interface DETFSummary {
     "productId": number;
@@ -94,13 +94,8 @@ export const AccountTable = (props: AccountTableProps) => {
                             </div>) :
                             <div>
                                 <div className="account-detf-row-loading">
-                                    <img height="90px" width="90px" src={require("../assets/images/loading.gif")} alt="Loading"></img>
+                                    <img height="90px" width="90px" src={require("../../assets/images/loading.gif")} alt="Loading"></img>
                                 </div>
-                                {/* <div className="account-detf-row-item-none">-</div>
-                                <div className="account-detf-row-item-none">-</div>
-                                <div className="account-detf-row-item-none">-</div>
-                                <div className="account-detf-row-item-none">-</div>
-                                <div className="account-detf-row-item-none"></div> */}
                             </div>
                         }
                     </div>

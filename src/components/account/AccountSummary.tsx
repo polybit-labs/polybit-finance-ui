@@ -1,9 +1,9 @@
 import "./AccountSummary.css"
-import { ColourNumbers } from './utils/Formatting'
+import { ColourNumbers } from '../utils/Formatting'
 import { useAccount, useBalance } from 'wagmi'
-import { FormatCurrency } from "./utils/Currency"
+import { FormatCurrency } from "../utils/Currency"
 import { useEffect, useState } from "react"
-import { FormatPercentages } from "./utils/Formatting"
+import { FormatPercentages } from "../utils/Formatting"
 
 interface AccountSummaryProps {
     detfAccounts: Array<string>;
