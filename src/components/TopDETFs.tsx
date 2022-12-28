@@ -1,6 +1,6 @@
 import "./TopDETFs.css"
 import { useEffect, useState } from "react"
-import InlineDropDown from "./dropdowns/InlineDropDown"
+import { InlineDropDown } from "./dropdowns/InlineDropDown"
 import sortDown from "../assets/icons/sort-down-solid.svg"
 import { GetTopDETFData } from "./api/GetTopDETFData"
 import { Link } from "react-router-dom"

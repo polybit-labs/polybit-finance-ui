@@ -13,12 +13,9 @@
     top: 38px;
     left: 0px;
     padding-left: 10px;
-    padding-right: 30px;
+    padding-right: 10px;
     padding-top: 20px;
     padding-bottom: 20px;
-    font-size: 24px;
-    font-weight: 700;
-    color: #000000;
     text-align: left;
     background-color: #fff;
     width: 270px;
@@ -27,13 +24,10 @@
 .inline-dropdown-box-options {
     margin: 0;
     top: 16px;
-
-    /* border-bottom: 1px solid #EEEEEE; */
 }
 
 .inline-dropdown-box-options:hover {
-    color: #ffffff;
-    background-color: #000000;
+    color: #7140FF;
 }
 
 .inline-dropdown-box-options:last-child {

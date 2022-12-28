@@ -94,7 +94,15 @@
 }
 
 .detf-index-row-item-detf {
+    display: flex;
+    flex-direction: row;
     width: 25%;
+}
+
+.detf-index-row-item-logo {
+    width: 48px;
+    height: 48px;
+    margin-right: 12px;
 }
 
 .detf-index-row-item-liquidity {
@@ -139,12 +147,6 @@
 .detf-index-chain-name-dimension {
     color: #000000;
     font-size: 24px;
-}
-
-.detf-index-chain-logo {
-    height: 26px;
-    width: 26px;
-    margin-right: 5px;
 }
 
 .detf-index-row-item-link {

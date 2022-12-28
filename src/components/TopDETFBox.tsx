@@ -4,7 +4,7 @@ import { ReturnChartMini } from "./charts/ReturnChartMini";
 import { useEffect, useState } from "react";
 import { GetPerformanceData } from "./api/GetPerformanceData";
 import { PerformanceData } from "./api/GetPerformanceData";
-import { ColourCategories, ColourNumbers } from "./utils/Formatting";
+import { ColourCategories, ColourNumbers, DETFIconFilename } from "./utils/Formatting";
 
 
 interface TopDETFBoxProps {
@@ -52,7 +52,7 @@ export const TopDETFBox = (props: TopDETFBoxProps) => {
             <>
                 <div className="top-detfs-box-header">
                     <div className="top-detfs-box-header-title">
-                        <img className="top-detfs-box-header-title-logo" src={require("../assets/images/placeholder.png")}></img>
+                        <img className="top-detfs-box-header-title-logo" src={require(`../assets/icons/${DETFIconFilename(props.category, props.dimension)}`)}></img>
                         <div className="top-detfs-box-header-title-name">
                             <div className="top-detfs-box-header-title-name-category" style={{ color: ColourCategories(props.category) }}>{props.category}</div>
                             <div className="top-detfs-box-header-title-name-dimension" style={{ color: "#000000" }}>{props.dimension}</div>

@@ -1,46 +1,41 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react'
 import "./CurrencyDropDown.css"
 
-type DropDownProps = {
-    currencyFormats: string[];
+type CurrencyDropDownProps = {
+    options: string[];
     showDropDown: boolean;
     toggleDropDown: Function;
-    currencyFormatSelection: Function;
-};
+    selectedOption: Function;
+}
 
-const CurrencyDropDown: React.FC<DropDownProps> = ({
-    currencyFormats,
-    currencyFormatSelection,
-}: DropDownProps): JSX.Element => {
+export const CurrencyDropDown = ({ options, selectedOption }: CurrencyDropDownProps) => {
     const [showDropDown, setShowDropDown] = useState<boolean>(false);
-    const onClickHandler = (currencyFormat: string): void => {
-        currencyFormatSelection(currencyFormat);
+    const onClickHandler = (option: string): void => {
+        selectedOption(option);
     };
 
     useEffect(() => {
-        setShowDropDown(showDropDown);
-    }, [showDropDown]);
+        setShowDropDown(showDropDown)
+    }, [showDropDown])
 
     return (
         <>
-            <div className="currency-dropdown">
-                {currencyFormats.map(
-                    (currencyFormat: string, index: number): JSX.Element => {
+            <div className="currency-dropdown-box">
+                {options.map(
+                    (option: string, index: number): JSX.Element => {
                         return (
-                            <p
+                            <div className="currency-dropdown-box-options"
                                 key={index}
                                 onClick={(): void => {
-                                    onClickHandler(currencyFormat);
+                                    onClickHandler(option)
                                 }}
                             >
-                                {currencyFormat}
-                            </p>
+                                {option}
+                            </div>
                         );
                     }
                 )}
             </div>
         </>
-    );
-};
-
-export default CurrencyDropDown;
+    )
+}

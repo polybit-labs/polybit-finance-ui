@@ -5,7 +5,7 @@ import { GetOwnedAssetsDetailed } from "../api/GetOwnedAssetsDetailed";
 import { DETFOwnedAssetsTable } from "../DETFOwnedAssetsTable";
 import { FormatCurrency } from "../utils/Currency";
 import { GetOwner } from "../api/GetOwner";
-import { ColourCategories, FormatPercentages } from '../utils/Formatting'
+import { ColourCategories, DETFIconFilename, FormatPercentages } from '../utils/Formatting'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { icon } from '@fortawesome/fontawesome-svg-core/import.macro'
 import { GetHistoricalPrices } from "../api/GetHistoricalPrices";
@@ -240,10 +240,10 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
         <div className="account-detf-row">
             <div className="account-detf-row-items">
                 <div className="account-detf-row-item-detf">
+                    <img className="account-index-row-item-logo" src={require(`../../assets/icons/${DETFIconFilename(props.category, props.dimension)}`)}></img>
                     <div className="account-index-row-item-name" style={{ color: ColourCategories(props.category) }}>
                         {props.category}
                         <div className="account-index-chain-title" style={{ color: "#000000" }}>
-                            {/* <img className="account-index-chain-logo" src={require("../assets/images/bsc-logo.png")} alt="Binance Smart Chain"></img> */}
                             {props.dimension}
                         </div>
                     </div>

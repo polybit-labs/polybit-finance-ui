@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import "./DETFIndexList.css"
-import { ColourCategories, ColourNumbers, FormatPercentages } from './utils/Formatting'
+import { ColourCategories, ColourNumbers, DETFIconFilename, FormatPercentages } from './utils/Formatting'
 import { Link } from "react-router-dom"
 import { FormatCurrency } from "./utils/Currency"
 import { Loading } from './Loading'
@@ -123,6 +123,7 @@ const DETFIndexList = (props: DETFIndexListProps) => {
                             {detfIndex.map((detf: any) =>
                                 <div className="detf-index-row-items" key={detf.url}>
                                     <div className="detf-index-row-item-detf">
+                                        <img className="detf-index-row-item-logo" src={require(`../assets/icons/${DETFIconFilename(detf.category, detf.dimension)}`)}></img>
                                         <div className="detf-index-row-item-name">
                                             <div className="detf-index-row-item-name-category" style={{ color: ColourCategories(detf.category) }}>
                                                 {detf.category}

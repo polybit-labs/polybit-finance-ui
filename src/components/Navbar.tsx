@@ -2,8 +2,9 @@ import React, { useState, useEffect, useContext } from 'react'
 import { Link } from 'react-router-dom'
 import "./Navbar.css"
 import { CurrencyContext, CurrencyFormats } from "./utils/Currency"
-import CurrencyTypeDropDown from "./dropdowns/CurrencyDropDown"
+import { CurrencyDropDown } from "./dropdowns/CurrencyDropDown"
 import sortDown from "../assets/icons/sort-down-solid.svg"
+import { InlineDropDown } from './dropdowns/InlineDropDown'
 
 interface NavbarProps {
     setCurrency: Function;
@@ -89,12 +90,13 @@ function Navbar(props: NavbarProps) {
                         >
                             <div>{selectCurrencyFormat ? selectCurrencyFormat : "Select ..."} <img src={sortDown} height="20px" width="20px"></img></div>
                             {showDropDown && (
-                                <CurrencyTypeDropDown
-                                    currencyFormats={CurrencyFormats()}
+                                <CurrencyDropDown
+                                    options={CurrencyFormats()}
                                     showDropDown={false}
                                     toggleDropDown={(): void => toggleDropDown()}
-                                    currencyFormatSelection={currencyFormatSelection}
+                                    selectedOption={currencyFormatSelection}
                                 />
+
                             )}
                         </button>
                     </li>

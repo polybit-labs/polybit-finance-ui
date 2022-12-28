@@ -7,7 +7,7 @@ import detfIndexInfo from "../../product/detfIndex.json"
 import { CurrencyContext } from "../utils/Currency"
 import { GetPriceVsCurrency } from '../api/GetPriceVsCurrency'
 import { Loading } from '../Loading'
-import InlineDropDown from '../dropdowns/InlineDropDown'
+import { InlineDropDown } from '../dropdowns/InlineDropDown'
 import sortDown from "../../assets/icons/sort-down-solid.svg"
 import { GetDETFIndexData } from '../api/GetDETFIndexData'
 

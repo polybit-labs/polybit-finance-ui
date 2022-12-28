@@ -39,9 +39,13 @@ export const FormatPercentages = (percentage: number) => {
 
 export const ColourCategories = (category: string) => {
     if (category === "Defi") { return "#2100E9" }
-    if (category === "Governance") { return "#2EB100" }
-    if (category === "Web3 Gaming") { return "#FF0000" }
-    if (category === "BSC Index Top 10") { return "#0094E8" }
+    if (category === "Governance") { return "#24A78F" }
+    if (category === "BSC Index Top 10") { return "#CD9A00" }
     if (category === "Metaverse") { return "#E5008A" }
     return "#000000"
+}
+
+export const DETFIconFilename = (category: string, dimension: string) => {
+    const filename = `${category.replaceAll(" ", "_").toLowerCase()}__${dimension.replaceAll(" ", "_").toLowerCase()}.png`
+    return filename
 }

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react'
 import "./InlineDropDown.css"
 
 type InlineDropDownProps = {
@@ -6,20 +6,17 @@ type InlineDropDownProps = {
     showDropDown: boolean;
     toggleDropDown: Function;
     selectedOption: Function;
-};
+}
 
-const DropDown: React.FC<InlineDropDownProps> = ({
-    options,
-    selectedOption,
-}: InlineDropDownProps): JSX.Element => {
+export const InlineDropDown = ({ options, selectedOption }: InlineDropDownProps) => {
     const [showDropDown, setShowDropDown] = useState<boolean>(false);
     const onClickHandler = (option: string): void => {
         selectedOption(option);
     };
 
     useEffect(() => {
-        setShowDropDown(showDropDown);
-    }, [showDropDown]);
+        setShowDropDown(showDropDown)
+    }, [showDropDown])
 
     return (
         <>
@@ -30,7 +27,7 @@ const DropDown: React.FC<InlineDropDownProps> = ({
                             <div className="inline-dropdown-box-options"
                                 key={index}
                                 onClick={(): void => {
-                                    onClickHandler(option);
+                                    onClickHandler(option)
                                 }}
                             >
                                 {option}
@@ -40,7 +37,5 @@ const DropDown: React.FC<InlineDropDownProps> = ({
                 )}
             </div>
         </>
-    );
-};
-
-export default DropDown;
+    )
+}
