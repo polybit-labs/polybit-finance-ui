@@ -5,12 +5,11 @@ import Footer from './Footer'
 import { useState, useContext, useEffect } from 'react'
 import detfIndexInfo from "../../product/detfIndex.json"
 import { CurrencyContext } from "../utils/Currency"
-import { GetProductData } from '../api/GetProductData'
-import { GetPerformanceData } from '../api/GetPerformanceData'
 import { GetPriceVsCurrency } from '../api/GetPriceVsCurrency'
 import { Loading } from '../Loading'
 import InlineDropDown from '../dropdowns/InlineDropDown'
 import sortDown from "../../assets/icons/sort-down-solid.svg"
+import { GetDETFIndexData } from '../api/GetDETFIndexData'
 
 
 function DETFIndex() {
@@ -46,58 +45,15 @@ function DETFIndex() {
         setVsPrices(prices ? prices : {})
     }, [pricesLoading, pricesSuccess])
 
-    //const S3PATH = "https://polybit-finance.s3.ap-southeast-1.amazonaws.com/detfs/"
+    const { response: detfIndexData, isSuccess: detfIndexDataSuccess } = GetDETFIndexData()
+    const [detfData, setDETFData] = useState<Array<any>>([])
 
-    const GetDETFIndex = () => {
-        let detfIndex: Array<any> = []
-        let isLoading: boolean = false
-        let isSuccess: boolean = false
-
-        detfIndexInfo?.map((index => {
-            const productUrl = `${index.urlChainId}/${index.urlCategoryId}/${index.urlDimensionId}`
-            //const s3Url = S3PATH + productUrl
-            const { response: productData, isLoading: productDataLoading, isSuccess: productDataSuccess } = GetProductData(productUrl)
-            const { response: performanceData, isLoading: performanceDataLoading, isSuccess: performanceDataSuccess } = GetPerformanceData(productUrl)
-            const GetLogos = () => {
-                let logos: Array<string> = []
-                productData?.tokens.map((token) => {
-                    logos.push(token.image)
-
-                })
-                return logos
-            }
-
-            if (productDataSuccess && productData && performanceDataSuccess && performanceData) {
-                detfIndex.push({
-                    "chainId": index.chainId,
-                    "chainName": "BNB Smart Chain",
-                    "productId": index.productId,
-                    "category": index.category,
-                    "dimension": index.dimension,
-                    "urlChainId": index.urlChainId,
-                    "urlCategoryId": index.urlCategoryId,
-                    "urlDimensionId": index.urlDimensionId,
-                    "logos": GetLogos(),
-                    "liquidity": Number(productData.total_liquidity.liquidity_bnb),
-                    "returnOneWeek": performanceData[performanceData.length - 1].performance_7d,
-                    "returnOneMonth": performanceData[performanceData.length - 1].performance_30d,
-                    "returnThreeMonths": performanceData[performanceData.length - 1].performance_90d,
-                    "returnOneYear": performanceData[performanceData.length - 1].performance_365d,
-                })
-            }
-        }))
-
-        if (detfIndex[detfIndex.length - 1] === undefined) {
-            isLoading = true
-            isSuccess = false
-        } else {
-            isLoading = false
-            isSuccess = true
+    useEffect(() => {
+        if (detfIndexData && detfIndexData) {
+            setDETFData(detfIndexData)
         }
-        return { detfIndex, isLoading, isSuccess }
-    }
+    }, [detfIndexData])
 
-    const { detfIndex: detfData, isLoading, isSuccess } = GetDETFIndex()
     const categories = ["All Categories"]
     const dimensions = ["All Dimensions"]
     const subTitle = <div>Displaying thematic investment strategies in <button

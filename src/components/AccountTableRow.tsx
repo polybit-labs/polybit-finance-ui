@@ -12,8 +12,8 @@ import { GetHistoricalPrices } from "./api/GetHistoricalPrices";
 import { GetPriceVsCurrency } from "./api/GetPriceVsCurrency";
 import wethAddress from "../chain_info/weth.json"
 import { GetPerformanceDataRange, PerformanceDataRange } from "./api/GetPerformanceDataRange";
-import { InvalidPortfolioRange } from "./InvalidPortfolioRange";
-import { ReturnChart } from "./ReturnChart";
+import { InvalidPortfolioRange } from "./charts/InvalidPortfolioRange";
+import { DETFReturnChart } from "./charts/DETFReturnChart";
 import { GetProductData, ProductData } from "./api/GetProductData";
 import { DETFAssetsTable } from "./DETFAssetsTable";
 import { Button } from "./Button";
@@ -343,7 +343,7 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
                             {isDETFActive && <h2>Total market value: {currentTotalValue} ({currentReturnWeth})</h2>}
                             {!isDETFActive && <h2>Final market value: {finalMarketValue} ({finalReturnWeth})</h2>}
                             <p><b>Market value over time ({props.currency})</b></p>
-                            {validDateRange && <ReturnChart height={300} width="100%" performanceData={performanceData} />}
+                            {validDateRange && <DETFReturnChart height={300} width="100%" performanceData={performanceData} />}
                             {!validDateRange && <InvalidPortfolioRange height={300} width="100%" />}
                         </div>
                         <div className="account-detf-expanded-content-left-close">

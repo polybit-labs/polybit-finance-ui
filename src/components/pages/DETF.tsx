@@ -1,5 +1,5 @@
 import { useParams, Link } from 'react-router-dom'
-import { ReturnChart } from '../ReturnChart'
+import { DETFReturnChart } from '../charts/DETFReturnChart'
 import "./DETF.css"
 import { DETFAssetsTable } from '../DETFAssetsTable'
 import { CurrencyContext } from '../utils/Currency'
@@ -15,7 +15,6 @@ const DETF = () => {
     const urlChainId = useParams().urlChainId
     const urlCategoryId = useParams().urlCategoryId
     const urlDimensionId = useParams().urlDimensionId
-    //const S3PATH = "https://polybit-finance.s3.ap-southeast-1.amazonaws.com/detfs/"
     const productUrl = `${urlChainId}/${urlCategoryId}/${urlDimensionId}`
     const productContent = require(`../../product/detfs/${urlChainId}/${urlCategoryId}/${urlDimensionId}/content.json`)
 
@@ -72,7 +71,7 @@ const DETF = () => {
                             </div>
                             <div className="detf-chart">
                                 <p>{category} {dimension} DETF Index Value - 3 Months</p>
-                                <ReturnChart height={300} width="100%" performanceData={performanceData} />
+                                <DETFReturnChart height={300} width="100%" performanceData={performanceData} />
                             </div>
                             <DETFSummary
                                 productContent={productContent}

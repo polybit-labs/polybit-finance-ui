@@ -1,4 +1,4 @@
-import { ReturnChart } from "./ReturnChart"
+import { DETFReturnChart } from "./DETFReturnChart"
 import "./InvalidPortfolioRange.css"
 
 const data = [{
@@ -800,9 +800,9 @@ interface InvalidPortfolioRangeProps {
 export const InvalidPortfolioRange = (props: InvalidPortfolioRangeProps) => {
     return (
         <div className="invalid-portolfio-range" style={{ width: props.width, height: props.height }}>
-            <div className="invalid-portolfio-range-chart"><ReturnChart width={props.width} height={props.height} performanceData={data} /></div>
+            <div className="invalid-portolfio-range-chart"><DETFReturnChart width={props.width} height={props.height} performanceData={data} /></div>
             <div className="invalid-portolfio-range-overlay">
-                <img className="invalid-portolfio-range-overlay-info" src={require("../assets/icons/info_purple.png")}></img>
+                <img className="invalid-portolfio-range-overlay-info" src={require("../../assets/icons/info_purple.png")}></img>
                 Not enough data to display chart.</div>
         </div>)
 }

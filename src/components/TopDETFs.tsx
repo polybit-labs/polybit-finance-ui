@@ -4,7 +4,7 @@ import InlineDropDown from "./dropdowns/InlineDropDown"
 import sortDown from "../assets/icons/sort-down-solid.svg"
 import { GetTopDETFData } from "./api/GetTopDETFData"
 import { Link } from "react-router-dom"
-import { ReturnChartMini } from "./ReturnChartMini"
+import { ReturnChartMini } from "./charts/ReturnChartMini"
 import { GetPerformanceData } from "./api/GetPerformanceData"
 import { TopDETFBox } from "./TopDETFBox"
 

@@ -23,7 +23,6 @@ export const GetPriceVsCurrency = (token_address: string) => {
                     "usd": res.data.usd
                 }
                 setResponse(prices)
-                console.log(prices)
             })
             .catch((err) => {
                 console.log(err.response)
