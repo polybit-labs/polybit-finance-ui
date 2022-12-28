@@ -17,7 +17,7 @@ import { jsonRpcProvider } from 'wagmi/providers/jsonRpc'
 
 window.Buffer = window.Buffer || require("buffer").Buffer;
 
-const mainnet: Chain = {
+/* const mainnet: Chain = {
   id: 56,
   name: "BNB Smart Chain",
   network: "BSC",
@@ -34,9 +34,9 @@ const mainnet: Chain = {
       url: "https://bscscan.com"
     }
   }
-};
+}; */
 
-const testnet: Chain = {
+/* const testnet: Chain = {
   id: 97, //97 // 0x61
   name: "tBNB Smart Chain",
   network: "BSC",
@@ -54,9 +54,9 @@ const testnet: Chain = {
       url: "https://testnet.bscscan.com"
     }
   }
-};
+}; */
 
-const bscMainFork: Chain = {
+/* const bscMainFork: Chain = {
   id: 5777,
   name: "tBNB Smart Chain",
   network: "BSC",
@@ -67,10 +67,10 @@ const bscMainFork: Chain = {
     symbol: "BNB",
     decimals: 18
   },
-};
+}; */
 
 const polybitBSCFork: Chain = {
-  id: 56565656,
+  id: 565656,
   name: "BNB Smart Chain",
   network: "BSC",
   rpcUrls: { default: "HTTP://13.229.230.199:8545" },
@@ -82,7 +82,7 @@ const polybitBSCFork: Chain = {
   },
 }
 
-const chains = [mainnet, testnet, bscMainFork, polybitBSCFork];
+const chains = [polybitBSCFork];
 const infuraId = process.env.INFURA_ID;
 
 const { provider, webSocketProvider } = configureChains(chains, [
