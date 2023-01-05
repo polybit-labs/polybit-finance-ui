@@ -399,7 +399,8 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
                             <p><b>DETF Owner Address:</b></p>
                             <p>{owner}</p>
                             <br />
-                            <p>Validate this DETF's assets at <a href={`https://bscscan.com/address/${props.detf_address}`} target="_blank" rel="noopener noreferrer">{`BscScan ->`}</a></p>
+                            {chainId === "97" && <p>Validate this DETF's assets at <a href={`https://testnet.bscscan.com/address/${props.detf_address}`} target="_blank" rel="noopener noreferrer">{`BscScan ->`}</a></p>}
+                            {chainId !== "97" && <p>Validate this DETF's assets at <a href={`https://bscscan.com/address/${props.detf_address}`} target="_blank" rel="noopener noreferrer">{`BscScan ->`}</a></p>}
                         </div>
                     </div>
                 </div>
