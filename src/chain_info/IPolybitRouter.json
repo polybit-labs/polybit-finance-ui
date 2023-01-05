@@ -3,17 +3,17 @@
         "inputs": [
             {
                 "internalType": "address",
-                "name": "_routerOwner",
+                "name": "_polybitAccessAddress",
+                "type": "address"
+            },
+            {
+                "internalType": "address",
+                "name": "_polybitConfigAddress",
                 "type": "address"
             },
             {
                 "internalType": "address",
                 "name": "_swapFactory",
-                "type": "address"
-            },
-            {
-                "internalType": "address",
-                "name": "_weth",
                 "type": "address"
             }
         ],
@@ -81,25 +81,6 @@
             }
         ],
         "name": "LiquidityTest",
-        "type": "event"
-    },
-    {
-        "anonymous": false,
-        "inputs": [
-            {
-                "indexed": true,
-                "internalType": "address",
-                "name": "previousOwner",
-                "type": "address"
-            },
-            {
-                "indexed": true,
-                "internalType": "address",
-                "name": "newOwner",
-                "type": "address"
-            }
-        ],
-        "name": "OwnershipTransferred",
         "type": "event"
     },
     {
@@ -261,7 +242,20 @@
     },
     {
         "inputs": [],
-        "name": "owner",
+        "name": "polybitAccessAddress",
+        "outputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "polybitConfigAddress",
         "outputs": [
             {
                 "internalType": "address",
@@ -334,19 +328,6 @@
                 "type": "uint256[]"
             }
         ],
-        "stateMutability": "nonpayable",
-        "type": "function"
-    },
-    {
-        "inputs": [
-            {
-                "internalType": "address",
-                "name": "newOwner",
-                "type": "address"
-            }
-        ],
-        "name": "transferOwnership",
-        "outputs": [],
         "stateMutability": "nonpayable",
         "type": "function"
     }

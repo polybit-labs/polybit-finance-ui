@@ -10,12 +10,17 @@ import { GetPerformanceData, PerformanceData } from '../api/GetPerformanceData'
 import { Loading } from '../Loading'
 import { GetPriceVsCurrency } from '../api/GetPriceVsCurrency'
 import { DETFSummary } from '../DETFSummary'
+import { ColourCategories, DETFIconFilename } from '../utils/Formatting'
+import { useNetwork } from 'wagmi'
 
 const DETF = () => {
     const urlChainId = useParams().urlChainId
     const urlCategoryId = useParams().urlCategoryId
     const urlDimensionId = useParams().urlDimensionId
-    const productUrl = `${urlChainId}/${urlCategoryId}/${urlDimensionId}`
+    const { chain } = useNetwork()
+    const chainId: string = chain ? chain.id.toString() : ""
+    const productUrl = `${chainId === "97" ? "97" : "bnb-smart-chain"}/${urlCategoryId}/${urlDimensionId}`
+    const performanceUrl = `${urlChainId}/${urlCategoryId}/${urlDimensionId}`
     const productContent = require(`../../product/detfs/${urlChainId}/${urlCategoryId}/${urlDimensionId}/content.json`)
 
     const currency = useContext(CurrencyContext).currency
@@ -30,14 +35,13 @@ const DETF = () => {
     const [performanceData, setPerformanceData] = useState<Array<PerformanceData> | undefined>()
 
     const { response: product, isLoading: productDataLoading, isSuccess: productDataSuccess } = GetProductData((productUrl))
-    const { response: performance, isLoading: performanceDataLoading, isSuccess: performanceDataSuccess } = GetPerformanceData((productUrl))
+    const { response: performance, isLoading: performanceDataLoading, isSuccess: performanceDataSuccess } = GetPerformanceData((performanceUrl))
 
     useEffect(() => {
         setProductData(product ? product : undefined)
         setPerformanceData(performance ? performance : undefined)
     }, [productDataLoading, productDataSuccess, performanceDataLoading, performanceDataSuccess])
 
-    const chainId: number = productContent.chainId
     const chainName: string = productContent.chainName
     const productId: number = productContent.productId
     const category: string = productContent.category
@@ -54,10 +58,11 @@ const DETF = () => {
                 <div className="detf-container">
                     <div className="detf-title-section">
                         <div className="detf-name-wrapper">
-                            <div className="detf-text">
-                                <h1>{category}</h1>
-                                <h2>{dimension}</h2>
+                            <div className="detf-name-title">
+                                <img className="detf-name-logo" src={require(`../../assets/icons/${DETFIconFilename(category, dimension)}`)}></img>
+                                <div style={{ color: ColourCategories(category) }}>{category}</div>
                             </div>
+                            <div className="detf-name-dimension">{dimension}</div>
                         </div>
                         <Link to="/establish-detf" state={{ category: category, dimension: dimension, productId: productId.toString(), processOrigin: "establish", activeStage: 1 }}>
                             <button className={"invest-button"}>Invest in this DETF</button>

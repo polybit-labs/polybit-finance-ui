@@ -1,4 +1,4 @@
-import { useState, ChangeEvent } from 'react'
+import { useState, ChangeEvent, useEffect } from 'react'
 import "./Deposit.css"
 import { Link } from 'react-router-dom'
 import { TruncateAddress } from '../utils/Formatting'
@@ -19,6 +19,7 @@ import {
 import Footer from './Footer'
 import DateTypeDropDown from '../dropdowns/DateTypeDropdown'
 import { Progress } from '../Progress'
+import { GetLastDETFCreated } from '../api/GetLastDETFCreated'
 
 
 function Deposit() {
@@ -176,8 +177,6 @@ function Deposit() {
     }
 
     let prettyTimeLockValue = PrettyTimeLockValue()
-
-
 
     return (
         <>

@@ -3,12 +3,17 @@
         "inputs": [
             {
                 "internalType": "address",
-                "name": "_owner",
+                "name": "_polybitAccessAddress",
                 "type": "address"
             },
             {
                 "internalType": "address",
-                "name": "_walletOwner",
+                "name": "_polybitConfigAddress",
+                "type": "address"
+            },
+            {
+                "internalType": "address",
+                "name": "_walletOwnerAddress",
                 "type": "address"
             },
             {
@@ -129,25 +134,6 @@
         "anonymous": false,
         "inputs": [
             {
-                "indexed": true,
-                "internalType": "address",
-                "name": "previousOwner",
-                "type": "address"
-            },
-            {
-                "indexed": true,
-                "internalType": "address",
-                "name": "newOwner",
-                "type": "address"
-            }
-        ],
-        "name": "OwnershipTransferred",
-        "type": "event"
-    },
-    {
-        "anonymous": false,
-        "inputs": [
-            {
                 "indexed": false,
                 "internalType": "string",
                 "name": "msg",
@@ -237,10 +223,6 @@
         ],
         "name": "TransferToClose",
         "type": "event"
-    },
-    {
-        "stateMutability": "payable",
-        "type": "fallback"
     },
     {
         "inputs": [
@@ -431,30 +413,6 @@
         "type": "function"
     },
     {
-        "inputs": [
-            {
-                "internalType": "uint256",
-                "name": "",
-                "type": "uint256"
-            },
-            {
-                "internalType": "uint256",
-                "name": "",
-                "type": "uint256"
-            }
-        ],
-        "name": "deposits",
-        "outputs": [
-            {
-                "internalType": "uint256",
-                "name": "",
-                "type": "uint256"
-            }
-        ],
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
         "inputs": [],
         "name": "getCloseTimestamp",
         "outputs": [
@@ -514,6 +472,29 @@
                 "internalType": "uint256",
                 "name": "",
                 "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "getFinalAssets",
+        "outputs": [
+            {
+                "internalType": "address[]",
+                "name": "",
+                "type": "address[]"
+            },
+            {
+                "internalType": "uint256[]",
+                "name": "",
+                "type": "uint256[]"
+            },
+            {
+                "internalType": "uint256[]",
+                "name": "",
+                "type": "uint256[]"
             }
         ],
         "stateMutability": "view",
@@ -699,7 +680,20 @@
     },
     {
         "inputs": [],
-        "name": "owner",
+        "name": "polybitAccessAddress",
+        "outputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "polybitConfigAddress",
         "outputs": [
             {
                 "internalType": "address",
@@ -901,7 +895,7 @@
                 "type": "tuple[]"
             }
         ],
-        "name": "rebalance",
+        "name": "rebalanceDETF",
         "outputs": [],
         "stateMutability": "nonpayable",
         "type": "function"
@@ -967,65 +961,6 @@
             }
         ],
         "name": "setTimeLock",
-        "outputs": [],
-        "stateMutability": "nonpayable",
-        "type": "function"
-    },
-    {
-        "inputs": [
-            {
-                "internalType": "uint256",
-                "name": "amountIn",
-                "type": "uint256"
-            },
-            {
-                "internalType": "uint256",
-                "name": "amountOut",
-                "type": "uint256"
-            },
-            {
-                "internalType": "address[]",
-                "name": "path",
-                "type": "address[]"
-            }
-        ],
-        "name": "swap",
-        "outputs": [],
-        "stateMutability": "nonpayable",
-        "type": "function"
-    },
-    {
-        "inputs": [
-            {
-                "internalType": "address",
-                "name": "newOwner",
-                "type": "address"
-            }
-        ],
-        "name": "transferOwnership",
-        "outputs": [],
-        "stateMutability": "nonpayable",
-        "type": "function"
-    },
-    {
-        "inputs": [
-            {
-                "internalType": "address[]",
-                "name": "adjustToSellList",
-                "type": "address[]"
-            },
-            {
-                "internalType": "address[]",
-                "name": "adjustToBuyList",
-                "type": "address[]"
-            },
-            {
-                "internalType": "address[]",
-                "name": "buyList",
-                "type": "address[]"
-            }
-        ],
-        "name": "updateOwnedAssetsForRebalance",
         "outputs": [],
         "stateMutability": "nonpayable",
         "type": "function"

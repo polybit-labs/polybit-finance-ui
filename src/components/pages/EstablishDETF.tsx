@@ -1,5 +1,5 @@
 import "./EstablishDETF.css"
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useLocation, Link } from 'react-router-dom'
 import TitleContainer from '../containers/Title'
 import SubTitleContainer from '../containers/SubTitle'
@@ -8,19 +8,22 @@ import { TruncateAddress } from '../utils/Formatting'
 import polybitAddresses from "../../chain_info/polybitAddresses.json"
 import PolybitDETFFactoryInterface from "../../chain_info/IPolybitDETFFactory.json"
 import { Interface } from 'ethers/lib/utils'
-import { useAccount, usePrepareContractWrite, useContractWrite, useWaitForTransaction } from 'wagmi'
+import { useAccount, usePrepareContractWrite, useContractWrite, useWaitForTransaction, useContractRead, useNetwork } from 'wagmi'
 import Footer from "./Footer"
 import MainContainer from "../containers/Main"
 import ContentBox from "../containers/ContentBox"
 import Connect from "../Connect"
+import { GetLastDETFCreated } from "../api/GetLastDETFCreated"
 
 
 function EstablishDETF() {
     const location = useLocation()
     const { category, dimension, productId, processOrigin, activeStage } = location.state
     const { address: walletOwner, connector, isConnected } = useAccount()
+    const { chain, chains } = useNetwork()
+    const chainId: string = chain ? chain.id.toString() : ""
+    const detfFactoryAddress: string = polybitAddresses[chainId as keyof typeof polybitAddresses]["detf_factory"]
     const [detfAddress, setDETFAddress] = useState("")
-    const detfFactoryAddress: string = polybitAddresses["5777"]["detf_factory"]
     const IPolybitDETFFactory = new Interface(PolybitDETFFactoryInterface)
     console.log(walletOwner, category, dimension, productId, processOrigin, activeStage)
     const title = "Establishing your DETF"
@@ -33,24 +36,39 @@ function EstablishDETF() {
         contractInterface: IPolybitDETFFactory,
         functionName: "createDETF",
         args: [walletOwner,
-            productId,
+            Number(productId),
             category,
-            dimension]
+            dimension],
+        onError(error) {
+            console.log('createDETF Error', error)
+        },
+        onSuccess(data) {
+            console.log('createDETF Success', data)
+        },
     })
+
     const { data, isLoading, isSuccess, isError: newDETFError, write: createNewDETF } = useContractWrite(config)
     if (newDETFError) {
         console.log(newDETFError)
     }
 
-    const { data: waitForTransaction, isError: transactionError, isLoading: transactionLoading } = useWaitForTransaction({
+    const { data: waitForTransaction, isError: transactionError, isLoading: transactionLoading, isSuccess: transactionSuccess } = useWaitForTransaction({
         hash: data?.hash,
         onSettled(data, error) {
-            const response = data ? data.logs[0].address : []
-            console.log("Settled", response)
-            setDETFAddress((response.toString()))
+            console.log(data)
             setDETFSuccess(true)
         }
     })
+
+    const { response: lastDETFresponse, isSuccess: lastDETFSuccess } = GetLastDETFCreated(walletOwner ? walletOwner : "")
+
+    useEffect(() => {
+        setDETFAddress(lastDETFresponse ? lastDETFresponse : "")
+        console.log("detfAddress", detfAddress)
+    }, [transactionSuccess])
+
+    const detfz = lastDETFresponse
+    console.log("detfz", detfz)
 
     if (isConnected) {
         return (
@@ -88,7 +106,7 @@ function EstablishDETF() {
         <>
             <TitleContainer title={title} />
             <SubTitleContainer info={titleInfoConnect} />
-            <Connect />
+            {/* <Connect /> */}
             <Footer />
         </>
     )

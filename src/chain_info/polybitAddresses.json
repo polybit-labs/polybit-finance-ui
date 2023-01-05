@@ -8,5 +8,12 @@
     "router": "0x65139ACDc6d5e31daD4cbE828b16DbE6e66bfa37",
     "rebalancer": "0xa0C403477152FFD3525AC3debc17768173C91B8D",
     "detf_factory": "0x62b72504552594ac919217638D10De28A1Ced63f"
+  },
+  "97": {
+    "router": "0x33dC9335C1048B8e970601Ccd17De3D6407EEbFA",
+    "rebalancer": "0x0BB10490f1Cc2a0eC941953a153bfffb31C93E1E",
+    "detf_factory": "0xA58b6A28247652C8Be2249bF9ADA731140aE9D80",
+    "config": "0xc3D2aab8024396D35cB41417F888c7bB21a329f5",
+    "access": "0x7A18aFFFA76D74DfB9Bf2A920ccEd2FfB33ce811"
   }
 }

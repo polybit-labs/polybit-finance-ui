@@ -1,3 +1,4 @@
 {
-    "apiURL": "https://polybit-finance-api.herokuapp.com"
+    "external": "https://polybit-finance-api.herokuapp.com",
+    "apiURL": "http://127.0.0.1:5000"
 }

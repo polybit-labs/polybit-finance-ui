@@ -3,8 +3,8 @@ import { useNetwork } from "wagmi"
 import axios from "axios"
 import apiURL from "./api-info.json"
 
-export const GetOrderData = (detfAddress: string, weth_input_amount: string) => {
-    const [response, setResponse] = useState<Array<any>>()
+export const GetLastDETFCreated = (wallet_owner: string) => {
+    const [response, setResponse] = useState<string>()
     const network = useNetwork()
     const { chain } = useNetwork()
     const chainId: string = chain ? chain.id.toString() : ""
@@ -13,7 +13,8 @@ export const GetOrderData = (detfAddress: string, weth_input_amount: string) => 
     let isSuccess: boolean
 
     useEffect(() => {
-        axios.post(apiURL["apiURL"] + "/api/rebalancer", { "rpc_provider": rpc, "chain_id": chainId, "detf_address": detfAddress, "weth_input_amount": weth_input_amount })
+        console.log("RPC", rpc)
+        axios.post(apiURL["apiURL"] + "/api/get_last_detf_created", { "rpc_provider": rpc, "chain_id": chainId, "wallet_owner": wallet_owner })
             .then(res => {
                 setResponse(res.data)
             })

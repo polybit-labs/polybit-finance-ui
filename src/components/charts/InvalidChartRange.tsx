@@ -1,5 +1,5 @@
 import { DETFReturnChart } from "./DETFReturnChart"
-import "./InvalidPortfolioRange.css"
+import "./InvalidChartRange.css"
 
 const data = [{
     "date": "2021-06-21",
@@ -792,12 +792,12 @@ const data = [{
     "performance_730d": null
 }]
 
-interface InvalidPortfolioRangeProps {
+interface InvalidChartRangeProps {
     height: number
     width: string
 }
 
-export const InvalidPortfolioRange = (props: InvalidPortfolioRangeProps) => {
+export const InvalidChartRange = (props: InvalidChartRangeProps) => {
     return (
         <div className="invalid-portolfio-range" style={{ width: props.width, height: props.height }}>
             <div className="invalid-portolfio-range-chart"><DETFReturnChart width={props.width} height={props.height} performanceData={data} /></div>

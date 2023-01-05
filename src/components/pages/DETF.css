@@ -46,18 +46,29 @@
 .detf-name-wrapper {
     width: 100%;
     display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: left;
+    font-weight: 700;
+}
+
+.detf-name-logo {
+    width: 48px;
+    height: 48px;
+    margin-right: 10px;
+}
+
+.detf-name-title {
+    display: flex;
     flex-direction: row;
     justify-content: left;
-    align-items: top;
-}
-
-.detf-name-wrapper h1 {
-    font-size: 62px;
-}
-
-.detf-name-wrapper h2 {
+    align-items: center;
     font-size: 36px;
-    line-height: 24px;
+}
+
+.detf-name-dimension {
+    font-size: 62px;
+    line-height: 62px;
 }
 
 .detf-chain-title {

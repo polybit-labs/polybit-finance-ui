@@ -6,13 +6,14 @@ import apiURL from "./api-info.json"
 export const GetDETFAccounts = (wallet_owner: string) => {
     const [response, setResponse] = useState<Array<string>>()
     const network = useNetwork()
+    const { chain } = useNetwork()
+    const chainId: string = chain ? chain.id.toString() : ""
     const rpc = network.chain?.rpcUrls.default
     let isLoading: boolean
     let isSuccess: boolean
 
     useEffect(() => {
-        console.log("RPC", rpc)
-        axios.post(apiURL["apiURL"] + "/api/get_detf_accounts", { "rpc_provider": rpc, "wallet_owner": wallet_owner })
+        axios.post(apiURL["apiURL"] + "/api/get_detf_accounts", { "rpc_provider": rpc, "chain_id": chainId, "wallet_owner": wallet_owner })
             .then(res => {
                 setResponse(res.data)
             })

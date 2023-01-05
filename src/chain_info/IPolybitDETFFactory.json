@@ -3,12 +3,12 @@
         "inputs": [
             {
                 "internalType": "address",
-                "name": "_factoryOwner",
+                "name": "_polybitAccessAddress",
                 "type": "address"
             },
             {
                 "internalType": "address",
-                "name": "_wethAddress",
+                "name": "_polybitConfigAddress",
                 "type": "address"
             }
         ],
@@ -33,44 +33,6 @@
             }
         ],
         "name": "DETFCreated",
-        "type": "event"
-    },
-    {
-        "anonymous": false,
-        "inputs": [
-            {
-                "indexed": false,
-                "internalType": "string",
-                "name": "msg",
-                "type": "string"
-            },
-            {
-                "indexed": false,
-                "internalType": "uint256",
-                "name": "ref",
-                "type": "uint256"
-            }
-        ],
-        "name": "FeeSetter",
-        "type": "event"
-    },
-    {
-        "anonymous": false,
-        "inputs": [
-            {
-                "indexed": true,
-                "internalType": "address",
-                "name": "previousOwner",
-                "type": "address"
-            },
-            {
-                "indexed": true,
-                "internalType": "address",
-                "name": "newOwner",
-                "type": "address"
-            }
-        ],
-        "name": "OwnershipTransferred",
         "type": "event"
     },
     {
@@ -110,25 +72,6 @@
     {
         "inputs": [
             {
-                "internalType": "uint256",
-                "name": "index",
-                "type": "uint256"
-            }
-        ],
-        "name": "getDETF",
-        "outputs": [
-            {
-                "internalType": "address",
-                "name": "",
-                "type": "address"
-            }
-        ],
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "inputs": [
-            {
                 "internalType": "address",
                 "name": "_walletOwner",
                 "type": "address"
@@ -140,32 +83,6 @@
                 "internalType": "address[]",
                 "name": "",
                 "type": "address[]"
-            }
-        ],
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "inputs": [],
-        "name": "getDepositFee",
-        "outputs": [
-            {
-                "internalType": "uint256",
-                "name": "",
-                "type": "uint256"
-            }
-        ],
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "inputs": [],
-        "name": "getFeeAddress",
-        "outputs": [
-            {
-                "internalType": "address",
-                "name": "",
-                "type": "address"
             }
         ],
         "stateMutability": "view",
@@ -186,20 +103,7 @@
     },
     {
         "inputs": [],
-        "name": "getPerformanceFee",
-        "outputs": [
-            {
-                "internalType": "uint256",
-                "name": "",
-                "type": "uint256"
-            }
-        ],
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "inputs": [],
-        "name": "getPolybitRebalancerAddress",
+        "name": "polybitAccessAddress",
         "outputs": [
             {
                 "internalType": "address",
@@ -212,7 +116,7 @@
     },
     {
         "inputs": [],
-        "name": "getPolybitRouterAddress",
+        "name": "polybitConfigAddress",
         "outputs": [
             {
                 "internalType": "address",
@@ -221,110 +125,6 @@
             }
         ],
         "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "inputs": [],
-        "name": "getWethAddress",
-        "outputs": [
-            {
-                "internalType": "address",
-                "name": "",
-                "type": "address"
-            }
-        ],
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "inputs": [],
-        "name": "owner",
-        "outputs": [
-            {
-                "internalType": "address",
-                "name": "",
-                "type": "address"
-            }
-        ],
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "inputs": [
-            {
-                "internalType": "uint256",
-                "name": "fee",
-                "type": "uint256"
-            }
-        ],
-        "name": "setDepositFee",
-        "outputs": [],
-        "stateMutability": "nonpayable",
-        "type": "function"
-    },
-    {
-        "inputs": [
-            {
-                "internalType": "address",
-                "name": "_feeAddress",
-                "type": "address"
-            }
-        ],
-        "name": "setFeeAddress",
-        "outputs": [],
-        "stateMutability": "nonpayable",
-        "type": "function"
-    },
-    {
-        "inputs": [
-            {
-                "internalType": "uint256",
-                "name": "fee",
-                "type": "uint256"
-            }
-        ],
-        "name": "setPerformanceFee",
-        "outputs": [],
-        "stateMutability": "nonpayable",
-        "type": "function"
-    },
-    {
-        "inputs": [
-            {
-                "internalType": "address",
-                "name": "rebalancerAddress",
-                "type": "address"
-            }
-        ],
-        "name": "setPolybitRebalancerAddress",
-        "outputs": [],
-        "stateMutability": "nonpayable",
-        "type": "function"
-    },
-    {
-        "inputs": [
-            {
-                "internalType": "address",
-                "name": "routerAddress",
-                "type": "address"
-            }
-        ],
-        "name": "setPolybitRouterAddress",
-        "outputs": [],
-        "stateMutability": "nonpayable",
-        "type": "function"
-    },
-    {
-        "inputs": [
-            {
-                "internalType": "address",
-                "name": "newOwner",
-                "type": "address"
-            }
-        ],
-        "name": "transferOwnership",
-        "outputs": [],
-        "stateMutability": "nonpayable",
         "type": "function"
     }
 ]

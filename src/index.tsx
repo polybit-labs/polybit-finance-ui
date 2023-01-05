@@ -36,14 +36,14 @@ window.Buffer = window.Buffer || require("buffer").Buffer;
   }
 }; */
 
-/* const testnet: Chain = {
+const bscTestnet: Chain = {
   id: 97, //97 // 0x61
   name: "tBNB Smart Chain",
   network: "BSC",
-  rpcUrls: { default: "https://data-seed-prebsc-1-s1.binance.org:8545/" },
+  rpcUrls: { default: "https://data-seed-prebsc-2-s1.binance.org:8545/" },
   testnet: true,
   nativeCurrency: {
-    name: "Binance Coin Testnet",
+    name: "BSC Testnet",
     symbol: "tBNB",
     decimals: 18
   },
@@ -54,7 +54,7 @@ window.Buffer = window.Buffer || require("buffer").Buffer;
       url: "https://testnet.bscscan.com"
     }
   }
-}; */
+}
 
 /* const bscMainFork: Chain = {
   id: 5777,
@@ -82,7 +82,7 @@ const polybitBSCFork: Chain = {
   },
 }
 
-const chains = [polybitBSCFork];
+const chains = [bscTestnet, polybitBSCFork];
 const infuraId = process.env.INFURA_ID;
 
 const { provider, webSocketProvider } = configureChains(chains, [

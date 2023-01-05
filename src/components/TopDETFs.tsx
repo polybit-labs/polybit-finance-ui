@@ -3,9 +3,6 @@ import { useEffect, useState } from "react"
 import { InlineDropDown } from "./dropdowns/InlineDropDown"
 import sortDown from "../assets/icons/sort-down-solid.svg"
 import { GetTopDETFData } from "./api/GetTopDETFData"
-import { Link } from "react-router-dom"
-import { ReturnChartMini } from "./charts/ReturnChartMini"
-import { GetPerformanceData } from "./api/GetPerformanceData"
 import { TopDETFBox } from "./TopDETFBox"
 
 export const TopDETFs = () => {
@@ -13,6 +10,8 @@ export const TopDETFs = () => {
     const [timePeriodFilter, setTimePeriodFilter] = useState<string>("this week")
     const { response: detfData, isSuccess: detfDataSuccess } = GetTopDETFData()
     const [topDETFData, setTopDETFData] = useState<Array<any>>([])
+
+    console.log(detfData)
 
     useEffect(() => {
         if (detfDataSuccess && detfData && timePeriodFilter === "this week") {
@@ -57,6 +56,8 @@ export const TopDETFs = () => {
         )}
     </button></div>
 
+    console.log(topDETFData)
+
     return (
         <div className="top-detfs-container">
             <h2>{title}</h2>
@@ -66,10 +67,7 @@ export const TopDETFs = () => {
                         <TopDETFBox
                             category={detf.category}
                             dimension={detf.dimension}
-                            returnOneMonth={detf.return_one_month}
-                            returnOneWeek={detf.return_one_week}
-                            returnOneYear={detf.return_one_year}
-                            returnThreeMonths={detf.return_three_months}
+                            returnValue={detf.return_value}
                             totalLiquidity={detf.total_liquidity}
                             urlCategoryId={detf.url_category_id}
                             urlChainId={detf.url_chain_id}

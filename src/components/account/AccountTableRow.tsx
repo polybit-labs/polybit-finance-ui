@@ -12,11 +12,12 @@ import { GetHistoricalPrices } from "../api/GetHistoricalPrices";
 import { GetPriceVsCurrency } from "../api/GetPriceVsCurrency";
 import wethAddress from "../../chain_info/weth.json"
 import { GetPerformanceDataRange, PerformanceDataRange } from "../api/GetPerformanceDataRange";
-import { InvalidPortfolioRange } from "../charts/InvalidPortfolioRange";
+import { InvalidChartRange } from "../charts/InvalidChartRange";
 import { DETFReturnChart } from "../charts/DETFReturnChart";
 import { GetProductData, ProductData } from "../api/GetProductData";
 import { DETFAssetsTable } from "../DETFAssetsTable";
 import { Button } from "../Button";
+import { useNetwork } from "wagmi";
 
 type Currencies = {
     "date": string;
@@ -61,6 +62,10 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
     const [isDETFActive, setIsDETFActive] = useState(false)
     const [isDETFDeposited, setIsDETFDeposited] = useState(false)
     const [isDETFTimeLocked, setIsDETFTimeLocked] = useState(false)
+    const { chain } = useNetwork()
+    const chainId: string = chain ? chain.id.toString() : ""
+    const productUrl = `${chainId === "97" ? "97" : "bnb-smart-chain"}/${props.category.replaceAll(" ", "-").toLowerCase()}/${props.dimension.replaceAll(" ", "-").toLowerCase()}`
+    const performanceUrl = `bnb-smart-chain/${props.category.replaceAll(" ", "-").toLowerCase()}/${props.dimension.replaceAll(" ", "-").toLowerCase()}`
 
     useEffect(() => {
         if (props.status === 1) {
@@ -74,11 +79,10 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
         }
     }, [])
 
-    const productUrl = `bnb-smart-chain/${props.category.replaceAll(" ", "-").toLowerCase()}/${props.dimension.replaceAll(" ", "-").toLowerCase()}`
     const { response: ownedAssets, isLoading, isSuccess } = GetOwnedAssetsDetailed(props.detf_address)
     const ownedAssetsDetailed = ownedAssets ? ownedAssets : []
     const { response: owner } = GetOwner(props.detf_address)
-    const { response: performanceDataRange, isSuccess: performanceDataRangeSuccess } = GetPerformanceDataRange(productUrl, props.creation_timestamp, props.close_timestamp > 0 ? props.close_timestamp : moment.now())
+    const { response: performanceDataRange, isSuccess: performanceDataRangeSuccess } = GetPerformanceDataRange(performanceUrl, props.creation_timestamp, props.close_timestamp > 0 ? props.close_timestamp : moment.now())
     const [performanceData, setPerformanceData] = useState<Array<PerformanceDataRange>>([])
     const [validDateRange, setValidDateRange] = useState(false)
     useEffect(() => {
@@ -344,7 +348,7 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
                             {!isDETFActive && <h2>Final market value: {finalMarketValue} ({finalReturnWeth})</h2>}
                             <p><b>Market value over time ({props.currency})</b></p>
                             {validDateRange && <DETFReturnChart height={300} width="100%" performanceData={performanceData} />}
-                            {!validDateRange && <InvalidPortfolioRange height={300} width="100%" />}
+                            {!validDateRange && <InvalidChartRange height={300} width="100%" />}
                         </div>
                         <div className="account-detf-expanded-content-left-close">
                             {isDETFActive && isDETFDeposited && !isDETFTimeLocked &&
