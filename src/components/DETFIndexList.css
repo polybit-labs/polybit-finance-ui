@@ -133,20 +133,21 @@
     width: 10%;
 }
 
-.detf-index-chain-name {
+.detf-index-row-item-name {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: left;
-    align-items: center;
+    align-items: left;
 }
 
-.detf-index-chain-name-category {
+.detf-index-row-item-name-category {
     font-size: 16px;
 }
 
-.detf-index-chain-name-dimension {
+.detf-index-row-item-name-dimension {
     color: #000000;
     font-size: 24px;
+    line-height: 24px;
 }
 
 .detf-index-row-item-link {

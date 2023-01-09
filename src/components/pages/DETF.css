@@ -33,7 +33,7 @@
 .detf-wrapper {
     display: flex;
     flex-direction: row;
-    padding-top: 60px;
+    padding-top: 100px;
 }
 
 .detf-lhs {
@@ -69,25 +69,6 @@
 .detf-name-dimension {
     font-size: 62px;
     line-height: 62px;
-}
-
-.detf-chain-title {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-}
-
-.detf-chain-logo {
-    height: 44px;
-    width: 44px;
-    margin-right: 15px;
-}
-
-.detf-chain-logo-small {
-    height: 32px;
-    width: 32px;
-    margin-right: 14px;
 }
 
 .native-token-message-box {

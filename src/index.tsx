@@ -40,7 +40,7 @@ const bscTestnet: Chain = {
   id: 97, //97 // 0x61
   name: "tBNB Smart Chain",
   network: "BSC",
-  rpcUrls: { default: "https://data-seed-prebsc-2-s1.binance.org:8545/" },
+  rpcUrls: { default: "https://bsc-testnet.public.blastapi.io/" },
   testnet: true,
   nativeCurrency: {
     name: "BSC Testnet",

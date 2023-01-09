@@ -8,15 +8,18 @@ import { TruncateAddress } from '../utils/Formatting'
 import polybitAddresses from "../../chain_info/polybitAddresses.json"
 import PolybitDETFFactoryInterface from "../../chain_info/IPolybitDETFFactory.json"
 import { Interface } from 'ethers/lib/utils'
-import { useAccount, usePrepareContractWrite, useContractWrite, useWaitForTransaction, useContractRead, useNetwork } from 'wagmi'
+import { useAccount, usePrepareContractWrite, useContractWrite, useWaitForTransaction, useContractRead, useNetwork, useFeeData } from 'wagmi'
 import Footer from "./Footer"
 import MainContainer from "../containers/Main"
 import ContentBox from "../containers/ContentBox"
 import Connect from "../Connect"
 import { GetLastDETFCreated } from "../api/GetLastDETFCreated"
 
-
 function EstablishDETF() {
+    const Web3 = require('web3')
+    const network = useNetwork()
+    const rpc = network.chain?.rpcUrls.default
+    const web3 = new Web3(rpc)
     const location = useLocation()
     const { category, dimension, productId, processOrigin, activeStage } = location.state
     const { address: walletOwner, connector, isConnected } = useAccount()
@@ -56,19 +59,27 @@ function EstablishDETF() {
         hash: data?.hash,
         onSettled(data, error) {
             console.log(data)
+            const logData = data ? data.logs[0].data : []
+            const logTopics = data ? data.logs[0].topics[0] : []
+            const detfAddress = web3.eth.abi.decodeParameters([
+                {
+                    "indexed": false,
+                    "internalType": "string",
+                    "name": "msg",
+                    "type": "string"
+                },
+                {
+                    "indexed": false,
+                    "internalType": "address",
+                    "name": "ref",
+                    "type": "address"
+                }
+            ], logData, logTopics)[1]
+            console.log("DETF Created at", detfAddress)
+            setDETFAddress(detfAddress)
             setDETFSuccess(true)
         }
     })
-
-    const { response: lastDETFresponse, isSuccess: lastDETFSuccess } = GetLastDETFCreated(walletOwner ? walletOwner : "")
-
-    useEffect(() => {
-        setDETFAddress(lastDETFresponse ? lastDETFresponse : "")
-        console.log("detfAddress", detfAddress)
-    }, [transactionSuccess])
-
-    const detfz = lastDETFresponse
-    console.log("detfz", detfz)
 
     if (isConnected) {
         return (

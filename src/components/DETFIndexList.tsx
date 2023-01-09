@@ -128,7 +128,7 @@ const DETFIndexList = (props: DETFIndexListProps) => {
                                             <div className="detf-index-row-item-name-category" style={{ color: ColourCategories(detf.category) }}>
                                                 {detf.category}
                                             </div>
-                                            <div className="detf-index-chain-name-dimension">
+                                            <div className="detf-index-row-item-name-dimension">
                                                 {detf.dimension}
                                             </div>
                                         </div>
