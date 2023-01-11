@@ -103,6 +103,7 @@ const Account = () => {
                     <AccountSummary detfAccounts={detfAccounts} detfAccountsData={detfAccountsData} vsPrices={vsPrices} currency={currency} />
                     <AccountTable
                         detfAccounts={detfAccounts}
+                        detfAccountsSuccess={detfAccountsSuccess}
                         detfAccountsData={detfAccountsData}
                         vsPrices={vsPrices}
                         currency={currency}

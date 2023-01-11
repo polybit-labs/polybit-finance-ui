@@ -150,6 +150,8 @@
     justify-content: flex-start;
     align-items: center;
     padding-bottom: 50px;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 .account-detf-expanded-divider {
@@ -186,8 +188,14 @@
     background-color: #EEEEEE;
     color: #000;
     margin-top: 40px;
-    padding-left: 20px;
+}
+
+.account-detf-expanded-content-left {
     padding-right: 20px;
+}
+
+.account-detf-expanded-content-right {
+    padding-left: 20px;
 }
 
 .account-detf-expanded-content-right h2 {

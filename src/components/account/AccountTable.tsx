@@ -3,6 +3,7 @@ import "./AccountTable.css"
 import { useAccount, useBalance } from "wagmi"
 import { AccountTableRow } from './AccountTableRow'
 import { Button } from '../Button';
+import { Link } from 'react-router-dom';
 
 interface DETFSummary {
     "productId": number;
@@ -29,6 +30,7 @@ type Currencies = {
 
 interface AccountTableProps {
     detfAccounts: Array<string>;
+    detfAccountsSuccess: boolean;
     detfAccountsData: Array<any>;
     vsPrices: any;
     currency: string;
@@ -118,124 +120,17 @@ export const AccountTable = (props: AccountTableProps) => {
             </>
         )
     }
-    if (detfAccounts.length === 0) {
+    if (props.detfAccountsSuccess && detfAccounts.length === 0) {
         return (
             <>
                 <div className="account-detf-container-placeholder">
-                    <div>
-                        {/* <AccountTableRow
-                            category="Metaverse"
-                            dimension="Market Cap"
-                            status={1}
-                            balance_in_weth={"0"}
-                            final_balance_in_weth={"0"}
-                            return_weth={"0"}
-                            return_percentage={0}
-                            final_return_percentage={0}
-                            timeLockRemaining={0}
-                            timeLock={0}
-                            product_id={"5610021000"}
-                            detf_address={""}
-                            deposits={[]}
-                            total_deposits={"0"}
-                            vsPrices={props.vsPrices}
-                            currency={props.currency}
-                            close_timestamp={0}
-                            creation_timestamp={1671494993}
-                            final_return={{
-                                "date": "0",
-                                "aud": 0,
-                                "bnb": 0,
-                                "cny": 0,
-                                "eur": 0,
-                                "idr": 0,
-                                "jpy": 0,
-                                "krw": 0,
-                                "rub": 0,
-                                "twd": 0,
-                                "usd": 0
-                            }}
-                            final_return_weth={"0"}
-                            isPlaceholder={true}
-                        />
-                        <AccountTableRow
-                            category="Governance"
-                            dimension="DEX Liquidity"
-                            status={0}
-                            balance_in_weth={"0"}
-                            final_balance_in_weth={"0"}
-                            return_weth={"0"}
-                            return_percentage={0}
-                            final_return_percentage={56.78}
-                            timeLockRemaining={0}
-                            timeLock={0}
-                            product_id={"5610021000"}
-                            detf_address={""}
-                            deposits={[]}
-                            total_deposits={"0"}
-                            vsPrices={props.vsPrices}
-                            currency={props.currency}
-                            close_timestamp={0}
-                            creation_timestamp={1671494993}
-                            final_return={{
-                                "date": "0",
-                                "aud": 0,
-                                "bnb": 0,
-                                "cny": 0,
-                                "eur": 0,
-                                "idr": 0,
-                                "jpy": 0,
-                                "krw": 0,
-                                "rub": 0,
-                                "twd": 0,
-                                "usd": 0
-                            }}
-                            final_return_weth={"0"}
-                            isPlaceholder={false}
-                        />
-                        <AccountTableRow
-                            category="BSC Index Top 10"
-                            dimension="Equally Balanced"
-                            status={0}
-                            balance_in_weth={"0"}
-                            final_balance_in_weth={"0"}
-                            return_weth={"0"}
-                            return_percentage={0}
-                            final_return_percentage={43.12}
-                            timeLockRemaining={0}
-                            timeLock={0}
-                            product_id={"5610021000"}
-                            detf_address={""}
-                            deposits={[]}
-                            total_deposits={"0"}
-                            vsPrices={props.vsPrices}
-                            currency={props.currency}
-                            close_timestamp={0}
-                            creation_timestamp={1671494993}
-                            final_return={{
-                                "date": "0",
-                                "aud": 0,
-                                "bnb": 0,
-                                "cny": 0,
-                                "eur": 0,
-                                "idr": 0,
-                                "jpy": 0,
-                                "krw": 0,
-                                "rub": 0,
-                                "twd": 0,
-                                "usd": 0
-                            }}
-                            final_return_weth={"0"}
-                            isPlaceholder={false}
-                        /> */}
-                    </div>
+                    <img src={require("../../assets/images/account_table_row_placeholder.png")}></img>
                     <div className="account-detf-container-placeholder-overlay">
-
                     </div>
                     <div className="account-detf-container-placeholder-overlay-info">
                         Ready to invest in your own Decentralized Exchange Traded Funds?
                         <div><br /></div>
-                        <Button text="Explore Polybit DETFs" type="button" buttonStyle="primary" />
+                        <Link to="/detfs"><Button text="Explore Polybit DETFs" type="button" buttonStyle="primary" /></Link>
                     </div>
                 </div>
             </>
