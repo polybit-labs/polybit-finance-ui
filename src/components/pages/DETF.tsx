@@ -12,6 +12,7 @@ import { GetPriceVsCurrency } from '../api/GetPriceVsCurrency'
 import { DETFSummary } from '../DETFSummary'
 import { ColourCategories, DETFIconFilename } from '../utils/Formatting'
 import { useNetwork } from 'wagmi'
+import { Button } from '../Button'
 
 const DETF = () => {
     const urlChainId = useParams().urlChainId
@@ -65,7 +66,7 @@ const DETF = () => {
                             <div className="detf-name-dimension">{dimension}</div>
                         </div>
                         <Link to="/establish-detf" state={{ category: category, dimension: dimension, productId: productId.toString(), processOrigin: "establish", activeStage: 1 }}>
-                            <button className={"invest-button"}>Invest in this DETF</button>
+                            <Button buttonStyle="primary" buttonSize="standard" text="Invest in this DETF" />
                         </Link>
                     </div>
                     <div className="detf-wrapper">
@@ -96,7 +97,7 @@ const DETF = () => {
                             </div>
                             <div className="invest-button-bottom-wrapper">
                                 <Link to="/establish-detf" state={{ category: category, dimension: dimension, productId: productId.toString(), processOrigin: "establish", activeStage: 1 }}>
-                                    <button className={"invest-button"}>Invest in this DETF</button>
+                                    <Button buttonStyle="primary" buttonSize="standard" text="Invest in this DETF" />
                                 </Link>
                             </div>
                         </div>

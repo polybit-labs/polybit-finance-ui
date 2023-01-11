@@ -175,17 +175,12 @@
     display: none;
 }
 
-.deposit-button-primary {
-    border-radius: 4px;
-    outline: none;
-    border: 2px solid #000000;
-    cursor: pointer;
-    background-color: #000000;
-    color: #fff;
-    width: 372px;
-    height: 66px;
-    font-size: 16px;
-    font-weight: 700;
+.deposit-details-button {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .deposit-summary {

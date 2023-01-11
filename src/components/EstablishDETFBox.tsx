@@ -5,6 +5,8 @@ import polybitAddresses from "../chain_info/polybitAddresses.json"
 import PolybitDETFFactoryInterface from "../chain_info/IPolybitDETFFactory.json"
 import { Interface } from 'ethers/lib/utils'
 import { Link, useNavigate } from 'react-router-dom'
+import { Button } from './Button'
+import { Loading } from './Loading'
 
 interface EstablishDETFBox {
     productId: number
@@ -26,7 +28,7 @@ export const EstablishDETFBox = (props: EstablishDETFBox) => {
     const detfFactoryAddress: string = polybitAddresses[chainId as keyof typeof polybitAddresses]["detf_factory"]
     const IPolybitDETFFactory = new Interface(PolybitDETFFactoryInterface)
 
-    const { config, error, isLoading: prepareConfigLoading } = usePrepareContractWrite({
+    const { config, error, isLoading: prepareConfigLoading, isSuccess: prepareConfigSuccess } = usePrepareContractWrite({
         addressOrName: detfFactoryAddress,
         contractInterface: IPolybitDETFFactory,
         functionName: "createDETF",
@@ -42,7 +44,7 @@ export const EstablishDETFBox = (props: EstablishDETFBox) => {
         },
     })
 
-    const { data, isLoading, isSuccess, isError: newDETFError, write: createNewDETF } = useContractWrite(config)
+    const { data, isLoading: contractWriteLoading, isSuccess, isError: newDETFError, write: createNewDETF } = useContractWrite(config)
 
     const { data: waitForTransaction, isError: transactionError, isLoading: transactionLoading, isSuccess: transactionSuccess } = useWaitForTransaction({
         hash: data?.hash,
@@ -73,22 +75,29 @@ export const EstablishDETFBox = (props: EstablishDETFBox) => {
         }
     }, [transactionSuccess, detfAddress])
 
+    if (prepareConfigSuccess) {
+        return (
+            <>
+                {!isSuccess && <div className="establish-detf-wrapper">
+                    <div className="establish-detf-header">It’s time to establish your DETF, ready for you to invest into.</div>
+                    <div ><p>Polybit’s Decentralized Exchange Traded Fund technology is deployed on an investment-by-investment basis, ensuring you are the sole custodian of your funds. Polybit does not, and will not, have control over your source of funds, your DETFs, or the investments within. </p></div>
+                    <div className="establish-detf-how-it-works"><Link className="establish-detf-how-it-works-link" to="/how-it-works">Learn more about how Polybit works</Link></div>
+                    {!prepareConfigLoading && !contractWriteLoading && <Button buttonStyle="primary" buttonSize="standard" text="Establish DETF on the blockchain" onClick={async () => createNewDETF?.()} />}
+                    {contractWriteLoading && <Button buttonStyle="primary" buttonSize="standard" text="Establish DETF on the blockchain" status="loading" />}
+                    {error && (
+                        <div>An error occurred preparing the transaction: {error.message}</div>
+                    )}
+                </div>
+                }
+                {transactionLoading && <div className="confirming-detf-wrapper">
+                    <img height="90px" width="90px" src={require("../assets/images/loading.gif")} alt="Loading"></img>
+                    <p><b>Please wait while your DETF is being initialised</b></p>
+                </div>}
+            </>
+        )
+    }
+
     return (
-        <>
-            {!isSuccess && <div className="establish-detf-wrapper">
-                <div className="establish-detf-header">It’s time to establish your DETF, ready for you to invest into.</div>
-                <div ><p>Polybit’s Decentralized Exchange Traded Fund technology is deployed on an investment-by-investment basis, ensuring you are the sole custodian of your funds. Polybit does not, and will not, have control over your source of funds, your DETFs, or the investments within. </p></div>
-                <div className="establish-detf-how-it-works"><Link className="establish-detf-how-it-works-link" to="/how-it-works">Learn more about how Polybit works</Link></div>
-                {!prepareConfigLoading && !isLoading && <button className="establish-detf-button" disabled={!createNewDETF} onClick={async () => createNewDETF?.()}>Establish DETF on the blockchain</button>}
-                {isLoading && <button className="establish-detf-button" disabled={true}>Establish DETF on the blockchain</button>}
-                {prepareConfigLoading && <img height="90px" width="90px" src={require("../assets/images/loading.gif")} alt="Loading"></img>}
-                {error && (
-                    <div>An error occurred preparing the transaction: {error.message}</div>
-                )}
-            </div>
-            }
-            {transactionLoading && <div className="confirming-detf-wrapper">
-                <img height="90px" width="90px" src={require("../assets/images/loading.gif")} alt="Loading"></img>
-            </div>}
-        </>)
+        <Loading />
+    )
 }

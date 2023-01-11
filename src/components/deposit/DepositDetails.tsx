@@ -3,6 +3,7 @@ import "../pages/Deposit.css"
 import ContentBoxContainer from '../containers/ContentBox'
 import DateTypeDropDown from '../dropdowns/DateTypeDropdown'
 import { FormatCurrency } from '../utils/Currency'
+import { Button } from '../Button'
 
 interface DepositDetails {
     detfAddress: string;
@@ -220,13 +221,14 @@ export const DepositDetails = (props: DepositDetails) => {
                             </div>
                         </div>}
                     </div>
-                    <div>
-                        <button className="success-deposit-button" onClick={() => {
+                    <div className="deposit-details-button">
+                        {(Number(depositInputValue) >= 0 && Number(timeLockInputValue) >= 0) && <Button buttonStyle="primary" buttonSize="standard-long" text="View investment summary" onClick={() => {
                             props.setDepositAmount(ConvertDepositValue());
                             props.setTimeLockAmount(ConvertTimeLockValue());
                             props.setShowDepositDetails(false);
                             props.setInternalActiveStage(2)
-                        }}>View investment summary</button>
+                        }} />}
+                        {(Number(depositInputValue) < 0 || Number(timeLockInputValue) < 0) && <Button buttonStyle="primary" buttonSize="standard-long" text="View investment summary" status="disabled" />}
                     </div>
                 </div>
             </div>

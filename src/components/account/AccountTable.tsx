@@ -130,7 +130,7 @@ export const AccountTable = (props: AccountTableProps) => {
                     <div className="account-detf-container-placeholder-overlay-info">
                         Ready to invest in your own Decentralized Exchange Traded Funds?
                         <div><br /></div>
-                        <Link to="/detfs"><Button text="Explore Polybit DETFs" type="button" buttonStyle="primary" /></Link>
+                        <Link to="/detfs"><Button text="Explore Polybit DETFs" buttonStyle="primary" buttonSize="standard" /></Link>
                     </div>
                 </div>
             </>

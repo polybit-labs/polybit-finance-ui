@@ -14,6 +14,7 @@ import {
 import { GetOrderData } from '../api/GetOrderData'
 import { FormatCurrency } from '../utils/Currency'
 import ContentBoxContainer from '../containers/ContentBox'
+import { Button } from '../Button'
 
 interface DepositSummary {
     detfAddress: string;
@@ -69,7 +70,7 @@ export const DepositSummary = (props: DepositSummary) => {
 
     let prettyTimeLockValue = PrettyTimeLockValue()
 
-    const { config: detfDepositConfig, error: detfDepositError } = usePrepareContractWrite({
+    const { config: detfDepositConfig, error: detfDepositError, isSuccess: prepareContractWriteSuccess } = usePrepareContractWrite({
         addressOrName: props.detfAddress,
         contractInterface: IPolybitDETF,
         functionName: 'deposit',
@@ -83,7 +84,7 @@ export const DepositSummary = (props: DepositSummary) => {
         },
     })
 
-    const { data, isLoading, isSuccess, write: detfDeposit } = useContractWrite(detfDepositConfig)
+    const { data, isLoading: contractWriteLoading, isSuccess, write: detfDeposit } = useContractWrite(detfDepositConfig)
 
     const { data: waitForTransaction, isError: transactionError, isLoading: transactionLoading, isSuccess: transactionSuccess } = useWaitForTransaction({
         hash: data?.hash,
@@ -118,7 +119,11 @@ export const DepositSummary = (props: DepositSummary) => {
     return (
         <ContentBoxContainer>
             <div>
-                {!transactionSuccess && <div className="deposit-summary">
+                {!prepareContractWriteSuccess && <div className="deposit-summary">
+                    <img height="90px" width="90px" src={require("../../assets/images/loading.gif")} alt="Loading"></img>
+                    <p><b>Preparing your deposit</b></p>
+                </div>}
+                {prepareContractWriteSuccess && <div className="deposit-summary">
                     <p>Polybit PGT20 aims to track the performance of an index (before fees and expenses) comprising 20 of the largest governance assets by liquidity on the Binance chain. The smart contract you generate at the time of investment will automatically facilitate ongoing trades to maintain pooled asset positions, as asset positions shift, leave, or enter the pool over time.
                         Your holdings will rebalance through automated buys and sells over time to maintain a reflection of the top assets in this fund. Holding weighting is determined according to oracle data including, but not limited to, market capitalisation and daily trading volume. Assets that do not meet our risk criteria for certification or minimum liquidity thresholds may be excluded from pool inclusion. Learn more about our pool policies.</p>
                     <div className="deposit-summary-info">
@@ -146,12 +151,13 @@ export const DepositSummary = (props: DepositSummary) => {
                             </ul>
                         </div>
                     </div>
-                    {orderDataLoading && (<img height="90px" width="90px" src={require("../../assets/images/loading.gif")} alt="Loading"></img>)}
-                    {orderDataSuccess && (<button className="deposit-confirmation-button-primary" disabled={!detfDeposit} onClick={() => detfDeposit?.()}>Finalize and commit funds</button>)}
+                    {!contractWriteLoading && !transactionLoading && orderDataSuccess && <Button buttonStyle="primary" buttonSize="standard" text="Finalize and commit funds" onClick={() => detfDeposit?.()} />}
+                    {contractWriteLoading && !transactionLoading && <Button buttonStyle="primary" buttonSize="standard" text="Finalize and commit funds" status="loading" />}
                     <div className="deposit-back-button" onClick={() => { props.setShowDepositDetails(true); props.setInternalActiveStage(1) }}>Make changes to investment setup</div>
                 </div>}
-                {transactionLoading && <div className="confirming-detf-wrapper">
+                {transactionLoading && <div className="deposit-summary">
                     <img height="90px" width="90px" src={require("../../assets/images/loading.gif")} alt="Loading"></img>
+                    <p><b>Sending transaction to the blockchain</b></p>
                 </div>}
             </div>
         </ContentBoxContainer>

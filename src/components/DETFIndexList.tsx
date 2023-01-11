@@ -121,27 +121,29 @@ const DETFIndexList = (props: DETFIndexListProps) => {
                         </div>
                         <div>
                             {detfIndex.map((detf: any) =>
-                                <div className="detf-index-row-items" key={detf.url}>
-                                    <div className="detf-index-row-item-detf">
-                                        <img className="detf-index-row-item-logo" src={require(`../assets/icons/${DETFIconFilename(detf.category, detf.dimension)}`)}></img>
-                                        <div className="detf-index-row-item-name">
-                                            <div className="detf-index-row-item-name-category" style={{ color: ColourCategories(detf.category) }}>
-                                                {detf.category}
-                                            </div>
-                                            <div className="detf-index-row-item-name-dimension">
-                                                {detf.dimension}
+                                <Link className="detf-index-row-item-link" to={`/detfs/${detf.urlChainId}/${detf.urlCategoryId}/${detf.urlDimensionId}`} >
+                                    <div className="detf-index-row-items" key={detf.url}>
+                                        <div className="detf-index-row-item-detf">
+                                            <img className="detf-index-row-item-logo" src={require(`../assets/icons/${DETFIconFilename(detf.category, detf.dimension)}`)}></img>
+                                            <div className="detf-index-row-item-name">
+                                                <div className="detf-index-row-item-name-category" style={{ color: ColourCategories(detf.category) }}>
+                                                    {detf.category}
+                                                </div>
+                                                <div className="detf-index-row-item-name-dimension">
+                                                    {detf.dimension}
+                                                </div>
                                             </div>
                                         </div>
+                                        <div className="detf-index-row-item-liquidity">{detf.liquidity}</div>
+                                        <div className="detf-index-row-item-one-week" >{FormatPercentages(detf.returnOneWeek * 100)}</div>
+                                        <div className="detf-index-row-item-one-month" >{FormatPercentages(detf.returnOneMonth * 100)}</div>
+                                        <div className="detf-index-row-item-three-months" >{FormatPercentages(detf.returnThreeMonths * 100)}</div>
+                                        <div className="detf-index-row-item-one-year" >{FormatPercentages(detf.returnOneYear * 100)}</div>
+                                        <div className="detf-index-row-item-view">
+                                            View
+                                        </div>
                                     </div>
-                                    <div className="detf-index-row-item-liquidity">{detf.liquidity}</div>
-                                    <div className="detf-index-row-item-one-week" >{FormatPercentages(detf.returnOneWeek * 100)}</div>
-                                    <div className="detf-index-row-item-one-month" >{FormatPercentages(detf.returnOneMonth * 100)}</div>
-                                    <div className="detf-index-row-item-three-months" >{FormatPercentages(detf.returnThreeMonths * 100)}</div>
-                                    <div className="detf-index-row-item-one-year" >{FormatPercentages(detf.returnOneYear * 100)}</div>
-                                    <div className="detf-index-row-item-view">
-                                        <Link className="detf-index-row-item-link" to={`/detfs/${detf.urlChainId}/${detf.urlCategoryId}/${detf.urlDimensionId}`} >View</Link>
-                                    </div>
-                                </div>)
+                                </Link>)
                             }
                         </div>
                     </div>

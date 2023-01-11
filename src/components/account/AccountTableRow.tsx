@@ -307,7 +307,7 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
                                     processOrigin: "deposit",
                                     activeStage: 1
                                 }}>
-                                    <Button text="Make your first deposit into this DETF" buttonStyle="primary" type="button" /></Link>
+                                    <Button text="Make your first deposit into this DETF" buttonStyle="primary" buttonSize="standard" /></Link>
                             </div>}
                         {isDETFActive && isDETFDeposited &&
                             <div className="account-detf-expanded-content-left-deposit">
@@ -319,7 +319,7 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
                                     processOrigin: "deposit",
                                     activeStage: 1
                                 }}>
-                                    <Button text="Deposit" buttonStyle="primary" type="button" /></Link>
+                                    <Button text="Deposit" buttonStyle="primary" buttonSize="standard" /></Link>
                             </div>}
                         <div className="account-detf-expanded-content-left-current-value">
                             {isDETFActive && <h2>Total market value: {currentTotalValueFormatted} ({currentReturnFormatted})</h2>}
@@ -342,12 +342,12 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
                                     currency: props.currency,
                                     vsPrices: props.vsPrices
                                 }}>
-                                    <Button text="Exit and withdraw" buttonStyle="primary" type="button" /></Link>}
+                                    <Button text="Exit and withdraw" buttonStyle="primary" buttonSize="standard" /></Link>}
                             {isDETFActive && !isDETFDeposited &&
-                                <button className="button-disabled" >Exit and withdraw</button>
+                                <Button text="Exit and withdraw" buttonStyle="primary" buttonSize="standard" status="disabled" />
                             }
                             {isDETFActive && isDETFTimeLocked &&
-                                <button className="button-disabled" >Exit and withdraw</button>
+                                <Button text="Exit and withdraw" buttonStyle="primary" buttonSize="standard" status="disabled" />
                             }
                             {isDETFActive && isDETFTimeLocked &&
                                 <div className="account-detf-expanded-content-left-close-message">
@@ -356,7 +356,7 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
                                 </div>
                             }
                             {!isDETFActive &&
-                                <Button text="Exit and withdraw" buttonStyle="disabled" type="button" />
+                                <Button text="Exit and withdraw" buttonStyle="primary" buttonSize="standard" status="disabled" />
                             }
                         </div>
                     </div>

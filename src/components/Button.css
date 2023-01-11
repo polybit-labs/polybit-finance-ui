@@ -1,24 +1,77 @@
-.button-primary,
-.button-disabled {
+.button-primary-standard,
+.button-primary-standard-long,
+.button-primary-slim,
+.button-secondary-standard,
+.button-secondary-slim,
+.button-primary-standard-loading,
+.button-primary-slim-loading,
+.button-secondary-standard-loading,
+.button-secondary-slim-loading,
+.button-primary-standard-disabled,
+.button-primary-standard-long-disabled,
+.button-primary-slim-disabled,
+.button-secondary-standard-disabled,
+.button-secondary-slim-disabled {
     border-radius: 4px;
     outline: none;
     cursor: pointer;
     min-width: 228px;
-    height: 66px;
     font-size: 16px;
     font-weight: 700;
     padding-left: 28px;
     padding-right: 28px;
 }
 
-.button-primary {
+.button-primary-standard,
+.button-primary-standard-long,
+.button-primary-slim,
+.button-primary-standard-loading,
+.button-primary-slim-loading {
     border: 2px solid #000000;
     background-color: #000000;
-    color: #fff;
+    color: #ffffff;
 }
 
-.button-disabled {
+.button-secondary-standard,
+.button-secondary-slim,
+.button-secondary-standard-loading,
+.button-secondary-slim-loading {
+    border: 2px solid #000000;
+    background-color: transparent;
+    color: #000000;
+}
+
+.button-primary-standard-disabled,
+.button-primary-standard-long-disabled,
+.button-primary-slim-disabled,
+.button-secondary-standard-disabled,
+.button-secondary-slim-disabled {
     border: 2px solid #CACACA;
     background-color: #CACACA;
-    color: #fff;
+    color: #ffffff;
+}
+
+.button-primary-standard,
+.button-primary-standard-long,
+.button-primary-standard-long-disabled,
+.button-secondary-standard,
+.button-primary-standard-loading,
+.button-secondary-standard-loading,
+.button-primary-standard-disabled,
+.button-secondary-standard-disabled {
+    height: 66px;
+}
+
+.button-primary-slim,
+.button-secondary-slim,
+.button-primary-slim-loading,
+.button-secondary-slim-loading,
+.button-primary-slim-disabled,
+.button-secondary-slim-disabled {
+    height: 44px;
+}
+
+.button-primary-standard-long,
+.button-primary-standard-long-disabled {
+    width: 100%;
 }

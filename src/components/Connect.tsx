@@ -1,21 +1,12 @@
-import {
-    useAccount,
-    useNetwork,
-    useBalance,
-    useConnect,
-    useDisconnect,
-} from "wagmi"
+import { useAccount, useConnect, useDisconnect } from "wagmi"
 import { useNavigate } from "react-router-dom"
 import { useEffect } from "react";
+import { Button } from "./Button";
 
 const Connect = () => {
     const navigate = useNavigate();
     const navToAccount = () => navigate("/account")
     const { address, connector, isConnected } = useAccount()
-    const { chain, chains } = useNetwork()
-    const { data } = useBalance({
-        addressOrName: address,
-    })
     const { connect, connectors, error, isLoading, pendingConnector } =
         useConnect()
     const { disconnect } = useDisconnect({
@@ -37,56 +28,30 @@ const Connect = () => {
     return (
         <><div className="connect-provider">
             <div className="connect-provider-box">
-                <div><img className="coinbase-logo" src={require("../assets/images/coinbase-logo.png")} alt="Connect to Coinbase"></img></div>
-                <div><button className="connect-wallet-button-primary" disabled={!coinbaseConnector.ready}
-                    key={coinbaseConnector.id}
-                    onClick={() => connect({ connector: coinbaseConnector })}>{coinbaseConnector.id !== connector?.id &&
-                        "Use Coinbase"}
-                    {!coinbaseConnector.ready && ' (unsupported)'}
-                    {/* {isLoading &&
-                coinbaseConnector.id === pendingConnector?.id &&
-                '...'} */}
-                    {coinbaseConnector.id === connector?.id &&
-                        'Connected'}</button>
-                </div>
+                <img className="coinbase-logo" src={require("../assets/images/coinbase-logo.png")} alt="Connect to Coinbase"></img>
+                {!coinbaseConnector.ready && <Button buttonStyle="primary" buttonSize="standard" status="disabled" text="Use Coinbase" />}
+                {!isLoading && coinbaseConnector.ready && coinbaseConnector.id !== connector?.id && <Button buttonStyle="primary" buttonSize="standard" text="Use Coinbase" onClick={() => connect({ connector: coinbaseConnector })} />}
+                {isLoading && coinbaseConnector.id === pendingConnector?.id && <Button buttonStyle="primary" buttonSize="standard" status="loading" text="Use Coinbase" />}
+                {coinbaseConnector.id === connector?.id && <Button buttonStyle="primary" buttonSize="standard" text="Connected" />}
             </div>
             <div className="connect-provider-box">
-                <div>
-                    <img className="metamask-logo" src={require("../assets/images/metamask-logo.png")} alt="Connect to MetaMask"></img></div>
-                <div>
-                    <button className="connect-wallet-button-secondary" disabled={!metamaskConnector.ready}
-                        key={metamaskConnector.id}
-                        onClick={() => connect({ connector: metamaskConnector })}>{metamaskConnector.id !== connector?.id &&
-                            "Use MetaMask"}
-                        {!metamaskConnector.ready && ' (unsupported)'}
-                        {/* {isLoading &&
-                    metamaskConnector.id === pendingConnector?.id &&
-                    '...'} */}
-                        {metamaskConnector.id === connector?.id &&
-                            'Connected'}</button>
-                </div>
+                <img className="metamask-logo" src={require("../assets/images/metamask-logo.png")} alt="Connect to MetaMask"></img>
+                {!metamaskConnector.ready && <Button buttonStyle="primary" buttonSize="standard" status="disabled" text="Use MetaMask" />}
+                {!isLoading && metamaskConnector.ready && metamaskConnector.id !== connector?.id && <Button buttonStyle="primary" buttonSize="standard" text="Use MetaMask" onClick={() => connect({ connector: metamaskConnector })} />}
+                {isLoading && metamaskConnector.id === pendingConnector?.id && <Button buttonStyle="primary" buttonSize="standard" status="loading" text="Use MetaMask" />}
+                {metamaskConnector.id === connector?.id && <Button buttonStyle="primary" buttonSize="standard" text="Connected" />}
             </div>
             <div className="connect-provider-box">
-                <div>
-                    <img className="walletconnect-logo" src={require("../assets/images/walletconnect-logo.png")} alt="Connect to WalletConnect"></img>
-                </div>
-                <div>
-                    <button className="connect-wallet-button-secondary" disabled={!walletConnectConnector.ready}
-                        key={walletConnectConnector.id}
-                        onClick={() => connect({ connector: walletConnectConnector })}>{walletConnectConnector.id !== connector?.id &&
-                            "Use WalletConnect"}
-                        {!walletConnectConnector.ready && ' (unsupported)'}
-                        {/* {isLoading &&
-                    walletConnectConnector.id === pendingConnector?.id &&
-                    '...'} */}
-                        {walletConnectConnector.id === connector?.id &&
-                            'Connected'}</button>
-                </div>
+                <img className="walletconnect-logo" src={require("../assets/images/walletconnect-logo.png")} alt="Connect to WalletConnect"></img>
+                {!walletConnectConnector.ready && <Button buttonStyle="primary" buttonSize="standard" status="disabled" text="Use WalletConnect" />}
+                {!isLoading && walletConnectConnector.ready && walletConnectConnector.id !== connector?.id && <Button buttonStyle="primary" buttonSize="standard" text="Use WalletConnect" onClick={() => connect({ connector: walletConnectConnector })} />}
+                {isLoading && walletConnectConnector.id === pendingConnector?.id && <Button buttonStyle="primary" buttonSize="standard" status="loading" text="Use WalletConnect" />}
+                {walletConnectConnector.id === connector?.id && <Button buttonStyle="primary" buttonSize="standard" text="Connected" />}
             </div>
-        </div>
+        </div >
             <div className="connect-provider-notice">
                 Wallets are provided by external providers and by selecting you agree to Terms of those Providers.&nbsp;
-                <button className="disconnect-button" onClick={() => disconnect()}>Disconnect my wallet.</button>
+                <div className="disconnect-button" onClick={() => disconnect()}>Disconnect my wallet.</div>
             </div>
         </>)
 }
