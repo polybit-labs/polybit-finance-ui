@@ -24,14 +24,7 @@ export const EstablishDETFBox = (props: EstablishDETFBox) => {
     const navigate = useNavigate();
     const navToAccount = () => navigate("/deposit", { state: { category: props.category, dimension: props.dimension, productId: props.productId.toString(), detfAddress: detfAddress, processOrigin: "establish", activeStage: 2 } })
     const detfFactoryAddress: string = polybitAddresses[chainId as keyof typeof polybitAddresses]["detf_factory"]
-    console.log("deposit detf address", detfAddress)
-
     const IPolybitDETFFactory = new Interface(PolybitDETFFactoryInterface)
-
-    console.log(walletOwner,
-        Number(props.productId),
-        props.category,
-        props.dimension)
 
     const { config, error, isLoading: prepareConfigLoading } = usePrepareContractWrite({
         addressOrName: detfFactoryAddress,
@@ -50,14 +43,10 @@ export const EstablishDETFBox = (props: EstablishDETFBox) => {
     })
 
     const { data, isLoading, isSuccess, isError: newDETFError, write: createNewDETF } = useContractWrite(config)
-    if (newDETFError) {
-        console.log(newDETFError)
-    }
 
     const { data: waitForTransaction, isError: transactionError, isLoading: transactionLoading, isSuccess: transactionSuccess } = useWaitForTransaction({
         hash: data?.hash,
         onSettled(data, error) {
-            console.log(data)
             const logData = data ? data.logs[0].data : []
             const logTopics = data ? data.logs[0].topics[0] : []
             const detfAddress = web3.eth.abi.decodeParameters([
@@ -74,7 +63,6 @@ export const EstablishDETFBox = (props: EstablishDETFBox) => {
                     "type": "address"
                 }
             ], logData, logTopics)[1]
-            console.log("DETF Created at", detfAddress)
             setDETFAddress(detfAddress)
         }
     })

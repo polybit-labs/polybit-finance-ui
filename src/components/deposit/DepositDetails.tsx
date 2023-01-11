@@ -1,8 +1,8 @@
 import { useState, ChangeEvent } from 'react'
-import "./pages/Deposit.css"
-import ContentBoxContainer from './containers/ContentBox'
-import DateTypeDropDown from './dropdowns/DateTypeDropdown'
-import { FormatCurrency } from './utils/Currency'
+import "../pages/Deposit.css"
+import ContentBoxContainer from '../containers/ContentBox'
+import DateTypeDropDown from '../dropdowns/DateTypeDropdown'
+import { FormatCurrency } from '../utils/Currency'
 
 interface DepositDetails {
     detfAddress: string;
@@ -27,7 +27,6 @@ export const DepositDetails = (props: DepositDetails) => {
     const [checkboxTickExisting, setCheckboxTickExisting] = useState(false)
     const [depositInputValue, setdepositInputValue] = useState("0")
     const [timeLockInputValue, settimeLockInputValue] = useState("0")
-    const [depositStage, setDepositStage] = useState("input")
 
     const onChangeDeposit = (e: ChangeEvent<HTMLInputElement>) => {
         setdepositInputValue(e.target.value)
@@ -115,21 +114,21 @@ export const DepositDetails = (props: DepositDetails) => {
         // Set lock value for the first time
         if (props.timeLock === 0 && Number(timeLockInputValue) > 0) {
             timeLock = (moment().unix() + GetTimeLockInputValueInSeconds())
-            console.log("Set new value")
+            //console.log("Set new value")
         }
 
         //Increase the lock value
         if (props.timeLock > 0 && Number(timeLockInputValue) > 0) {
             timeLock = (props.timeLock + GetTimeLockInputValueInSeconds())
-            console.log("Increase lock value")
+            //console.log("Increase lock value")
         }
 
         //Return the existing lock value
         if (props.timeLock > 0 && Number(timeLockInputValue) === 0) {
             timeLock = props.timeLock
-            console.log("Existing time lock has not changed")
+            //console.log("Existing time lock has not changed")
         }
-        console.log(Number(timeLock))
+        //console.log(Number(timeLock))
         return timeLock
     }
 

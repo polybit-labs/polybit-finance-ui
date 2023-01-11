@@ -44,14 +44,11 @@ export const AccountTable = (props: AccountTableProps) => {
     const detfAccounts: Array<string> = props.detfAccounts
     const detfAccountsData: Array<any> = props.detfAccountsData
     const [detfData, setDETFData] = useState<Array<any>>(detfAccountsData)
-    console.log(walletOwner)
     useEffect(() => {
         if (detfData.length !== detfAccountsData.length) {
             setDETFData(((detfData) => detfAccountsData))
         }
     }, [detfAccounts, detfAccountsData])
-    console.log(detfData)
-
 
     const [order, setOrder] = useState("asc")
     const sorting = (column: any) => {

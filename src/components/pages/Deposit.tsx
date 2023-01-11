@@ -10,17 +10,16 @@ import Footer from './Footer'
 import { Progress } from '../Progress'
 import { DETFAccountData, GetDETFAccountData } from '../api/GetDETFAccountData'
 import { Loading } from '../Loading'
-import { DepositDetails } from '../DepositDetails'
+import { DepositDetails } from '../deposit/DepositDetails'
 import { CurrencyContext } from '../utils/Currency'
 import { GetPriceVsCurrency } from '../api/GetPriceVsCurrency'
-import { DepositSummary } from '../DepositSummary'
-import { DepositSuccess } from '../DepositSuccess'
+import { DepositSuccess } from '../deposit/DepositSuccess'
+import { DepositSummary } from '../deposit/DepositSummary'
 
 function Deposit() {
     const location = useLocation()
     const [title, setTitle] = useState("Your investment amount")
     const { category, dimension, productId, detfAddress, processOrigin, activeStage } = location.state
-    console.log(detfAddress)
     const { response: detfDataResponse, isLoading, isSuccess: detfDataSuccess } = GetDETFAccountData(detfAddress)
     const [detfAccountData, setDETFAccountData] = useState<DETFAccountData>()
     const currency = useContext(CurrencyContext).currency
@@ -29,7 +28,7 @@ function Deposit() {
     const [depositAmount, setDepositAmount] = useState("")
     const [timeLockAmount, setTimeLockAmount] = useState(0)
     const [showDepositDetails, setShowDepositDetails] = useState(true)
-    const [depositSuccess, setDepositSuccess] = useState(true)
+    const [depositSuccess, setDepositSuccess] = useState(false)
 
     useEffect(() => {
         setVsPrices(prices ? prices : {})
@@ -56,7 +55,7 @@ function Deposit() {
                         <Progress processOrigin={processOrigin} activeStage={internalActiveStage} />
                     </div>}
                 <MainContainer>
-                    {/* {showDepositDetails && !depositSuccess && <DepositDetails
+                    {showDepositDetails && !depositSuccess && <DepositDetails
                         detfAddress={detfAccountData.detf_address}
                         timeLock={detfAccountData.time_lock}
                         timeLockRemaining={detfAccountData.time_lock_remaining}
@@ -86,7 +85,7 @@ function Deposit() {
                         setShowDepositDetails={setShowDepositDetails}
                         setInternalActiveStage={setInternalActiveStage}
                         setDepositSuccess={setDepositSuccess}
-                    />} */}
+                    />}
                     {depositSuccess && <DepositSuccess
                         category={detfAccountData.category}
                         dimension={detfAccountData.dimension}

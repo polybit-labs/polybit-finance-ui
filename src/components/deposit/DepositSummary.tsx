@@ -1,25 +1,19 @@
-import { useState, ChangeEvent, useEffect } from 'react'
-import "./pages/Deposit.css"
-import { Link } from 'react-router-dom'
-import PolybitDETFInterface from "../chain_info/IPolybitDETF.json"
+import { useState, useEffect } from 'react'
+import "../pages/Deposit.css"
+import PolybitDETFInterface from "../../chain_info/IPolybitDETF.json"
 import { Interface } from 'ethers/lib/utils'
-import Title from "./containers/Title"
-import SubTitle from "./containers/SubTitle"
 
 import {
     useAccount,
     useNetwork,
     useBalance,
-    useContractRead,
     usePrepareContractWrite,
     useContractWrite,
     useWaitForTransaction
 } from "wagmi"
-import { Progress } from './Progress'
-import { GetOrderData } from './api/GetOrderData'
-import { FormatCurrency } from './utils/Currency'
-import { Button } from './Button'
-import ContentBoxContainer from './containers/ContentBox'
+import { GetOrderData } from '../api/GetOrderData'
+import { FormatCurrency } from '../utils/Currency'
+import ContentBoxContainer from '../containers/ContentBox'
 
 interface DepositSummary {
     detfAddress: string;
@@ -41,7 +35,6 @@ export const DepositSummary = (props: DepositSummary) => {
     const ethers = require("ethers")
     const utils = ethers.utils
     const moment = require('moment')
-    const [title, setTitle] = useState("Finalizing your investment")
     const IPolybitDETF = new Interface(PolybitDETFInterface)
     const { address: walletOwner, connector, isConnected } = useAccount()
     const { chain } = useNetwork()
@@ -55,8 +48,6 @@ export const DepositSummary = (props: DepositSummary) => {
     useEffect(() => {
         setOrderData(detfOrderData ? detfOrderData : [])
     }, [detfOrderData, orderDataSuccess])
-
-    const [depositStage, setDepositStage] = useState("summary")
 
     const PrettyTimeLockValue = () => {
         // Set lock value for the first time
@@ -78,10 +69,6 @@ export const DepositSummary = (props: DepositSummary) => {
 
     let prettyTimeLockValue = PrettyTimeLockValue()
 
-    console.log("orderdata", orderData)
-    console.log("timelock", props.timeLockAmount === props.timeLock ? 0 : props.timeLockAmount)
-    console.log("deposit amount", props.depositAmount)
-
     const { config: detfDepositConfig, error: detfDepositError } = usePrepareContractWrite({
         addressOrName: props.detfAddress,
         contractInterface: IPolybitDETF,
@@ -101,12 +88,8 @@ export const DepositSummary = (props: DepositSummary) => {
     const { data: waitForTransaction, isError: transactionError, isLoading: transactionLoading, isSuccess: transactionSuccess } = useWaitForTransaction({
         hash: data?.hash,
         onSettled(data, error) {
-            console.log(data)
             const response = data ? data.logs[2].data : []
             const confirmedAmount = utils.defaultAbiCoder.decode(["uint256"], response)[0].toString()
-            console.log(confirmedAmount)
-            console.log(props.depositAmount)
-            console.log("Amount confirmations", confirmedAmount, props.depositAmount)
             if (confirmedAmount === props.depositAmount) {
                 props.setDepositSuccess(true)
             }
@@ -163,12 +146,12 @@ export const DepositSummary = (props: DepositSummary) => {
                             </ul>
                         </div>
                     </div>
-                    {orderDataLoading && (<img height="90px" width="90px" src={require("../assets/images/loading.gif")} alt="Loading"></img>)}
+                    {orderDataLoading && (<img height="90px" width="90px" src={require("../../assets/images/loading.gif")} alt="Loading"></img>)}
                     {orderDataSuccess && (<button className="deposit-confirmation-button-primary" disabled={!detfDeposit} onClick={() => detfDeposit?.()}>Finalize and commit funds</button>)}
-                    <div className="deposit-back-button" onClick={() => { setDepositStage("input"); props.setShowDepositDetails(true); props.setInternalActiveStage(1) }}>Make changes to investment setup</div>
+                    <div className="deposit-back-button" onClick={() => { props.setShowDepositDetails(true); props.setInternalActiveStage(1) }}>Make changes to investment setup</div>
                 </div>}
                 {transactionLoading && <div className="confirming-detf-wrapper">
-                    <img height="90px" width="90px" src={require("../assets/images/loading.gif")} alt="Loading"></img>
+                    <img height="90px" width="90px" src={require("../../assets/images/loading.gif")} alt="Loading"></img>
                 </div>}
             </div>
         </ContentBoxContainer>

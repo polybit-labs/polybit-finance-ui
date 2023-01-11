@@ -34,7 +34,6 @@ const Connect = () => {
     const metamaskConnector = connectors[1]
     const walletConnectConnector = connectors[2]
 
-    console.log("connected", isConnected)
     return (
         <><div className="connect-provider">
             <div className="connect-provider-box">

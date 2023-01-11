@@ -19,10 +19,7 @@ export const CloseDETF = () => {
     const { address: walletOwner, connector, isConnected } = useAccount()
     const IPolybitDETF = new Interface(PolybitDETFInterface)
     const [sellToCloseSuccess, setSellToCloseSuccess] = useState(false)
-
-
     const { response: orderData, isLoading: orderDataLoading, isSuccess: orderDataSuccess } = GetSellToCloseOrderData(detfAddress)
-    console.log(orderData)
 
     const { config: detfSellToCloseConfig, error: detfSellToCloseError } = usePrepareContractWrite({
         addressOrName: detfAddress,
@@ -36,8 +33,6 @@ export const CloseDETF = () => {
             console.log('detfSellToClose Success', data)
         },
     })
-
-    console.log(returnPercentage)
 
     const { data, isLoading, isSuccess, write: detfSellToClose } = useContractWrite(detfSellToCloseConfig)
 

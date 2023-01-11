@@ -11,7 +11,6 @@ export const TopDETFs = () => {
     const { response: detfData, isSuccess: detfDataSuccess } = GetTopDETFData()
     const [topDETFData, setTopDETFData] = useState<Array<any>>([])
 
-    console.log(detfData)
 
     useEffect(() => {
         if (detfDataSuccess && detfData && timePeriodFilter === "this week") {
@@ -55,8 +54,6 @@ export const TopDETFs = () => {
             />
         )}
     </button></div>
-
-    console.log(topDETFData)
 
     return (
         <div className="top-detfs-container">
