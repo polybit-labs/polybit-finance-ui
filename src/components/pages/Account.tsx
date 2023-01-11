@@ -12,7 +12,22 @@ import { useEffect, useState, useContext } from 'react'
 import { GetDETFAccountsDataAll } from '../api/GetDETFAccountsDataAll'
 import { CurrencyContext, FormatCurrency } from "../utils/Currency"
 import { GetPriceVsCurrency } from '../api/GetPriceVsCurrency'
+import { GetHistoricalPrices } from '../api/GetHistoricalPrices'
+import wethAddress from "../../chain_info/weth.json"
 
+type Currencies = {
+    "date": string;
+    "aud": number;
+    "bnb": number;
+    "cny": number;
+    "eur": number;
+    "idr": number;
+    "jpy": number;
+    "krw": number;
+    "rub": number;
+    "twd": number;
+    "usd": number;
+}
 
 const Account = () => {
     const { address: walletOwner, connector, isConnected } = useAccount()
@@ -43,6 +58,16 @@ const Account = () => {
         setDETFAccounts(detfAccountsList ? detfAccountsList : [])
         setDETFAccountsData(detfAccountsListData ? detfAccountsListData : [])
     }, [detfAccountsLoading, detfAccountsDataLoading, detfAccountsSuccess, detfAccountsDataSuccess])
+
+    const { response: historicalPriceData, isSuccess: historicalPricesSuccess } = GetHistoricalPrices()
+    const { response: currentPriceData, isSuccess: currentPricesSuccess } = GetPriceVsCurrency(wethAddress["56"]["wethAddress"])
+    const [historicalPrices, setHistoricalPrices] = useState<Array<Currencies>>([])
+    const [currentPrices, setCurrentPrices] = useState<Currencies>()
+
+    useEffect(() => {
+        setHistoricalPrices(historicalPriceData ? historicalPriceData : [])
+        setCurrentPrices(currentPriceData ? currentPriceData : [])
+    }, [historicalPriceData, historicalPricesSuccess, currentPriceData, currentPricesSuccess])
 
     const subTitle = <div>
         <div>{`You have connected Polybit to ${connector?.name} and are ready to invest in DETFs.`}</div>
@@ -76,7 +101,14 @@ const Account = () => {
                 <SubTitleContainer info={subTitle} />
                 <MainContainer>
                     <AccountSummary detfAccounts={detfAccounts} detfAccountsData={detfAccountsData} vsPrices={vsPrices} currency={currency} />
-                    <AccountTable detfAccounts={detfAccounts} detfAccountsData={detfAccountsData} vsPrices={vsPrices} currency={currency} />
+                    <AccountTable
+                        detfAccounts={detfAccounts}
+                        detfAccountsData={detfAccountsData}
+                        vsPrices={vsPrices}
+                        currency={currency}
+                        historicalPrices={historicalPrices}
+                        currentPrices={currentPrices}
+                    />
                 </MainContainer>
                 <Footer />
             </>

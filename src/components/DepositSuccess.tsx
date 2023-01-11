@@ -10,10 +10,9 @@ interface DepositSuccess {
 export const DepositSuccess = (props: DepositSuccess) => {
     return (
         <div className="deposit-success">
-            <img height="120px" width="120px" src={require("../assets/icons/success_tick.png")}></img>
-            <div>Congratulations, your investment into the {props.category} {props.dimension} DETF was successful.</div>
-            <Link className="success-deposit-button-link" to="/account">
-                <Button text="Go To My Account" buttonStyle="primary" type="button"></Button></Link>
+            <img className="deposit-success-tick" height="120px" width="120px" src={require("../assets/icons/success_tick.png")}></img>
+            <div className="deposit-success-text">Congratulations, your investment into the {props.category} {props.dimension} DETF was successful.</div>
+            <Link className="deposit-success-link" to="/account">View my account and investments</Link>
         </div>
     )
 }

@@ -2,13 +2,13 @@ import { useState, useEffect } from "react"
 import axios from "axios"
 import apiURL from "./api-info.json"
 
-export const GetHistoricalPrices = (date: string) => {
+export const GetHistoricalPrices = () => {
     const [response, setResponse] = useState<Array<any>>()
     let isLoading: boolean
     let isSuccess: boolean
 
     useEffect(() => {
-        axios.post(apiURL["apiURL"] + "/api/get_historical_prices", { "date": date })
+        axios.get(apiURL["apiURL"] + "/api/get_historical_prices")
             .then(res => {
                 setResponse(res.data)
             })

@@ -5,7 +5,6 @@ import Home from "./components/pages/Home"
 import ScrollToTop from './components/ScrollToTop';
 import DETFIndex from './components/pages/DETFIndex';
 import Account from './components/pages/Account';
-import DepositSummary from "./components/pages/DepositSummary";
 import ConnectWallet from './components/pages/ConnectWallet';
 import Deposit from './components/pages/Deposit';
 import { AvailableDETFs } from './components/AvailableDETFs';
@@ -31,7 +30,6 @@ function App() {
               <Route path="/connect-wallet" element={<ConnectWallet />} />
               <Route path="/establish-detf" element={<EstablishDETF />} />
               <Route path="/deposit" element={<Deposit />} />
-              <Route path="/deposit-summary" element={<DepositSummary />} />
               <Route path="/close-detf" element={<CloseDETF />} />
               <Route path="/detfs/:urlChainId/:urlCategoryId/:urlDimensionId" element={<DETF />} />
             </Routes>

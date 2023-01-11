@@ -13,11 +13,27 @@ interface DETFSummary {
     "lockStatus": string;
 }
 
+type Currencies = {
+    "date": string;
+    "aud": number;
+    "bnb": number;
+    "cny": number;
+    "eur": number;
+    "idr": number;
+    "jpy": number;
+    "krw": number;
+    "rub": number;
+    "twd": number;
+    "usd": number;
+}
+
 interface AccountTableProps {
     detfAccounts: Array<string>;
     detfAccountsData: Array<any>;
     vsPrices: any;
     currency: string;
+    historicalPrices: Array<any>;
+    currentPrices: Currencies | undefined;
 }
 
 export const AccountTable = (props: AccountTableProps) => {
@@ -90,6 +106,8 @@ export const AccountTable = (props: AccountTableProps) => {
                                     final_return={data.final_return}
                                     final_return_weth={data.final_return_weth}
                                     isPlaceholder={false}
+                                    historicalPrices={props.historicalPrices}
+                                    currentPrices={props.currentPrices}
                                 />
                             </div>) :
                             <div>

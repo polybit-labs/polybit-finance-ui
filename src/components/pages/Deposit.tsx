@@ -1,23 +1,12 @@
-import { useState, ChangeEvent, useEffect, useContext } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import "./Deposit.css"
-import { Link } from 'react-router-dom'
 import { TruncateAddress } from '../utils/Formatting'
 import { useLocation } from 'react-router-dom'
-import PolybitDETFInterface from "../../chain_info/IPolybitDETF.json"
-import { Interface } from 'ethers/lib/utils'
 import TitleContainer from "../containers/Title"
 import SubTitleContainer from '../containers/SubTitle'
 import MainContainer from '../containers/Main'
-import ContentBoxContainer from '../containers/ContentBox'
-
-import {
-    useAccount,
-    useNetwork,
-    useBalance,
-    useContractRead
-} from "wagmi"
+import { useAccount, useBalance } from "wagmi"
 import Footer from './Footer'
-import DateTypeDropDown from '../dropdowns/DateTypeDropdown'
 import { Progress } from '../Progress'
 import { DETFAccountData, GetDETFAccountData } from '../api/GetDETFAccountData'
 import { Loading } from '../Loading'
@@ -40,7 +29,7 @@ function Deposit() {
     const [depositAmount, setDepositAmount] = useState("")
     const [timeLockAmount, setTimeLockAmount] = useState(0)
     const [showDepositDetails, setShowDepositDetails] = useState(true)
-    const [depositSuccess, setDepositSuccess] = useState(false)
+    const [depositSuccess, setDepositSuccess] = useState(true)
 
     useEffect(() => {
         setVsPrices(prices ? prices : {})
@@ -49,7 +38,6 @@ function Deposit() {
     useEffect(() => {
         setDETFAccountData(detfDataResponse)
     }, [detfDataSuccess])
-    const IPolybitDETF = new Interface(PolybitDETFInterface)
     const { address: walletOwner, connector, isConnected } = useAccount()
     const { data: walletBalance } = useBalance({
         addressOrName: walletOwner,
@@ -68,7 +56,7 @@ function Deposit() {
                         <Progress processOrigin={processOrigin} activeStage={internalActiveStage} />
                     </div>}
                 <MainContainer>
-                    {showDepositDetails && !depositSuccess && <DepositDetails
+                    {/* {showDepositDetails && !depositSuccess && <DepositDetails
                         detfAddress={detfAccountData.detf_address}
                         timeLock={detfAccountData.time_lock}
                         timeLockRemaining={detfAccountData.time_lock_remaining}
@@ -98,7 +86,7 @@ function Deposit() {
                         setShowDepositDetails={setShowDepositDetails}
                         setInternalActiveStage={setInternalActiveStage}
                         setDepositSuccess={setDepositSuccess}
-                    />}
+                    />} */}
                     {depositSuccess && <DepositSuccess
                         category={detfAccountData.category}
                         dimension={detfAccountData.dimension}
