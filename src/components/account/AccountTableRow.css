@@ -115,6 +115,10 @@
     align-items: center;
 }
 
+.account-index-row-item-name-link {
+    text-decoration: none;
+}
+
 .account-index-row-item-category {
     font-size: 16px;
 }
@@ -213,7 +217,25 @@
 }
 
 .account-detf-expanded-content-right-proof-of-assets {
+    position: relative;
     margin-top: 50px;
+    background-color: #E1E1E1;
+    padding-left: 100px;
+    padding-right: 60px;
+    padding-top: 36px;
+    padding-bottom: 36px;
+    border-radius: 8px;
+}
+
+.account-detf-expanded-content-right-proof-of-assets a {
+    text-decoration: none;
+    color: #000000;
+}
+
+.account-detf-expanded-content-right-proof-of-assets-diamond {
+    position: absolute;
+    top: 10px;
+    left: -10px;
 }
 
 .account-detf-expanded-content-left-current-value {

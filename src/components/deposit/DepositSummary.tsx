@@ -132,7 +132,7 @@ export const DepositSummary = (props: DepositSummary) => {
                             <ul>
                                 <li>Category</li>
                                 <li>Dimension</li>
-                                <li>Chain</li>
+                                <li>Blockchain</li>
                                 <li>Investment</li>
                                 <li>Deposit Fee</li>
                                 <li>Time Locked</li>
@@ -145,7 +145,7 @@ export const DepositSummary = (props: DepositSummary) => {
                                 <li>{props.dimension}</li>
                                 <li>{chain?.name}</li>
                                 <li>{`${walletBalance?.symbol} ${depositAmountFormatted} (${depositAmountCurrency})`}</li>
-                                <li>0.05%</li>
+                                <li>0.5%</li>
                                 <li>{prettyTimeLockValue}</li>
                                 <li>{walletOwner}</li>
                             </ul>

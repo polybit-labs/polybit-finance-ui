@@ -111,7 +111,7 @@ export const AccountTable = (props: AccountTableProps) => {
                             </div>) :
                             <div>
                                 <div className="account-detf-row-loading">
-                                    <img height="90px" width="90px" src={require("../../assets/images/loading.gif")} alt="Loading"></img>
+                                    <img height="90px" width="90px" src={require("../../assets/images/polybit-loader-100px.gif")} alt="Loading"></img>
                                 </div>
                             </div>
                         }
@@ -136,7 +136,12 @@ export const AccountTable = (props: AccountTableProps) => {
             </>
         )
     }
-    return (<></>)
+    return (
+        <>
+            <div className="account-detf-row"></div>
+            <div className="account-detf-row"></div>
+            <div className="account-detf-row"></div>
+        </>)
 }
 
 export default AccountTable

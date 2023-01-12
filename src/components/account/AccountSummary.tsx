@@ -7,7 +7,9 @@ import { FormatPercentages } from "../utils/Formatting"
 
 interface AccountSummaryProps {
     detfAccounts: Array<string>;
+    detfAccountsSuccess: boolean;
     detfAccountsData: Array<any>;
+    detfAccountsDataSuccess: boolean;
     vsPrices: any;
     currency: string;
 }
@@ -144,10 +146,10 @@ const AccountSummary = (props: AccountSummaryProps) => {
                     <li className="account-summary-item">
                         <div className="portfolio-box-title">
                             <div className="portfolio-box-title-text">Current portfolio worth</div>
-                            {/* <div className="portfolio-box-title-context">As of datestamp</div> */}
                         </div>
                         <div className="portfolio-box-balance">
-                            {FormatCurrency((Number(currentBalance)
+                            {(!props.detfAccountsSuccess || !props.detfAccountsDataSuccess) && <img src={require("../../assets/images/polybit-loader-60px.gif")} />}
+                            {props.detfAccountsSuccess && props.detfAccountsDataSuccess && FormatCurrency((Number(currentBalance)
                                 / 10 ** 18 *
                                 (() => {
                                     switch (props.currency) {
@@ -162,17 +164,19 @@ const AccountSummary = (props: AccountSummaryProps) => {
                                         case "TWD": return (props.vsPrices.twd)
                                         case "USD": return (props.vsPrices.usd)
                                     }
-                                })()), 2)}</div>
+                                })()), 2)}
+                        </div>
                     </li>
                     <li className="account-summary-item">
                         <div className="return-box-title">
-                            <div><div className="return-box-title-text">Current portfolio return</div>
-                                {/* <div className="return-box-title-context">As of datestamp</div> */}
+                            <div className="return-box-title-text">Current portfolio return</div>
+                            <div className="return-box-title-percentage" >
+                                {(props.detfAccountsSuccess && props.detfAccountsDataSuccess) && FormatPercentages(currentReturnPercentage)}
                             </div>
-                            <div className="return-box-title-percentage" >{FormatPercentages(currentReturnPercentage)}</div>
                         </div>
                         <div className="return-box-balance" style={{ color: ColourNumbers(currentReturn) }}>
-                            {FormatCurrency((Number(currentReturn)
+                            {(!props.detfAccountsSuccess || !props.detfAccountsDataSuccess) && <img src={require("../../assets/images/polybit-loader-60px.gif")} />}
+                            {props.detfAccountsSuccess && props.detfAccountsDataSuccess && FormatCurrency((Number(currentReturn)
                                 / 10 ** 18 *
                                 (() => {
                                     switch (props.currency) {
@@ -187,17 +191,20 @@ const AccountSummary = (props: AccountSummaryProps) => {
                                         case "TWD": return (props.vsPrices.twd)
                                         case "USD": return (props.vsPrices.usd)
                                     }
-                                })()), 2)}</div>
+                                })()), 2)}
+                        </div>
                     </li>
                     <li className="account-summary-item">
                         <div className="return-box-title">
-                            <div><div className="return-box-title-text">Total lifetime return</div>
-                                {/* <div className="return-box-title-context">As of datestamp</div> */}
+                            <div className="return-box-title-text">Total lifetime return</div>
+                            <div className="return-box-title-percentage" >
+                                {props.detfAccountsSuccess && props.detfAccountsDataSuccess && FormatPercentages(lifetimeReturnPercentage)}
                             </div>
-                            <div className="return-box-title-percentage" >{FormatPercentages(lifetimeReturnPercentage)}</div>
                         </div>
                         <div className="return-box-balance" style={{ color: ColourNumbers(lifetimeReturn) }}>
-                            {FormatCurrency((Number(lifetimeReturn)), 2)}</div>
+                            {(!props.detfAccountsSuccess || !props.detfAccountsDataSuccess) && <img src={require("../../assets/images/polybit-loader-60px.gif")} />}
+                            {props.detfAccountsSuccess && props.detfAccountsDataSuccess && FormatCurrency((Number(lifetimeReturn)), 2)}
+                        </div>
                     </li>
                 </ul>
             </div>

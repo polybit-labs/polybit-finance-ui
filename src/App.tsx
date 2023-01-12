@@ -13,6 +13,7 @@ import DETF from './components/pages/DETF'
 import { CurrencyContext, CurrencyState } from "./components/utils/Currency"
 import { useState } from 'react'
 import { CloseDETF } from './components/pages/CloseDETF'
+import { Fees } from './components/pages/Fees';
 
 function App() {
   const [currency, setCurrency] = useState<CurrencyState>({ currency: "USD" })
@@ -32,6 +33,7 @@ function App() {
               <Route path="/deposit" element={<Deposit />} />
               <Route path="/close-detf" element={<CloseDETF />} />
               <Route path="/detfs/:urlChainId/:urlCategoryId/:urlDimensionId" element={<DETF />} />
+              <Route path="/fees" element={<Fees />} />
             </Routes>
           </CurrencyContext.Provider>
         </ScrollToTop>

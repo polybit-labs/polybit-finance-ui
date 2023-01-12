@@ -72,23 +72,27 @@ const Account = () => {
     const subTitle = <div>
         <div>{`You have connected Polybit to ${connector?.name} and are ready to invest in DETFs.`}</div>
         <br></br>
-        <div><p style={{ color: "#909090" }}><b>{`Your connected wallet: [LOGO] ${TruncateAddress(walletOwner ? walletOwner : "")} (Available funds: ${FormatCurrency(walletBalance ?
-            (Number(walletBalance.value)
-                / 10 ** 18 *
-                (() => {
-                    switch (currency) {
-                        case "AUD": return (vsPrices.aud)
-                        case "BNB": return (vsPrices.bnb)
-                        case "CNY": return (vsPrices.cny)
-                        case "EURO": return (vsPrices.eur)
-                        case "IDR": return (vsPrices.idr)
-                        case "JPY": return (vsPrices.jpy)
-                        case "KRW": return (vsPrices.krw)
-                        case "RUB": return (vsPrices.rub)
-                        case "TWD": return (vsPrices.twd)
-                        case "USD": return (vsPrices.usd)
-                    }
-                })()) : 0, 2)})`}</b></p></div>
+        <div><p style={{ color: "#909090" }}><b>Your connected wallet: </b>
+            {connector?.name === "MetaMask" && <img width="20px" height="20px" src={require("../../assets/images/metamask_icon.png")} />}
+            {connector?.name === "CoinbaseWallet" && <img width="20px" height="20px" src={require("../../assets/images/coinbasewallet_icon.png")} />}
+            {connector?.name === "WalletConnect" && <img width="20px" height="20px" src={require("../../assets/images/walletconnect_icon.png")} />}
+            <b>{` ${TruncateAddress(walletOwner ? walletOwner : "")} (Available funds: ${FormatCurrency(walletBalance ?
+                (Number(walletBalance.value)
+                    / 10 ** 18 *
+                    (() => {
+                        switch (currency) {
+                            case "AUD": return (vsPrices.aud)
+                            case "BNB": return (vsPrices.bnb)
+                            case "CNY": return (vsPrices.cny)
+                            case "EURO": return (vsPrices.eur)
+                            case "IDR": return (vsPrices.idr)
+                            case "JPY": return (vsPrices.jpy)
+                            case "KRW": return (vsPrices.krw)
+                            case "RUB": return (vsPrices.rub)
+                            case "TWD": return (vsPrices.twd)
+                            case "USD": return (vsPrices.usd)
+                        }
+                    })()) : 0, 2)})`}</b></p></div>
     </div>
 
     const subTitleNotConnected = <div><h2>You are not currently connected to a crypto wallet. Please connect your wallet to access all of the features of this app.
@@ -100,7 +104,14 @@ const Account = () => {
                 <TitleContainer title="Account" />
                 <SubTitleContainer info={subTitle} />
                 <MainContainer>
-                    <AccountSummary detfAccounts={detfAccounts} detfAccountsData={detfAccountsData} vsPrices={vsPrices} currency={currency} />
+                    <AccountSummary
+                        detfAccounts={detfAccounts}
+                        detfAccountsSuccess={detfAccountsSuccess}
+                        detfAccountsData={detfAccountsData}
+                        detfAccountsDataSuccess={detfAccountsDataSuccess}
+                        vsPrices={vsPrices}
+                        currency={currency}
+                    />
                     <AccountTable
                         detfAccounts={detfAccounts}
                         detfAccountsSuccess={detfAccountsSuccess}
