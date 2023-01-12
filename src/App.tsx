@@ -5,7 +5,6 @@ import Home from "./components/pages/Home"
 import ScrollToTop from './components/ScrollToTop'
 import DETFIndex from './components/pages/DETFIndex'
 import Account from './components/pages/Account'
-import ConnectWallet from './components/pages/ConnectWallet'
 import Deposit from './components/pages/Deposit'
 import { AvailableDETFs } from './components/AvailableDETFs'
 import EstablishDETF from './components/pages/EstablishDETF'
@@ -14,6 +13,7 @@ import { CurrencyContext, CurrencyState } from "./components/utils/Currency"
 import { useState } from 'react'
 import { CloseDETF } from './components/pages/CloseDETF'
 import { Fees } from './components/pages/Fees';
+import { Exchange } from './components/pages/Exchange';
 
 function App() {
   const [currency, setCurrency] = useState<CurrencyState>({ currency: "USD" })
@@ -26,9 +26,9 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/detfs" element={<DETFIndex />} />
+              <Route path="/exchange" element={<Exchange />} />
               <Route path="/how-it-works" element={<AvailableDETFs />} />
               <Route path="/account" element={<Account />} />
-              <Route path="/connect-wallet" element={<ConnectWallet />} />
               <Route path="/establish-detf" element={<EstablishDETF />} />
               <Route path="/deposit" element={<Deposit />} />
               <Route path="/close-detf" element={<CloseDETF />} />

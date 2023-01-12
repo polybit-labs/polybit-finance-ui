@@ -12,6 +12,7 @@ import { GetTimeToUnlock } from "../utils/TimeLock"
 import { ColourNumbers } from "../utils/Formatting"
 import { FormatCurrency } from "../utils/Currency"
 import { useState } from "react"
+import { Button } from "../Button"
 
 export const CloseDETF = () => {
     const location = useLocation()
@@ -20,6 +21,8 @@ export const CloseDETF = () => {
     const IPolybitDETF = new Interface(PolybitDETFInterface)
     const [sellToCloseSuccess, setSellToCloseSuccess] = useState(false)
     const { response: orderData, isLoading: orderDataLoading, isSuccess: orderDataSuccess } = GetSellToCloseOrderData(detfAddress)
+
+    console.log("sell to close order data", orderData)
 
     const { config: detfSellToCloseConfig, error: detfSellToCloseError } = usePrepareContractWrite({
         addressOrName: detfAddress,
@@ -117,8 +120,8 @@ export const CloseDETF = () => {
                             </div>
                         </div>
                         <div className="close-detf-button">
-                            {orderDataLoading && (<img height="90px" width="90px" src={require("../../assets/images/loading.gif")} alt="Loading"></img>)}
-                            {orderDataSuccess && (<button className="button-primary" disabled={!detfSellToClose} onClick={() => detfSellToClose?.()}>Confirm DETF exit</button>)}
+                            {orderDataLoading && <img height="90px" width="90px" src={require("../../assets/images/loading.gif")} alt="Loading"></img>}
+                            {orderDataSuccess && <Button buttonStyle="primary" buttonSize="standard" text="Confirm DETF exit" onClick={() => detfSellToClose?.()} />}
                         </div>
                     </div>
                     <div>
@@ -193,7 +196,7 @@ export const CloseDETF = () => {
                                     }
                                 })() : 0, 2)}</p>
                             <Link className="success-close-button-link" to="/account">
-                                <button className="button-primary">Go To My Account</button></Link>
+                                <Button buttonStyle="primary" buttonSize="standard" text="Go To My Account" /></Link>
                         </div>
                     </div>
                 </MainContainer>

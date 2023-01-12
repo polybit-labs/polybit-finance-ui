@@ -13,6 +13,7 @@ import Footer from "./Footer"
 import MainContainer from "../containers/Main"
 import ContentBox from "../containers/ContentBox"
 import { EstablishDETFBox } from "../EstablishDETFBox"
+import { Connect } from "../Connect"
 
 function EstablishDETF() {
     const location = useLocation()
@@ -20,7 +21,6 @@ function EstablishDETF() {
     const { address: walletOwner, connector, isConnected } = useAccount()
     const title = "Establishing your DETF"
     const titleInfo = `You have chosen to invest in the ${category} ${dimension} DETF from your address ${TruncateAddress(walletOwner ? walletOwner : "")} using ${connector?.name}.`
-    const titleInfoConnect = `You have chosen to invest in the ${category} ${dimension} DETF. Please connect your wallet to proceed.`
 
     if (isConnected) {
         return (
@@ -38,14 +38,15 @@ function EstablishDETF() {
         )
     }
 
-    const subTitleNotConnected = <div><h2>You are not currently connected to a crypto wallet. Please connect your wallet to access all of the features of this app.
-        &nbsp;<Link className="sub-title-link" to="/connect-wallet">Connect wallet.</Link></h2></div>
+    const subTitleNotConnected = <div><h2>You are not currently connected to a crypto wallet. Please connect your wallet to proceed.</h2></div>
 
     return (
         <>
             <TitleContainer title={title} />
-            <SubTitleContainer info={titleInfoConnect} />
-            {/* <Connect /> */}
+            <SubTitleContainer info={subTitleNotConnected} />
+            <MainContainer>
+                <Connect />
+            </MainContainer>
             <Footer />
         </>
     )

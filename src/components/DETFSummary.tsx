@@ -84,6 +84,7 @@ export const DETFSummary = (props: DETFSumaryProps) => {
                 </div>
             </div>
             <div className="detf-summary-fine-print">
+                <br />
                 <div>*Past performance is not indicative of future performance. This is not financial advice. There are risks associated with crytpocurrency investing. Do your own research.</div>
                 <div>**Certain additional costs apply. Please refer to our <Link className="detf-summary-fine-print" to="/fees">Fee Schedule</Link>.</div>
             </div>

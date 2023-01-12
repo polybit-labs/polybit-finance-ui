@@ -52,7 +52,7 @@ const AccountSummary = (props: AccountSummaryProps) => {
     const [currentReturnPercentage, setCurrentReturnPercentage] = useState<number>(0)
     const [lifetimeReturn, setLifetimeReturn] = useState<number>(0)
     const [lifetimeReturnPercentage, setLifetimeReturnPercentage] = useState<number>(0)
-
+    console.log(props.detfAccountsDataSuccess)
     const CurrentPortfolio = () => {
         const active = detfAccountsData.filter(detf => {
             return detf.status === 1
@@ -139,6 +139,40 @@ const AccountSummary = (props: AccountSummaryProps) => {
         setLifetimeReturnPercentage(lifetimePortfolioReturnPercentage ? lifetimePortfolioReturnPercentage : 0)
     }, [props.currency, detfAccountsData, currentPortfolioReturn])
 
+    const currentBalanceFormatted = FormatCurrency((Number(currentBalance)
+        / 10 ** 18 *
+        (() => {
+            switch (props.currency) {
+                case "AUD": return (props.vsPrices.aud)
+                case "BNB": return (props.vsPrices.bnb)
+                case "CNY": return (props.vsPrices.cny)
+                case "EURO": return (props.vsPrices.eur)
+                case "IDR": return (props.vsPrices.idr)
+                case "JPY": return (props.vsPrices.jpy)
+                case "KRW": return (props.vsPrices.krw)
+                case "RUB": return (props.vsPrices.rub)
+                case "TWD": return (props.vsPrices.twd)
+                case "USD": return (props.vsPrices.usd)
+            }
+        })()), 2)
+    const currentReturnFormatted = FormatCurrency((Number(currentReturn)
+        / 10 ** 18 *
+        (() => {
+            switch (props.currency) {
+                case "AUD": return (props.vsPrices.aud)
+                case "BNB": return (props.vsPrices.bnb)
+                case "CNY": return (props.vsPrices.cny)
+                case "EURO": return (props.vsPrices.eur)
+                case "IDR": return (props.vsPrices.idr)
+                case "JPY": return (props.vsPrices.jpy)
+                case "KRW": return (props.vsPrices.krw)
+                case "RUB": return (props.vsPrices.rub)
+                case "TWD": return (props.vsPrices.twd)
+                case "USD": return (props.vsPrices.usd)
+            }
+        })()), 2)
+    const lifetimeReturnFormatted = FormatCurrency((Number(lifetimeReturn)), 2)
+
     if (detfAccountsData) {
         return (
             <div className="account-summary-container">
@@ -149,22 +183,7 @@ const AccountSummary = (props: AccountSummaryProps) => {
                         </div>
                         <div className="portfolio-box-balance">
                             {(!props.detfAccountsSuccess || !props.detfAccountsDataSuccess) && <img src={require("../../assets/images/polybit-loader-60px.gif")} />}
-                            {props.detfAccountsSuccess && props.detfAccountsDataSuccess && FormatCurrency((Number(currentBalance)
-                                / 10 ** 18 *
-                                (() => {
-                                    switch (props.currency) {
-                                        case "AUD": return (props.vsPrices.aud)
-                                        case "BNB": return (props.vsPrices.bnb)
-                                        case "CNY": return (props.vsPrices.cny)
-                                        case "EURO": return (props.vsPrices.eur)
-                                        case "IDR": return (props.vsPrices.idr)
-                                        case "JPY": return (props.vsPrices.jpy)
-                                        case "KRW": return (props.vsPrices.krw)
-                                        case "RUB": return (props.vsPrices.rub)
-                                        case "TWD": return (props.vsPrices.twd)
-                                        case "USD": return (props.vsPrices.usd)
-                                    }
-                                })()), 2)}
+                            {props.detfAccountsSuccess && props.detfAccountsDataSuccess && <div>{currentBalanceFormatted}</div>}
                         </div>
                     </li>
                     <li className="account-summary-item">
@@ -176,22 +195,7 @@ const AccountSummary = (props: AccountSummaryProps) => {
                         </div>
                         <div className="return-box-balance" style={{ color: ColourNumbers(currentReturn) }}>
                             {(!props.detfAccountsSuccess || !props.detfAccountsDataSuccess) && <img src={require("../../assets/images/polybit-loader-60px.gif")} />}
-                            {props.detfAccountsSuccess && props.detfAccountsDataSuccess && FormatCurrency((Number(currentReturn)
-                                / 10 ** 18 *
-                                (() => {
-                                    switch (props.currency) {
-                                        case "AUD": return (props.vsPrices.aud)
-                                        case "BNB": return (props.vsPrices.bnb)
-                                        case "CNY": return (props.vsPrices.cny)
-                                        case "EURO": return (props.vsPrices.eur)
-                                        case "IDR": return (props.vsPrices.idr)
-                                        case "JPY": return (props.vsPrices.jpy)
-                                        case "KRW": return (props.vsPrices.krw)
-                                        case "RUB": return (props.vsPrices.rub)
-                                        case "TWD": return (props.vsPrices.twd)
-                                        case "USD": return (props.vsPrices.usd)
-                                    }
-                                })()), 2)}
+                            {props.detfAccountsSuccess && props.detfAccountsDataSuccess && <div>{currentReturnFormatted}</div>}
                         </div>
                     </li>
                     <li className="account-summary-item">
@@ -203,7 +207,7 @@ const AccountSummary = (props: AccountSummaryProps) => {
                         </div>
                         <div className="return-box-balance" style={{ color: ColourNumbers(lifetimeReturn) }}>
                             {(!props.detfAccountsSuccess || !props.detfAccountsDataSuccess) && <img src={require("../../assets/images/polybit-loader-60px.gif")} />}
-                            {props.detfAccountsSuccess && props.detfAccountsDataSuccess && FormatCurrency((Number(lifetimeReturn)), 2)}
+                            {props.detfAccountsSuccess && props.detfAccountsDataSuccess && <div>{lifetimeReturnFormatted}</div>}
                         </div>
                     </li>
                 </ul>

@@ -70,7 +70,7 @@ export const DepositSummary = (props: DepositSummary) => {
 
     let prettyTimeLockValue = PrettyTimeLockValue()
 
-    const { config: detfDepositConfig, error: detfDepositError, isSuccess: prepareContractWriteSuccess } = usePrepareContractWrite({
+    const { config: detfDepositConfig, error: detfDepositError, isSuccess: prepareContractWriteSuccess, isLoading: prepareContractWriteLoading } = usePrepareContractWrite({
         addressOrName: props.detfAddress,
         contractInterface: IPolybitDETF,
         functionName: 'deposit',
@@ -123,7 +123,7 @@ export const DepositSummary = (props: DepositSummary) => {
                     <img height="90px" width="90px" src={require("../../assets/images/loading.gif")} alt="Loading"></img>
                     <p><b>Preparing your deposit</b></p>
                 </div>}
-                {prepareContractWriteSuccess && <div className="deposit-summary">
+                {!transactionLoading && prepareContractWriteSuccess && <div className="deposit-summary">
                     <p>Polybit PGT20 aims to track the performance of an index (before fees and expenses) comprising 20 of the largest governance assets by liquidity on the Binance chain. The smart contract you generate at the time of investment will automatically facilitate ongoing trades to maintain pooled asset positions, as asset positions shift, leave, or enter the pool over time.
                         Your holdings will rebalance through automated buys and sells over time to maintain a reflection of the top assets in this fund. Holding weighting is determined according to oracle data including, but not limited to, market capitalisation and daily trading volume. Assets that do not meet our risk criteria for certification or minimum liquidity thresholds may be excluded from pool inclusion. Learn more about our pool policies.</p>
                     <div className="deposit-summary-info">

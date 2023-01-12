@@ -70,8 +70,8 @@ function Navbar(props: NavbarProps) {
                         </Link>
                     </li>
                     <li className="nav-item">
-                        <Link to="/how-it-works" className="nav-links" onClick={closeMobileMenu}>
-                            How it works
+                        <Link to="/exchange" className="nav-links" onClick={closeMobileMenu}>
+                            Exchange
                         </Link>
                     </li>
                     <li className="nav-item">

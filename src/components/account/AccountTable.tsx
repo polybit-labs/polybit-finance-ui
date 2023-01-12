@@ -110,8 +110,20 @@ export const AccountTable = (props: AccountTableProps) => {
                                 />
                             </div>) :
                             <div>
-                                <div className="account-detf-row-loading">
+                                {/* <div className="account-detf-row-loading">
                                     <img height="90px" width="90px" src={require("../../assets/images/polybit-loader-100px.gif")} alt="Loading"></img>
+                                </div> */}
+                                <div className="account-detf-row">
+                                    <div className="account-detf-row-items">
+                                    </div>
+                                </div>
+                                <div className="account-detf-row">
+                                    <div className="account-detf-row-items">
+                                    </div>
+                                </div>
+                                <div className="account-detf-row">
+                                    <div className="account-detf-row-items">
+                                    </div>
                                 </div>
                             </div>
                         }
@@ -137,11 +149,32 @@ export const AccountTable = (props: AccountTableProps) => {
         )
     }
     return (
-        <>
-            <div className="account-detf-row"></div>
-            <div className="account-detf-row"></div>
-            <div className="account-detf-row"></div>
-        </>)
+        <div>
+            <div>
+                <div className="account-detf-header">
+                    <div className="account-detf-header-item-detf" onClick={() => sorting("category")}>DETF</div>
+                    <div className="account-detf-header-item-value" onClick={() => sorting("marketValue")}>Market Value</div>
+                    <div className="account-detf-header-item-return" onClick={() => sorting("return")}>Return</div>
+                    <div className="account-detf-header-item-timelock" onClick={() => sorting("lockStatus")}>Status</div>
+                    <div className="account-detf-header-item-deposit"></div>
+                    <div className="account-detf-header-item-toggle"></div>
+                </div>
+            </div>
+            <div>
+                <div className="account-detf-row">
+                    <div className="account-detf-row-items">
+                    </div>
+                </div>
+                <div className="account-detf-row">
+                    <div className="account-detf-row-items">
+                    </div>
+                </div>
+                <div className="account-detf-row">
+                    <div className="account-detf-row-items">
+                    </div>
+                </div>
+            </div>
+        </div>)
 }
 
 export default AccountTable

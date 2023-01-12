@@ -14,6 +14,7 @@ import { CurrencyContext, FormatCurrency } from "../utils/Currency"
 import { GetPriceVsCurrency } from '../api/GetPriceVsCurrency'
 import { GetHistoricalPrices } from '../api/GetHistoricalPrices'
 import wethAddress from "../../chain_info/weth.json"
+import { Connect } from '../Connect'
 
 type Currencies = {
     "date": string;
@@ -95,8 +96,7 @@ const Account = () => {
                     })()) : 0, 2)})`}</b></p></div>
     </div>
 
-    const subTitleNotConnected = <div><h2>You are not currently connected to a crypto wallet. Please connect your wallet to access all of the features of this app.
-        &nbsp;<Link className="sub-title-link" to="/connect-wallet">Connect wallet.</Link></h2></div>
+    const subTitleNotConnected = <div><h2>You are not currently connected to a crypto wallet. Please connect your wallet to access all of the features of this app.</h2></div>
 
     if (isConnected) {
         return (
@@ -132,7 +132,7 @@ const Account = () => {
             <TitleContainer title="Account" />
             <SubTitleContainer info={subTitleNotConnected} />
             <MainContainer>
-
+                <Connect />
             </MainContainer>
             <Footer />
         </>
