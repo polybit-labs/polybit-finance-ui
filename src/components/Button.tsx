@@ -6,15 +6,16 @@ export interface ButtonProps {
     onClick?: any,
     buttonStyle: string,
     buttonSize: string,
-    status?: string
+    status?: string,
+    loadingMsg?: string;
 }
 
-export const Button = ({ text, type, onClick, buttonStyle, buttonSize, status }: ButtonProps) => {
+export const Button = ({ text, type, onClick, buttonStyle, buttonSize, status, loadingMsg }: ButtonProps) => {
     if (status === "loading") {
         return (
             <button className={`button-${buttonStyle}-${buttonSize}-${status}`} onClick={onClick} type={type}>
-                {buttonSize === "standard" && <img src={require("../assets/images/polybit-loader-white-60px.gif")}></img>}
-                {buttonSize === "slim" && <img src={require("../assets/images/polybit-loader-white-40px.gif")}></img>}
+                {buttonSize === "standard" && <div className="button-loading-content"><img src={require("../assets/images/polybit-loader-white-60px.gif")}></img>&nbsp;{loadingMsg}</div>}
+                {buttonSize === "slim" && <div className="button-loading-content"><img src={require("../assets/images/polybit-loader-white-40px.gif")}></img>&nbsp;{loadingMsg}</div>}
             </button>
         )
     }

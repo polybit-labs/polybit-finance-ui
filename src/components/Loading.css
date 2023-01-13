@@ -1,9 +1,15 @@
 .loading {
     width: 100%;
-    height: 400px;
+    height: 600px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: #E3E3E3;
+}
+
+.loading-message {
+    color: #000000;
+    font-weight: 700;
+    margin-top: 50px;
 }

@@ -219,17 +219,16 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
     return (
         <div className="account-detf-row">
             <div className="account-detf-row-items">
-                <div className="account-detf-row-item-detf" >
+                <div className="account-detf-row-item-detf" onClick={() => setIsActive(!isActive)} >
                     <img className="account-index-row-item-logo" src={require(`../../assets/icons/${DETFIconFilename(props.category, props.dimension)}`)}></img>
                     <div className="account-index-row-item-name">
-                        <Link className="account-index-row-item-name-link" to={`detfs/bnb-smart-chain/${props.category.replaceAll(" ", "-").toLocaleLowerCase()}/${props.dimension.replaceAll(" ", "-").toLocaleLowerCase()}`}>
-                            <div className="account-index-row-item-category" style={{ color: ColourCategories(props.category) }}>
-                                {props.category}
-                                <div className="account-index-row-item-dimension" style={{ color: "#000000" }}>
-                                    {props.dimension}
-                                </div>
+                        <div className="account-index-row-item-category" style={{ color: ColourCategories(props.category) }}>
+                            {props.category}
+                            <div className="account-index-row-item-dimension" style={{ color: "#000000" }}>
+                                {props.dimension}
+                                <Link className="account-detf-row-item-link-to-detf" to={`/detfs/bnb-smart-chain/${props.category.replaceAll(" ", "-").toLocaleLowerCase()}/${props.dimension.replaceAll(" ", "-").toLocaleLowerCase()}`}><FontAwesomeIcon icon={icon({ name: "up-right-from-square", style: "solid" })} /></Link>
                             </div>
-                        </Link>
+                        </div>
                     </div>
                 </div>
                 <div className="account-detf-row-item-value">

@@ -14,25 +14,39 @@ import MainContainer from "../containers/Main"
 import ContentBox from "../containers/ContentBox"
 import { EstablishDETFBox } from "../EstablishDETFBox"
 import { Connect } from "../Connect"
+import { DepositContainer } from "../deposit/DepositContainer"
 
 function EstablishDETF() {
     const location = useLocation()
-    const { category, dimension, productId, processOrigin, activeStage } = location.state
+    const { category, dimension, productId } = location.state
     const { address: walletOwner, connector, isConnected } = useAccount()
+    const [activeStage, setActiveStage] = useState("establish")
     const title = "Establishing your DETF"
     const titleInfo = `You have chosen to invest in the ${category} ${dimension} DETF from your address ${TruncateAddress(walletOwner ? walletOwner : "")} using ${connector?.name}.`
+    const [detfAddress, setDETFAddress] = useState("")
+    const [depositSuccess, setDepositSuccess] = useState(false)
 
     if (isConnected) {
         return (
             <>
-                <TitleContainer title={title} />
-                <SubTitleContainer info={titleInfo} />
-                <Progress processOrigin={processOrigin} activeStage={activeStage} />
-                <MainContainer>
-                    <ContentBox>
-                        <EstablishDETFBox productId={productId} category={category} dimension={dimension} />
-                    </ContentBox>
-                </MainContainer>
+                {!depositSuccess && <div>
+                    <TitleContainer title={title} />
+                    <SubTitleContainer info={titleInfo} />
+                    <Progress activeStage={activeStage} />
+                </div>}
+                {activeStage === "establish" && <EstablishDETFBox productId={productId} category={category} dimension={dimension} setDETFAddress={setDETFAddress} detfAddress={detfAddress} setActiveStage={setActiveStage} />}
+                {(activeStage === "establish-deposit-details" ||
+                    activeStage === "establish-deposit-summary") &&
+                    <DepositContainer
+                        category={category}
+                        dimension={dimension}
+                        productId={productId}
+                        detfAddress={detfAddress}
+                        setActiveStage={setActiveStage}
+                        activeStage={activeStage}
+                        setDepositSuccess={setDepositSuccess}
+                        depositSuccess={depositSuccess}
+                    />}
                 <Footer />
             </>
         )

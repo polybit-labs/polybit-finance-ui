@@ -75,3 +75,10 @@
 .button-primary-standard-long-disabled {
     width: 100%;
 }
+
+.button-loading-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}

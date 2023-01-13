@@ -52,7 +52,6 @@ const AccountSummary = (props: AccountSummaryProps) => {
     const [currentReturnPercentage, setCurrentReturnPercentage] = useState<number>(0)
     const [lifetimeReturn, setLifetimeReturn] = useState<number>(0)
     const [lifetimeReturnPercentage, setLifetimeReturnPercentage] = useState<number>(0)
-    console.log(props.detfAccountsDataSuccess)
     const CurrentPortfolio = () => {
         const active = detfAccountsData.filter(detf => {
             return detf.status === 1

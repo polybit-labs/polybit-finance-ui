@@ -41,7 +41,7 @@ export const Connect = () => {
                 {!coinbaseConnector.ready && <Button buttonStyle="primary" buttonSize="standard" status="disabled" text="Use Coinbase" />}
                 {!isLoading && coinbaseConnector.ready && coinbaseConnector.id !== connector?.id && <Button buttonStyle="primary" buttonSize="standard" text="Use Coinbase" onClick={() => connect({ connector: coinbaseConnector })} />}
                 {isLoading && coinbaseConnector.id !== pendingConnector?.id && <Button buttonStyle="primary" buttonSize="standard" text="Use Coinbase" />}
-                {isLoading && coinbaseConnector.id === pendingConnector?.id && <Button buttonStyle="primary" buttonSize="standard" status="loading" text="Use Coinbase" />}
+                {isLoading && coinbaseConnector.id === pendingConnector?.id && <Button buttonStyle="primary" buttonSize="standard" status="loading" text="Use Coinbase" loadingMsg={`waiting for ${coinbaseConnector.id}`} />}
                 {coinbaseConnector.id === connector?.id && <Button buttonStyle="primary" buttonSize="standard" text="Connected" />}
             </div>
             <div className="connect-provider-box">
@@ -49,7 +49,7 @@ export const Connect = () => {
                 {!metamaskConnector.ready && <Button buttonStyle="primary" buttonSize="standard" status="disabled" text="Use MetaMask" />}
                 {!isLoading && metamaskConnector.ready && metamaskConnector.id !== connector?.id && <Button buttonStyle="primary" buttonSize="standard" text="Use MetaMask" onClick={() => connect({ connector: metamaskConnector })} />}
                 {isLoading && metamaskConnector.id !== pendingConnector?.id && <Button buttonStyle="primary" buttonSize="standard" text="Use MetaMask" />}
-                {isLoading && metamaskConnector.id === pendingConnector?.id && <Button buttonStyle="primary" buttonSize="standard" status="loading" text="Use MetaMask" />}
+                {isLoading && metamaskConnector.id === pendingConnector?.id && <Button buttonStyle="primary" buttonSize="standard" status="loading" text="Use MetaMask" loadingMsg={`waiting for ${metamaskConnector.id}`} />}
                 {metamaskConnector.id === connector?.id && <Button buttonStyle="primary" buttonSize="standard" text="Connected" />}
             </div>
             <div className="connect-provider-box">
@@ -57,7 +57,7 @@ export const Connect = () => {
                 {!walletConnectConnector.ready && <Button buttonStyle="primary" buttonSize="standard" status="disabled" text="Use WalletConnect" />}
                 {!isLoading && walletConnectConnector.ready && walletConnectConnector.id !== connector?.id && <Button buttonStyle="primary" buttonSize="standard" text="Use WalletConnect" onClick={() => connect({ connector: walletConnectConnector })} />}
                 {isLoading && walletConnectConnector.id !== pendingConnector?.id && <Button buttonStyle="primary" buttonSize="standard" text="Use WalletConnect" />}
-                {isLoading && walletConnectConnector.id === pendingConnector?.id && <Button buttonStyle="primary" buttonSize="standard" status="loading" text="Use WalletConnect" />}
+                {isLoading && walletConnectConnector.id === pendingConnector?.id && <Button buttonStyle="primary" buttonSize="standard" status="loading" text="Use WalletConnect" loadingMsg={`waiting for ${walletConnectConnector.id}`} />}
                 {walletConnectConnector.id === connector?.id && <Button buttonStyle="primary" buttonSize="standard" text="Connected" />}
             </div>
         </div >

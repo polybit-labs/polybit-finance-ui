@@ -96,7 +96,7 @@ const DETF = () => {
                                 <p>“BNB” is the currency utilised for investment in the Binance Governance Top 20 DETF on the Binance Smart Chain. This can be purchased via Coinbase Wallet, and other exchanges.</p>
                             </div>
                             <div className="invest-button-bottom-wrapper">
-                                <Link to="/establish-detf" state={{ category: category, dimension: dimension, productId: productId.toString(), processOrigin: "establish", activeStage: 1 }}>
+                                <Link to="/establish-detf" state={{ category: category, dimension: dimension, productId: productId.toString() }}>
                                     <Button buttonStyle="primary" buttonSize="standard" text="Invest in this DETF" />
                                 </Link>
                             </div>

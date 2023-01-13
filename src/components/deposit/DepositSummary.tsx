@@ -13,8 +13,10 @@ import {
 } from "wagmi"
 import { GetOrderData } from '../api/GetOrderData'
 import { FormatCurrency } from '../utils/Currency'
-import ContentBoxContainer from '../containers/ContentBox'
+import ContentBox from '../containers/ContentBox'
 import { Button } from '../Button'
+import MainContainer from '../containers/Main'
+import { Loading } from '../Loading'
 
 interface DepositSummary {
     detfAddress: string;
@@ -28,8 +30,9 @@ interface DepositSummary {
     depositAmount: string;
     timeLockAmount: number;
     setShowDepositDetails: Function;
-    setInternalActiveStage: Function;
     setDepositSuccess: Function;
+    setActiveStage: Function;
+    activeStage: string;
 }
 
 export const DepositSummary = (props: DepositSummary) => {
@@ -116,50 +119,60 @@ export const DepositSummary = (props: DepositSummary) => {
                 }
             })()) : 0, 2)
 
-    return (
-        <ContentBoxContainer>
-            <div>
-                {!prepareContractWriteSuccess && <div className="deposit-summary">
-                    <img height="90px" width="90px" src={require("../../assets/images/loading.gif")} alt="Loading"></img>
-                    <p><b>Preparing your deposit</b></p>
-                </div>}
-                {!transactionLoading && prepareContractWriteSuccess && <div className="deposit-summary">
-                    <p>Polybit PGT20 aims to track the performance of an index (before fees and expenses) comprising 20 of the largest governance assets by liquidity on the Binance chain. The smart contract you generate at the time of investment will automatically facilitate ongoing trades to maintain pooled asset positions, as asset positions shift, leave, or enter the pool over time.
-                        Your holdings will rebalance through automated buys and sells over time to maintain a reflection of the top assets in this fund. Holding weighting is determined according to oracle data including, but not limited to, market capitalisation and daily trading volume. Assets that do not meet our risk criteria for certification or minimum liquidity thresholds may be excluded from pool inclusion. Learn more about our pool policies.</p>
-                    <div className="deposit-summary-info">
-                        <div className="deposit-summary-info-bar"></div>
-                        <div className="deposit-summary-info-titles">
-                            <ul>
-                                <li>Category</li>
-                                <li>Dimension</li>
-                                <li>Blockchain</li>
-                                <li>Investment</li>
-                                <li>Deposit Fee</li>
-                                <li>Time Locked</li>
-                                <li>Your Wallet Address</li>
-                            </ul>
+    if (!prepareContractWriteSuccess) {
+        return (
+            <Loading loadingMsg="Preparing your deposit" />
+        )
+    }
+
+    if (!transactionLoading && prepareContractWriteSuccess) {
+        return (
+            <MainContainer>
+                <ContentBox >
+                    <div className="deposit-summary">
+                        <p>Polybit PGT20 aims to track the performance of an index (before fees and expenses) comprising 20 of the largest governance assets by liquidity on the Binance chain. The smart contract you generate at the time of investment will automatically facilitate ongoing trades to maintain pooled asset positions, as asset positions shift, leave, or enter the pool over time.
+                            Your holdings will rebalance through automated buys and sells over time to maintain a reflection of the top assets in this fund. Holding weighting is determined according to oracle data including, but not limited to, market capitalisation and daily trading volume. Assets that do not meet our risk criteria for certification or minimum liquidity thresholds may be excluded from pool inclusion. Learn more about our pool policies.</p>
+                        <div className="deposit-summary-info">
+                            <div className="deposit-summary-info-bar"></div>
+                            <div className="deposit-summary-info-titles">
+                                <ul>
+                                    <li>Category</li>
+                                    <li>Dimension</li>
+                                    <li>Blockchain</li>
+                                    <li>Investment</li>
+                                    <li>Deposit Fee</li>
+                                    <li>Time Locked</li>
+                                    <li>Your Wallet Address</li>
+                                </ul>
+                            </div>
+                            <div className="deposit-summary-info-results">
+                                <ul>
+                                    <li>{props.category}</li>
+                                    <li>{props.dimension}</li>
+                                    <li>{chain?.name}</li>
+                                    <li>{`${walletBalance?.symbol} ${depositAmountFormatted} (${depositAmountCurrency})`}</li>
+                                    <li>0.5%</li>
+                                    <li>{prettyTimeLockValue}</li>
+                                    <li>{walletOwner}</li>
+                                </ul>
+                            </div>
                         </div>
-                        <div className="deposit-summary-info-results">
-                            <ul>
-                                <li>{props.category}</li>
-                                <li>{props.dimension}</li>
-                                <li>{chain?.name}</li>
-                                <li>{`${walletBalance?.symbol} ${depositAmountFormatted} (${depositAmountCurrency})`}</li>
-                                <li>0.5%</li>
-                                <li>{prettyTimeLockValue}</li>
-                                <li>{walletOwner}</li>
-                            </ul>
-                        </div>
+                        {!contractWriteLoading && !transactionLoading && orderDataSuccess && <Button buttonStyle="primary" buttonSize="standard" text="Finalize and commit funds" onClick={() => detfDeposit?.()} />}
+                        {contractWriteLoading && !transactionLoading && <Button buttonStyle="primary" buttonSize="standard" text="Finalize and commit funds" status="loading" loadingMsg={`waiting for ${connector?.name}`} />}
+                        <div className="deposit-back-button" onClick={() => { props.setShowDepositDetails(true); props.setActiveStage(props.activeStage === "establish-deposit-summary" ? "establish-deposit-details" : "deposit-details") }}>Make changes to investment setup</div>
                     </div>
-                    {!contractWriteLoading && !transactionLoading && orderDataSuccess && <Button buttonStyle="primary" buttonSize="standard" text="Finalize and commit funds" onClick={() => detfDeposit?.()} />}
-                    {contractWriteLoading && !transactionLoading && <Button buttonStyle="primary" buttonSize="standard" text="Finalize and commit funds" status="loading" />}
-                    <div className="deposit-back-button" onClick={() => { props.setShowDepositDetails(true); props.setInternalActiveStage(1) }}>Make changes to investment setup</div>
-                </div>}
-                {transactionLoading && <div className="deposit-summary">
-                    <img height="90px" width="90px" src={require("../../assets/images/loading.gif")} alt="Loading"></img>
-                    <p><b>Sending transaction to the blockchain</b></p>
-                </div>}
-            </div>
-        </ContentBoxContainer>
+                </ContentBox >
+            </MainContainer>
+        )
+    }
+
+    if (transactionLoading) {
+        return (
+            <Loading loadingMsg="Sending transaction to the blockchain" />
+        )
+    }
+
+    return (
+        <Loading />
     )
 }
