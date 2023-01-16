@@ -52,6 +52,25 @@
             },
             {
                 "indexed": false,
+                "internalType": "uint256[]",
+                "name": "ref",
+                "type": "uint256[]"
+            }
+        ],
+        "name": "Amounts",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": false,
+                "internalType": "string",
+                "name": "msg",
+                "type": "string"
+            },
+            {
+                "indexed": false,
                 "internalType": "uint256",
                 "name": "ref",
                 "type": "uint256"
@@ -136,6 +155,25 @@
             {
                 "indexed": false,
                 "internalType": "string",
+                "name": "",
+                "type": "string"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "name": "ProcessFee",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": false,
+                "internalType": "string",
                 "name": "msg",
                 "type": "string"
             },
@@ -191,9 +229,15 @@
             },
             {
                 "indexed": false,
-                "internalType": "uint256[]",
+                "internalType": "uint256",
                 "name": "",
-                "type": "uint256[]"
+                "type": "uint256"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
             },
             {
                 "indexed": false,
@@ -413,6 +457,25 @@
         "type": "function"
     },
     {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "name": "depositFees",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
         "inputs": [],
         "name": "getCloseTimestamp",
         "outputs": [
@@ -478,6 +541,11 @@
                         "internalType": "uint256[][]",
                         "name": "deposits",
                         "type": "uint256[][]"
+                    },
+                    {
+                        "internalType": "uint256[]",
+                        "name": "depositFees",
+                        "type": "uint256[]"
                     },
                     {
                         "internalType": "uint256",

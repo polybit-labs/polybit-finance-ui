@@ -46,6 +46,7 @@ interface AccountTableRowItems {
     product_id: string;
     detf_address: string;
     deposits: Array<string>;
+    deposit_fees: Array<string>;
     total_deposits: string;
     vsPrices: any;
     currency: string;
@@ -104,7 +105,7 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
     }, [productDataResponse, productDataSuccess])
 
 
-
+    console.log(props.deposit_fees)
     const GetHistoricalPriceCurrency = (timestamp: number) => {
         let price = 0
         const latestPrices: Currencies = props.historicalPrices[props.historicalPrices.length - 1]
@@ -178,11 +179,12 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
                 case "USD": return (props.vsPrices.usd)
             }
         })())
+
     const currentTotalValueFormatted = FormatCurrency(currentTotalValue, 2)
     const currentReturn = currentTotalValue - currentTotalDeposited
-    const currentReturnFormatted = FormatCurrency(currentReturn, 2)
+    const currentReturnFormatted = FormatCurrency(moment().unix() > (props.creation_timestamp + (60 * 60)) ? currentReturn : 0, 2)
     const currentReturnPercentage = currentReturn / currentTotalDeposited
-    const currentReturnPercentageFormatted = currentReturnPercentage ? FormatPercentages(currentReturnPercentage * 100) : FormatPercentages(0)
+    const currentReturnPercentageFormatted = FormatPercentages(moment().unix() > (props.creation_timestamp + (60 * 60)) ? (currentReturnPercentage * 100) : 0)
 
     const finalTotalDeposited = FormatCurrency(Number(props.total_deposits) / 10 ** 18 * GetHistoricalPriceCurrency(Number(props.close_timestamp)), 2)
     let totalDepositHistoricalPrices: number = 0
@@ -264,14 +266,14 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
                     <div className="account-detf-row-item-status">Closed</div>
                 }
                 <div className="account-detf-row-item-deposit">
-                    <Link className="account-detf-row-item-link" to="/deposit" state={{
+                    {isDETFActive && <Link className="account-detf-row-item-link" to="/deposit" state={{
                         category: props.category,
                         dimension: props.dimension,
                         productId: props.product_id.toString(),
                         detfAddress: props.detf_address,
                         processOrigin: "deposit",
                         activeStage: 1
-                    }}>Deposit</Link>
+                    }}>Deposit</Link>}
                 </div>
                 <div className="account-detf-row-item-toggle" onClick={() => setIsActive(!isActive)}>
                     {isActive ? <div>Collapse <FontAwesomeIcon icon={icon({ name: "sort-up", style: "solid" })} /></div>

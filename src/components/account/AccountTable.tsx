@@ -58,6 +58,7 @@ export const AccountTable = (props: AccountTableProps) => {
             const sorted = [...detfData].sort((a, b) =>
                 a[column as keyof DETFSummary] > b[column as keyof DETFSummary] ? 1 : -1)
             setDETFData(sorted)
+            console.log(sorted)
             setOrder("dsc")
         }
         if (order === "dsc") {
@@ -97,6 +98,7 @@ export const AccountTable = (props: AccountTableProps) => {
                                     product_id={data.product_id}
                                     detf_address={data.detf_address}
                                     deposits={data.deposits}
+                                    deposit_fees={data.deposit_fees}
                                     total_deposits={data.total_deposits}
                                     vsPrices={props.vsPrices}
                                     currency={props.currency}
@@ -110,9 +112,6 @@ export const AccountTable = (props: AccountTableProps) => {
                                 />
                             </div>) :
                             <div>
-                                {/* <div className="account-detf-row-loading">
-                                    <img height="90px" width="90px" src={require("../../assets/images/polybit-loader-100px.gif")} alt="Loading"></img>
-                                </div> */}
                                 <div className="account-detf-row">
                                     <div className="account-detf-row-items">
                                     </div>
@@ -152,10 +151,10 @@ export const AccountTable = (props: AccountTableProps) => {
         <div>
             <div>
                 <div className="account-detf-header">
-                    <div className="account-detf-header-item-detf" onClick={() => sorting("category")}>DETF</div>
-                    <div className="account-detf-header-item-value" onClick={() => sorting("marketValue")}>Market Value</div>
-                    <div className="account-detf-header-item-return" onClick={() => sorting("return")}>Return</div>
-                    <div className="account-detf-header-item-timelock" onClick={() => sorting("lockStatus")}>Status</div>
+                    <div className="account-detf-header-item-detf" >DETF</div>
+                    <div className="account-detf-header-item-value" >Market Value</div>
+                    <div className="account-detf-header-item-return" >Return</div>
+                    <div className="account-detf-header-item-timelock" >Status</div>
                     <div className="account-detf-header-item-deposit"></div>
                     <div className="account-detf-header-item-toggle"></div>
                 </div>

@@ -59,7 +59,6 @@ const Account = () => {
         setDETFAccounts(detfAccountsList ? detfAccountsList : [])
         setDETFAccountsData(detfAccountsListData ? detfAccountsListData : [])
     }, [detfAccountsLoading, detfAccountsDataLoading, detfAccountsSuccess, detfAccountsDataSuccess])
-
     const { response: historicalPriceData, isSuccess: historicalPricesSuccess } = GetHistoricalPrices()
     const { response: currentPriceData, isSuccess: currentPricesSuccess } = GetPriceVsCurrency(wethAddress["56"]["wethAddress"])
     const [historicalPrices, setHistoricalPrices] = useState<Array<Currencies>>([])

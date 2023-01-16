@@ -10,10 +10,10 @@
     "detf_factory": "0x62b72504552594ac919217638D10De28A1Ced63f"
   },
   "97": {
-    "router": "0x4AE4e81060D79c1B28ace76EE6779317bBd1d35b",
-    "rebalancer": "0xBFf60306Cd3f39Efbf3b01cbA3db558d1639B202",
-    "detf_factory": "0x2e0Efaa59F5e4ce37F4377D8C867E1521c810003",
-    "config": "0xAb06Baaa2A16b2089b088d68C0fae061d0dE430a",
-    "access": "0xC580409795e5cf1Bf0F09CCCbabcc26C8eDaF3c5"
+    "router": "0xDC8286F2B9Ac3f8feAC0C61d7422A892717A4fcE",
+    "rebalancer": "0x039f158Eb80Aaf8B4Caef98C4dDB8FA0438A667e",
+    "detf_factory": "0xBbd51Ac3F85C49C5f7b234DB93D719080efAe4e9",
+    "config": "0x8d029766a804B1e462f509BD534094E6470A4a61",
+    "access": "0x66d494cA1B005C10d3b7552B0C78D145F1B5e08F"
   }
 }
