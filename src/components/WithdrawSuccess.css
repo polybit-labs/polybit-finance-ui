@@ -1,0 +1,27 @@
+.withdraw-success {
+    height: 800px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    font-weight: 700;
+    color: #000000;
+}
+
+.withdraw-success-tick {
+    margin-bottom: 50px;
+}
+
+.withdraw-success-text {
+    width: 70%;
+    margin-bottom: 90px;
+    color: #00BF6F;
+    font-size: 36px;
+}
+
+.withdraw-success-link {
+    text-decoration: none;
+    color: #000000;
+}

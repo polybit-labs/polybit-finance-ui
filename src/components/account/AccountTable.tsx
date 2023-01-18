@@ -98,7 +98,8 @@ export const AccountTable = (props: AccountTableProps) => {
                                     product_id={data.product_id}
                                     detf_address={data.detf_address}
                                     deposits={data.deposits}
-                                    deposit_fees={data.deposit_fees}
+                                    fees={data.fees}
+                                    transactions={data.transactions}
                                     total_deposits={data.total_deposits}
                                     vsPrices={props.vsPrices}
                                     currency={props.currency}

@@ -1,4 +1,5 @@
 
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom'
 import MainContainer from '../containers/Main';
 
@@ -8,6 +9,10 @@ interface DepositSuccess {
 }
 
 export const DepositSuccess = (props: DepositSuccess) => {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+
     return (
         <MainContainer>
             <div className="deposit-success">

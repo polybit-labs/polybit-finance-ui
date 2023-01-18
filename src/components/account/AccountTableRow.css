@@ -314,3 +314,7 @@
     padding-top: 50px;
     padding-bottom: 50px;
 }
+
+.transaction-history td {
+    padding-right: 5px;
+}

@@ -3,9 +3,6 @@
     display: flex;
     flex-direction: column;
     background-color: #e3e3e3;
-    padding-left: 120px;
-    padding-right: 120px;
-    cursor: default;
 }
 
 .close-table-container-inactive {

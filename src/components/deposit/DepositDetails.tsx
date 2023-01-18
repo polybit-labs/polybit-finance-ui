@@ -1,4 +1,4 @@
-import { useState, ChangeEvent } from 'react'
+import { useState, ChangeEvent, useEffect } from 'react'
 import "../pages/Deposit.css"
 import DateTypeDropDown from '../dropdowns/DateTypeDropdown'
 import { FormatCurrency } from '../utils/Currency'

@@ -1,4 +1,18 @@
-import { createContext, useContext } from "react";
+import { createContext, useContext } from "react"
+
+export type Currencies = {
+    "date": string;
+    "aud": number;
+    "bnb": number;
+    "cny": number;
+    "eur": number;
+    "idr": number;
+    "jpy": number;
+    "krw": number;
+    "rub": number;
+    "twd": number;
+    "usd": number;
+}
 
 const initialCurrency = {
     currency: "AUD"

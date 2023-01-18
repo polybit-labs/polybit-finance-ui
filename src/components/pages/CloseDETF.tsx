@@ -1,30 +1,28 @@
 import "./CloseDETF.css"
-import { useAccount, usePrepareContractWrite, useContractWrite, useWaitForTransaction } from "wagmi"
-import { GetSellToCloseOrderData } from "../api/GetSellToCloseOrderData"
-import { Link, useLocation } from "react-router-dom"
+import { useAccount } from "wagmi"
+import { useLocation } from "react-router-dom"
 import TitleContainer from "../containers/Title"
 import SubTitleContainer from "../containers/SubTitle"
-import MainContainer from "../containers/Main"
 import Footer from "./Footer"
+import { useState } from "react"
+import { Loading } from "../Loading"
+import { WithdrawSummary } from "../WithdrawSummary"
+import { usePrepareContractWrite, useContractWrite, useWaitForTransaction } from "wagmi"
+import { GetSellToCloseOrderData } from "../api/GetSellToCloseOrderData"
 import PolybitDETFInterface from "../../chain_info/IPolybitDETF.json"
 import { Interface } from 'ethers/lib/utils'
-import { GetTimeToUnlock } from "../utils/TimeLock"
-import { ColourNumbers } from "../utils/Formatting"
-import { FormatCurrency } from "../utils/Currency"
-import { useState } from "react"
-import { Button } from "../Button"
 
 export const CloseDETF = () => {
     const location = useLocation()
     const { category, dimension, productId, detfAddress, totalValue, totalDeposited, returnPercentage, lockTime, currency, vsPrices } = location.state
     const { address: walletOwner, connector, isConnected } = useAccount()
+    const [prepared, setPrepared] = useState(false)
     const IPolybitDETF = new Interface(PolybitDETFInterface)
-    const [sellToCloseSuccess, setSellToCloseSuccess] = useState(false)
     const { response: orderData, isLoading: orderDataLoading, isSuccess: orderDataSuccess } = GetSellToCloseOrderData(detfAddress)
 
     console.log("sell to close order data", orderData)
 
-    const { config: detfSellToCloseConfig, error: detfSellToCloseError } = usePrepareContractWrite({
+    const { config: detfSellToCloseConfig, error: detfSellToCloseError, isSuccess: prepareContractWriteSuccess } = usePrepareContractWrite({
         addressOrName: detfAddress,
         contractInterface: IPolybitDETF,
         functionName: 'sellToClose',
@@ -34,96 +32,35 @@ export const CloseDETF = () => {
         },
         onSuccess(data) {
             console.log('detfSellToClose Success', data)
+            setPrepared(true)
         },
     })
 
-    const { data, isLoading, isSuccess, write: detfSellToClose } = useContractWrite(detfSellToCloseConfig)
+    if (!prepared) {
+        return (
+            <Loading loadingMsg="Preparing your withdrawal" />
+        )
+    }
 
-    const { data: waitForTransaction, isError: transactionError, isLoading: transactionLoading } = useWaitForTransaction({
-        hash: data?.hash,
-        onSettled(data, error) {
-            console.log(data)
-            setSellToCloseSuccess(true)
-            /* const response = data ? data.logs[2].data : []
-            const confirmedAmount = utils.defaultAbiCoder.decode(["uint256"], response)[0].toString()
-            console.log(confirmedAmount)
-            console.log(parseUnits(depositInputValue).toString())
-            if (confirmedAmount === parseUnits(depositInputValue).toString()) {
-                setDepositSuccess(true)
-            } */
-        }
-    })
-
-    if (detfAddress) {
+    if (prepared) {
         return (
             <>
                 <TitleContainer title="Exit and withdraw funds" />
                 <SubTitleContainer info="By exiting this strategy, your funds will be returned from your smart contract to your connected wallet. Trades will no longer be automatically made to maintain investment in the structure of this DETF."
                 />
-                <MainContainer>
-                    <div className={!sellToCloseSuccess ? "close-table-container" : "close-table-container-inactive"}>
-                        <div className="close-detf-container">
-                            <div className="close-detf-header">
-                                <div className="close-detf-header-item-detf" >DETF</div>
-                                <div className="close-detf-header-item-value" >Market Value</div>
-                                <div className="close-detf-header-item-return" >Return</div>
-                                <div className="close-detf-header-item-return-percentage" >Return (%)</div>
-                                <div className="close-detf-header-item-timelock" >Time Lock</div>
-                            </div>
-                            <div className="close-detf-row">
-                                <div className="close-detf-row-items">
-                                    <div className="close-detf-row-item-detf">
-                                        <div className="close-index-row-item-name">
-                                            {category}
-                                            <div className="close-index-chain-title">
-                                                {/* <img className="account-index-chain-logo" src={require("../assets/images/bsc-logo.png")} alt="Binance Smart Chain"></img> */}
-                                                {dimension}
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="close-detf-row-item-value">
-                                        {FormatCurrency((Number(totalValue)
-                                            / 10 ** 18 *
-                                            (() => {
-                                                switch (currency) {
-                                                    case "AUD": return (vsPrices.aud)
-                                                    case "BNB": return (vsPrices.bnb)
-                                                    case "CNY": return (vsPrices.cny)
-                                                    case "EURO": return (vsPrices.eur)
-                                                    case "IDR": return (vsPrices.idr)
-                                                    case "JPY": return (vsPrices.jpy)
-                                                    case "KRW": return (vsPrices.krw)
-                                                    case "RUB": return (vsPrices.rub)
-                                                    case "TWD": return (vsPrices.twd)
-                                                    case "USD": return (vsPrices.usd)
-                                                }
-                                            })()), 2)}</div>
-                                    <div className="close-detf-row-item-return">{FormatCurrency((Number(totalValue - totalDeposited)
-                                        / 10 ** 18 *
-                                        (() => {
-                                            switch (currency) {
-                                                case "AUD": return (vsPrices.aud)
-                                                case "BNB": return (vsPrices.bnb)
-                                                case "CNY": return (vsPrices.cny)
-                                                case "EURO": return (vsPrices.eur)
-                                                case "IDR": return (vsPrices.idr)
-                                                case "JPY": return (vsPrices.jpy)
-                                                case "KRW": return (vsPrices.krw)
-                                                case "RUB": return (vsPrices.rub)
-                                                case "TWD": return (vsPrices.twd)
-                                                case "USD": return (vsPrices.usd)
-                                            }
-                                        })()), 2)}</div>
-                                    <div className="close-detf-row-item-return-percentage" style={{ color: ColourNumbers(returnPercentage) }}> {parseFloat((returnPercentage).toString()).toFixed(2) + "%"}</div>
-                                    <div className="close-detf-row-item-timelock">{GetTimeToUnlock(Number(lockTime))}</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="close-detf-button">
-                            {orderDataLoading && <img height="90px" width="90px" src={require("../../assets/images/loading.gif")} alt="Loading"></img>}
-                            {orderDataSuccess && <Button buttonStyle="primary" buttonSize="standard" text="Confirm DETF exit" onClick={() => detfSellToClose?.()} />}
-                        </div>
-                    </div>
+                <WithdrawSummary
+                    detfAddress={detfAddress}
+                    category={category}
+                    dimension={dimension}
+                    totalValue={totalValue}
+                    totalDeposited={totalDeposited}
+                    returnPercentage={returnPercentage}
+                    currency={currency}
+                    vsPrices={vsPrices}
+                    detfSellToCloseConfig={detfSellToCloseConfig}
+                />
+                {/* <MainContainer>
+                    
                     <div>
                         <div className={transactionLoading ? "confirming-close-wrapper" : "confirming-close-wrapper-inactive"}>
                             {transactionLoading && (<div>Waiting for confirmation from the blockchain...</div>)}
@@ -199,17 +136,12 @@ export const CloseDETF = () => {
                                 <Button buttonStyle="primary" buttonSize="standard" text="Go To My Account" /></Link>
                         </div>
                     </div>
-                </MainContainer>
+                </MainContainer> */}
                 <Footer />
             </>
         )
     }
     return (
-        <>
-            <div><b>OrderData</b></div>
-            {orderDataLoading && (<div>Order Data loading...</div>)}
-            {orderDataSuccess && (
-                <div>{JSON.stringify(orderData)}</div>)}
-        </>
+        <Loading />
     )
 }

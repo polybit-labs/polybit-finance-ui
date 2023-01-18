@@ -26,6 +26,15 @@ function EstablishDETF() {
     const [detfAddress, setDETFAddress] = useState("")
     const [depositSuccess, setDepositSuccess] = useState(false)
 
+    useEffect(() => {
+        //Reset view on component load
+        if (activeStage === "establish-deposit-details" ||
+            activeStage === "establish-deposit-summary" ||
+            activeStage === "deposit-summary") {
+            window.scrollTo(0, 650);
+        }
+    }, [activeStage]);
+
     if (isConnected) {
         return (
             <>

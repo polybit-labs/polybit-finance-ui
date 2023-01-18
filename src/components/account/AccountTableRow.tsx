@@ -3,7 +3,7 @@ import "./AccountTableRow.css"
 import { useEffect, useState } from "react";
 import { GetOwnedAssetsDetailed } from "../api/GetOwnedAssetsDetailed";
 import { DETFOwnedAssetsTable } from "../DETFOwnedAssetsTable";
-import { FormatCurrency } from "../utils/Currency";
+import { Currencies, FormatCurrency } from "../utils/Currency";
 import { GetOwner } from "../api/GetOwner";
 import { ColourCategories, DETFIconFilename, FormatPercentages } from '../utils/Formatting'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -17,20 +17,6 @@ import { GetProductData, ProductData } from "../api/GetProductData";
 import { DETFAssetsTable } from "../DETFAssetsTable";
 import { Button } from "../Button";
 import { useNetwork } from "wagmi";
-
-type Currencies = {
-    "date": string;
-    "aud": number;
-    "bnb": number;
-    "cny": number;
-    "eur": number;
-    "idr": number;
-    "jpy": number;
-    "krw": number;
-    "rub": number;
-    "twd": number;
-    "usd": number;
-}
 
 interface AccountTableRowItems {
     category: string;
@@ -46,7 +32,8 @@ interface AccountTableRowItems {
     product_id: string;
     detf_address: string;
     deposits: Array<string>;
-    deposit_fees: Array<string>;
+    fees: Array<string>;
+    transactions: Array<any>;
     total_deposits: string;
     vsPrices: any;
     currency: string;
@@ -104,8 +91,6 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
         setProductData(productDataResponse)
     }, [productDataResponse, productDataSuccess])
 
-
-    console.log(props.deposit_fees)
     const GetHistoricalPriceCurrency = (timestamp: number) => {
         let price = 0
         const latestPrices: Currencies = props.historicalPrices[props.historicalPrices.length - 1]
@@ -184,7 +169,7 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
     const currentReturn = currentTotalValue - currentTotalDeposited
     const currentReturnFormatted = FormatCurrency(moment().unix() > (props.creation_timestamp + (60 * 60)) ? currentReturn : 0, 2)
     const currentReturnPercentage = currentReturn / currentTotalDeposited
-    const currentReturnPercentageFormatted = FormatPercentages(moment().unix() > (props.creation_timestamp + (60 * 60)) ? (currentReturnPercentage * 100) : 0)
+    const currentReturnPercentageFormatted = FormatPercentages(moment().unix() > (props.creation_timestamp + (60 * 60)) ? (currentReturnPercentage ? currentReturnPercentage * 100 : 0) : 0)
 
     const finalTotalDeposited = FormatCurrency(Number(props.total_deposits) / 10 ** 18 * GetHistoricalPriceCurrency(Number(props.close_timestamp)), 2)
     let totalDepositHistoricalPrices: number = 0
@@ -194,28 +179,30 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
     const finalMarketValue = FormatCurrency(Number(props.final_balance_in_weth) / 10 ** 18 * GetHistoricalPriceCurrency(Number(props.close_timestamp)), 2)
     const finalReturnWeth = FormatCurrency(Number(props.final_return_weth) / 10 ** 18 * GetHistoricalPriceCurrency(Number(props.close_timestamp)), 2)
 
-    const transactionHistory = <ul>
-        {props.deposits?.map((deposit) =>
-            <li key={deposit}>
-                <div style={{ display: "flex", flexDirection: "row", width: "100%" }}>
-                    <div style={{ width: "150px" }}>
-                        <p>{moment.unix(deposit[0]).local().format("D MMM YYYY hh:mm")}</p>
-                    </div>
-                    <div style={{ width: "150px" }}><p>+{FormatCurrency((Number(deposit[1])
-                        / 10 ** 18 * GetHistoricalPriceCurrency(Number(deposit[0]))), 2)}</p>
-                    </div>
-                </div></li>
-        )}
-        {!isDETFActive && <li>
-            <div style={{ display: "flex", flexDirection: "row", width: "100%" }}>
-                <div style={{ width: "150px" }}>
-                    <p>{moment.unix(props.close_timestamp).local().format("D MMM YYYY hh:mm")}</p>
-                </div>
-                <div style={{ width: "150px" }}><p>-{FormatCurrency((Number(props.final_balance_in_weth)
-                    / 10 ** 18 * GetHistoricalPriceCurrency(Number(props.close_timestamp))), 2)}</p>
-                </div>
-            </div></li>}
-    </ul>
+    const transactionHistory = <table className="transaction-history" >
+        <tbody>
+            {props.transactions?.map((transaction) => {
+                return (
+                    <tr key={transaction}>
+                        <td><p>{moment.unix(transaction[0]).local().format("D MMM YYYY hh:mm")}</p></td>
+                        <td>
+                            {transaction[2] === "Deposit" && <p>+{FormatCurrency((Number(transaction[1])
+                                / 10 ** 18 * GetHistoricalPriceCurrency(Number(transaction[0]))), 2)}</p>
+                            }
+                            {transaction[2] === "Fee" && <p>-{FormatCurrency((Number(transaction[1])
+                                / 10 ** 18 * GetHistoricalPriceCurrency(Number(transaction[0]))), 2)?.replaceAll("-", "")}</p>
+                            }</td>
+                        <td><p>{transaction[2]}</p></td>
+                    </tr>)
+            })}
+            {!isDETFActive && <tr>
+                <td><p>{moment.unix(props.close_timestamp).local().format("D MMM YYYY hh:mm")}</p></td>
+                <td><p>-{FormatCurrency((Number(props.final_balance_in_weth)
+                    / 10 ** 18 * GetHistoricalPriceCurrency(Number(props.close_timestamp))), 2)}</p></td>
+                <td><p>Withdraw</p></td>
+            </tr>}
+        </tbody>
+    </table >
     const timeLock = moment.unix(props.timeLock).local().format("D MMM YYYY hh:mm")
 
     return (
