@@ -70,8 +70,8 @@ function Navbar(props: NavbarProps) {
                         </Link>
                     </li>
                     <li className="nav-item">
-                        <Link to="/exchange" className="nav-links" onClick={closeMobileMenu}>
-                            Exchange
+                        <Link to="/swap" className="nav-links" onClick={closeMobileMenu}>
+                            Swap
                         </Link>
                     </li>
                     <li className="nav-item">

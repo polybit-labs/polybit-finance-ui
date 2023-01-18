@@ -14,6 +14,7 @@ import { useState } from 'react'
 import { CloseDETF } from './components/pages/CloseDETF'
 import { Fees } from './components/pages/Fees';
 import { Exchange } from './components/pages/Exchange';
+import { SwitchNetwork } from './components/SwitchNetwork';
 
 function App() {
   const [currency, setCurrency] = useState<CurrencyState>({ currency: "USD" })
@@ -26,7 +27,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/detfs" element={<DETFIndex />} />
-              <Route path="/exchange" element={<Exchange />} />
+              <Route path="/swap" element={<SwitchNetwork />} />
               <Route path="/how-it-works" element={<AvailableDETFs />} />
               <Route path="/account" element={<Account />} />
               <Route path="/establish-detf" element={<EstablishDETF />} />

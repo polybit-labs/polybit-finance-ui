@@ -74,6 +74,13 @@ export const EstablishDETFBox = (props: EstablishDETFBox) => {
     })
 
     useEffect(() => {
+        //Reset view on component load
+        if (transactionLoading) {
+            window.scrollTo(0, 650);
+        }
+    }, [transactionLoading])
+
+    useEffect(() => {
         if (transactionSuccess && props.detfAddress !== "") {
             //navToAccount()
             props.setActiveStage("establish-deposit-details")

@@ -15,6 +15,7 @@ import { GetPriceVsCurrency } from '../api/GetPriceVsCurrency'
 import { GetHistoricalPrices } from '../api/GetHistoricalPrices'
 import wethAddress from "../../chain_info/weth.json"
 import { Connect } from '../Connect'
+import { SwitchNetwork } from '../SwitchNetwork'
 
 type Currencies = {
     "date": string;
@@ -96,8 +97,8 @@ const Account = () => {
     </div>
 
     const subTitleNotConnected = <div><h2>You are not currently connected to a crypto wallet. Please connect your wallet to access all of the features of this app.</h2></div>
-
-    if (isConnected) {
+    console.log(chain?.unsupported)
+    if (isConnected && !chain?.unsupported) {
         return (
             <>
                 <TitleContainer title="Account" />
@@ -124,6 +125,10 @@ const Account = () => {
                 <Footer />
             </>
         )
+    }
+
+    if (isConnected && chain?.unsupported) {
+        return (<SwitchNetwork />)
     }
 
     return (

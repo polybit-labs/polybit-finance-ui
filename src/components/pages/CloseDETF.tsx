@@ -7,42 +7,16 @@ import Footer from "./Footer"
 import { useState } from "react"
 import { Loading } from "../Loading"
 import { WithdrawSummary } from "../WithdrawSummary"
-import { usePrepareContractWrite, useContractWrite, useWaitForTransaction } from "wagmi"
-import { GetSellToCloseOrderData } from "../api/GetSellToCloseOrderData"
-import PolybitDETFInterface from "../../chain_info/IPolybitDETF.json"
-import { Interface } from 'ethers/lib/utils'
+import { WithdrawSuccess } from "../WithdrawSuccess"
+
 
 export const CloseDETF = () => {
     const location = useLocation()
     const { category, dimension, productId, detfAddress, totalValue, totalDeposited, returnPercentage, lockTime, currency, vsPrices } = location.state
     const { address: walletOwner, connector, isConnected } = useAccount()
-    const [prepared, setPrepared] = useState(false)
-    const IPolybitDETF = new Interface(PolybitDETFInterface)
-    const { response: orderData, isLoading: orderDataLoading, isSuccess: orderDataSuccess } = GetSellToCloseOrderData(detfAddress)
+    const [withdrawSuccess, setWithdrawSuccess] = useState(false)
 
-    console.log("sell to close order data", orderData)
-
-    const { config: detfSellToCloseConfig, error: detfSellToCloseError, isSuccess: prepareContractWriteSuccess } = usePrepareContractWrite({
-        addressOrName: detfAddress,
-        contractInterface: IPolybitDETF,
-        functionName: 'sellToClose',
-        args: [orderData],
-        onError(error) {
-            console.log('detfSellToClose Error', error)
-        },
-        onSuccess(data) {
-            console.log('detfSellToClose Success', data)
-            setPrepared(true)
-        },
-    })
-
-    if (!prepared) {
-        return (
-            <Loading loadingMsg="Preparing your withdrawal" />
-        )
-    }
-
-    if (prepared) {
+    if (!withdrawSuccess) {
         return (
             <>
                 <TitleContainer title="Exit and withdraw funds" />
@@ -57,7 +31,7 @@ export const CloseDETF = () => {
                     returnPercentage={returnPercentage}
                     currency={currency}
                     vsPrices={vsPrices}
-                    detfSellToCloseConfig={detfSellToCloseConfig}
+                    setWithdrawSuccess={setWithdrawSuccess}
                 />
                 {/* <MainContainer>
                     
@@ -141,6 +115,13 @@ export const CloseDETF = () => {
             </>
         )
     }
+
+    if (withdrawSuccess) {
+        return (
+            <WithdrawSuccess category={category} dimension={dimension} />
+        )
+    }
+
     return (
         <Loading />
     )

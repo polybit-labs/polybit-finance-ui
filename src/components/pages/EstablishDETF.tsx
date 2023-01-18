@@ -1,23 +1,21 @@
 import "./EstablishDETF.css"
 import { useEffect, useState } from 'react'
-import { useLocation, Link, useNavigate } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 import TitleContainer from '../containers/Title'
 import SubTitleContainer from '../containers/SubTitle'
 import { Progress } from '../Progress'
 import { TruncateAddress } from '../utils/Formatting'
-import polybitAddresses from "../../chain_info/polybitAddresses.json"
-import PolybitDETFFactoryInterface from "../../chain_info/IPolybitDETFFactory.json"
-import { Interface } from 'ethers/lib/utils'
-import { useAccount, usePrepareContractWrite, useContractWrite, useWaitForTransaction, useNetwork } from 'wagmi'
+import { useAccount, useNetwork } from 'wagmi'
 import Footer from "./Footer"
 import MainContainer from "../containers/Main"
-import ContentBox from "../containers/ContentBox"
 import { EstablishDETFBox } from "../EstablishDETFBox"
 import { Connect } from "../Connect"
 import { DepositContainer } from "../deposit/DepositContainer"
+import { SwitchNetwork } from "../SwitchNetwork"
 
 function EstablishDETF() {
     const location = useLocation()
+    const { chain } = useNetwork()
     const { category, dimension, productId } = location.state
     const { address: walletOwner, connector, isConnected } = useAccount()
     const [activeStage, setActiveStage] = useState("establish")
@@ -33,9 +31,9 @@ function EstablishDETF() {
             activeStage === "deposit-summary") {
             window.scrollTo(0, 650);
         }
-    }, [activeStage]);
+    }, [activeStage])
 
-    if (isConnected) {
+    if (isConnected && !chain?.unsupported) {
         return (
             <>
                 {!depositSuccess && <div>
@@ -59,6 +57,10 @@ function EstablishDETF() {
                 <Footer />
             </>
         )
+    }
+
+    if (isConnected && chain?.unsupported) {
+        return (<SwitchNetwork />)
     }
 
     const subTitleNotConnected = <div><h2>You are not currently connected to a crypto wallet. Please connect your wallet to proceed.</h2></div>

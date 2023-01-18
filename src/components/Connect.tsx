@@ -4,14 +4,7 @@ import { useNavigate } from "react-router-dom"
 import { useEffect } from "react";
 import { Button } from "./Button";
 
-/* interface Connect {
-    source: string;
-} */
-
 export const Connect = () => {
-    /*     const navigate = useNavigate();
-        const navToAccount = () => navigate("/account")
-        const navToEstablishDETF = () => navigate("/establish-detf") */
     const { address, connector, isConnected } = useAccount()
     const { connect, connectors, error, isLoading, pendingConnector } =
         useConnect()
@@ -20,15 +13,6 @@ export const Connect = () => {
             console.log('Error', error)
         }
     })
-
-    /*     useEffect(() => {
-            if (isConnected && props.source === "account") {
-                navToAccount()
-            }
-            if (isConnected && props.source === "establish-detf") {
-                navToEstablishDETF()
-            }
-        }, [isConnected]) */
 
     const coinbaseConnector = connectors[0]
     const metamaskConnector = connectors[1]
