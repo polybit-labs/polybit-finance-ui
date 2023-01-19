@@ -20,6 +20,7 @@
     font-weight: 700;
     padding-left: 28px;
     padding-right: 28px;
+    margin: 10px;
 }
 
 .button-primary-standard,
@@ -81,4 +82,32 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
+}
+
+.text-link,
+.text-link-underline,
+.text-link-forward,
+.text-link-back {
+    text-decoration: none;
+    color: #000000;
+    font-size: 16px;
+    font-weight: 700;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.text-link-underline {
+    border-bottom: solid 2px #000000;
+}
+
+.fa-right-long {
+    padding-right: 14px;
+    font-size: 22px;
+    transform: translateY(+10%);
+}
+
+.fa-left-long {
+    padding-right: 14px;
+    font-size: 22px;
+    transform: translateY(+10%);
 }

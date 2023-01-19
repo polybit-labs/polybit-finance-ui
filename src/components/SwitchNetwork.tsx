@@ -1,7 +1,8 @@
-import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { useSwitchNetwork, useDisconnect } from 'wagmi'
-import { Button } from './Button'
-import { Connect } from './Connect'
+import { Button, TextLink } from './Buttons'
+import MainContainer from './containers/Main'
+import "./SwitchNetwork.css"
 
 export const SwitchNetwork = () => {
     const { disconnect } = useDisconnect()
@@ -9,32 +10,16 @@ export const SwitchNetwork = () => {
         useSwitchNetwork()
 
     return (
-        <>
-            <div>
-                <div><b>Check your network</b></div>
-                <div>Currently Polybit is only supported on the BNB Smart Chain.</div>
-                <div>[Warning] Please switch your network to continue</div>
+        <MainContainer>
+            <div className="switch-network">
+                <img className="switch-network-warning" height="120px" width="120px" src={require("./../assets/icons/warning_large.png")}></img>
+                <div className="switch-network-text">Currently, Polybit is only supported on the BNB Smart Chain. Please switch your network to continue.</div>
                 <div>
-                    {<Button buttonStyle="primary" buttonSize="standard" text="Switch network in wallet" onClick={() => switchNetwork?.(97)} />}
+                    {switchNetwork && <Button buttonStyle="primary" buttonSize="standard" text="Switch network in wallet" onClick={() => switchNetwork?.(97)} />}
                     {!switchNetwork && <Button buttonStyle="primary" buttonSize="standard" text="Switch network in wallet" status="disabled" />}
-                    {/*  {
-                            chains.map((x) => (
-                                <button
-                                    disabled={!switchNetwork || x.id === chain?.id}
-                                    key={x.id}
-                                    onClick={() => switchNetwork?.(x.id)}
-                                >
-                                    {x.name}
-                                    {isLoading && pendingChainId === x.id && ' (switching)'}
-                                </button>
-                            ))
-                        } */}
                 </div>
-                <div>
-                    {<Button buttonStyle="primary" buttonSize="standard" text="Disconnect Wallet" onClick={() => disconnect()} />}
-                </div>
+                <TextLink to="/" text="Disconnect wallet and return home" onClick={() => disconnect()} arrowDirection="back" />
             </div>
-            <div>{error && error.message}</div>
-        </>
+        </MainContainer>
     )
 }

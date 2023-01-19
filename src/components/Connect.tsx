@@ -2,7 +2,7 @@ import { useAccount, useConnect, useDisconnect } from "wagmi"
 import "./Connect.css"
 import { useNavigate } from "react-router-dom"
 import { useEffect } from "react";
-import { Button } from "./Button";
+import { Button } from "./Buttons";
 
 export const Connect = () => {
     const { address, connector, isConnected } = useAccount()

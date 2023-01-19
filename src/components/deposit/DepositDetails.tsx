@@ -2,7 +2,7 @@ import { useState, ChangeEvent, useEffect } from 'react'
 import "../pages/Deposit.css"
 import DateTypeDropDown from '../dropdowns/DateTypeDropdown'
 import { FormatCurrency } from '../utils/Currency'
-import { Button } from '../Button'
+import { Button } from '../Buttons'
 import ContentBox from '../containers/ContentBox'
 import MainContainer from '../containers/Main'
 import { Loading } from '../Loading'

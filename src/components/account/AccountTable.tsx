@@ -2,8 +2,10 @@ import { useEffect, useState } from 'react'
 import "./AccountTable.css"
 import { useAccount, useBalance } from "wagmi"
 import { AccountTableRow } from './AccountTableRow'
-import { Button } from '../Button';
-import { Link } from 'react-router-dom';
+import { Button } from '../Buttons'
+import { Link } from 'react-router-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { icon } from '@fortawesome/fontawesome-svg-core/import.macro'
 
 interface DETFSummary {
     "productId": number;
@@ -45,6 +47,7 @@ export const AccountTable = (props: AccountTableProps) => {
     })
     const detfAccounts: Array<string> = props.detfAccounts
     const detfAccountsData: Array<any> = props.detfAccountsData
+    const [activeSort, setActiveSort] = useState("")
     const [detfData, setDETFData] = useState<Array<any>>(detfAccountsData)
     useEffect(() => {
         if (detfData.length !== detfAccountsData.length) {
@@ -74,10 +77,18 @@ export const AccountTable = (props: AccountTableProps) => {
             <>
                 <div className="account-detf-container">
                     <div className="account-detf-header">
-                        <div className="account-detf-header-item-detf" onClick={() => sorting("category")}>DETF</div>
-                        <div className="account-detf-header-item-value" onClick={() => sorting("marketValue")}>Market Value</div>
-                        <div className="account-detf-header-item-return" onClick={() => sorting("return")}>Return</div>
-                        <div className="account-detf-header-item-timelock" onClick={() => sorting("lockStatus")}>Status</div>
+                        <div className="account-detf-header-item-detf" onClick={() => { sorting("category"); setActiveSort("category") }}>DETF&nbsp;
+                            {activeSort === "category" && order === "asc" && <FontAwesomeIcon icon={icon({ name: "sort-up", style: "solid" })} />}
+                            {activeSort === "category" && order === "dsc" && <FontAwesomeIcon icon={icon({ name: "sort-down", style: "solid" })} />}</div>
+                        <div className="account-detf-header-item-value" onClick={() => { sorting("marketValue"); setActiveSort("marketValue") }}>Market Value&nbsp;
+                            {activeSort === "marketValue" && order === "asc" && <FontAwesomeIcon icon={icon({ name: "sort-up", style: "solid" })} />}
+                            {activeSort === "marketValue" && order === "dsc" && <FontAwesomeIcon icon={icon({ name: "sort-down", style: "solid" })} />}</div>
+                        <div className="account-detf-header-item-return" onClick={() => { sorting("return"); setActiveSort("return") }}>Return&nbsp;
+                            {activeSort === "return" && order === "asc" && <FontAwesomeIcon icon={icon({ name: "sort-up", style: "solid" })} />}
+                            {activeSort === "return" && order === "dsc" && <FontAwesomeIcon icon={icon({ name: "sort-down", style: "solid" })} />}</div>
+                        <div className="account-detf-header-item-timelock" onClick={() => { sorting("lockStatus"); setActiveSort("lockStatus") }}>Status&nbsp;
+                            {activeSort === "lockStatus" && order === "asc" && <FontAwesomeIcon icon={icon({ name: "sort-up", style: "solid" })} />}
+                            {activeSort === "lockStatus" && order === "dsc" && <FontAwesomeIcon icon={icon({ name: "sort-down", style: "solid" })} />}</div>
                         <div className="account-detf-header-item-deposit"></div>
                         <div className="account-detf-header-item-toggle"></div>
                     </div>

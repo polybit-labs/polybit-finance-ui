@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { GetPerformanceData } from "./api/GetPerformanceData";
 import { PerformanceData } from "./api/GetPerformanceData";
 import { ColourCategories, ColourNumbers, DETFIconFilename } from "./utils/Formatting";
+import { TextLink } from "./Buttons";
 
 
 interface TopDETFBoxProps {
@@ -54,8 +55,7 @@ export const TopDETFBox = (props: TopDETFBoxProps) => {
                     <div style={{ color: ColourNumbers(props.returnValue) }}>{parseFloat(props.returnValue ? (props.returnValue * 100).toString() : "").toFixed(2) + "%"}</div>
                 </div>
                 <div className="top-detfs-box-chart">{<ReturnChartMini height={160} width={320} period={performanceDataPeriod} performanceData={performanceData} />}</div>
-                <Link className="top-detfs-box-cta" to={`/detfs/${props.urlChainId}/${props.urlCategoryId}/${props.urlDimensionId}`}>
-                    <h3>Invest in this strategy</h3></Link>
+                <TextLink to={`/detfs/${props.urlChainId}/${props.urlCategoryId}/${props.urlDimensionId}`} text="Invest in this strategy" underline={true} />
             </>)
     }
     return (

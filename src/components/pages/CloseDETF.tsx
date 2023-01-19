@@ -12,7 +12,7 @@ import { WithdrawSuccess } from "../WithdrawSuccess"
 
 export const CloseDETF = () => {
     const location = useLocation()
-    const { category, dimension, productId, detfAddress, totalValue, totalDeposited, returnPercentage, lockTime, currency, vsPrices } = location.state
+    const { category, dimension, detfAddress, totalValue, currentTotalValue, currentReturn, currentReturnPercentage, currency, vsPrices } = location.state
     const { address: walletOwner, connector, isConnected } = useAccount()
     const [withdrawSuccess, setWithdrawSuccess] = useState(false)
 
@@ -27,8 +27,9 @@ export const CloseDETF = () => {
                     category={category}
                     dimension={dimension}
                     totalValue={totalValue}
-                    totalDeposited={totalDeposited}
-                    returnPercentage={returnPercentage}
+                    currentTotalValue={currentTotalValue}
+                    currentReturn={currentReturn}
+                    currentReturnPercentage={currentReturnPercentage}
                     currency={currency}
                     vsPrices={vsPrices}
                     setWithdrawSuccess={setWithdrawSuccess}

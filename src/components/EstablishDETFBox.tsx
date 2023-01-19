@@ -5,7 +5,7 @@ import polybitAddresses from "../chain_info/polybitAddresses.json"
 import PolybitDETFFactoryInterface from "../chain_info/IPolybitDETFFactory.json"
 import { Interface } from 'ethers/lib/utils'
 import { Link, useNavigate } from 'react-router-dom'
-import { Button } from './Button'
+import { Button } from './Buttons'
 import { Loading } from './Loading'
 import ContentBox from './containers/ContentBox'
 import MainContainer from './containers/Main'

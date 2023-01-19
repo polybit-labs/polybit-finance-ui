@@ -15,7 +15,7 @@ import { InvalidChartRange } from "../charts/InvalidChartRange";
 import { DETFReturnChart } from "../charts/DETFReturnChart";
 import { GetProductData, ProductData } from "../api/GetProductData";
 import { DETFAssetsTable } from "../DETFAssetsTable";
-import { Button } from "../Button";
+import { Button } from "../Buttons";
 import { useNetwork } from "wagmi";
 
 interface AccountTableRowItems {
@@ -262,9 +262,11 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
                         activeStage: 1
                     }}>Deposit</Link>}
                 </div>
-                <div className="account-detf-row-item-toggle" onClick={() => setIsActive(!isActive)}>
-                    {isActive ? <div>Collapse <FontAwesomeIcon icon={icon({ name: "sort-up", style: "solid" })} /></div>
-                        : <div>Expand <FontAwesomeIcon icon={icon({ name: "sort-down", style: "solid" })} /></div>}
+                <div>
+                    {isActive && <div className="account-detf-row-item-toggle" onClick={() => setIsActive(!isActive)}>Collapse&nbsp;
+                        <div style={{ transform: "translateY(+15%)" }}><FontAwesomeIcon icon={icon({ name: "sort-up", style: "solid" })} /></div></div>}
+                    {!isActive && <div className="account-detf-row-item-toggle" onClick={() => setIsActive(!isActive)}>Expand&nbsp;
+                        <div style={{ transform: "translateY(-15%)" }}><FontAwesomeIcon icon={icon({ name: "sort-down", style: "solid" })} /></div></div>}
                 </div>
             </div>
             {
@@ -324,12 +326,11 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
                                     < Link className="account-detf-row-item-link" to="/close-detf" state={{
                                         category: props.category,
                                         dimension: props.dimension,
-                                        productId: props.product_id,
                                         detfAddress: props.detf_address,
                                         totalValue: props.balance_in_weth,
-                                        totalDeposited: props.total_deposits,
-                                        returnPercentage: props.return_percentage,
-                                        lockTime: props.timeLockRemaining,
+                                        currentTotalValue: currentTotalValue,
+                                        currentReturn: currentReturn,
+                                        currentReturnPercentage: currentReturnPercentage,
                                         currency: props.currency,
                                         vsPrices: props.vsPrices
                                     }}>

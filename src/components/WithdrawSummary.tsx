@@ -1,7 +1,7 @@
-import { Button } from "./Button"
+import { Button } from "./Buttons"
 import MainContainer from "./containers/Main"
 import { Currencies, FormatCurrency } from "./utils/Currency"
-import { ColourCategories, ColourNumbers } from "./utils/Formatting"
+import { ColourCategories, ColourNumbers, DETFIconFilename, FormatPercentages } from "./utils/Formatting"
 import { usePrepareContractWrite, useContractWrite, useWaitForTransaction } from "wagmi"
 import { GetSellToCloseOrderData } from "./api/GetSellToCloseOrderData"
 import PolybitDETFInterface from "./../chain_info/IPolybitDETF.json"
@@ -13,8 +13,9 @@ interface WithdrawSummary {
     category: string;
     dimension: string;
     totalValue: string;
-    totalDeposited: string;
-    returnPercentage: number;
+    currentTotalValue: number;
+    currentReturn: number;
+    currentReturnPercentage: number;
     currency: string;
     vsPrices: Currencies;
     setWithdrawSuccess: Function
@@ -43,6 +44,9 @@ export const WithdrawSummary = (props: WithdrawSummary) => {
             props.setWithdrawSuccess(true)
         }
     })
+    const currentTotalValueFormatted = FormatCurrency(props.currentTotalValue, 2)
+    const currentReturnFormatted = FormatCurrency(props.currentReturn, 2)
+    const currentReturnPercentageFormatted = FormatPercentages(props.currentReturnPercentage * 100)
 
     if (!prepareContractWriteSuccess) {
         return (
@@ -64,6 +68,7 @@ export const WithdrawSummary = (props: WithdrawSummary) => {
                         <div className="close-detf-row">
                             <div className="close-detf-row-items">
                                 <div className="close-detf-row-item-detf">
+                                    <img className="account-index-row-item-logo" src={require(`./../assets/icons/${DETFIconFilename(props.category, props.dimension)}`)}></img>
                                     <div className="account-index-row-item-name">
                                         <div className="account-index-row-item-category" style={{ color: ColourCategories(props.category) }}>
                                             {props.category}
@@ -73,44 +78,15 @@ export const WithdrawSummary = (props: WithdrawSummary) => {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="close-detf-row-item-value">
-                                    {FormatCurrency((Number(props.totalValue)
-                                        / 10 ** 18 *
-                                        Number((() => {
-                                            switch (props.currency) {
-                                                case "AUD": return (props.vsPrices.aud)
-                                                case "BNB": return (props.vsPrices.bnb)
-                                                case "CNY": return (props.vsPrices.cny)
-                                                case "EURO": return (props.vsPrices.eur)
-                                                case "IDR": return (props.vsPrices.idr)
-                                                case "JPY": return (props.vsPrices.jpy)
-                                                case "KRW": return (props.vsPrices.krw)
-                                                case "RUB": return (props.vsPrices.rub)
-                                                case "TWD": return (props.vsPrices.twd)
-                                                case "USD": return (props.vsPrices.usd)
-                                            }
-                                        })())), 2)}</div>
-                                <div className="close-detf-row-item-return">{FormatCurrency((Number(props.totalValue) - Number(props.totalDeposited))
-                                    / 10 ** 18 *
-                                    Number((() => {
-                                        switch (props.currency) {
-                                            case "AUD": return (props.vsPrices.aud)
-                                            case "BNB": return (props.vsPrices.bnb)
-                                            case "CNY": return (props.vsPrices.cny)
-                                            case "EURO": return (props.vsPrices.eur)
-                                            case "IDR": return (props.vsPrices.idr)
-                                            case "JPY": return (props.vsPrices.jpy)
-                                            case "KRW": return (props.vsPrices.krw)
-                                            case "RUB": return (props.vsPrices.rub)
-                                            case "TWD": return (props.vsPrices.twd)
-                                            case "USD": return (props.vsPrices.usd)
-                                        }
-                                    })()), 2)}</div>
-                                <div className="close-detf-row-item-return-percentage" style={{ color: ColourNumbers(props.returnPercentage) }}> {parseFloat((props.returnPercentage).toString()).toFixed(2) + "%"}</div>
+                                <div className="close-detf-row-item-value">{currentTotalValueFormatted}</div>
+                                <div className="close-detf-row-item-return" style={{ color: ColourNumbers(props.currentReturn) }}>{currentReturnFormatted}</div>
+                                <div className="close-detf-row-item-return-percentage">{currentReturnPercentageFormatted}</div>
                             </div>
                         </div>
                     </div>
-                    <Button buttonStyle="primary" buttonSize="standard" text="Confirm DETF exit" onClick={() => detfSellToClose?.()} />
+                    <div className="close-detf-button">
+                        <Button buttonStyle="primary" buttonSize="standard" text="Confirm DETF exit" onClick={() => detfSellToClose?.()} />
+                    </div>
                 </div>
             </MainContainer>
         )

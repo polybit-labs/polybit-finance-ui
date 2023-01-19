@@ -12,7 +12,7 @@ import { GetPriceVsCurrency } from '../api/GetPriceVsCurrency'
 import { DETFSummary } from '../DETFSummary'
 import { ColourCategories, DETFIconFilename } from '../utils/Formatting'
 import { useNetwork } from 'wagmi'
-import { Button } from '../Button'
+import { Button } from '../Buttons'
 
 const DETF = () => {
     const urlChainId = useParams().urlChainId

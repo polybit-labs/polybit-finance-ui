@@ -97,7 +97,7 @@ const Account = () => {
     </div>
 
     const subTitleNotConnected = <div><h2>You are not currently connected to a crypto wallet. Please connect your wallet to access all of the features of this app.</h2></div>
-    console.log(chain?.unsupported)
+
     if (isConnected && !chain?.unsupported) {
         return (
             <>

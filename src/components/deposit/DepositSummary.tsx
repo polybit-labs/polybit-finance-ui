@@ -14,7 +14,7 @@ import {
 import { GetOrderData } from '../api/GetOrderData'
 import { FormatCurrency } from '../utils/Currency'
 import ContentBox from '../containers/ContentBox'
-import { Button } from '../Button'
+import { Button, TextLink } from '../Buttons'
 import MainContainer from '../containers/Main'
 import { Loading } from '../Loading'
 
@@ -159,7 +159,7 @@ export const DepositSummary = (props: DepositSummary) => {
                         </div>
                         {!contractWriteLoading && !transactionLoading && orderDataSuccess && <Button buttonStyle="primary" buttonSize="standard" text="Finalize and commit funds" onClick={() => detfDeposit?.()} />}
                         {contractWriteLoading && !transactionLoading && <Button buttonStyle="primary" buttonSize="standard" text="Finalize and commit funds" status="loading" loadingMsg={`waiting for ${connector?.name}`} />}
-                        <div className="deposit-back-button" onClick={() => { props.setShowDepositDetails(true); props.setActiveStage(props.activeStage === "establish-deposit-summary" ? "establish-deposit-details" : "deposit-details") }}>Make changes to investment setup</div>
+                        <TextLink to="" text="Make changes to investment setup" arrowDirection="back" onClick={() => { props.setShowDepositDetails(true); props.setActiveStage(props.activeStage === "establish-deposit-summary" ? "establish-deposit-details" : "deposit-details") }} />
                     </div>
                 </ContentBox >
             </MainContainer>

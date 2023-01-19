@@ -22,10 +22,10 @@ export const ColourNumbers = (num: number) => {
 
 const ArrowNumbers = (num: number) => {
     if (num > 0) {
-        return <FontAwesomeIcon icon={icon({ name: "sort-up", style: "solid" })} />
+        return <div style={{ transform: "translateY(+15%)" }}><FontAwesomeIcon icon={icon({ name: "sort-up", style: "solid" })} /></div>
     }
     if (num < 0) {
-        return <FontAwesomeIcon icon={icon({ name: "sort-down", style: "solid" })} />
+        return <div style={{ transform: "translateY(-15%)" }}><FontAwesomeIcon icon={icon({ name: "sort-down", style: "solid" })} /></div>
     }
     return "";
 }

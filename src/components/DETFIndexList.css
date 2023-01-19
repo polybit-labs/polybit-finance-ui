@@ -24,6 +24,10 @@
 .detf-index-header-item-three-months,
 .detf-index-header-item-one-year,
 .detf-index-header-item-view {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
     font-size: 14px;
     font-weight: 700;
     padding-left: 20px;
