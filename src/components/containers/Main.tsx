@@ -7,8 +7,10 @@ type MainContainerProps = {
 
 const MainContainer = (props: MainContainerProps) => {
     return (
-        <div className="main-container">
-            {props.children}
+        <div className="main-background">
+            <div className="main-container">
+                {props.children}
+            </div>
         </div>
     )
 }

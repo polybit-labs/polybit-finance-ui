@@ -4,7 +4,7 @@ import MainContainer from '../containers/Main'
 import Footer from "./Footer"
 import { TopDETFs } from '../TopDETFs'
 
-function Home() {
+const Home = () => {
     return (
         <>
             <TitleContainer title="Invest in Decentralized ETFs" />

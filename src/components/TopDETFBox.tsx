@@ -54,7 +54,7 @@ export const TopDETFBox = (props: TopDETFBoxProps) => {
                     </div>
                     <div style={{ color: ColourNumbers(props.returnValue) }}>{parseFloat(props.returnValue ? (props.returnValue * 100).toString() : "").toFixed(2) + "%"}</div>
                 </div>
-                <div className="top-detfs-box-chart">{<ReturnChartMini height={160} width={320} period={performanceDataPeriod} performanceData={performanceData} />}</div>
+                <div className="top-detfs-box-chart">{<ReturnChartMini height={160} width={306} period={performanceDataPeriod} performanceData={performanceData} />}</div>
                 <TextLink to={`/detfs/${props.urlChainId}/${props.urlCategoryId}/${props.urlDimensionId}`} text="Invest in this strategy" underline={true} />
             </>)
     }

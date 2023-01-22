@@ -10,12 +10,12 @@ interface DETFAssetsTableProps {
 
 export const DETFOwnedAssetsTable = (props: DETFAssetsTableProps) => {
     const ownedAssets: Array<any> = []
-
+    console.log(ownedAssets)
     props.tokens?.map(token => {
         ownedAssets.push({
             "tokenAddress": token.token_address,
-            "tokenLogo": token.image,
-            "tokenName": token.name,
+            "tokenLogo": token.token_logo,
+            "tokenName": token.token_name,
             "tokenBalance": FormatCurrency((Number(token.token_balance)
                 / 10 ** 18 *
                 (() => {

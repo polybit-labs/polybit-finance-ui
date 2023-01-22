@@ -2,27 +2,46 @@
     width: 100%;
     display: flex;
     flex-direction: row;
-    background-color: #e3e3e3;
-    padding-left: 120px;
-    padding-right: 120px;
-    padding-bottom: 90px;
+    padding-bottom: 80px;
+    color: #000000;
 }
 
 .sub-title-container h2 {
+    width: 100%;
     font-size: 24px;
     font-weight: 700;
     text-decoration: none;
-    color: #000;
 }
 
 .sub-title-container p {
     font-size: 16px;
-    font-weight: 500;
-    color: #000;
+    font-weight: 400;
 }
 
 .sub-title-link {
     text-decoration: none;
     border-bottom: 2px solid #000000;
-    color: #000000
+}
+
+/* Small devices (landscape phones, 576px and up) */
+
+@media (max-width: 719px) {}
+
+/* Medium devices (tablets, 768px and up) */
+
+@media (min-width: 720px) {}
+
+
+/* Large devices (desktops, 992px and up) */
+
+@media (min-width: 960px) {}
+
+/*Extra large devices (large desktops, 1200px and up)*/
+
+@media (min-width: 1025px) {
+    .sub-title-container {
+        max-width: 1280px;
+        padding-left: 40px;
+        padding-right: 40px;
+    }
 }

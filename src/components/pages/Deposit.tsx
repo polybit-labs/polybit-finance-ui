@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import "./Deposit.css"
 import { TruncateAddress } from '../utils/Formatting'
 import { useLocation } from 'react-router-dom'
@@ -19,6 +19,13 @@ function Deposit() {
     const { data: walletBalance } = useBalance({
         addressOrName: walletOwner,
     })
+
+    useEffect(() => {
+        //Reset view on component load
+        if (activeStage === "deposit-summary") {
+            window.scrollTo(0, 650);
+        }
+    }, [activeStage])
 
     return (
         <>

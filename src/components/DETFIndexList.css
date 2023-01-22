@@ -2,10 +2,6 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    background-color: #e3e3e3;
-    padding-left: 120px;
-    padding-right: 120px;
-    padding-bottom: 160px;
 }
 
 .detf-index-header {
@@ -34,33 +30,17 @@
 }
 
 .detf-index-header-item-detf {
-    width: 25%;
+    width: 35%;
 }
 
 .detf-index-header-item-liquidity {
     width: 15%;
 }
 
-.detf-index-header-item-one-week {
-    width: 10%;
-}
-
-.detf-index-header-item-one-month {
-    width: 10%;
-}
-
-.detf-index-header-item-three-months {
-    width: 10%;
-}
-
-.detf-index-header-item-one-year {
-    width: 10%;
-}
-
-.detf-index-header-item-logos {
-    width: 10%;
-}
-
+.detf-index-header-item-one-week,
+.detf-index-header-item-one-month,
+.detf-index-header-item-three-months,
+.detf-index-header-item-one-year,
 .detf-index-header-item-view {
     width: 10%;
 }
@@ -79,7 +59,7 @@
     cursor: pointer;
     font-size: 20px;
     font-weight: 700;
-    color: #000;
+    color: #000000;
 }
 
 .detf-index-row-item-detf,
@@ -100,7 +80,7 @@
 .detf-index-row-item-detf {
     display: flex;
     flex-direction: row;
-    width: 25%;
+    width: 35%;
 }
 
 .detf-index-row-item-logo {
@@ -113,26 +93,10 @@
     width: 15%;
 }
 
-.detf-index-row-item-one-week {
-    width: 10%;
-}
-
-.detf-index-row-item-one-month {
-    width: 10%;
-}
-
-.detf-index-row-item-three-months {
-    width: 10%;
-}
-
-.detf-index-row-item-one-year {
-    width: 10%;
-}
-
-.detf-index-row-item-logos {
-    width: 10%;
-}
-
+.detf-index-row-item-one-week,
+.detf-index-row-item-one-month,
+.detf-index-row-item-three-months,
+.detf-index-row-item-one-year,
 .detf-index-row-item-view {
     width: 10%;
 }
@@ -171,18 +135,18 @@
     color: #909090;
 }
 
-.token-logo-chain-items {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: left;
-    background-color: black;
-}
+/* Small devices (landscape phones, 576px and up) */
 
-.token-logo-chain-item {
-    width: 32px;
-    height: 32px;
-    position: absolute;
-    border-radius: 50%;
-    background-color: #fff;
-}
+@media (max-width: 719px) {}
+
+/* Medium devices (tablets, 768px and up) */
+
+@media (min-width: 720px) {}
+
+/* Large devices (desktops, 992px and up) */
+
+@media (min-width: 960px) {}
+
+/*Extra large devices (large desktops, 1200px and up)*/
+
+@media (min-width: 1025px) {}

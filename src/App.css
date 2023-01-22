@@ -6,10 +6,45 @@
   ;
 }
 
-.home {
+.app {
+  width: 100vw;
   display: flex;
-  height: 90vh;
-  align-items: center;
+  flex-direction: column;
   justify-content: center;
-  font-size: 3rem;
+  align-items: center;
+  background-color: #E3E3E3;
+  font-size: 16px;
+  font-weight: 400;
+  color: #000000;
+}
+
+.app h1 {
+  font-size: 62px;
+  font-weight: 700;
+  color: #875CFF;
+}
+
+.app h2 {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+/* Small devices (landscape phones, 576px and up) */
+
+@media (max-width: 719px) {}
+
+/* Medium devices (tablets, 768px and up) */
+
+@media (min-width: 720px) {}
+
+/* Large devices (desktops, 992px and up) */
+
+@media (min-width: 960px) {}
+
+/*Extra large devices (large desktops, 1200px and up)*/
+
+@media (min-width: 1025px) {
+  /* .app {
+    max-width: 1200px;
+  } */
 }

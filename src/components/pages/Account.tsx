@@ -1,7 +1,7 @@
 import Footer from './Footer'
 import { TruncateAddress } from '../utils/Formatting'
 import { Link } from 'react-router-dom'
-import { useAccount, useBalance, useNetwork } from "wagmi"
+import { useAccount, useBalance, useNetwork, useDisconnect } from "wagmi"
 import AccountTable from '../account/AccountTable'
 import TitleContainer from '../containers/Title'
 import SubTitleContainer from '../containers/SubTitle'
@@ -16,6 +16,7 @@ import { GetHistoricalPrices } from '../api/GetHistoricalPrices'
 import wethAddress from "../../chain_info/weth.json"
 import { Connect } from '../Connect'
 import { SwitchNetwork } from '../SwitchNetwork'
+import { TextLink } from '../Buttons'
 
 type Currencies = {
     "date": string;
@@ -34,6 +35,7 @@ type Currencies = {
 const Account = () => {
     const { address: walletOwner, connector, isConnected } = useAccount()
     const [previousWalletOwner, setPreviousWalletOwner] = useState(walletOwner)
+    const { disconnect } = useDisconnect()
     useEffect(() => {
         if (previousWalletOwner !== walletOwner) {
             window.location.reload()
@@ -69,13 +71,14 @@ const Account = () => {
         setHistoricalPrices(historicalPriceData ? historicalPriceData : [])
         setCurrentPrices(currentPriceData ? currentPriceData : [])
     }, [historicalPriceData, historicalPricesSuccess, currentPriceData, currentPricesSuccess])
+    console.log(connector?.name)
 
-    const subTitle = <div>
+    const subTitle = <div style={{ width: "100%" }}>
         <div>{`You have connected Polybit to ${connector?.name} and are ready to invest in DETFs.`}</div>
         <br></br>
-        <div><p style={{ color: "#909090" }}><b>Your connected wallet: </b>
+        <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-between", alignItems: "center" }}><p style={{ color: "#909090" }}><b>Your connected wallet: </b>
             {connector?.name === "MetaMask" && <img width="20px" height="20px" src={require("../../assets/images/metamask_icon.png")} />}
-            {connector?.name === "CoinbaseWallet" && <img width="20px" height="20px" src={require("../../assets/images/coinbasewallet_icon.png")} />}
+            {connector?.name === "Coinbase Wallet" && <img width="20px" height="20px" src={require("../../assets/images/coinbasewallet_icon.png")} />}
             {connector?.name === "WalletConnect" && <img width="20px" height="20px" src={require("../../assets/images/walletconnect_icon.png")} />}
             <b>{` ${TruncateAddress(walletOwner ? walletOwner : "")} (Available funds: ${FormatCurrency(walletBalance ?
                 (Number(walletBalance.value)
@@ -93,7 +96,8 @@ const Account = () => {
                             case "TWD": return (vsPrices.twd)
                             case "USD": return (vsPrices.usd)
                         }
-                    })()) : 0, 2)})`}</b></p></div>
+                    })()) : 0, 2)})`}</b></p>
+            <TextLink to="" text="Disconnect and log out" arrowDirection="forward-logout" onClick={() => disconnect()} /></div>
     </div>
 
     const subTitleNotConnected = <div><h2>You are not currently connected to a crypto wallet. Please connect your wallet to access all of the features of this app.</h2></div>

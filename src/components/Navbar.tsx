@@ -4,13 +4,12 @@ import "./Navbar.css"
 import { CurrencyContext, CurrencyFormats } from "./utils/Currency"
 import { CurrencyDropDown } from "./dropdowns/CurrencyDropDown"
 import sortDown from "../assets/icons/sort-down-solid.svg"
-import { InlineDropDown } from './dropdowns/InlineDropDown'
 
 interface NavbarProps {
     setCurrency: Function;
 }
 
-function Navbar(props: NavbarProps) {
+const Navbar = (props: NavbarProps) => {
     const currency = useContext(CurrencyContext).currency
     const [click, setClick] = useState(false)
     const [button, setButton] = useState(true)
@@ -55,52 +54,52 @@ function Navbar(props: NavbarProps) {
     return (
         <>
             <nav className="navbar">
+                <Link to="/" className="navbar-logo-wrapper">
+                    <img className="polybit-logo" src={require("../assets/images/polybit-logo-3x.png")} alt="Polybit"></img>
+                </Link>
                 <div className="navbar-container">
-                    <Link to="/" className="navbar-logo-wrapper">
-                        <img className="polybit-logo" src={require("../assets/images/polybit-logo-3x.png")} alt="Polybit"></img>
-                    </Link>
-                </div>
-                <div className="menu-icon" onClick={handleClick}>
-                    <i className={click ? "fas fa-times" : "fas fa-bars"} />
-                </div>
-                <ul className={click ? "nav-menu active" : "nav-menu"}>
-                    <li className="nav-item">
-                        <Link to="/detfs" className="nav-links" onClick={closeMobileMenu}>
-                            DETF Index
-                        </Link>
-                    </li>
-                    <li className="nav-item">
-                        <Link to="/swap" className="nav-links" onClick={closeMobileMenu}>
-                            Swap
-                        </Link>
-                    </li>
-                    <li className="nav-item">
-                        <Link to="/account" className="nav-links" onClick={closeMobileMenu}>
-                            Account
-                        </Link>
-                    </li>
-                    <li className="nav-item">
-                        <div className="nav-currency">Base currency is&nbsp;</div>
-                        <button
-                            className="currency-format"
-                            onClick={(): void => toggleDropDown()}
-                            onBlur={(e: React.FocusEvent<HTMLButtonElement>): void =>
-                                dismissHandler(e)
-                            }
-                        >
-                            <div>{selectCurrencyFormat ? selectCurrencyFormat : "Select ..."} <img src={sortDown} height="20px" width="20px"></img></div>
-                            {showDropDown && (
-                                <CurrencyDropDown
-                                    options={CurrencyFormats()}
-                                    showDropDown={false}
-                                    toggleDropDown={(): void => toggleDropDown()}
-                                    selectedOption={currencyFormatSelection}
-                                />
+                    <div className="menu-icon" onClick={handleClick}>
+                        <i className={click ? "fas fa-times" : "fas fa-bars"} />
+                    </div>
+                    <ul className={click ? "nav-menu active" : "nav-menu"}>
+                        <li className="nav-item">
+                            <Link to="/detfs" className="nav-links" onClick={closeMobileMenu}>
+                                DETF Index
+                            </Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link to="/swap" className="nav-links" onClick={closeMobileMenu}>
+                                Swap
+                            </Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link to="/account" className="nav-links" onClick={closeMobileMenu}>
+                                Account
+                            </Link>
+                        </li>
+                        <li className="nav-item">
+                            <div className="nav-currency">Base currency is&nbsp;</div>
+                            <button
+                                className="currency-format"
+                                onClick={(): void => toggleDropDown()}
+                                onBlur={(e: React.FocusEvent<HTMLButtonElement>): void =>
+                                    dismissHandler(e)
+                                }
+                            >
+                                <div>{selectCurrencyFormat ? selectCurrencyFormat : "Select ..."} <img src={sortDown} height="20px" width="20px"></img></div>
+                                {showDropDown && (
+                                    <CurrencyDropDown
+                                        options={CurrencyFormats()}
+                                        showDropDown={false}
+                                        toggleDropDown={(): void => toggleDropDown()}
+                                        selectedOption={currencyFormatSelection}
+                                    />
 
-                            )}
-                        </button>
-                    </li>
-                </ul>
+                                )}
+                            </button>
+                        </li>
+                    </ul>
+                </div>
             </nav>
         </>
     )

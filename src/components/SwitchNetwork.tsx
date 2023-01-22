@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useSwitchNetwork, useDisconnect } from 'wagmi'
 import { Button, TextLink } from './Buttons'
@@ -8,6 +9,10 @@ export const SwitchNetwork = () => {
     const { disconnect } = useDisconnect()
     const { chains, error, isLoading, pendingChainId, switchNetwork } =
         useSwitchNetwork()
+    useEffect(() => {
+        //Reset view on component load
+        window.scrollTo(0, 0)
+    }, [])
 
     return (
         <MainContainer>

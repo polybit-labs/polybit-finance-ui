@@ -27,8 +27,7 @@ function EstablishDETF() {
     useEffect(() => {
         //Reset view on component load
         if (activeStage === "establish-deposit-details" ||
-            activeStage === "establish-deposit-summary" ||
-            activeStage === "deposit-summary") {
+            activeStage === "establish-deposit-summary") {
             window.scrollTo(0, 650);
         }
     }, [activeStage])

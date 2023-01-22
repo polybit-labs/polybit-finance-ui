@@ -13,13 +13,12 @@ import { CurrencyContext, CurrencyState } from "./components/utils/Currency"
 import { useState } from 'react'
 import { CloseDETF } from './components/pages/CloseDETF'
 import { Fees } from './components/pages/Fees';
-import { Exchange } from './components/pages/Exchange';
 import { SwitchNetwork } from './components/SwitchNetwork';
 
-function App() {
+const App = () => {
   const [currency, setCurrency] = useState<CurrencyState>({ currency: "USD" })
   return (
-    <>
+    <div className="app">
       <Router>
         <ScrollToTop>
           <CurrencyContext.Provider value={currency}>
@@ -39,7 +38,7 @@ function App() {
           </CurrencyContext.Provider>
         </ScrollToTop>
       </Router>
-    </>
+    </div>
   );
 }
 

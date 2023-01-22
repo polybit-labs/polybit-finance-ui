@@ -10,9 +10,10 @@ import { Loading } from '../Loading'
 import { InlineDropDown } from '../dropdowns/InlineDropDown'
 import sortDown from "../../assets/icons/sort-down-solid.svg"
 import { GetDETFIndexData } from '../api/GetDETFIndexData'
+import MainContainer from '../containers/Main'
 
 
-function DETFIndex() {
+const DETFIndex = () => {
     const title = "Invest in Decentralized ETFs"
     const info = "Displaying thematic investment strategies in all categories with all dimensions"
     const currency = useContext(CurrencyContext).currency
@@ -118,7 +119,9 @@ function DETFIndex() {
             <>
                 <TitleContainer title={title} />
                 <SubTitleContainer info={subTitle} />
-                <DETFIndexList detfIndex={detfData} vsPrices={vsPrices} currency={currency} categoryFilter={categoryFilter} dimensionFilter={dimensionFilter} />
+                <MainContainer>
+                    <DETFIndexList detfIndex={detfData} vsPrices={vsPrices} currency={currency} categoryFilter={categoryFilter} dimensionFilter={dimensionFilter} />
+                </MainContainer>
                 <Footer />
             </>
         )

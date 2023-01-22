@@ -1,35 +1,33 @@
 .main-container {
-    width: 100%;
     display: flex;
     flex-direction: column;
-    background-color: #e3e3e3;
-    padding-left: 120px;
-    padding-right: 120px;
+    justify-content: center;
+    align-items: center;
+    color: #000000;
+    font-size: 16px;
+    font-weight: 400;
     padding-bottom: 160px;
+    padding-top: 80px;
 }
 
 .main-container h1 {
     font-size: 62px;
     font-weight: 700;
-    color: #000;
 }
 
 .main-container h2 {
     font-size: 24px;
     font-weight: 700;
-    color: #000;
 }
 
 .main-container h3 {
     font-size: 16px;
     font-weight: 700;
-    color: #000;
 }
 
 .main-container p {
     font-size: 16px;
-    font-weight: 500;
-    color: #000;
+    font-weight: 400;
 }
 
 .box-loading {
@@ -37,4 +35,47 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+/* Small devices (landscape phones, 576px and up) */
+
+@media (max-width: 719px) {
+    .main-container {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+}
+
+/* Medium devices (tablets, 768px and up) */
+
+@media (min-width: 720px) {
+    .main-container {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+}
+
+
+/* Large devices (desktops, 992px and up) */
+
+@media (min-width: 960px) {
+    .main-container {
+        min-width: 960px;
+        max-width: 1024px;
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+}
+
+/*Extra large devices (large desktops, 1200px and up)*/
+
+@media (min-width: 1025px) {
+    .main-container {
+        min-width: 1280px;
+        max-width: 1280px;
+        /* min-width: 1280px;
+        max-width: 1280px; */
+        padding-left: 40px;
+        padding-right: 40px;
+    }
 }

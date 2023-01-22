@@ -3,15 +3,29 @@
     display: flex;
     flex-direction: row;
     align-items: left;
-    background-color: #E3E3E3;
-    padding-left: 120px;
-    padding-right: 120px;
-    padding-top: 200px;
-    padding-bottom: 90px;
+    padding-top: 160px;
+    padding-bottom: 80px;
 }
 
-.title-container h1 {
-    font-size: 62px;
-    font-weight: 700;
-    color: #875CFF;
+/* Small devices (landscape phones, 576px and up) */
+
+@media (max-width: 719px) {}
+
+/* Medium devices (tablets, 768px and up) */
+
+@media (min-width: 720px) {}
+
+
+/* Large devices (desktops, 992px and up) */
+
+@media (min-width: 960px) {}
+
+/*Extra large devices (large desktops, 1200px and up)*/
+
+@media (min-width: 1025px) {
+    .title-container {
+        max-width: 1280px;
+        padding-left: 40px;
+        padding-right: 40px;
+    }
 }

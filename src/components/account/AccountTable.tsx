@@ -160,7 +160,7 @@ export const AccountTable = (props: AccountTableProps) => {
         )
     }
     return (
-        <div>
+        <div className="account-detf-container">
             <div>
                 <div className="account-detf-header">
                     <div className="account-detf-header-item-detf" >DETF</div>

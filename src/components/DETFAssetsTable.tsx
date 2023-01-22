@@ -33,6 +33,8 @@ export const DETFAssetsTable = (props: DETFAssetsTableProps) => {
         })
     })
 
+    console.log(props.tokens)
+
     if (targetAssets) {
         const sorted = [...targetAssets].sort((a, b) =>
             a.tokenWeight < b.tokenWeight ? 1 : -1)
