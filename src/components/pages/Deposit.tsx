@@ -23,7 +23,7 @@ function Deposit() {
     useEffect(() => {
         //Reset view on component load
         if (activeStage === "deposit-summary") {
-            window.scrollTo(0, 650);
+            window.scrollTo(0, 580);
         }
     }, [activeStage])
 

@@ -76,6 +76,9 @@ export const AccountTable = (props: AccountTableProps) => {
         return (
             <>
                 <div className="account-detf-container">
+                    <div className="account-detf-title">
+                        <h1>Your portfolio</h1>
+                    </div>
                     <div className="account-detf-header">
                         <div className="account-detf-header-item-detf" onClick={() => { sorting("category"); setActiveSort("category") }}>DETF&nbsp;
                             {activeSort === "category" && order === "asc" && <FontAwesomeIcon icon={icon({ name: "sort-up", style: "solid" })} />}

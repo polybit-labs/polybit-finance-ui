@@ -130,8 +130,7 @@ export const DepositSummary = (props: DepositSummary) => {
             <MainContainer>
                 <ContentBox >
                     <div className="deposit-summary">
-                        <p>Polybit PGT20 aims to track the performance of an index (before fees and expenses) comprising 20 of the largest governance assets by liquidity on the Binance chain. The smart contract you generate at the time of investment will automatically facilitate ongoing trades to maintain pooled asset positions, as asset positions shift, leave, or enter the pool over time.
-                            Your holdings will rebalance through automated buys and sells over time to maintain a reflection of the top assets in this fund. Holding weighting is determined according to oracle data including, but not limited to, market capitalisation and daily trading volume. Assets that do not meet our risk criteria for certification or minimum liquidity thresholds may be excluded from pool inclusion. Learn more about our pool policies.</p>
+                        <p>Dessert cheesecake gummi bears dessert caramels chocolate cake. Powder wafer brownie apple pie carrot cake wafer ice cream dragée powder. Soufflé lemon drops tiramisu halvah cheesecake. Cheesecake pastry cake dragée dessert. Pie macaroon marshmallow cotton candy dragée bear claw powder. Chocolate sweet topping cheesecake candy tootsie roll topping. Halvah liquorice danish cupcake tootsie roll. </p>
                         <div className="deposit-summary-info">
                             <div className="deposit-summary-info-bar"></div>
                             <div className="deposit-summary-info-titles">
@@ -157,8 +156,10 @@ export const DepositSummary = (props: DepositSummary) => {
                                 </ul>
                             </div>
                         </div>
-                        {!contractWriteLoading && !transactionLoading && orderDataSuccess && <Button buttonStyle="primary" buttonSize="standard" text="Finalize and commit funds" onClick={() => detfDeposit?.()} />}
-                        {contractWriteLoading && !transactionLoading && <Button buttonStyle="primary" buttonSize="standard" text="Finalize and commit funds" status="loading" loadingMsg={`waiting for ${connector?.name}`} />}
+                        <div className="deposit-button-wrapper">
+                            {!contractWriteLoading && !transactionLoading && orderDataSuccess && <Button buttonStyle="primary" buttonSize="standard" text="Finalize and commit funds" onClick={() => detfDeposit?.()} />}
+                            {contractWriteLoading && !transactionLoading && <Button buttonStyle="primary" buttonSize="standard" text="Finalize and commit funds" status="loading" loadingMsg={`waiting for ${connector?.name}`} />}
+                        </div>
                         <TextLink to="" text="Make changes to investment setup" arrowDirection="back" onClick={() => { props.setShowDepositDetails(true); props.setActiveStage(props.activeStage === "establish-deposit-summary" ? "establish-deposit-details" : "deposit-details") }} />
                     </div>
                 </ContentBox >

@@ -28,7 +28,7 @@ function EstablishDETF() {
         //Reset view on component load
         if (activeStage === "establish-deposit-details" ||
             activeStage === "establish-deposit-summary") {
-            window.scrollTo(0, 650);
+            window.scrollTo(0, 580);
         }
     }, [activeStage])
 

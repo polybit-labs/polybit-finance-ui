@@ -92,14 +92,16 @@ export const EstablishDETFBox = (props: EstablishDETFBox) => {
             <MainContainer>
                 <ContentBox>
                     <div className="establish-detf-wrapper">
-                        <div className="establish-detf-header">It’s time to establish your DETF, ready for you to invest into.</div>
-                        <div ><p>Polybit’s Decentralized Exchange Traded Fund technology is deployed on an investment-by-investment basis, ensuring you are the sole custodian of your funds. Polybit does not, and will not, have control over your source of funds, your DETFs, or the investments within. </p></div>
-                        <div className="establish-detf-how-it-works"><Link className="establish-detf-how-it-works-link" to="/how-it-works">Learn more about how Polybit works</Link></div>
-                        {!prepareConfigLoading && !contractWriteLoading && <Button buttonStyle="primary" buttonSize="standard" text="Establish DETF on the blockchain" onClick={async () => createNewDETF?.()} />}
-                        {contractWriteLoading && <Button buttonStyle="primary" buttonSize="standard" text="Establish DETF on the blockchain" status="loading" loadingMsg={`waiting for ${connector?.name}`} />}
-                        {error && (
-                            <div>An error occurred preparing the transaction: {error.message}</div>
-                        )}
+                        <h2>Cake marzipan biscuit cake jelly-o cake brownie soufflé muffin.</h2>
+                        <br />
+                        <p>Marshmallow macaroon chocolate cupcake pie. Muffin jujubes sesame snaps lollipop lemon drops pudding danish shortbread danish. Pudding liquorice lollipop cheesecake icing. Bonbon jelly beans soufflé cookie jelly bear claw. Lemon drops sweet tart liquorice dragée icing wafer donut.</p>
+                        <div className="establish-detf-button-wrapper">
+                            {!prepareConfigLoading && !contractWriteLoading && <Button buttonStyle="primary" buttonSize="standard" text="Establish DETF on the blockchain" onClick={async () => createNewDETF?.()} />}
+                            {contractWriteLoading && <Button buttonStyle="primary" buttonSize="standard" text="Establish DETF on the blockchain" status="loading" loadingMsg={`waiting for ${connector?.name}`} />}
+                            {error && (
+                                <div>An error occurred preparing the transaction: {error.message}</div>
+                            )}
+                        </div>
                     </div>
                 </ContentBox>
             </MainContainer>

@@ -1,5 +1,4 @@
 import { useEffect } from 'react'
-import { Link } from 'react-router-dom'
 import { useSwitchNetwork, useDisconnect } from 'wagmi'
 import { Button, TextLink } from './Buttons'
 import MainContainer from './containers/Main'
@@ -19,7 +18,7 @@ export const SwitchNetwork = () => {
             <div className="switch-network">
                 <img className="switch-network-warning" height="120px" width="120px" src={require("./../assets/icons/warning_large.png")}></img>
                 <div className="switch-network-text">Currently, Polybit is only supported on the BNB Smart Chain. Please switch your network to continue.</div>
-                <div>
+                <div className="switch-network-button-wrapper">
                     {switchNetwork && <Button buttonStyle="primary" buttonSize="standard" text="Switch network in wallet" onClick={() => switchNetwork?.(97)} />}
                     {!switchNetwork && <Button buttonStyle="primary" buttonSize="standard" text="Switch network in wallet" status="disabled" />}
                 </div>

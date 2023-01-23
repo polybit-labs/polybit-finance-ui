@@ -105,7 +105,7 @@ const Account = () => {
     if (isConnected && !chain?.unsupported) {
         return (
             <>
-                <TitleContainer title="Account" />
+                <TitleContainer title="Your account" />
                 <SubTitleContainer info={subTitle} />
                 <MainContainer>
                     <AccountSummary

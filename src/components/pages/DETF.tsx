@@ -13,6 +13,7 @@ import { DETFSummary } from '../DETFSummary'
 import { ColourCategories, DETFIconFilename } from '../utils/Formatting'
 import { useNetwork } from 'wagmi'
 import { Button } from '../Buttons'
+import MainContainer from '../containers/Main'
 
 const DETF = () => {
     const urlChainId = useParams().urlChainId
@@ -56,54 +57,56 @@ const DETF = () => {
 
         return (
             <>
-                <div className="detf-container">
-                    <div className="detf-title-section">
-                        <div className="detf-name-wrapper">
-                            <div className="detf-name-title">
-                                <img className="detf-name-logo" src={require(`../../assets/icons/${DETFIconFilename(category, dimension)}`)}></img>
-                                <div style={{ color: ColourCategories(category) }}>{category}</div>
+                <MainContainer>
+                    <div className="detf-container">
+                        <div className="detf-title-section">
+                            <div className="detf-name-wrapper">
+                                <div className="detf-name-title">
+                                    <img className="detf-name-logo" src={require(`../../assets/icons/${DETFIconFilename(category, dimension)}`)}></img>
+                                    <div style={{ color: ColourCategories(category) }}>{category}</div>
+                                </div>
+                                <div className="detf-name-dimension">{dimension}</div>
                             </div>
-                            <div className="detf-name-dimension">{dimension}</div>
+                            <Link to="/establish-detf" state={{ category: category, dimension: dimension, productId: productId.toString(), processOrigin: "establish", activeStage: 1 }}>
+                                <Button buttonStyle="primary" buttonSize="standard" text="Invest in this DETF" />
+                            </Link>
                         </div>
-                        <Link to="/establish-detf" state={{ category: category, dimension: dimension, productId: productId.toString(), processOrigin: "establish", activeStage: 1 }}>
-                            <Button buttonStyle="primary" buttonSize="standard" text="Invest in this DETF" />
-                        </Link>
+                        <ul className="detf-content">
+                            <li className="detf-content-a">
+                                <div className="detf-description">
+                                    <h2>{descriptionTitle}</h2>
+                                    <br />
+                                    <p>{description}</p>
+                                </div>
+                                <div className="detf-chart">
+                                    <p>{category} {dimension} DETF Index Value - 3 Months</p>
+                                    <DETFReturnChart height={300} width="100%" performanceData={performanceData} />
+                                </div>
+                                <DETFSummary
+                                    productContent={productContent}
+                                    productData={productData}
+                                    performanceData={performanceData}
+                                    vsPrices={vsPrices}
+                                    currency={currency} />
+                            </li>
+                            <li className="detf-content-b">
+                                <div className="detf-assets-box">
+                                    <h2>Assets in DETF</h2>
+                                    <p>{assetTableDescription}</p>
+                                    <DETFAssetsTable tokens={tokens} />
+                                </div>
+                                <div className="native-token-message-box">
+                                    <p>“BNB” is the currency utilised for investment in the Binance Governance Top 20 DETF on the Binance Smart Chain. This can be purchased via Coinbase Wallet, and other exchanges.</p>
+                                </div>
+                                <div className="detf-button-wrapper">
+                                    <Link to="/establish-detf" state={{ category: category, dimension: dimension, productId: productId.toString() }}>
+                                        <Button buttonStyle="primary" buttonSize="standard" text="Invest in this DETF" />
+                                    </Link>
+                                </div>
+                            </li>
+                        </ul>
                     </div>
-                    <div className="detf-wrapper">
-                        <div className="detf-lhs">
-                            <div className="detf-description">
-                                <h2>{descriptionTitle}</h2>
-                                <p>{description}</p>
-                            </div>
-                            <div className="detf-chart">
-                                <p>{category} {dimension} DETF Index Value - 3 Months</p>
-                                <DETFReturnChart height={300} width="100%" performanceData={performanceData} />
-                            </div>
-                            <DETFSummary
-                                productContent={productContent}
-                                productData={productData}
-                                performanceData={performanceData}
-                                vsPrices={vsPrices}
-                                currency={currency} />
-                        </div>
-                        <div className="detf-rhs">
-                            <div className="detf-assets-box">
-                                <h2>Assets in DETF</h2>
-                                <p>{assetTableDescription}</p>
-                                <DETFAssetsTable tokens={tokens} />
-                            </div>
-                            <div className="native-token-message-box">
-                                <p>“BNB” is the currency utilised for investment in the Binance Governance Top 20 DETF on the Binance Smart Chain. This can be purchased via Coinbase Wallet, and other exchanges.</p>
-                            </div>
-                            <div className="invest-button-bottom-wrapper">
-                                <Link to="/establish-detf" state={{ category: category, dimension: dimension, productId: productId.toString() }}>
-                                    <Button buttonStyle="primary" buttonSize="standard" text="Invest in this DETF" />
-                                </Link>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
+                </MainContainer>
                 <Footer />
             </>
         )

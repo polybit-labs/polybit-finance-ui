@@ -5,6 +5,11 @@
     background-color: #e3e3e3;
 }
 
+.account-detf-title {
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
 .account-detf-header {
     width: 100%;
     display: flex;
