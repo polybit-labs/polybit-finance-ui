@@ -9,7 +9,19 @@
 
 /* Small devices (landscape phones, 576px and up) */
 
-@media (max-width: 719px) {}
+@media (max-width: 719px) {
+    .title-container {
+        max-width: 719px;
+        padding-left: 24px;
+        padding-right: 24px;
+        padding-top: 80px;
+        padding-bottom: 40px;
+    }
+
+    .title-container h1 {
+        line-height: 60px;
+    }
+}
 
 /* Medium devices (tablets, 768px and up) */
 

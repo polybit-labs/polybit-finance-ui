@@ -137,7 +137,19 @@
 
 /* Small devices (landscape phones, 576px and up) */
 
-@media (max-width: 719px) {}
+@media (max-width: 719px) {
+    .navbar {
+        max-width: 719px;
+        padding-left: 24px;
+        padding-right: 24px;
+        padding-top: 40px;
+    }
+
+    .polybit-logo {
+        width: 133px;
+        height: 37px;
+    }
+}
 
 /* Medium devices (tablets, 768px and up) */
 

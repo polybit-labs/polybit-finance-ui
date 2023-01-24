@@ -7,11 +7,9 @@ import { TopDETFs } from '../TopDETFs'
 const Home = () => {
     return (
         <>
-            <TitleContainer title="Invest in Decentralized ETFs" />
+            <TitleContainer title="Invest in ideas of the future." />
             <Hero />
-            <MainContainer>
-                <TopDETFs />
-            </MainContainer>
+            <TopDETFs />
             <Footer />
         </>
     )

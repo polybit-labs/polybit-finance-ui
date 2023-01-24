@@ -13,7 +13,6 @@
     flex-direction: row;
     justify-content: center;
     background-color: #e3e3e3;
-    display: flex;
 }
 
 .hero-middle {
@@ -21,7 +20,6 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-    display: flex;
     background-color: #875CFF;
 }
 
@@ -249,7 +247,50 @@
 
 /* Small devices (landscape phones, 576px and up) */
 
-@media (max-width: 719px) {}
+@media (max-width: 719px) {
+    .hero-top-middle {
+        height: 73px;
+        width: 100%;
+        justify-content: right;
+        align-items: right;
+        background-image: url("../assets/images/geometric-assets-mobile-top-3x.png");
+        background-size: 320px 73px;
+        background-repeat: no-repeat;
+        background-position: bottom right;
+    }
+
+    .hero-middle-middle {
+        min-height: 200px;
+        width: 100%;
+        justify-content: right;
+        align-items: right;
+        background-image: url("../assets/images/geometric-assets-mobile-bottom-3x.png");
+        background-size: 320px 148px;
+        background-repeat: no-repeat;
+        background-position: top right;
+    }
+
+    .hero-middle-content {
+        margin-left: 24px;
+        padding-top: 80px;
+        padding-right: 24px;
+        padding-bottom: 40px;
+    }
+
+    .hero-middle-content h1 {
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 30px;
+        margin-bottom: 20px;
+        letter-spacing: -1px;
+    }
+
+    .hero-middle-content p {
+        font-weight: 400;
+        font-size: 16px;
+        letter-spacing: -0.5px;
+    }
+}
 
 /* Medium devices (tablets, 768px and up) */
 

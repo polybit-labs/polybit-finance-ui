@@ -2,6 +2,8 @@
     width: 100%;
     display: flex;
     flex-direction: column;
+    margin-top: 80px;
+    margin-bottom: 160px;
 }
 
 .detf-index-header {
@@ -149,4 +151,10 @@
 
 /*Extra large devices (large desktops, 1200px and up)*/
 
-@media (min-width: 1025px) {}
+@media (min-width: 1025px) {
+    .detf-index-container {
+        max-width: 1280px;
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+}

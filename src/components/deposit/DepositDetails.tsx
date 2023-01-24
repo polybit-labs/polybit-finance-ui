@@ -141,7 +141,7 @@ export const DepositDetails = (props: DepositDetails) => {
             <ContentBox>
                 <div className="deposit-box">
                     <h2>Available {props.walletBalance?.symbol} in your {props.connector?.name} is {parseFloat((props.walletBalance.formatted).toString()).toFixed(4)} ({walletBalanceCurrency})</h2>
-                    <div className="deposit-box-notification"><p>{props.walletBalance?.symbol} is required to invest in the {props.category} {props.dimension}, but you do not currently have any BNB in your {props.connector?.name}. [insert Banxa or CB speil]</p></div>
+                    {/* <div className="deposit-box-notification"><p>{props.walletBalance?.symbol} is required to invest in the {props.category} {props.dimension}, but you do not currently have any BNB in your {props.connector?.name}. [insert Banxa or CB speil]</p></div> */}
                     <div className="deposit-box-form">
                         <div className="deposit-amount-input-title">{props.walletBalance?.symbol} amount:</div>
                         <div><input className="deposit-amount-input" type="number" value={depositInputValue} onChange={onChangeDeposit} placeholder="BNB 10.000" /></div>

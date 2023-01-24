@@ -17,6 +17,7 @@ import { GetProductData, ProductData } from "../api/GetProductData";
 import { DETFAssetsTable } from "../DETFAssetsTable";
 import { Button } from "../Buttons";
 import { useNetwork } from "wagmi";
+import { GetFinalAssetsDetailed } from "../api/GetFinalAssetsDetailed";
 
 interface AccountTableRowItems {
     category: string;
@@ -71,6 +72,8 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
 
     const { response: ownedAssets, isLoading, isSuccess } = GetOwnedAssetsDetailed(props.detf_address)
     const ownedAssetsDetailed = ownedAssets ? ownedAssets : []
+    const { response: finalAssets } = GetFinalAssetsDetailed(props.detf_address)
+    const finalAssetsDetailed = finalAssets ? finalAssets : []
     const { response: owner } = GetOwner(props.detf_address)
     const { response: performanceDataRange, isSuccess: performanceDataRangeSuccess } = GetPerformanceDataRange(performanceUrl, props.creation_timestamp, props.close_timestamp > 0 ? props.close_timestamp : moment.now())
     const [performanceData, setPerformanceData] = useState<Array<PerformanceDataRange>>([])
@@ -358,7 +361,7 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
                                 <p>Wafer gingerbread bonbon gummies biscuit candy danish cupcake. Cookie liquorice chocolate cake bonbon candy canes tiramisu sugar plum gummies bear claw.</p>
                                 {isDETFActive && isDETFDeposited && <DETFOwnedAssetsTable tokens={ownedAssetsDetailed} vsPrices={props.vsPrices} currency={props.currency} />}
                                 {isDETFActive && !isDETFDeposited && <DETFAssetsTable tokens={productData ? productData.tokens : []} />}
-                                {!isDETFActive && <div>INSERT LAST ASSETS OWNED</div>}
+                                {!isDETFActive && <DETFOwnedAssetsTable tokens={finalAssetsDetailed} vsPrices={props.vsPrices} currency={props.currency} />}
                             </div>
                             <div className="account-detf-expanded-content-right-proof-of-assets">
                                 <h2>Proof of assets</h2>

@@ -148,9 +148,12 @@ export const AccountTable = (props: AccountTableProps) => {
     }
     if (props.detfAccountsSuccess && detfAccounts.length === 0) {
         return (
-            <>
+            <><div className="account-detf-container">
+                <div className="account-detf-title">
+                    <h1>Your portfolio</h1>
+                </div>
                 <div className="account-detf-container-placeholder">
-                    <img src={require("../../assets/images/account_table_row_placeholder.png")}></img>
+                    {/* <img src={require("../../assets/images/account_table_row_placeholder.png")}></img> */}
                     <div className="account-detf-container-placeholder-overlay">
                     </div>
                     <div className="account-detf-container-placeholder-overlay-info">
@@ -159,11 +162,15 @@ export const AccountTable = (props: AccountTableProps) => {
                         <Link to="/detfs"><Button text="Explore Polybit DETFs" buttonStyle="primary" buttonSize="standard" /></Link>
                     </div>
                 </div>
+            </div>
             </>
         )
     }
     return (
         <div className="account-detf-container">
+            <div className="account-detf-title">
+                <h1>Your portfolio</h1>
+            </div>
             <div>
                 <div className="account-detf-header">
                     <div className="account-detf-header-item-detf" >DETF</div>

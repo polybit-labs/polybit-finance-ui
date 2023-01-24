@@ -54,9 +54,11 @@ const Navbar = (props: NavbarProps) => {
     return (
         <>
             <nav className="navbar">
-                <Link to="/" className="navbar-logo-wrapper">
-                    <img className="polybit-logo" src={require("../assets/images/polybit-logo-3x.png")} alt="Polybit"></img>
-                </Link>
+                <div className="navbar-logo-wrapper">
+                    <Link to="/">
+                        <img className="polybit-logo" src={require("../assets/images/polybit-logo-3x.png")} alt="Polybit"></img>
+                    </Link>
+                </div>
                 <div className="navbar-container">
                     <div className="menu-icon" onClick={handleClick}>
                         <i className={click ? "fas fa-times" : "fas fa-bars"} />

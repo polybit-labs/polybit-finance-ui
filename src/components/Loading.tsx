@@ -7,7 +7,7 @@ interface Loading {
 export const Loading = (props: Loading) => {
     return (
         <div className="loading">
-            <img height="90px" width="90px" src={require("../assets/images/loading.gif")} alt="Loading"></img>
+            <img height="100px" width="100px" src={require("../assets/images/polybit-loader-black-on-dark-grey-100px.gif")} alt="Loading"></img>
             <div className="loading-message">{props.loadingMsg}</div>
         </div>
     )

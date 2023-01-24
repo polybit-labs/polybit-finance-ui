@@ -43,7 +43,7 @@ export const TopDETFBox = (props: TopDETFBoxProps) => {
 
     if (performanceData && performanceDataSuccess && props.returnValue) {
         return (
-            <>
+            <div className="top-detfs-box">
                 <div className="top-detfs-box-header">
                     <div className="top-detfs-box-header-title">
                         <img className="top-detfs-box-header-title-logo" src={require(`../assets/icons/${DETFIconFilename(props.category, props.dimension)}`)}></img>
@@ -52,11 +52,11 @@ export const TopDETFBox = (props: TopDETFBoxProps) => {
                             <div className="top-detfs-box-header-title-name-dimension" style={{ color: "#000000" }}>{props.dimension}</div>
                         </div>
                     </div>
-                    <div style={{ color: ColourNumbers(props.returnValue) }}>{parseFloat(props.returnValue ? (props.returnValue * 100).toString() : "").toFixed(2) + "%"}</div>
+                    <div className="top-detfs-box-header-return" style={{ color: ColourNumbers(props.returnValue) }}>{parseFloat(props.returnValue ? (props.returnValue * 100).toString() : "").toFixed(2) + "%"}</div>
                 </div>
-                <div className="top-detfs-box-chart">{<ReturnChartMini height={160} width={306} period={performanceDataPeriod} performanceData={performanceData} />}</div>
+                <div className="top-detfs-box-chart">{<ReturnChartMini height={88} width="100%" period={performanceDataPeriod} performanceData={performanceData} />}</div>
                 <TextLink to={`/detfs/${props.urlChainId}/${props.urlCategoryId}/${props.urlDimensionId}`} text="Invest in this strategy" underline={true} />
-            </>)
+            </div>)
     }
     return (
         <div></div>

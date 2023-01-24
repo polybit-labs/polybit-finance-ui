@@ -19,7 +19,7 @@ export const Connect = () => {
     const walletConnectConnector = connectors[2]
 
     return (
-        <><div className="connect-provider">
+        <div className="connect-provider">
             <div className="connect-provider-box">
                 <img className="coinbase-logo" src={require("../assets/images/coinbase-logo.png")} alt="Connect to Coinbase"></img>
                 {!coinbaseConnector.ready && <Button buttonStyle="primary" buttonSize="standard" status="disabled" text="Use Coinbase" />}
@@ -44,10 +44,9 @@ export const Connect = () => {
                 {isLoading && walletConnectConnector.id === pendingConnector?.id && <Button buttonStyle="primary" buttonSize="standard" status="loading" text="Use WalletConnect" loadingMsg={`waiting for ${walletConnectConnector.id}`} />}
                 {walletConnectConnector.id === connector?.id && <Button buttonStyle="primary" buttonSize="standard" text="Connected" />}
             </div>
-        </div >
             <div className="connect-provider-notice">
                 Wallets are provided by external providers and by selecting you agree to Terms of those Providers.&nbsp;
                 {isConnected && <div className="disconnect-button" onClick={() => disconnect()}>Disconnect my wallet.</div>}
             </div>
-        </>)
+        </div >)
 }

@@ -119,9 +119,7 @@ const DETFIndex = () => {
             <>
                 <TitleContainer title={title} />
                 <SubTitleContainer info={subTitle} />
-                <MainContainer>
-                    <DETFIndexList detfIndex={detfData} vsPrices={vsPrices} currency={currency} categoryFilter={categoryFilter} dimensionFilter={dimensionFilter} />
-                </MainContainer>
+                <DETFIndexList detfIndex={detfData} vsPrices={vsPrices} currency={currency} categoryFilter={categoryFilter} dimensionFilter={dimensionFilter} />
                 <Footer />
             </>
         )

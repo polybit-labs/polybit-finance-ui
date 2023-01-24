@@ -139,9 +139,7 @@ const Account = () => {
         <>
             <TitleContainer title="Account" />
             <SubTitleContainer info={subTitleNotConnected} />
-            <MainContainer>
-                <Connect />
-            </MainContainer>
+            <Connect />
             <Footer />
         </>
     )

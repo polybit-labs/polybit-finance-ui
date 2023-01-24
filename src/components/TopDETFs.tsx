@@ -60,7 +60,7 @@ export const TopDETFs = () => {
             <h2>{title}</h2>
             <ul className="top-detfs-boxes">
                 {topDETFData ? topDETFData.map((detf, index) =>
-                    <div key={index}><li className="top-detfs-box">
+                    <div key={index}><li>
                         <TopDETFBox
                             category={detf.category}
                             dimension={detf.dimension}

@@ -69,6 +69,12 @@
 }
 
 .account-detf-container-placeholder {
+    width: 1200px;
+    height: 712px;
+    background-image: url("../../assets/images/account_table_row_placeholder.png");
+    background-size: 1200px 712px;
+    background-repeat: no-repeat;
+    background-position: bottom right;
     position: relative;
 }
 

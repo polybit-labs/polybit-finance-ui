@@ -4,6 +4,7 @@
     flex-direction: column;
     align-items: left;
     background-color: #e3e3e3;
+    padding-top: 80px;
 }
 
 .connect-provider-box {
@@ -15,10 +16,10 @@
     background-color: #eeeeee;
     margin-bottom: 20px;
     border: 1px solid white;
-    padding-left: 25px;
-    padding-right: 25px;
-    padding-top: 40px;
-    padding-bottom: 40px;
+    padding-left: 24px;
+    padding-right: 24px;
+    padding-top: 60px;
+    padding-bottom: 60px;
 }
 
 .connect-provider-notice {
@@ -27,6 +28,7 @@
     background-color: #e3e3e3;
     padding-left: 120px;
     padding-right: 120px;
+    padding-bottom: 160px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -35,44 +37,24 @@
     color: #909090;
 }
 
-.disconnect-button {
-    border: none;
-    background-color: transparent;
-    font-size: 12px;
-    color: #909090;
-}
+/* Small devices (landscape phones, 576px and up) */
 
-.disconnect-button:hover {
-    color: #000000;
-    text-decoration: underline;
-}
+@media (max-width: 719px) {}
 
-.connect-wallet-button-primary {
-    padding: 8px 20px;
-    border-radius: 4px;
-    outline: none;
-    border: 2px solid #000000;
-    cursor: pointer;
-    background-color: #000000;
-    color: #fff;
-    padding: 12px 26px;
-    width: 224px;
-    height: 66px;
-    font-size: 16px;
-    font-weight: 700;
-}
+/* Medium devices (tablets, 768px and up) */
 
-.connect-wallet-button-secondary {
-    padding: 8px 20px;
-    border-radius: 4px;
-    outline: none;
-    border: 2px solid #000000;
-    cursor: pointer;
-    background-color: transparent;
-    color: #000000;
-    padding: 12px 26px;
-    width: 224px;
-    height: 66px;
-    font-size: 16px;
-    font-weight: 700;
+@media (min-width: 720px) {}
+
+/* Large devices (desktops, 992px and up) */
+
+@media (min-width: 960px) {}
+
+/*Extra large devices (large desktops, 1200px and up)*/
+
+@media (min-width: 1025px) {
+    .connect-provider {
+        max-width: 1280px;
+        padding-left: 40px;
+        padding-right: 40px;
+    }
 }

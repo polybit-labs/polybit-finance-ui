@@ -12,8 +12,8 @@ const Hero = () => {
                 <div className="hero-middle-left"></div>
                 <div className="hero-middle-middle">
                     <div className="hero-middle-content">
-                        <h1>A brand new way to invest in next generation assets. Simple, fast, secure.</h1>
-                        <p>Introducing Polybit Decentralized Exchange Traded Funds. With a single DETF transaction, get diversified exposure to pools of top performing cryptoassets - such as the Binance DeFi Top 20 - across categories including Web3 gaming, NFTs, IoT, and more...</p>
+                        <h1>Chocolate bar donut fruitcake powder tootsie roll.</h1>
+                        <p>Brownie candy canes carrot cake carrot cake ice cream candy tart marshmallow jelly beans. Soufflé cookie biscuit carrot cake jujubes cake toffee oat cake. Soufflé sugar plum jelly beans cake jujubes fruitcake icing gingerbread. Icing candy donut cheesecake cookie marzipan.</p>
                     </div>
                 </div>
                 <div className="hero-middle-right"></div>

@@ -26,7 +26,8 @@ function EstablishDETF() {
 
     useEffect(() => {
         //Reset view on component load
-        if (activeStage === "establish-deposit-details" ||
+        if (activeStage === "establish" ||
+            activeStage === "establish-deposit-details" ||
             activeStage === "establish-deposit-summary") {
             window.scrollTo(0, 580);
         }
@@ -68,9 +69,7 @@ function EstablishDETF() {
         <>
             <TitleContainer title={title} />
             <SubTitleContainer info={subTitleNotConnected} />
-            <MainContainer>
-                <Connect />
-            </MainContainer>
+            <Connect />
             <Footer />
         </>
     )
