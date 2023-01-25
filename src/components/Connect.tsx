@@ -21,7 +21,7 @@ export const Connect = () => {
     return (
         <div className="connect-provider">
             <div className="connect-provider-box">
-                <img className="coinbase-logo" src={require("../assets/images/coinbase-logo.png")} alt="Connect to Coinbase"></img>
+                <img className="provider-logo" src={require("../assets/images/coinbase-logo.png")} alt="Connect to Coinbase"></img>
                 {!coinbaseConnector.ready && <Button buttonStyle="primary" buttonSize="standard" status="disabled" text="Use Coinbase" />}
                 {!isLoading && coinbaseConnector.ready && coinbaseConnector.id !== connector?.id && <Button buttonStyle="primary" buttonSize="standard" text="Use Coinbase" onClick={() => connect({ connector: coinbaseConnector })} />}
                 {isLoading && coinbaseConnector.id !== pendingConnector?.id && <Button buttonStyle="primary" buttonSize="standard" text="Use Coinbase" />}
@@ -29,7 +29,7 @@ export const Connect = () => {
                 {coinbaseConnector.id === connector?.id && <Button buttonStyle="primary" buttonSize="standard" text="Connected" />}
             </div>
             <div className="connect-provider-box">
-                <img className="metamask-logo" src={require("../assets/images/metamask-logo.png")} alt="Connect to MetaMask"></img>
+                <img className="provider-logo" src={require("../assets/images/metamask-logo.png")} alt="Connect to MetaMask"></img>
                 {!metamaskConnector.ready && <Button buttonStyle="primary" buttonSize="standard" status="disabled" text="Use MetaMask" />}
                 {!isLoading && metamaskConnector.ready && metamaskConnector.id !== connector?.id && <Button buttonStyle="primary" buttonSize="standard" text="Use MetaMask" onClick={() => connect({ connector: metamaskConnector })} />}
                 {isLoading && metamaskConnector.id !== pendingConnector?.id && <Button buttonStyle="primary" buttonSize="standard" text="Use MetaMask" />}
@@ -37,7 +37,7 @@ export const Connect = () => {
                 {metamaskConnector.id === connector?.id && <Button buttonStyle="primary" buttonSize="standard" text="Connected" />}
             </div>
             <div className="connect-provider-box">
-                <img className="walletconnect-logo" src={require("../assets/images/walletconnect-logo.png")} alt="Connect to WalletConnect"></img>
+                <img className="provider-logo" src={require("../assets/images/walletconnect-logo.png")} alt="Connect to WalletConnect"></img>
                 {!walletConnectConnector.ready && <Button buttonStyle="primary" buttonSize="standard" status="disabled" text="Use WalletConnect" />}
                 {!isLoading && walletConnectConnector.ready && walletConnectConnector.id !== connector?.id && <Button buttonStyle="primary" buttonSize="standard" text="Use WalletConnect" onClick={() => connect({ connector: walletConnectConnector })} />}
                 {isLoading && walletConnectConnector.id !== pendingConnector?.id && <Button buttonStyle="primary" buttonSize="standard" text="Use WalletConnect" />}

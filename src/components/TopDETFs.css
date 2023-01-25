@@ -102,24 +102,48 @@
 
 /* Medium devices (tablets, 768px and up) */
 
-@media (min-width: 720px) {}
+@media (min-width: 720px) {
+    .top-detfs-container {
+        max-width: 721px;
+    }
+
+    .top-detfs-boxes {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-column-gap: 24px;
+    }
+
+    .top-detfs-box {
+        height: 300px;
+    }
+}
 
 /* Large devices (desktops, 992px and up) */
 
-@media (min-width: 960px) {}
+@media (min-width: 960px) {
+    .top-detfs-container {
+        max-width: 1024px;
+    }
+
+    .top-detfs-boxes {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-column-gap: 24px;
+    }
+
+    .top-detfs-box {
+        height: 300px;
+    }
+}
 
 /*Extra large devices (large desktops, 1200px and up)*/
 
 @media (min-width: 1025px) {
     .top-detfs-container {
         max-width: 1200px;
-        background-color: pink;
     }
 
     .top-detfs-boxes {
         grid-template-columns: repeat(3, minmax(0, 1fr));
         grid-column-gap: 24px;
-        background-color: blue;
     }
 
     .top-detfs-box {

@@ -116,22 +116,27 @@ const DETFIndexList = (props: DETFIndexListProps) => {
                     <div className="detf-index-header">
                         <div className="detf-index-header-item-detf"></div>
                         <div className="detf-index-header-item-liquidity" onClick={() => { sorting("liquidity"); setActiveSort("liquidity") }}>Liquidity&nbsp;
+                            {activeSort !== "liquidity" && <div style={{ transform: "translateY(+18%)", fontSize: "20px", color: "#E3E3E3" }}><FontAwesomeIcon icon={icon({ name: "sort-up", style: "solid" })} /></div>}
                             {activeSort === "liquidity" && order === "asc" && <div style={{ transform: "translateY(+18%)", fontSize: "20px" }}><FontAwesomeIcon icon={icon({ name: "sort-up", style: "solid" })} /></div>}
                             {activeSort === "liquidity" && order === "dsc" && <div style={{ transform: "translateY(-16%)", fontSize: "20px" }}><FontAwesomeIcon icon={icon({ name: "sort-down", style: "solid" })} /></div>}
                         </div>
                         <div className="detf-index-header-item-one-week" onClick={() => { sorting("returnOneWeek"); setActiveSort("returnOneWeek") }}>1 Week&nbsp;
+                            {activeSort !== "returnOneWeek" && <div style={{ transform: "translateY(+18%)", fontSize: "20px", color: "#E3E3E3" }}><FontAwesomeIcon icon={icon({ name: "sort-up", style: "solid" })} /></div>}
                             {activeSort === "returnOneWeek" && order === "asc" && <div style={{ transform: "translateY(+18%)", fontSize: "20px" }}><FontAwesomeIcon icon={icon({ name: "sort-up", style: "solid" })} /></div>}
                             {activeSort === "returnOneWeek" && order === "dsc" && <div style={{ transform: "translateY(-16%)", fontSize: "20px" }}><FontAwesomeIcon icon={icon({ name: "sort-down", style: "solid" })} /></div>}
                         </div>
                         <div className="detf-index-header-item-one-month" onClick={() => { sorting("returnOneMonth"); setActiveSort("returnOneMonth") }}>1 Month&nbsp;
+                            {activeSort !== "returnOneMonth" && <div style={{ transform: "translateY(+18%)", fontSize: "20px", color: "#E3E3E3" }}><FontAwesomeIcon icon={icon({ name: "sort-up", style: "solid" })} /></div>}
                             {activeSort === "returnOneMonth" && order === "asc" && <div style={{ transform: "translateY(+18%)", fontSize: "20px" }}><FontAwesomeIcon icon={icon({ name: "sort-up", style: "solid" })} /></div>}
                             {activeSort === "returnOneMonth" && order === "dsc" && <div style={{ transform: "translateY(-16%)", fontSize: "20px" }}><FontAwesomeIcon icon={icon({ name: "sort-down", style: "solid" })} /></div>}
                         </div>
                         <div className="detf-index-header-item-three-months" onClick={() => { sorting("returnThreeMonths"); setActiveSort("returnThreeMonths") }}>3 Months&nbsp;
+                            {activeSort !== "returnThreeMonths" && <div style={{ transform: "translateY(+18%)", fontSize: "20px", color: "#E3E3E3" }}><FontAwesomeIcon icon={icon({ name: "sort-up", style: "solid" })} /></div>}
                             {activeSort === "returnThreeMonths" && order === "asc" && <div style={{ transform: "translateY(+18%)", fontSize: "20px" }}><FontAwesomeIcon icon={icon({ name: "sort-up", style: "solid" })} /></div>}
                             {activeSort === "returnThreeMonths" && order === "dsc" && <div style={{ transform: "translateY(-16%)", fontSize: "20px" }}><FontAwesomeIcon icon={icon({ name: "sort-down", style: "solid" })} /></div>}
                         </div>
                         <div className="detf-index-header-item-one-year" onClick={() => { sorting("returnOneYear"); setActiveSort("returnOneYear") }}>1 Year&nbsp;
+                            {activeSort !== "returnOneYear" && <div style={{ transform: "translateY(+18%)", fontSize: "20px", color: "#E3E3E3" }}><FontAwesomeIcon icon={icon({ name: "sort-up", style: "solid" })} /></div>}
                             {activeSort === "returnOneYear" && order === "asc" && <div style={{ transform: "translateY(+18%)", fontSize: "20px" }}><FontAwesomeIcon icon={icon({ name: "sort-up", style: "solid" })} /></div>}
                             {activeSort === "returnOneYear" && order === "dsc" && <div style={{ transform: "translateY(-16%)", fontSize: "20px" }}><FontAwesomeIcon icon={icon({ name: "sort-down", style: "solid" })} /></div>}
                         </div>
