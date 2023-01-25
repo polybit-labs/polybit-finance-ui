@@ -14,7 +14,7 @@ import MainContainer from '../containers/Main'
 
 
 const DETFIndex = () => {
-    const title = "Invest in Decentralized ETFs"
+    const title = "Invest in Decentralised ETFs"
     const info = "Displaying thematic investment strategies in all categories with all dimensions"
     const currency = useContext(CurrencyContext).currency
     const { response: prices, isLoading: pricesLoading, isSuccess: pricesSuccess } = GetPriceVsCurrency("0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c")
@@ -57,7 +57,7 @@ const DETFIndex = () => {
 
     const categories = ["All Categories"]
     const dimensions = ["All Dimensions"]
-    const subTitle = <div>Displaying thematic investment strategies in <button
+    const subTitle = <div>Displaying investment strategies in <button
         className="inline-dropdown"
         onClick={(): void => { toggleCategoryDropDown(); setDimensionFilter("All Dimensions") }}
         onBlur={(e: React.FocusEvent<HTMLButtonElement>): void =>

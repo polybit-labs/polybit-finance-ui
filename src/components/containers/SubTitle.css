@@ -2,12 +2,12 @@
     width: 100%;
     display: flex;
     flex-direction: row;
+    padding-left: 40px;
+    padding-right: 40px;
 }
 
 .sub-title-container h2 {
     width: 100%;
-    font-size: 24px;
-    font-weight: 700;
     text-decoration: none;
 }
 
@@ -23,7 +23,16 @@
 
 /* Small devices (landscape phones, 576px and up) */
 
-@media (max-width: 719px) {}
+@media (max-width: 719px) {
+    .sub-title-container {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+
+    .sub-title-container h2 {
+        font-size: 20px;
+    }
+}
 
 /* Medium devices (tablets, 768px and up) */
 
@@ -39,7 +48,5 @@
 @media (min-width: 1025px) {
     .sub-title-container {
         max-width: 1280px;
-        padding-left: 40px;
-        padding-right: 40px;
     }
 }

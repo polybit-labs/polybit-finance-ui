@@ -5,6 +5,8 @@
     align-items: left;
     padding-top: 160px;
     padding-bottom: 80px;
+    padding-left: 40px;
+    padding-right: 40px;
 }
 
 /* Small devices (landscape phones, 576px and up) */
@@ -19,7 +21,8 @@
     }
 
     .title-container h1 {
-        line-height: 60px;
+        font-size: 40px;
+        line-height: 50px;
     }
 }
 
@@ -37,7 +40,5 @@
 @media (min-width: 1025px) {
     .title-container {
         max-width: 1280px;
-        padding-left: 40px;
-        padding-right: 40px;
     }
 }
