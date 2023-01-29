@@ -76,7 +76,7 @@ const Account = () => {
     const subTitle = <div style={{ width: "100%" }}>
         <div>{`You have connected Polybit to ${connector?.name} and are ready to invest in DETFs.`}</div>
         <br></br>
-        <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-between", alignItems: "center" }}><p style={{ color: "#909090" }}><b>Your connected wallet: </b>
+        <div className="sub-title-info" ><p style={{ color: "#909090" }}><b>Your connected wallet: </b>
             {connector?.name === "MetaMask" && <img width="20px" height="20px" src={require("../../assets/images/metamask_icon.png")} />}
             {connector?.name === "Coinbase Wallet" && <img width="20px" height="20px" src={require("../../assets/images/coinbasewallet_icon.png")} />}
             {connector?.name === "WalletConnect" && <img width="20px" height="20px" src={require("../../assets/images/walletconnect_icon.png")} />}
@@ -107,25 +107,23 @@ const Account = () => {
             <>
                 <TitleContainer title="Your account" />
                 <SubTitleContainer info={subTitle} />
-                <MainContainer>
-                    <AccountSummary
-                        detfAccounts={detfAccounts}
-                        detfAccountsSuccess={detfAccountsSuccess}
-                        detfAccountsData={detfAccountsData}
-                        detfAccountsDataSuccess={detfAccountsDataSuccess}
-                        vsPrices={vsPrices}
-                        currency={currency}
-                    />
-                    <AccountTable
-                        detfAccounts={detfAccounts}
-                        detfAccountsSuccess={detfAccountsSuccess}
-                        detfAccountsData={detfAccountsData}
-                        vsPrices={vsPrices}
-                        currency={currency}
-                        historicalPrices={historicalPrices}
-                        currentPrices={currentPrices}
-                    />
-                </MainContainer>
+                <AccountSummary
+                    detfAccounts={detfAccounts}
+                    detfAccountsSuccess={detfAccountsSuccess}
+                    detfAccountsData={detfAccountsData}
+                    detfAccountsDataSuccess={detfAccountsDataSuccess}
+                    vsPrices={vsPrices}
+                    currency={currency}
+                />
+                <AccountTable
+                    detfAccounts={detfAccounts}
+                    detfAccountsSuccess={detfAccountsSuccess}
+                    detfAccountsData={detfAccountsData}
+                    vsPrices={vsPrices}
+                    currency={currency}
+                    historicalPrices={historicalPrices}
+                    currentPrices={currentPrices}
+                />
                 <Footer />
             </>
         )

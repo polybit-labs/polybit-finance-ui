@@ -21,6 +21,13 @@
     border-bottom: 2px solid #000000;
 }
 
+.sub-title-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
 /* Small devices (landscape phones, 576px and up) */
 
 @media (max-width: 719px) {
@@ -31,6 +38,12 @@
 
     .sub-title-container h2 {
         font-size: 20px;
+    }
+
+    .sub-title-info {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
     }
 }
 

@@ -4,7 +4,7 @@ import axios from "axios"
 import apiURL from "./api-info.json"
 
 export const GetOwner = (detfAddress: string) => {
-    const [response, setResponse] = useState<Array<any>>()
+    const [response, setResponse] = useState<string>()
     const network = useNetwork()
     const rpc = network.chain?.rpcUrls.default
     let isLoading: boolean

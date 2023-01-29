@@ -2,7 +2,10 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    background-color: #e3e3e3;
+    padding-top: 80px;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-bottom: 160px;
 }
 
 .account-detf-title {
@@ -14,58 +17,48 @@
     width: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
     align-items: center;
     cursor: default;
 }
 
-.account-detf-header-item {
-    width: 20%;
+.account-detf-header-item-detf,
+.account-detf-header-item-value,
+.account-detf-header-item-return,
+.account-detf-header-item-timelock,
+.account-detf-header-item-deposit,
+.account-detf-header-item-toggle {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
     font-size: 14px;
     font-weight: 700;
     padding-left: 20px;
+    cursor: pointer;
 }
 
 .account-detf-header-item-detf {
     width: 30%;
-    font-size: 14px;
-    font-weight: 700;
-    padding-left: 20px;
 }
 
 .account-detf-header-item-value {
     width: 15%;
-    font-size: 14px;
-    font-weight: 700;
-    padding-left: 20px;
 }
 
 .account-detf-header-item-return {
     width: 10%;
-    font-size: 14px;
-    font-weight: 700;
-    padding-left: 20px;
 }
 
 .account-detf-header-item-timelock {
     width: 25%;
-    font-size: 14px;
-    font-weight: 700;
-    padding-left: 20px;
 }
 
 .account-detf-header-item-deposit {
     width: 10%;
-    font-size: 14px;
-    font-weight: 700;
-    padding-left: 20px;
 }
 
 .account-detf-header-item-toggle {
     width: 10%;
-    font-size: 14px;
-    font-weight: 700;
-    padding-left: 20px;
 }
 
 .account-detf-container-placeholder {
@@ -113,4 +106,82 @@
     font-size: 24px;
     font-weight: 700;
     padding-top: 100px;
+}
+
+/* Small devices (landscape phones, 576px and up) */
+
+@media (max-width: 719px) {
+    .account-detf-header {
+        display: none;
+    }
+
+    .account-detf-title {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+
+    .account-detf-container {
+        padding-top: 40px;
+        padding-bottom: 80px;
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+
+    .account-detf-title h1 {
+        font-size: 40px;
+        line-height: 50px;
+    }
+
+    .account-detf-header-mobile {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        cursor: default;
+        font-weight: 700;
+    }
+
+    .account-detf-header-item-detf-mobile,
+    .account-detf-header-item-value-mobile,
+    .account-detf-header-item-return-mobile,
+    .account-detf-header-item-timelock-mobile,
+    .account-detf-header-item-deposit-mobile,
+    .account-detf-header-item-toggle-mobile {
+        display: flex;
+        flex-direction: row;
+        justify-content: left;
+        align-items: center;
+        font-size: 14px;
+        font-weight: 700;
+        cursor: pointer;
+    }
+}
+
+/* Medium devices (tablets, 768px and up) */
+
+@media (min-width: 720px) {
+    .account-detf-header-mobile {
+        display: none;
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+
+@media (min-width: 960px) {
+    .account-detf-header-mobile {
+        display: none;
+    }
+}
+
+/*Extra large devices (large desktops, 1200px and up)*/
+
+@media (min-width: 1025px) {
+    .account-detf-header-mobile {
+        display: none;
+    }
+
+    .account-detf-container {
+        max-width: 1280px;
+    }
 }

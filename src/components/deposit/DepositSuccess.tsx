@@ -1,8 +1,8 @@
 
-import { useEffect } from 'react';
-import { Link } from 'react-router-dom'
-import { TextLink } from '../Buttons';
-import MainContainer from '../containers/Main';
+import { useEffect } from 'react'
+import { TextLink } from '../Buttons'
+import MainContainer from '../containers/Main'
+import "./DepositSuccess.css"
 
 interface DepositSuccess {
     category: string;
@@ -15,12 +15,10 @@ export const DepositSuccess = (props: DepositSuccess) => {
     }, []);
 
     return (
-        <MainContainer>
-            <div className="deposit-success">
-                <img className="deposit-success-tick" height="120px" width="120px" src={require("../../assets/icons/success_tick.png")}></img>
-                <div className="deposit-success-text">Congratulations, your investment into the {props.category} {props.dimension} DETF was successful.</div>
-                <TextLink to="/account" text="View my account and investments" arrowDirection="forward" />
-            </div>
-        </MainContainer>
+        <div className="deposit-success">
+            <img className="deposit-success-tick" src={require("../../assets/icons/success_tick.png")}></img>
+            <div className="deposit-success-text">Congratulations, your investment into the {props.category} {props.dimension} DETF was successful.</div>
+            <TextLink to="/account" text="View my account" arrowDirection="forward" />
+        </div>
     )
 }

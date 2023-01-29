@@ -1,9 +1,9 @@
-.withdraw-success {
+.deposit-success {
     height: 800px;
     width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: top;
     text-align: center;
     align-items: center;
     padding-top: 80px;
@@ -11,16 +11,15 @@
     padding-left: 40px;
     padding-right: 40px;
     font-weight: 700;
-    color: #000000;
 }
 
-.withdraw-success-tick {
-    margin-bottom: 60px;
+.deposit-success-tick {
     height: 120px;
     width: 120px;
+    margin-bottom: 60px;
 }
 
-.withdraw-success-text {
+.deposit-success-text {
     width: 70%;
     margin-bottom: 60px;
     color: #00BF6F;
@@ -30,23 +29,22 @@
 /* Small devices (landscape phones, 576px and up) */
 
 @media (max-width: 719px) {
-    .withdraw-success {
+    .deposit-success {
         padding-top: 40px;
         padding-bottom: 80px;
         padding-left: 24px;
         padding-right: 24px;
     }
 
-    .withdraw-success-tick {
-        margin-bottom: 30px;
+    .deposit-success-tick {
         height: 60px;
         width: 60px;
+        margin-bottom: 30px;
     }
 
-    .withdraw-success-text {
+    .deposit-success-text {
         width: 70%;
         margin-bottom: 30px;
-        color: #00BF6F;
         font-size: 24px;
     }
 }

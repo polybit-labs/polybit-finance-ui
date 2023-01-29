@@ -1,23 +1,22 @@
 .account-summary-container {
-    background-color: #e3e3e3;
+    width: 100%;
+    padding-top: 80px;
+    padding-left: 40px;
+    padding-right: 40px;
     color: #909090;
+    font-weight: 700;
 }
 
 .account-summary-items {
+    width: 100%;
     display: grid;
-    grid-template-columns: repeat(3, auto);
-    grid-gap: 28px;
     list-style: none;
-    justify-content: space-between;
 }
 
 .account-summary-item {
-    height: 300px;
-    width: 380px;
     background-color: #EEEEEE;
     border-radius: 8px;
     border: 1px solid white;
-    padding: 26px;
 }
 
 .portfolio-box-title {
@@ -30,12 +29,10 @@
 
 .portfolio-box-title-text {
     font-size: 20px;
-    font-weight: 700;
 }
 
 .portfolio-box-title-context {
     font-size: 14px;
-    font-weight: 700;
 }
 
 .portfolio-box-balance {
@@ -45,7 +42,6 @@
     align-items: center;
     color: #875CFF;
     font-size: 32px;
-    font-weight: 700;
     height: 80%;
 }
 
@@ -59,12 +55,10 @@
 
 .return-box-title-text {
     font-size: 20px;
-    font-weight: 700;
 }
 
 .return-box-title-context {
     font-size: 14px;
-    font-weight: 700;
 }
 
 .return-box-title-percentage {
@@ -80,7 +74,6 @@
     align-items: center;
     color: #0FC421;
     font-size: 32px;
-    font-weight: 700;
     height: 80%;
 }
 
@@ -90,12 +83,10 @@
 
 .wallet-box-title-text {
     font-size: 20px;
-    font-weight: 700;
 }
 
 .wallet-box-title-context {
     font-size: 14px;
-    font-weight: 700;
 }
 
 .wallet-box-balance {
@@ -104,6 +95,124 @@
     justify-content: center;
     align-items: center;
     font-size: 32px;
-    font-weight: 700;
     height: 80%;
+}
+
+/* Small devices (landscape phones, 576px and up) */
+
+@media (max-width: 719px) {
+    .account-summary-container {
+        display: none;
+    }
+
+    .account-summary-container-mobile {
+        min-width: 272px;
+        width: 100%;
+        padding-top: 40px;
+        padding-left: 24px;
+        padding-right: 24px;
+        color: #909090;
+        font-weight: 700;
+    }
+
+    .account-summary-items-mobile {
+        width: 100%;
+        display: grid;
+        list-style: none;
+        grid-template-rows: repeat(3, minmax(0, 1fr));
+        grid-row-gap: 24px;
+        list-style: none;
+    }
+
+    .account-summary-item-mobile {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: #EEEEEE;
+        border-radius: 8px;
+        border: 1px solid white;
+        padding: 12px;
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+
+    .title-text-mobile {
+        font-size: 20px;
+    }
+
+    .portfolio-box-balance {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        color: #875CFF;
+        font-size: 20px;
+    }
+
+    .return-box-balance-mobile {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        font-size: 20px;
+    }
+}
+
+/* Medium devices (tablets, 768px and up) */
+
+@media (min-width: 720px) {
+    .account-summary-container-mobile {
+        display: none;
+    }
+
+    .account-summary-items {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-column-gap: 24px;
+    }
+
+    .account-summary-item {
+        height: 300px;
+        padding: 24px;
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+
+@media (min-width: 960px) {
+    .account-summary-container-mobile {
+        display: none;
+    }
+
+    .account-summary-items {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-column-gap: 24px;
+    }
+
+    .account-summary-item {
+        height: 300px;
+        padding: 24px;
+    }
+}
+
+/*Extra large devices (large desktops, 1200px and up)*/
+
+@media (min-width: 1025px) {
+    .account-summary-container-mobile {
+        display: none;
+    }
+
+    .account-summary-container {
+        max-width: 1280px;
+    }
+
+    .account-summary-items {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-column-gap: 24px;
+    }
+
+    .account-summary-item {
+        height: 300px;
+        padding: 24px;
+    }
 }

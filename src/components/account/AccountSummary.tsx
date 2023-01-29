@@ -174,43 +174,74 @@ const AccountSummary = (props: AccountSummaryProps) => {
 
     if (detfAccountsData) {
         return (
-            <div className="account-summary-container">
-                <ul className="account-summary-items">
-                    <li className="account-summary-item">
-                        <div className="portfolio-box-title">
-                            <div className="portfolio-box-title-text">Current portfolio worth</div>
-                        </div>
-                        <div className="portfolio-box-balance">
-                            {(!props.detfAccountsSuccess || !props.detfAccountsDataSuccess) && <img src={require("../../assets/images/polybit-loader-60px.gif")} />}
-                            {props.detfAccountsSuccess && props.detfAccountsDataSuccess && <div>{currentBalanceFormatted}</div>}
-                        </div>
-                    </li>
-                    <li className="account-summary-item">
-                        <div className="return-box-title">
-                            <div className="return-box-title-text">Current portfolio return</div>
-                            <div className="return-box-title-percentage" >
-                                {(props.detfAccountsSuccess && props.detfAccountsDataSuccess) && FormatPercentages(currentReturnPercentage)}
+            <>
+                <div className="account-summary-container">
+                    <ul className="account-summary-items">
+                        <li className="account-summary-item">
+                            <div className="portfolio-box-title">
+                                <div className="portfolio-box-title-text">Current portfolio worth</div>
                             </div>
-                        </div>
-                        <div className="return-box-balance" style={{ color: ColourNumbers(currentReturn) }}>
-                            {(!props.detfAccountsSuccess || !props.detfAccountsDataSuccess) && <img src={require("../../assets/images/polybit-loader-60px.gif")} />}
-                            {props.detfAccountsSuccess && props.detfAccountsDataSuccess && <div>{currentReturnFormatted}</div>}
-                        </div>
-                    </li>
-                    <li className="account-summary-item">
-                        <div className="return-box-title">
-                            <div className="return-box-title-text">Total lifetime return</div>
-                            <div className="return-box-title-percentage" >
-                                {props.detfAccountsSuccess && props.detfAccountsDataSuccess && FormatPercentages(lifetimeReturnPercentage)}
+                            <div className="portfolio-box-balance">
+                                {(!props.detfAccountsSuccess || !props.detfAccountsDataSuccess) && <img src={require("../../assets/images/polybit-loader-60px.gif")} />}
+                                {props.detfAccountsSuccess && props.detfAccountsDataSuccess && <div>{currentBalanceFormatted}</div>}
                             </div>
-                        </div>
-                        <div className="return-box-balance" style={{ color: ColourNumbers(lifetimeReturn) }}>
-                            {(!props.detfAccountsSuccess || !props.detfAccountsDataSuccess) && <img src={require("../../assets/images/polybit-loader-60px.gif")} />}
-                            {props.detfAccountsSuccess && props.detfAccountsDataSuccess && <div>{lifetimeReturnFormatted}</div>}
-                        </div>
-                    </li>
-                </ul>
-            </div>
+                        </li>
+                        <li className="account-summary-item">
+                            <div className="return-box-title">
+                                <div className="return-box-title-text">Current portfolio return</div>
+                                <div className="return-box-title-percentage" >
+                                    {(props.detfAccountsSuccess && props.detfAccountsDataSuccess) && FormatPercentages(currentReturnPercentage)}
+                                </div>
+                            </div>
+                            <div className="return-box-balance" style={{ color: ColourNumbers(currentReturn) }}>
+                                {(!props.detfAccountsSuccess || !props.detfAccountsDataSuccess) && <img src={require("../../assets/images/polybit-loader-60px.gif")} />}
+                                {props.detfAccountsSuccess && props.detfAccountsDataSuccess && <div>{currentReturnFormatted}</div>}
+                            </div>
+                        </li>
+                        <li className="account-summary-item">
+                            <div className="return-box-title">
+                                <div className="return-box-title-text">Total lifetime return</div>
+                                <div className="return-box-title-percentage" >
+                                    {props.detfAccountsSuccess && props.detfAccountsDataSuccess && FormatPercentages(lifetimeReturnPercentage)}
+                                </div>
+                            </div>
+                            <div className="return-box-balance" style={{ color: ColourNumbers(lifetimeReturn) }}>
+                                {(!props.detfAccountsSuccess || !props.detfAccountsDataSuccess) && <img src={require("../../assets/images/polybit-loader-60px.gif")} />}
+                                {props.detfAccountsSuccess && props.detfAccountsDataSuccess && <div>{lifetimeReturnFormatted}</div>}
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div className="account-summary-container-mobile">
+                    <ul className="account-summary-items-mobile">
+                        <li className="account-summary-item-mobile">
+                            <div className="title-text-mobile">Current portfolio worth</div>
+                            <div className="portfolio-box-balance">
+                                {(!props.detfAccountsSuccess || !props.detfAccountsDataSuccess) && <img src={require("../../assets/images/polybit-loader-60px.gif")} />}
+                                {props.detfAccountsSuccess && props.detfAccountsDataSuccess && <div>{currentBalanceFormatted}</div>}
+                            </div>
+                        </li>
+                        <li className="account-summary-item-mobile">
+                            <div className="title-text-mobile">Current portfolio return</div>
+                            <div >
+                                {(!props.detfAccountsSuccess || !props.detfAccountsDataSuccess) && <img src={require("../../assets/images/polybit-loader-60px.gif")} />}
+                                {props.detfAccountsSuccess && props.detfAccountsDataSuccess && <div className="return-box-balance-mobile" style={{ color: ColourNumbers(currentReturn) }}>
+                                    {currentReturnFormatted}&nbsp; ({FormatPercentages(currentReturnPercentage)})</div>}
+                                {/* {(props.detfAccountsSuccess && props.detfAccountsDataSuccess) && FormatPercentages(currentReturnPercentage)} */}
+                            </div>
+                        </li>
+                        <li className="account-summary-item-mobile">
+                            <div className="title-text-mobile">Total lifetime return</div>
+                            <div >
+                                {(!props.detfAccountsSuccess || !props.detfAccountsDataSuccess) && <img src={require("../../assets/images/polybit-loader-60px.gif")} />}
+                                {props.detfAccountsSuccess && props.detfAccountsDataSuccess && <div className="return-box-balance-mobile" style={{ color: ColourNumbers(lifetimeReturn) }}>
+                                    {lifetimeReturnFormatted}&nbsp; ({FormatPercentages(lifetimeReturnPercentage)})</div>}
+                                {/* {props.detfAccountsSuccess && props.detfAccountsDataSuccess && FormatPercentages(lifetimeReturnPercentage)} */}
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </>
         )
     }
     return (<></>)
