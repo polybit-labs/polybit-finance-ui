@@ -169,6 +169,18 @@ export const AccountTable = (props: AccountTableProps) => {
                                     <div className="account-table-row-items">
                                     </div>
                                 </div>
+                                <div className="account-table-row-mobile">
+                                    <div className="account-table-row-items-mobile">
+                                    </div>
+                                </div>
+                                <div className="account-table-row-mobile">
+                                    <div className="account-table-row-items-mobile">
+                                    </div>
+                                </div>
+                                <div className="account-table-row-mobile">
+                                    <div className="account-table-row-items-mobile">
+                                    </div>
+                                </div>
                             </div>
                         }
                     </div>

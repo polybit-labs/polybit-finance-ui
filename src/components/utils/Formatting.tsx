@@ -22,17 +22,17 @@ export const ColourNumbers = (num: number) => {
 
 const ArrowNumbers = (num: number) => {
     if (num > 0) {
-        return <div style={{ transform: "translateY(+15%)", fontSize: "20px" }}><FontAwesomeIcon icon={icon({ name: "sort-up", style: "solid" })} /></div>
+        return <div style={{ transform: "translateY(+15%)", fontSize: "20px" }}><FontAwesomeIcon icon={icon({ name: "sort-up", style: "solid" })} />&nbsp;</div>
     }
     if (num < 0) {
-        return <div style={{ transform: "translateY(-15%)", fontSize: "20px" }}><FontAwesomeIcon icon={icon({ name: "sort-down", style: "solid" })} /></div>
+        return <div style={{ transform: "translateY(-15%)", fontSize: "20px" }}><FontAwesomeIcon icon={icon({ name: "sort-down", style: "solid" })} />&nbsp;</div>
     }
     return "";
 }
 
 export const FormatPercentages = (percentage: number) => {
-    return <div className="formatted-percentages" style={{ color: ColourNumbers(percentage), display: "flex", alignItems: "left", justifyContent: "left" }}>
-        <div style={{ width: "15px", paddingBottom: "0px" }}>{ArrowNumbers(percentage)}</div>
+    return <div className="formatted-percentages" style={{ color: ColourNumbers(percentage), display: "flex", alignItems: "left", justifyContent: "left", textAlign: "left" }}>
+        <div>{ArrowNumbers(percentage)}</div>
         <div>{parseFloat(percentage.toString()).toFixed(2).replace("-", "") + "%"}</div>
     </div>
 }

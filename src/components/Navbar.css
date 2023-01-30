@@ -59,14 +59,6 @@
     background-color: #E3E3E3;
 }
 
-.nav-links-mobile {
-    display: none;
-}
-
-.menu-icon {
-    display: none;
-}
-
 /* Small devices (landscape phones, 576px and up) */
 /* 
 @media (max-width: 767px) {
@@ -139,10 +131,106 @@
 
 @media (max-width: 719px) {
     .navbar {
+        display: none;
+    }
+
+    .navbar-mobile {
+        position: relative;
+        top: 0;
+        left: 0;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
         max-width: 719px;
         padding-left: 24px;
         padding-right: 24px;
         padding-top: 40px;
+    }
+
+    .navbar-container-mobile {
+        width: 100%;
+        display: flex;
+        justify-content: right;
+        align-items: center;
+    }
+
+    .navbar-header-mobile {
+        position: relative;
+        top: 0;
+        left: 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .nav-currency-mobile {
+        margin-top: 30px;
+        display: flex;
+        flex-direction: row;
+        justify-content: right;
+        align-items: center;
+        font-weight: 700;
+    }
+
+    .fa-times,
+    .fa-bars {
+        z-index: 99;
+    }
+
+    .nav-menu-mobile {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100vh;
+        height: 600vw;
+        z-index: 98;
+        background-color: #875CFF;
+        opacity: 96%;
+    }
+
+    .menu-icon-mobile {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 44px;
+        width: 44px;
+        background-color: #000000;
+        color: #ffffff;
+        font-size: 28px;
+    }
+
+    .nav-menu-mobile-items {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 99;
+        display: grid;
+        grid-template-rows: repeat(3, 1fr);
+        grid-row-gap: 12px;
+        list-style: none;
+        text-align: center;
+    }
+
+    .nav-item-mobile {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .nav-links-mobile {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 24px;
+        color: #ffffff;
     }
 
     .polybit-logo {

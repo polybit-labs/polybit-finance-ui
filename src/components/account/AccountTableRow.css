@@ -7,7 +7,7 @@
     background-color: #EEEEEE;
     border: 1px solid #fff;
     border-radius: 4px;
-    margin-top: 14px;
+    margin-bottom: 24px;
     cursor: default;
     font-size: 20px;
     font-weight: 700;
@@ -234,6 +234,10 @@
     border-radius: 8px;
 }
 
+.account-table-expanded-content-right-proof-of-assets p {
+    color: #454545;
+}
+
 .account-table-expanded-content-right-proof-of-assets a {
     text-decoration: none;
     color: #000000;
@@ -327,6 +331,7 @@
 
     .account-table-row-mobile {
         width: 100%;
+        min-height: 150px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -334,12 +339,11 @@
         background-color: #EEEEEE;
         border: 1px solid #fff;
         border-radius: 4px;
-        margin-top: 14px;
+        margin-bottom: 24px;
         cursor: default;
         font-size: 20px;
         font-weight: 700;
         color: #909090;
-        padding: 12px;
     }
 
     .account-table-row-items-mobile {
@@ -348,7 +352,6 @@
         flex-direction: column;
         align-items: center;
         border-radius: 4px;
-        padding: 12px;
     }
 
     .account-table-row-item-detf-header-mobile {
@@ -357,6 +360,9 @@
         flex-direction: row;
         justify-content: space-between;
         align-items: left;
+        padding-left: 24px;
+        padding-right: 24px;
+        padding-top: 24px
     }
 
     .account-table-row-item-detf-mobile {
@@ -388,20 +394,18 @@
         line-height: 20px;
     }
 
-    .account-table-row-item-table {
-        margin-top: 24px;
+    .account-table-row-item-table-mobile {
+        padding: 24px;
         color: #909090;
         font-size: 16px;
     }
 
-    .account-table-row-item-table td {
-        text-align: right;
-        line-height: 20px;
-        padding-right: 5px;
-        padding-left: 5px;
+    .detf-assets-body-row-mobile td {
+        text-align: left;
+        padding-bottom: 10px;
     }
 
-    .account-table-row-item-table-cell {
+    .account-table-row-item-table-cell-mobile {
         display: flex;
         flex-direction: row;
         justify-content: left;
@@ -414,6 +418,16 @@
         flex-direction: column;
         justify-content: flex-start;
         align-items: center;
+    }
+
+    .account-table-row-expanded-wrapper-mobile {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        padding-left: 24px;
+        padding-right: 24px;
     }
 
     .account-table-expanded-divider-mobile {
@@ -441,7 +455,8 @@
     }
 
     .account-table-expanded-content-invested-no-deposits-mobile {
-        margin-top: 60px;
+        margin-top: 30px;
+        padding-bottom: 30px;
         display: flex;
         flex-direction: row;
         justify-content: center;
@@ -502,14 +517,27 @@
         padding-bottom: 24px;
     }
 
+    .account-table-expanded-content-owned-assets-mobile {}
+
     .account-table-expanded-content-proof-of-assets-mobile {
         position: relative;
+        top: 0;
+        left: 0;
         background-color: #E1E1E1;
+        margin-top: 24px;
         padding-left: 70px;
         padding-right: 60px;
         padding-top: 24px;
         padding-bottom: 24px;
-        border-radius: 8px;
+        font-size: 16px;
+        font-weight: 400;
+        border-bottom-left-radius: 4px;
+        border-bottom-right-radius: 4px;
+        color: #000000;
+    }
+
+    .account-table-expanded-content-proof-of-assets-mobile p {
+        color: #454545;
     }
 
     .account-table-expanded-content-proof-of-assets-mobile a {

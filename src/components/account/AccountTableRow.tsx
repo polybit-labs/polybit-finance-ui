@@ -408,11 +408,11 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
                             </div>}
                         </div>
                     </div>
-                    <table className="account-table-row-item-table">
+                    <table className="account-table-row-item-table-mobile">
                         <tbody>
                             <tr>
                                 <td>Market Value:</td>
-                                <td className="detf-index-row-item-table-cell">{FormatCurrency((Number(props.balance_in_weth)
+                                <td className="account-table-row-item-table-cell-mobile">{FormatCurrency((Number(props.balance_in_weth)
                                     / 10 ** 18 *
                                     (() => {
                                         switch (props.currency) {
@@ -431,22 +431,22 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
                             </tr>
                             <tr>
                                 <td>Total Return:</td>
-                                {isDETFActive && <td className="detf-index-row-item-table-cell" style={{ color: ColourNumbers(currentReturnPercentage) }}>{currentReturnPercentageFormatted}</td>}
-                                {!isDETFActive && <td className="detf-index-row-item-table-cell" style={{ color: ColourNumbers(props.final_return_percentage) }}>{FormatPercentages(props.final_return_percentage)}</td>}
+                                {isDETFActive && <td className="account-table-row-item-table-cell-mobile" style={{ color: ColourNumbers(currentReturnPercentage) }}>{currentReturnPercentageFormatted}</td>}
+                                {!isDETFActive && <td className="account-table-row-item-table-cell-mobile" style={{ color: ColourNumbers(props.final_return_percentage) }}>{FormatPercentages(props.final_return_percentage)}</td>}
                             </tr>
                             <tr>
                                 <td>Status:</td>
                                 {isDETFActive && !isDETFDeposited &&
-                                    <td className="detf-index-row-item-table-cell">Deposit Required</td>
+                                    <td className="account-table-row-item-table-cell-mobile">Deposit Required</td>
                                 }
                                 {isDETFActive && isDETFDeposited && !isDETFTimeLocked &&
-                                    <td className="detf-index-row-item-table-cell">Unlocked</td>
+                                    <td className="account-table-row-item-table-cell-mobile">Unlocked</td>
                                 }
                                 {isDETFActive && isDETFDeposited && isDETFTimeLocked &&
-                                    <td className="detf-index-row-item-table-cell">Locked until {timeLock}</td>
+                                    <td className="account-table-row-item-table-cell-mobile">Locked until {timeLock}</td>
                                 }
                                 {!isDETFActive &&
-                                    <td className="detf-index-row-item-table-cell">Closed</td>
+                                    <td className="account-table-row-item-table-cell-mobile">Closed</td>
                                 }
                             </tr>
                         </tbody>
@@ -455,113 +455,115 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
                 </div>
                 {
                     isActive && <div className="account-table-row-expanded-mobile">
-                        <div className="account-table-expanded-divider-mobile"></div>
-                        <div className="account-table-expanded-content-mobile">
-                            <div className="account-table-expanded-content-invested-mobile">
-                                {isDETFActive && <div><h2>Total invested:</h2>
-                                    <h2>{currentTotalDepositedFormatted}</h2>
-                                </div>}
-                                {!isDETFActive && <div><h2>Total invested:</h2>
-                                    <h2>{finalTotalDeposited}</h2>
-                                </div>}
-                                {isDETFDeposited && <div className="account-table-expanded-content-invested-summary-mobile">
-                                    <div className="account-table-expanded-content-invested-summary-line-mobile">
-                                    </div>
-                                    <div className="account-table-expanded-content-invested-summary-table-mobile">
-                                        <p><b>Transaction history</b></p>
-                                        {transactionHistory}
-                                    </div>
-                                </div>}
-                                {!isDETFDeposited && <div className="account-table-expanded-content-invested-no-deposits-mobile">
-                                    <img className="account-table-expanded-content-invested-no-deposits-icon" src={require("../../assets/icons/info_dark_grey.png")}></img>
-                                    <p>You have not yet deposited into this DETF.</p></div>}
-                            </div>
-                            {isDETFActive && !isDETFDeposited &&
-                                <div className="account-table-expanded-content-deposit-mobile">
-                                    <Link className="account-table-row-item-link" to="/deposit" state={{
-                                        category: props.category,
-                                        dimension: props.dimension,
-                                        productId: props.product_id,
-                                        detfAddress: props.detf_address,
-                                        processOrigin: "deposit",
-                                        activeStage: 1
-                                    }}>
-                                        <Button text="Make your first deposit into this DETF" buttonStyle="primary" buttonSize="standard" /></Link>
-                                </div>}
-                            {isDETFActive && isDETFDeposited &&
-                                <div className="account-table-expanded-content-deposit-mobile">
-                                    <Link className="account-table-row-item-link-mobile" to="/deposit" state={{
-                                        category: props.category,
-                                        dimension: props.dimension,
-                                        productId: props.product_id,
-                                        detfAddress: props.detf_address,
-                                        processOrigin: "deposit",
-                                        activeStage: 1
-                                    }}>
-                                        <Button text="Deposit" buttonStyle="primary" buttonSize="standard" /></Link>
-                                </div>}
-                            <div className="account-table-expanded-content-current-value-mobile">
-                                {isDETFActive && <div><h2>Total market value:</h2>
-                                    <h2>{currentTotalValueFormatted} ({currentReturnFormatted})</h2>
-                                </div>}
-                                {!isDETFActive && <div><h2>Final market value:</h2>
-                                    <h2>{finalMarketValue} ({finalReturnWeth})</h2>
-                                </div>}
-                                <br />
-                                <p><b>Market value over time ({props.currency})</b></p>
-                                {validDateRange && <DETFReturnChart height={300} width="100%" performanceData={performanceData} />}
-                                {!validDateRange && <InvalidChartRange height={300} width="100%" />}
-                            </div>
-                            <div className="account-table-expanded-content-close-mobile">
-                                {isDETFActive && isDETFDeposited && !isDETFTimeLocked &&
-                                    < Link className="account-table-row-item-link-mobile" to="/close-detf" state={{
-                                        category: props.category,
-                                        dimension: props.dimension,
-                                        detfAddress: props.detf_address,
-                                        totalValue: props.balance_in_weth,
-                                        currentTotalValue: currentTotalValue,
-                                        currentReturn: currentReturn,
-                                        currentReturnPercentage: currentReturnPercentage,
-                                        currency: props.currency,
-                                        vsPrices: props.vsPrices
-                                    }}>
-                                        <Button text="Exit and withdraw" buttonStyle="primary" buttonSize="standard" /></Link>}
+                        <div className="account-table-row-expanded-wrapper-mobile">
+                            <div className="account-table-expanded-divider-mobile"></div>
+                            <div className="account-table-expanded-content-mobile">
+                                <div className="account-table-expanded-content-invested-mobile">
+                                    {isDETFActive && <div><h2>Total invested:</h2>
+                                        <h2>{currentTotalDepositedFormatted}</h2>
+                                    </div>}
+                                    {!isDETFActive && <div><h2>Total invested:</h2>
+                                        <h2>{finalTotalDeposited}</h2>
+                                    </div>}
+                                    {isDETFDeposited && <div className="account-table-expanded-content-invested-summary-mobile">
+                                        <div className="account-table-expanded-content-invested-summary-line-mobile">
+                                        </div>
+                                        <div className="account-table-expanded-content-invested-summary-table-mobile">
+                                            <p><b>Transaction history</b></p>
+                                            {transactionHistory}
+                                        </div>
+                                    </div>}
+                                    {!isDETFDeposited && <div className="account-table-expanded-content-invested-no-deposits-mobile">
+                                        <img className="account-table-expanded-content-invested-no-deposits-icon-mobile" src={require("../../assets/icons/info_dark_grey.png")}></img>
+                                        <p>You have not yet deposited into this DETF.</p></div>}
+                                </div>
                                 {isDETFActive && !isDETFDeposited &&
-                                    <Button text="Exit and withdraw" buttonStyle="primary" buttonSize="standard" status="disabled" />
-                                }
-                                {isDETFActive && isDETFTimeLocked &&
-                                    <Button text="Exit and withdraw" buttonStyle="primary" buttonSize="standard" status="disabled" />
-                                }
-                                {isDETFActive && isDETFTimeLocked &&
-                                    <div className="account-table-expanded-content-close-message-mobile">
-                                        <p>You have set a time lock on this DETF.</p>
-                                        <p>Withdrawals are locked until {timeLock}.</p>
-                                    </div>
-                                }
-                                {!isDETFActive &&
-                                    <Button text="Exit and withdraw" buttonStyle="primary" buttonSize="standard" status="disabled" />
-                                }
+                                    <div className="account-table-expanded-content-deposit-mobile">
+                                        <Link className="account-table-row-item-link" to="/deposit" state={{
+                                            category: props.category,
+                                            dimension: props.dimension,
+                                            productId: props.product_id,
+                                            detfAddress: props.detf_address,
+                                            processOrigin: "deposit",
+                                            activeStage: 1
+                                        }}>
+                                            <Button text="Make your first deposit into this DETF" buttonStyle="primary" buttonSize="standard" /></Link>
+                                    </div>}
+                                {isDETFActive && isDETFDeposited &&
+                                    <div className="account-table-expanded-content-deposit-mobile">
+                                        <Link className="account-table-row-item-link-mobile" to="/deposit" state={{
+                                            category: props.category,
+                                            dimension: props.dimension,
+                                            productId: props.product_id,
+                                            detfAddress: props.detf_address,
+                                            processOrigin: "deposit",
+                                            activeStage: 1
+                                        }}>
+                                            <Button text="Deposit" buttonStyle="primary" buttonSize="standard" /></Link>
+                                    </div>}
+                                <div className="account-table-expanded-content-current-value-mobile">
+                                    {isDETFActive && <div><h2>Total market value:</h2>
+                                        <h2>{currentTotalValueFormatted} ({currentReturnFormatted})</h2>
+                                    </div>}
+                                    {!isDETFActive && <div><h2>Final market value:</h2>
+                                        <h2>{finalMarketValue} ({finalReturnWeth})</h2>
+                                    </div>}
+                                    <br />
+                                    <p><b>Market value over time ({props.currency})</b></p>
+                                    {validDateRange && <DETFReturnChart height={300} width="100%" performanceData={performanceData} />}
+                                    {!validDateRange && <InvalidChartRange height={300} width="100%" />}
+                                </div>
+                                <div className="account-table-expanded-content-close-mobile">
+                                    {isDETFActive && isDETFDeposited && !isDETFTimeLocked &&
+                                        < Link className="account-table-row-item-link-mobile" to="/close-detf" state={{
+                                            category: props.category,
+                                            dimension: props.dimension,
+                                            detfAddress: props.detf_address,
+                                            totalValue: props.balance_in_weth,
+                                            currentTotalValue: currentTotalValue,
+                                            currentReturn: currentReturn,
+                                            currentReturnPercentage: currentReturnPercentage,
+                                            currency: props.currency,
+                                            vsPrices: props.vsPrices
+                                        }}>
+                                            <Button text="Exit and withdraw" buttonStyle="primary" buttonSize="standard" /></Link>}
+                                    {isDETFActive && !isDETFDeposited &&
+                                        <Button text="Exit and withdraw" buttonStyle="primary" buttonSize="standard" status="disabled" />
+                                    }
+                                    {isDETFActive && isDETFTimeLocked &&
+                                        <Button text="Exit and withdraw" buttonStyle="primary" buttonSize="standard" status="disabled" />
+                                    }
+                                    {isDETFActive && isDETFTimeLocked &&
+                                        <div className="account-table-expanded-content-close-message-mobile">
+                                            <p>You have set a time lock on this DETF.</p>
+                                            <p>Withdrawals are locked until {timeLock}.</p>
+                                        </div>
+                                    }
+                                    {!isDETFActive &&
+                                        <Button text="Exit and withdraw" buttonStyle="primary" buttonSize="standard" status="disabled" />
+                                    }
+                                </div>
+                                <div className="account-table-expanded-content-owned-assets-mobile">
+                                    <h2>Assets in DETF</h2>
+                                    <p>Wafer gingerbread bonbon gummies biscuit candy danish cupcake. Cookie liquorice chocolate cake bonbon candy canes tiramisu sugar plum gummies bear claw.</p>
+                                    {isDETFActive && isDETFDeposited && <DETFOwnedAssetsTable tokens={ownedAssetsDetailed} vsPrices={props.vsPrices} currency={props.currency} />}
+                                    {isDETFActive && !isDETFDeposited && <DETFAssetsTable tokens={productData ? productData.tokens : []} />}
+                                    {!isDETFActive && <DETFOwnedAssetsTable tokens={finalAssetsDetailed} vsPrices={props.vsPrices} currency={props.currency} />}
+                                </div>
                             </div>
-                            <div className="account-table-expanded-content-owned-assets-mobile">
-                                <h2>Assets in DETF</h2>
-                                <p>Wafer gingerbread bonbon gummies biscuit candy danish cupcake. Cookie liquorice chocolate cake bonbon candy canes tiramisu sugar plum gummies bear claw.</p>
-                                {isDETFActive && isDETFDeposited && <DETFOwnedAssetsTable tokens={ownedAssetsDetailed} vsPrices={props.vsPrices} currency={props.currency} />}
-                                {isDETFActive && !isDETFDeposited && <DETFAssetsTable tokens={productData ? productData.tokens : []} />}
-                                {!isDETFActive && <DETFOwnedAssetsTable tokens={finalAssetsDetailed} vsPrices={props.vsPrices} currency={props.currency} />}
-                            </div>
-                            <div className="account-table-expanded-content-proof-of-assets-mobile">
-                                <h2>Proof of assets</h2>
-                                <p>Wafer gingerbread bonbon gummies biscuit candy danish cupcake. Cookie liquorice chocolate cake bonbon candy canes tiramisu sugar plum gummies bear claw.</p>
-                                <br />
-                                <p><b>DETF Address:</b></p>
-                                <p>{TruncateAddress(props.detf_address)}</p>
-                                <p><b>DETF Owner Address:</b></p>
-                                <p>{TruncateAddress(owner ? owner : "")}</p>
-                                <br />
-                                {chainId === "97" && <p><b><a href={`https://testnet.bscscan.com/address/${props.detf_address}`} target="_blank" rel="noopener noreferrer">{`Validate this DETF's assets at BscScan ->`}</a></b></p>}
-                                {chainId !== "97" && <p><b><a href={`https://bscscan.com/address/${props.detf_address}`} target="_blank" rel="noopener noreferrer">{`Validate this DETF's assets at BscScan ->`}</a></b></p>}
-                                <img className="account-table-expanded-content-proof-of-assets-diamond-mobile" src={require("../../assets/images/silver_diamond.png")}></img>
-                            </div>
+                        </div>
+                        <div className="account-table-expanded-content-proof-of-assets-mobile">
+                            <h2>Proof of assets</h2>
+                            <p>Wafer gingerbread bonbon gummies biscuit candy danish cupcake. Cookie liquorice chocolate cake bonbon candy canes tiramisu sugar plum gummies bear claw.</p>
+                            <br />
+                            <p><b>DETF Address:</b></p>
+                            <p>{TruncateAddress(props.detf_address)}</p>
+                            <p><b>DETF Owner Address:</b></p>
+                            <p>{TruncateAddress(owner ? owner : "")}</p>
+                            <br />
+                            {chainId === "97" && <p><b><a href={`https://testnet.bscscan.com/address/${props.detf_address}`} target="_blank" rel="noopener noreferrer">{`Validate this DETF's assets at BscScan ->`}</a></b></p>}
+                            {chainId !== "97" && <p><b><a href={`https://bscscan.com/address/${props.detf_address}`} target="_blank" rel="noopener noreferrer">{`Validate this DETF's assets at BscScan ->`}</a></b></p>}
+                            <img className="account-table-expanded-content-proof-of-assets-diamond-mobile" src={require("../../assets/images/silver_diamond.png")}></img>
                         </div>
                     </div>
                 }

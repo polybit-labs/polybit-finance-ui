@@ -40,7 +40,7 @@ export const DETFAssetsTable = (props: DETFAssetsTableProps) => {
             a.tokenWeight < b.tokenWeight ? 1 : -1)
 
         return (
-            <div className="detf-assets-wrapper">
+            <>
                 <table className="detf-assets-table">
                     <thead>
                         <tr className="detf-assets-header-row">
@@ -82,7 +82,46 @@ export const DETFAssetsTable = (props: DETFAssetsTableProps) => {
                         })}
                     </tbody>
                 </table>
-            </div>
+                <table className="detf-assets-table-mobile">
+                    <thead>
+                        <tr className="detf-assets-header-row-mobile">
+                            <th className="detf-assets-header-item-token-mobile">Token</th>
+                            <th className="detf-assets-header-item-liquidity-mobile">Liquidity</th>
+                            <th className="detf-assets-header-item-weight-mobile">Weight</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {sorted.map((token, index) => {
+                            return (
+                                <tr key={index} className="detf-assets-body-row-mobile">
+                                    <td className="detf-assets-body-item-token-mobile">
+                                        <div className="detf-assets-token-logo-mobile">
+                                            <img className="detf-token-logo-mobile" src={token.tokenLogo ? token.tokenLogo : FallbackLogo} alt={token.tokenName}></img>
+                                            <b>{token.tokenName}</b>
+                                        </div>
+                                    </td>
+                                    <td className="detf-assets-body-item-liquidity-mobile">
+                                        {FormatCurrency((() => {
+                                            switch (liquidityCurrency) {
+                                                case "AUD": return (token.tokenLiquidityAUD)
+                                                case "BNB": return (token.tokenLiquidityBNB)
+                                                case "CNY": return (token.tokenLiquidityCNY)
+                                                case "EURO": return (token.tokenLiquidityEUR)
+                                                case "IDR": return (token.tokenLiquidityIDR)
+                                                case "JPY": return (token.tokenLiquidityJPY)
+                                                case "KRW": return (token.tokenLiquidityKRW)
+                                                case "RUB": return (token.tokenLiquidityRUB)
+                                                case "TWD": return (token.tokenLiquidityTWD)
+                                                case "USD": return (token.tokenLiquidityUSD)
+                                            }
+                                        })(), 0)}
+                                    </td>
+                                    <td className="detf-assets-body-item-weight-mobile">{`${parseFloat((token.tokenWeight * 100).toString()).toFixed(2)}%`}</td>
+                                </tr>)
+                        })}
+                    </tbody>
+                </table>
+            </>
         )
     }
     return <div></div>
