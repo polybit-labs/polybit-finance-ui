@@ -24,3 +24,39 @@
 .switch-network-button-wrapper {
     margin-bottom: 60px;
 }
+
+/* Small devices (landscape phones, 576px and up) */
+
+@media (max-width: 719px) {
+    .switch-network {
+        padding-top: 40px;
+        padding-bottom: 80px;
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+
+    .switch-network-warning {
+        margin-bottom: 30px;
+        height: 60px;
+        width: 60px;
+    }
+
+    .switch-network-text {
+        width: 70%;
+        margin-bottom: 30px;
+        color: #CFAE00;
+        font-size: 24px;
+    }
+}
+
+/* Medium devices (tablets, 768px and up) */
+
+@media (min-width: 720px) {}
+
+/* Large devices (desktops, 992px and up) */
+
+@media (min-width: 960px) {}
+
+/*Extra large devices (large desktops, 1200px and up)*/
+
+@media (min-width: 1025px) {}

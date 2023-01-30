@@ -4,6 +4,8 @@
     flex-direction: row;
     justify-content: space-between;
     padding-top: 80px;
+    padding-left: 40px;
+    padding-right: 40px;
 }
 
 .navbar-container {
@@ -57,6 +59,11 @@
     color: #000000;
     position: relative;
     background-color: #E3E3E3;
+}
+
+.polybit-logo {
+    width: 203px;
+    height: 57px;
 }
 
 /* Small devices (landscape phones, 576px and up) */
@@ -241,24 +248,29 @@
 
 /* Medium devices (tablets, 768px and up) */
 
-@media (min-width: 720px) {}
+@media (min-width: 720px) {
+    .navbar-mobile {
+        display: none;
+    }
+}
 
 
 /* Large devices (desktops, 992px and up) */
 
-@media (min-width: 960px) {}
+@media (min-width: 960px) {
+    .navbar-mobile {
+        display: none;
+    }
+}
 
 /*Extra large devices (large desktops, 1200px and up)*/
 
 @media (min-width: 1025px) {
-    .navbar {
-        max-width: 1280px;
-        padding-left: 40px;
-        padding-right: 40px;
+    .navbar-mobile {
+        display: none;
     }
 
-    .polybit-logo {
-        width: 203px;
-        height: 57px;
+    .navbar {
+        max-width: 1280px;
     }
 }

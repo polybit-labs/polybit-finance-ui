@@ -62,9 +62,6 @@ const Navbar = (props: NavbarProps) => {
                     </Link>
                 </div>
                 <div className="navbar-container">
-                    <div className="menu-icon" onClick={handleClick}>
-                        <i className={click ? "fas fa-times" : "fas fa-bars"} />
-                    </div>
                     <ul className={click ? "nav-menu active" : "nav-menu"}>
                         <li className="nav-item">
                             <Link to="/detfs" className="nav-links" onClick={closeMobileMenu}>
@@ -154,47 +151,6 @@ const Navbar = (props: NavbarProps) => {
                         </Link>
                     </li>
                 </ul>}
-
-                {/*  <div className="navbar-container-mobile">
-                    <ul className={click ? "nav-menu active" : "nav-menu"}>
-                        <li className="nav-item-mobile">
-                            <Link to="/detfs" className="nav-links" onClick={closeMobileMenu}>
-                                DETF Index
-                            </Link>
-                        </li>
-                        <li className="nav-item-mobile">
-                            <Link to="/swap" className="nav-links" onClick={closeMobileMenu}>
-                                Swap
-                            </Link>
-                        </li>
-                        <li className="nav-item-mobile">
-                            <Link to="/account" className="nav-links" onClick={closeMobileMenu}>
-                                Account
-                            </Link>
-                        </li>
-                        <li className="nav-item-mobile">
-                            <div className="nav-currency">Base currency is&nbsp;</div>
-                            <button
-                                className="currency-format"
-                                onClick={(): void => toggleDropDown()}
-                                onBlur={(e: React.FocusEvent<HTMLButtonElement>): void =>
-                                    dismissHandler(e)
-                                }
-                            >
-                                <div>{selectCurrencyFormat ? selectCurrencyFormat : "Select ..."} <img src={sortDown} height="20px" width="20px"></img></div>
-                                {showDropDown && (
-                                    <CurrencyDropDown
-                                        options={CurrencyFormats()}
-                                        showDropDown={false}
-                                        toggleDropDown={(): void => toggleDropDown()}
-                                        selectedOption={currencyFormatSelection}
-                                    />
-
-                                )}
-                            </button>
-                        </li>
-                    </ul>
-                </div> */}
             </nav>
         </>
     )
