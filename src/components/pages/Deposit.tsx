@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import "./Deposit.css"
 import { TruncateAddress } from '../utils/Formatting'
 import { useLocation } from 'react-router-dom'
 import TitleContainer from "../containers/Title"

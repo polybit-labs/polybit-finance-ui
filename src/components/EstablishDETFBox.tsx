@@ -1,5 +1,4 @@
 import { useAccount, usePrepareContractWrite, useContractWrite, useWaitForTransaction, useNetwork } from 'wagmi'
-import "./pages/EstablishDETF.css"
 import { useEffect, useState } from 'react'
 import polybitAddresses from "../chain_info/polybitAddresses.json"
 import PolybitDETFFactoryInterface from "../chain_info/IPolybitDETFFactory.json"
@@ -7,8 +6,7 @@ import { Interface } from 'ethers/lib/utils'
 import { Link, useNavigate } from 'react-router-dom'
 import { Button } from './Buttons'
 import { Loading } from './Loading'
-import ContentBox from './containers/ContentBox'
-import MainContainer from './containers/Main'
+import "./EstablishDETFBox.css"
 
 interface EstablishDETFBox {
     productId: number
@@ -89,22 +87,20 @@ export const EstablishDETFBox = (props: EstablishDETFBox) => {
 
     if (prepareConfigSuccess && !contractWriteSuccess) {
         return (
-            <MainContainer>
-                <ContentBox>
-                    <div className="establish-detf-wrapper">
-                        <h2>Cake marzipan biscuit cake jelly-o cake brownie soufflé muffin.</h2>
-                        <br />
-                        <p>Marshmallow macaroon chocolate cupcake pie. Muffin jujubes sesame snaps lollipop lemon drops pudding danish shortbread danish. Pudding liquorice lollipop cheesecake icing. Bonbon jelly beans soufflé cookie jelly bear claw. Lemon drops sweet tart liquorice dragée icing wafer donut.</p>
-                        <div className="establish-detf-button-wrapper">
-                            {!prepareConfigLoading && !contractWriteLoading && <Button buttonStyle="primary" buttonSize="standard" text="Establish DETF on the blockchain" onClick={async () => createNewDETF?.()} />}
-                            {contractWriteLoading && <Button buttonStyle="primary" buttonSize="standard" text="Establish DETF on the blockchain" status="loading" loadingMsg={`waiting for ${connector?.name}`} />}
-                            {error && (
-                                <div>An error occurred preparing the transaction: {error.message}</div>
-                            )}
-                        </div>
+            <div className="establish-detf">
+                <div className="establish-detf-container">
+                    <h2>Cake marzipan biscuit cake jelly-o cake brownie soufflé muffin.</h2>
+                    <br />
+                    <p>Marshmallow macaroon chocolate cupcake pie. Muffin jujubes sesame snaps lollipop lemon drops pudding danish shortbread danish. Pudding liquorice lollipop cheesecake icing. Bonbon jelly beans soufflé cookie jelly bear claw. Lemon drops sweet tart liquorice dragée icing wafer donut.</p>
+                    <div className="establish-detf-button-wrapper">
+                        {!prepareConfigLoading && !contractWriteLoading && <Button buttonStyle="primary" buttonSize="standard" text="Establish DETF on the blockchain" onClick={async () => createNewDETF?.()} />}
+                        {contractWriteLoading && <Button buttonStyle="primary" buttonSize="standard" text="Establish DETF on the blockchain" status="loading" loadingMsg={`waiting for ${connector?.name}`} />}
+                        {error && (
+                            <div>An error occurred preparing the transaction: {error.message}</div>
+                        )}
                     </div>
-                </ContentBox>
-            </MainContainer>
+                </div>
+            </div>
         )
     }
 

@@ -1,36 +1,26 @@
 .deposit-box {
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 80px;
+    padding-bottom: 160px;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.deposit-box-container {
+    width: 100%;
     background-color: #EEEEEE;
     border-radius: 8px;
+    border: 1px solid #ffffff;
     display: flex;
     flex-direction: column;
     justify-content: top;
     align-items: center;
-}
-
-.deposit-box-inactive {
-    display: none;
-}
-
-.deposit-box-balance {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    font-size: 24px;
-    font-weight: 700;
-    margin-bottom: 50px;
-}
-
-.deposit-box-notification {
-    background-color: #F4F5CE;
-    border-radius: 8px;
-    margin-top: 60px;
-    padding-top: 34px;
-    padding-bottom: 34px;
-    padding-left: 82px;
-    padding-right: 82px;
-    font-size: 16px;
+    text-align: center;
+    padding: 80px;
 }
 
 .deposit-box-form {
@@ -42,6 +32,7 @@
     font-size: 16px;
     font-weight: 700;
     color: #C3C3C3;
+    text-align: left;
 }
 
 .deposit-amount-input {
@@ -53,8 +44,8 @@
     font-size: 24px;
     font-weight: 700;
     color: #000000;
-    padding: 25px;
-    margin-bottom: 32px;
+    padding: 24px;
+    margin-bottom: 30px;
 }
 
 .timelock-selector {
@@ -62,7 +53,7 @@
     flex-direction: row;
     justify-content: left;
     align-items: center;
-    margin-bottom: 32px;
+    margin-bottom: 30px;
 }
 
 .timelock-checkbox {
@@ -70,7 +61,7 @@
     width: 32px;
     background-image: url("../../assets/images/checkbox-unticked.png");
     background-size: contain;
-    margin-right: 16px;
+    margin-right: 12px;
 }
 
 .timelock-checkbox-ticked {
@@ -78,22 +69,25 @@
     width: 32px;
     background-image: url("../../assets/images/checkbox-ticked.png");
     background-size: contain;
-    margin-right: 16px;
+    margin-right: 12px;
 }
 
 .timelock-amount-input-title {
     font-size: 16px;
     font-weight: 700;
     color: #C3C3C3;
+    text-align: left;
 }
 
 .timelock-amount-input-group {
-    display: flex;
+    display: grid;
+    list-style: none;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-column-gap: 24px;
     flex-direction: row;
     justify-content: space-between;
     align-items: top;
     width: 372px;
-
 }
 
 .timelock-amount-input {
@@ -101,12 +95,12 @@
     border-bottom: 4px solid #000000;
     border-radius: 4px;
     height: 66px;
-    width: 176px;
+    width: 100%;
     font-size: 24px;
     font-weight: 700;
     color: #000000;
-    padding: 25px;
-    margin-bottom: 32px;
+    padding: 24px;
+    margin-bottom: 30px;
 }
 
 .timelock-date-format {
@@ -115,11 +109,11 @@
     border-bottom: 4px solid #000000;
     border-radius: 4px;
     height: 66px;
-    width: 176px;
+    width: 100%;
     font-size: 24px;
     font-weight: 700;
     color: #000000;
-    padding: 25px;
+    padding: 24px;
     display: flex;
     flex-direction: row;
     justify-content: left;
@@ -128,11 +122,12 @@
 }
 
 .timelock-existing-message {
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    margin-bottom: 32px;
+    margin-bottom: 30px;
 }
 
 .timelock-new-inactive {
@@ -152,7 +147,7 @@
 }
 
 .deposit-lock-set {
-    width: 372px;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -160,7 +155,7 @@
     text-align: center;
     font-size: 16px;
     color: #000000;
-    margin-bottom: 32px;
+    margin-bottom: 30px;
 }
 
 .deposit-lock-set-lock-date {
@@ -171,56 +166,53 @@
     display: none;
 }
 
-.deposit-details-button {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+/* Small devices (landscape phones, 576px and up) */
+
+@media (max-width: 719px) {
+    .deposit-box {
+        padding-top: 40px;
+        padding-bottom: 80px;
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+
+    .deposit-box-container {
+        padding-top: 40px;
+        padding-bottom: 40px;
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+
+    .deposit-box-form {
+        padding-top: 30px;
+        width: 100%;
+    }
+
+    .deposit-amount-input {
+        width: 100%;
+        padding: 24px;
+        margin-bottom: 20px;
+    }
+
+    .timelock-checkbox,
+    .timelock-checkbox-ticked {
+        height: 22px;
+        width: 22px;
+    }
+
+    .timelock-amount-input-group {
+        width: 100%;
+    }
 }
 
-.deposit-summary {
-    width: 100%;
-    background-color: #EEEEEE;
-    border-radius: 8px;
-    display: flex;
-    flex-direction: column;
-    justify-content: top;
-    align-items: center;
-}
+/* Medium devices (tablets, 768px and up) */
 
-.deposit-summary-info {
-    display: flex;
-    flex-direction: row;
-    list-style-type: none;
-    margin-top: 60px;
-}
+@media (min-width: 720px) {}
 
-.deposit-summary-info-titles ul {
-    list-style-type: none;
-    font-weight: 700;
-    margin-top: 16px;
-    margin-bottom: 16px;
-    margin-right: 24px;
-}
+/* Large devices (desktops, 992px and up) */
 
-.deposit-summary-info-results ul {
-    list-style-type: none;
-    margin-top: 16px;
-    margin-bottom: 16px;
-}
+@media (min-width: 960px) {}
 
-.deposit-summary-info-bar {
-    background-color: #000000;
-    width: 10px;
-    margin-right: 40px;
-}
+/*Extra large devices (large desktops, 1200px and up)*/
 
-.deposit-summary-inactive {
-    display: none;
-}
-
-.deposit-button-wrapper {
-    margin-top: 60px;
-    margin-bottom: 60px;
-}
+@media (min-width: 1025px) {}

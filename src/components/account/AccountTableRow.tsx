@@ -335,7 +335,8 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
                                             currentReturn: currentReturn,
                                             currentReturnPercentage: currentReturnPercentage,
                                             currency: props.currency,
-                                            vsPrices: props.vsPrices
+                                            vsPrices: props.vsPrices,
+                                            totalDeposited: currentTotalDeposited
                                         }}>
                                             <Button text="Exit and withdraw" buttonStyle="primary" buttonSize="standard" /></Link>}
                                     {isDETFActive && !isDETFDeposited &&
@@ -524,7 +525,8 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
                                             currentReturn: currentReturn,
                                             currentReturnPercentage: currentReturnPercentage,
                                             currency: props.currency,
-                                            vsPrices: props.vsPrices
+                                            vsPrices: props.vsPrices,
+                                            totalDeposited: currentTotalDeposited
                                         }}>
                                             <Button text="Exit and withdraw" buttonStyle="primary" buttonSize="standard" /></Link>}
                                     {isDETFActive && !isDETFDeposited &&

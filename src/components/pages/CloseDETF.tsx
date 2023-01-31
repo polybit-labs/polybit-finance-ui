@@ -1,4 +1,3 @@
-import "./CloseDETF.css"
 import { useAccount } from "wagmi"
 import { useLocation } from "react-router-dom"
 import TitleContainer from "../containers/Title"
@@ -9,10 +8,9 @@ import { Loading } from "../Loading"
 import { WithdrawSummary } from "../WithdrawSummary"
 import { WithdrawSuccess } from "../WithdrawSuccess"
 
-
 export const CloseDETF = () => {
     const location = useLocation()
-    const { category, dimension, detfAddress, totalValue, currentTotalValue, currentReturn, currentReturnPercentage, currency, vsPrices } = location.state
+    const { category, dimension, detfAddress, totalValue, currentTotalValue, currentReturn, currentReturnPercentage, currency, vsPrices, totalDeposited } = location.state
     const { address: walletOwner, connector, isConnected } = useAccount()
     const [withdrawSuccess, setWithdrawSuccess] = useState(false)
 
@@ -30,6 +28,7 @@ export const CloseDETF = () => {
                     currentTotalValue={currentTotalValue}
                     currentReturn={currentReturn}
                     currentReturnPercentage={currentReturnPercentage}
+                    totalDeposited={totalDeposited}
                     currency={currency}
                     vsPrices={vsPrices}
                     setWithdrawSuccess={setWithdrawSuccess}

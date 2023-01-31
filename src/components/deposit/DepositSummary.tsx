@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react'
-import "../pages/Deposit.css"
+import "./DepositSummary.css"
 import PolybitDETFInterface from "../../chain_info/IPolybitDETF.json"
 import { Interface } from 'ethers/lib/utils'
-
 import {
     useAccount,
     useNetwork,
@@ -13,10 +12,9 @@ import {
 } from "wagmi"
 import { GetOrderData } from '../api/GetOrderData'
 import { FormatCurrency } from '../utils/Currency'
-import ContentBox from '../containers/ContentBox'
 import { Button, TextLink } from '../Buttons'
-import MainContainer from '../containers/Main'
 import { Loading } from '../Loading'
+import { TruncateAddress } from '../utils/Formatting'
 
 interface DepositSummary {
     detfAddress: string;
@@ -127,43 +125,98 @@ export const DepositSummary = (props: DepositSummary) => {
 
     if (!transactionLoading && prepareContractWriteSuccess) {
         return (
-            <MainContainer>
-                <ContentBox >
-                    <div className="deposit-summary">
-                        <p>Dessert cheesecake gummi bears dessert caramels chocolate cake. Powder wafer brownie apple pie carrot cake wafer ice cream dragée powder. Soufflé lemon drops tiramisu halvah cheesecake. Cheesecake pastry cake dragée dessert. Pie macaroon marshmallow cotton candy dragée bear claw powder. Chocolate sweet topping cheesecake candy tootsie roll topping. Halvah liquorice danish cupcake tootsie roll. </p>
-                        <div className="deposit-summary-info">
-                            <div className="deposit-summary-info-bar"></div>
-                            <div className="deposit-summary-info-titles">
-                                <ul>
-                                    <li>Category</li>
-                                    <li>Dimension</li>
-                                    <li>Blockchain</li>
-                                    <li>Investment</li>
-                                    <li>Deposit Fee</li>
-                                    <li>Time Locked</li>
-                                    <li>Your Wallet Address</li>
-                                </ul>
-                            </div>
-                            <div className="deposit-summary-info-results">
-                                <ul>
-                                    <li>{props.category}</li>
-                                    <li>{props.dimension}</li>
-                                    <li>{chain?.name}</li>
-                                    <li>{`${walletBalance?.symbol} ${depositAmountFormatted} (${depositAmountCurrency})`}</li>
-                                    <li>0.5%</li>
-                                    <li>{prettyTimeLockValue}</li>
-                                    <li>{walletOwner}</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div className="deposit-button-wrapper">
-                            {!contractWriteLoading && !transactionLoading && orderDataSuccess && <Button buttonStyle="primary" buttonSize="standard" text="Finalize and commit funds" onClick={() => detfDeposit?.()} />}
-                            {contractWriteLoading && !transactionLoading && <Button buttonStyle="primary" buttonSize="standard" text="Finalize and commit funds" status="loading" loadingMsg={`waiting for ${connector?.name}`} />}
-                        </div>
-                        <TextLink to="" text="Make changes to investment setup" arrowDirection="back" onClick={() => { props.setShowDepositDetails(true); props.setActiveStage(props.activeStage === "establish-deposit-summary" ? "establish-deposit-details" : "deposit-details") }} />
+            <div className="deposit-summary">
+                <div className="deposit-summary-container">
+                    <div className="deposit-summary-info">
+                        <div className="deposit-summary-info-bar"></div>
+                        <table className="deposit-summary-table">
+                            <tbody>
+                                <tr>
+                                    <td className="deposit-summary-table-cell-title">DETF</td>
+                                    <td className="deposit-summary-table-cell-contents">{props.category} {props.dimension}</td>
+                                </tr>
+                                <tr>
+                                    <td className="deposit-summary-table-cell-title">Blockchain</td>
+                                    <td className="deposit-summary-table-cell-contents">{chain?.name}</td>
+                                </tr>
+                                <tr>
+                                    <td className="deposit-summary-table-cell-title">Deposit Fee</td>
+                                    <td className="deposit-summary-table-cell-contents">0.5%</td>
+                                </tr>
+                                <tr>
+                                    <td className="deposit-summary-table-cell-title">Performance Fee</td>
+                                    <td className="deposit-summary-table-cell-contents">10% of profit</td>
+                                </tr>
+                                <tr>
+                                    <td className="deposit-summary-table-cell-title">Time Locked</td>
+                                    <td className="deposit-summary-table-cell-contents">{prettyTimeLockValue}</td>
+                                </tr>
+                                <tr>
+                                    <td className="deposit-summary-table-cell-title">Your wallet</td>
+                                    <td className="deposit-summary-table-cell-contents">{TruncateAddress(walletOwner ? walletOwner : "")}</td>
+                                </tr>
+                                <tr>
+                                    <td className="deposit-summary-table-cell-title-final">Investment</td>
+                                    <td className="deposit-summary-table-cell-contents-final">{`${walletBalance?.symbol} ${depositAmountFormatted} (${depositAmountCurrency})`}</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
-                </ContentBox >
-            </MainContainer>
+                    <div className="deposit-summary-info-mobile">
+                        <div className="deposit-summary-info-bar-mobile"></div>
+                        <table className="deposit-summary-table-mobile">
+                            <tbody>
+                                <tr>
+                                    <td className="deposit-summary-table-cell-title">DETF</td>
+                                </tr>
+                                <tr><td className="deposit-summary-table-cell-contents">{props.category} {props.dimension}</td>
+                                </tr>
+                                <tr>
+                                    <td className="deposit-summary-table-cell-title">Blockchain</td>
+                                </tr>
+                                <tr>
+                                    <td className="deposit-summary-table-cell-contents">{chain?.name}</td>
+                                </tr>
+                                <tr>
+                                    <td className="deposit-summary-table-cell-title">Deposit Fee</td>
+                                </tr>
+                                <tr>
+                                    <td className="deposit-summary-table-cell-contents">0.5%</td>
+                                </tr>
+                                <tr>
+                                    <td className="deposit-summary-table-cell-title">Performance Fee</td>
+                                </tr>
+                                <tr>
+                                    <td className="deposit-summary-table-cell-contents">10% of profit</td>
+                                </tr>
+                                <tr>
+                                    <td className="deposit-summary-table-cell-title">Time Locked</td>
+                                </tr>
+                                <tr>
+                                    <td className="deposit-summary-table-cell-contents">{prettyTimeLockValue}</td>
+                                </tr>
+                                <tr>
+                                    <td className="deposit-summary-table-cell-title">Your wallet</td>
+                                </tr>
+                                <tr>
+                                    <td className="deposit-summary-table-cell-contents">{TruncateAddress(walletOwner ? walletOwner : "")}</td>
+                                </tr>
+                                <tr>
+                                    <td className="deposit-summary-table-cell-title-final">Investment</td>
+                                </tr>
+                                <tr>
+                                    <td className="deposit-summary-table-cell-contents-final">{`${walletBalance?.symbol} ${depositAmountFormatted} (${depositAmountCurrency})`}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div className="deposit-summary-button-wrapper">
+                        {!contractWriteLoading && !transactionLoading && orderDataSuccess && <Button buttonStyle="primary" buttonSize="standard" text="Finalize and commit funds" onClick={() => detfDeposit?.()} />}
+                        {contractWriteLoading && !transactionLoading && <Button buttonStyle="primary" buttonSize="standard" text="Finalize and commit funds" status="loading" loadingMsg={`waiting for ${connector?.name}`} />}
+                    </div>
+                    <TextLink to="" text="Make changes" arrowDirection="back" onClick={() => { props.setShowDepositDetails(true); props.setActiveStage(props.activeStage === "establish-deposit-summary" ? "establish-deposit-details" : "deposit-details") }} />
+                </div>
+            </div>
         )
     }
 

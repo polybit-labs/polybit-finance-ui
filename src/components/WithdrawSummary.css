@@ -1,0 +1,208 @@
+.withdraw-summary {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 80px;
+    padding-bottom: 160px;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.withdraw-summary-container {
+    width: 100%;
+    background-color: #EEEEEE;
+    border-radius: 8px;
+    border: 1px solid #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: top;
+    align-items: center;
+    padding: 80px;
+}
+
+.withdraw-summary-info {
+    display: flex;
+    flex-direction: row;
+}
+
+.withdraw-summary-info-bar {
+    background-color: #000000;
+    width: 10px;
+}
+
+.withdraw-summary-table {
+    margin-top: 10px;
+    border-collapse: collapse;
+    font-size: 20px;
+}
+
+.withdraw-summary-table-cell-title {
+    padding-left: 24px;
+    font-weight: 700;
+    line-height: 40px;
+}
+
+.withdraw-summary-table-cell-contents {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+    text-align: center;
+    padding-left: 24px;
+    line-height: 40px;
+}
+
+.withdraw-summary-table-cell-title-final,
+.withdraw-summary-table-cell-contents-final {
+    padding-left: 24px;
+    background-color: #DDDDDD;
+    font-weight: 700;
+    line-height: 40px;
+}
+
+.withdraw-summary-button-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
+
+.withdraw-summary-button-acknowledge {
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 20px;
+}
+
+.acknowledge-checkbox-wrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.acknowledge-checkbox {
+    height: 22px;
+    width: 22px;
+    background-image: url("./../assets/images/checkbox-unticked.png");
+    background-size: contain;
+    margin-right: 12px;
+}
+
+.acknowledge-checkbox-ticked {
+    height: 22px;
+    width: 22px;
+    background-image: url("./../assets/images/checkbox-ticked.png");
+    background-size: contain;
+    margin-right: 12px;
+}
+
+
+/* Small devices (landscape phones, 576px and up) */
+
+@media (max-width: 719px) {
+    .withdraw-summary-info {
+        display: none;
+    }
+
+    .withdraw-summary-table {
+        display: none;
+    }
+
+    .withdraw-summary {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-top: 40px;
+        padding-bottom: 80px;
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+
+    .withdraw-summary-container {
+        padding-top: 20px;
+        padding-bottom: 20px;
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+
+    .withdraw-summary-info-mobile {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+    }
+
+    .withdraw-summary-info-bar-mobile {
+        background-color: #000000;
+        width: 10px;
+    }
+
+    .withdraw-summary-table-mobile {
+        width: 100%;
+        margin-top: 10px;
+        border-collapse: collapse;
+        font-size: 20px;
+    }
+
+    .withdraw-summary-table-cell-title {
+        line-height: 24px;
+        padding-top: 12px;
+    }
+
+    .withdraw-summary-table-cell-contents {
+        line-height: 24px;
+        padding-bottom: 12px;
+    }
+
+    .withdraw-summary-table-cell-title-final {
+        line-height: 24px;
+        padding-top: 12px;
+    }
+
+    .withdraw-summary-table-cell-contents-final {
+        line-height: 24px;
+        padding-bottom: 12px;
+    }
+
+    .withdraw-summary-button-acknowledge {
+        width: 100%;
+    }
+
+    .withdraw-summary-button-wrapper {
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+}
+
+/* Medium devices (tablets, 768px and up) */
+
+@media (min-width: 720px) {
+    .withdraw-summary-info-mobile {
+        display: none;
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+
+@media (min-width: 960px) {
+    .withdraw-summary-info-mobile {
+        display: none;
+    }
+}
+
+/*Extra large devices (large desktops, 1200px and up)*/
+
+@media (min-width: 1025px) {
+    .withdraw-summary-info-mobile {
+        display: none;
+    }
+
+    .withdraw-summary {
+        max-width: 1280px;
+    }
+}

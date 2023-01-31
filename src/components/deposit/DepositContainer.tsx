@@ -1,5 +1,4 @@
 import { useState, useEffect, useContext } from 'react'
-import "../pages/Deposit.css"
 import { useAccount, useBalance } from "wagmi"
 import { DETFAccountData, GetDETFAccountData } from '../api/GetDETFAccountData'
 import { DepositDetails } from '../deposit/DepositDetails'

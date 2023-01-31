@@ -1,4 +1,3 @@
-import "./EstablishDETF.css"
 import { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import TitleContainer from '../containers/Title'
@@ -7,7 +6,6 @@ import { Progress } from '../Progress'
 import { TruncateAddress } from '../utils/Formatting'
 import { useAccount, useNetwork } from 'wagmi'
 import Footer from "./Footer"
-import MainContainer from "../containers/Main"
 import { EstablishDETFBox } from "../EstablishDETFBox"
 import { Connect } from "../Connect"
 import { DepositContainer } from "../deposit/DepositContainer"
