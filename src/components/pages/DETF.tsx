@@ -57,7 +57,7 @@ const DETF = () => {
 
         return (
             <>
-                <MainContainer>
+                <div className="detf">
                     <div className="detf-container">
                         <div className="detf-title-section">
                             <div className="detf-name-wrapper">
@@ -67,15 +67,21 @@ const DETF = () => {
                                 </div>
                                 <div className="detf-name-dimension">{dimension}</div>
                             </div>
-                            <Link to="/establish-detf" state={{ category: category, dimension: dimension, productId: productId.toString(), processOrigin: "establish", activeStage: 1 }}>
-                                <Button buttonStyle="primary" buttonSize="standard" text="Invest in this DETF" />
-                            </Link>
+                            <div className="detf-button-wrapper">
+                                <Link className="detf-invest-button" to="/establish-detf" state={{ category: category, dimension: dimension, productId: productId.toString(), processOrigin: "establish", activeStage: 1 }}>
+                                    <Button buttonStyle="primary" buttonSize="standard" text="Invest in this DETF" />
+                                </Link>
+                            </div>
                         </div>
                         <ul className="detf-content">
                             <li className="detf-content-a">
                                 <div className="detf-description">
                                     <h2>{descriptionTitle}</h2>
-                                    <br />
+                                    <div className="detf-button-wrapper-mobile">
+                                        <Link to="/establish-detf" state={{ category: category, dimension: dimension, productId: productId.toString() }}>
+                                            <Button buttonStyle="primary" buttonSize="standard" text="Invest in this DETF" />
+                                        </Link>
+                                    </div>
                                     <p>{description}</p>
                                 </div>
                                 <div className="detf-chart">
@@ -105,8 +111,13 @@ const DETF = () => {
                                 </div>
                             </li>
                         </ul>
+                        <div className="detf-summary-fine-print">
+                            <br />
+                            <div>*Past performance is not indicative of future performance. This is not financial advice. There are risks associated with crytpocurrency investing. Do your own research.</div>
+                            <div>**Certain additional costs apply. Please refer to our <Link className="detf-summary-fine-print" to="/fees">Fee Schedule</Link>.</div>
+                        </div>
                     </div>
-                </MainContainer>
+                </div>
                 <Footer />
             </>
         )
