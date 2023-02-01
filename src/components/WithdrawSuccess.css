@@ -44,9 +44,8 @@
     }
 
     .withdraw-success-text {
-        width: 70%;
+        width: 100%;
         margin-bottom: 30px;
-        color: #00BF6F;
         font-size: 24px;
     }
 }

@@ -100,9 +100,9 @@
                 "type": "address"
             },
             {
-                "internalType": "uint256[]",
-                "name": "ownedAssetsPrices",
-                "type": "uint256[]"
+                "internalType": "uint256",
+                "name": "totalBalance",
+                "type": "uint256"
             },
             {
                 "internalType": "address[]",
@@ -203,9 +203,9 @@
                 "type": "address"
             },
             {
-                "internalType": "uint256[]",
-                "name": "ownedAssetsPrices",
-                "type": "uint256[]"
+                "internalType": "uint256",
+                "name": "totalBalance",
+                "type": "uint256"
             },
             {
                 "internalType": "address[]",

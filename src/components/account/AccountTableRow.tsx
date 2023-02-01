@@ -86,7 +86,7 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
             setValidDateRange(true)
         }
     }, [performanceDataRange, performanceDataRangeSuccess])
-
+    console.log(ownedAssetsDetailed)
     const { response: productDataResponse, isLoading: productDataLoading, isSuccess: productDataSuccess } = GetProductData(productUrl)
     const [productData, setProductData] = useState<ProductData>()
     useEffect(() => {
