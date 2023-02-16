@@ -1,13 +1,10 @@
 import Footer from './Footer'
 import { TruncateAddress } from '../utils/Formatting'
-import { Link } from 'react-router-dom'
 import { useAccount, useBalance, useNetwork, useDisconnect } from "wagmi"
 import AccountTable from '../account/AccountTable'
 import TitleContainer from '../containers/Title'
 import SubTitleContainer from '../containers/SubTitle'
-import MainContainer from '../containers/Main'
 import AccountSummary from '../account/AccountSummary'
-import { GetDETFAccounts } from '../api/GetDETFAccounts'
 import { useEffect, useState, useContext } from 'react'
 import { GetDETFAccountsDataAll } from '../api/GetDETFAccountsDataAll'
 import { CurrencyContext, FormatCurrency } from "../utils/Currency"
@@ -45,13 +42,10 @@ const Account = () => {
         addressOrName: walletOwner,
     })
     const { chain } = useNetwork()
-    /* const { chains, error, isLoading, pendingChainId, switchNetwork } = useSwitchNetwork() */
-    const [detfAccounts, setDETFAccounts] = useState<Array<string>>([])
     const [detfAccountsData, setDETFAccountsData] = useState<Array<string>>([])
-    const { response: detfAccountsList, isLoading: detfAccountsLoading, isSuccess: detfAccountsSuccess } = GetDETFAccounts(walletOwner ? walletOwner : "")
     const { response: detfAccountsListData, isLoading: detfAccountsDataLoading, isSuccess: detfAccountsDataSuccess } = GetDETFAccountsDataAll(walletOwner ? walletOwner : "")
     const currency = useContext(CurrencyContext).currency
-    const { response: prices, isLoading: pricesLoading, isSuccess: pricesSuccess } = GetPriceVsCurrency("0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c")
+    const { response: prices, isLoading: pricesLoading, isSuccess: pricesSuccess } = GetPriceVsCurrency(wethAddress["56"]["wethAddress"])
     const [vsPrices, setVsPrices] = useState<any>({})
 
     useEffect(() => {
@@ -59,18 +53,16 @@ const Account = () => {
     }, [pricesLoading, pricesSuccess])
 
     useEffect(() => {
-        setDETFAccounts(detfAccountsList ? detfAccountsList : [])
         setDETFAccountsData(detfAccountsListData ? detfAccountsListData : [])
-    }, [detfAccountsLoading, detfAccountsDataLoading, detfAccountsSuccess, detfAccountsDataSuccess])
+    }, [detfAccountsDataLoading, detfAccountsDataSuccess])
     const { response: historicalPriceData, isSuccess: historicalPricesSuccess } = GetHistoricalPrices()
-    const { response: currentPriceData, isSuccess: currentPricesSuccess } = GetPriceVsCurrency(wethAddress["56"]["wethAddress"])
     const [historicalPrices, setHistoricalPrices] = useState<Array<Currencies>>([])
     const [currentPrices, setCurrentPrices] = useState<Currencies>()
 
     useEffect(() => {
         setHistoricalPrices(historicalPriceData ? historicalPriceData : [])
-        setCurrentPrices(currentPriceData ? currentPriceData : [])
-    }, [historicalPriceData, historicalPricesSuccess, currentPriceData, currentPricesSuccess])
+        setCurrentPrices(prices ? prices : [])
+    }, [historicalPriceData, historicalPricesSuccess, prices, pricesSuccess])
     console.log(connector?.name)
 
     const subTitle = <div style={{ width: "100%" }}>
@@ -108,17 +100,14 @@ const Account = () => {
                 <TitleContainer title="Your account" />
                 <SubTitleContainer info={subTitle} />
                 <AccountSummary
-                    detfAccounts={detfAccounts}
-                    detfAccountsSuccess={detfAccountsSuccess}
                     detfAccountsData={detfAccountsData}
                     detfAccountsDataSuccess={detfAccountsDataSuccess}
                     vsPrices={vsPrices}
                     currency={currency}
                 />
                 <AccountTable
-                    detfAccounts={detfAccounts}
-                    detfAccountsSuccess={detfAccountsSuccess}
                     detfAccountsData={detfAccountsData}
+                    detfAccountsDataSuccess={detfAccountsDataSuccess}
                     vsPrices={vsPrices}
                     currency={currency}
                     historicalPrices={historicalPrices}

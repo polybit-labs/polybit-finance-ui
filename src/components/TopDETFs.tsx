@@ -8,21 +8,22 @@ import { TopDETFBox } from "./TopDETFBox"
 export const TopDETFs = () => {
     const [showTimePeriodDropDown, setShowTimePeriodDropDown] = useState<boolean>(false)
     const [timePeriodFilter, setTimePeriodFilter] = useState<string>("this week")
-    const { response: detfData, isSuccess: detfDataSuccess } = GetTopDETFData()
+    const { response: detfDataOneWeek, isSuccess: detfDataSuccessOneWeek } = GetTopDETFData("one_week")
+    const { response: detfDataOneMonth, isSuccess: detfDataSuccessOneMonth } = GetTopDETFData("one_month")
+    const { response: detfDataOneYear, isSuccess: detfDataSuccessOneYear } = GetTopDETFData("one_year")
     const [topDETFData, setTopDETFData] = useState<Array<any>>([])
 
-
     useEffect(() => {
-        if (detfDataSuccess && detfData && timePeriodFilter === "this week") {
-            setTopDETFData(detfData[0])
+        if (detfDataSuccessOneWeek && detfDataOneWeek && timePeriodFilter === "this week") {
+            setTopDETFData(detfDataOneWeek)
         }
-        if (detfDataSuccess && detfData && timePeriodFilter === "this month") {
-            setTopDETFData(detfData[1])
+        if (detfDataSuccessOneMonth && detfDataOneMonth && timePeriodFilter === "this month") {
+            setTopDETFData(detfDataOneMonth)
         }
-        if (detfDataSuccess && detfData && timePeriodFilter === "this year") {
-            setTopDETFData(detfData[3])
+        if (detfDataSuccessOneYear && detfDataOneYear && timePeriodFilter === "this year") {
+            setTopDETFData(detfDataOneYear)
         }
-    }, [detfDataSuccess, timePeriodFilter])
+    }, [detfDataSuccessOneWeek, detfDataSuccessOneMonth, detfDataSuccessOneYear, timePeriodFilter])
 
     const toggleTimePeriodDropDown = () => {
         setShowTimePeriodDropDown(!showTimePeriodDropDown)
@@ -69,7 +70,7 @@ export const TopDETFs = () => {
                             urlCategoryId={detf.url_category_id}
                             urlChainId={detf.url_chain_id}
                             urlDimensionId={detf.url_dimension_id}
-                            period={timePeriodFilter} />
+                            performanceData={detf.performance_data} />
                     </li></div>
                 ) : void []}
 

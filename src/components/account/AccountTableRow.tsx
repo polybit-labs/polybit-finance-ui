@@ -17,6 +17,7 @@ import { Button } from "../Buttons"
 import { useNetwork } from "wagmi"
 import { GetFinalAssetsDetailed } from "../api/GetFinalAssetsDetailed"
 import { TruncateAddress } from "../utils/Formatting"
+import { GetOwnedAssetsTableData } from "../api/GetOwnedAssetsTableData"
 
 interface AccountTableRowItems {
     category: string;
@@ -53,9 +54,9 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
     const [isDETFDeposited, setIsDETFDeposited] = useState(false)
     const [isDETFTimeLocked, setIsDETFTimeLocked] = useState(false)
     const { chain } = useNetwork()
-    const chainId: string = chain ? chain.id.toString() : ""
-    const productUrl = `${chainId === "97" ? "97" : "bnb-smart-chain"}/${props.category.replaceAll(" ", "-").toLowerCase()}/${props.dimension.replaceAll(" ", "-").toLowerCase()}`
-    const performanceUrl = `bnb-smart-chain/${props.category.replaceAll(" ", "-").toLowerCase()}/${props.dimension.replaceAll(" ", "-").toLowerCase()}`
+    const chainId: string = chain ? chain.id.toString() : "56"
+    const productUrl = `${chainId}/${props.category.replaceAll(" ", "-").toLowerCase()}/${props.dimension.replaceAll(" ", "-").toLowerCase()}`
+    const performanceUrl = `${chainId}/${props.category.replaceAll(" ", "-").toLowerCase()}/${props.dimension.replaceAll(" ", "-").toLowerCase()}`
 
     useEffect(() => {
         if (props.status === 1) {
@@ -69,10 +70,11 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
         }
     }, [])
 
-    const { response: ownedAssets, isLoading, isSuccess } = GetOwnedAssetsDetailed(props.detf_address)
+    const { response: ownedAssetsTableData } = GetOwnedAssetsTableData(props.detf_address, props.status, props.total_deposits)
+    /* const { response: ownedAssets, isLoading, isSuccess } = GetOwnedAssetsDetailed(props.detf_address)
     const ownedAssetsDetailed = ownedAssets ? ownedAssets : []
     const { response: finalAssets } = GetFinalAssetsDetailed(props.detf_address)
-    const finalAssetsDetailed = finalAssets ? finalAssets : []
+    const finalAssetsDetailed = finalAssets ? finalAssets : [] */
     const { response: owner } = GetOwner(props.detf_address)
     const { response: performanceDataRange, isSuccess: performanceDataRangeSuccess } = GetPerformanceDataRange(performanceUrl, props.creation_timestamp, props.close_timestamp > 0 ? props.close_timestamp : moment.now())
     const [performanceData, setPerformanceData] = useState<Array<PerformanceDataRange>>([])
@@ -86,7 +88,7 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
             setValidDateRange(true)
         }
     }, [performanceDataRange, performanceDataRangeSuccess])
-    console.log(ownedAssetsDetailed)
+
     const { response: productDataResponse, isLoading: productDataLoading, isSuccess: productDataSuccess } = GetProductData(productUrl)
     const [productData, setProductData] = useState<ProductData>()
     useEffect(() => {
@@ -360,9 +362,9 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
                                 <div className="account-table-expanded-content-right-owned-assets">
                                     <h2>Assets in DETF</h2>
                                     <p>Wafer gingerbread bonbon gummies biscuit candy danish cupcake. Cookie liquorice chocolate cake bonbon candy canes tiramisu sugar plum gummies bear claw.</p>
-                                    {isDETFActive && isDETFDeposited && <DETFOwnedAssetsTable tokens={ownedAssetsDetailed} vsPrices={props.vsPrices} currency={props.currency} />}
+                                    {ownedAssetsTableData && isDETFActive && isDETFDeposited && <DETFOwnedAssetsTable tokens={ownedAssetsTableData} vsPrices={props.vsPrices} currency={props.currency} />}
                                     {isDETFActive && !isDETFDeposited && <DETFAssetsTable tokens={productData ? productData.tokens : []} />}
-                                    {!isDETFActive && <DETFOwnedAssetsTable tokens={finalAssetsDetailed} vsPrices={props.vsPrices} currency={props.currency} />}
+                                    {ownedAssetsTableData && !isDETFActive && <DETFOwnedAssetsTable tokens={ownedAssetsTableData} vsPrices={props.vsPrices} currency={props.currency} />}
                                 </div>
                                 <div className="account-table-expanded-content-right-proof-of-assets">
                                     <h2>Proof of assets</h2>
@@ -412,7 +414,7 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
                     <table className="account-table-row-item-table-mobile">
                         <tbody>
                             <tr>
-                                <td>Market Value:</td>
+                                <td>Value:</td>
                                 <td className="account-table-row-item-table-cell-mobile">{FormatCurrency((Number(props.balance_in_weth)
                                     / 10 ** 18 *
                                     (() => {
@@ -431,7 +433,7 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
                                     })()), 2)}</td>
                             </tr>
                             <tr>
-                                <td>Total Return:</td>
+                                <td>Return:</td>
                                 {isDETFActive && <td className="account-table-row-item-table-cell-mobile" style={{ color: ColourNumbers(currentReturnPercentage) }}>{currentReturnPercentageFormatted}</td>}
                                 {!isDETFActive && <td className="account-table-row-item-table-cell-mobile" style={{ color: ColourNumbers(props.final_return_percentage) }}>{FormatPercentages(props.final_return_percentage)}</td>}
                             </tr>
@@ -548,9 +550,9 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
                                 <div className="account-table-expanded-content-owned-assets-mobile">
                                     <h2>Assets in DETF</h2>
                                     <p>Wafer gingerbread bonbon gummies biscuit candy danish cupcake. Cookie liquorice chocolate cake bonbon candy canes tiramisu sugar plum gummies bear claw.</p>
-                                    {isDETFActive && isDETFDeposited && <DETFOwnedAssetsTable tokens={ownedAssetsDetailed} vsPrices={props.vsPrices} currency={props.currency} />}
+                                    {ownedAssetsTableData && isDETFActive && isDETFDeposited && <DETFOwnedAssetsTable tokens={ownedAssetsTableData} vsPrices={props.vsPrices} currency={props.currency} />}
                                     {isDETFActive && !isDETFDeposited && <DETFAssetsTable tokens={productData ? productData.tokens : []} />}
-                                    {!isDETFActive && <DETFOwnedAssetsTable tokens={finalAssetsDetailed} vsPrices={props.vsPrices} currency={props.currency} />}
+                                    {ownedAssetsTableData && !isDETFActive && <DETFOwnedAssetsTable tokens={ownedAssetsTableData} vsPrices={props.vsPrices} currency={props.currency} />}
                                 </div>
                             </div>
                         </div>

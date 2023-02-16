@@ -19,6 +19,7 @@
     text-align: left;
     background-color: #fff;
     width: 270px;
+    z-index: 10;
 }
 
 .inline-dropdown-box-options {
@@ -40,6 +41,10 @@
 @media (max-width: 719px) {
     .inline-dropdown {
         font-size: 20px;
+    }
+
+    .inline-dropdown-box {
+        top: 32px;
     }
 }
 

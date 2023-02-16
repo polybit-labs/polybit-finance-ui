@@ -31,8 +31,7 @@ type Currencies = {
 }
 
 interface AccountTableProps {
-    detfAccounts: Array<string>;
-    detfAccountsSuccess: boolean;
+    detfAccountsDataSuccess: boolean;
     detfAccountsData: Array<any>;
     vsPrices: any;
     currency: string;
@@ -45,15 +44,16 @@ export const AccountTable = (props: AccountTableProps) => {
     const { data: walletBalance } = useBalance({
         addressOrName: walletOwner,
     })
-    const detfAccounts: Array<string> = props.detfAccounts
     const detfAccountsData: Array<any> = props.detfAccountsData
+
+    console.log(detfAccountsData)
     const [activeSort, setActiveSort] = useState("")
     const [detfData, setDETFData] = useState<Array<any>>(detfAccountsData)
     useEffect(() => {
         if (detfData.length !== detfAccountsData.length) {
             setDETFData(((detfData) => detfAccountsData))
         }
-    }, [detfAccounts, detfAccountsData])
+    }, [detfAccountsData])
 
     const [order, setOrder] = useState("asc")
     const sorting = (column: any) => {
@@ -72,7 +72,7 @@ export const AccountTable = (props: AccountTableProps) => {
         }
     }
 
-    if (detfAccounts.length > 0) {
+    if (detfAccountsData.length > 0) {
         return (
             <>
                 <div className="account-detf-container">
@@ -188,7 +188,7 @@ export const AccountTable = (props: AccountTableProps) => {
             </>
         )
     }
-    if (props.detfAccountsSuccess && detfAccounts.length === 0) {
+    if (props.detfAccountsDataSuccess && detfAccountsData.length === 0) {
         return (
             <><div className="account-detf-container">
                 <div className="account-detf-title">

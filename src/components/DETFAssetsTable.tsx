@@ -14,22 +14,24 @@ export const DETFAssetsTable = (props: DETFAssetsTableProps) => {
     useEffect(() => {
         setLiquidityCurrency(currency)
     }, [currency])
+    const dimension = props.tokens[0].dimension
+    console.log(dimension)
 
     props.tokens?.map(token => {
         targetAssets.push({
             "tokenLogo": token.image,
             "tokenName": token.name,
-            "tokenLiquidityAUD": token.token_liquidity.liquidity_aud,
-            "tokenLiquidityBNB": token.token_liquidity.liquidity_bnb,
-            "tokenLiquidityCNY": token.token_liquidity.liquidity_cny,
-            "tokenLiquidityEUR": token.token_liquidity.liquidity_eur,
-            "tokenLiquidityIDR": token.token_liquidity.liquidity_idr,
-            "tokenLiquidityJPY": token.token_liquidity.liquidity_jpy,
-            "tokenLiquidityKRW": token.token_liquidity.liquidity_krw,
-            "tokenLiquidityRUB": token.token_liquidity.liquidity_rub,
-            "tokenLiquidityTWD": token.token_liquidity.liquidity_twd,
-            "tokenLiquidityUSD": token.token_liquidity.liquidity_usd,
-            "tokenWeight": token.dimension.weight,
+            "dimensionValueAUD": token.dimension_value.aud,
+            "dimensionValueBNB": token.dimension_value.bnb,
+            "dimensionValueCNY": token.dimension_value.cny,
+            "dimensionValueEUR": token.dimension_value.eur,
+            "dimensionValueIDR": token.dimension_value.idr,
+            "dimensionValueJPY": token.dimension_value.jpy,
+            "dimensionValueKRW": token.dimension_value.krw,
+            "dimensionValueRUB": token.dimension_value.rub,
+            "dimensionValueTWD": token.dimension_value.twd,
+            "dimensionValueUSD": token.dimension_value.usd,
+            "tokenWeight": token.dimension_weighting,
         })
     })
 
@@ -37,7 +39,7 @@ export const DETFAssetsTable = (props: DETFAssetsTableProps) => {
 
     if (targetAssets) {
         const sorted = [...targetAssets].sort((a, b) =>
-            a.tokenWeight < b.tokenWeight ? 1 : -1)
+            a.dimensionValueBNB < b.dimensionValueBNB ? 1 : -1)
 
         return (
             <>
@@ -46,7 +48,7 @@ export const DETFAssetsTable = (props: DETFAssetsTableProps) => {
                         <tr className="detf-assets-header-row">
                             <th className="detf-assets-header-item">Rank</th>
                             <th className="detf-assets-header-item">Token</th>
-                            <th className="detf-assets-header-item">Liquidity</th>
+                            <th className="detf-assets-header-item">{dimension === "market-cap" ? "Market Cap" : "Liquidity"}</th>
                             <th className="detf-assets-header-item">Weight</th>
                         </tr>
                     </thead>
@@ -64,16 +66,16 @@ export const DETFAssetsTable = (props: DETFAssetsTableProps) => {
                                     <td className="detf-assets-body-item">
                                         {FormatCurrency((() => {
                                             switch (liquidityCurrency) {
-                                                case "AUD": return (token.tokenLiquidityAUD)
-                                                case "BNB": return (token.tokenLiquidityBNB)
-                                                case "CNY": return (token.tokenLiquidityCNY)
-                                                case "EURO": return (token.tokenLiquidityEUR)
-                                                case "IDR": return (token.tokenLiquidityIDR)
-                                                case "JPY": return (token.tokenLiquidityJPY)
-                                                case "KRW": return (token.tokenLiquidityKRW)
-                                                case "RUB": return (token.tokenLiquidityRUB)
-                                                case "TWD": return (token.tokenLiquidityTWD)
-                                                case "USD": return (token.tokenLiquidityUSD)
+                                                case "AUD": return (token.dimensionValueAUD)
+                                                case "BNB": return (token.dimensionValueBNB)
+                                                case "CNY": return (token.dimensionValueCNY)
+                                                case "EURO": return (token.dimensionValueEUR)
+                                                case "IDR": return (token.dimensionValueIDR)
+                                                case "JPY": return (token.dimensionValueJPY)
+                                                case "KRW": return (token.dimensionValueKRW)
+                                                case "RUB": return (token.dimensionValueRUB)
+                                                case "TWD": return (token.dimensionValueTWD)
+                                                case "USD": return (token.dimensionValueUSD)
                                             }
                                         })(), 0)}
                                     </td>
@@ -103,16 +105,16 @@ export const DETFAssetsTable = (props: DETFAssetsTableProps) => {
                                     <td className="detf-assets-body-item-liquidity-mobile">
                                         {FormatCurrency((() => {
                                             switch (liquidityCurrency) {
-                                                case "AUD": return (token.tokenLiquidityAUD)
-                                                case "BNB": return (token.tokenLiquidityBNB)
-                                                case "CNY": return (token.tokenLiquidityCNY)
-                                                case "EURO": return (token.tokenLiquidityEUR)
-                                                case "IDR": return (token.tokenLiquidityIDR)
-                                                case "JPY": return (token.tokenLiquidityJPY)
-                                                case "KRW": return (token.tokenLiquidityKRW)
-                                                case "RUB": return (token.tokenLiquidityRUB)
-                                                case "TWD": return (token.tokenLiquidityTWD)
-                                                case "USD": return (token.tokenLiquidityUSD)
+                                                case "AUD": return (token.dimensionValueAUD)
+                                                case "BNB": return (token.dimensionValueBNB)
+                                                case "CNY": return (token.dimensionValueCNY)
+                                                case "EURO": return (token.dimensionValueEUR)
+                                                case "IDR": return (token.dimensionValueIDR)
+                                                case "JPY": return (token.dimensionValueJPY)
+                                                case "KRW": return (token.dimensionValueKRW)
+                                                case "RUB": return (token.dimensionValueRUB)
+                                                case "TWD": return (token.dimensionValueTWD)
+                                                case "USD": return (token.dimensionValueUSD)
                                             }
                                         })(), 0)}
                                     </td>

@@ -6,7 +6,6 @@ import { FormatCurrency } from "./utils/Currency"
 import { Loading } from './Loading'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { icon } from '@fortawesome/fontawesome-svg-core/import.macro'
-import MainContainer from './containers/Main'
 
 interface DETFIndex {
     "category": string;

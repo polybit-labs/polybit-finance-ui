@@ -19,6 +19,7 @@
     flex-direction: row;
     align-items: center;
     cursor: default;
+    margin-bottom: 10px;
 }
 
 .account-detf-header-item-detf,
@@ -140,6 +141,7 @@
         align-items: center;
         cursor: default;
         font-weight: 700;
+        margin-bottom: 10px;
     }
 
     .account-detf-header-item-detf-mobile,

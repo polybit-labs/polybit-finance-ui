@@ -13,18 +13,15 @@ import { DETFSummary } from '../DETFSummary'
 import { ColourCategories, DETFIconFilename } from '../utils/Formatting'
 import { useNetwork } from 'wagmi'
 import { Button } from '../Buttons'
-import MainContainer from '../containers/Main'
 
 const DETF = () => {
-    const urlChainId = useParams().urlChainId
     const urlCategoryId = useParams().urlCategoryId
     const urlDimensionId = useParams().urlDimensionId
     const { chain } = useNetwork()
-    const chainId: string = chain ? chain.id.toString() : ""
-    const productUrl = `${chainId === "97" ? "97" : "bnb-smart-chain"}/${urlCategoryId}/${urlDimensionId}`
-    const performanceUrl = `${urlChainId}/${urlCategoryId}/${urlDimensionId}`
-    const productContent = require(`../../product/detfs/${urlChainId}/${urlCategoryId}/${urlDimensionId}/content.json`)
-
+    const chainId: string = chain ? chain.id.toString() : "56"
+    const productUrl = `${chainId}/${urlCategoryId}/${urlDimensionId}`
+    const performanceUrl = `${chainId}/${urlCategoryId}/${urlDimensionId}`
+    const productContent = require(`../../product/detfs/${chainId}/${urlCategoryId}/${urlDimensionId}/content.json`)
     const currency = useContext(CurrencyContext).currency
     const { response: prices, isLoading: pricesLoading, isSuccess: pricesSuccess } = GetPriceVsCurrency("0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c")
     const [vsPrices, setVsPrices] = useState<any>({})
@@ -34,6 +31,7 @@ const DETF = () => {
     }, [pricesLoading, pricesSuccess])
 
     const [productData, setProductData] = useState<ProductData | undefined>()
+    console.log(productData)
     const [performanceData, setPerformanceData] = useState<Array<PerformanceData> | undefined>()
 
     const { response: product, isLoading: productDataLoading, isSuccess: productDataSuccess } = GetProductData((productUrl))

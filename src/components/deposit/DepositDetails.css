@@ -215,4 +215,8 @@
 
 /*Extra large devices (large desktops, 1200px and up)*/
 
-@media (min-width: 1025px) {}
+@media (min-width: 1025px) {
+    .deposit-box {
+        max-width: 1280px;
+    }
+}
