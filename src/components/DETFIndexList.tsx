@@ -170,7 +170,7 @@ const DETFIndexList = (props: DETFIndexListProps) => {
                     </div>
                 </div>
                 <div className="detf-index-container-mobile">
-                    <div className="detf-index-header-mobile">
+                    {/*                     <div className="detf-index-header-mobile">
                         <div className="detf-index-header-item-liquidity-mobile" onClick={() => { sorting("liquidity"); setActiveSort("liquidity") }}>Liquidity&nbsp;
                             {activeSort !== "liquidity" && <div style={{ transform: "translateY(+18%)", fontSize: "20px", color: "#e3e3e3" }}><FontAwesomeIcon icon={icon({ name: "sort-up", style: "solid" })} /></div>}
                             {activeSort === "liquidity" && order === "asc" && <div style={{ transform: "translateY(+18%)", fontSize: "20px" }}><FontAwesomeIcon icon={icon({ name: "sort-up", style: "solid" })} /></div>}
@@ -191,7 +191,7 @@ const DETFIndexList = (props: DETFIndexListProps) => {
                             {activeSort === "returnOneYear" && order === "asc" && <div style={{ transform: "translateY(+18%)", fontSize: "20px" }}><FontAwesomeIcon icon={icon({ name: "sort-up", style: "solid" })} /></div>}
                             {activeSort === "returnOneYear" && order === "dsc" && <div style={{ transform: "translateY(-16%)", fontSize: "20px" }}><FontAwesomeIcon icon={icon({ name: "sort-down", style: "solid" })} /></div>}
                         </div>
-                    </div>
+                    </div> */}
                     <div>
                         {detfIndex.map((detf: any) =>
                             <Link className="detf-index-row-item-link" to={`/detfs/${detf.urlChainId}/${detf.urlCategoryId}/${detf.urlDimensionId}`} >
