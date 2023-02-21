@@ -235,12 +235,12 @@ const DETFIndexList = (props: DETFIndexListProps) => {
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td>1 Year:</td>
-                                                <td className="detf-index-row-item-table-cell" style={{ color: ColourNumbers(detf.returnOneYear) }}>
-                                                    {detf.returnOneYear === 0 && <div style={{ transform: "translateY(+18%)", fontSize: "20px", color: "#e3e3e3" }}><FontAwesomeIcon icon={icon({ name: "sort-up", style: "solid" })} /></div>}
-                                                    {detf.returnOneYear > 0 && <div style={{ transform: "translateY(+18%)", fontSize: "20px", color: "#0FC421" }}><FontAwesomeIcon icon={icon({ name: "sort-up", style: "solid" })} /></div>}
-                                                    {detf.returnOneYear < 0 && <div style={{ transform: "translateY(-28%)", fontSize: "20px", color: "#C20000" }}><FontAwesomeIcon icon={icon({ name: "sort-down", style: "solid" })} /></div>}
-                                                    &nbsp;{parseFloat((detf.returnOneYear * 100).toString()).toFixed(2).replace("-", "") + "%"}
+                                                <td>3 Months:</td>
+                                                <td className="detf-index-row-item-table-cell" style={{ color: ColourNumbers(detf.returnThreeMonths) }}>
+                                                    {detf.returnThreeMonths === 0 && <div style={{ transform: "translateY(+18%)", fontSize: "20px", color: "#e3e3e3" }}><FontAwesomeIcon icon={icon({ name: "sort-up", style: "solid" })} /></div>}
+                                                    {detf.returnThreeMonths > 0 && <div style={{ transform: "translateY(+18%)", fontSize: "20px", color: "#0FC421" }}><FontAwesomeIcon icon={icon({ name: "sort-up", style: "solid" })} /></div>}
+                                                    {detf.returnThreeMonths < 0 && <div style={{ transform: "translateY(-28%)", fontSize: "20px", color: "#C20000" }}><FontAwesomeIcon icon={icon({ name: "sort-down", style: "solid" })} /></div>}
+                                                    &nbsp;{parseFloat((detf.returnThreeMonths * 100).toString()).toFixed(2).replace("-", "") + "%"}
                                                 </td>
                                             </tr>
                                         </tbody>

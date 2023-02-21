@@ -57,7 +57,7 @@ const DETFIndex = () => {
 
     const categories = ["All Categories"]
     const dimensions = ["All Dimensions"]
-    const subTitle = <div>Displaying investment strategies in <button
+    const subTitle = <div><h2>Displaying investment strategies in <button
         className="inline-dropdown"
         onClick={(): void => { toggleCategoryDropDown(); setDimensionFilter("All Dimensions") }}
         onBlur={(e: React.FocusEvent<HTMLButtonElement>): void =>
@@ -91,7 +91,7 @@ const DETFIndex = () => {
                     selectedOption={dimensionDropDownSelection}
                 />
             )}
-        </button></div>
+        </button></h2></div>
 
     if (detfData.length === detfIndexInfo.length) {
         detfData.map((detf) => {
