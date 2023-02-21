@@ -32,42 +32,42 @@ export const FormatCurrency = (amount: number, decimals: number) => {
     const currency = useContext(CurrencyContext).currency
 
     if (currency === "USD") {
-        return `$${parseFloat(amount.toString()).toFixed(decimals).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}`
+        return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', notation: 'compact', minimumFractionDigits: 2 }).format(amount)
     }
 
     if (currency === "AUD") {
-        return `$${parseFloat(amount.toString()).toFixed(decimals).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}`
+        return new Intl.NumberFormat('en-AU', { style: 'currency', currency: 'AUD', notation: 'compact', minimumFractionDigits: 2 }).format(amount)
     }
 
     if (currency === "BNB") {
-        return `${parseFloat(amount.toString()).toFixed(decimals).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}`
+        return `BNB ${parseFloat(amount.toString()).toFixed(decimals).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}`
     }
 
     if (currency === "EURO") {
-        return `€${parseFloat(amount.toString()).toFixed(decimals).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}`
+        return new Intl.NumberFormat('en-150', { style: 'currency', currency: 'EUR', notation: 'compact', minimumFractionDigits: 2 }).format(amount)
     }
 
     if (currency === "IDR") {
-        return `Rp${parseFloat(amount.toString()).toFixed(decimals).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}`
+        return new Intl.NumberFormat('in-ID', { style: 'currency', currency: 'IDR', notation: 'compact', minimumFractionDigits: 2 }).format(amount)
     }
 
     if (currency === "KRW") {
-        return `₩${parseFloat(amount.toString()).toFixed(decimals).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}`
+        return new Intl.NumberFormat('ko-KR', { style: 'currency', currency: 'KRW', notation: 'compact', minimumFractionDigits: 2 }).format(amount)
     }
 
     if (currency === "CNY") {
-        return `¥${parseFloat(amount.toString()).toFixed(decimals).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}`
+        return new Intl.NumberFormat('zh-CN', { style: 'currency', currency: 'CNY', notation: 'compact', minimumFractionDigits: 2 }).format(amount)
     }
 
     if (currency === "TWD") {
-        return `$${parseFloat(amount.toString()).toFixed(decimals).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}`
+        return new Intl.NumberFormat('zh-TW', { style: 'currency', currency: 'TWD', notation: 'compact', minimumFractionDigits: 2 }).format(amount)
     }
 
     if (currency === "JPY") {
-        return `¥${parseFloat(amount.toString()).toFixed(decimals).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}`
+        return new Intl.NumberFormat('ja', { style: 'currency', currency: 'JPY', notation: 'compact', minimumFractionDigits: 2 }).format(amount)
     }
 
     if (currency === "RUB") {
-        return `₽${parseFloat(amount.toString()).toFixed(decimals).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}`
+        return new Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB', notation: 'compact', minimumFractionDigits: 2 }).format(amount)
     }
 }

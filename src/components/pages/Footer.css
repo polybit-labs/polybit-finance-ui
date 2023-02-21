@@ -11,6 +11,10 @@
     width: 100%;
     justify-content: left;
     align-items: left;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 80px;
+    padding-bottom: 60px;
 }
 
 .footer-top {
@@ -60,147 +64,6 @@
 
 /* Small devices (landscape phones, 576px and up) */
 
-/* @media (max-width: 767px) {
-    .footer-container {
-        padding-left: 20px;
-        padding-right: 20px;
-        padding-top: 42px;
-        padding-bottom: 42px;
-    }
-
-    .footer-top {
-        margin-bottom: 62px;
-        display: flex;
-        flex-direction: column;
-    }
-
-    .footer-link-items {
-        flex-direction: column;
-        margin-left: 0px;
-        margin-top: 40px;
-        width: 160px;
-    }
-
-    .footer-link-items h2 {
-        font-size: 16px;
-        margin-bottom: 10px;
-    }
-
-    .footer-link-items a {
-        font-size: 16px;
-        line-height: 44px;
-    }
-
-    .footer-copyright-text {
-        font-size: 12px;
-        margin-top: 40px;
-    }
-} */
-
-/* Medium devices (tablets, 768px and up) */
-
-/* @media (min-width: 768px) {
-    .footer-container {
-        padding-left: 120px;
-        padding-right: 120px;
-        padding-top: 86px;
-        padding-bottom: 50px;
-    }
-
-    .footer-top {
-        margin-bottom: 130px;
-    }
-
-    .footer-link-items {
-        width: 160px;
-    }
-
-    .footer-link-items h2 {
-        font-size: 16px;
-        margin-bottom: 10px;
-    }
-
-    .footer-link-items a {
-        font-size: 16px;
-        line-height: 44px;
-    }
-
-    .footer-copyright-text {
-        font-size: 12px;
-        margin-top: 40px;
-    }
-} */
-
-/* Large devices (desktops, 992px and up) */
-
-/* @media (min-width: 992px) {
-    .footer-container {
-        padding-left: 120px;
-        padding-right: 120px;
-        padding-top: 86px;
-        padding-bottom: 50px;
-    }
-
-    .footer-top {
-        margin-bottom: 130px;
-    }
-
-    .footer-link-items {
-        width: 160px;
-    }
-
-    .footer-link-items h2 {
-        font-size: 16px;
-        margin-bottom: 10px;
-    }
-
-    .footer-link-items a {
-        font-size: 16px;
-        line-height: 44px;
-    }
-
-    .footer-copyright-text {
-        font-size: 12px;
-        margin-top: 40px;
-    }
-} */
-
-/*Extra large devices (large desktops, 1200px and up)*/
-
-/* @media (min-width: 1200px) {
-    .footer-container {
-        padding-left: 120px;
-        padding-right: 120px;
-        padding-top: 86px;
-        padding-bottom: 50px;
-    }
-
-    .footer-top {
-        margin-bottom: 130px;
-    }
-
-    .footer-link-items {
-        width: 160px;
-    }
-
-    .footer-link-items h2 {
-        font-size: 16px;
-        margin-bottom: 10px;
-    }
-
-    .footer-link-items a {
-        font-size: 16px;
-        line-height: 44px;
-    }
-
-    .footer-copyright-text {
-        font-size: 12px;
-        margin-top: 40px;
-    }
-} */
-
-/* Small devices (landscape phones, 576px and up) */
-
 @media (max-width: 719px) {
     .footer-container {
         padding-left: 20px;
@@ -240,22 +103,72 @@
 
 /* Medium devices (tablets, 768px and up) */
 
-@media (min-width: 720px) {}
+@media (min-width: 720px) {
+    .footer-container {
+        max-width: 959px;
+    }
+
+    .footer-top {
+        margin-bottom: 130px;
+    }
+
+    .footer-link-items {
+        width: 160px;
+    }
+
+    .footer-link-items h2 {
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+
+    .footer-link-items a {
+        font-size: 16px;
+        line-height: 44px;
+    }
+
+    .footer-copyright-text {
+        font-size: 12px;
+        margin-top: 40px;
+    }
+}
 
 
 /* Large devices (desktops, 992px and up) */
 
-@media (min-width: 960px) {}
+@media (min-width: 960px) {
+    .footer-container {
+        max-width: 1024px;
+    }
+
+    .footer-top {
+        margin-bottom: 130px;
+    }
+
+    .footer-link-items {
+        width: 160px;
+    }
+
+    .footer-link-items h2 {
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+
+    .footer-link-items a {
+        font-size: 16px;
+        line-height: 44px;
+    }
+
+    .footer-copyright-text {
+        font-size: 12px;
+        margin-top: 40px;
+    }
+}
 
 /*Extra large devices (large desktops, 1200px and up)*/
 
 @media (min-width: 1025px) {
     .footer-container {
         max-width: 1280px;
-        padding-left: 40px;
-        padding-right: 40px;
-        padding-top: 80px;
-        padding-bottom: 60px;
     }
 
     .footer-top {

@@ -1,253 +1,121 @@
-.hero-container {
+.hero {
     width: 100%;
+    margin-top: 40px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    color: #ffffff;
-}
-
-.hero-top,
-.hero-bottom {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    background-color: #e3e3e3;
-}
-
-.hero-middle {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+    align-items: center;
     background-color: #875CFF;
-}
-
-.hero-middle-content h1 {
     color: #ffffff;
 }
 
-/* Small devices (landscape phones, 576px and up) */
-
-/* @media (max-width: 767px) {
-
-.hero-top {
-    height: 73px;
+.hero-container {
+    height: 100%;
     display: flex;
-    justify-content: left;
-    align-items: left;
-    background-image: url("../assets/images/geometric-assets-mobile-top-3x.png");
-    background-size: 320px 73px;
-    background-repeat: no-repeat;
-    background-position: bottom right;
+    padding-top: 80px;
+    padding-bottom: 80px;
+    padding-left: 40px;
+    padding-right: 40px;
 }
 
-.hero-middle {
-    min-height: 200px;
+.hero-content {
+    height: 100%;
+    position: relative;
     display: flex;
-    justify-content: left;
-    align-items: left;
-    background-image: url("../assets/images/geometric-assets-mobile-bottom-3x.png");
-    background-size: 320px 148px;
-    background-repeat: no-repeat;
-    background-position: top right;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
-.hero-middle-content {
-    margin-left: 20px;
-    padding-top: 92px;
-    padding-right: 20px;
-    padding-bottom: 40px;
+.hero-content-title h1 {
+    color: #ffffff;
 }
 
-.hero-middle-content h1 {
+.hero-content-title {
+    width: 50%;
+    height: 100%;
+    z-index: 1;
+}
+
+.hero-content-title-button-wrapper {
+    margin-top: 30px;
+}
+
+.hero-content-title h1 {
     font-weight: 700;
-    font-size: 24px;
-    line-height: 30px;
-    margin-bottom: 20px;
-    letter-spacing: -1px;
+    font-size: 48px;
+    line-height: 54px;
+    margin-bottom: 30px;
+    letter-spacing: -1.5px;
 }
 
-.hero-middle-content p {
+.hero-content-title p {
     font-weight: 400;
-    font-size: 16px;
+    font-size: 20px;
     letter-spacing: -0.5px;
 }
 
-.hero-bottom {
-    height: 50px;
-    display: flex;
-    justify-content: left;
-    align-items: left;
-}
-}
-
-*/
-/* Medium devices (tablets, 768px and up) */
-
-/* @media (min-width: 768px) {
-    .hero-container {
-        height: 411px;
-    }
-
-    .hero-top {
-        height: 42px;
-        display: flex;
-        justify-content: left;
-        align-items: left;
-        background-image: url("../assets/images/geometric-assets-top-3x.png");
-        background-size: 403px 42px;
-        background-repeat: no-repeat;
-        background-position: bottom right;
-    }
-
-    .hero-middle {
-        height: 315px;
-        display: flex;
-        justify-content: left;
-        align-items: left;
-        background-image: url("../assets/images/geometric-assets-middle-3x.png");
-        background-size: 403px 315px;
-        background-repeat: no-repeat;
-        background-position: bottom right;
-    }
-
-    .hero-middle-content {
-        margin-left: 53px;
-        padding-top: 55px;
-        max-width: 430px;
-    }
-
-    .hero-middle-content h1 {
-        font-weight: 700;
-        font-size: 32px;
-        line-height: 36px;
-        margin-bottom: 20px;
-        letter-spacing: -1px;
-    }
-
-    .hero-middle-content p {
-        font-weight: 400;
-        font-size: 14px;
+.hero-content-image-desktop {
+    position: absolute;
+    height: 661px;
+    width: 760px;
+    bottom: -202px;
+    right: -40px;
+    align-items: right;
 }
 
-.hero-bottom {
-    height: 54px;
-    background-image: url("../assets/images/geometric-assets-bottom-3x.png");
-    background-size: 403px 54px;
-    background-repeat: no-repeat;
-    background-position: bottom right;
-}
-}
-
-*/
-/* Large devices (desktops, 992px and up) */
-
-/* @media (min-width: 992px) {
-    .hero-container {
-        height: 516px;
-    }
-
-    .hero-top {
-        height: 52px;
-        background-image: url("../assets/images/geometric-assets-top-3x.png");
-        background-size: 505px 52px;
-        background-repeat: no-repeat;
-        background-position: bottom right;
-    }
-
-    .hero-middle {
-        height: 396px;
-        background-image: url("../assets/images/geometric-assets-middle-3x.png");
-        background-size: 505px 396px;
-        background-repeat: no-repeat;
-        background-position: bottom right;
-    }
-
-    .hero-middle-content {
-        margin-left: 100px;
-        padding-top: 69px;
-        max-width: 540px;
-    }
-
-    .hero-middle-content h1 {
-        font-weight: 700;
-        font-size: 40px;
-        line-height: 45px;
-        margin-bottom: 25px;
-        letter-spacing: -1px;
-    }
-
-    .hero-middle-content p {
-        font-weight: 400;
-        font-size: 17px;
-}
-
-.hero-bottom {
-    height: 68px;
-    background-image: url("../assets/images/geometric-assets-bottom-3x.png");
-    background-size: 505px 68px;
-    background-repeat: no-repeat;
-    background-position: bottom right;
-}
-}
-
-*/
-/*Extra large devices (large desktops, 1200px and up)*/
-
-/* @media (min-width: 1200px) {
-    .hero-container {
-        height: 621px;
-    }
-
-    .hero-top {
-        height: 63px;
-        background-image: url("../assets/images/geometric-assets-top-3x.png");
-        background-size: 608px 63px;
-        background-repeat: no-repeat;
-        background-position: bottom right;
-    }
-
-    .hero-middle {
-        height: 476px;
-        background-image: url("../assets/images/geometric-assets-middle-3x.png");
-        background-size: 608px 476px;
-        background-repeat: no-repeat;
-        background-position: bottom right;
-    }
-
-    .hero-middle-content {
-        margin-left: 120px;
-        padding-top: 83px;
-        max-width: 650px;
-    }
-
-    .hero-middle-content h1 {
-        font-weight: 700;
-        font-size: 48px;
-        line-height: 54px;
-        margin-bottom: 30px;
-        letter-spacing: -1.5px;
-    }
-
-    .hero-middle-content p {
-        font-weight: 400;
-        font-size: 20px;
-        letter-spacing: -0.5px;
-    }
-
-    .hero-bottom {
-        height: 82px;
-        background-image: url("../assets/images/geometric-assets-bottom-3x.png");
-        background-size: 608px 82px;
-        background-repeat: no-repeat;
-        background-position: bottom right;
-    }
-} */
 
 /* Small devices (landscape phones, 576px and up) */
 
 @media (max-width: 719px) {
+    .hero {
+        margin-top: 60px;
+    }
+
+    .hero-container {
+        max-width: 719px;
+    }
+
+    .hero-content-image-desktop {
+        display: none;
+    }
+
+    .hero-container {
+        height: 100%;
+        display: flex;
+        padding-top: 80px;
+        padding-bottom: 30px;
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+
+    .hero-content-title {
+        width: 100%;
+    }
+
+    .hero-content-title h1 {
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 30px;
+        margin-bottom: 20px;
+        letter-spacing: -1px;
+    }
+
+    .hero-content-title p {
+        font-weight: 400;
+        font-size: 16px;
+        letter-spacing: -0.5px;
+    }
+
+    .hero-content-image-mobile {
+        position: absolute;
+        height: 246px;
+        width: 254px;
+        top: -150px;
+        right: 0px;
+        align-items: right;
+    }
+
+    /* 
     .hero-top-middle {
         height: 73px;
         width: 100%;
@@ -289,103 +157,54 @@
         font-weight: 400;
         font-size: 16px;
         letter-spacing: -0.5px;
-    }
+    } */
 }
 
 /* Medium devices (tablets, 768px and up) */
 
-@media (min-width: 720px) {}
+@media (min-width: 720px) {
+    .hero-content-image-mobile {
+        display: none;
+    }
+
+    .hero-container {
+        max-width: 959px;
+    }
+
+    .hero-content-title {
+        width: 75%;
+    }
+}
 
 
 /* Large devices (desktops, 992px and up) */
 
-@media (min-width: 960px) {}
+@media (min-width: 960px) {
+    .hero-content-image-mobile {
+        display: none;
+    }
+
+    .hero-container {
+        max-width: 1024px;
+    }
+
+    .hero-content-title {
+        width: 75%;
+    }
+}
 
 /*Extra large devices (large desktops, 1200px and up)*/
 
 @media (min-width: 1025px) {
+    /* .hero {
+        height: 476px;
+    } */
+
+    .hero-content-image-mobile {
+        display: none;
+    }
+
     .hero-container {
-        height: 621px;
-    }
-
-    .hero-top-left,
-    .hero-top-right {
-        height: 63px;
-        width: 157px;
-    }
-
-    .hero-top-middle {
-        width: 1200px;
-        height: 63px;
-        background-image: url("../assets/images/geometric-assets-top-3x.png");
-        background-size: 608px 63px;
-        background-repeat: no-repeat;
-        background-position: bottom right;
-    }
-
-    .hero-middle-left,
-    .hero-middle-right {
-        width: 157px;
-        height: 476px;
-    }
-
-    .hero-middle-middle {
-        width: 1200px;
-        height: 476px;
-        background-image: url("../assets/images/geometric-assets-middle-3x.png");
-        background-size: 608px 476px;
-        background-repeat: no-repeat;
-        background-position: bottom right;
-    }
-
-    .hero-middle-content {
-        margin-left: 0px;
-        padding-top: 83px;
-        max-width: 650px;
-    }
-
-    .hero-middle-content h1 {
-        font-weight: 700;
-        font-size: 48px;
-        line-height: 54px;
-        margin-bottom: 30px;
-        letter-spacing: -1.5px;
-    }
-
-    .hero-middle-content p {
-        font-weight: 400;
-        font-size: 20px;
-        letter-spacing: -0.5px;
-    }
-
-    .hero-middle-right {
-        height: 476px;
-        background-image: url("../assets/images/geometric-assets-middle-right-3x.png");
-        background-size: 157px 476px;
-        background-repeat: no-repeat;
-        background-position: bottom left;
-    }
-
-    .hero-bottom-left,
-    .hero-bottom-right {
-        width: 157px;
-        height: 82px;
-    }
-
-    .hero-bottom-middle {
-        width: 1200px;
-        height: 82px;
-        background-image: url("../assets/images/geometric-assets-bottom-3x.png");
-        background-size: 608px 82px;
-        background-repeat: no-repeat;
-        background-position: bottom right;
-    }
-
-    .hero-bottom-right {
-        height: 82px;
-        background-image: url("../assets/images/geometric-assets-bottom-right-3x.png");
-        background-size: 157px 82px;
-        background-repeat: no-repeat;
-        background-position: top left;
+        max-width: 1280px;
     }
 }

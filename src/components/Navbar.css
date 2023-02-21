@@ -67,74 +67,6 @@
 }
 
 /* Small devices (landscape phones, 576px and up) */
-/* 
-@media (max-width: 767px) {
-    .navbar-container {
-        height: 72px;
-    }
-
-    .navbar-logo-wrapper {
-        margin-left: 20px;
-    }
-
-    .polybit-logo {
-        width: 133px;
-        height: 37px;
-    }
-} */
-
-/* Medium devices (tablets, 768px and up) */
-/* 
-@media (min-width: 768px) {
-    .navbar-container {
-        height: 97px;
-    }
-
-    .navbar-logo-wrapper {
-        margin-left: 53px;
-    }
-
-    .polybit-logo {
-        width: 156px;
-        height: 44px;
-    }
-} */
-
-/* Large devices (desktops, 992px and up) */
-/* 
-@media (min-width: 992px) {
-    .navbar-container {
-        height: 121px;
-    }
-
-    .navbar-logo-wrapper {
-        margin-left: 87px;
-    }
-
-    .polybit-logo {
-        width: 180px;
-        height: 50px;
-    }
-} */
-
-/*Extra large devices (large desktops, 1200px and up)*/
-/* 
-@media (min-width: 1200px) {
-    .navbar-container {
-        height: 146px;
-    }
-
-    .navbar-logo-wrapper {
-        margin-left: 120px;
-    }
-
-    .polybit-logo {
-        width: 203px;
-        height: 57px;
-    }
-} */
-
-/* Small devices (landscape phones, 576px and up) */
 
 @media (max-width: 719px) {
     .navbar {
@@ -252,6 +184,10 @@
     .navbar-mobile {
         display: none;
     }
+
+    .nav-currency {
+        display: none;
+    }
 }
 
 
@@ -260,6 +196,10 @@
 @media (min-width: 960px) {
     .navbar-mobile {
         display: none;
+    }
+
+    .nav-currency {
+        display: inherit;
     }
 }
 
@@ -272,5 +212,9 @@
 
     .navbar {
         max-width: 1280px;
+    }
+
+    .nav-currency {
+        display: inherit;
     }
 }

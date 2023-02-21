@@ -64,6 +64,14 @@
     height: 100%;
 }
 
+.top-detfs-container-button-wrapper {
+    width: 100%;
+    margin-top: 60px;
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    align-items: center;
+}
 
 /* Small devices (landscape phones, 576px and up) */
 
@@ -102,22 +110,32 @@
     .top-detfs-box-header-title-name-dimension {
         line-height: 20px;
     }
+
+    .top-detfs-container-button-wrapper-mobile {
+        margin-top: 30px;
+        justify-content: center;
+        align-items: center;
+    }
 }
 
 /* Medium devices (tablets, 768px and up) */
 
 @media (min-width: 720px) {
     .top-detfs-container {
-        max-width: 721px;
+        max-width: 959px;
     }
 
     .top-detfs-boxes {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         grid-column-gap: 24px;
     }
 
     .top-detfs-box {
         height: 300px;
+    }
+
+    .top-detf-box-third {
+        display: none;
     }
 }
 
@@ -129,12 +147,16 @@
     }
 
     .top-detfs-boxes {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         grid-column-gap: 24px;
     }
 
     .top-detfs-box {
         height: 300px;
+    }
+
+    .top-detf-box-third {
+        display: none;
     }
 }
 
@@ -152,5 +174,9 @@
 
     .top-detfs-box {
         height: 300px;
+    }
+
+    .top-detf-box-third {
+        display: inherit;
     }
 }
