@@ -1,5 +1,5 @@
 import { FormatCurrency } from './utils/Currency'
-import "./DETFAssetsTable.css"
+import "./DETFOwnedAssetsTable.css"
 import FallbackLogo from "../assets/images/placeholder.png"
 
 interface DETFAssetsTableProps {
@@ -42,56 +42,54 @@ export const DETFOwnedAssetsTable = (props: DETFAssetsTableProps) => {
 
         return (
             <>
-                <table className="detf-assets-table">
+                <table className="detf-owned-assets-table">
                     <thead>
-                        <tr className="detf-assets-header-row">
-                            <th className="detf-assets-header-item">Rank</th>
-                            <th className="detf-assets-header-item">Token</th>
-                            <th className="detf-assets-header-item">Liquidity</th>
-                            <th className="detf-assets-header-item">Weight</th>
+                        <tr className="detf-owned-assets-header-row">
+                            <th className="detf-owned-assets-header-item-token">Token</th>
+                            <th className="detf-owned-assets-header-item-liquidity">Liquidity</th>
+                            <th className="detf-owned-assets-header-item-weight">Weight</th>
                         </tr>
                     </thead>
                     <tbody>
                         {sorted.map((token, index) => {
                             return (
-                                <tr key={index} className="detf-assets-body-row">
-                                    <td className="detf-assets-body-item">{index + 1}</td>
-                                    <td className="detf-assets-body-item">
-                                        <div className="detf-assets-token-logo">
+                                <tr key={index} className="detf-owned-assets-body-row">
+                                    <td className="detf-owned-assets-body-item-token">
+                                        <div className="detf-owned-assets-token-logo">
                                             <img className="detf-token-logo" src={token.tokenLogo ? token.tokenLogo : FallbackLogo} alt={token.tokenName}></img>
                                             <b>{token.tokenName}</b>
                                         </div>
                                     </td>
-                                    <td className="detf-assets-body-item">
+                                    <td className="detf-owned-assets-body-item-liquidity">
                                         {token.tokenBalance}
                                     </td>
-                                    <td className="detf-assets-body-item">{`${parseFloat((token.tokenWeight * 100).toString()).toFixed(2)}%`}</td>
+                                    <td className="detf-owned-assets-body-item-weight">{`${parseFloat((token.tokenWeight * 100).toString()).toFixed(2)}%`}</td>
                                 </tr>)
                         })}
                     </tbody>
                 </table>
-                <table className="detf-assets-table-mobile">
+                <table className="detf-owned-assets-table-mobile">
                     <thead>
-                        <tr className="detf-assets-header-row-mobile">
-                            <th className="detf-assets-header-item-token-mobile">Token</th>
-                            <th className="detf-assets-header-item-liquidity-mobile">Liquidity</th>
-                            <th className="detf-assets-header-item-weight-mobile">Weight</th>
+                        <tr className="detf-owned-assets-header-row-mobile">
+                            <th className="detf-owned-assets-header-item-token-mobile">Token</th>
+                            <th className="detf-owned-assets-header-item-liquidity-mobile">Liquidity</th>
+                            <th className="detf-owned-assets-header-item-weight-mobile">Weight</th>
                         </tr>
                     </thead>
                     <tbody>
                         {sorted.map((token, index) => {
                             return (
-                                <tr key={index} className="detf-assets-body-row-mobile">
-                                    <td className="detf-assets-body-item-token-mobile">
-                                        <div className="detf-assets-token-logo-mobile">
+                                <tr key={index} className="detf-owned-assets-body-row-mobile">
+                                    <td className="detf-owned-assets-body-item-token-mobile">
+                                        <div className="detf-owned-assets-token-logo-mobile">
                                             <img className="detf-token-logo-mobile" src={token.tokenLogo ? token.tokenLogo : FallbackLogo} alt={token.tokenName}></img>
                                             <b>{token.tokenName}</b>
                                         </div>
                                     </td>
-                                    <td className="detf-assets-body-item-liquidity-mobile">
+                                    <td className="detf-owned-assets-body-item-liquidity-mobile">
                                         {token.tokenBalance}
                                     </td>
-                                    <td className="detf-assets-body-item-weight-mobile">{`${parseFloat((token.tokenWeight * 100).toString()).toFixed(2)}%`}</td>
+                                    <td className="detf-owned-assets-body-item-weight-mobile">{`${parseFloat((token.tokenWeight * 100).toString()).toFixed(2)}%`}</td>
                                 </tr>)
                         })}
                     </tbody>

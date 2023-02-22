@@ -213,11 +213,11 @@ const DETFIndexList = (props: DETFIndexListProps) => {
                                     <table className="detf-index-row-item-table">
                                         <tbody>
                                             <tr>
-                                                <td>Liquidity:</td>
-                                                <td>{detf.liquidity}</td>
+                                                <td className="detf-index-row-item-table-header">Liquidity:</td>
+                                                <td className="detf-index-row-item-table-cell">{detf.liquidity}</td>
                                             </tr>
                                             <tr>
-                                                <td>1 Week:</td>
+                                                <td className="detf-index-row-item-table-header">1 Week:</td>
                                                 <td className="detf-index-row-item-table-cell" style={{ color: ColourNumbers(detf.returnOneWeek) }}>
                                                     {detf.returnOneWeek === 0 && <div style={{ transform: "translateY(+18%)", fontSize: "20px", color: "#e3e3e3" }}><FontAwesomeIcon icon={icon({ name: "sort-up", style: "solid" })} /></div>}
                                                     {detf.returnOneWeek > 0 && <div style={{ transform: "translateY(+18%)", fontSize: "20px", color: "#0FC421" }}><FontAwesomeIcon icon={icon({ name: "sort-up", style: "solid" })} /></div>}
@@ -226,7 +226,7 @@ const DETFIndexList = (props: DETFIndexListProps) => {
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td>1 Month:</td>
+                                                <td className="detf-index-row-item-table-header">1 Month:</td>
                                                 <td className="detf-index-row-item-table-cell" style={{ color: ColourNumbers(detf.returnOneMonth) }}>
                                                     {detf.returnOneMonth === 0 && <div style={{ transform: "translateY(+18%)", fontSize: "20px", color: "#e3e3e3" }}><FontAwesomeIcon icon={icon({ name: "sort-up", style: "solid" })} /></div>}
                                                     {detf.returnOneMonth > 0 && <div style={{ transform: "translateY(+18%)", fontSize: "20px", color: "#0FC421" }}><FontAwesomeIcon icon={icon({ name: "sort-up", style: "solid" })} /></div>}
@@ -235,7 +235,7 @@ const DETFIndexList = (props: DETFIndexListProps) => {
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td>3 Months:</td>
+                                                <td className="detf-index-row-item-table-header">3 Months:</td>
                                                 <td className="detf-index-row-item-table-cell" style={{ color: ColourNumbers(detf.returnThreeMonths) }}>
                                                     {detf.returnThreeMonths === 0 && <div style={{ transform: "translateY(+18%)", fontSize: "20px", color: "#e3e3e3" }}><FontAwesomeIcon icon={icon({ name: "sort-up", style: "solid" })} /></div>}
                                                     {detf.returnThreeMonths > 0 && <div style={{ transform: "translateY(+18%)", fontSize: "20px", color: "#0FC421" }}><FontAwesomeIcon icon={icon({ name: "sort-up", style: "solid" })} /></div>}

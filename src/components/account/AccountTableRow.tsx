@@ -246,13 +246,13 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
                     {isDETFActive && <div className="account-table-row-item-return" >{currentReturnPercentageFormatted}</div>}
                     {!isDETFActive && <div className="account-table-row-item-return" >{FormatPercentages(props.final_return_percentage)}</div>}
                     {isDETFActive && !isDETFDeposited &&
-                        <div className="account-table-row-item-status">Deposit Required</div>
+                        <div className="account-table-row-item-status">Investment Required</div>
                     }
                     {isDETFActive && isDETFDeposited && !isDETFTimeLocked &&
                         <div className="account-table-row-item-status">Unlocked</div>
                     }
                     {isDETFActive && isDETFDeposited && isDETFTimeLocked &&
-                        <div className="account-table-row-item-status">Locked until {timeLock}</div>
+                        <div className="account-table-row-item-status">Locked</div>
                     }
                     {!isDETFActive &&
                         <div className="account-table-row-item-status">Closed</div>
@@ -265,12 +265,12 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
                             detfAddress: props.detf_address,
                             processOrigin: "deposit",
                             activeStage: 1
-                        }}>Deposit</Link>}
+                        }}>Invest</Link>}
                     </div>
-                    <div>
-                        {isActive && <div className="account-table-row-item-toggle" onClick={() => setIsActive(!isActive)}>Collapse&nbsp;
+                    <div className="account-table-row-item-toggle">
+                        {isActive && <div className="account-table-row-item-toggle-fa" onClick={() => setIsActive(!isActive)}>Collapse&nbsp;
                             <div style={{ transform: "translateY(+15%)" }}><FontAwesomeIcon icon={icon({ name: "sort-up", style: "solid" })} /></div></div>}
-                        {!isActive && <div className="account-table-row-item-toggle" onClick={() => setIsActive(!isActive)}>Expand&nbsp;
+                        {!isActive && <div className="account-table-row-item-toggle-fa" onClick={() => setIsActive(!isActive)}>Expand&nbsp;
                             <div style={{ transform: "translateY(-15%)" }}><FontAwesomeIcon icon={icon({ name: "sort-down", style: "solid" })} /></div></div>}
                     </div>
                 </div>
@@ -293,7 +293,7 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
                                     </div>}
                                     {!isDETFDeposited && <div className="account-table-expanded-content-left-invested-no-deposits">
                                         <img className="account-table-expanded-content-left-invested-no-deposits-icon" src={require("../../assets/icons/info_dark_grey.png")}></img>
-                                        <p>You have not yet deposited into this DETF.</p></div>}
+                                        <p>You have not yet invested into this DETF.</p></div>}
                                 </div>
                                 {isDETFActive && !isDETFDeposited &&
                                     <div className="account-table-expanded-content-left-deposit">
@@ -305,7 +305,7 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
                                             processOrigin: "deposit",
                                             activeStage: 1
                                         }}>
-                                            <Button text="Make your first deposit into this DETF" buttonStyle="primary" buttonSize="standard" /></Link>
+                                            <Button text="Make your first investment into this DETF" buttonStyle="primary" buttonSize="standard" /></Link>
                                     </div>}
                                 {isDETFActive && isDETFDeposited &&
                                     <div className="account-table-expanded-content-left-deposit">
@@ -317,7 +317,7 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
                                             processOrigin: "deposit",
                                             activeStage: 1
                                         }}>
-                                            <Button text="Deposit" buttonStyle="primary" buttonSize="standard" /></Link>
+                                            <Button text="Top up investment" buttonStyle="primary" buttonSize="standard" /></Link>
                                     </div>}
                                 <div className="account-table-expanded-content-left-current-value">
                                     {isDETFActive && <h2>Total market value: {currentTotalValueFormatted} ({currentReturnFormatted})</h2>}
@@ -371,9 +371,9 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
                                     <p>Wafer gingerbread bonbon gummies biscuit candy danish cupcake. Cookie liquorice chocolate cake bonbon candy canes tiramisu sugar plum gummies bear claw.</p>
                                     <br />
                                     <p><b>DETF Address:</b></p>
-                                    <p>{props.detf_address}</p>
+                                    <p>{TruncateAddress(props.detf_address)}</p>
                                     <p><b>DETF Owner Address:</b></p>
-                                    <p>{owner}</p>
+                                    <p>{TruncateAddress(owner ? owner : "")}</p>
                                     <br />
                                     {chainId === "97" && <p><b><a href={`https://testnet.bscscan.com/address/${props.detf_address}`} target="_blank" rel="noopener noreferrer">{`Validate this DETF's assets at BscScan ->`}</a></b></p>}
                                     {chainId !== "97" && <p><b><a href={`https://bscscan.com/address/${props.detf_address}`} target="_blank" rel="noopener noreferrer">{`Validate this DETF's assets at BscScan ->`}</a></b></p>}
@@ -414,7 +414,7 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
                     <table className="account-table-row-item-table-mobile">
                         <tbody>
                             <tr>
-                                <td>Value:</td>
+                                <td className="account-table-row-item-table-header-mobile">Value:</td>
                                 <td className="account-table-row-item-table-cell-mobile">{FormatCurrency((Number(props.balance_in_weth)
                                     / 10 ** 18 *
                                     (() => {
@@ -433,20 +433,20 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
                                     })()), 2)}</td>
                             </tr>
                             <tr>
-                                <td>Return:</td>
+                                <td className="account-table-row-item-table-header-mobile">Return:</td>
                                 {isDETFActive && <td className="account-table-row-item-table-cell-mobile" style={{ color: ColourNumbers(currentReturnPercentage) }}>{currentReturnPercentageFormatted}</td>}
                                 {!isDETFActive && <td className="account-table-row-item-table-cell-mobile" style={{ color: ColourNumbers(props.final_return_percentage) }}>{FormatPercentages(props.final_return_percentage)}</td>}
                             </tr>
                             <tr>
-                                <td>Status:</td>
+                                <td className="account-table-row-item-table-header-mobile">Status:</td>
                                 {isDETFActive && !isDETFDeposited &&
-                                    <td className="account-table-row-item-table-cell-mobile">Deposit Required</td>
+                                    <td className="account-table-row-item-table-cell-mobile">Investment Required</td>
                                 }
                                 {isDETFActive && isDETFDeposited && !isDETFTimeLocked &&
                                     <td className="account-table-row-item-table-cell-mobile">Unlocked</td>
                                 }
                                 {isDETFActive && isDETFDeposited && isDETFTimeLocked &&
-                                    <td className="account-table-row-item-table-cell-mobile">Locked until {timeLock}</td>
+                                    <td className="account-table-row-item-table-cell-mobile">Locked</td>
                                 }
                                 {!isDETFActive &&
                                     <td className="account-table-row-item-table-cell-mobile">Closed</td>
@@ -502,7 +502,7 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
                                             processOrigin: "deposit",
                                             activeStage: 1
                                         }}>
-                                            <Button text="Deposit" buttonStyle="primary" buttonSize="standard" /></Link>
+                                            <Button text="Top up investment" buttonStyle="primary" buttonSize="standard" /></Link>
                                     </div>}
                                 <div className="account-table-expanded-content-current-value-mobile">
                                     {isDETFActive && <div><h2>Total market value:</h2>
@@ -557,6 +557,7 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
                             </div>
                         </div>
                         <div className="account-table-expanded-content-proof-of-assets-mobile">
+                            <img className="account-table-expanded-content-proof-of-assets-diamond-mobile" src={require("../../assets/images/silver_diamond.png")}></img>
                             <h2>Proof of assets</h2>
                             <p>Wafer gingerbread bonbon gummies biscuit candy danish cupcake. Cookie liquorice chocolate cake bonbon candy canes tiramisu sugar plum gummies bear claw.</p>
                             <br />
@@ -567,7 +568,6 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
                             <br />
                             {chainId === "97" && <p><b><a href={`https://testnet.bscscan.com/address/${props.detf_address}`} target="_blank" rel="noopener noreferrer">{`Validate this DETF's assets at BscScan ->`}</a></b></p>}
                             {chainId !== "97" && <p><b><a href={`https://bscscan.com/address/${props.detf_address}`} target="_blank" rel="noopener noreferrer">{`Validate this DETF's assets at BscScan ->`}</a></b></p>}
-                            <img className="account-table-expanded-content-proof-of-assets-diamond-mobile" src={require("../../assets/images/silver_diamond.png")}></img>
                         </div>
                     </div>
                 }

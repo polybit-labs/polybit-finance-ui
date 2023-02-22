@@ -23,7 +23,7 @@ export function Progress({ activeStage }: ProgressStage) {
                             </div>
                             <div className="progress-bar-step">
                                 <div className={activeStage === "establish-deposit-details" ? "progress-bar-step-title-active" : "progress-bar-step-title"}><p><b>Step 2</b></p>
-                                    <p>Deposit details</p></div>
+                                    <p>Investment details</p></div>
                                 <div className="progress-bar-step-image">
                                     <div className={activeStage === "establish-deposit-details" ? "progress-bar-step-line-active" : "progress-bar-step-line"}></div>
                                     <div className={activeStage === "establish-deposit-details" ? "progress-bar-circle-active" : "progress-bar-circle"}></div>
@@ -31,7 +31,7 @@ export function Progress({ activeStage }: ProgressStage) {
                             </div>
                             <div className="progress-bar-step">
                                 <div className={activeStage === "establish-deposit-summary" ? "progress-bar-step-title-active" : "progress-bar-step-title"}><p><b>Step 3</b></p>
-                                    <p>Deposit Summary</p></div>
+                                    <p>Summary</p></div>
                                 <div className="progress-bar-step-image">
                                     <div className={activeStage === "establish-deposit-summary" ? "progress-bar-circle-active" : "progress-bar-circle"}></div>
                                 </div>
@@ -46,9 +46,9 @@ export function Progress({ activeStage }: ProgressStage) {
                                 {activeStage === "establish" && <p><b>Step 1 of 3</b></p>}
                                 {activeStage === "establish" && <p>Establish DETF</p>}
                                 {activeStage === "establish-deposit-details" && <p><b>Step 2 of 3</b></p>}
-                                {activeStage === "establish-deposit-details" && <p>Deposit details</p>}
+                                {activeStage === "establish-deposit-details" && <p>Investment details</p>}
                                 {activeStage === "establish-deposit-summary" && <p><b>Step 3 of 3</b></p>}
-                                {activeStage === "establish-deposit-summary" && <p>Deposit Summary</p>}
+                                {activeStage === "establish-deposit-summary" && <p>Summary</p>}
                             </div>
                             <div className="progress-bar-step-image-mobile">
                                 <div className="progress-bar-step-line-active"></div>
@@ -70,7 +70,7 @@ export function Progress({ activeStage }: ProgressStage) {
                         <div className="progress-bar-steps">
                             <div className="progress-bar-step">
                                 <div className={activeStage === "deposit-details" ? "progress-bar-step-title-active" : "progress-bar-step-title"}><p><b>Step 1</b></p>
-                                    <p>Deposit details</p></div>
+                                    <p>Investment details</p></div>
                                 <div className="progress-bar-step-image">
                                     <div className={activeStage === "deposit-details" ? "progress-bar-step-line-active" : "progress-bar-step-line"}></div>
                                     <div className={activeStage === "deposit-details" ? "progress-bar-circle-active" : "progress-bar-circle"}></div>
@@ -78,7 +78,7 @@ export function Progress({ activeStage }: ProgressStage) {
                             </div>
                             <div className="progress-bar-step">
                                 <div className={activeStage === "deposit-summary" ? "progress-bar-step-title-active" : "progress-bar-step-title"}><p><b>Step 2</b></p>
-                                    <p>Deposit Summary</p></div>
+                                    <p>Summary</p></div>
                                 <div className="progress-bar-step-image">
                                     <div className={activeStage === "deposit-summary" ? "progress-bar-circle-active" : "progress-bar-circle"}></div>
                                 </div>
@@ -91,9 +91,9 @@ export function Progress({ activeStage }: ProgressStage) {
                         <div className="progress-bar-step-mobile">
                             <div className="progress-bar-step-title-active">
                                 {activeStage === "deposit-details" && <p><b>Step 1 of 2</b></p>}
-                                {activeStage === "deposit-details" && <p>Deposit details</p>}
+                                {activeStage === "deposit-details" && <p>Investment details</p>}
                                 {activeStage === "deposit-summary" && <p><b>Step 2 of 2</b></p>}
-                                {activeStage === "deposit-summary" && <p>Deposit Summary</p>}
+                                {activeStage === "deposit-summary" && <p>Summary</p>}
                             </div>
                             <div className="progress-bar-step-image-mobile">
                                 <div className="progress-bar-step-line-active"></div>

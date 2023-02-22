@@ -6,7 +6,6 @@ import ScrollToTop from './components/ScrollToTop'
 import DETFIndex from './components/pages/DETFIndex'
 import Account from './components/pages/Account'
 import Deposit from './components/pages/Deposit'
-import { AvailableDETFs } from './components/AvailableDETFs'
 import EstablishDETF from './components/pages/EstablishDETF'
 import DETF from './components/pages/DETF'
 import { CurrencyContext, CurrencyState } from "./components/utils/Currency"
@@ -27,7 +26,7 @@ const App = () => {
               <Route path="/" element={<Home />} />
               <Route path="/detfs" element={<DETFIndex />} />
               <Route path="/swap" element={<SwitchNetwork />} />
-              <Route path="/how-it-works" element={<AvailableDETFs />} />
+              <Route path="/how-it-works" element={<SwitchNetwork />} />
               <Route path="/account" element={<Account />} />
               <Route path="/establish-detf" element={<EstablishDETF />} />
               <Route path="/deposit" element={<Deposit />} />

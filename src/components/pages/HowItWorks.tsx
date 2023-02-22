@@ -1,8 +1,7 @@
-import { AvailableDETFs } from '../AvailableDETFs'
 
 function HowItWorks() {
     return (
-        <AvailableDETFs />
+        <></>
     )
 }
 
