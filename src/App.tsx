@@ -11,9 +11,8 @@ import DETF from './components/pages/DETF'
 import { CurrencyContext, CurrencyState } from "./components/utils/Currency"
 import { useState } from 'react'
 import { CloseDETF } from './components/pages/CloseDETF'
-import { Fees } from './components/pages/Fees';
-import { SwitchNetwork } from './components/SwitchNetwork';
 import HowItWorks from './components/pages/HowItWorks';
+import Privacy from './components/pages/Privacy';
 
 const App = () => {
   const [currency, setCurrency] = useState<CurrencyState>({ currency: "USD" })
@@ -31,8 +30,8 @@ const App = () => {
               <Route path="/establish-detf" element={<EstablishDETF />} />
               <Route path="/deposit" element={<Deposit />} />
               <Route path="/close-detf" element={<CloseDETF />} />
+              <Route path="/privacy-policy" element={<Privacy />} />
               <Route path="/detfs/:urlChainId/:urlCategoryId/:urlDimensionId" element={<DETF />} />
-              <Route path="/fees" element={<Fees />} />
             </Routes>
           </CurrencyContext.Provider>
         </ScrollToTop>
