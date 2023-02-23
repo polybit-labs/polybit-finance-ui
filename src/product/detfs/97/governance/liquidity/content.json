@@ -1,11 +1,15 @@
 {
     "chainId": 97,
     "chainName": "BNB Smart Chain",
-    "productId": 5610041001,
+    "productId": 9710041001,
     "category": "Governance",
     "dimension": "Liquidity",
-    "descriptionTitle": "Wafer gingerbread bonbon gummies biscuit candy danish cupcake. Cookie liquorice chocolate cake bonbon candy canes tiramisu sugar plum gummies bear claw.",
-    "description": "Lemon drops pastry candy apple pie liquorice bear claw lemon drops sweet tootsie roll. Ice cream chocolate bar chocolate danish pastry gummi bears. Pudding cheesecake croissant apple pie cookie sweet icing candy cupcake. Croissant soufflé jelly beans pie sweet roll pastry. Halvah cotton candy candy gummi bears croissant. Marshmallow macaroon chocolate cupcake pie. \n\nMuffin jujubes sesame snaps lollipop lemon drops pudding danish shortbread danish. Pudding liquorice lollipop cheesecake icing. Bonbon jelly beans soufflé cookie jelly bear claw. Lemon drops sweet tart liquorice dragée icing wafer donut. Jujubes muffin jelly-o tootsie roll jujubes cake chocolate bar fruitcake gingerbread. Candy canes tiramisu cupcake liquorice candy lollipop. Jelly-o chocolate dessert soufflé topping. Topping oat cake toffee topping sesame snaps candy canes croissant. Halvah jelly-o soufflé marshmallow cotton candy cotton candy croissant tart cake. Cake marzipan biscuit cake jelly-o cake brownie soufflé muffin.",
-    "assetTableDescription": "Wafer gingerbread bonbon gummies biscuit candy danish cupcake. Cookie liquorice chocolate cake bonbon candy canes tiramisu sugar plum gummies bear claw.",
+    "descriptionTitle": "Most crypto projects are managed through a decentralised governance model, where stakeholders participate in decision-making processes.",
+    "description": [
+        "This form of governance aims to ensure that the decentralised project operates in a fair, secure, and transparent manner and that all stakeholders have a say in how the project is managed.",
+        "Stakeholders can submit proposals and vote on them using their tokens or voting power. The voting power is typically proportional to the amount of the project’s tokens held or staked by the stakeholder. This ensures that stakeholders who have more investment in the project have a greater say in decision-making.",
+        "Polybit’s Governance Liquidity DETF tracks governance tokens on the Binance Smart Chain, weighted by the total liquidity available in the decentralised exchanges that Polybit aggregates."
+    ],
+    "assetTableDescription": "",
     "rebalancingPeriod": "90 days"
 }

@@ -119,7 +119,7 @@ export const DepositSummary = (props: DepositSummary) => {
 
     if (!prepareContractWriteSuccess) {
         return (
-            <Loading loadingMsg="Preparing your deposit" />
+            <Loading loadingMsg="Preparing your investment" />
         )
     }
 
@@ -127,6 +127,7 @@ export const DepositSummary = (props: DepositSummary) => {
         return (
             <div className="deposit-summary">
                 <div className="deposit-summary-container">
+                    <h2>Your DETF investment summary</h2>
                     <div className="deposit-summary-info">
                         <div className="deposit-summary-info-bar"></div>
                         <table className="deposit-summary-table">
@@ -211,8 +212,8 @@ export const DepositSummary = (props: DepositSummary) => {
                         </table>
                     </div>
                     <div className="deposit-summary-button-wrapper">
-                        {!contractWriteLoading && !transactionLoading && orderDataSuccess && <Button buttonStyle="primary" buttonSize="standard" text="Finalize and commit funds" onClick={() => detfDeposit?.()} />}
-                        {contractWriteLoading && !transactionLoading && <Button buttonStyle="primary" buttonSize="standard" text="Finalize and commit funds" status="loading" loadingMsg={`waiting for ${connector?.name}`} />}
+                        {!contractWriteLoading && !transactionLoading && orderDataSuccess && <Button buttonStyle="primary" buttonSize="standard" text="Finalise and commit funds" onClick={() => detfDeposit?.()} />}
+                        {contractWriteLoading && !transactionLoading && <Button buttonStyle="primary" buttonSize="standard" text="Finalise and commit funds" status="loading" loadingMsg={`waiting for ${connector?.name}`} />}
                     </div>
                     <TextLink to="" text="Make changes" arrowDirection="back" onClick={() => { props.setShowDepositDetails(true); props.setActiveStage(props.activeStage === "establish-deposit-summary" ? "establish-deposit-details" : "deposit-details") }} />
                 </div>

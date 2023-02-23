@@ -292,6 +292,15 @@
     padding-right: 5px;
 }
 
+.table-loading {
+    width: 100%;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 /* Small devices (landscape phones, 576px and up) */
 
 @media (max-width: 719px) {

@@ -97,5 +97,9 @@ export const DETFOwnedAssetsTable = (props: DETFAssetsTableProps) => {
             </>
         )
     }
-    return <div></div>
+    return (
+        <div className="table-loading">
+            <img height="100px" width="100px" src={require("../assets/images/polybit-loader-black-on-dark-grey-100px.gif")} alt="Loading"></img>
+        </div>
+    )
 }

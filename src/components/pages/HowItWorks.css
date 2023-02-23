@@ -1,0 +1,43 @@
+.how-it-works {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 80px;
+    padding-bottom: 160px;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.how-it-works-container {
+    width: 100%;
+    text-align: left;
+}
+
+/* Small devices (mobile phones, <719px) */
+
+@media (max-width: 719px) {
+    .how-it-works {
+        padding-top: 40px;
+        padding-bottom: 80px;
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+}
+
+/* Medium devices (tablets, 720px and up) */
+
+@media (min-width: 720px) {}
+
+/* Large devices (desktops, 960px and up) */
+
+@media (min-width: 960px) {}
+
+/*Extra large devices (large desktops, 1025px and up)*/
+
+@media (min-width: 1025px) {
+    .how-it-works {
+        max-width: 1280px;
+    }
+}

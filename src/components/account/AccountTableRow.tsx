@@ -70,7 +70,8 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
         }
     }, [])
 
-    const { response: ownedAssetsTableData } = GetOwnedAssetsTableData(props.detf_address, props.status, props.total_deposits)
+    const { response: ownedAssetsTableData, isSuccess: ownedAssetsTableDataSuccess } = GetOwnedAssetsTableData(props.detf_address, props.status, props.total_deposits)
+    console.log(ownedAssetsTableDataSuccess)
     /* const { response: ownedAssets, isLoading, isSuccess } = GetOwnedAssetsDetailed(props.detf_address)
     const ownedAssetsDetailed = ownedAssets ? ownedAssets : []
     const { response: finalAssets } = GetFinalAssetsDetailed(props.detf_address)
@@ -208,6 +209,9 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
         </tbody>
     </table >
     const timeLock = moment.unix(props.timeLock).local().format("D MMM YYYY hh:mm")
+    const tableLoading = <div className="table-loading">
+        <img height="60px" width="60px" src={require("../../assets/images/polybit-loader-black-on-light-grey-60px.gif")} alt="Loading"></img>
+    </div>
 
     return (
         <>
@@ -361,14 +365,16 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
                             <div className="account-table-expanded-content-right">
                                 <div className="account-table-expanded-content-right-owned-assets">
                                     <h2>Assets in DETF</h2>
-                                    <p>Wafer gingerbread bonbon gummies biscuit candy danish cupcake. Cookie liquorice chocolate cake bonbon candy canes tiramisu sugar plum gummies bear claw.</p>
-                                    {ownedAssetsTableData && isDETFActive && isDETFDeposited && <DETFOwnedAssetsTable tokens={ownedAssetsTableData} vsPrices={props.vsPrices} currency={props.currency} />}
-                                    {isDETFActive && !isDETFDeposited && <DETFAssetsTable tokens={productData ? productData.tokens : []} />}
-                                    {ownedAssetsTableData && !isDETFActive && <DETFOwnedAssetsTable tokens={ownedAssetsTableData} vsPrices={props.vsPrices} currency={props.currency} />}
+                                    {isDETFActive && isDETFDeposited && ownedAssetsTableData && <DETFOwnedAssetsTable tokens={ownedAssetsTableData} vsPrices={props.vsPrices} currency={props.currency} />}
+                                    {isDETFActive && isDETFDeposited && !ownedAssetsTableData && tableLoading}
+                                    {isDETFActive && !isDETFDeposited && productData && <DETFAssetsTable tokens={productData ? productData.tokens : []} />}
+                                    {isDETFActive && !isDETFDeposited && !productData && tableLoading}
+                                    {!isDETFActive && ownedAssetsTableData && <DETFOwnedAssetsTable tokens={ownedAssetsTableData} vsPrices={props.vsPrices} currency={props.currency} />}
+                                    {!isDETFActive && !ownedAssetsTableData && tableLoading}
                                 </div>
                                 <div className="account-table-expanded-content-right-proof-of-assets">
                                     <h2>Proof of assets</h2>
-                                    <p>Wafer gingerbread bonbon gummies biscuit candy danish cupcake. Cookie liquorice chocolate cake bonbon candy canes tiramisu sugar plum gummies bear claw.</p>
+                                    <p>Polybit’s DETFs are self-custodial, which means your assets are held in a smart contract that is controlled by your wallet and are not pooled or centralised. You can prove this at any time with the information below.</p>
                                     <br />
                                     <p><b>DETF Address:</b></p>
                                     <p>{TruncateAddress(props.detf_address)}</p>
@@ -549,17 +555,19 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
                                 </div>
                                 <div className="account-table-expanded-content-owned-assets-mobile">
                                     <h2>Assets in DETF</h2>
-                                    <p>Wafer gingerbread bonbon gummies biscuit candy danish cupcake. Cookie liquorice chocolate cake bonbon candy canes tiramisu sugar plum gummies bear claw.</p>
-                                    {ownedAssetsTableData && isDETFActive && isDETFDeposited && <DETFOwnedAssetsTable tokens={ownedAssetsTableData} vsPrices={props.vsPrices} currency={props.currency} />}
-                                    {isDETFActive && !isDETFDeposited && <DETFAssetsTable tokens={productData ? productData.tokens : []} />}
-                                    {ownedAssetsTableData && !isDETFActive && <DETFOwnedAssetsTable tokens={ownedAssetsTableData} vsPrices={props.vsPrices} currency={props.currency} />}
+                                    {isDETFActive && isDETFDeposited && ownedAssetsTableData && <DETFOwnedAssetsTable tokens={ownedAssetsTableData} vsPrices={props.vsPrices} currency={props.currency} />}
+                                    {isDETFActive && isDETFDeposited && !ownedAssetsTableData && tableLoading}
+                                    {isDETFActive && !isDETFDeposited && productData && <DETFAssetsTable tokens={productData ? productData.tokens : []} />}
+                                    {isDETFActive && !isDETFDeposited && !productData && tableLoading}
+                                    {!isDETFActive && ownedAssetsTableData && <DETFOwnedAssetsTable tokens={ownedAssetsTableData} vsPrices={props.vsPrices} currency={props.currency} />}
+                                    {!isDETFActive && !ownedAssetsTableData && tableLoading}
                                 </div>
                             </div>
                         </div>
                         <div className="account-table-expanded-content-proof-of-assets-mobile">
                             <img className="account-table-expanded-content-proof-of-assets-diamond-mobile" src={require("../../assets/images/silver_diamond.png")}></img>
                             <h2>Proof of assets</h2>
-                            <p>Wafer gingerbread bonbon gummies biscuit candy danish cupcake. Cookie liquorice chocolate cake bonbon candy canes tiramisu sugar plum gummies bear claw.</p>
+                            <p>Polybit’s DETFs are self-custodial, which means your assets are held in a smart contract that is controlled by your wallet and are not pooled or centralised. You can prove this at any time with the information below.</p>
                             <br />
                             <p><b>DETF Address:</b></p>
                             <p>{TruncateAddress(props.detf_address)}</p>

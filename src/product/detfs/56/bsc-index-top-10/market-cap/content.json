@@ -4,8 +4,12 @@
     "productId": 5610001000,
     "category": "BSC Index Top 10",
     "dimension": "Market Cap",
-    "descriptionTitle": "Wafer gingerbread bonbon gummies biscuit candy danish cupcake. Cookie liquorice chocolate cake bonbon candy canes tiramisu sugar plum gummies bear claw.",
-    "description": "Lemon drops pastry candy apple pie liquorice bear claw lemon drops sweet tootsie roll. Ice cream chocolate bar chocolate danish pastry gummi bears. Pudding cheesecake croissant apple pie cookie sweet icing candy cupcake. Croissant soufflé jelly beans pie sweet roll pastry. Halvah cotton candy candy gummi bears croissant. Marshmallow macaroon chocolate cupcake pie. \n\nMuffin jujubes sesame snaps lollipop lemon drops pudding danish shortbread danish. Pudding liquorice lollipop cheesecake icing. Bonbon jelly beans soufflé cookie jelly bear claw. Lemon drops sweet tart liquorice dragée icing wafer donut. Jujubes muffin jelly-o tootsie roll jujubes cake chocolate bar fruitcake gingerbread. Candy canes tiramisu cupcake liquorice candy lollipop. Jelly-o chocolate dessert soufflé topping. Topping oat cake toffee topping sesame snaps candy canes croissant. Halvah jelly-o soufflé marshmallow cotton candy cotton candy croissant tart cake. Cake marzipan biscuit cake jelly-o cake brownie soufflé muffin.",
-    "assetTableDescription": "Wafer gingerbread bonbon gummies biscuit candy danish cupcake. Cookie liquorice chocolate cake bonbon candy canes tiramisu sugar plum gummies bear claw.",
+    "descriptionTitle": "The Binance Smart Chain is a blockchain launched by Binance, one of the world’s largest  cryptocurrency exchanges.",
+    "description": [
+        "It is designed to offer fast and low-cost transactions for decentralised applications (DApps) and other blockchain-based services. BSC is compatible with Ethereum and features a native token called Binance Coin (BNB).",
+        "Since launch, the Binance Smart Chain has become the second largest blockchain ecosystem in the world, valued at almost one trillion dollars, due to its fast, low-cost, and flexible blockchain infrastructure that is ideal for developers and users looking to build and use decentralised applications and other blockchain-based services.",
+        "Polybit’s BSC Index Top 10 Equally Balanced DETF tracks the top 10 tokens on the Binance Smart Chain, weighted by the total global market cap, across all centralised and decentralised exchanges."
+    ],
+    "assetTableDescription": "",
     "rebalancingPeriod": "90 days"
 }

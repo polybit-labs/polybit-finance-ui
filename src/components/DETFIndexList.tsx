@@ -15,6 +15,7 @@ interface DETFIndex {
     "returnOneMonth": string;
     "returnThreeMonths": string;
     "returnOneYear": string;
+    "url": string;
 }
 
 interface DETFIndexListProps {
@@ -143,29 +144,31 @@ const DETFIndexList = (props: DETFIndexListProps) => {
                     </div>
                     <div>
                         {detfIndex.map((detf: any) =>
-                            <Link className="detf-index-row-item-link" to={`/detfs/${detf.urlChainId}/${detf.urlCategoryId}/${detf.urlDimensionId}`} >
-                                <div className="detf-index-row-items" key={detf.url}>
-                                    <div className="detf-index-row-item-detf">
-                                        <img className="detf-index-row-item-logo" src={require(`../assets/icons/${DETFIconFilename(detf.category, detf.dimension)}`)}></img>
-                                        <div className="detf-index-row-item-name">
-                                            <div className="detf-index-row-item-name-category" style={{ color: ColourCategories(detf.category) }}>
-                                                {detf.category}
-                                            </div>
-                                            <div className="detf-index-row-item-name-dimension">
-                                                {detf.dimension}
+                            <div key={detf.url}>
+                                <Link className="detf-index-row-item-link" to={`/detfs/${detf.urlChainId}/${detf.urlCategoryId}/${detf.urlDimensionId}`} >
+                                    <div className="detf-index-row-items" key={detf.url}>
+                                        <div className="detf-index-row-item-detf">
+                                            <img className="detf-index-row-item-logo" src={require(`../assets/icons/${DETFIconFilename(detf.category, detf.dimension)}`)}></img>
+                                            <div className="detf-index-row-item-name">
+                                                <div className="detf-index-row-item-name-category" style={{ color: ColourCategories(detf.category) }}>
+                                                    {detf.category}
+                                                </div>
+                                                <div className="detf-index-row-item-name-dimension">
+                                                    {detf.dimension}
+                                                </div>
                                             </div>
                                         </div>
+                                        <div className="detf-index-row-item-liquidity">{detf.liquidity}</div>
+                                        <div className="detf-index-row-item-one-week" >{FormatPercentages(detf.returnOneWeek * 100)}</div>
+                                        <div className="detf-index-row-item-one-month" >{FormatPercentages(detf.returnOneMonth * 100)}</div>
+                                        <div className="detf-index-row-item-three-months" >{FormatPercentages(detf.returnThreeMonths * 100)}</div>
+                                        <div className="detf-index-row-item-one-year" >{FormatPercentages(detf.returnOneYear * 100)}</div>
+                                        <div className="detf-index-row-item-view">
+                                            View
+                                        </div>
                                     </div>
-                                    <div className="detf-index-row-item-liquidity">{detf.liquidity}</div>
-                                    <div className="detf-index-row-item-one-week" >{FormatPercentages(detf.returnOneWeek * 100)}</div>
-                                    <div className="detf-index-row-item-one-month" >{FormatPercentages(detf.returnOneMonth * 100)}</div>
-                                    <div className="detf-index-row-item-three-months" >{FormatPercentages(detf.returnThreeMonths * 100)}</div>
-                                    <div className="detf-index-row-item-one-year" >{FormatPercentages(detf.returnOneYear * 100)}</div>
-                                    <div className="detf-index-row-item-view">
-                                        View
-                                    </div>
-                                </div>
-                            </Link>)
+                                </Link>
+                            </div>)
                         }
                     </div>
                 </div>
@@ -194,59 +197,61 @@ const DETFIndexList = (props: DETFIndexListProps) => {
                     </div> */}
                     <div>
                         {detfIndex.map((detf: any) =>
-                            <Link className="detf-index-row-item-link" to={`/detfs/${detf.urlChainId}/${detf.urlCategoryId}/${detf.urlDimensionId}`} >
-                                <div className="detf-index-row-items-mobile" key={detf.url}>
-                                    <div className="detf-index-row-item-detf-header-mobile">
-                                        <div className="detf-index-row-item-detf-mobile">
-                                            <img className="detf-index-row-item-logo-mobile" src={require(`../assets/icons/${DETFIconFilename(detf.category, detf.dimension)}`)}></img>
-                                            <div className="detf-index-row-item-name-mobile">
-                                                <div className="detf-index-row-item-name-category-mobile" style={{ color: ColourCategories(detf.category) }}>
-                                                    {detf.category}
-                                                </div>
-                                                <div className="detf-index-row-item-name-dimension-mobile">
-                                                    {detf.dimension}
+                            <div key={detf.url}>
+                                <Link className="detf-index-row-item-link" to={`/detfs/${detf.urlChainId}/${detf.urlCategoryId}/${detf.urlDimensionId}`} >
+                                    <div className="detf-index-row-items-mobile" key={detf.url}>
+                                        <div className="detf-index-row-item-detf-header-mobile">
+                                            <div className="detf-index-row-item-detf-mobile">
+                                                <img className="detf-index-row-item-logo-mobile" src={require(`../assets/icons/${DETFIconFilename(detf.category, detf.dimension)}`)}></img>
+                                                <div className="detf-index-row-item-name-mobile">
+                                                    <div className="detf-index-row-item-name-category-mobile" style={{ color: ColourCategories(detf.category) }}>
+                                                        {detf.category}
+                                                    </div>
+                                                    <div className="detf-index-row-item-name-dimension-mobile">
+                                                        {detf.dimension}
+                                                    </div>
                                                 </div>
                                             </div>
+                                            <FontAwesomeIcon className="fa-right-long" icon={icon({ name: "right-long", style: "solid" })} />
                                         </div>
-                                        <FontAwesomeIcon className="fa-right-long" icon={icon({ name: "right-long", style: "solid" })} />
+                                        <table className="detf-index-row-item-table">
+                                            <tbody>
+                                                <tr>
+                                                    <td className="detf-index-row-item-table-header">Liquidity:</td>
+                                                    <td className="detf-index-row-item-table-cell">{detf.liquidity}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td className="detf-index-row-item-table-header">1 Week:</td>
+                                                    <td className="detf-index-row-item-table-cell" style={{ color: ColourNumbers(detf.returnOneWeek) }}>
+                                                        {detf.returnOneWeek === 0 && <div style={{ transform: "translateY(+18%)", fontSize: "20px", color: "#e3e3e3" }}><FontAwesomeIcon icon={icon({ name: "sort-up", style: "solid" })} /></div>}
+                                                        {detf.returnOneWeek > 0 && <div style={{ transform: "translateY(+18%)", fontSize: "20px", color: "#0FC421" }}><FontAwesomeIcon icon={icon({ name: "sort-up", style: "solid" })} /></div>}
+                                                        {detf.returnOneWeek < 0 && <div style={{ transform: "translateY(-28%)", fontSize: "20px", color: "#C20000" }}><FontAwesomeIcon icon={icon({ name: "sort-down", style: "solid" })} /></div>}
+                                                        &nbsp;{parseFloat((detf.returnOneWeek * 100).toString()).toFixed(2).replace("-", "") + "%"}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td className="detf-index-row-item-table-header">1 Month:</td>
+                                                    <td className="detf-index-row-item-table-cell" style={{ color: ColourNumbers(detf.returnOneMonth) }}>
+                                                        {detf.returnOneMonth === 0 && <div style={{ transform: "translateY(+18%)", fontSize: "20px", color: "#e3e3e3" }}><FontAwesomeIcon icon={icon({ name: "sort-up", style: "solid" })} /></div>}
+                                                        {detf.returnOneMonth > 0 && <div style={{ transform: "translateY(+18%)", fontSize: "20px", color: "#0FC421" }}><FontAwesomeIcon icon={icon({ name: "sort-up", style: "solid" })} /></div>}
+                                                        {detf.returnOneMonth < 0 && <div style={{ transform: "translateY(-28%)", fontSize: "20px", color: "#C20000" }}><FontAwesomeIcon icon={icon({ name: "sort-down", style: "solid" })} /></div>}
+                                                        &nbsp;{parseFloat((detf.returnOneMonth * 100).toString()).toFixed(2).replace("-", "") + "%"}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td className="detf-index-row-item-table-header">3 Months:</td>
+                                                    <td className="detf-index-row-item-table-cell" style={{ color: ColourNumbers(detf.returnThreeMonths) }}>
+                                                        {detf.returnThreeMonths === 0 && <div style={{ transform: "translateY(+18%)", fontSize: "20px", color: "#e3e3e3" }}><FontAwesomeIcon icon={icon({ name: "sort-up", style: "solid" })} /></div>}
+                                                        {detf.returnThreeMonths > 0 && <div style={{ transform: "translateY(+18%)", fontSize: "20px", color: "#0FC421" }}><FontAwesomeIcon icon={icon({ name: "sort-up", style: "solid" })} /></div>}
+                                                        {detf.returnThreeMonths < 0 && <div style={{ transform: "translateY(-28%)", fontSize: "20px", color: "#C20000" }}><FontAwesomeIcon icon={icon({ name: "sort-down", style: "solid" })} /></div>}
+                                                        &nbsp;{parseFloat((detf.returnThreeMonths * 100).toString()).toFixed(2).replace("-", "") + "%"}
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
                                     </div>
-                                    <table className="detf-index-row-item-table">
-                                        <tbody>
-                                            <tr>
-                                                <td className="detf-index-row-item-table-header">Liquidity:</td>
-                                                <td className="detf-index-row-item-table-cell">{detf.liquidity}</td>
-                                            </tr>
-                                            <tr>
-                                                <td className="detf-index-row-item-table-header">1 Week:</td>
-                                                <td className="detf-index-row-item-table-cell" style={{ color: ColourNumbers(detf.returnOneWeek) }}>
-                                                    {detf.returnOneWeek === 0 && <div style={{ transform: "translateY(+18%)", fontSize: "20px", color: "#e3e3e3" }}><FontAwesomeIcon icon={icon({ name: "sort-up", style: "solid" })} /></div>}
-                                                    {detf.returnOneWeek > 0 && <div style={{ transform: "translateY(+18%)", fontSize: "20px", color: "#0FC421" }}><FontAwesomeIcon icon={icon({ name: "sort-up", style: "solid" })} /></div>}
-                                                    {detf.returnOneWeek < 0 && <div style={{ transform: "translateY(-28%)", fontSize: "20px", color: "#C20000" }}><FontAwesomeIcon icon={icon({ name: "sort-down", style: "solid" })} /></div>}
-                                                    &nbsp;{parseFloat((detf.returnOneWeek * 100).toString()).toFixed(2).replace("-", "") + "%"}
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td className="detf-index-row-item-table-header">1 Month:</td>
-                                                <td className="detf-index-row-item-table-cell" style={{ color: ColourNumbers(detf.returnOneMonth) }}>
-                                                    {detf.returnOneMonth === 0 && <div style={{ transform: "translateY(+18%)", fontSize: "20px", color: "#e3e3e3" }}><FontAwesomeIcon icon={icon({ name: "sort-up", style: "solid" })} /></div>}
-                                                    {detf.returnOneMonth > 0 && <div style={{ transform: "translateY(+18%)", fontSize: "20px", color: "#0FC421" }}><FontAwesomeIcon icon={icon({ name: "sort-up", style: "solid" })} /></div>}
-                                                    {detf.returnOneMonth < 0 && <div style={{ transform: "translateY(-28%)", fontSize: "20px", color: "#C20000" }}><FontAwesomeIcon icon={icon({ name: "sort-down", style: "solid" })} /></div>}
-                                                    &nbsp;{parseFloat((detf.returnOneMonth * 100).toString()).toFixed(2).replace("-", "") + "%"}
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td className="detf-index-row-item-table-header">3 Months:</td>
-                                                <td className="detf-index-row-item-table-cell" style={{ color: ColourNumbers(detf.returnThreeMonths) }}>
-                                                    {detf.returnThreeMonths === 0 && <div style={{ transform: "translateY(+18%)", fontSize: "20px", color: "#e3e3e3" }}><FontAwesomeIcon icon={icon({ name: "sort-up", style: "solid" })} /></div>}
-                                                    {detf.returnThreeMonths > 0 && <div style={{ transform: "translateY(+18%)", fontSize: "20px", color: "#0FC421" }}><FontAwesomeIcon icon={icon({ name: "sort-up", style: "solid" })} /></div>}
-                                                    {detf.returnThreeMonths < 0 && <div style={{ transform: "translateY(-28%)", fontSize: "20px", color: "#C20000" }}><FontAwesomeIcon icon={icon({ name: "sort-down", style: "solid" })} /></div>}
-                                                    &nbsp;{parseFloat((detf.returnThreeMonths * 100).toString()).toFixed(2).replace("-", "") + "%"}
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </Link>)
+                                </Link>
+                            </div>)
                         }
                     </div>
                 </div>

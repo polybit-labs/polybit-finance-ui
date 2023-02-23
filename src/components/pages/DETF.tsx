@@ -31,7 +31,7 @@ const DETF = () => {
     }, [pricesLoading, pricesSuccess])
 
     const [productData, setProductData] = useState<ProductData | undefined>()
-    console.log(productData)
+    console.log(productContent)
     const [performanceData, setPerformanceData] = useState<Array<PerformanceData> | undefined>()
 
     const { response: product, isLoading: productDataLoading, isSuccess: productDataSuccess } = GetProductData((productUrl))
@@ -47,7 +47,7 @@ const DETF = () => {
     const category: string = productContent.category
     const dimension: string = productContent.dimension
     const descriptionTitle: string = productContent.descriptionTitle
-    const description: string = productContent.description
+    const description: Array<string> = productContent.description
     const assetTableDescription: string = productContent.assetTableDescription
     const tokens: Array<any> = [] = productData ? productData.tokens : []
 
@@ -80,7 +80,12 @@ const DETF = () => {
                                             <Button buttonStyle="primary" buttonSize="standard" text="Invest in this DETF" />
                                         </Link>
                                     </div>
-                                    <p>{description}</p>
+                                    {description.map((line: string) =>
+                                        <div>
+                                            <br />
+                                            <p>{line}</p>
+                                        </div>
+                                    )}
                                 </div>
                                 <div className="detf-chart">
                                     <p>{category} {dimension} DETF Index Value - 3 Months</p>
@@ -96,11 +101,11 @@ const DETF = () => {
                             <li className="detf-content-b">
                                 <div className="detf-assets-box">
                                     <h2>Assets in DETF</h2>
-                                    <p>{assetTableDescription}</p>
+                                    {/* <p>{assetTableDescription}</p> */}
                                     <DETFAssetsTable tokens={tokens} />
                                 </div>
                                 <div className="native-token-message-box">
-                                    <p>“BNB” is the currency utilised for investment in the Binance Governance Top 20 DETF on the Binance Smart Chain. This can be purchased via Coinbase Wallet, and other exchanges.</p>
+                                    <p>BNB is the native currency used for investment in to this DETF. Please ensure you have sufficient BNB in your wallet before investing.</p>
                                 </div>
                                 <div className="detf-button-wrapper">
                                     <Link to="/establish-detf" state={{ category: category, dimension: dimension, productId: productId.toString() }}>

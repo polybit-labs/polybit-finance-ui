@@ -8,8 +8,8 @@ const Hero = () => {
             <div className="hero-container">
                 <div className="hero-content">
                     <div className="hero-content-title">
-                        <h1>Chocolate bar donut.</h1>
-                        <p>Brownie candy canes carrot cake carrot cake ice cream candy tart marshmallow jelly beans. Soufflé cookie biscuit carrot cake jujubes cake toffee oat cake. Soufflé sugar plum jelly beans cake jujubes fruitcake icing gingerbread. Icing candy donut cheesecake cookie marzipan.</p>
+                        <h1>A brand new way to invest in next generation assets.</h1>
+                        <p>Introducing Polybit’s Decentralised ETFs. Get diversified exposure to a range of crypto assets in a single investment that tracks the performance of familiar themes, such as Defi, Governance or the Metaverse.</p>
                         <div className="hero-content-title-button-wrapper">
                             <Link to="/detfs" >
                                 <Button buttonStyle="primary" buttonSize="standard" text="Invest in the future, today" />

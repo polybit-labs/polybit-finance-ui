@@ -1,11 +1,16 @@
 {
     "chainId": 97,
     "chainName": "BNB Smart Chain",
-    "productId": 5610011000,
-    "category": "Defi",
+    "productId": 9710011000,
+    "category": "DeFi",
     "dimension": "Market Cap",
-    "descriptionTitle": "Wafer gingerbread bonbon gummies biscuit candy danish cupcake. Cookie liquorice chocolate cake bonbon candy canes tiramisu sugar plum gummies bear claw.",
-    "description": "Lemon drops pastry candy apple pie liquorice bear claw lemon drops sweet tootsie roll. Ice cream chocolate bar chocolate danish pastry gummi bears. Pudding cheesecake croissant apple pie cookie sweet icing candy cupcake. Croissant soufflé jelly beans pie sweet roll pastry. Halvah cotton candy candy gummi bears croissant. Marshmallow macaroon chocolate cupcake pie. \n\nMuffin jujubes sesame snaps lollipop lemon drops pudding danish shortbread danish. Pudding liquorice lollipop cheesecake icing. Bonbon jelly beans soufflé cookie jelly bear claw. Lemon drops sweet tart liquorice dragée icing wafer donut. Jujubes muffin jelly-o tootsie roll jujubes cake chocolate bar fruitcake gingerbread. Candy canes tiramisu cupcake liquorice candy lollipop. Jelly-o chocolate dessert soufflé topping. Topping oat cake toffee topping sesame snaps candy canes croissant. Halvah jelly-o soufflé marshmallow cotton candy cotton candy croissant tart cake. Cake marzipan biscuit cake jelly-o cake brownie soufflé muffin.",
-    "assetTableDescription": "Wafer gingerbread bonbon gummies biscuit candy danish cupcake. Cookie liquorice chocolate cake bonbon candy canes tiramisu sugar plum gummies bear claw.",
+    "descriptionTitle": "DeFi has the potential to disrupt traditional financial systems and make financial services more accessible, transparent, and efficient for everyone.",
+    "description": [
+        "DeFi stands for Decentralised Finance, which refers to a system of financial applications that operate on a decentralised blockchain network, such as Ethereum, rather than traditional financial intermediaries like banks. DeFi platforms offer various financial services, including lending, borrowing, trading, and more, all without relying on central authorities to manage transactions or hold assets. ",
+        "DeFi platforms are accessible to anyone with an internet connection and a cryptocurrency wallet, allowing anyone to participate in financial services regardless of their location or socioeconomic status.",
+        "It is a relatively new and rapidly evolving space, with new platforms and applications being developed all the time. This provides opportunities for innovation and growth in the financial sector for new investment opportunities, including staking, liquidity provision, and yield farming, which can provide investors with attractive returns.",
+        "Polybit’s DeFi Market Cap DETF tracks DeFi tokens on the Binance Smart Chain, weighted by the total global market cap, across all centralised and decentralised exchanges."
+    ],
+    "assetTableDescription": "",
     "rebalancingPeriod": "90 days"
 }
