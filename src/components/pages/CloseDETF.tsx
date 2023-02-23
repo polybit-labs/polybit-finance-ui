@@ -18,7 +18,7 @@ export const CloseDETF = () => {
         return (
             <>
                 <TitleContainer title="Exit and withdraw funds" />
-                <SubTitleContainer info="By exiting this strategy, your funds will be returned from your smart contract to your connected wallet. Trades will no longer be automatically made to maintain investment in the structure of this DETF."
+                <SubTitleContainer info="By exiting this DETF, the balance of your funds will be returned to your connected wallet in BNB."
                 />
                 <WithdrawSummary
                     detfAddress={detfAddress}

@@ -69,8 +69,8 @@ const Navbar = (props: NavbarProps) => {
                             </Link>
                         </li>
                         <li className="nav-item">
-                            <Link to="/swap" className="nav-links" onClick={closeMobileMenu}>
-                                Swap
+                            <Link to="/how-it-works" className="nav-links" onClick={closeMobileMenu}>
+                                How it works
                             </Link>
                         </li>
                         <li className="nav-item">
@@ -141,8 +141,8 @@ const Navbar = (props: NavbarProps) => {
                         </Link>
                     </li>
                     <li className="nav-item-mobile">
-                        <Link to="/swap" className="nav-links-mobile" onClick={closeMobileMenu}>
-                            Swap
+                        <Link to="/how-it-works" className="nav-links-mobile" onClick={closeMobileMenu}>
+                            How it works
                         </Link>
                     </li>
                     <li className="nav-item-mobile">

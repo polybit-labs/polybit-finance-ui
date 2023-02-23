@@ -46,7 +46,6 @@ export const AccountTable = (props: AccountTableProps) => {
     })
     const detfAccountsData: Array<any> = props.detfAccountsData
 
-    console.log(detfAccountsData)
     const [activeSort, setActiveSort] = useState("")
     const [detfData, setDETFData] = useState<Array<any>>(detfAccountsData)
     useEffect(() => {
@@ -61,7 +60,6 @@ export const AccountTable = (props: AccountTableProps) => {
             const sorted = [...detfData].sort((a, b) =>
                 a[column as keyof DETFSummary] > b[column as keyof DETFSummary] ? 1 : -1)
             setDETFData(sorted)
-            console.log(sorted)
             setOrder("dsc")
         }
         if (order === "dsc") {
@@ -85,7 +83,7 @@ export const AccountTable = (props: AccountTableProps) => {
                             {activeSort === "category" && order === "asc" && <div style={{ transform: "translateY(+18%)", fontSize: "20px" }}><FontAwesomeIcon icon={icon({ name: "sort-up", style: "solid" })} /></div>}
                             {activeSort === "category" && order === "dsc" && <div style={{ transform: "translateY(-12%)", fontSize: "20px" }}><FontAwesomeIcon icon={icon({ name: "sort-down", style: "solid" })} /></div>}
                         </div>
-                        <div className="account-detf-header-item-value" onClick={() => { sorting("marketValue"); setActiveSort("marketValue") }}>Market Value&nbsp;
+                        <div className="account-detf-header-item-value" onClick={() => { sorting("marketValue"); setActiveSort("marketValue") }}>Value&nbsp;
                             {activeSort !== "marketValue" && <div style={{ transform: "translateY(+18%)", fontSize: "20px", color: "#e3e3e3" }}><FontAwesomeIcon icon={icon({ name: "sort-up", style: "solid" })} /></div>}
                             {activeSort === "marketValue" && order === "asc" && <div style={{ transform: "translateY(+18%)", fontSize: "20px" }}><FontAwesomeIcon icon={icon({ name: "sort-up", style: "solid" })} /></div>}
                             {activeSort === "marketValue" && order === "dsc" && <div style={{ transform: "translateY(-12%)", fontSize: "20px" }}><FontAwesomeIcon icon={icon({ name: "sort-down", style: "solid" })} /></div>}
@@ -95,7 +93,7 @@ export const AccountTable = (props: AccountTableProps) => {
                             {activeSort === "return" && order === "asc" && <div style={{ transform: "translateY(+18%)", fontSize: "20px" }}><FontAwesomeIcon icon={icon({ name: "sort-up", style: "solid" })} /></div>}
                             {activeSort === "return" && order === "dsc" && <div style={{ transform: "translateY(-12%)", fontSize: "20px" }}><FontAwesomeIcon icon={icon({ name: "sort-down", style: "solid" })} /></div>}
                         </div>
-                        <div className="account-detf-header-item-timelock" onClick={() => { sorting("lockStatus"); setActiveSort("lockStatus") }}>Status&nbsp;
+                        <div className="account-detf-header-item-status" onClick={() => { sorting("lockStatus"); setActiveSort("lockStatus") }}>Status&nbsp;
                             {activeSort !== "lockStatus" && <div style={{ transform: "translateY(+18%)", fontSize: "20px", color: "#e3e3e3" }}><FontAwesomeIcon icon={icon({ name: "sort-up", style: "solid" })} /></div>}
                             {activeSort === "lockStatus" && order === "asc" && <div style={{ transform: "translateY(+18%)", fontSize: "20px" }}><FontAwesomeIcon icon={icon({ name: "sort-up", style: "solid" })} /></div>}
                             {activeSort === "lockStatus" && order === "dsc" && <div style={{ transform: "translateY(-12%)", fontSize: "20px" }}><FontAwesomeIcon icon={icon({ name: "sort-down", style: "solid" })} /></div>}
@@ -119,7 +117,7 @@ export const AccountTable = (props: AccountTableProps) => {
                             {activeSort === "return" && order === "asc" && <div style={{ transform: "translateY(+18%)", fontSize: "20px" }}><FontAwesomeIcon icon={icon({ name: "sort-up", style: "solid" })} /></div>}
                             {activeSort === "return" && order === "dsc" && <div style={{ transform: "translateY(-12%)", fontSize: "20px" }}><FontAwesomeIcon icon={icon({ name: "sort-down", style: "solid" })} /></div>}
                         </div>
-                        <div className="account-detf-header-item-timelock-mobile" onClick={() => { sorting("lockStatus"); setActiveSort("lockStatus") }}>Status&nbsp;
+                        <div className="account-detf-header-item-status-mobile" onClick={() => { sorting("lockStatus"); setActiveSort("lockStatus") }}>Status&nbsp;
                             {activeSort !== "lockStatus" && <div style={{ transform: "translateY(+18%)", fontSize: "20px", color: "#e3e3e3" }}><FontAwesomeIcon icon={icon({ name: "sort-up", style: "solid" })} /></div>}
                             {activeSort === "lockStatus" && order === "asc" && <div style={{ transform: "translateY(+18%)", fontSize: "20px" }}><FontAwesomeIcon icon={icon({ name: "sort-up", style: "solid" })} /></div>}
                             {activeSort === "lockStatus" && order === "dsc" && <div style={{ transform: "translateY(-12%)", fontSize: "20px" }}><FontAwesomeIcon icon={icon({ name: "sort-down", style: "solid" })} /></div>}
@@ -199,7 +197,7 @@ export const AccountTable = (props: AccountTableProps) => {
                     <div className="account-detf-container-placeholder-overlay">
                     </div>
                     <div className="account-detf-container-placeholder-overlay-info">
-                        Ready to invest in your own Decentralized Exchange Traded Funds?
+                        Ready to invest in your own Decentralised Exchange Traded Funds?
                         <div><br /></div>
                         <Link to="/detfs"><Button text="Explore Polybit DETFs" buttonStyle="primary" buttonSize="standard" /></Link>
                     </div>
@@ -216,11 +214,17 @@ export const AccountTable = (props: AccountTableProps) => {
             <div>
                 <div className="account-detf-header">
                     <div className="account-detf-header-item-detf" >DETF</div>
-                    <div className="account-detf-header-item-value" >Market Value</div>
+                    <div className="account-detf-header-item-value" >Value</div>
                     <div className="account-detf-header-item-return" >Return</div>
-                    <div className="account-detf-header-item-timelock" >Status</div>
+                    <div className="account-detf-header-item-status" >Status</div>
                     <div className="account-detf-header-item-deposit"></div>
                     <div className="account-detf-header-item-toggle"></div>
+                </div>
+                <div className="account-detf-header-mobile">
+                    <div className="account-detf-header-item-detf-mobile" >DETF</div>
+                    <div className="account-detf-header-item-value-mobile" >Value</div>
+                    <div className="account-detf-header-item-return-mobile" >Return</div>
+                    <div className="account-detf-header-item-status-mobile" >Status</div>
                 </div>
             </div>
             <div>
@@ -234,6 +238,22 @@ export const AccountTable = (props: AccountTableProps) => {
                 </div>
                 <div className="account-table-row">
                     <div className="account-table-row-items">
+                    </div>
+                </div>
+                <div className="account-table-row">
+                    <div className="account-table-row-items">
+                    </div>
+                </div>
+                <div className="account-table-row-mobile">
+                    <div className="account-table-row-items-mobile">
+                    </div>
+                </div>
+                <div className="account-table-row-mobile">
+                    <div className="account-table-row-items-mobile">
+                    </div>
+                </div>
+                <div className="account-table-row-mobile">
+                    <div className="account-table-row-items-mobile">
                     </div>
                 </div>
             </div>

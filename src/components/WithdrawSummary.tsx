@@ -1,12 +1,11 @@
 import { Button, TextLink } from "./Buttons"
 import { Currencies, FormatCurrency } from "./utils/Currency"
-import { ColourCategories, ColourNumbers, DETFIconFilename, FormatPercentages, TruncateAddress } from "./utils/Formatting"
+import { ColourNumbers, FormatPercentages, TruncateAddress } from "./utils/Formatting"
 import { usePrepareContractWrite, useContractWrite, useWaitForTransaction, useAccount } from "wagmi"
 import { GetSellToCloseOrderData } from "./api/GetSellToCloseOrderData"
 import PolybitDETFInterface from "./../chain_info/IPolybitDETF.json"
 import { Interface } from 'ethers/lib/utils'
 import { Loading } from "./Loading"
-import ContentContainer from "./containers/ContentBox"
 import "./WithdrawSummary.css"
 import { useState } from "react"
 

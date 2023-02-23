@@ -1,10 +1,11 @@
-import React from 'react'
+import TitleContainer from "../containers/Title"
 import PrivacyPolicy from "../PrivacyPolicy"
 import Footer from "./Footer"
 
-function Privacy() {
+const Privacy = () => {
     return (
         <>
+            <TitleContainer title="Privacy Policy" />
             <PrivacyPolicy />
             <Footer />
         </>

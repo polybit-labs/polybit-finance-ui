@@ -15,7 +15,6 @@ export const DETFAssetsTable = (props: DETFAssetsTableProps) => {
         setLiquidityCurrency(currency)
     }, [currency])
     const dimension = props.tokens[0].dimension
-    console.log(dimension)
 
     props.tokens?.map(token => {
         targetAssets.push({
@@ -35,8 +34,6 @@ export const DETFAssetsTable = (props: DETFAssetsTableProps) => {
         })
     })
 
-    console.log(props.tokens)
-
     if (targetAssets) {
         const sorted = [...targetAssets].sort((a, b) =>
             a.dimensionValueBNB < b.dimensionValueBNB ? 1 : -1)
@@ -46,24 +43,22 @@ export const DETFAssetsTable = (props: DETFAssetsTableProps) => {
                 <table className="detf-assets-table">
                     <thead>
                         <tr className="detf-assets-header-row">
-                            <th className="detf-assets-header-item">Rank</th>
-                            <th className="detf-assets-header-item">Token</th>
-                            <th className="detf-assets-header-item">{dimension === "market-cap" ? "Market Cap" : "Liquidity"}</th>
-                            <th className="detf-assets-header-item">Weight</th>
+                            <th className="detf-assets-header-item-token">Token</th>
+                            <th className="detf-assets-header-item-liquidity">{dimension === "market-cap" ? "Market Cap" : "Liquidity"}</th>
+                            <th className="detf-assets-header-item-weight">Weight</th>
                         </tr>
                     </thead>
                     <tbody>
                         {sorted.map((token, index) => {
                             return (
                                 <tr key={index} className="detf-assets-body-row">
-                                    <td className="detf-assets-body-item">{index + 1}</td>
-                                    <td className="detf-assets-body-item">
+                                    <td className="detf-assets-body-item-token">
                                         <div className="detf-assets-token-logo">
                                             <img className="detf-token-logo" src={token.tokenLogo ? token.tokenLogo : FallbackLogo} alt={token.tokenName}></img>
                                             <b>{token.tokenName}</b>
                                         </div>
                                     </td>
-                                    <td className="detf-assets-body-item">
+                                    <td className="detf-assets-body-item-liquidity">
                                         {FormatCurrency((() => {
                                             switch (liquidityCurrency) {
                                                 case "AUD": return (token.dimensionValueAUD)
@@ -79,7 +74,7 @@ export const DETFAssetsTable = (props: DETFAssetsTableProps) => {
                                             }
                                         })(), 0)}
                                     </td>
-                                    <td className="detf-assets-body-item">{`${parseFloat((token.tokenWeight * 100).toString()).toFixed(2)}%`}</td>
+                                    <td className="detf-assets-body-item-weight">{`${parseFloat((token.tokenWeight * 100).toString()).toFixed(2)}%`}</td>
                                 </tr>)
                         })}
                     </tbody>
@@ -88,7 +83,7 @@ export const DETFAssetsTable = (props: DETFAssetsTableProps) => {
                     <thead>
                         <tr className="detf-assets-header-row-mobile">
                             <th className="detf-assets-header-item-token-mobile">Token</th>
-                            <th className="detf-assets-header-item-liquidity-mobile">Liquidity</th>
+                            {/*<th className="detf-assets-header-item-liquidity-mobile">Liquidity</th>*/}
                             <th className="detf-assets-header-item-weight-mobile">Weight</th>
                         </tr>
                     </thead>
@@ -102,7 +97,7 @@ export const DETFAssetsTable = (props: DETFAssetsTableProps) => {
                                             <b>{token.tokenName}</b>
                                         </div>
                                     </td>
-                                    <td className="detf-assets-body-item-liquidity-mobile">
+                                    {/*<td className="detf-assets-body-item-liquidity-mobile">
                                         {FormatCurrency((() => {
                                             switch (liquidityCurrency) {
                                                 case "AUD": return (token.dimensionValueAUD)
@@ -117,7 +112,7 @@ export const DETFAssetsTable = (props: DETFAssetsTableProps) => {
                                                 case "USD": return (token.dimensionValueUSD)
                                             }
                                         })(), 0)}
-                                    </td>
+                                    </td> */}
                                     <td className="detf-assets-body-item-weight-mobile">{`${parseFloat((token.tokenWeight * 100).toString()).toFixed(2)}%`}</td>
                                 </tr>)
                         })}
@@ -126,5 +121,9 @@ export const DETFAssetsTable = (props: DETFAssetsTableProps) => {
             </>
         )
     }
-    return <div></div>
+    return (
+        <div className="table-loading">
+            <img height="100px" width="100px" src={require("../assets/images/polybit-loader-black-on-dark-grey-100px.gif")} alt="Loading"></img>
+        </div>
+    )
 }

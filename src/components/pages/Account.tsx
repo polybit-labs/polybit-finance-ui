@@ -30,6 +30,8 @@ type Currencies = {
 }
 
 const Account = () => {
+    const network = useNetwork()
+    const rpc = network.chain?.rpcUrls.default
     const { address: walletOwner, connector, isConnected } = useAccount()
     const [previousWalletOwner, setPreviousWalletOwner] = useState(walletOwner)
     const { disconnect } = useDisconnect()
@@ -63,7 +65,6 @@ const Account = () => {
         setHistoricalPrices(historicalPriceData ? historicalPriceData : [])
         setCurrentPrices(prices ? prices : [])
     }, [historicalPriceData, historicalPricesSuccess, prices, pricesSuccess])
-    console.log(connector?.name)
 
     const subTitle = <div style={{ width: "100%" }}>
         <div>{`You have connected Polybit to ${connector?.name} and are ready to invest in DETFs.`}</div>

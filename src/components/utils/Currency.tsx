@@ -40,7 +40,8 @@ export const FormatCurrency = (amount: number, decimals: number) => {
     }
 
     if (currency === "BNB") {
-        return `BNB ${parseFloat(amount.toString()).toFixed(decimals).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}`
+        const formatted = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', notation: 'compact', minimumFractionDigits: 2 }).format(amount)
+        return formatted.replace("$", "BNB ")
     }
 
     if (currency === "EURO") {

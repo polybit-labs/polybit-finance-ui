@@ -2,7 +2,6 @@ import { ColourNumbers } from "./utils/Formatting";
 import { PerformanceData } from "./api/GetPerformanceData";
 import { ProductData } from "./api/GetProductData";
 import { FormatCurrency } from "./utils/Currency";
-import { Link } from "react-router-dom";
 
 interface DETFSumaryProps {
     productContent: any;
@@ -18,11 +17,11 @@ export const DETFSummary = (props: DETFSumaryProps) => {
     const returnOneMonth: number = props.performanceData[props.performanceData.length - 1].performance_30d
     const returnThreeMonths: number = props.performanceData[props.performanceData.length - 1].performance_90d
     const returnOneYear: number = props.performanceData[props.performanceData.length - 1].performance_365d
-    const returnTwoYear: number = props.performanceData[props.performanceData.length - 1].performance_730d
     const tokens: Array<any> = [] = props.productData.tokens
     const tokenCount: number = tokens.length
     const totalLiquidity = props.productData.total_liquidity.liquidity_bnb
     const depositFee = "0.5%"
+    const performanceFee = "10%"
 
     return (
         <div>
@@ -55,6 +54,7 @@ export const DETFSummary = (props: DETFSumaryProps) => {
                                 <li>Total Assets</li>
                                 <li>Rebalance Frequency</li>
                                 <li>Deposit Fee</li>
+                                <li>Performance Fee</li>
                             </ul>
                         </div>
                         <div className="detf-summary-info-results">
@@ -78,6 +78,7 @@ export const DETFSummary = (props: DETFSumaryProps) => {
                                 <li>{tokenCount}</li>
                                 <li>{rebalancingPeriod}</li>
                                 <li>{parseFloat((depositFee).toString()).toFixed(1)}%</li>
+                                <li>{parseFloat((performanceFee).toString()).toFixed(1)}%</li>
                             </ul>
                         </div>
                     </div>

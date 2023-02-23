@@ -1,11 +1,16 @@
 {
     "chainId": 97,
     "chainName": "BNB Smart Chain",
-    "productId": 5610021000,
+    "productId": 9710021000,
     "category": "Metaverse",
     "dimension": "Market Cap",
-    "descriptionTitle": "Wafer gingerbread bonbon gummies biscuit candy danish cupcake. Cookie liquorice chocolate cake bonbon candy canes tiramisu sugar plum gummies bear claw.",
-    "description": "Lemon drops pastry candy apple pie liquorice bear claw lemon drops sweet tootsie roll. Ice cream chocolate bar chocolate danish pastry gummi bears. Pudding cheesecake croissant apple pie cookie sweet icing candy cupcake. Croissant soufflé jelly beans pie sweet roll pastry. Halvah cotton candy candy gummi bears croissant. Marshmallow macaroon chocolate cupcake pie. \n\nMuffin jujubes sesame snaps lollipop lemon drops pudding danish shortbread danish. Pudding liquorice lollipop cheesecake icing. Bonbon jelly beans soufflé cookie jelly bear claw. Lemon drops sweet tart liquorice dragée icing wafer donut. Jujubes muffin jelly-o tootsie roll jujubes cake chocolate bar fruitcake gingerbread. Candy canes tiramisu cupcake liquorice candy lollipop. Jelly-o chocolate dessert soufflé topping. Topping oat cake toffee topping sesame snaps candy canes croissant. Halvah jelly-o soufflé marshmallow cotton candy cotton candy croissant tart cake. Cake marzipan biscuit cake jelly-o cake brownie soufflé muffin.",
-    "assetTableDescription": "Wafer gingerbread bonbon gummies biscuit candy danish cupcake. Cookie liquorice chocolate cake bonbon candy canes tiramisu sugar plum gummies bear claw.",
+    "descriptionTitle": "The metaverse is a fully immersive and interactive virtual world that is created by the convergence of physical and virtual reality.",
+    "description": [
+        "The metaverse is not a single platform, but rather a collective concept for virtual spaces and communities, with various virtual worlds and online games like Second Life, Minecraft, and Roblox being examples of early forms of the metaverse.",
+        "Blockchain-based gaming platforms are already exploring the potential of crypto in the metaverse by creating virtual worlds that are powered by blockchain technology. These platforms allow users to buy and sell virtual land, create and trade virtual items, and even earn cryptocurrency rewards for participating in the platform's ecosystem.",
+        "The concept of the metaverse has gained increasing attention and investment from technology companies and investors in recent years, with many seeing it as the next evolution of the internet. Some believe that the metaverse has the potential to become a new platform for innovation and growth, where users can create and collaborate in new and exciting ways.",
+        "Polybit’s Metaverse Market Cap DETF tracks metaverse tokens on the Binance Smart Chain, weighted by the total global market cap, across all centralised and decentralised exchanges."
+    ],
+    "assetTableDescription": "",
     "rebalancingPeriod": "90 days"
 }
