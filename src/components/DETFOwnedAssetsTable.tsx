@@ -10,7 +10,6 @@ interface DETFAssetsTableProps {
 
 export const DETFOwnedAssetsTable = (props: DETFAssetsTableProps) => {
     const ownedAssets: Array<any> = []
-    console.log(ownedAssets)
     props.tokens?.map(token => {
         ownedAssets.push({
             "tokenAddress": token.token_address,

@@ -46,7 +46,6 @@ export const AccountTable = (props: AccountTableProps) => {
     })
     const detfAccountsData: Array<any> = props.detfAccountsData
 
-    console.log(detfAccountsData)
     const [activeSort, setActiveSort] = useState("")
     const [detfData, setDETFData] = useState<Array<any>>(detfAccountsData)
     useEffect(() => {
@@ -61,7 +60,6 @@ export const AccountTable = (props: AccountTableProps) => {
             const sorted = [...detfData].sort((a, b) =>
                 a[column as keyof DETFSummary] > b[column as keyof DETFSummary] ? 1 : -1)
             setDETFData(sorted)
-            console.log(sorted)
             setOrder("dsc")
         }
         if (order === "dsc") {

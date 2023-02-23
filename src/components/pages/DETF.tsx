@@ -31,7 +31,6 @@ const DETF = () => {
     }, [pricesLoading, pricesSuccess])
 
     const [productData, setProductData] = useState<ProductData | undefined>()
-    console.log(productContent)
     const [performanceData, setPerformanceData] = useState<Array<PerformanceData> | undefined>()
 
     const { response: product, isLoading: productDataLoading, isSuccess: productDataSuccess } = GetProductData((productUrl))

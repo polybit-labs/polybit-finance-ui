@@ -71,11 +71,6 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
     }, [])
 
     const { response: ownedAssetsTableData, isSuccess: ownedAssetsTableDataSuccess } = GetOwnedAssetsTableData(props.detf_address, props.status, props.total_deposits)
-    console.log(ownedAssetsTableDataSuccess)
-    /* const { response: ownedAssets, isLoading, isSuccess } = GetOwnedAssetsDetailed(props.detf_address)
-    const ownedAssetsDetailed = ownedAssets ? ownedAssets : []
-    const { response: finalAssets } = GetFinalAssetsDetailed(props.detf_address)
-    const finalAssetsDetailed = finalAssets ? finalAssets : [] */
     const { response: owner } = GetOwner(props.detf_address)
     const { response: performanceDataRange, isSuccess: performanceDataRangeSuccess } = GetPerformanceDataRange(performanceUrl, props.creation_timestamp, props.close_timestamp > 0 ? props.close_timestamp : moment.now())
     const [performanceData, setPerformanceData] = useState<Array<PerformanceDataRange>>([])

@@ -15,7 +15,6 @@ export const DETFAssetsTable = (props: DETFAssetsTableProps) => {
         setLiquidityCurrency(currency)
     }, [currency])
     const dimension = props.tokens[0].dimension
-    console.log(dimension)
 
     props.tokens?.map(token => {
         targetAssets.push({
@@ -34,8 +33,6 @@ export const DETFAssetsTable = (props: DETFAssetsTableProps) => {
             "tokenWeight": token.dimension_weighting,
         })
     })
-
-    console.log(props.tokens)
 
     if (targetAssets) {
         const sorted = [...targetAssets].sort((a, b) =>
