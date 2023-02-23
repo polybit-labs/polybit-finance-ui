@@ -80,7 +80,7 @@ const DETF = () => {
                                         </Link>
                                     </div>
                                     {description.map((line: string) =>
-                                        <div>
+                                        <div key={line}>
                                             <br />
                                             <p>{line}</p>
                                         </div>
@@ -106,7 +106,7 @@ const DETF = () => {
                                 <div className="native-token-message-box">
                                     <p>BNB is the native currency used for investment in to this DETF. Please ensure you have sufficient BNB in your wallet before investing.</p>
                                 </div>
-                                <div className="detf-button-wrapper">
+                                <div className="detf-button-wrapper-mobile">
                                     <Link to="/establish-detf" state={{ category: category, dimension: dimension, productId: productId.toString() }}>
                                         <Button buttonStyle="primary" buttonSize="standard" text="Invest in this DETF" />
                                     </Link>
