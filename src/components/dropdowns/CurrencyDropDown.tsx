@@ -29,6 +29,9 @@ export const CurrencyDropDown = ({ options, selectedOption }: CurrencyDropDownPr
                                 onClick={(): void => {
                                     onClickHandler(option)
                                 }}
+                                onTouchStart={(): void => {
+                                    onClickHandler(option)
+                                }}
                             >
                                 {option}
                             </div>

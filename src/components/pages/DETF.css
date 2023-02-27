@@ -29,7 +29,7 @@
 .detf-content {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    grid-column-gap: 24px;
+    grid-column-gap: 40px;
     list-style: none;
     margin-top: 80px;
 }
@@ -75,6 +75,10 @@
 
 .detf-chart {
     margin-bottom: 60px;
+}
+
+.detf-chart-title {
+    margin-bottom: 20px;
 }
 
 .detf-chart p {
@@ -183,12 +187,12 @@
     background-color: #D9D9D9;
     border: 1px solid #ECECEC;
     padding: 30px;
-    margin-bottom: 60px;
 }
 
 .detf-button-wrapper {
     display: flex;
     justify-content: center;
+    margin-top: 60px;
 }
 
 
@@ -257,7 +261,6 @@
         padding-bottom: 20px;
         padding-left: 24px;
         padding-right: 24px;
-        margin-bottom: 30px;
     }
 }
 

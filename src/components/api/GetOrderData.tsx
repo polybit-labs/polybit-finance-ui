@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import { useNetwork } from "wagmi"
 import axios from "axios"
-import apiURL from "./api-info.json"
+import apiURLJSON from "./api-info.json"
 
 export const GetOrderData = (detfAddress: string, weth_input_amount: string) => {
     const [response, setResponse] = useState<Array<any>>()
@@ -11,9 +11,16 @@ export const GetOrderData = (detfAddress: string, weth_input_amount: string) => 
     const rpc = network.chain?.rpcUrls.default
     let isLoading: boolean
     let isSuccess: boolean
+    const [apiURL, setapiURL] = useState(apiURLJSON["apiURL"])
 
     useEffect(() => {
-        axios.post(apiURL["apiURL"] + "/api/get_deposit_order_data", { "rpc_provider": rpc, "chain_id": chainId, "detf_address": detfAddress, "weth_input_amount": weth_input_amount })
+        if (window.location.href.includes("http://localhost/")) {
+            setapiURL(apiURLJSON["apiURLTest"])
+        }
+    }, [])
+
+    useEffect(() => {
+        axios.post(apiURL + "/api/get_deposit_order_data", { "rpc_provider": rpc, "chain_id": chainId, "detf_address": detfAddress, "weth_input_amount": weth_input_amount })
             .then(res => {
                 setResponse(res.data)
             })

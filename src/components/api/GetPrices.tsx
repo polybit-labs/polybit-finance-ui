@@ -1,14 +1,21 @@
 import { useState, useEffect } from "react"
 import axios from "axios"
-import apiURL from "./api-info.json"
+import apiURLJSON from "./api-info.json"
 
 export const GetPrices = (token_addresses: Array<string>) => {
     const [response, setResponse] = useState<string>()
     let isLoading: boolean
     let isSuccess: boolean
+    const [apiURL, setapiURL] = useState(apiURLJSON["apiURL"])
 
     useEffect(() => {
-        axios.post(apiURL["apiURL"] + "/api/get_prices", { token_addresses })
+        if (window.location.href.includes("http://localhost/")) {
+            setapiURL(apiURLJSON["apiURLTest"])
+        }
+    }, [])
+
+    useEffect(() => {
+        axios.post(apiURL + "/api/get_prices", { token_addresses })
             .then(res => {
                 setResponse(res.data)
             })

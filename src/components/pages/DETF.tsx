@@ -87,7 +87,7 @@ const DETF = () => {
                                     )}
                                 </div>
                                 <div className="detf-chart">
-                                    <p>{category} {dimension} DETF Index Value - 3 Months</p>
+                                    <div className="detf-chart-title"><p>{category} {dimension} DETF Index Value - 3 Months</p></div>
                                     <DETFReturnChart height={300} width="100%" performanceData={performanceData} />
                                 </div>
                                 <DETFSummary
@@ -105,6 +105,11 @@ const DETF = () => {
                                 </div>
                                 <div className="native-token-message-box">
                                     <p>BNB is the native currency used for investment in to this DETF. Please ensure you have sufficient BNB in your wallet before investing.</p>
+                                </div>
+                                <div className="detf-button-wrapper">
+                                    <Link to="/establish-detf" state={{ category: category, dimension: dimension, productId: productId.toString() }}>
+                                        <Button buttonStyle="primary" buttonSize="standard" text="Invest in this DETF" />
+                                    </Link>
                                 </div>
                                 <div className="detf-button-wrapper-mobile">
                                     <Link to="/establish-detf" state={{ category: category, dimension: dimension, productId: productId.toString() }}>

@@ -164,14 +164,14 @@ const DETFIndexList = (props: DETFIndexListProps) => {
                                         <div className="detf-index-row-item-three-months" >{FormatPercentages(detf.returnThreeMonths * 100)}</div>
                                         <div className="detf-index-row-item-one-year" >{FormatPercentages(detf.returnOneYear * 100)}</div>
                                         <div className="detf-index-row-item-view">
-                                            View
+                                            View&nbsp;&nbsp;<div style={{ transform: "translateY(-10%)", fontSize: "24px" }}><FontAwesomeIcon className="fa-right-long" icon={icon({ name: "right-long", style: "solid" })} /></div>
                                         </div>
                                     </div>
                                 </Link>
                             </div>)
                         }
                     </div>
-                </div>
+                </div >
                 <div className="detf-index-container-mobile">
                     {/*                     <div className="detf-index-header-mobile">
                         <div className="detf-index-header-item-liquidity-mobile" onClick={() => { sorting("liquidity"); setActiveSort("liquidity") }}>Liquidity&nbsp;

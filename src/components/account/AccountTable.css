@@ -68,9 +68,6 @@
     width: 100%;
     height: 400px;
     /* background-image: url("../../assets/images/account_table_row_placeholder.png"); */
-    background-size: 1200px 712px;
-    background-repeat: no-repeat;
-    background-position: bottom right;
     position: relative;
 }
 
@@ -109,6 +106,8 @@
     height: 100%;
     font-size: 24px;
     font-weight: 700;
+    padding-left: 24px;
+    padding-right: 24px;
 }
 
 /* Small devices (landscape phones, 576px and up) */

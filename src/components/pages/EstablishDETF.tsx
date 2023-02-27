@@ -10,6 +10,7 @@ import { EstablishDETFBox } from "../EstablishDETFBox"
 import { Connect } from "../Connect"
 import { DepositContainer } from "../deposit/DepositContainer"
 import { SwitchNetwork } from "../SwitchNetwork"
+import { BetaMessage } from '../BetaMessage'
 
 function EstablishDETF() {
     const location = useLocation()
@@ -30,6 +31,16 @@ function EstablishDETF() {
             window.scrollTo(0, 580);
         }
     }, [activeStage])
+
+    if (window.location.href.includes("https://polybit.finance/")) {
+        return (
+            <>
+                <TitleContainer title={title} />
+                <BetaMessage />
+                <Footer />
+            </>
+        )
+    }
 
     if (isConnected && !chain?.unsupported) {
         return (

@@ -36,7 +36,7 @@ export const FormatCurrency = (amount: number, decimals: number) => {
     }
 
     if (currency === "AUD") {
-        return new Intl.NumberFormat('en-AU', { style: 'currency', currency: 'AUD', notation: 'compact', minimumFractionDigits: 2 }).format(amount)
+        return `A${new Intl.NumberFormat('en-AU', { style: 'currency', currency: 'AUD', notation: 'compact', minimumFractionDigits: 2 }).format(amount)}`
     }
 
     if (currency === "BNB") {

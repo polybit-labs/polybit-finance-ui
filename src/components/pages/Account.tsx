@@ -14,6 +14,7 @@ import wethAddress from "../../chain_info/weth.json"
 import { Connect } from '../Connect'
 import { SwitchNetwork } from '../SwitchNetwork'
 import { TextLink } from '../Buttons'
+import { BetaMessage } from '../BetaMessage'
 
 type Currencies = {
     "date": string;
@@ -94,6 +95,16 @@ const Account = () => {
     </div>
 
     const subTitleNotConnected = <div><h2>You are not currently connected to a crypto wallet. Please connect your wallet to access all of the features of this app.</h2></div>
+
+    if (window.location.href.includes("https://polybit.finance/")) {
+        return (
+            <>
+                <TitleContainer title="Your account" />
+                <BetaMessage />
+                <Footer />
+            </>
+        )
+    }
 
     if (isConnected && !chain?.unsupported) {
         return (

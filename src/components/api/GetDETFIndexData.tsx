@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 import axios from "axios"
-import apiURL from "./api-info.json"
+import apiURLJSON from "./api-info.json"
 import { useNetwork } from "wagmi"
 
 export const GetDETFIndexData = () => {
@@ -10,9 +10,16 @@ export const GetDETFIndexData = () => {
     const chainId: string = chain ? chain.id.toString() : "56"
     let isLoading: boolean
     let isSuccess: boolean
+    const [apiURL, setapiURL] = useState(apiURLJSON["apiURL"])
 
     useEffect(() => {
-        axios.post(apiURL["apiURL"] + "/api/get_detf_index_data", { "chain_id": chainId })
+        if (window.location.href.includes("http://localhost/")) {
+            setapiURL(apiURLJSON["apiURLTest"])
+        }
+    }, [])
+
+    useEffect(() => {
+        axios.post(apiURL + "/api/get_detf_index_data", { "chain_id": chainId })
             .then(res => {
                 setResponse(res.data);
             })
