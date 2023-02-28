@@ -27,12 +27,12 @@ const Navbar = (props: NavbarProps) => {
         }
     }
 
-    const dismissHandlerMobile = (event: React.TouchEvent<HTMLButtonElement>): void => {
-        if (event.currentTarget === event.target) {
-            event.preventDefault()
-            setShowDropDown(false)
-        }
-    }
+    /*     const dismissHandlerMobile = (event: React.TouchEvent<HTMLButtonElement>): void => {
+            if (event.currentTarget === event.target) {
+                event.preventDefault()
+                setShowDropDown(false)
+            }
+        } */
 
     const currencyFormatSelection = (currencyFormat: string): void => {
         setCurrencyFormat(currencyFormat)
@@ -109,10 +109,8 @@ const Navbar = (props: NavbarProps) => {
                     <button
                         className="currency-format"
                         onClick={(): void => toggleDropDown()}
-                        onBlur={(): void => {
-                            (e: React.FocusEvent<HTMLButtonElement>): void => dismissHandler(e)
-                            ; (e: React.TouchEvent<HTMLButtonElement>) => dismissHandlerMobile(e)
-                        }}
+                        onBlur={(e: React.FocusEvent<HTMLButtonElement>): void => dismissHandler(e)
+                        }
                     >
                         <div>{selectCurrencyFormat ? selectCurrencyFormat : "Select ..."} <img src={sortDown} height="20px" width="20px"></img></div>
                         {showDropDown && (
@@ -121,7 +119,6 @@ const Navbar = (props: NavbarProps) => {
                                 toggleDropDown={(): void => toggleDropDown()}
                                 selectedOption={currencyFormatSelection}
                             />
-
                         )}
                     </button>
                 </div>
