@@ -115,6 +115,7 @@
 
 .detf-index-row-item-name-category {
     font-size: 16px;
+    line-height: 16px;
 }
 
 .detf-index-row-item-name-dimension {
@@ -220,6 +221,7 @@
 
     .detf-index-row-item-name-category-mobile {
         font-size: 16px;
+        line-height: 16px;
     }
 
     .detf-index-row-item-name-dimension-mobile {
