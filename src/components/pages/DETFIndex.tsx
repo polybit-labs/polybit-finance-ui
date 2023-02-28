@@ -10,7 +10,6 @@ import { Loading } from '../Loading'
 import { InlineDropDown } from '../dropdowns/InlineDropDown'
 import sortDown from "../../assets/icons/sort-down-solid.svg"
 import { GetDETFIndexData } from '../api/GetDETFIndexData'
-import MainContainer from '../containers/Main'
 
 
 const DETFIndex = () => {

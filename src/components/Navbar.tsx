@@ -14,23 +14,8 @@ interface NavbarProps {
 const Navbar = (props: NavbarProps) => {
     const currency = useContext(CurrencyContext).currency
     const [click, setClick] = useState(false)
-    const [button, setButton] = useState(true)
     const handleClick = () => setClick(!click)
     const closeMobileMenu = () => setClick(false)
-    const showButton = () => {
-        if (window.innerWidth <= 960) {
-            setButton(false)
-        } else {
-            setButton(true)
-        }
-    }
-
-    useEffect(() => {
-        showButton()
-    }, [])
-
-    window.addEventListener("resize", showButton)
-
     const [showDropDown, setShowDropDown] = useState<boolean>(false)
     const [selectCurrencyFormat, setCurrencyFormat] = useState<string>(currency)
     const toggleDropDown = () => {
@@ -41,6 +26,14 @@ const Navbar = (props: NavbarProps) => {
             setShowDropDown(false)
         }
     }
+
+    /*     const dismissHandlerMobile = (event: React.TouchEvent<HTMLButtonElement>): void => {
+            if (event.currentTarget === event.target) {
+                event.preventDefault()
+                setShowDropDown(false)
+            }
+        } */
+
     const currencyFormatSelection = (currencyFormat: string): void => {
         setCurrencyFormat(currencyFormat)
     }
@@ -62,7 +55,7 @@ const Navbar = (props: NavbarProps) => {
                     </Link>
                 </div>
                 <div className="navbar-container">
-                    <ul className={click ? "nav-menu active" : "nav-menu"}>
+                    <ul className={"nav-menu"}>
                         <li className="nav-item">
                             <Link to="/detfs" className="nav-links" onClick={closeMobileMenu}>
                                 DETF Index
@@ -91,7 +84,6 @@ const Navbar = (props: NavbarProps) => {
                                 {showDropDown && (
                                     <CurrencyDropDown
                                         options={CurrencyFormats()}
-                                        showDropDown={false}
                                         toggleDropDown={(): void => toggleDropDown()}
                                         selectedOption={currencyFormatSelection}
                                     />
@@ -117,19 +109,16 @@ const Navbar = (props: NavbarProps) => {
                     <button
                         className="currency-format"
                         onClick={(): void => toggleDropDown()}
-                        onBlur={(e: React.FocusEvent<HTMLButtonElement>): void =>
-                            dismissHandler(e)
+                        onBlur={(e: React.FocusEvent<HTMLButtonElement>): void => dismissHandler(e)
                         }
                     >
                         <div>{selectCurrencyFormat ? selectCurrencyFormat : "Select ..."} <img src={sortDown} height="20px" width="20px"></img></div>
                         {showDropDown && (
                             <CurrencyDropDown
                                 options={CurrencyFormats()}
-                                showDropDown={false}
                                 toggleDropDown={(): void => toggleDropDown()}
                                 selectedOption={currencyFormatSelection}
                             />
-
                         )}
                     </button>
                 </div>

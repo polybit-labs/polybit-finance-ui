@@ -11,7 +11,7 @@ export const ReturnChartMini = (props: chartProps) => {
     return (
         <ResponsiveContainer width={props.width} height={props.height}>
             <LineChart data={props.performanceData} >
-                <Line type="linear" dataKey="index_price" stroke="#875CFF" strokeWidth={4} dot={false} />
+                <Line type="natural" dataKey="index_price" stroke="#875CFF" strokeWidth={4} dot={false} animationDuration={750} />
                 <YAxis domain={["auto", "auto"]} hide={true} />
             </LineChart >
         </ResponsiveContainer>

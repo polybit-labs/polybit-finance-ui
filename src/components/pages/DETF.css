@@ -29,7 +29,7 @@
 .detf-content {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    grid-column-gap: 24px;
+    grid-column-gap: 40px;
     list-style: none;
     margin-top: 80px;
 }
@@ -44,29 +44,32 @@
 .detf-name-wrapper {
     width: 100%;
     display: flex;
-    flex-direction: column;
-    justify-content: left;
-    align-items: left;
+    flex-direction: row;
     font-weight: 700;
 }
 
 .detf-name-logo {
-    width: 48px;
-    height: 48px;
+    width: 88px;
+    height: 88px;
     margin-right: 10px;
 }
 
-.detf-name-title {
+.detf-name {
     display: flex;
-    flex-direction: row;
-    justify-content: left;
-    align-items: center;
-    font-size: 36px;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: left;
+}
+
+.detf-name-category {
+    font-size: 32px;
+    line-height: 32px;
 }
 
 .detf-name-dimension {
-    font-size: 62px;
-    line-height: 62px;
+    color: #000000;
+    font-size: 48px;
+    line-height: 48px;
 }
 
 .detf-description {
@@ -75,6 +78,10 @@
 
 .detf-chart {
     margin-bottom: 60px;
+}
+
+.detf-chart-title {
+    margin-bottom: 20px;
 }
 
 .detf-chart p {
@@ -183,12 +190,12 @@
     background-color: #D9D9D9;
     border: 1px solid #ECECEC;
     padding: 30px;
-    margin-bottom: 60px;
 }
 
 .detf-button-wrapper {
     display: flex;
     justify-content: center;
+    margin-top: 60px;
 }
 
 
@@ -211,22 +218,18 @@
     }
 
     .detf-name-logo {
-        width: 24px;
-        height: 24px;
-        margin-right: 10px;
+        width: 57px;
+        height: 57px;
     }
 
-    .detf-name-title {
-        display: flex;
-        flex-direction: row;
-        justify-content: left;
-        align-items: center;
-        font-size: 20px;
+    .detf-name-category {
+        font-size: 21px;
+        line-height: 21px;
     }
 
     .detf-name-dimension {
-        font-size: 40px;
-        line-height: 40px;
+        font-size: 32px;
+        line-height: 32px;
     }
 
     .detf-button-wrapper-mobile {
@@ -257,7 +260,6 @@
         padding-bottom: 20px;
         padding-left: 24px;
         padding-right: 24px;
-        margin-bottom: 30px;
     }
 }
 

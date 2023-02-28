@@ -38,7 +38,7 @@ export const FormatPercentages = (percentage: number) => {
 }
 
 export const ColourCategories = (category: string) => {
-    if (category === "Defi") { return "#2100E9" }
+    if (category === "DeFi") { return "#2100E9" }
     if (category === "Governance") { return "#24A78F" }
     if (category === "BSC Index Top 10") { return "#CD9A00" }
     if (category === "Metaverse") { return "#E5008A" }

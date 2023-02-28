@@ -217,10 +217,11 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
                         <div className="account-table-row-item-name">
                             <div className="account-table-row-item-category" style={{ color: ColourCategories(props.category) }}>
                                 {props.category}
-                                <div className="account-table-row-item-dimension" style={{ color: "#000000" }}>
-                                    {props.dimension}
-                                    <Link className="account-table-row-item-link-to-detf" to={`/detfs/bnb-smart-chain/${props.category.replaceAll(" ", "-").toLocaleLowerCase()}/${props.dimension.replaceAll(" ", "-").toLocaleLowerCase()}`}><FontAwesomeIcon icon={icon({ name: "up-right-from-square", style: "solid" })} /></Link>
-                                </div>
+                            </div>
+                            <div className="account-table-row-item-dimension" style={{ color: "#000000" }}>
+                                {props.dimension}
+                                <Link className="account-table-row-item-link-to-detf" to={`/detfs/bnb-smart-chain/${props.category.replaceAll(" ", "-").toLocaleLowerCase()}/${props.dimension.replaceAll(" ", "-").toLocaleLowerCase()}`}>
+                                    <FontAwesomeIcon icon={icon({ name: "up-right-from-square", style: "solid" })} /></Link>
                             </div>
                         </div>
                     </div>
@@ -321,7 +322,7 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
                                 <div className="account-table-expanded-content-left-current-value">
                                     {isDETFActive && <h2>Total market value: {currentTotalValueFormatted} ({currentReturnFormatted})</h2>}
                                     {!isDETFActive && <h2>Final market value: {finalMarketValue} ({finalReturnWeth})</h2>}
-                                    <p><b>Market value over time ({props.currency})</b></p>
+                                    <div className="account-table-chart-title"><p><b>Market value over time ({props.currency})</b></p></div>
                                     {validDateRange && <DETFReturnChart height={300} width="100%" performanceData={performanceData} />}
                                     {!validDateRange && <InvalidChartRange height={300} width="100%" />}
                                 </div>
@@ -372,9 +373,11 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
                                     <p>Polybit’s DETFs are self-custodial, which means your assets are held in a smart contract that is controlled by your wallet and are not pooled or centralised. You can prove this at any time with the information below.</p>
                                     <br />
                                     <p><b>DETF Address:</b></p>
-                                    <p>{TruncateAddress(props.detf_address)}</p>
+                                    {chainId === "97" && <a href={`https://testnet.bscscan.com/address/${props.detf_address}`} target="_blank" rel="noopener noreferrer"><p>{TruncateAddress(props.detf_address)}</p></a>}
+                                    {chainId !== "97" && <a href={`https://bscscan.com/address/${props.detf_address}`} target="_blank" rel="noopener noreferrer"><p>{TruncateAddress(props.detf_address)}</p></a>}
                                     <p><b>DETF Owner Address:</b></p>
-                                    <p>{TruncateAddress(owner ? owner : "")}</p>
+                                    {chainId === "97" && <a href={`https://testnet.bscscan.com/address/${owner}`} target="_blank" rel="noopener noreferrer"><p>{TruncateAddress(owner ? owner : "")}</p></a>}
+                                    {chainId !== "97" && <a href={`https://testnet.bscscan.com/address/${owner}`} target="_blank" rel="noopener noreferrer"><p>{TruncateAddress(owner ? owner : "")}</p></a>}
                                     <br />
                                     {chainId === "97" && <p><b><a href={`https://testnet.bscscan.com/address/${props.detf_address}`} target="_blank" rel="noopener noreferrer">{`Validate this DETF's assets at BscScan ->`}</a></b></p>}
                                     {chainId !== "97" && <p><b><a href={`https://bscscan.com/address/${props.detf_address}`} target="_blank" rel="noopener noreferrer">{`Validate this DETF's assets at BscScan ->`}</a></b></p>}
@@ -513,7 +516,7 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
                                         <h2>{finalMarketValue} ({finalReturnWeth})</h2>
                                     </div>}
                                     <br />
-                                    <p><b>Market value over time ({props.currency})</b></p>
+                                    <div className="account-table-chart-title"><p><b>Market value over time ({props.currency})</b></p></div>
                                     {validDateRange && <DETFReturnChart height={300} width="100%" performanceData={performanceData} />}
                                     {!validDateRange && <InvalidChartRange height={300} width="100%" />}
                                 </div>

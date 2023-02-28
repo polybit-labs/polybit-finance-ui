@@ -12,6 +12,7 @@
 
 .how-it-works-container {
     width: 100%;
+    padding-left: 80px;
     text-align: left;
 }
 
@@ -23,6 +24,10 @@
         padding-bottom: 80px;
         padding-left: 24px;
         padding-right: 24px;
+    }
+
+    .how-it-works-container {
+        padding-left: 40px;
     }
 }
 

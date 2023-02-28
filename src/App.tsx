@@ -13,6 +13,7 @@ import { useState } from 'react'
 import { CloseDETF } from './components/pages/CloseDETF'
 import HowItWorks from './components/pages/HowItWorks';
 import Privacy from './components/pages/Privacy';
+import { Category } from './components/pages/Category';
 
 const App = () => {
   const [currency, setCurrency] = useState<CurrencyState>({ currency: "USD" })
@@ -25,6 +26,7 @@ const App = () => {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/detfs" element={<DETFIndex />} />
+              <Route path="/category" element={<Category />} />
               <Route path="/how-it-works" element={<HowItWorks />} />
               <Route path="/account" element={<Account />} />
               <Route path="/establish-detf" element={<EstablishDETF />} />

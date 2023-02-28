@@ -80,19 +80,6 @@
     align-items: center;
 }
 
-.detf-index-row-item-detf {
-    display: flex;
-    flex-direction: row;
-    padding-left: 24px;
-    width: 30%;
-}
-
-.detf-index-row-item-logo {
-    width: 48px;
-    height: 48px;
-    margin-right: 12px;
-}
-
 .detf-index-row-item-liquidity {
     width: 15%;
     color: #909090;
@@ -106,10 +93,23 @@
     width: 11%;
 }
 
+.detf-index-row-item-detf {
+    display: flex;
+    flex-direction: row;
+    padding-left: 24px;
+    width: 30%;
+}
+
+.detf-index-row-item-logo {
+    width: 44px;
+    height: 44px;
+    margin-right: 10px;
+}
+
 .detf-index-row-item-name {
     display: flex;
     flex-direction: column;
-    justify-content: left;
+    justify-content: space-between;
     align-items: left;
 }
 
@@ -208,14 +208,14 @@
     .detf-index-row-item-name-mobile {
         display: flex;
         flex-direction: column;
-        justify-content: left;
+        justify-content: space-between;
         align-items: left;
     }
 
     .detf-index-row-item-logo-mobile {
-        width: 48px;
-        height: 48px;
-        margin-right: 12px;
+        width: 44px;
+        height: 44px;
+        margin-right: 10px;
     }
 
     .detf-index-row-item-name-category-mobile {
@@ -224,8 +224,8 @@
 
     .detf-index-row-item-name-dimension-mobile {
         color: #000000;
-        font-size: 20px;
-        line-height: 20px;
+        font-size: 24px;
+        line-height: 24px;
     }
 
     .detf-index-row-item-table {

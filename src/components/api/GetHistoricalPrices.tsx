@@ -1,14 +1,21 @@
 import { useState, useEffect } from "react"
 import axios from "axios"
-import apiURL from "./api-info.json"
+import apiURLJSON from "./api-info.json"
 
 export const GetHistoricalPrices = () => {
     const [response, setResponse] = useState<Array<any>>()
     let isLoading: boolean
     let isSuccess: boolean
+    const [apiURL, setapiURL] = useState(apiURLJSON["apiURL"])
 
     useEffect(() => {
-        axios.get(apiURL["apiURL"] + "/api/get_historical_prices")
+        if (window.location.href.includes("http://localhost/")) {
+            setapiURL(apiURLJSON["apiURLTest"])
+        }
+    }, [])
+
+    useEffect(() => {
+        axios.get(apiURL + "/api/get_historical_prices")
             .then(res => {
                 setResponse(res.data)
             })
