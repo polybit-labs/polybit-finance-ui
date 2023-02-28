@@ -96,7 +96,7 @@ const Account = () => {
 
     const subTitleNotConnected = <div><h2>You are not currently connected to a crypto wallet. Please connect your wallet to access all of the features of this app.</h2></div>
 
-    if (!window.location.href.includes("beta")) {
+    if (!window.location.href.includes("beta" || "dev")) {
         return (
             <>
                 <TitleContainer title="Your account" />

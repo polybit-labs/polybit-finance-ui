@@ -19,6 +19,7 @@ const Footer = () => {
                     <div className="footer-link-items">
                         <h2>Contact Us</h2>
                         <Email email="contactus@polybit.finance"><u>Contact</u></Email>
+                        <a href="https://twitter.com/PolybitFinance" target="_blank" rel="noreferrer"><u>Twitter</u> {/* <i class="fa-solid fa-up-right-from-square" /> */}</a>
                         <a href="https://www.linkedin.com/company/polybit" target="_blank" rel="noreferrer"><u>LinkedIn</u> {/* <i class="fa-solid fa-up-right-from-square" /> */}</a>
                     </div>
                 </div>
