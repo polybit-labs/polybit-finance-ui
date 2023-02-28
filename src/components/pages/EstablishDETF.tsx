@@ -32,7 +32,7 @@ function EstablishDETF() {
         }
     }, [activeStage])
 
-    if (window.location.href.includes("https://polybit.finance/")) {
+    if (!window.location.href.includes("beta")) {
         return (
             <>
                 <TitleContainer title={title} />
