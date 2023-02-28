@@ -29,6 +29,7 @@ const Navbar = (props: NavbarProps) => {
 
     const dismissHandlerMobile = (event: React.TouchEvent<HTMLButtonElement>): void => {
         if (event.currentTarget === event.target) {
+            event.preventDefault()
             setShowDropDown(false)
         }
     }
@@ -111,7 +112,7 @@ const Navbar = (props: NavbarProps) => {
                         onBlur={(e: React.FocusEvent<HTMLButtonElement>): void =>
                             dismissHandler(e)
                         }
-                        onTouchCancel={(e: React.TouchEvent<HTMLButtonElement>): void =>
+                        onTouchStart={(e: React.TouchEvent<HTMLButtonElement>): void =>
                             dismissHandlerMobile(e)
                         }
                     >
