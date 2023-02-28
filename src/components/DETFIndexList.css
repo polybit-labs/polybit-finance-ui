@@ -80,19 +80,6 @@
     align-items: center;
 }
 
-.detf-index-row-item-detf {
-    display: flex;
-    flex-direction: row;
-    padding-left: 24px;
-    width: 30%;
-}
-
-.detf-index-row-item-logo {
-    width: 44px;
-    height: 44px;
-    margin-right: 10px;
-}
-
 .detf-index-row-item-liquidity {
     width: 15%;
     color: #909090;
@@ -104,6 +91,19 @@
 .detf-index-row-item-one-year,
 .detf-index-row-item-view {
     width: 11%;
+}
+
+.detf-index-row-item-detf {
+    display: flex;
+    flex-direction: row;
+    padding-left: 24px;
+    width: 30%;
+}
+
+.detf-index-row-item-logo {
+    width: 44px;
+    height: 44px;
+    margin-right: 10px;
 }
 
 .detf-index-row-item-name {

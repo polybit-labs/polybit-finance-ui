@@ -57,12 +57,23 @@ const DETF = () => {
                 <div className="detf">
                     <div className="detf-container">
                         <div className="detf-title-section">
-                            <div className="detf-name-wrapper">
+                            {/* <div className="detf-name-wrapper">
                                 <div className="detf-name-title">
                                     <img className="detf-name-logo" src={require(`../../assets/icons/${DETFIconFilename(category, dimension)}`)}></img>
                                     <div style={{ color: ColourCategories(category) }}>{category}</div>
                                 </div>
                                 <div className="detf-name-dimension">{dimension}</div>
+                            </div> */}
+                            <div className="detf-name-wrapper">
+                                <img className="detf-name-logo" src={require(`../../assets/icons/${DETFIconFilename(category, dimension)}`)}></img>
+                                <div className="detf-name">
+                                    <div className="detf-name-category" style={{ color: ColourCategories(category) }}>
+                                        {category}
+                                    </div>
+                                    <div className="detf-name-dimension">
+                                        {dimension}
+                                    </div>
+                                </div>
                             </div>
                             <div className="detf-button-wrapper">
                                 <Link className="detf-invest-button" to="/establish-detf" state={{ category: category, dimension: dimension, productId: productId.toString(), processOrigin: "establish", activeStage: 1 }}>
