@@ -72,7 +72,7 @@ function EstablishDETF() {
         return (<SwitchNetwork />)
     }
 
-    const subTitleNotConnected = <div><h2>You are not currently connected to a crypto wallet. Please connect your wallet to proceed.</h2></div>
+    const subTitleNotConnected = <div><h2>You are not currently connected to a wallet. Please connect your wallet to proceed.</h2></div>
 
     return (
         <>

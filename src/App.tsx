@@ -21,14 +21,12 @@ const App = () => {
   const BETA_TRACKING_ID = "G-KGE04XZB58"
   const PUBLIC_TRACKING_ID = "G-3J6PET904V"
 
-  useEffect(() => {
-    if (window.location.href.includes("beta")) {
-      ReactGA.initialize(BETA_TRACKING_ID)
-    }
-    if (!window.location.href.includes("beta" || "dev" || "localhost")) {
-      ReactGA.initialize(PUBLIC_TRACKING_ID)
-    }
-  }, [])
+  if (window.location.href.includes("beta")) {
+    ReactGA.initialize(BETA_TRACKING_ID)
+  }
+  if (!window.location.href.includes("beta" || "dev" || "localhost")) {
+    ReactGA.initialize(PUBLIC_TRACKING_ID)
+  }
 
   return (
     <div className="app">
