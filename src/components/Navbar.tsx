@@ -109,12 +109,10 @@ const Navbar = (props: NavbarProps) => {
                     <button
                         className="currency-format"
                         onClick={(): void => toggleDropDown()}
-                        onBlur={(e: React.FocusEvent<HTMLButtonElement>): void =>
-                            dismissHandler(e)
-                        }
-                        onTouchStart={(e: React.TouchEvent<HTMLButtonElement>): void =>
-                            dismissHandlerMobile(e)
-                        }
+                        onBlur={(): void => {
+                            (e: React.FocusEvent<HTMLButtonElement>): void => dismissHandler(e)
+                            ; (e: React.TouchEvent<HTMLButtonElement>) => dismissHandlerMobile(e)
+                        }}
                     >
                         <div>{selectCurrencyFormat ? selectCurrencyFormat : "Select ..."} <img src={sortDown} height="20px" width="20px"></img></div>
                         {showDropDown && (
