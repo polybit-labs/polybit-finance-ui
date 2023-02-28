@@ -32,7 +32,7 @@ function EstablishDETF() {
         }
     }, [activeStage])
 
-    if (!window.location.href.includes("beta")) {
+    if (!window.location.href.includes("beta" || "dev")) {
         return (
             <>
                 <TitleContainer title={title} />
