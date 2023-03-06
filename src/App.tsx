@@ -14,19 +14,12 @@ import { CloseDETF } from './components/pages/CloseDETF'
 import HowItWorks from './components/pages/HowItWorks'
 import Privacy from './components/pages/Privacy'
 import { Category } from './components/pages/Category'
-import ReactGA from "react-ga4"
+import { initialiseGA4 } from './components/utils/Analytics';
+
 
 const App = () => {
   const [currency, setCurrency] = useState<CurrencyState>({ currency: "USD" })
-  const BETA_TRACKING_ID = "G-KGE04XZB58"
-  const PUBLIC_TRACKING_ID = "G-3J6PET904V"
-
-  if (window.location.href.includes("beta")) {
-    ReactGA.initialize(BETA_TRACKING_ID)
-  }
-  if (!window.location.href.includes("beta" || "dev" || "localhost")) {
-    ReactGA.initialize(PUBLIC_TRACKING_ID)
-  }
+  initialiseGA4()
 
   return (
     <div className="app">

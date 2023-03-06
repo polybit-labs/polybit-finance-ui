@@ -6,6 +6,7 @@ import { GetTopDETFData } from "./api/GetTopDETFData"
 import { TopDETFBox } from "./TopDETFBox"
 import { Button } from "./Buttons"
 import { Link } from "react-router-dom"
+import { Loading } from "./Loading"
 
 export const TopDETFs = () => {
     const [showTimePeriodDropDown, setShowTimePeriodDropDown] = useState<boolean>(false)
@@ -61,69 +62,55 @@ export const TopDETFs = () => {
         )}
     </button></h2></div>
 
-    if (topDETFData) {
-        return (
-            <div className="top-detfs-container">
-                <h2>{title}</h2>
-                {/*<ul className="top-detfs-boxes">
-                {topDETFData ? topDETFData.map((detf, index) =>
-                    <div key={index}><li>
-                        <TopDETFBox
-                            category={detf.category}
-                            dimension={detf.dimension}
-                            returnValue={detf.return_value}
-                            totalLiquidity={detf.total_liquidity}
-                            urlCategoryId={detf.url_category_id}
-                            urlChainId={detf.url_chain_id}
-                            urlDimensionId={detf.url_dimension_id}
-                            performanceData={detf.performance_data} />
-                    </li></div>
-                ) : void []}
-            </ul> */}
-
-                <ul className="top-detfs-boxes">
-                    <li className="top-detf-box-first">
-                        <TopDETFBox
-                            category={firstResult.category}
-                            dimension={firstResult.dimension}
-                            returnValue={firstResult.return_value}
-                            totalLiquidity={firstResult.total_liquidity}
-                            urlCategoryId={firstResult.url_category_id}
-                            urlChainId={firstResult.url_chain_id}
-                            urlDimensionId={firstResult.url_dimension_id}
-                            performanceData={firstResult.performance_data} />
-                    </li>
-                    <li className="top-detf-box-second">
-                        <TopDETFBox
-                            category={secondResult.category}
-                            dimension={secondResult.dimension}
-                            returnValue={secondResult.return_value}
-                            totalLiquidity={secondResult.total_liquidity}
-                            urlCategoryId={secondResult.url_category_id}
-                            urlChainId={secondResult.url_chain_id}
-                            urlDimensionId={secondResult.url_dimension_id}
-                            performanceData={secondResult.performance_data} />
-                    </li>
-                    <li className="top-detf-box-third">
-                        <TopDETFBox
-                            category={thirdResult.category}
-                            dimension={thirdResult.dimension}
-                            returnValue={thirdResult.return_value}
-                            totalLiquidity={thirdResult.total_liquidity}
-                            urlCategoryId={thirdResult.url_category_id}
-                            urlChainId={thirdResult.url_chain_id}
-                            urlDimensionId={thirdResult.url_dimension_id}
-                            performanceData={thirdResult.performance_data} />
-                    </li>
-                </ul>
-                <div className="top-detfs-container-button-wrapper">
-                    <Link to="/detfs" >
-                        <Button buttonStyle="primary" buttonSize="standard" text="View the full DETF Index" />
-                    </Link>
-                </div>
+    return (
+        <div className="top-detfs-container">
+            <h2>{title}</h2>
+            <ul className="top-detfs-boxes">
+                <li className="top-detf-box-first">
+                    {topDETFData && <TopDETFBox
+                        category={firstResult.category}
+                        dimension={firstResult.dimension}
+                        returnValue={firstResult.return_value}
+                        totalLiquidity={firstResult.total_liquidity}
+                        urlCategoryId={firstResult.url_category_id}
+                        urlChainId={firstResult.url_chain_id}
+                        urlDimensionId={firstResult.url_dimension_id}
+                        performanceData={firstResult.performance_data} />}
+                    {!topDETFData && <div className="top-detfs-box-loading">
+                        <img height="60px" width="60px" src={require("../assets/images/polybit-loader-black-on-light-grey-60px.gif")} alt="Loading"></img></div>}
+                </li>
+                <li className="top-detf-box-second">
+                    {topDETFData && <TopDETFBox
+                        category={secondResult.category}
+                        dimension={secondResult.dimension}
+                        returnValue={secondResult.return_value}
+                        totalLiquidity={secondResult.total_liquidity}
+                        urlCategoryId={secondResult.url_category_id}
+                        urlChainId={secondResult.url_chain_id}
+                        urlDimensionId={secondResult.url_dimension_id}
+                        performanceData={secondResult.performance_data} />}
+                    {!topDETFData && <div className="top-detfs-box-loading">
+                        <img height="60px" width="60px" src={require("../assets/images/polybit-loader-black-on-light-grey-60px.gif")} alt="Loading"></img></div>}
+                </li>
+                <li className="top-detf-box-third">
+                    {topDETFData && <TopDETFBox
+                        category={thirdResult.category}
+                        dimension={thirdResult.dimension}
+                        returnValue={thirdResult.return_value}
+                        totalLiquidity={thirdResult.total_liquidity}
+                        urlCategoryId={thirdResult.url_category_id}
+                        urlChainId={thirdResult.url_chain_id}
+                        urlDimensionId={thirdResult.url_dimension_id}
+                        performanceData={thirdResult.performance_data} />}
+                    {!topDETFData && <div className="top-detfs-box-loading">
+                        <img height="60px" width="60px" src={require("../assets/images/polybit-loader-black-on-light-grey-60px.gif")} alt="Loading"></img></div>}
+                </li>
+            </ul>
+            <div className="top-detfs-container-button-wrapper">
+                <Link to="/detfs" >
+                    <Button buttonStyle="primary" buttonSize="standard" text="View the full DETF Index" />
+                </Link>
             </div>
-        )
-    }
-
-    return (<></>)
+        </div>
+    )
 }

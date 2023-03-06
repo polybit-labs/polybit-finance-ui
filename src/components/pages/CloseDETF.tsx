@@ -3,13 +3,19 @@ import { useLocation } from "react-router-dom"
 import TitleContainer from "../containers/Title"
 import SubTitleContainer from "../containers/SubTitle"
 import Footer from "./Footer"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Loading } from "../Loading"
 import { WithdrawSummary } from "../WithdrawSummary"
 import { WithdrawSuccess } from "../WithdrawSuccess"
+import { initialiseGA4 } from "../utils/Analytics"
+import ReactGA from "react-ga4"
 
 export const CloseDETF = () => {
     const location = useLocation()
+    useEffect(() => {
+        initialiseGA4()
+        ReactGA.send({ hitType: "pageview", page: location.pathname })
+    }, [])
     const { category, dimension, detfAddress, totalValue, currentTotalValue, currentReturn, currentReturnPercentage, currency, vsPrices, totalDeposited } = location.state
     const { address: walletOwner, connector, isConnected } = useAccount()
     const [withdrawSuccess, setWithdrawSuccess] = useState(false)

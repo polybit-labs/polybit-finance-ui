@@ -11,23 +11,27 @@ export const GetOwnedAssetsTableData = (detfAddress: string, status: number, tot
     const rpc = network.chain?.rpcUrls.default
     let isLoading: boolean
     let isSuccess: boolean
-    const [apiURL, setapiURL] = useState(apiURLJSON["apiURL"])
+    const [apiURL, setapiURL] = useState("")
 
     useEffect(() => {
-        if (window.location.href.includes("http://localhost/")) {
+        if (window.location.href.includes("localhost")) {
             setapiURL(apiURLJSON["apiURLTest"])
+        } else {
+            setapiURL(apiURLJSON["apiURL"])
         }
     }, [])
 
     useEffect(() => {
-        axios.post(apiURL + "/api/get_owned_assets_table_data", { "rpc_provider": rpc, "chain_id": chainId, "detf_address": detfAddress, "status": status, "total_deposits": totalDeposits })
-            .then(res => {
-                setResponse(res.data)
-            })
-            .catch((err) => {
-                console.log(err.response)
-            })
-    }, [])
+        if (apiURL !== "") {
+            axios.post(apiURL + "/api/get_owned_assets_table_data", { "rpc_provider": rpc, "chain_id": chainId, "detf_address": detfAddress, "status": status, "total_deposits": totalDeposits })
+                .then(res => {
+                    setResponse(res.data)
+                })
+                .catch((err) => {
+                    console.log(err.response)
+                })
+        }
+    }, [apiURL])
 
     if (response === undefined) {
         isLoading = true
