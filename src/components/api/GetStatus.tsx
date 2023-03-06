@@ -9,23 +9,27 @@ export const GetStatus = (detfAddress: string) => {
     const rpc = network.chain?.rpcUrls.default
     let isLoading: boolean
     let isSuccess: boolean
-    const [apiURL, setapiURL] = useState(apiURLJSON["apiURL"])
+    const [apiURL, setapiURL] = useState("")
 
     useEffect(() => {
-        if (window.location.href.includes("http://localhost/")) {
+        if (window.location.href.includes("localhost")) {
             setapiURL(apiURLJSON["apiURLTest"])
+        } else {
+            setapiURL(apiURLJSON["apiURL"])
         }
     }, [])
 
     useEffect(() => {
-        axios.post(apiURL + "/api/get_status", { "rpc_provider": rpc, "detf_address": detfAddress })
-            .then(res => {
-                setResponse(res.data);
-            })
-            .catch((err) => {
-                console.log(err.response)
-            })
-    }, [])
+        if (apiURL !== "") {
+            axios.post(apiURL + "/api/get_status", { "rpc_provider": rpc, "detf_address": detfAddress })
+                .then(res => {
+                    setResponse(res.data);
+                })
+                .catch((err) => {
+                    console.log(err.response)
+                })
+        }
+    }, [apiURL])
 
     if (response === undefined) {
         isLoading = true

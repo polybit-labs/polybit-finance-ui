@@ -15,6 +15,9 @@ import { Connect } from '../Connect'
 import { SwitchNetwork } from '../SwitchNetwork'
 import { TextLink } from '../Buttons'
 import { BetaMessage } from '../BetaMessage'
+import { initialiseGA4 } from '../utils/Analytics'
+import ReactGA from "react-ga4"
+import { useLocation } from 'react-router-dom'
 
 type Currencies = {
     "date": string;
@@ -31,6 +34,11 @@ type Currencies = {
 }
 
 const Account = () => {
+    const location = useLocation()
+    useEffect(() => {
+        initialiseGA4()
+        ReactGA.send({ hitType: "pageview", page: location.pathname })
+    }, [])
     const network = useNetwork()
     const rpc = network.chain?.rpcUrls.default
     const { address: walletOwner, connector, isConnected } = useAccount()
@@ -96,7 +104,7 @@ const Account = () => {
 
     const subTitleNotConnected = <div><h2>You are not currently connected to a wallet. Please connect your wallet to access all of the features of this app.</h2></div>
 
-    if (!window.location.href.includes("beta" || "dev")) {
+    if (window.location.href.includes("polybit.finance")) {
         return (
             <>
                 <TitleContainer title="Your account" />

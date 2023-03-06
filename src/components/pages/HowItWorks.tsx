@@ -1,9 +1,18 @@
+import { useEffect } from "react"
+import { useLocation } from "react-router-dom"
 import SubTitleContainer from "../containers/SubTitle"
 import TitleContainer from "../containers/Title"
+import { initialiseGA4 } from "../utils/Analytics"
 import Footer from "./Footer"
 import "./HowItWorks.css"
+import ReactGA from "react-ga4"
 
 const HowItWorks = () => {
+    const location = useLocation()
+    useEffect(() => {
+        initialiseGA4()
+        ReactGA.send({ hitType: "pageview", page: location.pathname })
+    }, [])
     const title = "How it works"
     const subTitle = "Polybit’s Decentralised ETFs (DETFs) make the process of investing in digital assets easier, through discovery, investment and risk management."
 

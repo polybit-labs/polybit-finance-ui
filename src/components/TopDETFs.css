@@ -27,6 +27,18 @@
     padding: 20px;
 }
 
+.top-detfs-box-loading {
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #EEEEEE;
+    border-radius: 8px;
+    border: 1px solid white;
+    padding: 20px;
+}
+
 .top-detfs-box-header {
     display: flex;
     flex-direction: row;

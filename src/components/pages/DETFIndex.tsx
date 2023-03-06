@@ -10,9 +10,16 @@ import { Loading } from '../Loading'
 import { InlineDropDown } from '../dropdowns/InlineDropDown'
 import sortDown from "../../assets/icons/sort-down-solid.svg"
 import { GetDETFIndexData } from '../api/GetDETFIndexData'
-
+import { useLocation } from 'react-router-dom'
+import { initialiseGA4 } from '../utils/Analytics'
+import ReactGA from "react-ga4"
 
 const DETFIndex = () => {
+    const location = useLocation()
+    useEffect(() => {
+        initialiseGA4()
+        ReactGA.send({ hitType: "pageview", page: location.pathname })
+    }, [])
     const title = "Invest in Decentralised ETFs"
     const info = "Displaying thematic investment strategies in all categories with all dimensions"
     const currency = useContext(CurrencyContext).currency

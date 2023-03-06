@@ -1,4 +1,4 @@
-import { useParams, Link } from 'react-router-dom'
+import { useParams, Link, useLocation } from 'react-router-dom'
 import { DETFReturnChart } from '../charts/DETFReturnChart'
 import "./DETF.css"
 import { DETFAssetsTable } from '../DETFAssetsTable'
@@ -13,8 +13,15 @@ import { DETFSummary } from '../DETFSummary'
 import { ColourCategories, DETFIconFilename } from '../utils/Formatting'
 import { useNetwork } from 'wagmi'
 import { Button } from '../Buttons'
+import ReactGA from "react-ga4"
+import { initialiseGA4 } from '../utils/Analytics'
 
 const DETF = () => {
+    const location = useLocation()
+    useEffect(() => {
+        initialiseGA4()
+        ReactGA.send({ hitType: "pageview", page: location.pathname })
+    }, [])
     const urlCategoryId = useParams().urlCategoryId
     const urlDimensionId = useParams().urlDimensionId
     const { chain } = useNetwork()

@@ -11,9 +11,15 @@ import { Connect } from "../Connect"
 import { DepositContainer } from "../deposit/DepositContainer"
 import { SwitchNetwork } from "../SwitchNetwork"
 import { BetaMessage } from '../BetaMessage'
+import ReactGA from "react-ga4"
+import { initialiseGA4 } from '../utils/Analytics'
 
 function EstablishDETF() {
     const location = useLocation()
+    useEffect(() => {
+        initialiseGA4()
+        ReactGA.send({ hitType: "pageview", page: location.pathname })
+    }, [])
     const { chain } = useNetwork()
     const { category, dimension, productId } = location.state
     const { address: walletOwner, connector, isConnected } = useAccount()
@@ -32,7 +38,7 @@ function EstablishDETF() {
         }
     }, [activeStage])
 
-    if (!window.location.href.includes("beta" || "dev")) {
+    if (window.location.href.includes("polybit.finance")) {
         return (
             <>
                 <TitleContainer title={title} />
