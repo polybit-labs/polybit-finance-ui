@@ -15,6 +15,7 @@ import HowItWorks from './components/pages/HowItWorks'
 import Privacy from './components/pages/Privacy'
 import { Category } from './components/pages/Category'
 import { initialiseGA4 } from './components/utils/Analytics';
+import { LockedBeta } from './components/LockedBeta';
 
 
 const App = () => {
