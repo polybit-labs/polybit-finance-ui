@@ -14,10 +14,10 @@ import wethAddress from "../../chain_info/weth.json"
 import { Connect } from '../Connect'
 import { SwitchNetwork } from '../SwitchNetwork'
 import { TextLink } from '../Buttons'
-import { BetaMessage } from '../BetaMessage'
 import { initialiseGA4 } from '../utils/Analytics'
 import ReactGA from "react-ga4"
 import { useLocation } from 'react-router-dom'
+import { LockedBeta } from '../LockedBeta'
 
 type Currencies = {
     "date": string;
@@ -107,8 +107,7 @@ const Account = () => {
     if (window.location.href.includes("polybit.finance")) {
         return (
             <>
-                <TitleContainer title="Your account" />
-                <BetaMessage />
+                <LockedBeta />
                 <Footer />
             </>
         )

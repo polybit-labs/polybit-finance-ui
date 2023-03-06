@@ -9,6 +9,5 @@ export const initialiseGA4 = () => {
     }
     if (window.location.href.includes("polybit.finance")) {
         ReactGA.initialize(PUBLIC_TRACKING_ID)
-        console.log(window.location.href.includes("polybit.finance"))
     }
 }

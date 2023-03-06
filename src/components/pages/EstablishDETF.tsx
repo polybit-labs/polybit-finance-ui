@@ -10,9 +10,9 @@ import { EstablishDETFBox } from "../EstablishDETFBox"
 import { Connect } from "../Connect"
 import { DepositContainer } from "../deposit/DepositContainer"
 import { SwitchNetwork } from "../SwitchNetwork"
-import { BetaMessage } from '../BetaMessage'
 import ReactGA from "react-ga4"
 import { initialiseGA4 } from '../utils/Analytics'
+import { LockedBeta } from '../LockedBeta'
 
 function EstablishDETF() {
     const location = useLocation()
@@ -41,8 +41,7 @@ function EstablishDETF() {
     if (window.location.href.includes("polybit.finance")) {
         return (
             <>
-                <TitleContainer title={title} />
-                <BetaMessage />
+                <LockedBeta />
                 <Footer />
             </>
         )
