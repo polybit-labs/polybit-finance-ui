@@ -43,9 +43,9 @@
 /* Small devices (landscape phones, 576px and up) */
 
 @media (max-width: 719px) {
-    .connect-provider-box-metamask {
+    /* .connect-provider-box-metamask {
         display: none;
-    }
+    } */
 
     .connect-provider {
         min-width: 272px;
