@@ -16,7 +16,7 @@ export const Connect = () => {
     const injectedConnector = connectors[0]
     const coinbaseConnector = connectors[1]
     const metamaskConnector = connectors[2]
-    const walletConnectConnector = connectors[3]
+    const walletConnectConnector = connectors[4]
 
     return (
         <div className="connect-provider">
