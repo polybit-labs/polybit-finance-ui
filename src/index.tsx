@@ -11,7 +11,7 @@ import { WalletConnectLegacyConnector } from 'wagmi/connectors/walletConnectLega
 
 window.Buffer = window.Buffer || require("buffer").Buffer;
 
-const { chains, provider, webSocketProvider } = configureChains(
+const { chains, provider } = configureChains(
   [bscTestnet],
   [publicProvider()],
 )
@@ -42,7 +42,6 @@ const client = createClient({
     })
   ],
   provider,
-  webSocketProvider,
 })
 
 const root = ReactDOM.createRoot(
