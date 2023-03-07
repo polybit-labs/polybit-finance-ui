@@ -41,7 +41,7 @@
 .withdraw-summary-table-cell-title {
     padding-left: 24px;
     font-weight: 700;
-    line-height: 40px;
+    height: 40px;
 }
 
 .withdraw-summary-table-cell-contents {
@@ -51,7 +51,7 @@
     align-items: center;
     text-align: left;
     padding-left: 24px;
-    line-height: 40px;
+    height: 40px;
 }
 
 .withdraw-summary-table-cell-title-final,
@@ -59,7 +59,7 @@
     padding-left: 24px;
     background-color: #DDDDDD;
     font-weight: 700;
-    line-height: 40px;
+    height: 40px;
 }
 
 .withdraw-summary-button-wrapper {
@@ -150,22 +150,22 @@
     }
 
     .withdraw-summary-table-cell-title {
-        line-height: 24px;
+        height: 24px;
         padding-top: 12px;
     }
 
     .withdraw-summary-table-cell-contents {
-        line-height: 24px;
+        height: 24px;
         padding-bottom: 12px;
     }
 
     .withdraw-summary-table-cell-title-final {
-        line-height: 24px;
+        height: 24px;
         padding-top: 12px;
     }
 
     .withdraw-summary-table-cell-contents-final {
-        line-height: 24px;
+        height: 24px;
         padding-bottom: 12px;
     }
 

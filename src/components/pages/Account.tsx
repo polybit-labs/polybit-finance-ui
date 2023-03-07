@@ -39,8 +39,6 @@ const Account = () => {
         initialiseGA4()
         ReactGA.send({ hitType: "pageview", page: location.pathname })
     }, [])
-    const network = useNetwork()
-    const rpc = network.chain?.rpcUrls.default
     const { address: walletOwner, connector, isConnected } = useAccount()
     const [previousWalletOwner, setPreviousWalletOwner] = useState(walletOwner)
     const { disconnect } = useDisconnect()
@@ -50,7 +48,7 @@ const Account = () => {
         }
     }, [walletOwner])
     const { data: walletBalance } = useBalance({
-        addressOrName: walletOwner,
+        address: walletOwner,
     })
     const { chain } = useNetwork()
     const [detfAccountsData, setDETFAccountsData] = useState<Array<string>>([])
@@ -82,6 +80,7 @@ const Account = () => {
             {connector?.name === "MetaMask" && <img width="20px" height="20px" src={require("../../assets/images/metamask_icon.png")} />}
             {connector?.name === "Coinbase Wallet" && <img width="20px" height="20px" src={require("../../assets/images/coinbasewallet_icon.png")} />}
             {connector?.name === "WalletConnect" && <img width="20px" height="20px" src={require("../../assets/images/walletconnect_icon.png")} />}
+            {connector?.name === "WalletConnectLegacy" && <img width="20px" height="20px" src={require("../../assets/images/walletconnect_icon.png")} />}
             <b>{` ${TruncateAddress(walletOwner ? walletOwner : "")} (Available funds: ${FormatCurrency(walletBalance ?
                 (Number(walletBalance.value)
                     / 10 ** 18 *
@@ -101,7 +100,6 @@ const Account = () => {
                     })()) : 0, 2)})`}</b></p>
             <TextLink to="" text="Disconnect and log out" arrowDirection="forward-logout" onClick={() => disconnect()} /></div>
     </div>
-
     const subTitleNotConnected = <div><h2>You are not currently connected to a wallet. Please connect your wallet to access all of the features of this app.</h2></div>
 
     if (window.location.href.includes("polybit.finance")) {

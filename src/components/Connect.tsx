@@ -13,9 +13,10 @@ export const Connect = () => {
         }
     })
 
-    const coinbaseConnector = connectors[0]
-    const metamaskConnector = connectors[1]
-    const walletConnectConnector = connectors[2]
+    const injectedConnector = connectors[0]
+    const coinbaseConnector = connectors[1]
+    const metamaskConnector = connectors[2]
+    const walletConnectConnector = connectors[4]
 
     return (
         <div className="connect-provider">
@@ -24,7 +25,7 @@ export const Connect = () => {
                 {!coinbaseConnector.ready && <Button buttonStyle="primary" buttonSize="standard" status="disabled" text="Use Coinbase" />}
                 {!isLoading && coinbaseConnector.ready && coinbaseConnector.id !== connector?.id && <Button buttonStyle="primary" buttonSize="standard" text="Use Coinbase" onClick={() => connect({ connector: coinbaseConnector })} />}
                 {isLoading && coinbaseConnector.id !== pendingConnector?.id && <Button buttonStyle="primary" buttonSize="standard" text="Use Coinbase" />}
-                {isLoading && coinbaseConnector.id === pendingConnector?.id && <Button buttonStyle="primary" buttonSize="standard" status="loading" text="Use Coinbase" loadingMsg={`waiting for ${coinbaseConnector.id}`} />}
+                {isLoading && coinbaseConnector.id === pendingConnector?.id && <Button buttonStyle="primary" buttonSize="standard" status="loading" text="Use Coinbase" loadingMsg="waiting for Coinbase Wallet" />}
                 {coinbaseConnector.id === connector?.id && <Button buttonStyle="primary" buttonSize="standard" text="Connected" />}
             </div>
             <div className="connect-provider-box-metamask">
@@ -32,7 +33,7 @@ export const Connect = () => {
                 {!metamaskConnector.ready && <Button buttonStyle="primary" buttonSize="standard" status="disabled" text="Use MetaMask" />}
                 {!isLoading && metamaskConnector.ready && metamaskConnector.id !== connector?.id && <Button buttonStyle="primary" buttonSize="standard" text="Use MetaMask" onClick={() => connect({ connector: metamaskConnector })} />}
                 {isLoading && metamaskConnector.id !== pendingConnector?.id && <Button buttonStyle="primary" buttonSize="standard" text="Use MetaMask" />}
-                {isLoading && metamaskConnector.id === pendingConnector?.id && <Button buttonStyle="primary" buttonSize="standard" status="loading" text="Use MetaMask" loadingMsg={`waiting for ${metamaskConnector.id}`} />}
+                {isLoading && metamaskConnector.id === pendingConnector?.id && <Button buttonStyle="primary" buttonSize="standard" status="loading" text="Use MetaMask" loadingMsg="waiting for MetaMask" />}
                 {metamaskConnector.id === connector?.id && <Button buttonStyle="primary" buttonSize="standard" text="Connected" />}
             </div>
             <div className="connect-provider-box-wallet-connect">
@@ -40,7 +41,7 @@ export const Connect = () => {
                 {!walletConnectConnector.ready && <Button buttonStyle="primary" buttonSize="standard" status="disabled" text="Use WalletConnect" />}
                 {!isLoading && walletConnectConnector.ready && walletConnectConnector.id !== connector?.id && <Button buttonStyle="primary" buttonSize="standard" text="Use WalletConnect" onClick={() => connect({ connector: walletConnectConnector })} />}
                 {isLoading && walletConnectConnector.id !== pendingConnector?.id && <Button buttonStyle="primary" buttonSize="standard" text="Use WalletConnect" />}
-                {isLoading && walletConnectConnector.id === pendingConnector?.id && <Button buttonStyle="primary" buttonSize="standard" status="loading" text="Use WalletConnect" loadingMsg={`waiting for ${walletConnectConnector.id}`} />}
+                {isLoading && walletConnectConnector.id === pendingConnector?.id && <Button buttonStyle="primary" buttonSize="standard" status="loading" text="Use WalletConnect" loadingMsg="waiting for WalletConnect" />}
                 {walletConnectConnector.id === connector?.id && <Button buttonStyle="primary" buttonSize="standard" text="Connected" />}
             </div>
             <div className="connect-provider-notice">

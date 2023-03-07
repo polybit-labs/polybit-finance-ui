@@ -12,7 +12,7 @@ export interface PerformanceDataRange {
 export const GetPerformanceDataRange = (url: string, start_date: number, end_date: number) => {
     const [response, setResponse] = useState<Array<PerformanceDataRange>>()
     const network = useNetwork()
-    const rpc = network.chain?.rpcUrls.default
+    const rpc = network.chain?.rpcUrls.default.http[0]
     let isLoading: boolean
     let isSuccess: boolean
     const [apiURL, setapiURL] = useState("")

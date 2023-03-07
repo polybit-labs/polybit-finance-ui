@@ -1,4 +1,3 @@
-import { disconnect } from "@wagmi/core";
 import { Link } from "react-router-dom";
 import "./Buttons.css"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'

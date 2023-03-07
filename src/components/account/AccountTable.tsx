@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import "./AccountTable.css"
-import { useAccount, useBalance } from "wagmi"
 import { AccountTableRow } from './AccountTableRow'
 import { Button } from '../Buttons'
 import { Link } from 'react-router-dom'
@@ -40,12 +39,7 @@ interface AccountTableProps {
 }
 
 export const AccountTable = (props: AccountTableProps) => {
-    const { address: walletOwner, connector, isConnected } = useAccount()
-    const { data: walletBalance } = useBalance({
-        addressOrName: walletOwner,
-    })
     const detfAccountsData: Array<any> = props.detfAccountsData
-
     const [activeSort, setActiveSort] = useState("")
     const [detfData, setDETFData] = useState<Array<any>>(detfAccountsData)
     useEffect(() => {

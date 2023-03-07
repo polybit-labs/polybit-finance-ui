@@ -1,105 +1,25 @@
 import ReactDOM from 'react-dom/client';
 import App from './App';
-import {
-  Chain,
-  WagmiConfig,
-  createClient,
-  configureChains,
-} from 'wagmi'
-//import { alchemyProvider } from 'wagmi/providers/alchemy'
+import { WagmiConfig, createClient, configureChains, } from 'wagmi'
 import { publicProvider } from 'wagmi/providers/public'
-import { infuraProvider } from 'wagmi/providers/infura'
+import { bsc, bscTestnet } from 'wagmi/chains'
 import { CoinbaseWalletConnector } from 'wagmi/connectors/coinbaseWallet'
 import { InjectedConnector } from 'wagmi/connectors/injected'
 import { MetaMaskConnector } from 'wagmi/connectors/metaMask'
 import { WalletConnectConnector } from 'wagmi/connectors/walletConnect'
-import { jsonRpcProvider } from 'wagmi/providers/jsonRpc'
+import { WalletConnectLegacyConnector } from 'wagmi/connectors/walletConnectLegacy'
 
 window.Buffer = window.Buffer || require("buffer").Buffer;
 
-/* const mainnet: Chain = {
-  id: 56,
-  name: "BNB Smart Chain",
-  network: "BSC",
-  rpcUrls: { default: "https://bsc-dataseed.binance.org/" },
-  nativeCurrency: {
-    name: "Binance Coin",
-    symbol: "BNB",
-    decimals: 18
-  },
-  blockExplorers: {
-    default:
-    {
-      name: "bscscan.com",
-      url: "https://bscscan.com"
-    }
-  }
-}; */
-
-const bscTestnet: Chain = {
-  id: 97, //97 // 0x61
-  name: "tBNB Smart Chain",
-  network: "BSC",
-  rpcUrls: { default: "https://data-seed-prebsc-2-s1.binance.org:8545/" },
-  testnet: true,
-  nativeCurrency: {
-    name: "BSC Testnet",
-    symbol: "tBNB",
-    decimals: 18
-  },
-  blockExplorers: {
-    default:
-    {
-      name: "bscscan.com",
-      url: "https://testnet.bscscan.com"
-    }
-  }
-}
-
-/* const bscMainFork: Chain = {
-  id: 5777,
-  name: "tBNB Smart Chain",
-  network: "BSC",
-  rpcUrls: { default: "HTTP://127.0.0.1:8545" },
-  testnet: true,
-  nativeCurrency: {
-    name: "BCS Fork",
-    symbol: "BNB",
-    decimals: 18
-  },
-}; */
-
-const polybitBSCFork: Chain = {
-  id: 565656,
-  name: "BNB Smart Chain",
-  network: "BSC",
-  rpcUrls: { default: "HTTP://13.229.230.199:8545" },
-  testnet: true,
-  nativeCurrency: {
-    name: "BCS Fork",
-    symbol: "BNB",
-    decimals: 18
-  },
-}
-
-const chains = [bscTestnet, polybitBSCFork];
-const infuraId = process.env.INFURA_ID;
-
-const { provider, webSocketProvider } = configureChains(chains, [
-  publicProvider(),
-  infuraProvider({ apiKey: infuraId }),
-  /* jsonRpcProvider({
-    rpc: (chain) => {
-      if (chain.id !== bscTestnet.id) return null
-      return { http: chain.rpcUrls.default }
-    }
-  } )*/
-])
-
+const { chains, provider } = configureChains(
+  [bscTestnet],
+  [publicProvider()],
+)
 // Set up client
 const client = createClient({
   autoConnect: true,
   connectors: [
+    new InjectedConnector({ chains }),
     new CoinbaseWalletConnector({
       chains,
       options: {
@@ -108,14 +28,20 @@ const client = createClient({
     }),
     new MetaMaskConnector({ chains }),
     new WalletConnectConnector({
-      chains,
+      chains: [bsc, bscTestnet],
       options: {
-        qrcode: true,
+        projectId: "7e8202633169de49f617fc735aef0b0d",
+        showQrModal: true
+      },
+    }),
+    new WalletConnectLegacyConnector({
+      chains: [bsc, bscTestnet],
+      options: {
+        qrcode: true
       },
     })
   ],
   provider,
-  webSocketProvider,
 })
 
 const root = ReactDOM.createRoot(
