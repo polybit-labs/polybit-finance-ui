@@ -3,7 +3,7 @@ import { TruncateAddress } from '../utils/Formatting'
 import { useLocation } from 'react-router-dom'
 import TitleContainer from "../containers/Title"
 import SubTitleContainer from '../containers/SubTitle'
-import { useAccount, useBalance } from "wagmi"
+import { useAccount } from "wagmi"
 import Footer from './Footer'
 import { Progress } from '../Progress'
 import { DepositContainer } from '../deposit/DepositContainer'
@@ -15,9 +15,6 @@ function Deposit() {
     const [activeStage, setActiveStage] = useState("deposit-details")
     const [depositSuccess, setDepositSuccess] = useState(false)
     const { address: walletOwner, connector, isConnected } = useAccount()
-    const { data: walletBalance } = useBalance({
-        addressOrName: walletOwner,
-    })
 
     useEffect(() => {
         //Reset view on component load

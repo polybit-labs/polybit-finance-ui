@@ -16,7 +16,7 @@ export interface PerformanceData {
 export const GetPerformanceData = (url: string) => {
     const [response, setResponse] = useState<Array<PerformanceData>>()
     const network = useNetwork()
-    const rpc = network.chain?.rpcUrls.default
+    const rpc = network.chain?.rpcUrls.default.http[0]
     let isLoading: boolean
     let isSuccess: boolean
     const [apiURL, setapiURL] = useState("")

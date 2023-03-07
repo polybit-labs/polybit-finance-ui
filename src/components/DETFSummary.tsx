@@ -1,7 +1,8 @@
-import { ColourNumbers } from "./utils/Formatting";
-import { PerformanceData } from "./api/GetPerformanceData";
-import { ProductData } from "./api/GetProductData";
-import { FormatCurrency } from "./utils/Currency";
+import { ColourNumbers } from "./utils/Formatting"
+import { PerformanceData } from "./api/GetPerformanceData"
+import { ProductData } from "./api/GetProductData"
+import { FormatCurrency } from "./utils/Currency"
+import "./DETFSummary.css"
 
 interface DETFSumaryProps {
     productContent: any;
@@ -29,38 +30,32 @@ export const DETFSummary = (props: DETFSumaryProps) => {
                 <div className="detf-summary-line"></div>
                 <div className="detf-summary-info">
                     <div className="detf-summary-info-returns">
-                        <div className="detf-summary-info-return">
+                        <div className="detf-summary-info-return-one-week">
                             <div className="detf-summary-info-return-title">1 Week</div>
                             <div className="detf-summary-info-return-result" style={{ color: ColourNumbers(Number(returnOneWeek)) }}>{returnOneWeek ? parseFloat((returnOneWeek * 100).toString()).toFixed(2) + "%" : ""}</div>
                         </div>
-                        <div className="detf-summary-info-return">
+                        <div className="detf-summary-info-return-one-month">
                             <div className="detf-summary-info-return-title">1 Month</div>
                             <div className="detf-summary-info-return-result" style={{ color: ColourNumbers(Number(returnOneMonth)) }}>{returnOneMonth ? parseFloat((returnOneMonth * 100).toString()).toFixed(2) + "%" : ""}</div>
                         </div>
-                        <div className="detf-summary-info-return">
+                        <div className="detf-summary-info-return-three-months">
                             <div className="detf-summary-info-return-title">3 Months</div>
                             <div className="detf-summary-info-return-result" style={{ color: ColourNumbers(Number(returnThreeMonths)) }}>{returnThreeMonths ? parseFloat((returnThreeMonths * 100).toString()).toFixed(2) + "%" : ""}</div>
                         </div>
-                        <div className="detf-summary-info-return">
+                        <div className="detf-summary-info-return-one-year">
                             <div className="detf-summary-info-return-title">1 Year</div>
                             <div className="detf-summary-info-return-result" style={{ color: ColourNumbers(Number(returnOneYear)) }}>{returnOneYear ? parseFloat((returnOneYear * 100).toString()).toFixed(2) + "%" : ""}</div>
                         </div>
                     </div>
-                    <div className="detf-summary-info-text">
-                        <div className="detf-summary-info-titles">
-                            <ul>
-                                <li>Blockchain</li>
-                                <li>Total Liquidity</li>
-                                <li>Total Assets</li>
-                                <li>Rebalance Frequency</li>
-                                <li>Deposit Fee</li>
-                                <li>Performance Fee</li>
-                            </ul>
-                        </div>
-                        <div className="detf-summary-info-results">
-                            <ul>
-                                <li>BNB Smart Chain</li>
-                                <li>{FormatCurrency(Number(totalLiquidity) *
+                    <table className="detf-summary-info-table">
+                        <tbody>
+                            <tr>
+                                <td className="detf-summary-info-table-cell-title">Blockchain</td>
+                                <td className="detf-summary-info-table-cell-contents">BNB Smart Chain</td>
+                            </tr>
+                            <tr>
+                                <td className="detf-summary-info-table-cell-title">Total Liquidity</td>
+                                <td className="detf-summary-info-table-cell-contents">{FormatCurrency(Number(totalLiquidity) *
                                     (() => {
                                         switch (props.currency) {
                                             case "AUD": return (props.vsPrices.aud)
@@ -74,14 +69,26 @@ export const DETFSummary = (props: DETFSumaryProps) => {
                                             case "TWD": return (props.vsPrices.twd)
                                             case "USD": return (props.vsPrices.usd)
                                         }
-                                    })(), 0)}</li>
-                                <li>{tokenCount}</li>
-                                <li>{rebalancingPeriod}</li>
-                                <li>{parseFloat((depositFee).toString()).toFixed(1)}%</li>
-                                <li>{parseFloat((performanceFee).toString()).toFixed(1)}%</li>
-                            </ul>
-                        </div>
-                    </div>
+                                    })(), 0)}</td>
+                            </tr>
+                            <tr>
+                                <td className="detf-summary-info-table-cell-title">Total Assets</td>
+                                <td className="detf-summary-info-table-cell-contents">{tokenCount}</td>
+                            </tr>
+                            <tr>
+                                <td className="detf-summary-info-table-cell-title">Rebalance Frequency</td>
+                                <td className="detf-summary-info-table-cell-contents">{rebalancingPeriod}</td>
+                            </tr>
+                            <tr>
+                                <td className="detf-summary-info-table-cell-title">Deposit Fee</td>
+                                <td className="detf-summary-info-table-cell-contents">{parseFloat((depositFee).toString()).toFixed(1)}%</td>
+                            </tr>
+                            <tr>
+                                <td className="detf-summary-info-table-cell-title">Performance Fee</td>
+                                <td className="detf-summary-info-table-cell-contents">{parseFloat((performanceFee).toString()).toFixed(1)}%</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>

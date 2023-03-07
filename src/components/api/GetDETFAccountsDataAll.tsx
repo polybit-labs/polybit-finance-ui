@@ -8,7 +8,7 @@ export const GetDETFAccountsDataAll = (wallet_owner: string) => {
     const network = useNetwork()
     const { chain } = useNetwork()
     const chainId: string = chain ? chain.id.toString() : ""
-    const rpc = network.chain?.rpcUrls.default
+    const rpc = network.chain?.rpcUrls.default.http[0]
     let isLoading: boolean
     let isSuccess: boolean
     const [apiURL, setapiURL] = useState("")

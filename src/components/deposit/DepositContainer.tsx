@@ -38,7 +38,7 @@ export const DepositContainer = (props: Deposit) => {
     }, [detfDataSuccess])
     const { address: walletOwner, connector, isConnected } = useAccount()
     const { data: walletBalance } = useBalance({
-        addressOrName: walletOwner,
+        address: walletOwner,
     })
 
     if (detfDataSuccess && detfAccountData) {

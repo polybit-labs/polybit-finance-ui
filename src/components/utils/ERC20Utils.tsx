@@ -1,12 +1,9 @@
-import { erc20ABI } from 'wagmi'
-import { Interface } from 'ethers/lib/utils'
-import { useContractRead } from 'wagmi'
+import { useContractRead, erc20ABI } from 'wagmi'
 
 export const GetTokenName = (tokenAddress: string) => {
-    const IERC20 = new Interface(erc20ABI)
     const { data, isError, isLoading } = useContractRead({
-        addressOrName: tokenAddress,
-        contractInterface: IERC20,
+        address: tokenAddress as `0x${string}`,
+        abi: erc20ABI,
         functionName: "name"
     })
     if (data) {
@@ -15,10 +12,9 @@ export const GetTokenName = (tokenAddress: string) => {
 }
 
 export const GetTokenSymbol = (tokenAddress: string) => {
-    const IERC20 = new Interface(erc20ABI)
     const { data, isError, isLoading } = useContractRead({
-        addressOrName: tokenAddress,
-        contractInterface: IERC20,
+        address: tokenAddress as `0x${string}`,
+        abi: erc20ABI,
         functionName: "symbol"
     })
     if (data) {
@@ -27,10 +23,9 @@ export const GetTokenSymbol = (tokenAddress: string) => {
 }
 
 export const GetTokenDecimals = (tokenAddress: string) => {
-    const IERC20 = new Interface(erc20ABI)
     const { data, isError, isLoading } = useContractRead({
-        addressOrName: tokenAddress,
-        contractInterface: IERC20,
+        address: tokenAddress as `0x${string}`,
+        abi: erc20ABI,
         functionName: "decimals"
     })
     if (data) {

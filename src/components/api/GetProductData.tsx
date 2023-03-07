@@ -36,7 +36,7 @@ export interface ProductData {
 export const GetProductData = (url: string) => {
     const [response, setResponse] = useState<ProductData>()
     const network = useNetwork()
-    const rpc = network.chain?.rpcUrls.default
+    const rpc = network.chain?.rpcUrls.default.http[0]
     let isLoading: boolean
     let isSuccess: boolean
     const [apiURL, setapiURL] = useState("")

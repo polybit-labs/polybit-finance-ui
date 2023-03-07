@@ -7,6 +7,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { Button } from './Buttons'
 import { Loading } from './Loading'
 import "./EstablishDETFBox.css"
+import { BigNumber } from 'ethers'
 
 interface EstablishDETFBox {
     productId: number
@@ -19,7 +20,7 @@ interface EstablishDETFBox {
 
 export const EstablishDETFBox = (props: EstablishDETFBox) => {
     const network = useNetwork()
-    const rpc = network.chain?.rpcUrls.default
+    const rpc = network.chain?.rpcUrls.default.http[0]
     const Web3 = require('web3')
     const web3 = new Web3(rpc)
     const { address: walletOwner, connector, isConnected } = useAccount()
@@ -31,13 +32,46 @@ export const EstablishDETFBox = (props: EstablishDETFBox) => {
     const IPolybitDETFFactory = new Interface(PolybitDETFFactoryInterface)
 
     const { config, error, isLoading: prepareConfigLoading, isSuccess: prepareConfigSuccess } = usePrepareContractWrite({
-        addressOrName: detfFactoryAddress,
-        contractInterface: IPolybitDETFFactory,
+        address: detfFactoryAddress as `0x${string}`,
+        abi: [{
+            "inputs": [
+                {
+                    "internalType": "address",
+                    "name": "_walletOwner",
+                    "type": "address"
+                },
+                {
+                    "internalType": "uint256",
+                    "name": "_productId",
+                    "type": "uint256"
+                },
+                {
+                    "internalType": "string",
+                    "name": "_productCategory",
+                    "type": "string"
+                },
+                {
+                    "internalType": "string",
+                    "name": "_productDimension",
+                    "type": "string"
+                }
+            ],
+            "name": "createDETF",
+            "outputs": [
+                {
+                    "internalType": "address",
+                    "name": "",
+                    "type": "address"
+                }
+            ],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        }],
         functionName: "createDETF",
-        args: [walletOwner,
-            props.productId,
-            props.category,
-            props.dimension],
+        args: [walletOwner as `0x${string}`,
+        BigNumber.from(props.productId),
+        props.category,
+        props.dimension],
         onError(error) {
             console.log('createDETF Error', error)
         },
@@ -68,7 +102,10 @@ export const EstablishDETFBox = (props: EstablishDETFBox) => {
                 }
             ], logData, logTopics)[1]
             props.setDETFAddress(detfAddress)
-        }
+        },
+        onError(error) {
+            console.log('useWaitForTransaction', error)
+        },
     })
 
     useEffect(() => {
