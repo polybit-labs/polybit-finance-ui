@@ -2,9 +2,40 @@ import { useState, useEffect } from "react"
 import { useNetwork } from "wagmi"
 import axios from "axios"
 import apiURLJSON from "./api-info.json"
+import { BigNumber } from "ethers"
+
+export type DETFAccountData = {
+    "detf_address": string;
+    "status": number;
+    "creation_timestamp": number;
+    "category": string;
+    "dimension": string;
+    "balance_in_weth": BigInt;
+    "deposits": Array<Array<BigNumber>>;
+    "total_deposited": BigNumber;
+    "fees_paid": Array<Array<BigNumber>>;
+    "transactions": Array<any>;
+    "owned_assets": Array<string>;
+    "owned_assets_prices": Array<BigNumber>;
+    "owned_assets_table_data": Array<any>;
+    "time_lock": number;
+    "time_lock_remaining": number;
+    "close_timestamp": number;
+    "return_weth": BigNumber;
+    "return_percentage": number;
+    "final_return_weth": BigNumber;
+    "final_return_percentage": number;
+    "final_return": any;
+    "final_balance_in_weth": BigNumber;
+    "final_assets": Array<string>;
+    "final_assets_prices": Array<BigNumber>;
+    "final_assets_balances": Array<BigNumber>;
+    "final_assets_balances_in_weth": Array<BigNumber>;
+    "final_assets_table_data": Array<any>;
+}
 
 export const GetDETFAccountsDataAll = (wallet_owner: string) => {
-    const [response, setResponse] = useState<Array<string>>()
+    const [response, setResponse] = useState<Array<DETFAccountData>>()
     const network = useNetwork()
     const { chain } = useNetwork()
     const chainId: string = chain ? chain.id.toString() : ""

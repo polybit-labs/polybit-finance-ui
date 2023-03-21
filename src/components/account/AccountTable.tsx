@@ -5,9 +5,9 @@ import { Button } from '../Buttons'
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { icon } from '@fortawesome/fontawesome-svg-core/import.macro'
+import { DETFAccountData } from '../api/GetDETFAccountsDataAll'
 
-interface DETFSummary {
-    "productId": number;
+type DETFSummary = {
     "category": string;
     "dimension": string;
     "marketValue": string;
@@ -29,9 +29,9 @@ type Currencies = {
     "usd": number;
 }
 
-interface AccountTableProps {
+type AccountTableProps = {
     detfAccountsDataSuccess: boolean;
-    detfAccountsData: Array<any>;
+    detfAccountsData: Array<DETFAccountData>;
     vsPrices: any;
     currency: string;
     historicalPrices: Array<any>;
@@ -39,7 +39,7 @@ interface AccountTableProps {
 }
 
 export const AccountTable = (props: AccountTableProps) => {
-    const detfAccountsData: Array<any> = props.detfAccountsData
+    const detfAccountsData: Array<DETFAccountData> = props.detfAccountsData
     const [activeSort, setActiveSort] = useState("")
     const [detfData, setDETFData] = useState<Array<any>>(detfAccountsData)
     useEffect(() => {
@@ -121,29 +121,35 @@ export const AccountTable = (props: AccountTableProps) => {
                         {detfData.length > 0 ? detfData.map((data) =>
                             <div key={data.detf_address}>
                                 <AccountTableRow
+                                    detf_address={data.detf_address}
+                                    status={data.status}
+                                    creation_timestamp={data.creation_timestamp}
                                     category={data.category}
                                     dimension={data.dimension}
-                                    status={data.status}
                                     balance_in_weth={data.balance_in_weth}
-                                    final_balance_in_weth={data.final_balance_in_weth}
+                                    deposits={data.deposits}
+                                    total_deposited={data.total_deposited}
+                                    fees_paid={data.fees_paid}
+                                    transactions={data.transactions}
+                                    owned_assets={data.owned_assets}
+                                    owned_assets_prices={data.owned_assets_prices}
+                                    owned_assets_table_data={data.owned_assets_table_data}
+                                    time_lock={data.time_lock}
+                                    time_lock_remaining={data.time_lock_remaining}
+                                    close_timestamp={data.close_timestamp}
                                     return_weth={data.return_weth}
                                     return_percentage={data.return_percentage}
+                                    final_return_weth={data.final_return_weth}
                                     final_return_percentage={data.final_return_percentage}
-                                    timeLockRemaining={data.time_lock_remaining}
-                                    timeLock={data.time_lock}
-                                    product_id={data.product_id}
-                                    detf_address={data.detf_address}
-                                    deposits={data.deposits}
-                                    fees={data.fees}
-                                    transactions={data.transactions}
-                                    total_deposits={data.total_deposits}
+                                    final_return={data.final_return}
+                                    final_balance_in_weth={data.final_balance_in_weth}
+                                    final_assets={data.final_assets}
+                                    final_assets_prices={data.final_assets_prices}
+                                    final_assets_balances={data.final_assets_balances}
+                                    final_assets_balances_in_weth={data.final_assets_balances_in_weth}
+                                    final_assets_table_data={data.final_assets_table_data}
                                     vsPrices={props.vsPrices}
                                     currency={props.currency}
-                                    close_timestamp={data.close_timestamp}
-                                    creation_timestamp={data.creation_timestamp}
-                                    final_return={data.final_return}
-                                    final_return_weth={data.final_return_weth}
-                                    isPlaceholder={false}
                                     historicalPrices={props.historicalPrices}
                                     currentPrices={props.currentPrices}
                                 />

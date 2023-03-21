@@ -21,7 +21,7 @@ function EstablishDETF() {
         ReactGA.send({ hitType: "pageview", page: location.pathname })
     }, [])
     const { chain } = useNetwork()
-    const { category, dimension, productId } = location.state
+    const { category, dimension } = location.state
     const { address: walletOwner, connector, isConnected } = useAccount()
     const [activeStage, setActiveStage] = useState("establish")
     const title = "Establishing your DETF"
@@ -55,13 +55,12 @@ function EstablishDETF() {
                     <SubTitleContainer info={titleInfo} />
                     <Progress activeStage={activeStage} />
                 </div>}
-                {activeStage === "establish" && <EstablishDETFBox productId={productId} category={category} dimension={dimension} setDETFAddress={setDETFAddress} detfAddress={detfAddress} setActiveStage={setActiveStage} />}
+                {activeStage === "establish" && <EstablishDETFBox category={category} dimension={dimension} setDETFAddress={setDETFAddress} detfAddress={detfAddress} setActiveStage={setActiveStage} />}
                 {(activeStage === "establish-deposit-details" ||
                     activeStage === "establish-deposit-summary") &&
                     <DepositContainer
                         category={category}
                         dimension={dimension}
-                        productId={productId}
                         detfAddress={detfAddress}
                         setActiveStage={setActiveStage}
                         activeStage={activeStage}

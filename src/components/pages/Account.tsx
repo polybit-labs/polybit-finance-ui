@@ -6,7 +6,6 @@ import TitleContainer from '../containers/Title'
 import SubTitleContainer from '../containers/SubTitle'
 import AccountSummary from '../account/AccountSummary'
 import { useEffect, useState, useContext } from 'react'
-import { GetDETFAccountsDataAll } from '../api/GetDETFAccountsDataAll'
 import { CurrencyContext, FormatCurrency } from "../utils/Currency"
 import { GetPriceVsCurrency } from '../api/GetPriceVsCurrency'
 import { GetHistoricalPrices } from '../api/GetHistoricalPrices'
@@ -18,6 +17,7 @@ import { initialiseGA4 } from '../utils/Analytics'
 import ReactGA from "react-ga4"
 import { useLocation } from 'react-router-dom'
 import { LockedBeta } from '../LockedBeta'
+import { DETFAccountData, GetDETFAccountsDataAll } from '../api/GetDETFAccountsDataAll'
 
 type Currencies = {
     "date": string;
@@ -51,8 +51,14 @@ const Account = () => {
         address: walletOwner,
     })
     const { chain } = useNetwork()
-    const [detfAccountsData, setDETFAccountsData] = useState<Array<string>>([])
+    const [detfAccountsData, setDETFAccountsData] = useState<Array<DETFAccountData>>([])
     const { response: detfAccountsListData, isLoading: detfAccountsDataLoading, isSuccess: detfAccountsDataSuccess } = GetDETFAccountsDataAll(walletOwner ? walletOwner : "")
+
+    useEffect(() => {
+        detfAccountsListData && detfAccountsDataSuccess && setDETFAccountsData(detfAccountsListData)
+    }, [detfAccountsDataSuccess])
+    console.log(detfAccountsListData)
+
     const currency = useContext(CurrencyContext).currency
     const { response: prices, isLoading: pricesLoading, isSuccess: pricesSuccess } = GetPriceVsCurrency(wethAddress["56"]["wethAddress"])
     const [vsPrices, setVsPrices] = useState<any>({})
@@ -61,9 +67,6 @@ const Account = () => {
         setVsPrices(prices ? prices : {})
     }, [pricesLoading, pricesSuccess])
 
-    useEffect(() => {
-        setDETFAccountsData(detfAccountsListData ? detfAccountsListData : [])
-    }, [detfAccountsDataLoading, detfAccountsDataSuccess])
     const { response: historicalPriceData, isSuccess: historicalPricesSuccess } = GetHistoricalPrices()
     const [historicalPrices, setHistoricalPrices] = useState<Array<Currencies>>([])
     const [currentPrices, setCurrentPrices] = useState<Currencies>()
