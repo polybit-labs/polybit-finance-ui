@@ -11,7 +11,7 @@ import { DepositContainer } from '../deposit/DepositContainer'
 function Deposit() {
     const location = useLocation()
     const [title, setTitle] = useState("Your investment amount")
-    const { category, dimension, productId, detfAddress } = location.state
+    const { category, dimension, detfAddress } = location.state
     const [activeStage, setActiveStage] = useState("deposit-details")
     const [depositSuccess, setDepositSuccess] = useState(false)
     const { address: walletOwner, connector, isConnected } = useAccount()
@@ -33,7 +33,6 @@ function Deposit() {
             <DepositContainer
                 category={category}
                 dimension={dimension}
-                productId={productId}
                 detfAddress={detfAddress}
                 setActiveStage={setActiveStage}
                 activeStage={activeStage}

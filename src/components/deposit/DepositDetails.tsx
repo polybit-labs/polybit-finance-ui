@@ -6,7 +6,6 @@ import "./DepositDetails.css"
 
 interface DepositDetails {
     detfAddress: string;
-    productId: number;
     category: string;
     dimension: string;
     timeLock: number;

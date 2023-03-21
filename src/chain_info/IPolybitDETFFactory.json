@@ -10,6 +10,11 @@
                 "internalType": "address",
                 "name": "_polybitConfigAddress",
                 "type": "address"
+            },
+            {
+                "internalType": "address",
+                "name": "_polybitDETFAddress",
+                "type": "address"
             }
         ],
         "stateMutability": "nonpayable",
@@ -43,11 +48,6 @@
                 "type": "address"
             },
             {
-                "internalType": "uint256",
-                "name": "_productId",
-                "type": "uint256"
-            },
-            {
                 "internalType": "string",
                 "name": "_productCategory",
                 "type": "string"
@@ -59,13 +59,7 @@
             }
         ],
         "name": "createDETF",
-        "outputs": [
-            {
-                "internalType": "address",
-                "name": "",
-                "type": "address"
-            }
-        ],
+        "outputs": [],
         "stateMutability": "nonpayable",
         "type": "function"
     },
@@ -117,6 +111,19 @@
     {
         "inputs": [],
         "name": "polybitConfigAddress",
+        "outputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "polybitDETFAddress",
         "outputs": [
             {
                 "internalType": "address",

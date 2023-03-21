@@ -3,43 +3,13 @@ import { ColourNumbers } from '../utils/Formatting'
 import { FormatCurrency } from "../utils/Currency"
 import { useEffect, useState } from "react"
 import { FormatPercentages } from "../utils/Formatting"
+import { DETFAccountData } from "../api/GetDETFAccountsDataAll"
 
-interface AccountSummaryProps {
-    detfAccountsData: Array<any>;
+type AccountSummaryProps = {
+    detfAccountsData: Array<DETFAccountData>;
     detfAccountsDataSuccess: boolean;
     vsPrices: any;
     currency: string;
-}
-
-type FinalReturn = {
-    "aud": number;
-    "bnb": number;
-    "cny": number;
-    "eur": number;
-    "idr": number;
-    "jpy": number;
-    "krw": number;
-    "rub": number;
-    "twd": number;
-    "usd": number;
-}
-
-type DETFAccountData = {
-    balance_in_weth: string;
-    category: string;
-    deposits: Array<string>;
-    detf_address: string;
-    dimension: string;
-    final_return_percentage: number;
-    final_return_weth: number;
-    final_return: FinalReturn;
-    product_id: number;
-    return_percentage: number;
-    return_weth: string;
-    status: number;
-    time_lock: number;
-    time_lock_remaining: number;
-    total_deposits: number;
 }
 
 const AccountSummary = (props: AccountSummaryProps) => {
@@ -55,7 +25,7 @@ const AccountSummary = (props: AccountSummaryProps) => {
         })
         let deposits = 0
         for (let i = 0; i < active.length; i++) {
-            deposits = deposits + Number(active[i].total_deposits)
+            deposits = deposits + Number(active[i].total_deposited)
         }
         let totalBalance = 0
         let totalReturn = 0
@@ -80,7 +50,7 @@ const AccountSummary = (props: AccountSummaryProps) => {
         })
         let deposits = 0
         for (let i = 0; i < inactive.length; i++) {
-            deposits = deposits + Number(inactive[i].total_deposits)
+            deposits = deposits + Number(inactive[i].total_deposited)
         }
         let totalReturn = 0
         let totalReturnBNB = 0

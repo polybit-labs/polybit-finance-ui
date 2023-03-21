@@ -11,7 +11,6 @@ import { Loading } from '../Loading'
 interface Deposit {
     category: string;
     dimension: string;
-    productId: number;
     detfAddress: string;
     setActiveStage: Function;
     activeStage: string;
@@ -48,7 +47,6 @@ export const DepositContainer = (props: Deposit) => {
                     detfAddress={detfAccountData.detf_address}
                     timeLock={detfAccountData.time_lock}
                     timeLockRemaining={detfAccountData.time_lock_remaining}
-                    productId={detfAccountData.product_id}
                     category={detfAccountData.category}
                     dimension={detfAccountData.dimension}
                     walletBalance={walletBalance}

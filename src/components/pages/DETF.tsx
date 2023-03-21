@@ -49,7 +49,6 @@ const DETF = () => {
     }, [productDataLoading, productDataSuccess, performanceDataLoading, performanceDataSuccess])
 
     const chainName: string = productContent.chainName
-    const productId: number = productContent.productId
     const category: string = productContent.category
     const dimension: string = productContent.dimension
     const descriptionTitle: string = productContent.descriptionTitle
@@ -83,7 +82,7 @@ const DETF = () => {
                                 </div>
                             </div>
                             <div className="detf-button-wrapper">
-                                <Link className="detf-invest-button" to="/establish-detf" state={{ category: category, dimension: dimension, productId: productId.toString(), processOrigin: "establish", activeStage: 1 }}>
+                                <Link className="detf-invest-button" to="/establish-detf" state={{ category: category, dimension: dimension, processOrigin: "establish", activeStage: 1 }}>
                                     <Button buttonStyle="primary" buttonSize="standard" text="Invest in this DETF" />
                                 </Link>
                             </div>
@@ -93,7 +92,7 @@ const DETF = () => {
                                 <div className="detf-description">
                                     <h2>{descriptionTitle}</h2>
                                     <div className="detf-button-wrapper-mobile">
-                                        <Link to="/establish-detf" state={{ category: category, dimension: dimension, productId: productId.toString() }}>
+                                        <Link to="/establish-detf" state={{ category: category, dimension: dimension }}>
                                             <Button buttonStyle="primary" buttonSize="standard" text="Invest in this DETF" />
                                         </Link>
                                     </div>
@@ -125,12 +124,12 @@ const DETF = () => {
                                     <p>BNB is the native currency used for investment in to this DETF. Please ensure you have sufficient BNB in your wallet before investing.</p>
                                 </div>
                                 <div className="detf-button-wrapper">
-                                    <Link to="/establish-detf" state={{ category: category, dimension: dimension, productId: productId.toString() }}>
+                                    <Link to="/establish-detf" state={{ category: category, dimension: dimension }}>
                                         <Button buttonStyle="primary" buttonSize="standard" text="Invest in this DETF" />
                                     </Link>
                                 </div>
                                 <div className="detf-button-wrapper-mobile">
-                                    <Link to="/establish-detf" state={{ category: category, dimension: dimension, productId: productId.toString() }}>
+                                    <Link to="/establish-detf" state={{ category: category, dimension: dimension }}>
                                         <Button buttonStyle="primary" buttonSize="standard" text="Invest in this DETF" />
                                     </Link>
                                 </div>

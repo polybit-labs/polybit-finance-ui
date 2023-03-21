@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom"
 import "./AccountTableRow.css"
 import { useEffect, useState } from "react"
-import { GetOwnedAssetsDetailed } from "../api/GetOwnedAssetsDetailed"
 import { DETFOwnedAssetsTable } from "../DETFOwnedAssetsTable"
 import { Currencies, FormatCurrency } from "../utils/Currency"
 import { GetOwner } from "../api/GetOwner"
@@ -15,41 +14,46 @@ import { GetProductData, ProductData } from "../api/GetProductData"
 import { DETFAssetsTable } from "../DETFAssetsTable"
 import { Button } from "../Buttons"
 import { useNetwork } from "wagmi"
-import { GetFinalAssetsDetailed } from "../api/GetFinalAssetsDetailed"
 import { TruncateAddress } from "../utils/Formatting"
-import { GetOwnedAssetsTableData } from "../api/GetOwnedAssetsTableData"
+import { BigNumber } from "ethers"
 
-interface AccountTableRowItems {
+type AccountTableRowItems = {
+    detf_address: string;
+    status: number;
+    creation_timestamp: number;
     category: string;
     dimension: string;
-    status: number;
-    balance_in_weth: string;
-    final_balance_in_weth: string;
-    return_weth: string;
-    return_percentage: number;
-    final_return_percentage: number;
-    timeLockRemaining: number;
-    timeLock: number;
-    product_id: string;
-    detf_address: string;
-    deposits: Array<string>;
-    fees: Array<string>;
+    balance_in_weth: BigNumber;
+    deposits: Array<Array<BigNumber>>;
+    total_deposited: BigNumber;
+    fees_paid: Array<Array<BigNumber>>;
     transactions: Array<any>;
-    total_deposits: string;
+    owned_assets: Array<string>;
+    owned_assets_prices: Array<BigNumber>;
+    owned_assets_table_data: Array<any>;
+    time_lock: number;
+    time_lock_remaining: number;
+    close_timestamp: number;
+    return_weth: BigNumber;
+    return_percentage: number;
+    final_return_weth: BigNumber;
+    final_return_percentage: number;
+    final_return: any;
+    final_balance_in_weth: BigNumber;
+    final_assets: Array<string>;
+    final_assets_prices: Array<BigNumber>;
+    final_assets_balances: Array<BigNumber>;
+    final_assets_balances_in_weth: BigNumber;
+    final_assets_table_data: Array<any>;
     vsPrices: any;
     currency: string;
-    close_timestamp: number;
-    creation_timestamp: number;
-    final_return: Currencies;
-    final_return_weth: string;
-    isPlaceholder: boolean;
     historicalPrices: Array<any>;
     currentPrices: Currencies | undefined;
 }
 
 export const AccountTableRow = (props: AccountTableRowItems) => {
     const moment = require('moment')
-    const [isActive, setIsActive] = useState(props.isPlaceholder)
+    const [isActive, setIsActive] = useState(false)
     const [isDETFActive, setIsDETFActive] = useState(false)
     const [isDETFDeposited, setIsDETFDeposited] = useState(false)
     const [isDETFTimeLocked, setIsDETFTimeLocked] = useState(false)
@@ -62,15 +66,15 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
         if (props.status === 1) {
             setIsDETFActive(true)
         }
-        if (Number(props.total_deposits) > 0) {
+        if (Number(props.total_deposited) > 0) {
             setIsDETFDeposited(true)
         }
-        if (Number(props.timeLockRemaining) > 0) {
+        if (Number(props.time_lock_remaining) > 0) {
             setIsDETFTimeLocked(true)
         }
     }, [])
 
-    const { response: ownedAssetsTableData, isSuccess: ownedAssetsTableDataSuccess } = GetOwnedAssetsTableData(props.detf_address, props.status, props.total_deposits)
+    //const { response: ownedAssetsTableData, isSuccess: ownedAssetsTableDataSuccess } = GetOwnedAssetsTableData(props.detf_address, props.status, props.total_deposited.toString())
     const { response: owner } = GetOwner(props.detf_address)
     const { response: performanceDataRange, isSuccess: performanceDataRangeSuccess } = GetPerformanceDataRange(performanceUrl, props.creation_timestamp, props.close_timestamp > 0 ? props.close_timestamp : moment.now())
     const [performanceData, setPerformanceData] = useState<Array<PerformanceDataRange>>([])
@@ -79,7 +83,7 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
         if (performanceDataRangeSuccess
             && performanceDataRange
             && performanceDataRange.length > 2
-            && Number(props.total_deposits) > 0) {
+            && Number(props.total_deposited) > 0) {
             setPerformanceData(performanceDataRange)
             setValidDateRange(true)
         }
@@ -171,7 +175,7 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
     const currentReturnPercentage = currentReturn / currentTotalDeposited
     const currentReturnPercentageFormatted = FormatPercentages(moment().unix() > (props.creation_timestamp + (60 * 60)) ? (currentReturnPercentage ? currentReturnPercentage * 100 : 0) : 0)
 
-    const finalTotalDeposited = FormatCurrency(Number(props.total_deposits) / 10 ** 18 * GetHistoricalPriceCurrency(Number(props.close_timestamp)), 2)
+    const finalTotalDeposited = FormatCurrency(Number(props.total_deposited) / 10 ** 18 * GetHistoricalPriceCurrency(Number(props.close_timestamp)), 2)
     let totalDepositHistoricalPrices: number = 0
     props.deposits?.map((deposit) => {
         totalDepositHistoricalPrices = totalDepositHistoricalPrices + (Number(deposit[1]) / 10 ** 18 * GetHistoricalPriceCurrency(Number(deposit[0])))
@@ -203,7 +207,7 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
             </tr>}
         </tbody>
     </table >
-    const timeLock = moment.unix(props.timeLock).local().format("D MMM YYYY hh:mm")
+    const timeLock = moment.unix(props.time_lock).local().format("D MMM YYYY hh:mm")
     const tableLoading = <div className="table-loading">
         <img height="60px" width="60px" src={require("../../assets/images/polybit-loader-black-on-light-grey-60px.gif")} alt="Loading"></img>
     </div>
@@ -261,7 +265,6 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
                         {isDETFActive && <Link className="account-table-row-item-link" to="/deposit" state={{
                             category: props.category,
                             dimension: props.dimension,
-                            productId: props.product_id.toString(),
                             detfAddress: props.detf_address,
                             processOrigin: "deposit",
                             activeStage: 1
@@ -300,7 +303,6 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
                                         <Link className="account-table-row-item-link" to="/deposit" state={{
                                             category: props.category,
                                             dimension: props.dimension,
-                                            productId: props.product_id,
                                             detfAddress: props.detf_address,
                                             processOrigin: "deposit",
                                             activeStage: 1
@@ -312,7 +314,6 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
                                         <Link className="account-table-row-item-link" to="/deposit" state={{
                                             category: props.category,
                                             dimension: props.dimension,
-                                            productId: props.product_id,
                                             detfAddress: props.detf_address,
                                             processOrigin: "deposit",
                                             activeStage: 1
@@ -361,12 +362,12 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
                             <div className="account-table-expanded-content-right">
                                 <div className="account-table-expanded-content-right-owned-assets">
                                     <h2>Assets in DETF</h2>
-                                    {isDETFActive && isDETFDeposited && ownedAssetsTableData && <DETFOwnedAssetsTable tokens={ownedAssetsTableData} vsPrices={props.vsPrices} currency={props.currency} />}
-                                    {isDETFActive && isDETFDeposited && !ownedAssetsTableData && tableLoading}
+                                    {isDETFActive && isDETFDeposited && props.owned_assets_table_data && <DETFOwnedAssetsTable tokens={props.owned_assets_table_data} vsPrices={props.vsPrices} currency={props.currency} />}
+                                    {isDETFActive && isDETFDeposited && !props.owned_assets_table_data && tableLoading}
                                     {isDETFActive && !isDETFDeposited && productData && <DETFAssetsTable tokens={productData ? productData.tokens : []} />}
                                     {isDETFActive && !isDETFDeposited && !productData && tableLoading}
-                                    {!isDETFActive && ownedAssetsTableData && <DETFOwnedAssetsTable tokens={ownedAssetsTableData} vsPrices={props.vsPrices} currency={props.currency} />}
-                                    {!isDETFActive && !ownedAssetsTableData && tableLoading}
+                                    {!isDETFActive && props.final_assets_table_data && <DETFOwnedAssetsTable tokens={props.final_assets_table_data} vsPrices={props.vsPrices} currency={props.currency} />}
+                                    {!isDETFActive && !props.final_assets_table_data && tableLoading}
                                 </div>
                                 <div className="account-table-expanded-content-right-proof-of-assets">
                                     <h2>Proof of assets</h2>
@@ -489,7 +490,6 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
                                         <Link className="account-table-row-item-link" to="/deposit" state={{
                                             category: props.category,
                                             dimension: props.dimension,
-                                            productId: props.product_id,
                                             detfAddress: props.detf_address,
                                             processOrigin: "deposit",
                                             activeStage: 1
@@ -501,7 +501,6 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
                                         <Link className="account-table-row-item-link-mobile" to="/deposit" state={{
                                             category: props.category,
                                             dimension: props.dimension,
-                                            productId: props.product_id,
                                             detfAddress: props.detf_address,
                                             processOrigin: "deposit",
                                             activeStage: 1
@@ -553,12 +552,12 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
                                 </div>
                                 <div className="account-table-expanded-content-owned-assets-mobile">
                                     <h2>Assets in DETF</h2>
-                                    {isDETFActive && isDETFDeposited && ownedAssetsTableData && <DETFOwnedAssetsTable tokens={ownedAssetsTableData} vsPrices={props.vsPrices} currency={props.currency} />}
-                                    {isDETFActive && isDETFDeposited && !ownedAssetsTableData && tableLoading}
+                                    {isDETFActive && isDETFDeposited && props.owned_assets_table_data && <DETFOwnedAssetsTable tokens={props.owned_assets_table_data} vsPrices={props.vsPrices} currency={props.currency} />}
+                                    {isDETFActive && isDETFDeposited && !props.owned_assets_table_data && tableLoading}
                                     {isDETFActive && !isDETFDeposited && productData && <DETFAssetsTable tokens={productData ? productData.tokens : []} />}
                                     {isDETFActive && !isDETFDeposited && !productData && tableLoading}
-                                    {!isDETFActive && ownedAssetsTableData && <DETFOwnedAssetsTable tokens={ownedAssetsTableData} vsPrices={props.vsPrices} currency={props.currency} />}
-                                    {!isDETFActive && !ownedAssetsTableData && tableLoading}
+                                    {!isDETFActive && props.final_assets_table_data && <DETFOwnedAssetsTable tokens={props.final_assets_table_data} vsPrices={props.vsPrices} currency={props.currency} />}
+                                    {!isDETFActive && !props.final_assets_table_data && tableLoading}
                                 </div>
                             </div>
                         </div>

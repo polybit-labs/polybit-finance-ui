@@ -1,47 +1,5 @@
 [
     {
-        "inputs": [
-            {
-                "internalType": "address",
-                "name": "_polybitAccessAddress",
-                "type": "address"
-            },
-            {
-                "internalType": "address",
-                "name": "_polybitConfigAddress",
-                "type": "address"
-            },
-            {
-                "internalType": "address",
-                "name": "_walletOwnerAddress",
-                "type": "address"
-            },
-            {
-                "internalType": "address",
-                "name": "_polybitDETFFactoryAddress",
-                "type": "address"
-            },
-            {
-                "internalType": "uint256",
-                "name": "_productId",
-                "type": "uint256"
-            },
-            {
-                "internalType": "string",
-                "name": "_productCategory",
-                "type": "string"
-            },
-            {
-                "internalType": "string",
-                "name": "_productDimension",
-                "type": "string"
-            }
-        ],
-        "stateMutability": "nonpayable",
-        "type": "constructor",
-        "name": "constructor"
-    },
-    {
         "anonymous": false,
         "inputs": [
             {
@@ -457,30 +415,6 @@
         "type": "function"
     },
     {
-        "inputs": [
-            {
-                "internalType": "uint256",
-                "name": "",
-                "type": "uint256"
-            },
-            {
-                "internalType": "uint256",
-                "name": "",
-                "type": "uint256"
-            }
-        ],
-        "name": "fees",
-        "outputs": [
-            {
-                "internalType": "uint256",
-                "name": "",
-                "type": "uint256"
-            }
-        ],
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
         "inputs": [],
         "name": "getCloseTimestamp",
         "outputs": [
@@ -528,11 +462,6 @@
                         "type": "uint256"
                     },
                     {
-                        "internalType": "uint256",
-                        "name": "productId",
-                        "type": "uint256"
-                    },
-                    {
                         "internalType": "string",
                         "name": "productCategory",
                         "type": "string"
@@ -554,7 +483,7 @@
                     },
                     {
                         "internalType": "uint256[][]",
-                        "name": "fees",
+                        "name": "feesPaid",
                         "type": "uint256[][]"
                     },
                     {
@@ -576,19 +505,6 @@
                 "internalType": "struct PolybitDETF.DETFAccountDetail",
                 "name": "",
                 "type": "tuple"
-            }
-        ],
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "inputs": [],
-        "name": "getDETFStatus",
-        "outputs": [
-            {
-                "internalType": "uint256",
-                "name": "",
-                "type": "uint256"
             }
         ],
         "stateMutability": "view",
@@ -622,12 +538,30 @@
     },
     {
         "inputs": [],
+        "name": "getFeesPaid",
+        "outputs": [
+            {
+                "internalType": "uint256[][]",
+                "name": "",
+                "type": "uint256[][]"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
         "name": "getFinalAssets",
         "outputs": [
             {
                 "internalType": "address[]",
                 "name": "",
                 "type": "address[]"
+            },
+            {
+                "internalType": "uint256[]",
+                "name": "",
+                "type": "uint256[]"
             },
             {
                 "internalType": "uint256[]",
@@ -710,7 +644,7 @@
     },
     {
         "inputs": [],
-        "name": "getProductId",
+        "name": "getStatus",
         "outputs": [
             {
                 "internalType": "uint256",
@@ -819,6 +753,44 @@
             }
         ],
         "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "_polybitAccessAddress",
+                "type": "address"
+            },
+            {
+                "internalType": "address",
+                "name": "_polybitConfigAddress",
+                "type": "address"
+            },
+            {
+                "internalType": "address",
+                "name": "_walletOwnerAddress",
+                "type": "address"
+            },
+            {
+                "internalType": "address",
+                "name": "_polybitDETFFactoryAddress",
+                "type": "address"
+            },
+            {
+                "internalType": "string",
+                "name": "_productCategory",
+                "type": "string"
+            },
+            {
+                "internalType": "string",
+                "name": "_productDimension",
+                "type": "string"
+            }
+        ],
+        "name": "init",
+        "outputs": [],
+        "stateMutability": "nonpayable",
         "type": "function"
     },
     {

@@ -10,7 +10,6 @@ import "./EstablishDETFBox.css"
 import { BigNumber } from 'ethers'
 
 interface EstablishDETFBox {
-    productId: number
     category: string;
     dimension: string;
     setDETFAddress: Function;
@@ -27,7 +26,7 @@ export const EstablishDETFBox = (props: EstablishDETFBox) => {
     const { chain, chains } = useNetwork()
     const chainId: string = chain ? chain.id.toString() : ""
     const navigate = useNavigate();
-    const navToAccount = () => navigate("/deposit", { state: { category: props.category, dimension: props.dimension, productId: props.productId.toString(), detfAddress: props.detfAddress, processOrigin: "establish", activeStage: 2 } })
+    const navToAccount = () => navigate("/deposit", { state: { category: props.category, dimension: props.dimension, detfAddress: props.detfAddress, processOrigin: "establish", activeStage: 2 } })
     const detfFactoryAddress: string = polybitAddresses[chainId as keyof typeof polybitAddresses]["detf_factory"]
     const IPolybitDETFFactory = new Interface(PolybitDETFFactoryInterface)
 
@@ -39,11 +38,6 @@ export const EstablishDETFBox = (props: EstablishDETFBox) => {
                     "internalType": "address",
                     "name": "_walletOwner",
                     "type": "address"
-                },
-                {
-                    "internalType": "uint256",
-                    "name": "_productId",
-                    "type": "uint256"
                 },
                 {
                     "internalType": "string",
@@ -69,7 +63,6 @@ export const EstablishDETFBox = (props: EstablishDETFBox) => {
         }],
         functionName: "createDETF",
         args: [walletOwner as `0x${string}`,
-        BigNumber.from(props.productId),
         props.category,
         props.dimension],
         onError(error) {
