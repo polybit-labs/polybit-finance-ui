@@ -10,16 +10,16 @@ import {
     useContractWrite,
     useWaitForTransaction
 } from "wagmi"
-import { GetOrderData } from '../api/GetOrderData'
 import { FormatCurrency } from '../utils/Currency'
 import { Button, TextLink } from '../Buttons'
 import { Loading } from '../Loading'
 import { TruncateAddress } from '../utils/Formatting'
 import { BigNumber } from 'ethers'
-import { GetDepositOrderData } from '../api/GetDepositOrderData'
+import { GetEstablishDepositOrderData } from '../api/GetEstablishDepositOrderData'
+import polybitAddresses from "../../chain_info/polybitAddresses.json"
 
-interface DepositSummary {
-    detfAddress: string;
+interface EstablishDepositSummary {
+    productId: number;
     category: string;
     dimension: string;
     timeLock: number;
@@ -35,7 +35,7 @@ interface DepositSummary {
     activeStage: string;
 }
 
-export const DepositSummary = (props: DepositSummary) => {
+export const EstablishDepositSummary = (props: EstablishDepositSummary) => {
     const ethers = require("ethers")
     const utils = ethers.utils
     const moment = require('moment')
@@ -47,7 +47,7 @@ export const DepositSummary = (props: DepositSummary) => {
     })
 
     const [orderData, setOrderData] = useState<Array<any>>();
-    const { response: detfOrderData, isLoading: orderDataLoading, isSuccess: orderDataSuccess } = GetDepositOrderData(props.detfAddress, props.depositAmount)
+    const { response: detfOrderData, isLoading: orderDataLoading, isSuccess: orderDataSuccess } = GetEstablishDepositOrderData(props.category, props.dimension, props.depositAmount)
     console.log(detfOrderData)
     useEffect(() => {
         setOrderData(detfOrderData ? detfOrderData : [])
@@ -74,198 +74,215 @@ export const DepositSummary = (props: DepositSummary) => {
     let prettyTimeLockValue = PrettyTimeLockValue()
 
     const { config: detfDepositConfig, error: detfDepositError, isSuccess: prepareContractWriteSuccess, isLoading: prepareContractWriteLoading } = usePrepareContractWrite({
-        address: props.detfAddress as `0x${string}`,
+        address: polybitAddresses["97"]["detf_factory"] as `0x${string}`,
         abi: [{
             "inputs": [
                 {
-                    "internalType": "uint256",
-                    "name": "lockTimestamp",
-                    "type": "uint256"
-                },
-                {
                     "components": [
                         {
-                            "internalType": "address[]",
-                            "name": "sellList",
-                            "type": "address[]"
+                            "internalType": "address",
+                            "name": "_walletOwner",
+                            "type": "address"
                         },
                         {
-                            "internalType": "uint256[]",
-                            "name": "sellListPrices",
-                            "type": "uint256[]"
+                            "internalType": "uint256",
+                            "name": "_productId",
+                            "type": "uint256"
                         },
                         {
-                            "components": [
-                                {
-                                    "internalType": "address[]",
-                                    "name": "swapFactory",
-                                    "type": "address[]"
-                                },
-                                {
-                                    "internalType": "address[][]",
-                                    "name": "path",
-                                    "type": "address[][]"
-                                },
-                                {
-                                    "internalType": "uint256[]",
-                                    "name": "amountsIn",
-                                    "type": "uint256[]"
-                                },
-                                {
-                                    "internalType": "uint256[]",
-                                    "name": "amountsOut",
-                                    "type": "uint256[]"
-                                }
-                            ],
-                            "internalType": "struct PolybitDETF.SwapOrder[]",
-                            "name": "sellOrders",
-                            "type": "tuple[]"
-                        },
-                        {
-                            "internalType": "address[]",
-                            "name": "adjustList",
-                            "type": "address[]"
-                        },
-                        {
-                            "internalType": "uint256[]",
-                            "name": "adjustListPrices",
-                            "type": "uint256[]"
-                        },
-                        {
-                            "internalType": "address[]",
-                            "name": "adjustToSellList",
-                            "type": "address[]"
-                        },
-                        {
-                            "internalType": "uint256[]",
-                            "name": "adjustToSellPrices",
-                            "type": "uint256[]"
+                            "internalType": "uint256",
+                            "name": "_lockTimestamp",
+                            "type": "uint256"
                         },
                         {
                             "components": [
                                 {
                                     "internalType": "address[]",
-                                    "name": "swapFactory",
+                                    "name": "sellList",
                                     "type": "address[]"
                                 },
                                 {
-                                    "internalType": "address[][]",
-                                    "name": "path",
-                                    "type": "address[][]"
-                                },
-                                {
                                     "internalType": "uint256[]",
-                                    "name": "amountsIn",
+                                    "name": "sellListPrices",
                                     "type": "uint256[]"
                                 },
                                 {
-                                    "internalType": "uint256[]",
-                                    "name": "amountsOut",
-                                    "type": "uint256[]"
-                                }
-                            ],
-                            "internalType": "struct PolybitDETF.SwapOrder[]",
-                            "name": "adjustToSellOrders",
-                            "type": "tuple[]"
-                        },
-                        {
-                            "internalType": "address[]",
-                            "name": "adjustToBuyList",
-                            "type": "address[]"
-                        },
-                        {
-                            "internalType": "uint256[]",
-                            "name": "adjustToBuyWeights",
-                            "type": "uint256[]"
-                        },
-                        {
-                            "internalType": "uint256[]",
-                            "name": "adjustToBuyPrices",
-                            "type": "uint256[]"
-                        },
-                        {
-                            "components": [
+                                    "components": [
+                                        {
+                                            "internalType": "address[]",
+                                            "name": "factory",
+                                            "type": "address[]"
+                                        },
+                                        {
+                                            "internalType": "address[][]",
+                                            "name": "path",
+                                            "type": "address[][]"
+                                        },
+                                        {
+                                            "internalType": "uint256[]",
+                                            "name": "amountsIn",
+                                            "type": "uint256[]"
+                                        },
+                                        {
+                                            "internalType": "uint256[]",
+                                            "name": "amountsOut",
+                                            "type": "uint256[]"
+                                        }
+                                    ],
+                                    "internalType": "struct PolybitDETF.SwapOrder[]",
+                                    "name": "sellOrders",
+                                    "type": "tuple[]"
+                                },
                                 {
                                     "internalType": "address[]",
-                                    "name": "swapFactory",
+                                    "name": "adjustList",
                                     "type": "address[]"
                                 },
                                 {
-                                    "internalType": "address[][]",
-                                    "name": "path",
-                                    "type": "address[][]"
-                                },
-                                {
                                     "internalType": "uint256[]",
-                                    "name": "amountsIn",
+                                    "name": "adjustListPrices",
                                     "type": "uint256[]"
                                 },
-                                {
-                                    "internalType": "uint256[]",
-                                    "name": "amountsOut",
-                                    "type": "uint256[]"
-                                }
-                            ],
-                            "internalType": "struct PolybitDETF.SwapOrder[]",
-                            "name": "adjustToBuyOrders",
-                            "type": "tuple[]"
-                        },
-                        {
-                            "internalType": "address[]",
-                            "name": "buyList",
-                            "type": "address[]"
-                        },
-                        {
-                            "internalType": "uint256[]",
-                            "name": "buyListWeights",
-                            "type": "uint256[]"
-                        },
-                        {
-                            "internalType": "uint256[]",
-                            "name": "buyListPrices",
-                            "type": "uint256[]"
-                        },
-                        {
-                            "components": [
                                 {
                                     "internalType": "address[]",
-                                    "name": "swapFactory",
+                                    "name": "adjustToSellList",
                                     "type": "address[]"
                                 },
                                 {
-                                    "internalType": "address[][]",
-                                    "name": "path",
-                                    "type": "address[][]"
+                                    "internalType": "uint256[]",
+                                    "name": "adjustToSellPrices",
+                                    "type": "uint256[]"
+                                },
+                                {
+                                    "components": [
+                                        {
+                                            "internalType": "address[]",
+                                            "name": "factory",
+                                            "type": "address[]"
+                                        },
+                                        {
+                                            "internalType": "address[][]",
+                                            "name": "path",
+                                            "type": "address[][]"
+                                        },
+                                        {
+                                            "internalType": "uint256[]",
+                                            "name": "amountsIn",
+                                            "type": "uint256[]"
+                                        },
+                                        {
+                                            "internalType": "uint256[]",
+                                            "name": "amountsOut",
+                                            "type": "uint256[]"
+                                        }
+                                    ],
+                                    "internalType": "struct PolybitDETF.SwapOrder[]",
+                                    "name": "adjustToSellOrders",
+                                    "type": "tuple[]"
+                                },
+                                {
+                                    "internalType": "address[]",
+                                    "name": "adjustToBuyList",
+                                    "type": "address[]"
                                 },
                                 {
                                     "internalType": "uint256[]",
-                                    "name": "amountsIn",
+                                    "name": "adjustToBuyWeights",
                                     "type": "uint256[]"
                                 },
                                 {
                                     "internalType": "uint256[]",
-                                    "name": "amountsOut",
+                                    "name": "adjustToBuyPrices",
                                     "type": "uint256[]"
+                                },
+                                {
+                                    "components": [
+                                        {
+                                            "internalType": "address[]",
+                                            "name": "factory",
+                                            "type": "address[]"
+                                        },
+                                        {
+                                            "internalType": "address[][]",
+                                            "name": "path",
+                                            "type": "address[][]"
+                                        },
+                                        {
+                                            "internalType": "uint256[]",
+                                            "name": "amountsIn",
+                                            "type": "uint256[]"
+                                        },
+                                        {
+                                            "internalType": "uint256[]",
+                                            "name": "amountsOut",
+                                            "type": "uint256[]"
+                                        }
+                                    ],
+                                    "internalType": "struct PolybitDETF.SwapOrder[]",
+                                    "name": "adjustToBuyOrders",
+                                    "type": "tuple[]"
+                                },
+                                {
+                                    "internalType": "address[]",
+                                    "name": "buyList",
+                                    "type": "address[]"
+                                },
+                                {
+                                    "internalType": "uint256[]",
+                                    "name": "buyListWeights",
+                                    "type": "uint256[]"
+                                },
+                                {
+                                    "internalType": "uint256[]",
+                                    "name": "buyListPrices",
+                                    "type": "uint256[]"
+                                },
+                                {
+                                    "components": [
+                                        {
+                                            "internalType": "address[]",
+                                            "name": "factory",
+                                            "type": "address[]"
+                                        },
+                                        {
+                                            "internalType": "address[][]",
+                                            "name": "path",
+                                            "type": "address[][]"
+                                        },
+                                        {
+                                            "internalType": "uint256[]",
+                                            "name": "amountsIn",
+                                            "type": "uint256[]"
+                                        },
+                                        {
+                                            "internalType": "uint256[]",
+                                            "name": "amountsOut",
+                                            "type": "uint256[]"
+                                        }
+                                    ],
+                                    "internalType": "struct PolybitDETF.SwapOrder[]",
+                                    "name": "buyOrders",
+                                    "type": "tuple[]"
                                 }
                             ],
-                            "internalType": "struct PolybitDETF.SwapOrder[]",
-                            "name": "buyOrders",
+                            "internalType": "struct PolybitDETF.SwapOrders[]",
+                            "name": "_orderData",
                             "type": "tuple[]"
                         }
                     ],
-                    "internalType": "struct PolybitDETF.SwapOrders[]",
-                    "name": "orderData",
-                    "type": "tuple[]"
+                    "internalType": "struct PolybitDETFFactory.CreateDEFParameters",
+                    "name": "createParams",
+                    "type": "tuple"
                 }
             ],
-            "name": "deposit",
+            "name": "createDETF",
             "outputs": [],
             "stateMutability": "payable",
             "type": "function"
         }],
-        functionName: 'deposit',
+        functionName: 'createDETF',
         // @ts-ignore
-        args: [BigNumber.from(props.timeLockAmount) === BigNumber.from(props.timeLock) ? BigNumber.from(0) : BigNumber.from(props.timeLockAmount), orderData],
+        args: [[walletOwner, props.productId, BigNumber.from(props.timeLockAmount), orderData]],
         overrides: { from: walletOwner, value: BigNumber.from(props.depositAmount) },
         onError(error) {
             console.log('detfDepositConfig Error', error)
@@ -372,16 +389,16 @@ export const DepositSummary = (props: DepositSummary) => {
                                     <td className="deposit-summary-table-cell-contents">{chain?.name}</td>
                                 </tr>
                                 <tr>
-                                    <td className="deposit-summary-table-cell-title">Entry Fee</td>
+                                    <td className="deposit-summary-table-cell-title">Deposit Fee</td>
                                 </tr>
                                 <tr>
                                     <td className="deposit-summary-table-cell-contents">0.5%</td>
                                 </tr>
                                 <tr>
-                                    <td className="deposit-summary-table-cell-title">Exit Fee</td>
+                                    <td className="deposit-summary-table-cell-title">Performance Fee</td>
                                 </tr>
                                 <tr>
-                                    <td className="deposit-summary-table-cell-contents">0.5%</td>
+                                    <td className="deposit-summary-table-cell-contents">10% of profit</td>
                                 </tr>
                                 <tr>
                                     <td className="deposit-summary-table-cell-title">Time Locked</td>

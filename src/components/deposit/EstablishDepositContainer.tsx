@@ -1,12 +1,13 @@
 import { useState, useEffect, useContext } from 'react'
 import { useAccount, useBalance } from "wagmi"
-import { DETFAccountData, GetDETFAccountData } from '../api/GetDETFAccountData'
 import { DepositDetails } from '../deposit/DepositDetails'
 import { CurrencyContext } from '../utils/Currency'
 import { GetPriceVsCurrency } from '../api/GetPriceVsCurrency'
 import { DepositSuccess } from '../deposit/DepositSuccess'
 import { DepositSummary } from '../deposit/DepositSummary'
 import { Loading } from '../Loading'
+import { useLocation } from 'react-router-dom'
+import { EstablishDepositSummary } from './EstablishDepositSummary'
 import { BigNumber } from 'ethers'
 
 interface Deposit {
@@ -19,9 +20,9 @@ interface Deposit {
     depositSuccess: boolean;
 }
 
-export const DepositContainer = (props: Deposit) => {
-    const { response: detfDataResponse, isLoading, isSuccess: detfDataSuccess } = GetDETFAccountData(props.detfAddress)
-    const [detfAccountData, setDETFAccountData] = useState<DETFAccountData>()
+export const EstablishDepositContainer = (props: Deposit) => {
+    const location = useLocation()
+    const { productId, category, dimension } = location.state
     const currency = useContext(CurrencyContext).currency
     const { response: prices, isLoading: pricesLoading, isSuccess: pricesSuccess } = GetPriceVsCurrency("0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c")
     const [vsPrices, setVsPrices] = useState<any>({})
@@ -29,27 +30,26 @@ export const DepositContainer = (props: Deposit) => {
     const [timeLockAmount, setTimeLockAmount] = useState(0)
     const [showDepositDetails, setShowDepositDetails] = useState(true)
 
+    console.log(productId, category, dimension)
+
     useEffect(() => {
         setVsPrices(prices ? prices : {})
     }, [pricesLoading, pricesSuccess])
 
-    useEffect(() => {
-        setDETFAccountData(detfDataResponse)
-    }, [detfDataSuccess])
     const { address: walletOwner, connector, isConnected } = useAccount()
     const { data: walletBalance } = useBalance({
         address: walletOwner,
     })
 
-    if (detfDataSuccess && detfAccountData) {
+    if (walletBalance) {
         return (
             <>
                 {showDepositDetails && !props.depositSuccess && <DepositDetails
-                    detfAddress={detfAccountData.detf_address}
-                    timeLock={detfAccountData.time_lock}
-                    timeLockRemaining={detfAccountData.time_lock_remaining}
-                    category={detfAccountData.category}
-                    dimension={detfAccountData.dimension}
+                    detfAddress={""}
+                    timeLock={0}
+                    timeLockRemaining={0}
+                    category={category}
+                    dimension={dimension}
                     walletBalance={walletBalance}
                     connector={connector}
                     currency={currency}
@@ -61,11 +61,11 @@ export const DepositContainer = (props: Deposit) => {
                     activeStage={props.activeStage}
                 />}
                 {
-                    !showDepositDetails && !props.depositSuccess && <DepositSummary
-                        detfAddress={detfAccountData.detf_address}
-                        timeLock={detfAccountData.time_lock}
-                        category={detfAccountData.category}
-                        dimension={detfAccountData.dimension}
+                    !showDepositDetails && !props.depositSuccess && <EstablishDepositSummary
+                        timeLock={0}
+                        productId={productId}
+                        category={category}
+                        dimension={dimension}
                         walletBalance={walletBalance}
                         connector={connector}
                         currency={currency}
@@ -80,8 +80,8 @@ export const DepositContainer = (props: Deposit) => {
                 }
                 {
                     props.depositSuccess && <DepositSuccess
-                        category={detfAccountData.category}
-                        dimension={detfAccountData.dimension}
+                        category={category}
+                        dimension={dimension}
                     />
                 }
             </>)

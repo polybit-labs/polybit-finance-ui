@@ -22,23 +22,77 @@
             {
                 "indexed": false,
                 "internalType": "string",
-                "name": "msg",
+                "name": "message",
                 "type": "string"
             },
             {
                 "indexed": false,
-                "internalType": "uint256",
-                "name": "ref",
-                "type": "uint256"
+                "internalType": "address",
+                "name": "newFeeAddress",
+                "type": "address"
             }
         ],
         "name": "FeeSetter",
         "type": "event"
     },
     {
-        "inputs": [],
-        "name": "getDepositFee",
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "_productId",
+                "type": "uint256"
+            },
+            {
+                "internalType": "string",
+                "name": "_category",
+                "type": "string"
+            },
+            {
+                "internalType": "string",
+                "name": "_dimension",
+                "type": "string"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_entryFee",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_exitFee",
+                "type": "uint256"
+            }
+        ],
+        "name": "createDETFProduct",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "_productId",
+                "type": "uint256"
+            }
+        ],
+        "name": "getDETFProductInfo",
         "outputs": [
+            {
+                "internalType": "string",
+                "name": "",
+                "type": "string"
+            },
+            {
+                "internalType": "string",
+                "name": "",
+                "type": "string"
+            },
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            },
             {
                 "internalType": "uint256",
                 "name": "",
@@ -56,19 +110,6 @@
                 "internalType": "address",
                 "name": "",
                 "type": "address"
-            }
-        ],
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "inputs": [],
-        "name": "getPerformanceFee",
-        "outputs": [
-            {
-                "internalType": "uint256",
-                "name": "",
-                "type": "uint256"
             }
         ],
         "stateMutability": "view",
@@ -142,38 +183,12 @@
     {
         "inputs": [
             {
-                "internalType": "uint256",
-                "name": "fee",
-                "type": "uint256"
-            }
-        ],
-        "name": "setDepositFee",
-        "outputs": [],
-        "stateMutability": "nonpayable",
-        "type": "function"
-    },
-    {
-        "inputs": [
-            {
                 "internalType": "address",
                 "name": "_feeAddress",
                 "type": "address"
             }
         ],
         "name": "setFeeAddress",
-        "outputs": [],
-        "stateMutability": "nonpayable",
-        "type": "function"
-    },
-    {
-        "inputs": [
-            {
-                "internalType": "uint256",
-                "name": "fee",
-                "type": "uint256"
-            }
-        ],
-        "name": "setPerformanceFee",
         "outputs": [],
         "stateMutability": "nonpayable",
         "type": "function"

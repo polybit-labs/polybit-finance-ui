@@ -17,7 +17,8 @@ import { initialiseGA4 } from '../utils/Analytics'
 import ReactGA from "react-ga4"
 import { useLocation } from 'react-router-dom'
 import { LockedBeta } from '../LockedBeta'
-import { DETFAccountData, GetDETFAccountsDataAll } from '../api/GetDETFAccountsDataAll'
+import { GetDETFAccountsDataAll } from '../api/GetDETFAccountsDataAll'
+import { DETFAccountData } from '../api/GetDETFAccountData'
 
 type Currencies = {
     "date": string;

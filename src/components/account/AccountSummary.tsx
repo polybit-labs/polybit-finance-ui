@@ -3,7 +3,7 @@ import { ColourNumbers } from '../utils/Formatting'
 import { FormatCurrency } from "../utils/Currency"
 import { useEffect, useState } from "react"
 import { FormatPercentages } from "../utils/Formatting"
-import { DETFAccountData } from "../api/GetDETFAccountsDataAll"
+import { DETFAccountData } from "../api/GetDETFAccountData"
 
 type AccountSummaryProps = {
     detfAccountsData: Array<DETFAccountData>;

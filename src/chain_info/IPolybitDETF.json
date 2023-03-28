@@ -10,12 +10,12 @@
             },
             {
                 "indexed": false,
-                "internalType": "uint256[]",
+                "internalType": "uint256",
                 "name": "ref",
-                "type": "uint256[]"
+                "type": "uint256"
             }
         ],
-        "name": "Amounts",
+        "name": "Deposited",
         "type": "event"
     },
     {
@@ -23,18 +23,24 @@
         "inputs": [
             {
                 "indexed": false,
-                "internalType": "string",
-                "name": "msg",
-                "type": "string"
+                "internalType": "address",
+                "name": "asset",
+                "type": "address"
             },
             {
                 "indexed": false,
                 "internalType": "uint256",
-                "name": "ref",
+                "name": "amount",
+                "type": "uint256"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "feeAmount",
                 "type": "uint256"
             }
         ],
-        "name": "Deposited",
+        "name": "EmergencyWithdrawal",
         "type": "event"
     },
     {
@@ -142,88 +148,7 @@
                 "type": "uint256"
             }
         ],
-        "name": "SellToClose",
-        "type": "event"
-    },
-    {
-        "anonymous": false,
-        "inputs": [
-            {
-                "indexed": false,
-                "internalType": "string",
-                "name": "msg",
-                "type": "string"
-            },
-            {
-                "indexed": false,
-                "internalType": "uint256",
-                "name": "",
-                "type": "uint256"
-            },
-            {
-                "indexed": false,
-                "internalType": "uint256",
-                "name": "",
-                "type": "uint256"
-            },
-            {
-                "indexed": false,
-                "internalType": "address[]",
-                "name": "",
-                "type": "address[]"
-            }
-        ],
-        "name": "SwapFailure",
-        "type": "event"
-    },
-    {
-        "anonymous": false,
-        "inputs": [
-            {
-                "indexed": false,
-                "internalType": "string",
-                "name": "msg",
-                "type": "string"
-            },
-            {
-                "indexed": false,
-                "internalType": "uint256",
-                "name": "",
-                "type": "uint256"
-            },
-            {
-                "indexed": false,
-                "internalType": "uint256",
-                "name": "",
-                "type": "uint256"
-            },
-            {
-                "indexed": false,
-                "internalType": "address",
-                "name": "",
-                "type": "address"
-            }
-        ],
-        "name": "SwapSuccess",
-        "type": "event"
-    },
-    {
-        "anonymous": false,
-        "inputs": [
-            {
-                "indexed": false,
-                "internalType": "string",
-                "name": "msg",
-                "type": "string"
-            },
-            {
-                "indexed": false,
-                "internalType": "uint256",
-                "name": "ref",
-                "type": "uint256"
-            }
-        ],
-        "name": "TransferToClose",
+        "name": "Withdraw",
         "type": "event"
     },
     {
@@ -249,7 +174,7 @@
                         "components": [
                             {
                                 "internalType": "address[]",
-                                "name": "swapFactory",
+                                "name": "factory",
                                 "type": "address[]"
                             },
                             {
@@ -296,7 +221,7 @@
                         "components": [
                             {
                                 "internalType": "address[]",
-                                "name": "swapFactory",
+                                "name": "factory",
                                 "type": "address[]"
                             },
                             {
@@ -338,7 +263,7 @@
                         "components": [
                             {
                                 "internalType": "address[]",
-                                "name": "swapFactory",
+                                "name": "factory",
                                 "type": "address[]"
                             },
                             {
@@ -380,7 +305,7 @@
                         "components": [
                             {
                                 "internalType": "address[]",
-                                "name": "swapFactory",
+                                "name": "factory",
                                 "type": "address[]"
                             },
                             {
@@ -416,6 +341,13 @@
     },
     {
         "inputs": [],
+        "name": "emergencyWithdrawal",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [],
         "name": "getCloseTimestamp",
         "outputs": [
             {
@@ -435,76 +367,6 @@
                 "internalType": "uint256",
                 "name": "",
                 "type": "uint256"
-            }
-        ],
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "inputs": [],
-        "name": "getDETFAccountDetail",
-        "outputs": [
-            {
-                "components": [
-                    {
-                        "internalType": "uint256",
-                        "name": "status",
-                        "type": "uint256"
-                    },
-                    {
-                        "internalType": "uint256",
-                        "name": "creationTimestamp",
-                        "type": "uint256"
-                    },
-                    {
-                        "internalType": "uint256",
-                        "name": "closeTimestamp",
-                        "type": "uint256"
-                    },
-                    {
-                        "internalType": "string",
-                        "name": "productCategory",
-                        "type": "string"
-                    },
-                    {
-                        "internalType": "string",
-                        "name": "productDimension",
-                        "type": "string"
-                    },
-                    {
-                        "internalType": "uint256[][]",
-                        "name": "deposits",
-                        "type": "uint256[][]"
-                    },
-                    {
-                        "internalType": "uint256",
-                        "name": "totalDeposited",
-                        "type": "uint256"
-                    },
-                    {
-                        "internalType": "uint256[][]",
-                        "name": "feesPaid",
-                        "type": "uint256[][]"
-                    },
-                    {
-                        "internalType": "uint256",
-                        "name": "timeLock",
-                        "type": "uint256"
-                    },
-                    {
-                        "internalType": "uint256",
-                        "name": "timeLockRemaining",
-                        "type": "uint256"
-                    },
-                    {
-                        "internalType": "uint256",
-                        "name": "finalBalanceInWeth",
-                        "type": "uint256"
-                    }
-                ],
-                "internalType": "struct PolybitDETF.DETFAccountDetail",
-                "name": "",
-                "type": "tuple"
             }
         ],
         "stateMutability": "view",
@@ -778,6 +640,11 @@
                 "type": "address"
             },
             {
+                "internalType": "uint256",
+                "name": "_productId",
+                "type": "uint256"
+            },
+            {
                 "internalType": "string",
                 "name": "_productCategory",
                 "type": "string"
@@ -786,11 +653,196 @@
                 "internalType": "string",
                 "name": "_productDimension",
                 "type": "string"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_entryFee",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_exitFee",
+                "type": "uint256"
+            },
+            {
+                "components": [
+                    {
+                        "internalType": "address[]",
+                        "name": "sellList",
+                        "type": "address[]"
+                    },
+                    {
+                        "internalType": "uint256[]",
+                        "name": "sellListPrices",
+                        "type": "uint256[]"
+                    },
+                    {
+                        "components": [
+                            {
+                                "internalType": "address[]",
+                                "name": "factory",
+                                "type": "address[]"
+                            },
+                            {
+                                "internalType": "address[][]",
+                                "name": "path",
+                                "type": "address[][]"
+                            },
+                            {
+                                "internalType": "uint256[]",
+                                "name": "amountsIn",
+                                "type": "uint256[]"
+                            },
+                            {
+                                "internalType": "uint256[]",
+                                "name": "amountsOut",
+                                "type": "uint256[]"
+                            }
+                        ],
+                        "internalType": "struct PolybitDETF.SwapOrder[]",
+                        "name": "sellOrders",
+                        "type": "tuple[]"
+                    },
+                    {
+                        "internalType": "address[]",
+                        "name": "adjustList",
+                        "type": "address[]"
+                    },
+                    {
+                        "internalType": "uint256[]",
+                        "name": "adjustListPrices",
+                        "type": "uint256[]"
+                    },
+                    {
+                        "internalType": "address[]",
+                        "name": "adjustToSellList",
+                        "type": "address[]"
+                    },
+                    {
+                        "internalType": "uint256[]",
+                        "name": "adjustToSellPrices",
+                        "type": "uint256[]"
+                    },
+                    {
+                        "components": [
+                            {
+                                "internalType": "address[]",
+                                "name": "factory",
+                                "type": "address[]"
+                            },
+                            {
+                                "internalType": "address[][]",
+                                "name": "path",
+                                "type": "address[][]"
+                            },
+                            {
+                                "internalType": "uint256[]",
+                                "name": "amountsIn",
+                                "type": "uint256[]"
+                            },
+                            {
+                                "internalType": "uint256[]",
+                                "name": "amountsOut",
+                                "type": "uint256[]"
+                            }
+                        ],
+                        "internalType": "struct PolybitDETF.SwapOrder[]",
+                        "name": "adjustToSellOrders",
+                        "type": "tuple[]"
+                    },
+                    {
+                        "internalType": "address[]",
+                        "name": "adjustToBuyList",
+                        "type": "address[]"
+                    },
+                    {
+                        "internalType": "uint256[]",
+                        "name": "adjustToBuyWeights",
+                        "type": "uint256[]"
+                    },
+                    {
+                        "internalType": "uint256[]",
+                        "name": "adjustToBuyPrices",
+                        "type": "uint256[]"
+                    },
+                    {
+                        "components": [
+                            {
+                                "internalType": "address[]",
+                                "name": "factory",
+                                "type": "address[]"
+                            },
+                            {
+                                "internalType": "address[][]",
+                                "name": "path",
+                                "type": "address[][]"
+                            },
+                            {
+                                "internalType": "uint256[]",
+                                "name": "amountsIn",
+                                "type": "uint256[]"
+                            },
+                            {
+                                "internalType": "uint256[]",
+                                "name": "amountsOut",
+                                "type": "uint256[]"
+                            }
+                        ],
+                        "internalType": "struct PolybitDETF.SwapOrder[]",
+                        "name": "adjustToBuyOrders",
+                        "type": "tuple[]"
+                    },
+                    {
+                        "internalType": "address[]",
+                        "name": "buyList",
+                        "type": "address[]"
+                    },
+                    {
+                        "internalType": "uint256[]",
+                        "name": "buyListWeights",
+                        "type": "uint256[]"
+                    },
+                    {
+                        "internalType": "uint256[]",
+                        "name": "buyListPrices",
+                        "type": "uint256[]"
+                    },
+                    {
+                        "components": [
+                            {
+                                "internalType": "address[]",
+                                "name": "factory",
+                                "type": "address[]"
+                            },
+                            {
+                                "internalType": "address[][]",
+                                "name": "path",
+                                "type": "address[][]"
+                            },
+                            {
+                                "internalType": "uint256[]",
+                                "name": "amountsIn",
+                                "type": "uint256[]"
+                            },
+                            {
+                                "internalType": "uint256[]",
+                                "name": "amountsOut",
+                                "type": "uint256[]"
+                            }
+                        ],
+                        "internalType": "struct PolybitDETF.SwapOrder[]",
+                        "name": "buyOrders",
+                        "type": "tuple[]"
+                    }
+                ],
+                "internalType": "struct PolybitDETF.SwapOrders[]",
+                "name": "_orderData",
+                "type": "tuple[]"
             }
         ],
         "name": "init",
         "outputs": [],
-        "stateMutability": "nonpayable",
+        "stateMutability": "payable",
         "type": "function"
     },
     {
@@ -850,7 +902,7 @@
                         "components": [
                             {
                                 "internalType": "address[]",
-                                "name": "swapFactory",
+                                "name": "factory",
                                 "type": "address[]"
                             },
                             {
@@ -897,7 +949,7 @@
                         "components": [
                             {
                                 "internalType": "address[]",
-                                "name": "swapFactory",
+                                "name": "factory",
                                 "type": "address[]"
                             },
                             {
@@ -939,7 +991,7 @@
                         "components": [
                             {
                                 "internalType": "address[]",
-                                "name": "swapFactory",
+                                "name": "factory",
                                 "type": "address[]"
                             },
                             {
@@ -981,7 +1033,7 @@
                         "components": [
                             {
                                 "internalType": "address[]",
-                                "name": "swapFactory",
+                                "name": "factory",
                                 "type": "address[]"
                             },
                             {
@@ -1018,6 +1070,32 @@
     {
         "inputs": [
             {
+                "internalType": "uint256",
+                "name": "unixTimeLock",
+                "type": "uint256"
+            }
+        ],
+        "name": "setTimeLock",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "walletOwner",
+        "outputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
                 "components": [
                     {
                         "internalType": "address[]",
@@ -1033,7 +1111,7 @@
                         "components": [
                             {
                                 "internalType": "address[]",
-                                "name": "swapFactory",
+                                "name": "factory",
                                 "type": "address[]"
                             },
                             {
@@ -1080,7 +1158,7 @@
                         "components": [
                             {
                                 "internalType": "address[]",
-                                "name": "swapFactory",
+                                "name": "factory",
                                 "type": "address[]"
                             },
                             {
@@ -1122,7 +1200,7 @@
                         "components": [
                             {
                                 "internalType": "address[]",
-                                "name": "swapFactory",
+                                "name": "factory",
                                 "type": "address[]"
                             },
                             {
@@ -1164,7 +1242,7 @@
                         "components": [
                             {
                                 "internalType": "address[]",
-                                "name": "swapFactory",
+                                "name": "factory",
                                 "type": "address[]"
                             },
                             {
@@ -1193,35 +1271,9 @@
                 "type": "tuple[]"
             }
         ],
-        "name": "sellToClose",
+        "name": "withdraw",
         "outputs": [],
         "stateMutability": "nonpayable",
-        "type": "function"
-    },
-    {
-        "inputs": [
-            {
-                "internalType": "uint256",
-                "name": "unixTimeLock",
-                "type": "uint256"
-            }
-        ],
-        "name": "setTimeLock",
-        "outputs": [],
-        "stateMutability": "nonpayable",
-        "type": "function"
-    },
-    {
-        "inputs": [],
-        "name": "walletOwner",
-        "outputs": [
-            {
-                "internalType": "address",
-                "name": "",
-                "type": "address"
-            }
-        ],
-        "stateMutability": "view",
         "type": "function"
     },
     {
