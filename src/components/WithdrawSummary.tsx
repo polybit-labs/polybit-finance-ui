@@ -8,6 +8,7 @@ import { Interface } from 'ethers/lib/utils'
 import { Loading } from "./Loading"
 import "./WithdrawSummary.css"
 import { useState } from "react"
+import { GetWithdrawOrderData } from "./api/GetWithdrawOrderData"
 
 interface WithdrawSummary {
     detfAddress: string;
@@ -26,7 +27,8 @@ interface WithdrawSummary {
 export const WithdrawSummary = (props: WithdrawSummary) => {
     const IPolybitDETF = new Interface(PolybitDETFInterface)
     const { address: walletOwner } = useAccount()
-    const { response: orderData, isLoading: orderDataLoading, isSuccess: orderDataSuccess } = GetSellToCloseOrderData(props.detfAddress)
+    const { response: orderData, isLoading: orderDataLoading, isSuccess: orderDataSuccess } = GetWithdrawOrderData(props.detfAddress)
+    console.log(orderData)
     const { config: detfSellToCloseConfig, error: detfSellToCloseError, isSuccess: prepareContractWriteSuccess } = usePrepareContractWrite({
         address: props.detfAddress as `0x${string}`,
         abi: [{
@@ -47,7 +49,7 @@ export const WithdrawSummary = (props: WithdrawSummary) => {
                             "components": [
                                 {
                                     "internalType": "address[]",
-                                    "name": "swapFactory",
+                                    "name": "factory",
                                     "type": "address[]"
                                 },
                                 {
@@ -94,7 +96,7 @@ export const WithdrawSummary = (props: WithdrawSummary) => {
                             "components": [
                                 {
                                     "internalType": "address[]",
-                                    "name": "swapFactory",
+                                    "name": "factory",
                                     "type": "address[]"
                                 },
                                 {
@@ -136,7 +138,7 @@ export const WithdrawSummary = (props: WithdrawSummary) => {
                             "components": [
                                 {
                                     "internalType": "address[]",
-                                    "name": "swapFactory",
+                                    "name": "factory",
                                     "type": "address[]"
                                 },
                                 {
@@ -178,7 +180,7 @@ export const WithdrawSummary = (props: WithdrawSummary) => {
                             "components": [
                                 {
                                     "internalType": "address[]",
-                                    "name": "swapFactory",
+                                    "name": "factory",
                                     "type": "address[]"
                                 },
                                 {
@@ -207,19 +209,19 @@ export const WithdrawSummary = (props: WithdrawSummary) => {
                     "type": "tuple[]"
                 }
             ],
-            "name": "sellToClose",
+            "name": "withdraw",
             "outputs": [],
             "stateMutability": "nonpayable",
             "type": "function"
         }],
-        functionName: 'sellToClose',
+        functionName: 'withdraw',
         // @ts-ignore
         args: [orderData],
         onError(error) {
-            console.log('detfSellToClose Error', error)
+            console.log('withdraw Error', error)
         },
         onSuccess(data) {
-            console.log('detfSellToClose Success', data)
+            console.log('withdraw Success', data)
         },
     })
     const { data, isLoading, isSuccess, write: detfSellToClose } = useContractWrite(detfSellToCloseConfig)

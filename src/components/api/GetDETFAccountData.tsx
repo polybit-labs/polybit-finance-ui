@@ -2,26 +2,36 @@ import { useState, useEffect } from "react"
 import { useNetwork } from "wagmi"
 import axios from "axios"
 import apiURLJSON from "./api-info.json"
+import { BigNumber } from "ethers"
 
-export interface DETFAccountData {
-    detf_address: string;
-    product_id: number;
-    category: string;
-    dimension: string;
-    status: number;
-    creation_timestamp: number;
-    close_timestamp: number;
-    balance_in_weth: number;
-    deposits: Array<string>;
-    total_deposits: number;
-    time_lock: number;
-    time_lock_remaining: number;
-    return_weth: string;
-    return_percentage: number;
-    final_return_weth: string
-    final_return_percentage: number;
-    final_return: number;
-    final_balance_in_weth: string;
+export type DETFAccountData = {
+    "detf_address": string;
+    "status": number;
+    "creation_timestamp": number;
+    "category": string;
+    "dimension": string;
+    "balance_in_weth": BigInt;
+    "deposits": Array<Array<BigNumber>>;
+    "total_deposited": BigNumber;
+    "fees_paid": Array<Array<BigNumber>>;
+    "transactions": Array<any>;
+    "owned_assets": Array<string>;
+    "owned_assets_prices": Array<BigNumber>;
+    "owned_assets_table_data": Array<any>;
+    "time_lock": number;
+    "time_lock_remaining": number;
+    "close_timestamp": number;
+    "return_weth": BigNumber;
+    "return_percentage": number;
+    "final_return_weth": BigNumber;
+    "final_return_percentage": number;
+    "final_return": any;
+    "final_balance_in_weth": BigNumber;
+    "final_assets": Array<string>;
+    "final_assets_prices": Array<BigNumber>;
+    "final_assets_balances": Array<BigNumber>;
+    "final_assets_balances_in_weth": Array<BigNumber>;
+    "final_assets_table_data": Array<any>;
 }
 
 export const GetDETFAccountData = (detf_address: string) => {

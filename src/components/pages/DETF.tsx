@@ -48,6 +48,7 @@ const DETF = () => {
         setPerformanceData(performance ? performance : undefined)
     }, [productDataLoading, productDataSuccess, performanceDataLoading, performanceDataSuccess])
 
+    const productId = productContent.productId
     const chainName: string = productContent.chainName
     const category: string = productContent.category
     const dimension: string = productContent.dimension
@@ -63,13 +64,6 @@ const DETF = () => {
                 <div className="detf">
                     <div className="detf-container">
                         <div className="detf-title-section">
-                            {/* <div className="detf-name-wrapper">
-                                <div className="detf-name-title">
-                                    <img className="detf-name-logo" src={require(`../../assets/icons/${DETFIconFilename(category, dimension)}`)}></img>
-                                    <div style={{ color: ColourCategories(category) }}>{category}</div>
-                                </div>
-                                <div className="detf-name-dimension">{dimension}</div>
-                            </div> */}
                             <div className="detf-name-wrapper">
                                 <img className="detf-name-logo" src={require(`../../assets/icons/${DETFIconFilename(category, dimension)}`)}></img>
                                 <div className="detf-name">
@@ -82,7 +76,7 @@ const DETF = () => {
                                 </div>
                             </div>
                             <div className="detf-button-wrapper">
-                                <Link className="detf-invest-button" to="/establish-detf" state={{ category: category, dimension: dimension, processOrigin: "establish", activeStage: 1 }}>
+                                <Link className="detf-invest-button" to="/establish-deposit" state={{ productId: productId, category: category, dimension: dimension }}>
                                     <Button buttonStyle="primary" buttonSize="standard" text="Invest in this DETF" />
                                 </Link>
                             </div>
@@ -92,7 +86,7 @@ const DETF = () => {
                                 <div className="detf-description">
                                     <h2>{descriptionTitle}</h2>
                                     <div className="detf-button-wrapper-mobile">
-                                        <Link to="/establish-detf" state={{ category: category, dimension: dimension }}>
+                                        <Link to="/establish-deposit" state={{ productId: productId, category: category, dimension: dimension }}>
                                             <Button buttonStyle="primary" buttonSize="standard" text="Invest in this DETF" />
                                         </Link>
                                     </div>
@@ -124,12 +118,12 @@ const DETF = () => {
                                     <p>BNB is the native currency used for investment in to this DETF. Please ensure you have sufficient BNB in your wallet before investing.</p>
                                 </div>
                                 <div className="detf-button-wrapper">
-                                    <Link to="/establish-detf" state={{ category: category, dimension: dimension }}>
+                                    <Link to="/establish-deposit" state={{ productId: productId, category: category, dimension: dimension }}>
                                         <Button buttonStyle="primary" buttonSize="standard" text="Invest in this DETF" />
                                     </Link>
                                 </div>
                                 <div className="detf-button-wrapper-mobile">
-                                    <Link to="/establish-detf" state={{ category: category, dimension: dimension }}>
+                                    <Link to="/establish-deposit" state={{ productId: productId, category: category, dimension: dimension }}>
                                         <Button buttonStyle="primary" buttonSize="standard" text="Invest in this DETF" />
                                     </Link>
                                 </div>
@@ -148,7 +142,6 @@ const DETF = () => {
 
     return (
         <>
-            {/* <ErrorPage errorText={"Product data not found."} /> */}
             <Loading />
             <Footer />
         </>

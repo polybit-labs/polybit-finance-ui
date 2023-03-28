@@ -15,7 +15,7 @@ import HowItWorks from './components/pages/HowItWorks'
 import Privacy from './components/pages/Privacy'
 import { Category } from './components/pages/Category'
 import { initialiseGA4 } from './components/utils/Analytics';
-import { LockedBeta } from './components/LockedBeta';
+import EstablishDeposit from './components/pages/EstablishDeposit';
 
 
 const App = () => {
@@ -35,6 +35,7 @@ const App = () => {
               <Route path="/how-it-works" element={<HowItWorks />} />
               <Route path="/account" element={<Account />} />
               <Route path="/establish-detf" element={<EstablishDETF />} />
+              <Route path="/establish-deposit" element={<EstablishDeposit />} />
               <Route path="/deposit" element={<Deposit />} />
               <Route path="/close-detf" element={<CloseDETF />} />
               <Route path="/privacy-policy" element={<Privacy />} />

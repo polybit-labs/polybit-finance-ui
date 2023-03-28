@@ -80,12 +80,12 @@ export const DETFSummary = (props: DETFSumaryProps) => {
                                 <td className="detf-summary-info-table-cell-contents">{rebalancingPeriod}</td>
                             </tr>
                             <tr>
-                                <td className="detf-summary-info-table-cell-title">Deposit Fee</td>
+                                <td className="detf-summary-info-table-cell-title">Entry Fee</td>
                                 <td className="detf-summary-info-table-cell-contents">{parseFloat((depositFee).toString()).toFixed(1)}%</td>
                             </tr>
                             <tr>
-                                <td className="detf-summary-info-table-cell-title">Performance Fee</td>
-                                <td className="detf-summary-info-table-cell-contents">{parseFloat((performanceFee).toString()).toFixed(1)}%</td>
+                                <td className="detf-summary-info-table-cell-title">Entry Fee</td>
+                                <td className="detf-summary-info-table-cell-contents">{parseFloat((depositFee).toString()).toFixed(1)}%</td>
                             </tr>
                         </tbody>
                     </table>

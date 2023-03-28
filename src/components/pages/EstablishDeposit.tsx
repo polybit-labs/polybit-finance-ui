@@ -1,0 +1,77 @@
+import { useEffect, useState } from 'react'
+import { TruncateAddress } from '../utils/Formatting'
+import { useLocation } from 'react-router-dom'
+import TitleContainer from "../containers/Title"
+import SubTitleContainer from '../containers/SubTitle'
+import { useAccount, useNetwork } from "wagmi"
+import Footer from './Footer'
+import { Progress } from '../Progress'
+import { EstablishDepositContainer } from '../deposit/EstablishDepositContainer'
+import { SwitchNetwork } from '../SwitchNetwork'
+import { Connect } from '../Connect'
+import { LockedBeta } from '../LockedBeta'
+
+function EstablishDeposit() {
+    const location = useLocation()
+    const { chain } = useNetwork()
+    const [title, setTitle] = useState("Your investment amount")
+    const { category, dimension, detfAddress } = location.state
+    const [activeStage, setActiveStage] = useState("deposit-details")
+    const [depositSuccess, setDepositSuccess] = useState(false)
+    const { address: walletOwner, connector, isConnected } = useAccount()
+
+    useEffect(() => {
+        //Reset view on component load
+        if (activeStage === "deposit-summary") {
+            window.scrollTo(0, 580);
+        }
+    }, [activeStage])
+
+    if (window.location.href.includes("polybit.finance")) {
+        return (
+            <>
+                <LockedBeta />
+                <Footer />
+            </>
+        )
+    }
+
+    if (isConnected && !chain?.unsupported) {
+        return (
+            <>
+                {!depositSuccess && <div>
+                    <TitleContainer title={title} />
+                    <SubTitleContainer info={`You are about to invest funds from your address ${TruncateAddress(walletOwner ? walletOwner : "")} into the ${category} ${dimension} DETF using ${connector?.name}.`} />
+                    <Progress activeStage={activeStage} />
+                </div>}
+                <EstablishDepositContainer
+                    category={category}
+                    dimension={dimension}
+                    detfAddress={detfAddress}
+                    setActiveStage={setActiveStage}
+                    activeStage={activeStage}
+                    setDepositSuccess={setDepositSuccess}
+                    depositSuccess={depositSuccess}
+                />
+                <Footer />
+            </>
+        )
+    }
+
+    if (isConnected && chain?.unsupported) {
+        return (<SwitchNetwork />)
+    }
+
+    const subTitleNotConnected = <div><h2>You are not currently connected to a wallet. Please connect your wallet to proceed.</h2></div>
+
+    return (
+        <>
+            <TitleContainer title={title} />
+            <SubTitleContainer info={subTitleNotConnected} />
+            <Connect />
+            <Footer />
+        </>
+    )
+}
+
+export default EstablishDeposit

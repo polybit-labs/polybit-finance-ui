@@ -5,7 +5,7 @@ import { Button } from '../Buttons'
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { icon } from '@fortawesome/fontawesome-svg-core/import.macro'
-import { DETFAccountData } from '../api/GetDETFAccountsDataAll'
+import { DETFAccountData } from '../api/GetDETFAccountData'
 
 type DETFSummary = {
     "category": string;

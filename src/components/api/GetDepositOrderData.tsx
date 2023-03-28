@@ -2,14 +2,14 @@ import { useState, useEffect } from "react"
 import { useNetwork } from "wagmi"
 import axios from "axios"
 import apiURLJSON from "./api-info.json"
-import { DETFAccountData } from "./GetDETFAccountData"
+import { BigNumber } from "ethers"
 
-export const GetDETFAccountsDataAll = (wallet_owner: string) => {
-    const [response, setResponse] = useState<Array<DETFAccountData>>()
+export const GetDepositOrderData = (detf_address: string, weth_input_amount: BigNumber) => {
+    const [response, setResponse] = useState<Array<any>>()
     const network = useNetwork()
+    const rpc = network.chain?.rpcUrls.default.http[0]
     const { chain } = useNetwork()
     const chainId: string = chain ? chain.id.toString() : ""
-    const rpc = network.chain?.rpcUrls.default.http[0]
     let isLoading: boolean
     let isSuccess: boolean
     const [apiURL, setapiURL] = useState("")
@@ -24,7 +24,7 @@ export const GetDETFAccountsDataAll = (wallet_owner: string) => {
 
     useEffect(() => {
         if (apiURL !== "") {
-            axios.post(apiURL + "/api/get_detf_accounts_data_all", { "rpc_provider": rpc, "chain_id": chainId, "wallet_owner": wallet_owner })
+            axios.post(apiURL + "/api/get_deposit_order_data", { "provider": rpc, "chain_id": chainId, "detf_address": detf_address, "weth_input_amount": weth_input_amount })
                 .then(res => {
                     setResponse(res.data)
                 })
