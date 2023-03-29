@@ -84,7 +84,7 @@ export const DETFSummary = (props: DETFSumaryProps) => {
                                 <td className="detf-summary-info-table-cell-contents">{parseFloat((depositFee).toString()).toFixed(1)}%</td>
                             </tr>
                             <tr>
-                                <td className="detf-summary-info-table-cell-title">Entry Fee</td>
+                                <td className="detf-summary-info-table-cell-title">Exit Fee</td>
                                 <td className="detf-summary-info-table-cell-contents">{parseFloat((depositFee).toString()).toFixed(1)}%</td>
                             </tr>
                         </tbody>

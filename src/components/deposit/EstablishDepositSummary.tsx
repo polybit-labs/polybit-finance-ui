@@ -389,16 +389,16 @@ export const EstablishDepositSummary = (props: EstablishDepositSummary) => {
                                     <td className="deposit-summary-table-cell-contents">{chain?.name}</td>
                                 </tr>
                                 <tr>
-                                    <td className="deposit-summary-table-cell-title">Deposit Fee</td>
+                                    <td className="deposit-summary-table-cell-title">Entry Fee</td>
                                 </tr>
                                 <tr>
                                     <td className="deposit-summary-table-cell-contents">0.5%</td>
                                 </tr>
                                 <tr>
-                                    <td className="deposit-summary-table-cell-title">Performance Fee</td>
+                                    <td className="deposit-summary-table-cell-title">Exit Fee</td>
                                 </tr>
                                 <tr>
-                                    <td className="deposit-summary-table-cell-contents">10% of profit</td>
+                                    <td className="deposit-summary-table-cell-contents">0.5%</td>
                                 </tr>
                                 <tr>
                                     <td className="deposit-summary-table-cell-title">Time Locked</td>
