@@ -277,7 +277,7 @@ export const WithdrawSummary = (props: WithdrawSummary) => {
                                         <td className="withdraw-summary-table-cell-contents" style={{ color: ColourNumbers(props.currentReturn) }}>{currentReturnFormatted} ({currentReturnPercentageFormatted})</td>
                                     </tr>
                                     <tr>
-                                        <td className="withdraw-summary-table-cell-title">Performance fees</td>
+                                        <td className="withdraw-summary-table-cell-title">Exit fees</td>
                                         <td className="withdraw-summary-table-cell-contents">{estimatedPerformanceFormatted}</td>
                                     </tr>
                                     <tr>
