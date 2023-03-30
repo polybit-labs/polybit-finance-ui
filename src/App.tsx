@@ -31,7 +31,6 @@ const App = () => {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/detfs" element={<DETFIndex />} />
-              <Route path="/category" element={<Category />} />
               <Route path="/how-it-works" element={<HowItWorks />} />
               <Route path="/account" element={<Account />} />
               <Route path="/establish-detf" element={<EstablishDETF />} />
@@ -40,6 +39,7 @@ const App = () => {
               <Route path="/close-detf" element={<CloseDETF />} />
               <Route path="/privacy-policy" element={<Privacy />} />
               <Route path="/detfs/:urlChainId/:urlCategoryId/:urlDimensionId" element={<DETF />} />
+              <Route path="/detfs/category/:urlCategoryId/" element={<Category />} />
             </Routes>
           </CurrencyContext.Provider>
         </ScrollToTop>

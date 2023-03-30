@@ -1,0 +1,37 @@
+{
+    "category": "Governance",
+    "descriptionTitle": "Most decentralised projects are managed through a governance model, where stakeholders participate in decision-making processes.",
+    "description": "This form of governance aims to ensure that the decentralised project operates in a fair, secure, and transparent manner and that all stakeholders have a say in how the project is managed.",
+    "detfs": [
+        {
+            "chainId": 56,
+            "chainName": "BNB Smart Chain",
+            "productId": 5610041000,
+            "category": "Governance",
+            "dimension": "Market Cap",
+            "description": [
+                "Governance Market Cap DETF tracks governance tokens on the Binance Smart Chain, weighted by the total global market cap, across all centralised and decentralised exchanges."
+            ]
+        },
+        {
+            "chainId": 56,
+            "chainName": "BNB Smart Chain",
+            "productId": 5610041001,
+            "category": "Governance",
+            "dimension": "Liquidity",
+            "description": [
+                "Governance Liquidity DETF tracks governance tokens on the Binance Smart Chain, weighted by the total liquidity available in the decentralised exchanges that Polybit aggregates."
+            ]
+        },
+        {
+            "chainId": 56,
+            "chainName": "BNB Smart Chain",
+            "productId": 5610041002,
+            "category": "Governance",
+            "dimension": "Equally Balanced",
+            "description": [
+                "Governance Equally Balanced DETF tracks governance tokens on the Binance Smart Chain, equally weighted by the total number of tokens in the DETF."
+            ]
+        }
+    ]
+}

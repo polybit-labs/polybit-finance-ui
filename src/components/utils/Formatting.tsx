@@ -49,3 +49,10 @@ export const DETFIconFilename = (category: string, dimension: string) => {
     const filename = `${category.replaceAll(" ", "_").toLowerCase()}__${dimension.replaceAll(" ", "_").toLowerCase()}.png`
     return filename
 }
+
+export const toTitleCase = (str: string) => {
+    str = str.replaceAll("-", " ")
+    return str.toLowerCase().split(' ').map(function (word) {
+        return (word.charAt(0).toUpperCase() + word.slice(1));
+    }).join(' ');
+}

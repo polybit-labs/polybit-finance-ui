@@ -1,0 +1,37 @@
+{
+    "category": "DeFi",
+    "descriptionTitle": "DeFi has the potential to disrupt traditional financial systems and make financial services more accessible, transparent, and efficient for everyone.",
+    "description": "DeFi stands for Decentralised Finance, which refers to a system of financial applications that operate on a decentralised blockchain network, such as Ethereum, rather than traditional financial intermediaries like banks. DeFi platforms offer various financial services, including lending, borrowing, trading, and more, all without relying on central authorities to manage transactions or hold assets.",
+    "detfs": [
+        {
+            "chainId": 56,
+            "chainName": "BNB Smart Chain",
+            "productId": 5610011000,
+            "category": "DeFi",
+            "dimension": "Market Cap",
+            "description": [
+                "DeFi Market Cap DETF tracks DeFi tokens on the Binance Smart Chain, weighted by the total global market cap, across all centralised and decentralised exchanges."
+            ]
+        },
+        {
+            "chainId": 56,
+            "chainName": "BNB Smart Chain",
+            "productId": 5610011001,
+            "category": "DeFi",
+            "dimension": "Liquidity",
+            "description": [
+                "DeFi Liquidity DETF tracks DeFi tokens on the Binance Smart Chain, weighted by the total liquidity available in the decentralised exchanges that Polybit aggregates."
+            ]
+        },
+        {
+            "chainId": 56,
+            "chainName": "BNB Smart Chain",
+            "productId": 5610011002,
+            "category": "DeFi",
+            "dimension": "Equally Balanced",
+            "description": [
+                "DeFi Equally Balanced DETF tracks DeFi tokens on the Binance Smart Chain, equally weighted by the total number of tokens in the DETF."
+            ]
+        }
+    ]
+}
