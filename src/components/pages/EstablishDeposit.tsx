@@ -10,6 +10,7 @@ import { EstablishDepositContainer } from '../deposit/EstablishDepositContainer'
 import { SwitchNetwork } from '../SwitchNetwork'
 import { Connect } from '../Connect'
 import { LockedBeta } from '../LockedBeta'
+import { Helmet } from 'react-helmet-async'
 
 function EstablishDeposit() {
     const location = useLocation()
@@ -30,6 +31,11 @@ function EstablishDeposit() {
     if (window.location.href.includes("polybit.finance")) {
         return (
             <>
+                <Helmet>
+                    <title>Deposit | Polybit Finance</title>
+                    <meta name="description" content="" />
+                    <meta name="robots" content="noindex" />
+                </Helmet>
                 <LockedBeta />
                 <Footer />
             </>
@@ -39,6 +45,11 @@ function EstablishDeposit() {
     if (isConnected && !chain?.unsupported) {
         return (
             <>
+                <Helmet>
+                    <title>Deposit | Polybit Finance</title>
+                    <meta name="description" content="" />
+                    <meta name="robots" content="noindex" />
+                </Helmet>
                 {!depositSuccess && <div>
                     <TitleContainer title={title} />
                     <SubTitleContainer info={`You are about to invest funds from your address ${TruncateAddress(walletOwner ? walletOwner : "")} into the ${category} ${dimension} DETF using ${connector?.name}.`} />
@@ -66,6 +77,11 @@ function EstablishDeposit() {
 
     return (
         <>
+            <Helmet>
+                <title>Deposit | Polybit Finance</title>
+                <meta name="description" content="" />
+                <meta name="robots" content="noindex" />
+            </Helmet>
             <TitleContainer title={title} />
             <SubTitleContainer info={subTitleNotConnected} />
             <Connect />

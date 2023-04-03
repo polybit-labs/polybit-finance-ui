@@ -16,6 +16,7 @@ import Privacy from './components/pages/Privacy'
 import { Category } from './components/pages/Category'
 import { initialiseGA4 } from './components/utils/Analytics';
 import EstablishDeposit from './components/pages/EstablishDeposit';
+import { HelmetProvider } from "react-helmet-async"
 
 
 const App = () => {
@@ -25,24 +26,26 @@ const App = () => {
   return (
     <div className="app">
       <Router>
-        <ScrollToTop>
-          <CurrencyContext.Provider value={currency}>
-            <Navbar setCurrency={setCurrency} />
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/detfs" element={<DETFIndex />} />
-              <Route path="/how-it-works" element={<HowItWorks />} />
-              <Route path="/account" element={<Account />} />
-              <Route path="/establish-detf" element={<EstablishDETF />} />
-              <Route path="/establish-deposit" element={<EstablishDeposit />} />
-              <Route path="/deposit" element={<Deposit />} />
-              <Route path="/close-detf" element={<CloseDETF />} />
-              <Route path="/privacy-policy" element={<Privacy />} />
-              <Route path="/detfs/:urlChainId/:urlCategoryId/:urlDimensionId" element={<DETF />} />
-              <Route path="/detfs/category/:urlCategoryId/" element={<Category />} />
-            </Routes>
-          </CurrencyContext.Provider>
-        </ScrollToTop>
+        <HelmetProvider>
+          <ScrollToTop>
+            <CurrencyContext.Provider value={currency}>
+              <Navbar setCurrency={setCurrency} />
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/detfs" element={<DETFIndex />} />
+                <Route path="/how-it-works" element={<HowItWorks />} />
+                <Route path="/account" element={<Account />} />
+                <Route path="/establish-detf" element={<EstablishDETF />} />
+                <Route path="/establish-deposit" element={<EstablishDeposit />} />
+                <Route path="/deposit" element={<Deposit />} />
+                <Route path="/close-detf" element={<CloseDETF />} />
+                <Route path="/privacy-policy" element={<Privacy />} />
+                <Route path="/detfs/:urlChainId/:urlCategoryId/:urlDimensionId" element={<DETF />} />
+                <Route path="/detfs/category/:urlCategoryId/" element={<Category />} />
+              </Routes>
+            </CurrencyContext.Provider>
+          </ScrollToTop>
+        </HelmetProvider>
       </Router>
     </div>
   );

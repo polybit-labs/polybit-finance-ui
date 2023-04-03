@@ -15,6 +15,7 @@ import { useNetwork } from 'wagmi'
 import { Button } from '../Buttons'
 import ReactGA from "react-ga4"
 import { initialiseGA4 } from '../utils/Analytics'
+import { Helmet } from 'react-helmet-async'
 
 const DETF = () => {
     const location = useLocation()
@@ -58,9 +59,12 @@ const DETF = () => {
     const tokens: Array<any> = [] = productData ? productData.tokens : []
 
     if (productContent && productData && performanceData) {
-
         return (
             <>
+                <Helmet>
+                    <title>{`${category} ${dimension} DETF | Polybit Finance`}</title>
+                    <meta name="description" content={descriptionTitle} />
+                </Helmet>
                 <div className="detf">
                     <div className="detf-container">
                         <div className="detf-title-section">
