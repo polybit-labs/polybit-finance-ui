@@ -39,28 +39,28 @@ export const TokenSummary = (props: TokenSumaryProps) => {
                         <tbody>
                             <tr>
                                 <td className="token-summary-info-table-cell-title">Price</td>
-                                <td className="token-summary-info-table-cell-contents">{FormatCurrency(Number(props.tokenData.current_price), 2)}</td>
-                            </tr>
-                            <tr>
-                                <td className="token-summary-info-table-cell-title">Market Cap</td>
-                                <td className="token-summary-info-table-cell-contents">{FormatCurrency(Number(props.tokenData.market_cap), 2)}</td>
+                                <td className="token-summary-info-table-cell-contents">{FormatCurrency(Number(props.tokenData.current_price), 6)}</td>
                             </tr>
                             <tr>
                                 <td className="token-summary-info-table-cell-title">24h Volume</td>
                                 <td className="token-summary-info-table-cell-contents">{FormatCurrency(Number(props.tokenData.volume_24h), 2)}</td>
                             </tr>
                             <tr>
-                                <td className="token-summary-info-table-cell-title">Global Market Cap Rank</td>
-                                <td className="token-summary-info-table-cell-contents">{FormatCurrency(Number(props.tokenData.global_market_cap_rank), 2)}</td>
-                            </tr>
-                            <tr>
                                 <td className="token-summary-info-table-cell-title">24h Low / 24h High</td>
-                                <td className="token-summary-info-table-cell-contents">{`${FormatCurrency(Number(props.tokenData.low_24h), 2)} / ${FormatCurrency(Number(props.tokenData.high_24h), 2)}`}</td>
+                                <td className="token-summary-info-table-cell-contents">{`${FormatCurrency(Number(props.tokenData.low_24h), 3)} / ${FormatCurrency(Number(props.tokenData.high_24h), 3)}`}</td>
                             </tr>
                             <tr>
+                                <td className="token-summary-info-table-cell-title">Market Cap</td>
+                                <td className="token-summary-info-table-cell-contents">{FormatCurrency(Number(props.tokenData.market_cap), 2)}</td>
+                            </tr>
+                            <tr>
+                                <td className="token-summary-info-table-cell-title">Global Market Cap Rank</td>
+                                <td className="token-summary-info-table-cell-contents">{`#${Number(props.tokenData.global_market_cap_rank)}`}</td>
+                            </tr>
+                            {props.tokenData.sentiment_score > 0 && <tr>
                                 <td className="token-summary-info-table-cell-title">Sentiment Score</td>
                                 <td className="token-summary-info-table-cell-contents">{`${parseFloat((props.tokenData.sentiment_score).toString()).toFixed(2)}%`}</td>
-                            </tr>
+                            </tr>}
                         </tbody>
                     </table>
                 </div>
