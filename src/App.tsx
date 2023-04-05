@@ -17,6 +17,8 @@ import { Category } from './components/pages/Category'
 import { initialiseGA4 } from './components/utils/Analytics';
 import EstablishDeposit from './components/pages/EstablishDeposit';
 import { HelmetProvider } from "react-helmet-async"
+import { Token } from './components/pages/Token';
+import { TokenIndex } from './components/pages/TokenIndex';
 
 
 const App = () => {
@@ -42,6 +44,8 @@ const App = () => {
                 <Route path="/privacy-policy" element={<Privacy />} />
                 <Route path="/detfs/:urlChainId/:urlCategoryId/:urlDimensionId" element={<DETF />} />
                 <Route path="/detfs/category/:urlCategoryId/" element={<Category />} />
+                <Route path="/tokens" element={<TokenIndex />} />
+                <Route path="/tokens/:urlTokenName/" element={<Token />} />
               </Routes>
             </CurrencyContext.Provider>
           </ScrollToTop>

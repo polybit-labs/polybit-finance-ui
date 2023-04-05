@@ -65,6 +65,7 @@ const Account = () => {
     const { response: prices, isLoading: pricesLoading, isSuccess: pricesSuccess } = GetPriceVsCurrency(wethAddress["56"]["wethAddress"])
     const [vsPrices, setVsPrices] = useState<any>({})
 
+    console.log(detfAccountsListData)
     useEffect(() => {
         setVsPrices(prices ? prices : {})
     }, [pricesLoading, pricesSuccess])

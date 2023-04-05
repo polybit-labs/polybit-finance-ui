@@ -1,0 +1,214 @@
+.token {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 80px;
+    padding-bottom: 160px;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.token-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: top;
+    align-items: center;
+}
+
+.token-title-section {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.token-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-column-gap: 40px;
+    list-style: none;
+    margin-top: 80px;
+}
+
+.token-content-a,
+.token-content-b {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.token-name-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    font-weight: 700;
+}
+
+.token-name-logo {
+    width: 84px;
+    height: 84px;
+    margin-right: 24px;
+}
+
+.token-name {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    font-size: 62px;
+    line-height: 62px;
+    font-weight: 700;
+}
+
+.token-description {
+    margin-bottom: 60px;
+}
+
+/* .token-assets-box {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: left;
+    background-color: #EEEEEE;
+    border: 1px solid #fff;
+    border-radius: 8px;
+    padding: 30px;
+    color: #676767;
+    margin-bottom: 60px;
+} */
+
+.featured-title {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: left;
+    text-align: left;
+    font-size: 62px;
+    line-height: 62px;
+    font-weight: 700;
+    margin-top: 80px
+}
+
+.token-detf-boxes {
+    width: 100%;
+    display: grid;
+    margin-top: 50px;
+    list-style: none;
+}
+
+
+/* Small devices (landscape phones, 576px and up) */
+
+@media (max-width: 719px) {
+
+    .token {
+        padding-top: 40px;
+        padding-bottom: 80px;
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+
+    .token-content {
+        margin-top: 40px;
+    }
+
+    .token-name-logo {
+        width: 42px;
+        height: 42px;
+        margin-right: 12px;
+    }
+
+    .token-name {
+        font-size: 40px;
+        line-height: 40px;
+        font-weight: 700;
+    }
+
+    .token-description {
+        margin-bottom: 30px;
+    }
+
+    .token-chart {
+        margin-bottom: 30px;
+    }
+
+    .token-summary-info-return-one-week,
+    .token-summary-info-return-one-month,
+    .token-summary-info-return-three-months {
+        width: 33%;
+        height: 10px;
+    }
+
+    .token-summary-info-return-one-year {
+        display: none;
+    }
+
+    .token-assets-box {
+        padding-top: 20px;
+        padding-bottom: 20px;
+        padding-left: 24px;
+        padding-right: 24px;
+        margin-bottom: 30px;
+    }
+
+    .token-detf-boxes {
+        margin-top: 30px;
+        grid-template-rows: repeat(3, minmax(0, 1fr));
+        grid-column-gap: 24px;
+        grid-row-gap: 20px;
+    }
+
+    .featured-title {
+        font-size: 40px;
+        line-height: 40px;
+        margin-top: 40px;
+    }
+}
+
+/* Medium devices (tablets, 768px and up) */
+
+@media (min-width: 720px) {
+    .token {
+        max-width: 959px;
+    }
+
+    .token-detf-boxes {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-column-gap: 24px;
+        grid-row-gap: 20px;
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+
+@media (min-width: 960px) {
+    .token {
+        max-width: 1024px;
+    }
+
+    .token-detf-boxes {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-column-gap: 24px;
+        grid-row-gap: 20px;
+    }
+}
+
+/*Extra large devices (large desktops, 1200px and up)*/
+
+@media (min-width: 1025px) {
+    .token {
+        max-width: 1280px;
+    }
+
+    .token-detf-boxes {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-column-gap: 24px;
+        grid-row-gap: 20px;
+    }
+}
