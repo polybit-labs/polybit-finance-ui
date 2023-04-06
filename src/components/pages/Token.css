@@ -66,6 +66,7 @@
 
 .token-description {
     margin-bottom: 60px;
+    white-space: pre-wrap;
 }
 
 /* .token-assets-box {

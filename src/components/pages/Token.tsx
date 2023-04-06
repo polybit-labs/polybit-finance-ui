@@ -37,7 +37,7 @@ export const Token = () => {
         return (<>
             <Helmet>
                 <title>{`${tokenContent["name"]} | Polybit Finance`}</title>
-                <meta name="description" content="" />
+                <meta name="description" content={tokenContent["overview"]} />
             </Helmet>
             <div className="token">
                 <div className="token-container">

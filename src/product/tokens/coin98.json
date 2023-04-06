@@ -1,0 +1,13 @@
+{
+    "name": "Coin98",
+    "symbol": "C98",
+    "logoURI": "https://polybit-finance.s3.ap-southeast-1.amazonaws.com/assets/tokens/images/56/0xaEC945e04baF28b135Fa7c640f624f8D90F1C3a6.png",
+    "overview": "Coin98 is a DeFi solution that aims to become a gateway between traditional finance and DeFi services on multiple blockchains. Its suite of products includes Coin98 Wallet, Coin98 Exchange, and Space Gate, a cross-chain bridge that enables users to swap and transfer values across multiple networks. The C98 token is the native utility token of the platform and offers unique membership rights, staking incentives, and governance rights.\n\nWhat sets Coin98 apart from other DeFi platforms is its multi-chain compatible wallet engine. Users can interact with different wallets on different blockchains with one single passphrase, without the need for complicated switching requirements. Coin98 supports over 40 blockchains, including Ethereum, Binance Smart Chain, Solana, Polygon, and more.",
+    "history": "Coin98 was co-founded by Thanh Le and Vinh The Nguyen. Le is a serial entrepreneur and early investor in several successful DeFi projects such as ThorChain, Band Protocol, and Alpha Finance. Nguyen is the co-founder of Kytek Software, a company that reviews and builds applications, while Khiem Dang serves as the CTO and is also a co-founder of Kytek Software.\n\nCoin98 was a Binance Launchpad project in July 2021. The platform has a roadmap that includes the development of a launchpad, a lending and borrowing platform, a megafarm, a derivatives market, and an NFT marketplace.\n\nCoin98 aims to fulfil untapped demand in the DeFi industry by providing users with easy access to cross-chain swaps, staking, and yield farming. Its suite of products, including Coin98 Wallet, Coin98 Exchange, and Space Gate, offers users a convenient way to manage and access their crypto assets on multiple blockchains. With its unique multi-chain compatible wallet engine, Coin98 is well-positioned to become a major player in the DeFi space.",
+    "website": "https://www.coin98.com/",
+    "blog": "https://blog.coin98.com/",
+    "twitter": "https://twitter.com/coin98_wallet",
+    "telegram": "https://t.me/coin98_wallet",
+    "discord": "",
+    "dominantColour": "#D9B432"
+}

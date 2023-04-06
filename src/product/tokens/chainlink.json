@@ -1,0 +1,13 @@
+{
+    "name": "Chainlink",
+    "symbol": "LINK",
+    "logoURI": "https://polybit-finance.s3.ap-southeast-1.amazonaws.com/assets/tokens/images/56/0xF8A0BF9cF54Bb92F17374d9e9A321E6a111a51bD.png",
+    "overview": "Chainlink is a framework for building Decentralised Oracle Networks (DONs) that bring real-world data onto blockchain networks. Its purpose is to ensure that the external information and off-chain computations fed to on-chain smart contracts are reliable and tamper-proof. Chainlink is an open-source protocol developed by Chainlink Labs (formerly Smart Contract Ltd.) and was founded in 2014 by Sergey Nazarov and Steve Ellis.\n\nThe Chainlink Network went live on the Ethereum mainnet on June 1st, 2019 and has since expanded to support additional blockchains and layer 2 networks such as Polygon, BSC, Avalanche, Arbitrum, and more. The network is used by smart contract applications that require access to real-world data and off-chain computations, and data providers to monetize their datasets by selling their APIs to smart contract applications. The most common use case includes securing Decentralised Finance (DeFi) protocols which require financial market data.",
+    "history": "Chainlink was founded in 2014 by Sergey Nazarov and Steve Ellis. Chainlink Labs is an open-source project that provides the Chainlink Network, which is a decentralised oracle network. The Chainlink Network allows smart contracts to interact with external data feeds, events, and payment methods. The Chainlink Network addresses the problem of smart contracts being isolated from the external world and unable to natively connect to off-chain systems. To overcome this problem, an additional piece of infrastructure is required known as an “oracle” which relays data from the real world onto blockchain networks, where it can be consumed by smart contracts.\n\nChainlink DONs consist of a network of independent oracle node operators that fetch, aggregate, validate, and deliver real-world data on-chain. Each oracle node can specialise in providing different decentralised services on the behalf of smart contracts. Chainlink DONs support two different ways of delivering off-chain data to on-chain smart contracts. The Chainlink token (LINK) is used to incentivize the proper operation of Chainlink DONs. The token has also been bridged across multiple blockchains to enable native Chainlink oracle integrations.",
+    "website": "https://chain.link/",
+    "blog": "https://blog.chain.link/",
+    "twitter": "https://twitter.com/chainlink",
+    "telegram": "https://t.me/chainlinkofficial",
+    "discord": "",
+    "dominantColour": "#2A5BDB"
+}
