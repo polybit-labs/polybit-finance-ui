@@ -1,0 +1,37 @@
+{
+    "category": "Metaverse",
+    "descriptionTitle": "Welcome to the Metaverse: A World of Infinite Possibilities",
+    "description": "The Metaverse is more than just a buzzword, it's a new reality that is taking shape before our eyes. A virtual world that is limited only by our imagination, the Metaverse has the potential to revolutionise the way we live, work, and play.\n\nAt its core, the Metaverse is a space where people can come together, collaborate, and create new experiences that transcend the physical limitations of the real world. It's a place where you can be anyone or anything you want to be, and where your creativity and innovation can run wild.\n\nImagine stepping into a world where you can explore ancient ruins, attend concerts with your favourite musicians, or even attend meetings and conferences without ever leaving your home. The possibilities are endless, and the Metaverse is only just beginning to scratch the surface of what it can offer.\n\nNot only does the Metaverse offer new opportunities for entertainment and social interaction, but it also has the potential to revolutionise industries like education, healthcare, and even real estate. With the power of virtual reality and augmented reality, we can create immersive learning experiences that make education more accessible and engaging than ever before.\n\nIn the Metaverse, the possibilities are limited only by our imagination. It's a world where we can shape our own destiny and create new realities that bring people together in ways that were previously impossible.",
+    "detfs": [
+        {
+            "chainId": 56,
+            "chainName": "BNB Smart Chain",
+            "productId": 5610021000,
+            "category": "Metaverse",
+            "dimension": "Market Cap",
+            "description": [
+                "Metaverse Market Cap DETF tracks metaverse tokens on the Binance Smart Chain, weighted by the total global market cap, across all centralised and decentralised exchanges."
+            ]
+        },
+        {
+            "chainId": 56,
+            "chainName": "BNB Smart Chain",
+            "productId": 5610021001,
+            "category": "Metaverse",
+            "dimension": "Liquidity",
+            "description": [
+                "Metaverse Liquidity DETF tracks metaverse themed tokens on the Binance Smart Chain, weighted by the total liquidity available in the decentralised exchanges that Polybit aggregates."
+            ]
+        },
+        {
+            "chainId": 56,
+            "chainName": "BNB Smart Chain",
+            "productId": 5610021002,
+            "category": "Metaverse",
+            "dimension": "Equally Balanced",
+            "description": [
+                "Metaverse Equally Balanced DETF tracks metaverse themed tokens on the Binance Smart Chain, equally weighted by the total number of tokens in the DETF."
+            ]
+        }
+    ]
+}

@@ -1,3 +1,8 @@
 # https://www.robotstxt.org/robotstxt.html
 User-agent: *
-Disallow:
+Disallow: /deposit
+Disallow: /establish-detf
+Disallow: /close-detf
+Disallow: /establish-deposit
+Disallow: /fees
+Disallow: /exchange

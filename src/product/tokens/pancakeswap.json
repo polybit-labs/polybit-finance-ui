@@ -1,0 +1,13 @@
+{
+    "name": "PancakeSwap",
+    "symbol": "CAKE",
+    "logoURI": "https://polybit-finance.s3.ap-southeast-1.amazonaws.com/assets/tokens/images/56/0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82.png",
+    "overview": "PancakeSwap has made quite a splash in the world of decentralised finance (DeFi) since its launch in September 2020. It is a decentralised exchange (DEX) built on Binance Smart Chain (BSC), which provides faster and cheaper transactions compared to Ethereum. PancakeSwap's automated market making (AMM) system allows users to trade tokens, provide liquidity via farming, and earn fees in return. Additionally, PancakeSwap offers yield farming across other protocols, lotteries, and initial farm offerings (IFO), making it a diversified DeFi institution.",
+    "history": "At the time of PancakeSwap's launch, Ethereum was suffering from expensive and slow transactions due to the massive demand for transactions driven by DeFi's mainstream moment in 2020. Almost all DeFi applications lived on Ethereum at the time, but PancakeSwap had an advantage with BSC's cheaper and faster transactions. PancakeSwap also had a lower swap fee of 0.2%, compared to the industry standard of 0.3%, which contributed to its rapid growth in trading volume and total value locked (TVL). In February 2021, PancakeSwap became one of the largest decentralised exchanges by trading volume, standing toe-to-toe with Ethereum darling Uniswap. \n\nPancakeSwap's growth continued throughout 2021, thanks to its strong branding and delivery of new and innovative features. The governance token for PancakeSwap is CAKE, which incentivises liquidity provision to the PancakeSwap platform. The supply of CAKE is not hard-capped, and the team is looking into conducting regular token burns to make deflation higher than emission. PancakeSwap uses an automated market maker model, meaning that there are no order books, and liquidity pools are used instead. Users can earn income by becoming a liquidity provider by adding their tokens to the liquidity pool, farming LP tokens, and staking their CAKE to earn rewards. The PancakeSwap token CAKE can also be used to enter lotteries and win non-fungible tokens.",
+    "website": "https://pancakeswap.finance/",
+    "blog": "https://medium.com/@pancakeswap",
+    "twitter": "https://twitter.com/pancakeswap",
+    "telegram": "https://t.me/PancakeSwap",
+    "discord": "",
+    "dominantColour": "#46B9E0"
+}

@@ -1,0 +1,37 @@
+{
+    "category": "DeFi",
+    "descriptionTitle": "DeFi: The Financial Revolution of the Future",
+    "description": "DeFi, or decentralised finance, is not just a trend, it's a new paradigm that has the potential to revolutionise the financial industry as we know it. By leveraging blockchain technology, DeFi is creating a new, decentralised financial ecosystem that is open to everyone, without the need for intermediaries.\n\nIn the DeFi world, transactions are transparent, secure, and automated, making it easier than ever before for people to access financial services and products. With DeFi, anyone with an internet connection can access loans, trade assets, and even earn interest on their investments, all without the need for traditional banks or financial institutions.\n\nBut the true power of DeFi lies in its ability to create a more equitable financial system, one that is not controlled by a select few. With DeFi, individuals can take control of their own finances, and participate in a more democratic and decentralised economy.\n\nDeFi is a movement that is gaining momentum every day. From lending platforms to decentralised exchanges, DeFi is creating a new financial infrastructure that is transparent, efficient, and accessible to everyone.\n\nIn the DeFi world, the possibilities are endless, and the potential for innovation and growth is unparalleled. With the power of blockchain technology, we can create a financial system that is truly inclusive, and that empowers individuals to take control of their own financial futures.",
+    "detfs": [
+        {
+            "chainId": 56,
+            "chainName": "BNB Smart Chain",
+            "productId": 5610011000,
+            "category": "DeFi",
+            "dimension": "Market Cap",
+            "description": [
+                "DeFi Market Cap DETF tracks DeFi themed tokens on the Binance Smart Chain, weighted by the total global market cap, across all centralised and decentralised exchanges."
+            ]
+        },
+        {
+            "chainId": 56,
+            "chainName": "BNB Smart Chain",
+            "productId": 5610011001,
+            "category": "DeFi",
+            "dimension": "Liquidity",
+            "description": [
+                "DeFi Liquidity DETF tracks DeFi themed tokens on the Binance Smart Chain, weighted by the total liquidity available in the decentralised exchanges that Polybit aggregates."
+            ]
+        },
+        {
+            "chainId": 56,
+            "chainName": "BNB Smart Chain",
+            "productId": 5610011002,
+            "category": "DeFi",
+            "dimension": "Equally Balanced",
+            "description": [
+                "DeFi Equally Balanced DETF tracks DeFi themed tokens on the Binance Smart Chain, equally weighted by the total number of tokens in the DETF."
+            ]
+        }
+    ]
+}

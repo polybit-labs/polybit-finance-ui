@@ -1,0 +1,13 @@
+{
+    "name": "Chromia",
+    "symbol": "CHR",
+    "logoURI": "https://polybit-finance.s3.ap-southeast-1.amazonaws.com/assets/tokens/images/56/0xf9CeC8d50f6c8ad3Fb6dcCEC577e05aA32B224FE.png",
+    "overview": "Chromia is a blockchain project that aims to provide enhanced features for decentralised applications (dApps) by improving data handling, storage, and scalability. Chromia operates as a standalone Layer-1 blockchain that is compatible with the Ethereum Virtual Machine (EVM) as a Layer-2 solution. It uses a unique architecture called relational blockchain and a custom programming language called Rell to enable developers to leverage blockchain's security and immutability while handling data with the efficiency of a relational database. Each dApp on Chromia operates on its own sidechain, giving developers the flexibility to choose from a variety of fee structures.",
+    "history": "Chromia was conceived by Chromaway AB, a Swedish company, and launched its Chroma token (CHR) in May 2019. Chromia's technology is adapted from an earlier technology called Postchain, which was a solution provided by Chromaway AB for enterprise clients.\n\nChromia already has a wide variety of applications built on its blockchain, such as the decentralised options trading platform Hedget, the open-world farming game My Neighbor Alice, and the government land registry initiative LAC PropertyChain. Chromia also has a new NFT standard in development called Chromia Originals, which will operate both as a native standard on Chromia's chain and as an enhancement layer for existing ERC-721 and BEP-721 tokens. Chromia's core team consists of industry veterans Or Perelman, Henrik Hjelte, and Alex Mizrahi, who have deep roots in the crypto space going back to the early days of Bitcoin and Ethereum.",
+    "website": "https://chromia.com/",
+    "blog": "https://blog.chromia.com/",
+    "twitter": "https://twitter.com/chromia",
+    "telegram": "https://t.me/hellochromia",
+    "discord": "",
+    "dominantColour": "#FFB0C2"
+}

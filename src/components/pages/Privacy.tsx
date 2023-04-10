@@ -5,6 +5,7 @@ import ReactGA from "react-ga4"
 import { useLocation } from "react-router-dom"
 import { useEffect } from "react"
 import { initialiseGA4 } from "../utils/Analytics"
+import { Helmet } from "react-helmet-async"
 
 const Privacy = () => {
     const location = useLocation()
@@ -14,6 +15,10 @@ const Privacy = () => {
     }, [])
     return (
         <>
+            <Helmet>
+                <title>Privacy Policy | Polybit Finance</title>
+                <meta name="description" content="" />
+            </Helmet>
             <TitleContainer title="Privacy Policy" />
             <PrivacyPolicy />
             <Footer />

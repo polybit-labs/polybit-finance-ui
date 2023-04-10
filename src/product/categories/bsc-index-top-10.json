@@ -1,0 +1,37 @@
+{
+    "category": "BSC Index Top 10",
+    "descriptionTitle": "Binance Smart Chain: Empowering the Future of Decentralised Finance",
+    "description": "The Binance Smart Chain is not just another blockchain, it's a game-changing platform that is driving the future of decentralised finance. With its fast and low-cost transactions, interoperability with other blockchains, and easy-to-use development tools, the Binance Smart Chain is making DeFi more accessible and efficient than ever before.\n\nBuilt on top of the Binance Chain, the Binance Smart Chain offers a powerful combination of security, scalability, and decentralisation. It allows developers to build decentralised applications (dApps) that can support complex financial transactions, such as decentralised exchanges, lending platforms, and more.\n\nBut the true power of the Binance Smart Chain lies in its ability to connect with other blockchains, creating a more seamless and interoperable DeFi ecosystem. With its cross-chain capabilities, the Binance Smart Chain is making it easier for users to move assets between different blockchain networks, enabling greater liquidity and access to a wider range of financial products and services.\n\nIn the world of DeFi, the Binance Smart Chain is already making a significant impact. Its user-friendly development tools and support for popular programming languages are attracting a growing community of developers and entrepreneurs, who are building innovative dApps that are pushing the boundaries of what's possible in finance.",
+    "detfs": [
+        {
+            "chainId": 56,
+            "chainName": "BNB Smart Chain",
+            "productId": 5610001000,
+            "category": "BSC Index Top 10",
+            "dimension": "Market Cap",
+            "description": [
+                "BSC Index Top 10 Equally Balanced DETF tracks the top 10 tokens on the Binance Smart Chain, weighted by the total global market cap, across all centralised and decentralised exchanges."
+            ]
+        },
+        {
+            "chainId": 56,
+            "chainName": "BNB Smart Chain",
+            "productId": 5610001001,
+            "category": "BSC Index Top 10",
+            "dimension": "Liquidity",
+            "description": [
+                "BSC Index Top 10 Equally Balanced DETF tracks the top 10 tokens on the Binance Smart Chain, weighted by the total liquidity available in the decentralised exchanges that Polybit aggregates."
+            ]
+        },
+        {
+            "chainId": 56,
+            "chainName": "BNB Smart Chain",
+            "productId": 5610001002,
+            "category": "BSC Index Top 10",
+            "dimension": "Equally Balanced",
+            "description": [
+                "BSC Index Top 10 Equally Balanced DETF tracks the top 10 tokens on the Binance Smart Chain, equally weighted by the total number of tokens in the DETF."
+            ]
+        }
+    ]
+}

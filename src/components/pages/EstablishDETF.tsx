@@ -13,6 +13,7 @@ import { SwitchNetwork } from "../SwitchNetwork"
 import ReactGA from "react-ga4"
 import { initialiseGA4 } from '../utils/Analytics'
 import { LockedBeta } from '../LockedBeta'
+import { Helmet } from 'react-helmet-async'
 
 function EstablishDETF() {
     const location = useLocation()
@@ -41,6 +42,11 @@ function EstablishDETF() {
     if (window.location.href.includes("polybit.finance")) {
         return (
             <>
+                <Helmet>
+                    <title>Deposit | Polybit Finance</title>
+                    <meta name="description" content="" />
+                    <meta name="robots" content="noindex" />
+                </Helmet>
                 <LockedBeta />
                 <Footer />
             </>
@@ -50,6 +56,11 @@ function EstablishDETF() {
     if (isConnected && !chain?.unsupported) {
         return (
             <>
+                <Helmet>
+                    <title>Deposit | Polybit Finance</title>
+                    <meta name="description" content="" />
+                    <meta name="robots" content="noindex" />
+                </Helmet>
                 {!depositSuccess && <div>
                     <TitleContainer title={title} />
                     <SubTitleContainer info={titleInfo} />
@@ -80,6 +91,11 @@ function EstablishDETF() {
 
     return (
         <>
+            <Helmet>
+                <title>Deposit | Polybit Finance</title>
+                <meta name="description" content="" />
+                <meta name="robots" content="noindex" />
+            </Helmet>
             <TitleContainer title={title} />
             <SubTitleContainer info={subTitleNotConnected} />
             <Connect />

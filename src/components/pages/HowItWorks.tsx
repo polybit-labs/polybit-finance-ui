@@ -6,6 +6,7 @@ import { initialiseGA4 } from "../utils/Analytics"
 import Footer from "./Footer"
 import "./HowItWorks.css"
 import ReactGA from "react-ga4"
+import { Helmet } from "react-helmet-async"
 
 const HowItWorks = () => {
     const location = useLocation()
@@ -17,7 +18,12 @@ const HowItWorks = () => {
     const subTitle = "Polybit’s Decentralised ETFs (DETFs) make the process of investing in digital assets easier, through discovery, investment and risk management."
 
     return (
-        <><TitleContainer title={title} />
+        <>
+            <Helmet>
+                <title>{`How it works | Polybit Finance`}</title>
+                <meta name="description" content={subTitle} />
+            </Helmet>
+            <TitleContainer title={title} />
             <SubTitleContainer info={subTitle} />
             <div className="how-it-works-container">
                 <div className="how-it-works-container-desktop">

@@ -21,8 +21,8 @@ export const DETFSummary = (props: DETFSumaryProps) => {
     const tokens: Array<any> = [] = props.productData.tokens
     const tokenCount: number = tokens.length
     const totalLiquidity = props.productData.total_liquidity.liquidity_bnb
-    const depositFee = "0.5%"
-    const performanceFee = "10%"
+    const entryFee = "0.5%"
+    const exitFee = "0.5%"
 
     return (
         <div>
@@ -81,11 +81,11 @@ export const DETFSummary = (props: DETFSumaryProps) => {
                             </tr>
                             <tr>
                                 <td className="detf-summary-info-table-cell-title">Entry Fee</td>
-                                <td className="detf-summary-info-table-cell-contents">{parseFloat((depositFee).toString()).toFixed(1)}%</td>
+                                <td className="detf-summary-info-table-cell-contents">{parseFloat((entryFee).toString()).toFixed(1)}%</td>
                             </tr>
                             <tr>
                                 <td className="detf-summary-info-table-cell-title">Exit Fee</td>
-                                <td className="detf-summary-info-table-cell-contents">{parseFloat((depositFee).toString()).toFixed(1)}%</td>
+                                <td className="detf-summary-info-table-cell-contents">{parseFloat((exitFee).toString()).toFixed(1)}%</td>
                             </tr>
                         </tbody>
                     </table>

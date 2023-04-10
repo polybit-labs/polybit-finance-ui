@@ -13,6 +13,13 @@ const Footer = () => {
                         </Link>
                     </div>
                     <div className="footer-link-items">
+                        <h2>DETF Categories</h2>
+                        <Link reloadDocument to="/detfs/category/bsc-index-top-10"><u>BSC Index Top 10</u></Link>
+                        <Link reloadDocument to="/detfs/category/defi"><u>DeFi</u></Link>
+                        <Link reloadDocument to="/detfs/category/governance"><u>Governance</u></Link>
+                        <Link reloadDocument to="/detfs/category/metaverse"><u>Metaverse</u></Link>
+                    </div>
+                    <div className="footer-link-items">
                         <h2>Legal</h2>
                         <Link to="/privacy-policy"><u>Privacy Policy</u></Link>
                     </div>

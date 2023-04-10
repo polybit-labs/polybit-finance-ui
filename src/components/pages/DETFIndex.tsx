@@ -13,6 +13,7 @@ import { GetDETFIndexData } from '../api/GetDETFIndexData'
 import { useLocation } from 'react-router-dom'
 import { initialiseGA4 } from '../utils/Analytics'
 import ReactGA from "react-ga4"
+import { Helmet } from 'react-helmet-async'
 
 const DETFIndex = () => {
     const location = useLocation()
@@ -123,6 +124,10 @@ const DETFIndex = () => {
 
         return (
             <>
+                <Helmet>
+                    <title>{`DETF Index | Polybit Finance`}</title>
+                    <meta name="description" content="Displaying investment strategies in all categories with all dimensions" />
+                </Helmet>
                 <TitleContainer title={title} />
                 <SubTitleContainer info={subTitle} />
                 <DETFIndexList detfIndex={detfData} vsPrices={vsPrices} currency={currency} categoryFilter={categoryFilter} dimensionFilter={dimensionFilter} />
@@ -132,6 +137,10 @@ const DETFIndex = () => {
     }
 
     return (<>
+        <Helmet>
+            <title>{`DETF Index | Polybit Finance`}</title>
+            <meta name="description" content="Displaying investment strategies in all categories with all dimensions" />
+        </Helmet>
         <TitleContainer title={title} />
         <SubTitleContainer info={info} />
         <Loading />

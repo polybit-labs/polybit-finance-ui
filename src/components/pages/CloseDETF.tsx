@@ -9,6 +9,7 @@ import { WithdrawSummary } from "../WithdrawSummary"
 import { WithdrawSuccess } from "../WithdrawSuccess"
 import { initialiseGA4 } from "../utils/Analytics"
 import ReactGA from "react-ga4"
+import { Helmet } from "react-helmet-async"
 
 export const CloseDETF = () => {
     const location = useLocation()
@@ -23,6 +24,11 @@ export const CloseDETF = () => {
     if (!withdrawSuccess) {
         return (
             <>
+                <Helmet>
+                    <title>{`Exit DETF | Polybit Finance`}</title>
+                    <meta name="description" content="Exit and withdraw funds" />
+                    <meta name="robots" content="noindex" />
+                </Helmet>
                 <TitleContainer title="Exit and withdraw funds" />
                 <SubTitleContainer info="By exiting this DETF, the balance of your funds will be returned to your connected wallet in BNB."
                 />

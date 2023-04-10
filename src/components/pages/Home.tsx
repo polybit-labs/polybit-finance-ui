@@ -6,6 +6,7 @@ import ReactGA from "react-ga4"
 import { useEffect } from 'react'
 import { initialiseGA4 } from '../utils/Analytics'
 import { useLocation } from 'react-router-dom'
+import { Helmet } from 'react-helmet-async'
 
 const Home = () => {
     const location = useLocation()
@@ -16,6 +17,10 @@ const Home = () => {
 
     return (
         <>
+            <Helmet>
+                <title>Polybit Finance</title>
+                <meta name="description" content="Invest in ideas of the future." />
+            </Helmet>
             <TitleContainer title="Invest in ideas of the future." />
             <Hero />
             <TopDETFs />

@@ -1,69 +1,113 @@
-import { ColourCategories, DETFIconFilename } from "../utils/Formatting"
+import { useEffect, useState } from "react"
+import { Helmet } from "react-helmet-async"
+import { useParams } from "react-router-dom"
+import { CategoryData, GetCategoryData } from "../api/GetCategoryData"
+import { CategoryDETFBox } from "../CategoryDETFBox"
+import { ColourCategories } from "../utils/Formatting"
 import "./Category.css"
+import Footer from "./Footer"
+
+export type CategoryProductContent = {
+    "category": string;
+    "descriptionTitle": string;
+    "description": string;
+    "detfs": Array<string>;
+}
 
 export const Category = () => {
-    const tokenIcons: Array<string> = [
-        "https://polybit-finance.s3.ap-southeast-1.amazonaws.com/assets/tokens/images/56/0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82.png",
-        "https://polybit-finance.s3.ap-southeast-1.amazonaws.com/assets/tokens/images/56/0xFeea0bDd3D07eb6FE305938878C0caDBFa169042.png",
-        "https://polybit-finance.s3.ap-southeast-1.amazonaws.com/assets/tokens/images/56/0xBc7d6B50616989655AfD682fb42743507003056D.png",
-        "https://polybit-finance.s3.ap-southeast-1.amazonaws.com/assets/tokens/images/56/0x3EE2200Efb3400fAbB9AacF31297cBdD1d435D47.png",
-        "https://polybit-finance.s3.ap-southeast-1.amazonaws.com/assets/tokens/images/56/0x6bfF4Fb161347ad7de4A625AE5aa3A1CA7077819.png",
-        "https://polybit-finance.s3.ap-southeast-1.amazonaws.com/assets/tokens/images/56/0xAC51066d7bEC65Dc4589368da368b212745d63E8.png",
-        "https://polybit-finance.s3.ap-southeast-1.amazonaws.com/assets/tokens/images/56/0xc5E6689C9c8B02be7C49912Ef19e79cF24977f03.png",
-        "https://polybit-finance.s3.ap-southeast-1.amazonaws.com/assets/tokens/images/56/0x8F0528cE5eF7B51152A59745bEfDD91D97091d2F.png",
-        "https://polybit-finance.s3.ap-southeast-1.amazonaws.com/assets/tokens/images/56/0xa1faa113cbE53436Df28FF0aEe54275c13B40975.png",
-        "https://polybit-finance.s3.ap-southeast-1.amazonaws.com/assets/tokens/images/56/0xDB021b1B247fe2F1fa57e0A87C748Cc1E321F07F.png"
-    ]
-    const iconSizes: Array<any> = [240, 160, 110, 90, 80, 80, 60, 50, 40, 50]
-    const leftCoordinates: Array<number> = [
-        97,
-        18,
-        340,
-        300,
-        10,
-        226,
-        304,
-        350,
-        128,
-        58
-    ]
-    const topCoordinates: Array<number> = [
-        69,
-        0,
-        20,
-        280,
-        230,
-        13,
-        226,
-        150,
-        280,
-        304
-    ]
+    const urlCategoryId = useParams().urlCategoryId
+    const product = require(`../../product/categories/${urlCategoryId}.json`)
+    const [productContent, setProductContent] = useState<CategoryProductContent>()
+    const { response: category, isSuccess: categoryDataSuccess } = GetCategoryData(urlCategoryId ? urlCategoryId : "")
+    const [categoryData, setCategoryData] = useState<Array<CategoryData>>()
+    const [combinedData, setCombinedData] = useState<Array<any>>()
 
-    const zIndexes: Array<number> = [8, 6, 4, 3, 5, 9, 8, 7, 2, 10, 1]
-    const array = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-    const shuffledArray: Array<any> = array.sort((a, b) => 0.5 - Math.random())
+    useEffect(() => {
+        product && setProductContent(product)
+        category && setCategoryData(category)
+    }, [urlCategoryId, categoryDataSuccess])
 
-    return (
-        <div className="category">
-            <div className="category-container">
-                <div className="category-title">
-                    <img className="detf-name-logo" src={require(`../../assets/icons/${DETFIconFilename("Governance", "Liquidity")}`)}></img>
-                    <div style={{ color: ColourCategories("Governance") }}>{"Governance"}</div>                </div>
-                <div className="category-main">
-                    <div className="category-main-content">
-                        main title
-                    </div>
-                    <div className="category-icons-container">
-                        <div className="category-icons">
-                            {shuffledArray.map((randNumber: number, index: number) =>
-                                <img key={randNumber} className="category-icon" src={tokenIcons[randNumber]} height={`${iconSizes[index]}px`} width={`${iconSizes[index]}px`} style={{ top: topCoordinates[index], left: leftCoordinates[index], zIndex: zIndexes[index] }} />
-                            )}
+    useEffect(() => {
+        let combined: Array<any> = []
+
+        categoryData && productContent && productContent["detfs"].map((i: any) => {
+            let performance7d: number = 0
+            let performanceData: Array<number> = []
+            categoryData?.map((j: any) => {
+                if ((i.category.replaceAll(" ", "-").toLowerCase() === j.category) && (i.dimension.replaceAll(" ", "-").toLowerCase() === j.dimension)) {
+                    performance7d = j.performance_7d
+                    performanceData = j.performance_data
+                }
+            })
+            combined.push({
+                "chainId": i.chainId,
+                "chainName": i.chainName,
+                "category": i.category,
+                "description": i.description,
+                "dimension": i.dimension,
+                "performance7d": performance7d,
+                "performanceData": performanceData
+            })
+        })
+        combined && setCombinedData(combined)
+    }, [categoryData, productContent])
+
+    if (combinedData && productContent) {
+        return (
+            <>
+                <Helmet>
+                    <title>{`${productContent["category"]} DETFs | Polybit Finance`}</title>
+                    <meta name="description" content={productContent["descriptionTitle"]} />
+                </Helmet>
+                <div className="category">
+                    <div className="category-container">
+                        <div className="category-title">
+                            <div className="category-title-name-wrapper">
+                                <img className="category-title-name-logo" src={require(`../../assets/icons/${urlCategoryId}.png`)}></img>
+                                <div className="category-title-name" style={{ color: ColourCategories(productContent["category"]) }}>
+                                    {productContent["category"]}
+                                </div>
+                            </div>
+                        </div>
+                        <div className="category-main-desktop">
+                            <div className="category-main-content-desktop">
+                                <h2>{productContent["descriptionTitle"]}</h2>
+                                <br />
+                                <p>{productContent["description"]}</p>
+                            </div>
+                            <div className="category-icons-container-desktop">
+                                <img className="category-icons" src={require(`../../assets/images/category_${urlCategoryId}_logos.png`)}></img>
+                            </div>
+                        </div>
+                        <div className="category-main-mobile">
+                            <div className="category-icons-container-mobile">
+                                <img className="category-icons" src={require(`../../assets/images/category_${urlCategoryId}_logos.png`)}></img>
+                            </div>
+                            <div className="category-main-content-mobile">
+                                <h2>{productContent["descriptionTitle"]}</h2>
+                                <br />
+                                <p>{productContent["description"]}</p>
+                            </div>
+                        </div>
+                        <div className="category-cta">
+                            {`Explore ${productContent["category"]} DETFs`}
+                        </div>
+                        <div className="category-detfs-container">
+                            <ul className="category-detf-boxes">
+                                {combinedData && combinedData.map((detf: any, index: number) =>
+                                    <li className="category-detf-box" key={index}>
+                                        <CategoryDETFBox chainId={detf.chainId} chainName={detf.chainName} category={detf.category} dimension={detf.dimension} description={detf.description} performance7d={detf.performance7d} performanceData={detf.performanceData} />
+                                    </li>
+                                )}
+                            </ul>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    )
+                <Footer />
+            </>
+        )
+    }
+
+    return (<></>)
 
 }

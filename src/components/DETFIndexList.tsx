@@ -53,7 +53,7 @@ const DETFIndexList = (props: DETFIndexListProps) => {
                             case "TWD": return (props.vsPrices.twd)
                             case "USD": return (props.vsPrices.usd)
                         }
-                    })()), 0),
+                    })()), 2),
                 "returnOneWeek": detf.return_one_week,
                 "returnOneMonth": detf.return_one_month,
                 "returnThreeMonths": detf.return_three_months,

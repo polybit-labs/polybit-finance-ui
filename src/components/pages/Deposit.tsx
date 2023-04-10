@@ -7,6 +7,7 @@ import { useAccount } from "wagmi"
 import Footer from './Footer'
 import { Progress } from '../Progress'
 import { DepositContainer } from '../deposit/DepositContainer'
+import { Helmet } from 'react-helmet-async'
 
 function Deposit() {
     const location = useLocation()
@@ -25,6 +26,11 @@ function Deposit() {
 
     return (
         <>
+            <Helmet>
+                <title>Deposit | Polybit Finance</title>
+                <meta name="description" content="" />
+                <meta name="robots" content="noindex" />
+            </Helmet>
             {!depositSuccess && <div>
                 <TitleContainer title={title} />
                 <SubTitleContainer info={`You are about to invest funds from your address ${TruncateAddress(walletOwner ? walletOwner : "")} into the ${category} ${dimension} DETF using ${connector?.name}.`} />

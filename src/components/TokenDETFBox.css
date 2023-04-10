@@ -1,0 +1,133 @@
+.token-detf-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #EEEEEE;
+    border-radius: 8px;
+    border: 1px solid white;
+    padding: 20px;
+}
+
+.token-detf-box-loading {
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #EEEEEE;
+    border-radius: 8px;
+    border: 1px solid white;
+    padding: 20px;
+}
+
+.token-detf-box-header {
+    display: flex;
+    flex-direction: column;
+    /*     justify-content: space-between;
+ */
+    align-items: left;
+    width: 100%;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.token-detf-box-header-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+}
+
+.token-detf-box-header-title-name {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: left;
+}
+
+.token-detf-box-header-title-name-category {
+    font-size: 16px;
+    line-height: 16px;
+}
+
+.token-detf-box-header-title-name-dimension {
+    font-size: 24px;
+    line-height: 24px;
+}
+
+.token-detf-box-header-title-logo {
+    width: 44px;
+    height: 44px;
+    margin-right: 10px;
+}
+
+.token-detf-box-chart {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.token-detf-container-button-wrapper {
+    width: 100%;
+    margin-top: 60px;
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    align-items: center;
+}
+
+.token-detf-box-header-return {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: left;
+    margin-left: 54px;
+}
+
+/* Small devices (landscape phones, 576px and up) */
+
+@media (max-width: 719px) {
+    .token-detf-box {
+        height: 266px;
+    }
+
+    .token-detf-box-header {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .token-detf-container-button-wrapper-mobile {
+        margin-top: 30px;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+/* Medium devices (tablets, 768px and up) */
+
+@media (min-width: 720px) {
+    .token-detf-box {
+        height: 300px;
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+
+@media (min-width: 960px) {
+    .token-detf-box {
+        height: 300px;
+    }
+}
+
+/*Extra large devices (large desktops, 1200px and up)*/
+
+@media (min-width: 1025px) {
+    .token-detf-box {
+        height: 300px;
+    }
+}

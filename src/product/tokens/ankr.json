@@ -1,0 +1,13 @@
+{
+    "name": "Ankr",
+    "symbol": "ANKR",
+    "logoURI": "https://polybit-finance.s3.ap-southeast-1.amazonaws.com/assets/tokens/images/56/0xf307910A4c7bbc79691fD374889b36d8531B08e3.png",
+    "overview": "In today's world, idle processing power is a wasted resource, and Ankr aims to change that by creating a shared cloud economy that leverages unused computing resources in data centres and edge devices. Ankr provides a distributed computing platform that offers a full suite of multi-chain tools for Web3 users, including Ankr Build, Ankr Earn, and Ankr Learn. This infrastructure helps to drive the growth of the crypto economy while empowering developers, investors, and anyone interested in learning more about blockchain-based systems.",
+    "history": "Ankr was founded in 2017 by Chandler Song and Ryan Fang, who were early participants in the Blockchain at Berkeley program while studying at the University of California, Berkeley. Chandler was working as an engineer at Amazon Web Services when he met Stanley Wu, the third co-founder. Together, they set out on a mission to build the most decentralised and scalable Web3 infrastructure possible. \n\nAnkr provides comprehensive blockchain developer solutions, including traditional APIs, a decentralised multi-chain network of public RPC nodes used to access blockchain data and execute code, and tools like Ankr Scan to view on-chain information across blockchains. Ankr also makes staking, liquid staking, and other yield-earning opportunities accessible to any crypto investor through Ankr Earn. It creates the most scalable and decentralised staking infrastructure solution that aims to solve the capital inefficiency of Proof-of-Stake networks and similar blockchain consensus mechanisms. \n\nThrough Ankr's learning tools, tutorials, and docs, anyone can become a better user or developer of blockchain-based systems. Ankr is uniquely positioned as a node infrastructure and decentralised web services provider that allows DApps and blockchains to run and communicate with each other seamlessly while allowing users to earn more with their assets by delegating them easily to validator nodes. This is in contrast to centralised solutions like AWS Blockchain and many others.",
+    "website": "https://ankr.com/",
+    "blog": "https://medium.com/ankr-network",
+    "twitter": "https://twitter.com/ankr",
+    "telegram": "https://t.me/ankrnetwork",
+    "discord": "https://discord.com/invite/ankr",
+    "dominantColour": "#3A6BE8"
+}
