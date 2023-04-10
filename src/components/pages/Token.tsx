@@ -63,12 +63,14 @@ export const Token = () => {
                             <TokenSummary tokenContent={tokenContent} tokenData={tokenData} currency={currency} />
                         </li>
                     </ul>
-                    <div className="featured-title" style={{ color: tokenContent["dominantColour"] }}>Featured DETFs</div>
-                    <ul className="token-detf-boxes">
-                        {tokenData["detfs"].map((detf: any, index: number) =>
-                            <li key={index} ><TokenDETFBox urlChainId={detf.chain_id} urlCategoryId={detf.category} urlDimensionId={detf.dimension} return={detf.performance_7d} performanceData={detf.performance_data} /></li>
-                        )}
-                    </ul>
+                    {tokenData["detfs"].length > 0 && <>
+                        <div className="featured-title" style={{ color: tokenContent["dominantColour"] }}>Featured DETFs</div>
+                        <ul className="token-detf-boxes">
+                            {tokenData["detfs"].map((detf: any, index: number) =>
+                                <li key={index} ><TokenDETFBox urlChainId={detf.chain_id} urlCategoryId={detf.category} urlDimensionId={detf.dimension} return={detf.performance_7d} performanceData={detf.performance_data} /></li>
+                            )}
+                        </ul>
+                    </>}
                 </div>
             </div>
             <Footer />
