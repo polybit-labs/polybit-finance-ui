@@ -1,6 +1,7 @@
 import { FormatCurrency } from './utils/Currency'
 import "./DETFOwnedAssetsTable.css"
 import FallbackLogo from "../assets/images/placeholder.png"
+import { Link } from 'react-router-dom';
 
 interface DETFAssetsTableProps {
     tokens: Array<any>;
@@ -14,7 +15,7 @@ export const DETFOwnedAssetsTable = (props: DETFAssetsTableProps) => {
         ownedAssets.push({
             "tokenAddress": token.token_address,
             "tokenLogo": token.token_logo,
-            "tokenName": token.token_name,
+            "tokenName": token.token_name.toString(),
             "tokenBalance": FormatCurrency((Number(token.token_balance)
                 / 10 ** 18 *
                 (() => {
@@ -56,7 +57,9 @@ export const DETFOwnedAssetsTable = (props: DETFAssetsTableProps) => {
                                     <td className="detf-owned-assets-body-item-token">
                                         <div className="detf-owned-assets-token-logo">
                                             <img className="detf-token-logo" src={token.tokenLogo ? token.tokenLogo : FallbackLogo} alt={token.tokenName}></img>
-                                            <b>{token.tokenName}</b>
+                                            <Link className="detf-owned-assets-token-link" to={`/tokens/${token.tokenName.toLowerCase().replaceAll(" ", "-").replaceAll(".", "-")}`} >
+                                                <b>{token.tokenName}</b>
+                                            </Link>
                                         </div>
                                     </td>
                                     <td className="detf-owned-assets-body-item-liquidity">
@@ -82,7 +85,9 @@ export const DETFOwnedAssetsTable = (props: DETFAssetsTableProps) => {
                                     <td className="detf-owned-assets-body-item-token-mobile">
                                         <div className="detf-owned-assets-token-logo-mobile">
                                             <img className="detf-token-logo-mobile" src={token.tokenLogo ? token.tokenLogo : FallbackLogo} alt={token.tokenName}></img>
-                                            <b>{token.tokenName}</b>
+                                            <Link className="detf-owned-assets-token-link" to={`/tokens/${token.tokenName.toLowerCase().replaceAll(" ", "-").replaceAll(".", "-")}`} >
+                                                <b>{token.tokenName}</b>
+                                            </Link>
                                         </div>
                                     </td>
                                     <td className="detf-owned-assets-body-item-liquidity-mobile">

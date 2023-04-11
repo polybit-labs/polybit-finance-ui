@@ -1,0 +1,13 @@
+{
+    "name": "Sushi",
+    "symbol": "SUSHI",
+    "logoURI": "https://polybit-finance.s3.ap-southeast-1.amazonaws.com/assets/tokens/images/56/0x947950BcC74888a40Ffa2593C5798F11Fc9124C4.png",
+    "overview": "Sushi is a revolutionary DeFi protocol that has taken the cryptocurrency community by storm. It offers a completely community-driven platform that serves up delicious interest for your held crypto assets. With passive-income providing tools such as liquidity providing, yield farming, and staking, Sushi has quickly become a go-to platform for cryptocurrency enthusiasts. One of the unique features of Sushi is its decentralised nature as an Automated Market Maker (AMM), which allows for seamless execution of cryptocurrency trades with fees paid directly to the users who provide liquidity. This aligns with the ethos of true decentralisation, making Sushi a favourite among DeFi enthusiasts.",
+    "history": "Sushi was announced in September 2020 by an anonymous developer who goes by the name of Chef Nomi. The platform quickly gained attention in the DeFi community for its community-driven approach to trading. However, Chef Nomi's sudden exit from the project, after removing $14 million in SUSHI tokens from the development fund, raised concerns about the platform's future. Many believed that this incident had damaged Sushi's reputation too much for the platform to recover.\n\nBut 0xMaki, an early believer in Sushi, stepped up to fill the void left by Chef Nomi and became the new leader of Sushi. Under his leadership, Sushi made an incredible comeback, surpassing Uniswap in total platform liquidity on multiple occasions. Despite the challenges, the Sushi community and team demonstrated resilience and determination to build the platform beyond its early days.\n\nLed by 0xMaki, Sushi now boasts a larger team of talented individuals who are constantly innovating and creating new products such as BentoBox, Kashi, MISO, Mirin, and Shoyu. This demonstrates that Sushi's history has only just begun, and the platform is poised for even greater success in the future.",
+    "website": "https://sushi.com/",
+    "blog": "https://medium.com/sushiswap-org",
+    "twitter": "https://twitter.com/sushiswap",
+    "telegram": "",
+    "discord": "https://discord.gg/MsVBwEc",
+    "dominantColour": "#FA52A0"
+}

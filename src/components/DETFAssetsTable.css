@@ -37,6 +37,11 @@
     margin-right: 10px;
 }
 
+.detf-assets-token-link {
+    color: #000000;
+    text-decoration: none;
+}
+
 /* Small devices (landscape phones, 576px and up) */
 
 @media (max-width: 719px) {

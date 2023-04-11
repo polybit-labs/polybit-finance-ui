@@ -1,0 +1,13 @@
+{
+    "name": "Horizon Protocol",
+    "symbol": "HZN",
+    "logoURI": "https://polybit-finance.s3.ap-southeast-1.amazonaws.com/assets/tokens/images/56/0xC0eFf7749b125444953ef89682201Fb8c6A917CD.png",
+    "overview": "Horizon Protocol is a new DeFi platform that facilitates the on-chain trading of synthetic assets that represent the real economy. The platform aims to provide exposure to real-world assets risk/return profiles via smart contracts on the blockchain. Horizon Protocol was forked from Synthetix, allowing it to leverage the time-tested derivative liquidity protocol and bring interoperability, scalability, and a whole new array of tradable, real-world derivative products to the DeFi ecosystem. Its commitment to the Binance ecosystem and native implementation on Binance Smart Chain (BSC) offers users the speed and dependability that is currently lacking on the Ethereum blockchain.",
+    "history": "The Horizon Protocol Ecosystem consists of two main parts: Horizon Genesis, for creating synthetic assets, and Horizon Exchange, for trading synthetic assets. The platform is governed by a DAO, where protocol-level decisions are managed and voted on by the community.\n\nHorizon Protocol’s vision is to provide the community with a robust suite of tools to invest and trade with in a secure, trustless, and borderless way, reducing the barriers to entry and providing accessibility by offering a wider range of synthetic assets to the crypto space. The platform allows anyone with access to their own on-chain crypto wallet to gain exposure to virtually any asset, from BTC to AAPL stock to real estate indices and more. By utilising HZN as collateral, users will experience no slippage or liquidity issues normally faced when using conventional DEXs.\n\nHorizon Protocol's token, HZN, serves as collateral as part of the synthesis of tradable synthetic assets (zAssets), drives the reward system, and will eventually facilitate a DAO that will govern the overall protocol and future development. HZN holders provide the foundation and collateral to the platform at a predetermined ratio (currently 750%) to sustain against extreme price fluctuations and shocks to the market. HZN stakers are incentivized with staking rewards proportional to the amount staked and trading fee rewards from the zAsset DEX. This allows for minting and trading of synthetic assets (zAssets) with no slippage and infinite liquidity up to the Total Value Locked (TVL).",
+    "website": "https://horizonprotocol.com/",
+    "blog": "https://horizonprotocol.medium.com/",
+    "twitter": "https://twitter.com/HorizonProtocol",
+    "telegram": "https://t.me/HorizonProtocol",
+    "discord": "https://discord.gg/GxfGJn6afB",
+    "dominantColour": "#3377FF"
+}
