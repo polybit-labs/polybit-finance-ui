@@ -1,0 +1,13 @@
+{
+    "name": "Injective Protocol",
+    "symbol": "INJ",
+    "logoURI": "https://polybit-finance.s3.ap-southeast-1.amazonaws.com/assets/tokens/images/56/0xa2B726B1145A4773F68593CF171187d8EBe4d495.png",
+    "overview": "Injective Protocol is a next-generation blockchain designed specifically for the finance industry. It is an open, interoperable, and fully decentralised platform that enables developers to build and launch powerful DeFi applications such as spot and derivatives exchanges, prediction markets, lending protocols, and more.\n\nInjective Protocol is one of the most exciting and innovative blockchain platforms in the world of finance today. With its fully decentralised, MEV-resistant on-chain order book, Injective provides powerful core financial infrastructure primitives that applications can leverage.\n\nAll forms of financial markets, including spot, perpetual, futures, and options, are fully on-chain, and the platform's decentralised cross-chain bridging infrastructure is compatible with Ethereum, IBC-enabled blockchains, and non-EVM chains like Solana. This makes it easy for developers to build highly interoperable cross-chain DeFi applications with fast transaction times and instant finality.",
+    "history": "Injective Protocol was founded in 2018 by a team of blockchain enthusiasts with a mission to democratise finance and make it accessible to everyone. They noticed the limitations of the existing centralised financial system and the problems it caused, such as a lack of transparency, high fees, and slow transaction times.\n\nWith Injective Protocol, the team wanted to build a platform that would overcome these limitations and offer a truly decentralised financial ecosystem. They started by building a powerful on-chain order book and matching engine for spot, perpetual, futures, and options markets.\n\nToday, the Injective ecosystem has grown to include over 100 projects and more than 150,000 community members globally. The platform is backed by prominent investors like Binance, Pantera Capital, Jump Crypto, and Mark Cuban.",
+    "website": "https://injective.com/",
+    "blog": "https://hub.injective.network/",
+    "twitter": "https://twitter.com/Injective_",
+    "telegram": "https://t.me/joininjective",
+    "discord": "https://discord.com/invite/NK4qdbv",
+    "dominantColour": "#1CCFE9"
+}

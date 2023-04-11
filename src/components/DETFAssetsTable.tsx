@@ -2,6 +2,7 @@ import { CurrencyContext, FormatCurrency } from './utils/Currency'
 import "./DETFAssetsTable.css"
 import { useContext, useEffect, useState } from "react"
 import FallbackLogo from "../assets/images/placeholder.png"
+import { Link } from 'react-router-dom'
 
 interface DETFAssetsTableProps {
     tokens: Array<any>
@@ -55,7 +56,9 @@ export const DETFAssetsTable = (props: DETFAssetsTableProps) => {
                                     <td className="detf-assets-body-item-token">
                                         <div className="detf-assets-token-logo">
                                             <img className="detf-token-logo" src={token.tokenLogo ? token.tokenLogo : FallbackLogo} alt={token.tokenName}></img>
-                                            <b>{token.tokenName}</b>
+                                            <Link className="detf-assets-token-link" to={`/tokens/${token.tokenName.toLowerCase().replaceAll(" ", "-").replaceAll(".", "-")}`} >
+                                                <b>{token.tokenName}</b>
+                                            </Link>
                                         </div>
                                     </td>
                                     <td className="detf-assets-body-item-liquidity">
@@ -94,7 +97,9 @@ export const DETFAssetsTable = (props: DETFAssetsTableProps) => {
                                     <td className="detf-assets-body-item-token-mobile">
                                         <div className="detf-assets-token-logo-mobile">
                                             <img className="detf-token-logo-mobile" src={token.tokenLogo ? token.tokenLogo : FallbackLogo} alt={token.tokenName}></img>
-                                            <b>{token.tokenName}</b>
+                                            <Link className="detf-assets-token-link" to={`/tokens/${token.tokenName.toLowerCase().replaceAll(" ", "-").replaceAll(".", "-")}`} >
+                                                <b>{token.tokenName}</b>
+                                            </Link>
                                         </div>
                                     </td>
                                     {/*<td className="detf-assets-body-item-liquidity-mobile">
