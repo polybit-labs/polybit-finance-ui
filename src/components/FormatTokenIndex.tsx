@@ -11,11 +11,11 @@ export type TokenIndexDataFormatted = {
     "one_year_return": number,
     "global_market_cap_rank": number,
     "sentiment_score": number,
-    "current_price": string,
-    "market_cap": string,
-    "volume_24h": string,
-    "low_24h": string,
-    "high_24h": string,
+    "current_price": number,
+    "market_cap": number,
+    "volume_24h": number,
+    "low_24h": number,
+    "high_24h": number,
     "last_updated": number,
     "detfs": Array<string>
 }
@@ -45,7 +45,7 @@ export const FormatTokenIndex = (currency: string, data: TokenIndexData) => {
                 case "TWD": return (data.current_price.twd)
                 case "USD": return (data.current_price.usd)
             }
-        })()).toString(),
+        })()),
         "market_cap": Number((() => {
             switch (currency) {
                 case "AUD": return (data.market_cap.aud)
@@ -59,7 +59,7 @@ export const FormatTokenIndex = (currency: string, data: TokenIndexData) => {
                 case "TWD": return (data.market_cap.twd)
                 case "USD": return (data.market_cap.usd)
             }
-        })()).toString(),
+        })()),
         "volume_24h": Number((() => {
             switch (currency) {
                 case "AUD": return (data.volume_24h.aud)
@@ -73,7 +73,7 @@ export const FormatTokenIndex = (currency: string, data: TokenIndexData) => {
                 case "TWD": return (data.volume_24h.twd)
                 case "USD": return (data.volume_24h.usd)
             }
-        })()).toString(),
+        })()),
         "low_24h": Number((() => {
             switch (currency) {
                 case "AUD": return (data.low_24h.aud)
@@ -87,7 +87,7 @@ export const FormatTokenIndex = (currency: string, data: TokenIndexData) => {
                 case "TWD": return (data.low_24h.twd)
                 case "USD": return (data.low_24h.usd)
             }
-        })()).toString(),
+        })()),
         "high_24h": Number((() => {
             switch (currency) {
                 case "AUD": return (data.high_24h.aud)
@@ -101,7 +101,7 @@ export const FormatTokenIndex = (currency: string, data: TokenIndexData) => {
                 case "TWD": return (data.high_24h.twd)
                 case "USD": return (data.high_24h.usd)
             }
-        })()).toString(),
+        })()),
         "last_updated": data.last_updated,
         "detfs": data.detfs
     }

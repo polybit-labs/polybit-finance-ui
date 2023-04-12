@@ -20,6 +20,10 @@ const Footer = () => {
                         <Link reloadDocument to="/detfs/category/metaverse"><u>Metaverse</u></Link>
                     </div>
                     <div className="footer-link-items">
+                        <h2>Tokens</h2>
+                        <Link reloadDocument to="/tokens"><u>Token Index</u></Link>
+                    </div>
+                    <div className="footer-link-items">
                         <h2>Legal</h2>
                         <Link to="/privacy-policy"><u>Privacy Policy</u></Link>
                     </div>

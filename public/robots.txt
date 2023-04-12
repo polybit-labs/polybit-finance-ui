@@ -6,3 +6,4 @@ Disallow: /close-detf
 Disallow: /establish-deposit
 Disallow: /fees
 Disallow: /exchange
+Disallow: /privacy-policy
