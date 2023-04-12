@@ -1,4 +1,4 @@
-/* .token-index-container {
+.token-index-container {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -18,6 +18,8 @@
     margin-bottom: 10px;
 }
 
+
+
 .token-index-header-item-token,
 .token-index-header-item-price,
 .token-index-header-item-one-day,
@@ -34,8 +36,10 @@
     cursor: pointer;
 }
 
+
 .token-index-header-item-token {
     width: 30%;
+    padding-left: 24px;
 }
 
 .token-index-header-item-price {
@@ -44,10 +48,13 @@
 
 .token-index-header-item-one-day,
 .token-index-header-item-one-week,
-.token-index-header-item-one-month,
+.token-index-header-item-one-month {
+    width: 8.33%;
+}
+
 .token-index-header-item-volume-24h,
 .token-index-header-item-market-cap {
-    width: 11%;
+    width: 15%;
 }
 
 .token-index-row-items {
@@ -87,10 +94,14 @@
 
 .token-index-row-item-one-day,
 .token-index-row-item-one-week,
-.token-index-row-item-one-month,
+.token-index-row-item-one-month {
+    width: 8.33%;
+}
+
 .token-index-row-item-volume-24h,
 .token-index-row-item-market-cap {
-    width: 11%;
+    width: 15%;
+    color: #909090;
 }
 
 .token-index-row-item-token {
@@ -104,6 +115,7 @@
     width: 44px;
     height: 44px;
     margin-right: 10px;
+    border-radius: 50px;
 }
 
 .token-index-row-item-name {
@@ -122,11 +134,11 @@
 
 .detf-index-container-mobile {
     display: none;
-} */
+}
 
 /* Small devices (landscape phones, 576px and up) */
 
-/* @media (max-width: 719px) {
+@media (max-width: 719px) {
     .token-index-container {
         display: none;
     }
@@ -150,10 +162,10 @@
         align-items: left;
     }
 
-    .detf-index-header-item-liquidity-mobile,
-    .detf-index-header-item-one-week-mobile,
-    .detf-index-header-item-one-month-mobile,
-    .detf-index-header-item-one-year-mobile {
+    .token-index-header-item-price-mobile,
+    .token-index-header-item-one-day-mobile,
+    .token-index-header-item-one-week-mobile,
+    .token-index-header-item-one-month-mobile {
         width: 100%;
         display: flex;
         flex-direction: row;
@@ -164,7 +176,7 @@
         cursor: pointer;
     }
 
-    .detf-index-row-items-mobile {
+    .token-index-row-items-mobile {
         width: 100%;
         display: flex;
         flex-direction: column;
@@ -181,13 +193,13 @@
         color: #000000;
     }
 
-    .detf-index-row-item-detf-mobile {
+    .token-index-row-item-token-mobile {
         display: flex;
         flex-direction: row;
         width: 100%;
     }
 
-    .detf-index-row-item-detf-header-mobile {
+    .token-index-row-item-token-header-mobile {
         width: 100%;
         display: flex;
         flex-direction: row;
@@ -195,44 +207,35 @@
         align-items: center;
     }
 
-    .detf-index-row-item-name-mobile {
+    .token-index-row-item-name-mobile {
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
+        justify-content: center;
         align-items: left;
+        font-size: 20px;
     }
 
-    .detf-index-row-item-logo-mobile {
+    .token-index-row-item-logo-mobile {
         width: 44px;
         height: 44px;
         margin-right: 10px;
+        border-radius: 50px;
     }
 
-    .detf-index-row-item-name-category-mobile {
-        font-size: 16px;
-        line-height: 16px;
-    }
-
-    .detf-index-row-item-name-dimension-mobile {
-        color: #000000;
-        font-size: 24px;
-        line-height: 24px;
-    }
-
-    .detf-index-row-item-table {
+    .token-index-row-item-table {
         width: 100%;
         margin-top: 20px;
         color: #909090;
     }
 
-    .detf-index-row-item-table-header {
+    .token-index-row-item-table-header {
         text-align: right;
         vertical-align: middle;
         line-height: 20px;
         padding-right: 6px;
     }
 
-    .detf-index-row-item-table-cell {
+    .token-index-row-item-table-cell {
         display: flex;
         flex-direction: row;
         justify-content: left;
@@ -242,108 +245,135 @@
         line-height: 20px;
     }
 
-} */
+}
 
 /* Medium devices (tablets, 768px and up) */
 
-/* @media (min-width: 720px) {
-    .detf-index-container {
+@media (min-width: 720px) {
+    .token-index-container-mobile {
+        display: none;
+    }
+
+    .token-index-container {
         max-width: 959px;
     }
 
-    .detf-index-header-item-detf {
+    .token-index-header-item-token {
         width: 40%;
     }
 
-    .detf-index-header-item-liquidity {
-        width: 15%;
+    .token-index-header-item-price {
+        width: 20%;
     }
 
-    .detf-index-header-item-one-week,
-    .detf-index-header-item-one-month,
-    .detf-index-header-item-three-months {
+    .token-index-header-item-one-day,
+    .token-index-header-item-one-week {
         display: inherit;
-        width: 15%;
+        width: 13.33%;
     }
 
-    .detf-index-row-item-detf {
+    .token-index-header-item-market-cap {
+        display: inherit;
+        width: 13.33%;
+    }
+
+    .token-index-row-item-token {
         width: 40%;
     }
 
-    .detf-index-row-item-liquidity {
-        width: 15%;
+    .token-index-row-item-price {
+        width: 20%;
     }
 
-    .detf-index-row-item-one-week,
-    .detf-index-row-item-one-month,
-    .detf-index-row-item-three-months {
-        width: 15%;
+    .token-index-row-item-one-day,
+    .token-index-row-item-one-week {
+        display: inherit;
+        width: 13.33%;
     }
 
-    .detf-index-header-item-one-year,
-    .detf-index-row-item-one-year,
-    .detf-index-header-item-view,
-    .detf-index-row-item-view {
+    .token-index-row-item-market-cap {
+        display: inherit;
+        width: 13.33%;
+    }
+
+    .token-index-header-item-one-month,
+    .token-index-row-item-one-month,
+    .token-index-header-item-volume-24h,
+    .token-index-row-item-volume-24h {
         display: none;
     }
-} */
+}
 
 /* Large devices (desktops, 992px and up) */
 
-/* @media (min-width: 960px) {
-    .detf-index-container {
+@media (min-width: 960px) {
+    .token-index-container-mobile {
+        display: none;
+    }
+
+    .token-index-container {
         max-width: 1024px;
     }
 
-    .detf-index-header-item-detf {
+    .token-index-header-item-token {
         width: 30%;
     }
 
-    .detf-index-header-item-liquidity {
+    .token-index-header-item-price {
         width: 15%;
     }
 
-    .detf-index-header-item-one-week,
-    .detf-index-header-item-one-month,
-    .detf-index-header-item-three-months,
-    .detf-index-header-item-one-year {
+    .token-index-header-item-one-day,
+    .token-index-header-item-one-week,
+    .token-index-header-item-one-month {
         display: inherit;
         width: 13.75%;
     }
 
-    .detf-index-row-item-detf {
-        width: 30%;
-    }
-
-    .detf-index-row-item-liquidity {
-        width: 15%;
-    }
-
-    .detf-index-row-item-one-week,
-    .detf-index-row-item-one-month,
-    .detf-index-row-item-three-months,
-    .detf-index-row-item-one-year {
+    .token-index-header-item-market-cap {
         display: inherit;
         width: 13.75%;
     }
 
-    .detf-index-header-item-view,
-    .detf-index-row-item-view {
+    .token-index-row-item-token {
+        width: 30%;
+    }
+
+    .token-index-row-item-price {
+        width: 15%;
+    }
+
+    .token-index-row-item-one-day,
+    .token-index-row-item-one-week,
+    .token-index-row-item-one-month {
+        display: inherit;
+        width: 13.75%;
+    }
+
+    .token-index-row-item-market-cap {
+        display: inherit;
+        width: 13.75%;
+    }
+
+    .token-index-header-item-volume-24h,
+    .token-index-row-item-volume-24h {
         display: none;
     }
-} */
+}
 
 /*Extra large devices (large desktops, 1200px and up)*/
 
-/* @media (min-width: 1025px) {
+@media (min-width: 1025px) {
+    .token-index-container-mobile {
+        display: none;
+    }
+
     .token-index-container {
         max-width: 1280px;
     }
 
-    .token-index-header-item-one-year,
-    .token-index-row-item-one-year,
-    .token-index-header-item-view,
-    .token-index-row-item-view {
+    .token-index-header-item-volume-24h,
+    .token-index-row-item-volume-24h {
         display: inherit;
     }
-} */
+}

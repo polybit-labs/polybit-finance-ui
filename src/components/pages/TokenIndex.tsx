@@ -1,4 +1,4 @@
-import { useLocation, useParams } from "react-router-dom"
+import { useLocation } from "react-router-dom"
 import { initialiseGA4 } from "../utils/Analytics"
 import ReactGA from "react-ga4"
 import { Helmet } from 'react-helmet-async'
@@ -9,16 +9,16 @@ import SubTitleContainer from "../containers/SubTitle"
 import Footer from "./Footer"
 import { TokenIndexList } from "../TokenIndexList"
 import { GetTokenIndexData, TokenIndexData } from "../api/GetTokenIndexData"
+import { Loading } from "../Loading"
 
 export const TokenIndex = () => {
-    const token = ""
     const location = useLocation()
     useEffect(() => {
         initialiseGA4()
         ReactGA.send({ hitType: "pageview", page: location.pathname })
     }, [])
-    const title = "Digital Assets by Market Cap"
-    const subTitle = "cupcake ipsum cupcake ipsum cupcake ipsum cupcake ipsum"
+    const title = "Token Index"
+    const subTitle = "Available tokens on Polybit, sorted by Market Cap."
     const currency = useContext(CurrencyContext).currency
 
     const { response: tokenIndexData, isSuccess: tokenIndexDataSuccess } = GetTokenIndexData()
@@ -28,7 +28,7 @@ export const TokenIndex = () => {
         if (tokenIndexData) {
             setTokenData(tokenIndexData)
         }
-    }, [tokenIndexDataSuccess])
+    }, [currency, tokenIndexDataSuccess])
 
     if (tokenData) {
         return (
@@ -45,5 +45,14 @@ export const TokenIndex = () => {
         )
     }
 
-    return (<></>)
+    return (<>
+        <Helmet>
+            <title>{`Token Index | Polybit Finance`}</title>
+            <meta name="description" content="" />
+        </Helmet>
+        <TitleContainer title={title} />
+        <SubTitleContainer info={subTitle} />
+        <Loading />
+        <Footer />
+    </>)
 }
