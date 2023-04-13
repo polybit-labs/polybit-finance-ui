@@ -1,0 +1,13 @@
+{
+    "name": "Alchemy Pay",
+    "symbol": "ACH",
+    "logoURI": "https://polybit-finance.s3.ap-southeast-1.amazonaws.com/assets/tokens/images/56/0xBc7d6B50616989655AfD682fb42743507003056D.png",
+    "overview": "In today's global economy, the seamless connection between fiat and cryptocurrency has become increasingly important. Enter Alchemy Pay (ACH), a Singapore-based payment solutions provider founded in 2018. Alchemy Pay's mission is to bridge the gap between traditional finance and the emerging world of cryptocurrencies, making it easy for consumers, merchants, developers, and institutions to transact in both fiat and crypto currencies.\n\nWith support in over 70 countries and partnerships with industry leaders such as Binance, Shopify, NIUM, and QFPay, Alchemy Pay has quickly gained traction in the market. Its token, ACH, runs on the Ethereum blockchain and is among the top 200 cryptocurrencies by market capitalization.",
+    "history": "Alchemy Pay's journey began with the development of a payment protocol built on open-source infrastructure. This protocol provides a bridge for seamless transactions between fiat and cryptocurrencies, allowing merchants and end-users to execute convenient and flexible payment transactions.\n\nThe ACH token, launched on September 4, 2019, with a maximum supply of 10 billion tokens. To incentivize ecosystem participants, 51% of the token supply was reserved, while the rest was distributed among the team, investors, transaction mobility, enterprise partners, and advisors, with a vesting schedule in place.\n\nThe backbone of Alchemy Pay's operations is its merchant node network, which consists of over 150 core nodes. These nodes are made up of remittance partners, banks, decentralized finance protocols, centralized crypto exchanges, and merchant networks, supporting over 300 fiat and digital assets through 200 payment channels in 65 countries.\n\nLooking ahead, Alchemy Pay has ambitious plans to further expand its services. In 2021, the ecosystem's development team announced its intention to launch MasterCard and Visa virtual cards. These white-label solutions will enable enterprises and blockchain projects to offer their end-users the ability to pay for goods and services at various merchant points with digital assets, further advancing the mainstream adoption of cryptocurrencies.",
+    "website": "https://alchemypay.org/",
+    "blog": "https://medium.com/@alchemyGPS",
+    "twitter": "https://twitter.com/AlchemyPay",
+    "telegram": "https://t.me/Alchemy_official",
+    "discord": "",
+    "dominantColour": "#000000"
+}

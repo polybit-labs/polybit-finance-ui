@@ -18,7 +18,7 @@ export const TokenIndex = () => {
         ReactGA.send({ hitType: "pageview", page: location.pathname })
     }, [])
     const title = "Token Index"
-    const subTitle = "Available tokens on Polybit, sorted by Market Cap."
+    const subTitle = "Tokens available on Polybit, sorted by Market Cap."
     const currency = useContext(CurrencyContext).currency
 
     const { response: tokenIndexData, isSuccess: tokenIndexDataSuccess } = GetTokenIndexData()
