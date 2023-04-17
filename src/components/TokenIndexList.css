@@ -165,7 +165,9 @@
     .token-index-header-item-price-mobile,
     .token-index-header-item-one-day-mobile,
     .token-index-header-item-one-week-mobile,
-    .token-index-header-item-one-month-mobile {
+    .token-index-header-item-one-month-mobile,
+    .token-index-header-item-volume-24h,
+    .token-index-header-item-market-cap {
         width: 100%;
         display: flex;
         flex-direction: row;

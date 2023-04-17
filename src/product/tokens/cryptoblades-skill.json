@@ -1,1 +1,13 @@
-{"name": "CryptoBlades Skill", "symbol": "SKILL", "logoURI": "https://polybit-finance.s3.ap-southeast-1.amazonaws.com/assets/tokens/images/56/0x154A9F9cbd3449AD22FDaE23044319D6eF2a1Fab.png", "overview": "", "history": "", "website": "", "blog": "", "twitter": "", "telegram": "", "discord": "", "dominantColour": "#"}
+{
+    "name": "CryptoBlades Skill",
+    "symbol": "SKILL",
+    "logoURI": "https://polybit-finance.s3.ap-southeast-1.amazonaws.com/assets/tokens/images/56/0x154A9F9cbd3449AD22FDaE23044319D6eF2a1Fab.png",
+    "overview": "",
+    "history": "",
+    "website": "https://www.cryptoblades.io/",
+    "blog": "https://cryptoblades.medium.com/",
+    "twitter": "https://twitter.com/cryptoblades",
+    "telegram": "https://t.me/cryptoblades_general",
+    "discord": "https://discord.com/invite/cryptoblades",
+    "dominantColour": "#"
+}
