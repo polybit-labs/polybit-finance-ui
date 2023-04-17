@@ -158,13 +158,13 @@ export const TokenIndexList = (props: TokenIndexListProps) => {
                                             </tr>
                                             <tr>
                                                 <td className="token-index-row-item-table-header">24h Volume:</td>
-                                                <td className="token-index-row-item-table-cell" style={{ color: ColourNumbers(token.volume_24h) }}>
+                                                <td className="token-index-row-item-table-cell">
                                                     {FormatCurrency(token.volume_24h, 2)}
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td className="token-index-row-item-table-header">Market Cap:</td>
-                                                <td className="token-index-row-item-table-cell" style={{ color: ColourNumbers(token.market_cap) }}>
+                                                <td className="token-index-row-item-table-cell">
                                                     {FormatCurrency(token.market_cap, 2)}
                                                 </td>
                                             </tr>

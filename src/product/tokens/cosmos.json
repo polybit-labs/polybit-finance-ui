@@ -1,1 +1,13 @@
-{"name": "Cosmos", "symbol": "ATOM", "logoURI": "https://polybit-finance.s3.ap-southeast-1.amazonaws.com/assets/tokens/images/56/0x0Eb3a705fc54725037CC9e008bDede697f62F335.png", "overview": "", "history": "", "website": "", "blog": "", "twitter": "", "telegram": "", "discord": "", "dominantColour": "#"}
+{
+    "name": "Cosmos",
+    "symbol": "ATOM",
+    "logoURI": "https://polybit-finance.s3.ap-southeast-1.amazonaws.com/assets/tokens/images/56/0x0Eb3a705fc54725037CC9e008bDede697f62F335.png",
+    "overview": "",
+    "history": "",
+    "website": "",
+    "blog": "",
+    "twitter": "",
+    "telegram": "",
+    "discord": "",
+    "dominantColour": "#"
+}
