@@ -22,6 +22,21 @@
     padding-right: 28px;
 }
 
+.button-primary-small,
+.button-primary-small-disabled,
+.button-secondary-small,
+.button-secondary-small-disabled {
+    height: 40px;
+    border-radius: 4px;
+    outline: none;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 700;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.button-primary-small,
 .button-primary-standard,
 .button-primary-standard-long,
 .button-primary-slim,
@@ -32,6 +47,7 @@
     color: #ffffff;
 }
 
+.button-secondary-small,
 .button-secondary-standard,
 .button-secondary-slim,
 .button-secondary-standard-loading,
@@ -40,6 +56,9 @@
     background-color: transparent;
     color: #000000;
 }
+
+.button-primary-small-disabled,
+.button-secondary-small-disabled,
 
 .button-primary-standard-disabled,
 .button-primary-standard-long-disabled,

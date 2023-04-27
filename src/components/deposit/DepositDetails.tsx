@@ -138,7 +138,7 @@ export const DepositDetails = (props: DepositDetails) => {
                 <h2>Available {props.walletBalance?.symbol} in your {props.connector?.name} is {parseFloat((props.walletBalance.formatted).toString()).toFixed(4)} ({walletBalanceCurrency})</h2>
                 <div className="deposit-box-form">
                     <div className="deposit-amount-input-title">{props.walletBalance?.symbol} amount:</div>
-                    <div><input className="deposit-amount-input" type="number" value={depositInputValue} onChange={onChangeDeposit} placeholder="BNB 10.000" /></div>
+                    <div><input className="deposit-amount-input" type="number" value={depositInputValue} onChange={onChangeDeposit} placeholder="BNB 10.000" min="0" /></div>
                     <div className="timelock">
                         {props.timeLockRemaining === 0 && <div className="timelock-new">
                             <div className="timelock-selector">
@@ -152,7 +152,7 @@ export const DepositDetails = (props: DepositDetails) => {
                             <div className={checkboxTickNew ? "timelock-new-inputs" : "timelock-new-inputs-inactive"}>
                                 <div className="timelock-amount-input-title">Lock term:</div>
                                 <div className="timelock-amount-input-group">
-                                    <input className="timelock-amount-input" type="number" value={timeLockInputValue} onChange={onChangeTimeLock} placeholder="12 months" />
+                                    <input className="timelock-amount-input" type="number" value={timeLockInputValue} onChange={onChangeTimeLock} placeholder="12 months" min="0" />
                                     <button
                                         className="timelock-date-format"
                                         onClick={(): void => toggleDropDown()}
@@ -193,7 +193,7 @@ export const DepositDetails = (props: DepositDetails) => {
                             <div className={checkboxTickExisting ? "timelock-existing-inputs" : "timelock-existing-inputs-inactive"}>
                                 <div className="timelock-amount-input-title">Lock term:</div>
                                 <ul className="timelock-amount-input-group">
-                                    <li><input className="timelock-amount-input" type="number" value={timeLockInputValue} onChange={onChangeTimeLock} placeholder="12 months" /></li>
+                                    <li><input className="timelock-amount-input" type="number" value={timeLockInputValue} onChange={onChangeTimeLock} placeholder="12 months" min="0" /></li>
                                     <li><button
                                         className="timelock-date-format"
                                         onClick={(): void => toggleDropDown()}

@@ -1,0 +1,22 @@
+{
+    "56": [
+        {
+            "address": "0xcA143Ce32Fe78f1f7019d7d551a6402fC5350c73",
+            "name": "PancakeSwap",
+            "logoURI": "https://polybit-finance.s3.ap-southeast-1.amazonaws.com/assets/tokens/images/56/0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82.png",
+            "swapFee": "0.003"
+        },
+        {
+            "address": "0xc35DADB65012eC5796536bD9864eD8773aBc74C4",
+            "name": "SushiSwap",
+            "logoURI": "https://polybit-finance.s3.ap-southeast-1.amazonaws.com/assets/tokens/images/56/0x947950BcC74888a40Ffa2593C5798F11Fc9124C4.png",
+            "swapFee": "0.003"
+        },
+        {
+            "address": "0x858E3312ed3A876947EA49d572A7C42DE08af7EE",
+            "name": "BiSwap",
+            "logoURI": "https://polybit-finance.s3.ap-southeast-1.amazonaws.com/assets/tokens/images/56/0x965F527D9159dCe6288a2219DB51fc6Eef120dD1.png",
+            "swapFee": "0.002"
+        }
+    ]
+}

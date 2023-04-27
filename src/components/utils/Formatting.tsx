@@ -1,5 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { solid, regular, brands, icon } from '@fortawesome/fontawesome-svg-core/import.macro'
+import { BigNumber } from 'ethers'
+import { parseEther } from 'ethers/lib/utils.js';
 
 export const TruncateAddress = (address: string) => {
     if (!address) return "No Account";
@@ -56,3 +58,42 @@ export const toTitleCase = (str: string) => {
         return (word.charAt(0).toUpperCase() + word.slice(1));
     }).join(' ');
 }
+
+export const FormatDecimals = (num: number) => {
+    if (num >= 100) {
+        return Number(parseFloat(num.toString()).toFixed(3))
+    } else if (num < 100 && num >= 10) {
+        return Number(parseFloat(num.toString()).toFixed(4))
+    } else if (num < 10 && num >= 1) {
+        return Number(parseFloat(num.toString()).toFixed(5))
+    } else if (num < 1 && num >= 0.1) {
+        return Number(parseFloat(num.toString()).toFixed(6))
+    } else if (num < 0.1 && num >= 0.01) {
+        return Number(parseFloat(num.toString()).toFixed(7))
+    } else if (num < 0.01 && num >= 0.001) {
+        return Number(parseFloat(num.toString()).toFixed(8))
+    } else if (num < 0.001 && num >= 0.0001) {
+        return Number(parseFloat(num.toString()).toFixed(9))
+    } else if (num < 0.0001 && num >= 0.00001) {
+        return Number(parseFloat(num.toString()).toFixed(10))
+    } else {
+        return num
+    }
+}
+
+const BigNumberJS = require('bignumber.js');
+export const BigNumberToFloat = (num: BigNumber, decimals: number) => {
+    let numerator = new BigNumberJS(num)
+    let denominator = new BigNumberJS(10).pow(decimals)
+    let answer = numerator.div(denominator).toNumber()
+    return answer
+}
+
+export const FloatToBigNumber = (num: number, decimals: number) => {
+    let numerator = new BigNumberJS(num)
+    let denominator = new BigNumberJS(10).pow(decimals)
+    let answer = numerator.mul(denominator).toFixed(0)
+    let BNAnswer = BigNumber.from(answer)
+    return BNAnswer
+}
+

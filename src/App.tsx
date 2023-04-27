@@ -19,6 +19,7 @@ import EstablishDeposit from './components/pages/EstablishDeposit';
 import { HelmetProvider } from "react-helmet-async"
 import { Token } from './components/pages/Token';
 import { TokenIndex } from './components/pages/TokenIndex';
+import Swap from './components/pages/Swap';
 
 
 const App = () => {
@@ -46,6 +47,7 @@ const App = () => {
                 <Route path="/detfs/category/:urlCategoryId/" element={<Category />} />
                 <Route path="/tokens" element={<TokenIndex />} />
                 <Route path="/tokens/:urlTokenName/" element={<Token />} />
+                <Route path="/swap" element={<Swap />} />
               </Routes>
             </CurrencyContext.Provider>
           </ScrollToTop>

@@ -1,0 +1,149 @@
+.swap-settings {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    transition: all 1s ease;
+    background-color: #9090905a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.swap-settings-container {
+    min-width: 420px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    border-radius: 8px;
+    background-color: #eeeeee;
+    margin-bottom: 20px;
+    border: 1px solid #ffffff;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 24px;
+    padding-right: 24px;
+    z-index: 11;
+}
+
+.swap-settings-header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.swap-settings-header-close {
+    font-size: 24px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.swap-settings-slippage {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.swap-settings-slippage-header {
+    width: 100%;
+    text-align: left;
+}
+
+.swap-settings-slippage-main {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.swap-settings-slippage-input {
+    display: flex;
+    width: 100%;
+    height: 40px;
+    margin-left: 24px;
+    padding-right: 24px;
+    font-size: 16px;
+    font-weight: 700;
+    align-items: center;
+    justify-content: right;
+    text-align: right;
+    border-bottom: 4px solid #000000;
+    border-radius: 4px;
+    background-color: #ffffff;
+}
+
+.swap-settings-slippage-input input {
+    width: 50%;
+    height: 100%;
+    border: 0;
+    outline: 0;
+    text-align: right;
+    font-size: 16px;
+    font-weight: 700;
+    margin-right: 4px;
+}
+
+
+.swap-settings-slippage-input input::-webkit-outer-spin-button,
+.swap-settings-slippage-input input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
+.swap-settings-deadline {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.swap-settings-deadline-header {
+    width: 100%;
+    text-align: left;
+}
+
+
+.swap-settings-deadline-main {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.swap-settings-deadline-input {
+    display: flex;
+    width: 100%;
+    height: 40px;
+    margin-left: 24px;
+    padding-right: 24px;
+    font-size: 16px;
+    font-weight: 700;
+    align-items: center;
+    justify-content: right;
+    text-align: right;
+    border-bottom: 4px solid #000000;
+    border-radius: 4px;
+    background-color: #ffffff;
+}
+
+.swap-settings-deadline-input input {
+    width: 50%;
+    height: 100%;
+    border: 0;
+    outline: 0;
+    text-align: right;
+    font-size: 16px;
+    font-weight: 700;
+    margin-right: 4px;
+}
+
+
+.swap-settings-deadline-input input::-webkit-outer-spin-button,
+.swap-settings-deadline-input input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}

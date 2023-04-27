@@ -1,13 +1,10 @@
 {
-  "5777": {
-    "router": "0x65139ACDc6d5e31daD4cbE828b16DbE6e66bfa37",
-    "rebalancer": "0xa0C403477152FFD3525AC3debc17768173C91B8D",
-    "detf_factory": "0x62b72504552594ac919217638D10De28A1Ced63f"
-  },
   "56": {
-    "router": "0x65139ACDc6d5e31daD4cbE828b16DbE6e66bfa37",
+    "router": "0xF30A4c1069f261c65b8b32538De4a39CCf973706",
     "rebalancer": "0xa0C403477152FFD3525AC3debc17768173C91B8D",
-    "detf_factory": "0x62b72504552594ac919217638D10De28A1Ced63f"
+    "detf_factory": "0x62b72504552594ac919217638D10De28A1Ced63f",
+    "swap_router": "0x2dc9C40916D7a23257F269DF0fa4ed788558ED18",
+    "liquid_path": "0x31Fa516E3451944c3707efA963e9ADfC58844d09"
   },
   "97": {
     "router": "0xA32A358eA56Bf9292ee1989F539CfbAaCE7E46be",
@@ -16,6 +13,8 @@
     "detf_factory": "0x3498B83e14Dcd96a531c14DA706b3C17660789ff",
     "config": "0x22790914EECC7EBF769C9ddD995DE607b9CcC964",
     "access": "0xf74DABbd36DBb55D3c22f783537505143FecedE9",
-    "multicall": "0x69a4E26ffE2CCde086248CF581A190Fb6cF17893"
+    "multicall": "0x69a4E26ffE2CCde086248CF581A190Fb6cF17893",
+    "liquid_path": "",
+    "swap_router": ""
   }
 }

@@ -12,7 +12,7 @@ import { WalletConnectLegacyConnector } from 'wagmi/connectors/walletConnectLega
 window.Buffer = window.Buffer || require("buffer").Buffer;
 
 const { chains, provider } = configureChains(
-  [bscTestnet],
+  [bsc, bscTestnet],
   [publicProvider()],
 )
 // Set up client
