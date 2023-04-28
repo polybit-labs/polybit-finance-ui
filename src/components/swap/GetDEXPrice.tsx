@@ -1,24 +1,27 @@
 import { useContractReads } from "wagmi"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { BigNumber } from "ethers"
 import { PairAddress } from "./PairAddress"
+import { ERC20Token } from "../utils/ERC20Utils"
+import { FloatToBigNumber } from "../utils/Formatting"
 
 interface DEXPriceProps {
     factory: string | undefined
-    numerator: string
-    denominator: string
-    numeratorDecimals: number
-    denominatorDecimals: number
+    tokenOne: ERC20Token
+    tokenTwo: ERC20Token
 }
 
-export const DEXPrice = (props: DEXPriceProps) => {
+export const GetDEXPrice = (props: DEXPriceProps) => {
     const [numerator, setNumerator] = useState<string | undefined>()
     const [denominator, setDenominator] = useState<string | undefined>()
     const [numeratorReserves, setNumeratorReserves] = useState<BigNumber | undefined>()
     const [denominatorReserves, setDenominatorReserves] = useState<BigNumber | undefined>()
+    const [numeratorDecimals, setNumeratorDecimals] = useState<number | undefined>()
+    const [denominatorDecimals, setDenominatorDecimals] = useState<number | undefined>()
+    const [tokenPrice, setTokenPrice] = useState<number>(0)
 
     const pairContract = {
-        address: PairAddress({ factory: props.factory, tokenOne: props.numerator, tokenTwo: props.denominator })?.toString() as `0x${string}`,
+        address: PairAddress({ factory: props.factory, tokenOne: props.tokenOne.address, tokenTwo: props.tokenTwo.address })?.toString() as `0x${string}`,
         abi: [{
             "constant": true,
             "inputs": [],
@@ -75,6 +78,7 @@ export const DEXPrice = (props: DEXPriceProps) => {
         },] as const,
     }
 
+    let numeratorMatch: boolean
     const { data, isError, isLoading, isSuccess } = useContractReads({
         contracts: [
             {
@@ -93,7 +97,7 @@ export const DEXPrice = (props: DEXPriceProps) => {
             //console.log('DEXPrice Settled', { data, error })
         },
         onSuccess(data) {
-            //console.log('Success', data)
+            //console.log('DEXPrice Success', data)
             setNumerator(data ? data[1] : "")
             setNumeratorReserves(data[0] ? data[0][0] : undefined)
             setDenominator(data ? data[2] : "")
@@ -101,19 +105,26 @@ export const DEXPrice = (props: DEXPriceProps) => {
         },
     })
 
-    let numeratorMatch: boolean
-    let tokenPrice: number
-    if (numerator == props.numerator) {
-        numeratorMatch = true
-    } else {
-        numeratorMatch = false
-    }
+    useEffect(() => {
+        if (numerator == props.tokenOne.address) {
+            numeratorMatch = true
+            setNumeratorDecimals(props.tokenOne.decimals)
+            setDenominatorDecimals(props.tokenTwo.decimals)
+        } else {
+            numeratorMatch = false
+            setNumeratorDecimals(props.tokenTwo.decimals)
+            setDenominatorDecimals(props.tokenOne.decimals)
+        }
 
-    if (numeratorMatch == true) {
-        tokenPrice = (Number(denominatorReserves) / props.denominatorDecimals) / (Number(numeratorReserves) / props.numeratorDecimals)
-    } else {
-        tokenPrice = (Number(numeratorReserves) / props.numeratorDecimals) / (Number(denominatorReserves) / props.denominatorDecimals)
-    }
+        if (numeratorDecimals && denominatorDecimals) {
+            console.log("decimals", numeratorDecimals, denominatorDecimals)
+            if (numeratorMatch == true) {
+                setTokenPrice((Number(denominatorReserves) / denominatorDecimals) / (Number(numeratorReserves) / numeratorDecimals))
+            } else {
+                setTokenPrice((Number(numeratorReserves) / numeratorDecimals) / (Number(denominatorReserves) / denominatorDecimals))
+            }
+        }
 
+    }, [numerator, denominator, props.tokenOne, props.tokenTwo])
     return tokenPrice
 }

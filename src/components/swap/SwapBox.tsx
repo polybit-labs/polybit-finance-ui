@@ -1,21 +1,23 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { icon } from '@fortawesome/fontawesome-svg-core/import.macro'
-import { Button } from "../Buttons"
 import "./SwapBox.css"
 import { useState, useEffect, ChangeEvent } from 'react'
 import { AssetList } from './AssetList'
-import { ERC20Token, GetTokenBalance } from '../utils/ERC20Utils'
+import { ERC20Token } from '../utils/ERC20Utils'
 import { Link } from 'react-router-dom'
 import { SwapSettings } from './SwapSettings'
 import polybitAddresses from "../../chain_info/polybitAddresses.json"
-import { useContractRead, useNetwork } from 'wagmi'
+import { useAccount, useBalance, useContractRead, useDisconnect, useNetwork } from 'wagmi'
 import { BigNumber } from 'ethers'
-import { DEXPrice } from './DEXPrice'
-import { BigNumberToFloat, FloatToBigNumber, FormatDecimals } from '../utils/Formatting'
+import { GetDEXPrice } from './GetDEXPrice'
+import { BigNumberToFloat, FloatToBigNumber, FormatDecimals, TruncateAddress } from '../utils/Formatting'
 import DEXInfo from "../../chain_info/DEXInfo.json"
 import ChainInfo from "../../chain_info/ChainInfo.json"
 import { SwapButton } from './SwapButton'
 import { GetBalances } from './GetBalances'
+import { PriceImpact } from './PriceImpact'
+import { FormatCurrency } from '../utils/Currency'
+import { TextLink } from '../Buttons'
 
 interface DEX {
     address: string;
@@ -27,9 +29,13 @@ interface DEX {
 interface SwapBoxProps {
     walletOwner: `0x${string}` | undefined;
     walletBalance: BigNumber;
+    connector: any;
+    currency: string;
+    vsPrices: any;
 }
 
 export const SwapBox = (props: SwapBoxProps) => {
+    const { disconnect } = useDisconnect()
     const [approvedList, setApprovedList] = useState<Array<ERC20Token>>()
     const [showAssetListTokenOne, setShowAssetListTokenOne] = useState(false)
     const [showAssetListTokenTwo, setShowAssetListTokenTwo] = useState(false)
@@ -38,7 +44,8 @@ export const SwapBox = (props: SwapBoxProps) => {
     const [swapType, setSwapType] = useState<"swapETHForExactTokens" | "swapExactETHForTokens" | "swapExactTokensForETH" | "swapExactTokensForTokens" | "swapTokensForExactETH" | "swapTokensForExactTokens" | undefined>()
     const [priceImpact, setPriceImpact] = useState<number>(0)
     const [slippage, setSlippage] = useState<number>(0.005)
-    const [tradingFee, setTradingFee] = useState<BigNumber>(BigNumber.from("0"))
+    const [tradingFee, setTradingFee] = useState<number>(0)
+    const [tradingFeeAmount, setTradingFeeAmount] = useState<BigNumber>(BigNumber.from("0"))
     const [priceColor, setPriceColor] = useState("")
 
     useEffect(() => {
@@ -100,10 +107,6 @@ export const SwapBox = (props: SwapBoxProps) => {
     useEffect(() => {
         amountType === 0 && setTokenTwoInputValue(amountsOut)
         amountType === 1 && setTokenOneInputValue(amountsOut)
-
-        amountType === 0 && setPriceImpact(1 - (dexPriceOut / ((Number(amountsOut) / Number(tokenOneInputValue)) * 10 ** 18)))
-        amountType === 1 && setPriceImpact(1 - (dexPriceIn / ((Number(amountsOut) / Number(tokenTwoInputValue)) * 10 ** 18)))
-
     }, [amountsOut])
 
     const { data, isError, isLoading } = useContractRead({
@@ -156,18 +159,18 @@ export const SwapBox = (props: SwapBoxProps) => {
         args: [tokenOne.address as `0x${string}`, tokenTwo.address as `0x${string}`, amountType == 0 ? BigNumber.from(tokenOneInputValue) : BigNumber.from(tokenTwoInputValue), amountType],
         watch: true,
         onSettled(data, error) {
-            console.log('Settled', { data, error })
+            //console.log('Settled', { data, error })
         },
         onSuccess(data) {
-            console.log('Success', data)
+            //console.log('Success', data)
             DEXInfo[chainId as keyof typeof DEXInfo].map(dex =>
                 dex.address === data[0] && setFactory({ address: dex.address, name: dex.name, logoURI: dex.logoURI, swapFee: Number(dex.swapFee) }))
             setPath(data[1])
             setPreviousAmountsOut(amountsOut)
             setAmountsOut(BigNumber.from(data[2]))
-            setTradingFee(BigNumber.from(((data[1].length - 1) * (Number(tokenOneInputValue) * factory.swapFee)).toString()))
-            console.log("tradingFee", Number(tradingFee))
-            if (amountsOut > previousAmountsOut) {
+            setTradingFee((data[1].length - 1) * factory.swapFee)
+            setTradingFeeAmount(BigNumber.from(((data[1].length - 1) * (Number(tokenOneInputValue) * factory.swapFee)).toString()))
+            /* if (amountsOut > previousAmountsOut) {
                 setPriceColor("#00BF6F");
                 setTimeout(() => {
                     setPriceColor("");
@@ -177,7 +180,7 @@ export const SwapBox = (props: SwapBoxProps) => {
                 setTimeout(() => {
                     setPriceColor("");
                 }, 1000)
-            }
+            } */
 
             amountType === 0 && tokenOne.symbol === nativeSymbol && setSwapType("swapExactETHForTokens")
             amountType === 0 && tokenTwo.symbol === nativeSymbol && setSwapType("swapExactTokensForETH")
@@ -190,8 +193,10 @@ export const SwapBox = (props: SwapBoxProps) => {
         }
     })
 
-    const dexPriceOut = DEXPrice({ factory: factory.address, numerator: tokenOne.address, denominator: tokenTwo.address, numeratorDecimals: tokenOne.decimals, denominatorDecimals: tokenTwo.decimals }) * 10 ** 18
-    const dexPriceIn = DEXPrice({ factory: factory.address, numerator: tokenTwo.address, denominator: tokenOne.address, numeratorDecimals: tokenTwo.decimals, denominatorDecimals: tokenOne.decimals }) * 10 ** 18
+    const dexPriceResponse = GetDEXPrice({ factory: factory.address, tokenOne: tokenOne, tokenTwo: tokenTwo })
+
+    //const dexPriceOut = DEXPrice({ factory: factory.address, numerator: tokenOne.address, denominator: tokenTwo.address, numeratorDecimals: tokenOne.decimals, denominatorDecimals: tokenTwo.decimals }) * 10 ** 18
+    //const dexPriceIn = DEXPrice({ factory: factory.address, numerator: tokenTwo.address, denominator: tokenOne.address, numeratorDecimals: tokenTwo.decimals, denominatorDecimals: tokenOne.decimals }) * 10 ** 18
     //console.log("dex price out", dexPriceOut)
     //console.log("dex price in", dexPriceIn) // get the reverse price?
     //console.log("amounts out", Number(amountsOut))
@@ -223,15 +228,18 @@ export const SwapBox = (props: SwapBoxProps) => {
 
     return (
         <div className="swap-box">
-            <div className="swap-box-container">
-                <div className="swap-box-wrapper">
-                    {showAssetListTokenOne && approvedList && <AssetList setShowAssetList={setShowAssetListTokenOne} setTokenOne={setTokenOne} setTokenTwo={setTokenTwo} tokenOne={tokenOne} tokenTwo={tokenTwo} whichToken="tokenOne" approvedList={approvedList} />}
-                    {showAssetListTokenTwo && approvedList && <AssetList setShowAssetList={setShowAssetListTokenTwo} setTokenOne={setTokenOne} setTokenTwo={setTokenTwo} tokenOne={tokenOne} tokenTwo={tokenTwo} whichToken="tokenTwo" approvedList={approvedList} />}
+            <div className="swap-box-wrapper">
+                <div className="swap-box-wrapper-header" ><p style={{ color: "#909090" }}><b>Wallet: </b>
+                    {props.connector?.name === "MetaMask" && <img width="20px" height="20px" src={require("../../assets/images/metamask_icon.png")} />}
+                    {props.connector?.name === "Coinbase Wallet" && <img width="20px" height="20px" src={require("../../assets/images/coinbasewallet_icon.png")} />}
+                    {props.connector?.name === "WalletConnect" && <img width="20px" height="20px" src={require("../../assets/images/walletconnect_icon.png")} />}
+                    {props.connector?.name === "WalletConnectLegacy" && <img width="20px" height="20px" src={require("../../assets/images/walletconnect_icon.png")} />}
+                    <b>{` ${TruncateAddress(props.walletOwner ? props.walletOwner : "")}`}</b></p>
+                    <TextLink to="" text="Disconnect Wallet" arrowDirection="forward-logout" onClick={() => disconnect()} /></div>
+                <div className="swap-box-container">
+                    {showAssetListTokenOne && approvedList && <AssetList setShowAssetList={setShowAssetListTokenOne} setTokenOne={setTokenOne} setTokenTwo={setTokenTwo} tokenOne={tokenOne} tokenTwo={tokenTwo} whichToken="tokenOne" approvedList={approvedList} setTokenOneInputValue={setTokenOneInputValue} setTokenTwoInputValue={setTokenTwoInputValue} />}
+                    {showAssetListTokenTwo && approvedList && <AssetList setShowAssetList={setShowAssetListTokenTwo} setTokenOne={setTokenOne} setTokenTwo={setTokenTwo} tokenOne={tokenOne} tokenTwo={tokenTwo} whichToken="tokenTwo" approvedList={approvedList} setTokenOneInputValue={setTokenOneInputValue} setTokenTwoInputValue={setTokenTwoInputValue} />}
                     {showSwapSettings && <SwapSettings setSlippage={setSlippage} slippage={slippage} setShowSwapSettings={setShowSwapSettings} />}
-                    <div className="swap-box-header">
-                        <p>Swap</p>
-                        <div onClick={() => setShowSwapSettings(true)} style={{ transform: "translateY(0%)", fontSize: "16px", color: "#909090", cursor: "pointer" }}><FontAwesomeIcon icon={icon({ name: "gear", style: "solid" })} /></div>
-                    </div>
                     <div className="swap-box-token">
                         <div className="swap-box-token-header" >
                             <div className="swap-box-token-header-token">
@@ -253,15 +261,93 @@ export const SwapBox = (props: SwapBoxProps) => {
                                     walletBalance: props.walletBalance
                                 })[0], tokenOne.decimals))}`}
                             </div>
+                            <div onClick={() => setShowSwapSettings(true)} style={{ transform: "translateY(0%)", fontSize: "16px", color: "#909090", cursor: "pointer" }}><FontAwesomeIcon icon={icon({ name: "gear", style: "solid" })} /></div>
                         </div>
                         <div className="swap-box-token-input">
-                            <input style={{ color: priceColor }} type="number" min="0" placeholder="0.0" value={Number(tokenOneInputValue) > 0 ? FormatDecimals(BigNumberToFloat(tokenOneInputValue, tokenOne.decimals)) : ""} onChange={onChangeTokenOneInput} />
+                            <input style={{ color: priceColor }} type="number" min="0" placeholder="Enter an amount" value={Number(tokenOneInputValue) > 0 ? FormatDecimals(BigNumberToFloat(tokenOneInputValue, tokenOne.decimals)) : ""} onChange={onChangeTokenOneInput} />
+                            <div className="swap-box-pair-price">
+                                <p>{`(${props.currency} ${FormatCurrency(props.walletBalance ?
+                                    (Number(props.walletBalance)
+                                        / 10 ** 18 *
+                                        (() => {
+                                            switch (props.currency) {
+                                                case "AUD": return (props.vsPrices.aud)
+                                                case "BNB": return (props.vsPrices.bnb)
+                                                case "CNY": return (props.vsPrices.cny)
+                                                case "EURO": return (props.vsPrices.eur)
+                                                case "IDR": return (props.vsPrices.idr)
+                                                case "JPY": return (props.vsPrices.jpy)
+                                                case "KRW": return (props.vsPrices.krw)
+                                                case "RUB": return (props.vsPrices.rub)
+                                                case "TWD": return (props.vsPrices.twd)
+                                                case "USD": return (props.vsPrices.usd)
+                                            }
+                                        })()) : 0, 2)})`}</p>
+                            </div>
                         </div>
                     </div>
-                    <div className="swap-box-token-switch" onClick={() => SwitchToken()}>
-                        <div style={{ transform: "translateY(0%)", fontSize: "30px" }}><FontAwesomeIcon icon={icon({ name: "sort-up", style: "solid" })} /></div>
-                        <div style={{ transform: "translateY(0%)", fontSize: "30px" }}><FontAwesomeIcon icon={icon({ name: "sort-down", style: "solid" })} /></div>
-                    </div>
+
+                    {Number(amountsOut) > 0 && <div className="swap-box-summary">
+                        <table className="swap-box-summary-table">
+                            <tbody>
+                                {amountType === 0 && <tr>
+                                    <td className="swap-box-summary-cell-title">Expected output</td>
+                                    <td className="swap-box-summary-cell-contents">{`${FormatDecimals(BigNumberToFloat(tokenTwoInputValue, tokenTwo.decimals))} ${tokenTwo.symbol}`}</td>
+                                </tr>}
+                                {amountType === 1 && <tr>
+                                    <td className="swap-box-summary-cell-title">Expected output</td>
+                                    <td className="swap-box-summary-cell-contents">{`${FormatDecimals(BigNumberToFloat(tokenTwoInputValue, tokenTwo.decimals))} ${tokenTwo.symbol}`}</td>
+                                </tr>}
+
+                                {amountType === 0 && <tr>
+                                    <td className="swap-box-summary-cell-title">Minimum received</td>
+                                    <td className="swap-box-summary-cell-contents">{`${FormatDecimals(BigNumberToFloat(tokenTwoInputValue, tokenTwo.decimals) * (1 - slippage))} ${tokenTwo.symbol}`}</td>
+                                </tr>}
+                                {amountType === 1 && <tr>
+                                    <td className="swap-box-summary-cell-title">Maximum sent</td>
+                                    <td className="swap-box-summary-cell-contents">{`${FormatDecimals(BigNumberToFloat(tokenOneInputValue, tokenOne.decimals) * (1 + slippage))} ${tokenOne.symbol}`}</td>
+                                </tr>}
+                                <tr>
+                                    <td className="swap-box-summary-cell-title">Price impact</td>
+                                    <td className="swap-box-summary-cell-contents">
+                                        <PriceImpact dexPrice={dexPriceResponse}
+                                            tokenOneInputValue={tokenOneInputValue}
+                                            tokenTwoInputValue={tokenTwoInputValue}
+                                            amountType={amountType}
+                                            tradingFee={tradingFee}
+                                            tokenOne={tokenOne}
+                                            tokenTwo={tokenTwo} /></td>
+                                </tr>
+                                <tr>
+                                    <td className="swap-box-summary-cell-title">Trading fee</td>
+                                    <td className="swap-box-summary-cell-contents">{`${FormatDecimals(BigNumberToFloat(tradingFeeAmount, tokenOne.decimals))}  ${tokenOne.symbol}`}</td>
+                                </tr>
+                                <tr>
+                                    <td className="swap-box-summary-cell-title">Liquid Path</td>
+                                    <td className="swap-box-summary-cell-contents">
+                                        <div className="swap-box-summary-cell-contents-liquid-path">
+                                            <img className="swap-box-summary-cell-contents-liquid-path-factory" src={factory.logoURI} alt={factory.name} />
+                                            <div className="swap-box-summary-cell-contents-liquid-path-line"></div>
+                                            <div className="swap-box-summary-cell-contents-liquid-path-assets">
+                                                {path?.map((asset: string, index: number) =>
+                                                    <>
+                                                        <img key={index} className="swap-box-summary-cell-contents-liquid-path-asset" src={GetAssetLogo(asset)[1] ? GetAssetLogo(asset)[1] : require("../../assets/images/placeholder.png")} alt={GetAssetLogo(asset)[0]} />
+                                                        {index < path.length - 1 && <div>{">"}</div>}
+                                                    </>
+                                                )}
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>}
+
+                </div>
+                <div className="swap-box-token-switch" onClick={() => SwitchToken()}>
+                    <img src={require("../../assets/icons/swap-switch.png")} alt="swap switch" />
+                </div>
+                <div className="swap-box-container">
                     <div className="swap-box-token">
                         <div className="swap-box-token-header" >
                             <div className="swap-box-token-header-token-button" onClick={() => setShowAssetListTokenTwo(true)}>
@@ -285,61 +371,14 @@ export const SwapBox = (props: SwapBoxProps) => {
                             </div>
                         </div>
                         <div className="swap-box-token-input">
-                            <input style={{ color: priceColor }} type="number" min="0" placeholder="0.0" value={Number(tokenTwoInputValue) > 0 ? FormatDecimals(BigNumberToFloat(tokenTwoInputValue, tokenTwo.decimals)) : ""} onChange={onChangeTokenTwoInput} />
+                            <input style={{ color: priceColor }} type="number" min="0" value={Number(tokenTwoInputValue) > 0 ? FormatDecimals(BigNumberToFloat(tokenTwoInputValue, tokenTwo.decimals)) : ""} onChange={onChangeTokenTwoInput} />
+                            <div className="swap-box-pair-price">
+                                <p>{`1 ${tokenOne.symbol} = ${FormatDecimals(GetDEXPrice({ factory: factory.address, tokenOne: tokenOne, tokenTwo: tokenTwo }))} ${tokenTwo.symbol}`}</p>
+                            </div>
                         </div>
                     </div>
-                    <div className="swap-box-pair-price">
-                        {amountType === 0 && <p>{`1 ${tokenOne.symbol} = ${dexPriceOut && FormatDecimals(BigNumberToFloat(BigNumber.from(dexPriceOut.toString()), 18))} ${tokenTwo.symbol}`}</p>}
-                        {amountType === 1 && <p>{`1 ${tokenTwo.symbol} = ${dexPriceIn && FormatDecimals(BigNumberToFloat(BigNumber.from(dexPriceIn.toString()), 18))} ${tokenOne.symbol}`}</p>}
-                    </div>
-                    {Number(amountsOut) > 0 && <div className="swap-box-summary">
-                        <table className="swap-box-summary-table">
-                            <tbody>
-                                {amountType === 0 && <tr>
-                                    <td className="swap-box-summary-cell-title">Expected output</td>
-                                    <td className="swap-box-summary-cell-contents">{`${FormatDecimals(BigNumberToFloat(tokenTwoInputValue, tokenTwo.decimals))} ${tokenTwo.symbol}`}</td>
-                                </tr>}
-                                {amountType === 1 && <tr>
-                                    <td className="swap-box-summary-cell-title">Expected output</td>
-                                    <td className="swap-box-summary-cell-contents">{`${FormatDecimals(BigNumberToFloat(tokenTwoInputValue, tokenTwo.decimals))} ${tokenTwo.symbol}`}</td>
-                                </tr>}
-
-                                {amountType === 0 && <tr>
-                                    <td className="swap-box-summary-cell-title">Minimum received</td>
-                                    <td className="swap-box-summary-cell-contents">{`${FormatDecimals(BigNumberToFloat(tokenTwoInputValue, tokenTwo.decimals) * (1 - slippage))} ${tokenTwo.symbol}`}</td>
-                                </tr>}
-                                {amountType === 1 && <tr>
-                                    <td className="swap-box-summary-cell-title">Maximum sent</td>
-                                    <td className="swap-box-summary-cell-contents">{`${FormatDecimals(BigNumberToFloat(tokenOneInputValue, tokenOne.decimals) * (1 + slippage))} ${tokenOne.symbol}`}</td>
-                                </tr>}
-                                <tr>
-                                    <td className="swap-box-summary-cell-title">Price impact</td>
-                                    <td className="swap-box-summary-cell-contents">{`${parseFloat((priceImpact * 100).toString()).toFixed(2)}%`}</td>
-                                </tr>
-                                <tr>
-                                    <td className="swap-box-summary-cell-title">Trading fee</td>
-                                    <td className="swap-box-summary-cell-contents">{`${path && (path.length - 1) * FormatDecimals(BigNumberToFloat(tokenOneInputValue, tokenOne.decimals) * factory.swapFee)}  ${tokenOne.symbol}`}</td>
-                                </tr>
-                                <tr>
-                                    <td className="swap-box-summary-cell-title">Liquid Path</td>
-                                    <td className="swap-box-summary-cell-contents">
-                                        <div className="swap-box-summary-cell-contents-liquid-path">
-                                            <img className="swap-box-summary-cell-contents-liquid-path-factory" src={factory.logoURI} alt={factory.name} />
-                                            <div className="swap-box-summary-cell-contents-liquid-path-line"></div>
-                                            <div className="swap-box-summary-cell-contents-liquid-path-assets">
-                                                {path?.map((asset: string, index: number) =>
-                                                    <>
-                                                        <img key={index} className="swap-box-summary-cell-contents-liquid-path-asset" src={GetAssetLogo(asset)[1] ? GetAssetLogo(asset)[1] : require("../../assets/images/placeholder.png")} alt={GetAssetLogo(asset)[0]} />
-                                                        {index < path.length - 1 && <div>{">"}</div>}
-                                                    </>
-                                                )}
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>}
+                </div>
+                <div className="swap-box-button-wrapper">
                     <SwapButton swapType={undefined} swapRouterAddress={swapRouterAddress} tokenOneInputValue={tokenOneInputValue} tokenTwoInputValue={tokenTwoInputValue} walletOwner={props.walletOwner} walletBalance={props.walletBalance} />
                 </div>
             </div>

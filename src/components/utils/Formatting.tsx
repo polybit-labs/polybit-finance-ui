@@ -90,7 +90,7 @@ export const BigNumberToFloat = (num: BigNumber, decimals: number) => {
 }
 
 export const FloatToBigNumber = (num: number, decimals: number) => {
-    let numerator = new BigNumberJS(num)
+    let numerator = new BigNumberJS(num.toString())
     let denominator = new BigNumberJS(10).pow(decimals)
     let answer = numerator.mul(denominator).toFixed(0)
     let BNAnswer = BigNumber.from(answer)

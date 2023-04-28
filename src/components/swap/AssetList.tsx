@@ -3,6 +3,7 @@ import { ERC20Token } from "../utils/ERC20Utils";
 import "./AssetList.css"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { icon } from '@fortawesome/fontawesome-svg-core/import.macro'
+import { BigNumber } from "ethers";
 
 interface AssetListProps {
     setShowAssetList: Function;
@@ -12,6 +13,8 @@ interface AssetListProps {
     tokenTwo: ERC20Token;
     whichToken: string;
     approvedList: Array<ERC20Token>
+    setTokenOneInputValue: Function;
+    setTokenTwoInputValue: Function;
 }
 
 export const AssetList = (props: AssetListProps) => {
@@ -108,7 +111,12 @@ export const AssetList = (props: AssetListProps) => {
                     <div className="asset-list-common-header">Common digital assets</div>
                     <div className="asset-list-common-selector">
                         {commonAssets.map((item, index) =>
-                            <div key={index} className="asset-list-common-asset" onClick={() => { CheckThenSetToken(item); props.setShowAssetList(false) }}>
+                            <div key={index} className="asset-list-common-asset" onClick={() => {
+                                CheckThenSetToken(item);
+                                props.setShowAssetList(false);
+                                /* props.setTokenOneInputValue(BigNumber.from("0"));
+                                props.setTokenTwoInputValue(BigNumber.from("0")) */
+                            }}>
                                 <img className="asset-list-common-asset-logo" src={item.logoURI} />
                                 <div className="asset-list-common-asset-name">{item.symbol}</div>
                             </div>)}
@@ -116,7 +124,12 @@ export const AssetList = (props: AssetListProps) => {
                 </div>
                 <div className="asset-list-scrollable-list">
                     {filteredAssets?.map((item, index) =>
-                        <div key={index} className="asset-list-scrollable-list-asset" onClick={() => { CheckThenSetToken(item); props.setShowAssetList(false) }}>
+                        <div key={index} className="asset-list-scrollable-list-asset" onClick={() => {
+                            CheckThenSetToken(item);
+                            props.setShowAssetList(false);
+                            /* props.setTokenOneInputValue(BigNumber.from("0"));
+                            props.setTokenTwoInputValue(BigNumber.from("0")) */
+                        }}>
                             <img className="asset-list-scrollable-list-asset-logo" src={item.logoURI} />
                             <div className="asset-list-scrollable-list-asset-title">
                                 <div className="asset-list-scrollable-list-asset-symbol">{item.symbol}</div>

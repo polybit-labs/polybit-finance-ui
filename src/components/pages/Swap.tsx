@@ -26,7 +26,6 @@ function Swap() {
     const { data: walletBalance } = useBalance({
         address: walletOwner,
     })
-    const { disconnect } = useDisconnect()
     const currency = useContext(CurrencyContext).currency
     const { response: prices, isLoading: pricesLoading, isSuccess: pricesSuccess } = GetPriceVsCurrency(wethAddress["56"]["wethAddress"])
     const [vsPrices, setVsPrices] = useState<any>({})
@@ -36,7 +35,7 @@ function Swap() {
     }, [pricesLoading, pricesSuccess])
 
     const title: string = "Swap"
-    const subTitle = <div style={{ width: "100%" }}>
+    /* const subTitle = <div style={{ width: "100%" }}>
         <div>{`You have connected Polybit to ${connector?.name} and are ready swap digital assets.`}</div>
         <br></br>
         <div className="sub-title-info" ><p style={{ color: "#909090" }}><b>Your connected wallet: </b>
@@ -62,8 +61,7 @@ function Swap() {
                         }
                     })()) : 0, 2)})`}</b></p>
             <TextLink to="" text="Disconnect and log out" arrowDirection="forward-logout" onClick={() => disconnect()} /></div>
-    </div>
-    const subTitleNotConnected = <div><h2>You are not currently connected to a wallet. Please connect your wallet to access all of the features of this app.</h2></div>
+    </div> */
     const tokenList: Array<any> = []
 
     if (tokenList) {
@@ -74,8 +72,11 @@ function Swap() {
                     <meta name="description" content="" />
                 </Helmet>
                 <TitleContainer title={title} />
-                <SubTitleContainer info={subTitle} />
-                <SwapBox walletOwner={walletOwner} walletBalance={walletBalance ? walletBalance.value : BigNumber.from("0")} />
+                <SwapBox walletOwner={walletOwner}
+                    walletBalance={walletBalance ? walletBalance.value : BigNumber.from("0")}
+                    connector={connector}
+                    currency={currency}
+                    vsPrices={vsPrices} />
                 <Footer />
             </>
         )
