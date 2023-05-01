@@ -16,7 +16,7 @@ import { Loading } from '../Loading'
 import { TruncateAddress } from '../utils/Formatting'
 import { BigNumber } from 'ethers'
 import { GetEstablishDepositOrderData } from '../api/GetEstablishDepositOrderData'
-import polybitAddresses from "../../chain_info/polybitAddresses.json"
+import PolybitInfo from "../../chain_info/PolybitInfo.json"
 
 interface EstablishDepositSummary {
     productId: number;
@@ -74,7 +74,7 @@ export const EstablishDepositSummary = (props: EstablishDepositSummary) => {
     let prettyTimeLockValue = PrettyTimeLockValue()
 
     const { config: detfDepositConfig, error: detfDepositError, isSuccess: prepareContractWriteSuccess, isLoading: prepareContractWriteLoading } = usePrepareContractWrite({
-        address: polybitAddresses["97"]["detf_factory"] as `0x${string}`,
+        address: PolybitInfo["97"]["addresses"]["detf_factory"] as `0x${string}`,
         abi: [{
             "inputs": [
                 {

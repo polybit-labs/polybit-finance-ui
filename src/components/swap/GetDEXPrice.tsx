@@ -1,7 +1,7 @@
 import { useContractReads } from "wagmi"
 import { useEffect, useState } from "react"
 import { BigNumber } from "ethers"
-import { PairAddress } from "./PairAddress"
+import { GetPairAddress } from "./GetPairAddress"
 import { ERC20Token } from "../utils/ERC20Utils"
 import { FloatToBigNumber } from "../utils/Formatting"
 
@@ -21,7 +21,7 @@ export const GetDEXPrice = (props: DEXPriceProps) => {
     const [tokenPrice, setTokenPrice] = useState<number>(0)
 
     const pairContract = {
-        address: PairAddress({ factory: props.factory, tokenOne: props.tokenOne.address, tokenTwo: props.tokenTwo.address })?.toString() as `0x${string}`,
+        address: GetPairAddress({ factory: props.factory, tokenOne: props.tokenOne.address, tokenTwo: props.tokenTwo.address })?.toString() as `0x${string}`,
         abi: [{
             "constant": true,
             "inputs": [],

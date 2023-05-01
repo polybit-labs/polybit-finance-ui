@@ -1,0 +1,32 @@
+{
+  "56": {
+    "addresses": {
+      "router": "0xF30A4c1069f261c65b8b32538De4a39CCf973706",
+      "rebalancer": "0xa0C403477152FFD3525AC3debc17768173C91B8D",
+      "detf_factory": "0x62b72504552594ac919217638D10De28A1Ced63f",
+      "swap_router": "0x8682C5442B02C8cC7A9d69DF5684FDf6577652Fb",
+      "liquid_path": "0x31Fa516E3451944c3707efA963e9ADfC58844d09"
+    },
+    "fees": {
+      "swap_fee": 0.00,
+      "thematic_fee": 0.00
+    }
+  },
+  "97": {
+    "addresses": {
+      "router": "0xA32A358eA56Bf9292ee1989F539CfbAaCE7E46be",
+      "rebalancer": "0x498915c4f09f8E698eC8e50Cde3789F575A4F4Df",
+      "detf": "0xD7183A878F332f8Ed07f8e0e2b072c9A9df85698",
+      "detf_factory": "0x3498B83e14Dcd96a531c14DA706b3C17660789ff",
+      "config": "0x22790914EECC7EBF769C9ddD995DE607b9CcC964",
+      "access": "0xf74DABbd36DBb55D3c22f783537505143FecedE9",
+      "multicall": "0x69a4E26ffE2CCde086248CF581A190Fb6cF17893",
+      "liquid_path": "",
+      "swap_router": ""
+    },
+    "fees": {
+      "swap_fee": 0.00,
+      "thematic_fee": 0.00
+    }
+  }
+}

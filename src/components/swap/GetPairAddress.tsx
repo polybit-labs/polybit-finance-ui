@@ -7,7 +7,7 @@ interface PairAddressProps {
     tokenTwo: string
 }
 
-export const PairAddress = (props: PairAddressProps) => {
+export const GetPairAddress = (props: PairAddressProps) => {
     const [pairAddress, setPairAddress] = useState<string>()
 
     const pairData = useContractRead({

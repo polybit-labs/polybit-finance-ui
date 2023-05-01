@@ -1,6 +1,6 @@
 import { useAccount, usePrepareContractWrite, useContractWrite, useWaitForTransaction, useNetwork } from 'wagmi'
 import { useEffect, useState } from 'react'
-import polybitAddresses from "../chain_info/polybitAddresses.json"
+import PolybitInfo from "../chain_info/PolybitInfo.json"
 import PolybitDETFFactoryInterface from "../chain_info/IPolybitDETFFactory.json"
 import { Interface } from 'ethers/lib/utils'
 import { Link, useNavigate } from 'react-router-dom'
@@ -27,7 +27,7 @@ export const EstablishDETFBox = (props: EstablishDETFBox) => {
     const chainId: string = chain ? chain.id.toString() : ""
     const navigate = useNavigate();
     const navToAccount = () => navigate("/deposit", { state: { category: props.category, dimension: props.dimension, detfAddress: props.detfAddress, processOrigin: "establish", activeStage: 2 } })
-    const detfFactoryAddress: string = polybitAddresses[chainId as keyof typeof polybitAddresses]["detf_factory"]
+    const detfFactoryAddress: string = PolybitInfo[chainId as keyof typeof PolybitInfo]["addresses"]["detf_factory"]
     const IPolybitDETFFactory = new Interface(PolybitDETFFactoryInterface)
 
     const { config, error, isLoading: prepareConfigLoading, isSuccess: prepareConfigSuccess } = usePrepareContractWrite({
