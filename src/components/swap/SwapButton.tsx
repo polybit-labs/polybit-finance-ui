@@ -687,3 +687,43 @@ export const SwapTokensForExactETH = (props: SwapButtonProps) => {
             <Button text="Confirm Swap" buttonSize="standard" buttonStyle="primary" />
         </div>)
 }
+
+export const SwapTokensForExactTokens = (props: SwapButtonProps) => {
+    console.log("swapTokensForExactTokens")
+    console.log(Number(props.tokenOneInputValue))
+    console.log(Number(props.amountOutMin))
+
+    const { config, error, isSuccess, isLoading } = usePrepareContractWrite({
+        address: props.swapRouterAddress as `0x${string}`,
+        abi: ISwapRouter,
+        functionName: "swapTokensForExactTokens",
+        args: [props.factory.address, props.path, props.tokenTwoInputValue, props.amountInMax, props.walletOwner, moment().unix() + (Number(props.deadline) * 60)],
+        onError(error) {
+            console.log('swapTokensForExactTokens Config Error', error)
+        },
+        onSuccess(data) {
+            console.log('swapTokensForExactTokens Config Success', data)
+        },
+    })
+
+    const { data, write } = useContractWrite(config)
+
+    /* const { data: waitForTransaction, isError: transactionError, isLoading: transactionLoading, isSuccess: transactionSuccess } = useWaitForTransaction({
+        hash: data?.hash,
+        onSettled(data, error) {
+            const response = data ? data.logs[2].data : []
+            const confirmedAmount = utils.defaultAbiCoder.decode(["uint256"], response)[0].toString()
+            if (confirmedAmount === props.depositAmount) {
+                props.setDepositSuccess(true)
+            }
+        },
+        onError(error) {
+            console.log('useWaitForTransaction Error', error)
+        },
+    }) */
+
+    return (
+        <div className="swap-summary-button-wrapper" >
+            <Button text="Confirm Swap" buttonSize="standard" buttonStyle="primary" />
+        </div>)
+}

@@ -9,13 +9,13 @@ import {
 } from "wagmi"
 
 import { Loading } from '../Loading'
-import { BigNumberToFloat, FormatDecimals } from '../utils/Formatting'
+import { BigNumberToFloat, FormatDecimals, TruncateAddress } from '../utils/Formatting'
 import { BigNumber } from 'ethers'
 import { ERC20Token } from '../utils/ERC20Utils'
 import { DEX } from './Types/DEX'
 import { PriceImpact } from "./PriceImpact"
 import { GetAssetLogo } from "./GetAssetLogo"
-import { Allowance, Approve, SwapETHForExactTokens, SwapExactETHForTokens, SwapExactTokensForETH, SwapExactTokensForTokens, SwapTokensForExactETH } from "./SwapButton"
+import { Allowance, Approve, SwapETHForExactTokens, SwapExactETHForTokens, SwapExactTokensForETH, SwapExactTokensForTokens, SwapTokensForExactETH, SwapTokensForExactTokens } from "./SwapButton"
 import PolybitInfo from "../../chain_info/PolybitInfo.json"
 import { TextLink } from "../Buttons"
 import { useEffect, useState } from "react"
@@ -135,6 +135,68 @@ export const SwapSummary = (props: SwapSummary) => {
                             </tbody>
                         </table>
                     </div>
+                    <div className="swap-summary-info-mobile">
+                        <div className="swap-summary-info-bar-mobile"></div>
+                        <table className="swap-summary-table-mobile">
+                            <tbody>
+                                {props.amountType === 0 && <tr><td className="swap-summary-table-cell-title">Sending</td></tr>}
+                                {props.amountType === 1 && <tr><td className="swap-summary-table-cell-title">Estimated Sending</td></tr>}
+                                <tr><td className="swap-summary-table-cell-contents">{`${FormatDecimals(BigNumberToFloat(props.tokenOneInputValue, props.tokenOne.decimals))} ${props.tokenOne.symbol}`}</td></tr>
+                                <tr><td className="swap-summary-table-cell-title">Swap fee</td></tr>
+                                <tr><td className="swap-summary-table-cell-contents">{`${FormatDecimals(BigNumberToFloat(props.tokenOneInputValue.mul(10000 * ((props.path.length - 1) * props.tradingFee)).div(10000), props.tokenOne.decimals))}  ${props.tokenOne.symbol}`}</td></tr>
+                                <tr><td className="swap-summary-table-cell-title">Price impact</td></tr>
+                                <tr><td className="swap-summary-table-cell-contents">
+                                    <PriceImpact dexPrice={props.dexPrice}
+                                        tokenOneInputValue={props.tokenOneInputValue}
+                                        tokenTwoInputValue={props.tokenTwoInputValue}
+                                        amountType={props.amountType}
+                                        tradingFee={props.tradingFee}
+                                        tokenOne={props.tokenOne}
+                                        tokenTwo={props.tokenTwo}
+                                        factory={props.factory}
+                                        path={props.path} /></td></tr>
+                                <tr><td className="swap-summary-table-cell-title">Liquid Path</td></tr>
+                                <tr><td className="swap-summary-table-cell-contents">
+                                    <div className="swap-summary-table-cell-contents-liquid-path">
+                                        <img className="swap-summary-table-cell-contents-liquid-path-factory" src={props.factory.logoURI} alt={props.factory.name} />
+                                        <div className="swap-summary-table-cell-contents-liquid-path-line"></div>
+                                        <div className="swap-summary-table-cell-contents-liquid-path-assets">
+                                            {props.path?.map((asset: string, index: number) =>
+                                                <>
+                                                    <img key={index} className="swap-summary-table-cell-contents-liquid-path-asset" src={GetAssetLogo(asset, props.approvedList)[1] ? GetAssetLogo(asset, props.approvedList)[1] : require("../../assets/images/placeholder.png")} alt={GetAssetLogo(asset, props.approvedList)[0]} />
+                                                    {index < props.path.length - 1 && <div>{">"}</div>}
+                                                </>
+                                            )}
+                                        </div>
+                                    </div>
+                                </td></tr>
+                                <tr><td className="swap-summary-table-cell-title">Wallet recipient</td></tr>
+                                <tr><td className="swap-summary-table-cell-contents">
+                                    {props.chainId === "97" && <a href={`https://testnet.bscscan.com/address/${props.walletOwner}`} target="_blank" rel="noopener noreferrer"><p>{TruncateAddress(props.walletOwner)}</p></a>}
+                                    {props.chainId !== "97" && <a href={`https://testnet.bscscan.com/address/${props.walletOwner}`} target="_blank" rel="noopener noreferrer"><p>{TruncateAddress(props.walletOwner)}</p></a>}
+                                </td></tr>
+                                {props.amountType === 0 && <tr>
+                                    <td className="swap-summary-table-cell-title">Minimum receiving</td>
+                                    <td className="swap-summary-table-cell-contents">{`${FormatDecimals(BigNumberToFloat(props.amountOutMin, props.tokenTwo.decimals))} ${props.tokenTwo.symbol}`} </td>
+                                </tr>}
+                                {props.amountType === 1 &&
+                                    <>
+                                        <tr><td className="swap-summary-table-cell-title">Maximum sending</td></tr>
+                                        <tr><td className="swap-summary-table-cell-contents">{`${FormatDecimals(BigNumberToFloat(props.amountInMax, props.tokenOne.decimals))} ${props.tokenOne.symbol}`}</td></tr>
+                                    </>}
+                                {props.amountType === 0 &&
+                                    <>
+                                        <tr><td className="swap-summary-table-cell-title-final">Estimated receiving</td></tr>
+                                        <tr><td className="swap-summary-table-cell-contents-final">{`${FormatDecimals(BigNumberToFloat(props.tokenTwoInputValue, props.tokenTwo.decimals))} ${props.tokenTwo.symbol}`}</td></tr>
+                                    </>}
+                                {props.amountType === 1 &&
+                                    <>
+                                        <tr><td className="swap-summary-table-cell-title-final">Receiving</td></tr>
+                                        <tr><td className="swap-summary-table-cell-contents-final">{`${FormatDecimals(BigNumberToFloat(props.tokenTwoInputValue, props.tokenTwo.decimals))} ${props.tokenTwo.symbol}`}</td></tr>
+                                    </>}
+                            </tbody>
+                        </table>
+                    </div>
                     {props.swapType === "swapETHForExactTokens" && <SwapETHForExactTokens
                         swapRouterAddress={swapRouterAddress}
                         tokenOneInputValue={props.tokenOneInputValue}
@@ -209,8 +271,22 @@ export const SwapSummary = (props: SwapSummary) => {
                         spender={swapRouterAddress as `0x${string}`}
                         amount={props.tokenOneInputValue} />}
 
-                    {/* SwapExactTokensForTokens */}
-                    {/* SwapTokensForExactETH */}
+                    {props.swapType === "swapTokensForExactTokens" && spenderApproved && <SwapTokensForExactTokens
+                        swapRouterAddress={swapRouterAddress}
+                        tokenOneInputValue={props.tokenOneInputValue}
+                        tokenTwoInputValue={props.tokenTwoInputValue}
+                        factory={props.factory}
+                        path={props.path}
+                        amountOutMin={props.amountOutMin}
+                        amountInMax={props.amountInMax}
+                        deadline={props.deadline}
+                        walletOwner={props.walletOwner}
+                        walletBalance={props.walletBalance} />}
+                    {props.swapType === "swapTokensForExactTokens" && !spenderApproved && <Approve
+                        token={props.path[0]}
+                        user={props.walletOwner}
+                        spender={swapRouterAddress as `0x${string}`}
+                        amount={props.tokenOneInputValue} />}
 
                     <TextLink to="" text="Make changes" arrowDirection="back" onClick={() => { props.setShowSwapBox(true); props.setShowSwapSummary(false) }} />
                 </div>
