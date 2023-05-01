@@ -184,12 +184,13 @@ export const SwapBox = (props: SwapBoxProps) => {
     return (
         <div className="swap-box">
             <div className="swap-box-wrapper">
-                <div className="swap-box-wrapper-header" ><p style={{ color: "#909090" }}><b>Wallet: </b>
-                    {props.connector?.name === "MetaMask" && <img width="20px" height="20px" src={require("../../assets/images/metamask_icon.png")} />}
-                    {props.connector?.name === "Coinbase Wallet" && <img width="20px" height="20px" src={require("../../assets/images/coinbasewallet_icon.png")} />}
-                    {props.connector?.name === "WalletConnect" && <img width="20px" height="20px" src={require("../../assets/images/walletconnect_icon.png")} />}
-                    {props.connector?.name === "WalletConnectLegacy" && <img width="20px" height="20px" src={require("../../assets/images/walletconnect_icon.png")} />}
-                    <b>{` ${TruncateAddress(props.walletOwner ? props.walletOwner : "")}`}</b></p>
+                <div className="swap-box-wrapper-header" >
+                    <p style={{ color: "#909090" }}>Wallet:
+                        {props.connector?.name === "MetaMask" && <img width="20px" height="20px" src={require("../../assets/images/metamask_icon.png")} />}
+                        {props.connector?.name === "Coinbase Wallet" && <img width="20px" height="20px" src={require("../../assets/images/coinbasewallet_icon.png")} />}
+                        {props.connector?.name === "WalletConnect" && <img width="20px" height="20px" src={require("../../assets/images/walletconnect_icon.png")} />}
+                        {props.connector?.name === "WalletConnectLegacy" && <img width="20px" height="20px" src={require("../../assets/images/walletconnect_icon.png")} />}
+                        {` ${TruncateAddress(props.walletOwner ? props.walletOwner : "")}`}</p>
                     <TextLink to="" text="Disconnect Wallet" arrowDirection="forward-logout" onClick={() => disconnect()} /></div>
                 <div className="swap-box-container">
                     {showAssetListTokenOne && props.approvedList && <AssetList setShowAssetList={setShowAssetListTokenOne} setTokenOne={props.setTokenOne} setTokenTwo={props.setTokenTwo} tokenOne={props.tokenOne} tokenTwo={props.tokenTwo} whichToken="tokenOne" approvedList={props.approvedList} setTokenOneInputValue={props.setTokenOneInputValue} setTokenTwoInputValue={props.setTokenTwoInputValue} />}

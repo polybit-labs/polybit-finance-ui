@@ -4,7 +4,7 @@
       "router": "0xF30A4c1069f261c65b8b32538De4a39CCf973706",
       "rebalancer": "0xa0C403477152FFD3525AC3debc17768173C91B8D",
       "detf_factory": "0x62b72504552594ac919217638D10De28A1Ced63f",
-      "swap_router": "0x8682C5442B02C8cC7A9d69DF5684FDf6577652Fb",
+      "swap_router": "0x2dc9C40916D7a23257F269DF0fa4ed788558ED18",
       "liquid_path": "0x31Fa516E3451944c3707efA963e9ADfC58844d09"
     },
     "fees": {

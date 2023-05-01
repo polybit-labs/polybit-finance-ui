@@ -15,9 +15,10 @@ import { ERC20Token } from '../utils/ERC20Utils'
 import { DEX } from './Types/DEX'
 import { PriceImpact } from "./PriceImpact"
 import { GetAssetLogo } from "./GetAssetLogo"
-import { SwapETHForExactTokens, SwapExactETHForTokens, SwapExactTokensForETH } from "./SwapButton"
+import { Allowance, Approve, SwapETHForExactTokens, SwapExactETHForTokens, SwapExactTokensForETH, SwapExactTokensForTokens, SwapTokensForExactETH } from "./SwapButton"
 import PolybitInfo from "../../chain_info/PolybitInfo.json"
 import { TextLink } from "../Buttons"
+import { useEffect, useState } from "react"
 
 interface SwapSummary {
     chainId: string;
@@ -46,15 +47,21 @@ interface SwapSummary {
 
 export const SwapSummary = (props: SwapSummary) => {
     const swapRouterAddress: string = PolybitInfo[props.chainId as keyof typeof PolybitInfo]["addresses"]["swap_router"]
-    const ethers = require("ethers")
-    const utils = ethers.utils
-    const { address: walletOwner, connector, isConnected } = useAccount()
-    const { chain } = useNetwork()
-    const { data: walletBalance } = useBalance({
-        address: walletOwner,
-    })
+    const [spenderApproved, setSpenderApproved] = useState<boolean>(false)
 
-    if (props.amountOutMin && props.amountInMax) {
+    const checkApproved: boolean = props.walletOwner ? Allowance({
+        token: props.path[0],
+        user: props.walletOwner,
+        spender: swapRouterAddress as `0x${string}`,
+        amount: props.tokenOneInputValue
+    })
+        : false
+
+    useEffect(() => {
+        setSpenderApproved(checkApproved)
+    }, [checkApproved])
+
+    if (props.amountOutMin && props.amountInMax && props.walletOwner) {
         return (
             <div className="swap-summary">
                 <div className="swap-summary-container">
@@ -150,7 +157,8 @@ export const SwapSummary = (props: SwapSummary) => {
                         deadline={props.deadline}
                         walletOwner={props.walletOwner}
                         walletBalance={props.walletBalance} />}
-                    {props.swapType === "swapExactTokensForETH" && <SwapExactTokensForETH
+
+                    {props.swapType === "swapExactTokensForETH" && spenderApproved && <SwapExactTokensForETH
                         swapRouterAddress={swapRouterAddress}
                         tokenOneInputValue={props.tokenOneInputValue}
                         tokenTwoInputValue={props.tokenTwoInputValue}
@@ -161,6 +169,49 @@ export const SwapSummary = (props: SwapSummary) => {
                         deadline={props.deadline}
                         walletOwner={props.walletOwner}
                         walletBalance={props.walletBalance} />}
+                    {props.swapType === "swapExactTokensForETH" && !spenderApproved && <Approve
+                        token={props.path[0]}
+                        user={props.walletOwner}
+                        spender={swapRouterAddress as `0x${string}`}
+                        amount={props.tokenOneInputValue} />}
+
+                    {props.swapType === "swapExactTokensForTokens" && spenderApproved && <SwapExactTokensForTokens
+                        swapRouterAddress={swapRouterAddress}
+                        tokenOneInputValue={props.tokenOneInputValue}
+                        tokenTwoInputValue={props.tokenTwoInputValue}
+                        factory={props.factory}
+                        path={props.path}
+                        amountOutMin={props.amountOutMin}
+                        amountInMax={props.amountInMax}
+                        deadline={props.deadline}
+                        walletOwner={props.walletOwner}
+                        walletBalance={props.walletBalance} />}
+                    {props.swapType === "swapExactTokensForTokens" && !spenderApproved && <Approve
+                        token={props.path[0]}
+                        user={props.walletOwner}
+                        spender={swapRouterAddress as `0x${string}`}
+                        amount={props.tokenOneInputValue} />}
+
+                    {props.swapType === "swapTokensForExactETH" && spenderApproved && <SwapTokensForExactETH
+                        swapRouterAddress={swapRouterAddress}
+                        tokenOneInputValue={props.tokenOneInputValue}
+                        tokenTwoInputValue={props.tokenTwoInputValue}
+                        factory={props.factory}
+                        path={props.path}
+                        amountOutMin={props.amountOutMin}
+                        amountInMax={props.amountInMax}
+                        deadline={props.deadline}
+                        walletOwner={props.walletOwner}
+                        walletBalance={props.walletBalance} />}
+                    {props.swapType === "swapTokensForExactETH" && !spenderApproved && <Approve
+                        token={props.path[0]}
+                        user={props.walletOwner}
+                        spender={swapRouterAddress as `0x${string}`}
+                        amount={props.tokenOneInputValue} />}
+
+                    {/* SwapExactTokensForTokens */}
+                    {/* SwapTokensForExactETH */}
+
                     <TextLink to="" text="Make changes" arrowDirection="back" onClick={() => { props.setShowSwapBox(true); props.setShowSwapSummary(false) }} />
                 </div>
             </div>
@@ -169,164 +220,11 @@ export const SwapSummary = (props: SwapSummary) => {
 
     return (<></>)
 
-    /* 
-        const { config: detfDepositConfig, error: detfDepositError, isSuccess: prepareContractWriteSuccess, isLoading: prepareContractWriteLoading } = usePrepareContractWrite({
-            address: props.detfAddress as `0x${string}`,
-            abi: [],
-            functionName: 'deposit',
-            // @ts-ignore
-            args: [BigNumber.from(props.timeLockAmount) === BigNumber.from(props.timeLock) ? BigNumber.from(0) : BigNumber.from(props.timeLockAmount), orderData],
-            overrides: { from: walletOwner, value: BigNumber.from(props.depositAmount) },
-            onError(error) {
-                console.log('detfDepositConfig Error', error)
-            },
-            onSuccess(data) {
-                console.log('detfDepositConfig Success', data)
-            },
-        })
-    
-        const { data, isLoading: contractWriteLoading, isSuccess, write: detfDeposit } = useContractWrite(detfDepositConfig)
-    
-        const { data: waitForTransaction, isError: transactionError, isLoading: transactionLoading, isSuccess: transactionSuccess } = useWaitForTransaction({
-            hash: data?.hash,
-            onSettled(data, error) {
-                const response = data ? data.logs[2].data : []
-                const confirmedAmount = utils.defaultAbiCoder.decode(["uint256"], response)[0].toString()
-                if (confirmedAmount === props.depositAmount) {
-                    props.setDepositSuccess(true)
-                }
-            },
-            onError(error) {
-                console.log('useWaitForTransaction Error', error)
-            },
-        })
-    
-        const depositAmountFormatted = parseFloat((Number(props.depositAmount) / 10 ** 18).toString()).toFixed(4)
-        const depositAmountCurrency = FormatCurrency(props.depositAmount ?
-            (Number(props.depositAmount)
-                / 10 ** 18 *
-                (() => {
-                    switch (props.currency) {
-                        case "AUD": return (props.vsPrices.aud)
-                        case "BNB": return (props.vsPrices.bnb)
-                        case "CNY": return (props.vsPrices.cny)
-                        case "EURO": return (props.vsPrices.eur)
-                        case "IDR": return (props.vsPrices.idr)
-                        case "JPY": return (props.vsPrices.jpy)
-                        case "KRW": return (props.vsPrices.krw)
-                        case "RUB": return (props.vsPrices.rub)
-                        case "TWD": return (props.vsPrices.twd)
-                        case "USD": return (props.vsPrices.usd)
-                    }
-                })()) : 0, 2)
-    
-        if (!prepareContractWriteSuccess) {
-            return (
-                <Loading loadingMsg="Preparing your investment" />
-            )
-        }
-    
-        if (!transactionLoading && prepareContractWriteSuccess) {
-            return (
-                <div className="deposit-summary">
-                    <div className="deposit-summary-container">
-                        <h2>Your DETF investment summary</h2>
-                        <div className="deposit-summary-info">
-                            <div className="deposit-summary-info-bar"></div>
-                            <table className="deposit-summary-table">
-                                <tbody>
-                                    <tr>
-                                        <td className="deposit-summary-table-cell-title">DETF</td>
-                                        <td className="deposit-summary-table-cell-contents">{props.category} {props.dimension}</td>
-                                    </tr>
-                                    <tr>
-                                        <td className="deposit-summary-table-cell-title">Blockchain</td>
-                                        <td className="deposit-summary-table-cell-contents">{chain?.name}</td>
-                                    </tr>
-                                    <tr>
-                                        <td className="deposit-summary-table-cell-title">Entry Fee</td>
-                                        <td className="deposit-summary-table-cell-contents">0.5%</td>
-                                    </tr>
-                                    <tr>
-                                        <td className="deposit-summary-table-cell-title">Exit Fee</td>
-                                        <td className="deposit-summary-table-cell-contents">0.5%</td>
-                                    </tr>
-                                    <tr>
-                                        <td className="deposit-summary-table-cell-title">Time Locked</td>
-                                        <td className="deposit-summary-table-cell-contents">{prettyTimeLockValue}</td>
-                                    </tr>
-                                    <tr>
-                                        <td className="deposit-summary-table-cell-title">Your wallet</td>
-                                        <td className="deposit-summary-table-cell-contents">{TruncateAddress(walletOwner ? walletOwner : "")}</td>
-                                    </tr>
-                                    <tr>
-                                        <td className="deposit-summary-table-cell-title-final">Investment</td>
-                                        <td className="deposit-summary-table-cell-contents-final">{`${walletBalance?.symbol} ${depositAmountFormatted} (${depositAmountCurrency})`}</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <div className="deposit-summary-info-mobile">
-                            <div className="deposit-summary-info-bar-mobile"></div>
-                            <table className="deposit-summary-table-mobile">
-                                <tbody>
-                                    <tr>
-                                        <td className="deposit-summary-table-cell-title">DETF</td>
-                                    </tr>
-                                    <tr><td className="deposit-summary-table-cell-contents">{props.category} {props.dimension}</td>
-                                    </tr>
-                                    <tr>
-                                        <td className="deposit-summary-table-cell-title">Blockchain</td>
-                                    </tr>
-                                    <tr>
-                                        <td className="deposit-summary-table-cell-contents">{chain?.name}</td>
-                                    </tr>
-                                    <tr>
-                                        <td className="deposit-summary-table-cell-title">Entry Fee</td>
-                                    </tr>
-                                    <tr>
-                                        <td className="deposit-summary-table-cell-contents">0.5%</td>
-                                    </tr>
-                                    <tr>
-                                        <td className="deposit-summary-table-cell-title">Exit Fee</td>
-                                    </tr>
-                                    <tr>
-                                        <td className="deposit-summary-table-cell-contents">0.5%</td>
-                                    </tr>
-                                    <tr>
-                                        <td className="deposit-summary-table-cell-title">Time Locked</td>
-                                    </tr>
-                                    <tr>
-                                        <td className="deposit-summary-table-cell-contents">{prettyTimeLockValue}</td>
-                                    </tr>
-                                    <tr>
-                                        <td className="deposit-summary-table-cell-title">Your wallet</td>
-                                    </tr>
-                                    <tr>
-                                        <td className="deposit-summary-table-cell-contents">{TruncateAddress(walletOwner ? walletOwner : "")}</td>
-                                    </tr>
-                                    <tr>
-                                        <td className="deposit-summary-table-cell-title-final">Investment</td>
-                                    </tr>
-                                    <tr>
-                                        <td className="deposit-summary-table-cell-contents-final">{`${walletBalance?.symbol} ${depositAmountFormatted} (${depositAmountCurrency})`}</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <div className="deposit-summary-button-wrapper">
-                            {!contractWriteLoading && !transactionLoading && orderDataSuccess && <Button buttonStyle="primary" buttonSize="standard" text="Finalise and commit funds" onClick={() => detfDeposit?.()} />}
-                            {contractWriteLoading && !transactionLoading && <Button buttonStyle="primary" buttonSize="standard" text="Finalise and commit funds" status="loading" loadingMsg={`waiting for ${connector?.name}`} />}
-                        </div>
-                        <TextLink to="" text="Make changes" arrowDirection="back" onClick={() => { props.setShowDepositDetails(true); props.setActiveStage(props.activeStage === "establish-deposit-summary" ? "establish-deposit-details" : "deposit-details") }} />
-                    </div>
-                </div>
-            )
-        }
-    
-        if (transactionLoading) {
-            return (
-                <Loading loadingMsg="Sending transaction to the blockchain" />
-            )
-        } */
+
+
+    /*   if (transactionLoading) {
+          return (
+              <Loading loadingMsg="Sending transaction to the blockchain" />
+          )
+      }  */
 }
