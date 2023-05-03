@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet-async'
 import TitleContainer from '../containers/Title'
 import { Loading } from '../Loading'
 import { SwapBox } from '../swap/SwapBox'
-import { useAccount, useBalance, useNetwork } from 'wagmi'
+import { useAccount, useBalance, useContractWrite, useNetwork, useWaitForTransaction } from 'wagmi'
 import { CurrencyContext } from '../utils/Currency'
 import { useLocation } from 'react-router-dom'
 import { initialiseGA4 } from '../utils/Analytics'
@@ -14,6 +14,7 @@ import wethAddress from "../../chain_info/weth.json"
 import { BigNumber } from 'ethers'
 import { ERC20Token } from '../utils/ERC20Utils'
 import { SwapSummary } from '../swap/SwapSummary'
+import { SwapSuccess } from '../swap/SwapSuccess'
 
 interface DEX {
     address: string;
@@ -93,9 +94,9 @@ function Swap() {
     const [tradingFeeAmount, setTradingFeeAmount] = useState<BigNumber>(BigNumber.from("0"))
     const [swapType, setSwapType] = useState<"swapETHForExactTokens" | "swapExactETHForTokens" | "swapExactTokensForETH" | "swapExactTokensForTokens" | "swapTokensForExactETH" | "swapTokensForExactTokens" | undefined>()
 
+    const [showTitle, setShowTitle] = useState<boolean>(true)
     const [showSwapBox, setShowSwapBox] = useState<boolean>(true)
     const [showSwapSummary, setShowSwapSummary] = useState<boolean>(false)
-    console.log("swap fee", tradingFee)
 
     return (
         <>
@@ -103,7 +104,7 @@ function Swap() {
                 <title>Swap | Polybit Finance</title>
                 <meta name="description" content="" />
             </Helmet>
-            <TitleContainer title={title} />
+            {showTitle && <TitleContainer title={title} />}
             {showSwapBox && <SwapBox
                 chainId={chainId}
                 approvedList={approvedList}
@@ -167,7 +168,9 @@ function Swap() {
                 walletOwner={walletOwner}
                 walletBalance={walletBalance ? walletBalance.value : BigNumber.from("0")}
                 swapType={swapType}
+                setShowTitle={setShowTitle}
             />}
+
             <Footer />
         </>
     )

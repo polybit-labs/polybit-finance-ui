@@ -1,4 +1,4 @@
-[
+export const IPolybitLiquidPath = [
     {
         "inputs": [
             {
@@ -153,4 +153,4 @@
         "stateMutability": "view",
         "type": "function"
     }
-]
+] as const

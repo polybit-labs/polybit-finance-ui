@@ -1,4 +1,4 @@
-[
+export const IPair = [
     {
         "inputs": [],
         "payable": false,
@@ -710,4 +710,4 @@
         "stateMutability": "nonpayable",
         "type": "function"
     }
-]
+] as const

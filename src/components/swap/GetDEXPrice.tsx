@@ -3,7 +3,7 @@ import { useEffect, useState } from "react"
 import { BigNumber } from "ethers"
 import { GetPairAddress } from "./GetPairAddress"
 import { ERC20Token } from "../utils/ERC20Utils"
-import { FloatToBigNumber } from "../utils/Formatting"
+import { IPair } from "../../chain_info/abi/IPair"
 
 interface DEXPriceProps {
     factory: string | undefined
@@ -22,60 +22,7 @@ export const GetDEXPrice = (props: DEXPriceProps) => {
 
     const pairContract = {
         address: GetPairAddress({ factory: props.factory, tokenOne: props.tokenOne.address, tokenTwo: props.tokenTwo.address })?.toString() as `0x${string}`,
-        abi: [{
-            "constant": true,
-            "inputs": [],
-            "name": "getReserves",
-            "outputs": [
-                {
-                    "internalType": "uint112",
-                    "name": "_reserve0",
-                    "type": "uint112"
-                },
-                {
-                    "internalType": "uint112",
-                    "name": "_reserve1",
-                    "type": "uint112"
-                },
-                {
-                    "internalType": "uint32",
-                    "name": "_blockTimestampLast",
-                    "type": "uint32"
-                }
-            ],
-            "payable": false,
-            "stateMutability": "view",
-            "type": "function"
-        }, {
-            "constant": true,
-            "inputs": [],
-            "name": "token0",
-            "outputs": [
-                {
-                    "internalType": "address",
-                    "name": "",
-                    "type": "address"
-                }
-            ],
-            "payable": false,
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "constant": true,
-            "inputs": [],
-            "name": "token1",
-            "outputs": [
-                {
-                    "internalType": "address",
-                    "name": "",
-                    "type": "address"
-                }
-            ],
-            "payable": false,
-            "stateMutability": "view",
-            "type": "function"
-        },] as const,
+        abi: IPair,
     }
 
     let numeratorMatch: boolean

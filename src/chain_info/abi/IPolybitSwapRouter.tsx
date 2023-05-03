@@ -1,32 +1,10 @@
-[
+export const IPolybitSwapRouter = [
     {
         "inputs": [
             {
-                "components": [
-                    {
-                        "internalType": "address",
-                        "name": "weth",
-                        "type": "address"
-                    },
-                    {
-                        "internalType": "address",
-                        "name": "PancakeswapV2Factory",
-                        "type": "address"
-                    },
-                    {
-                        "internalType": "address",
-                        "name": "SushiswapV2Factory",
-                        "type": "address"
-                    },
-                    {
-                        "internalType": "address",
-                        "name": "BiswapFactory",
-                        "type": "address"
-                    }
-                ],
-                "internalType": "struct RouterParameters",
-                "name": "params",
-                "type": "tuple"
+                "internalType": "address",
+                "name": "_wethAddress",
+                "type": "address"
             }
         ],
         "stateMutability": "nonpayable",
@@ -36,8 +14,95 @@
     {
         "inputs": [
             {
+                "internalType": "uint256",
+                "name": "amountOut",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "reserveIn",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "reserveOut",
+                "type": "uint256"
+            }
+        ],
+        "name": "getAmountIn",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "amountIn",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "pure",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "amountIn",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "reserveIn",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "reserveOut",
+                "type": "uint256"
+            }
+        ],
+        "name": "getAmountOut",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "amountOut",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "pure",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
                 "internalType": "address",
-                "name": "swapFactory",
+                "name": "factory",
+                "type": "address"
+            },
+            {
+                "internalType": "uint256",
+                "name": "amountOut",
+                "type": "uint256"
+            },
+            {
+                "internalType": "address[]",
+                "name": "path",
+                "type": "address[]"
+            }
+        ],
+        "name": "getAmountsIn",
+        "outputs": [
+            {
+                "internalType": "uint256[]",
+                "name": "amounts",
+                "type": "uint256[]"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "factory",
                 "type": "address"
             },
             {
@@ -65,98 +130,30 @@
     {
         "inputs": [
             {
-                "internalType": "address",
-                "name": "tokenIn",
-                "type": "address"
-            },
-            {
-                "internalType": "address",
-                "name": "tokenOut",
-                "type": "address"
+                "internalType": "uint256",
+                "name": "amountA",
+                "type": "uint256"
             },
             {
                 "internalType": "uint256",
-                "name": "tokenAmountIn",
+                "name": "reserveA",
                 "type": "uint256"
-            }
-        ],
-        "name": "getLiquidPath",
-        "outputs": [
-            {
-                "internalType": "address",
-                "name": "",
-                "type": "address"
-            },
-            {
-                "internalType": "address[]",
-                "name": "",
-                "type": "address[]"
             },
             {
                 "internalType": "uint256",
-                "name": "",
+                "name": "reserveB",
                 "type": "uint256"
             }
         ],
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "inputs": [
-            {
-                "components": [
-                    {
-                        "components": [
-                            {
-                                "internalType": "address",
-                                "name": "tokenIn",
-                                "type": "address"
-                            },
-                            {
-                                "internalType": "address",
-                                "name": "tokenOut",
-                                "type": "address"
-                            },
-                            {
-                                "internalType": "uint256",
-                                "name": "tokenAmountIn",
-                                "type": "uint256"
-                            },
-                            {
-                                "internalType": "uint256",
-                                "name": "tokenAmountOut",
-                                "type": "uint256"
-                            }
-                        ],
-                        "internalType": "struct PolybitRouter.SwapOrder[]",
-                        "name": "swapOrder",
-                        "type": "tuple[]"
-                    }
-                ],
-                "internalType": "struct PolybitRouter.SwapOrders[]",
-                "name": "swapOrders",
-                "type": "tuple[]"
-            }
-        ],
-        "name": "getLiquidPaths",
+        "name": "quote",
         "outputs": [
             {
-                "internalType": "address[]",
-                "name": "",
-                "type": "address[]"
-            },
-            {
-                "internalType": "address[][]",
-                "name": "",
-                "type": "address[][]"
-            },
-            {
-                "internalType": "uint256[]",
-                "name": "",
-                "type": "uint256[]"
+                "internalType": "uint256",
+                "name": "amountB",
+                "type": "uint256"
             }
         ],
-        "stateMutability": "view",
+        "stateMutability": "pure",
         "type": "function"
     },
     {
@@ -412,18 +409,5 @@
         ],
         "stateMutability": "nonpayable",
         "type": "function"
-    },
-    {
-        "inputs": [],
-        "name": "weth",
-        "outputs": [
-            {
-                "internalType": "address",
-                "name": "",
-                "type": "address"
-            }
-        ],
-        "stateMutability": "view",
-        "type": "function"
     }
-]
+] as const

@@ -15,10 +15,14 @@ import { ERC20Token } from '../utils/ERC20Utils'
 import { DEX } from './Types/DEX'
 import { PriceImpact } from "./PriceImpact"
 import { GetAssetLogo } from "./GetAssetLogo"
-import { Allowance, Approve, SwapETHForExactTokens, SwapExactETHForTokens, SwapExactTokensForETH, SwapExactTokensForTokens, SwapTokensForExactETH, SwapTokensForExactTokens } from "./SwapButton"
+import { Allowance } from "./Allowance"
+import { Approve } from "./Approve"
 import PolybitInfo from "../../chain_info/PolybitInfo.json"
-import { TextLink } from "../Buttons"
+import { Button, TextLink } from "../Buttons"
 import { useEffect, useState } from "react"
+import { SwapSuccess } from "./SwapSuccess"
+import { IPolybitSwapRouter } from "../../chain_info/abi/IPolybitSwapRouter"
+import moment from 'moment'
 
 interface SwapSummary {
     chainId: string;
@@ -40,6 +44,7 @@ interface SwapSummary {
     dexPrice: number;
     setShowSwapBox: Function;
     setShowSwapSummary: Function;
+    setShowTitle: Function;
     walletOwner: `0x${string}` | undefined;
     walletBalance: BigNumber;
     swapType: "swapETHForExactTokens" | "swapExactETHForTokens" | "swapExactTokensForETH" | "swapExactTokensForTokens" | "swapTokensForExactETH" | "swapTokensForExactTokens" | undefined;
@@ -48,6 +53,21 @@ interface SwapSummary {
 export const SwapSummary = (props: SwapSummary) => {
     const swapRouterAddress: string = PolybitInfo[props.chainId as keyof typeof PolybitInfo]["addresses"]["swap_router"]
     const [spenderApproved, setSpenderApproved] = useState<boolean>(false)
+    const [txHash, setTxHash] = useState<string>("")
+    const [swapArgs, setSwapArgs] = useState<any>({})
+
+    const swapTypeArgs = {
+        "swapETHForExactTokens": [props.factory.address, props.path, props.tokenTwoInputValue, props.walletOwner, moment().unix() + (Number(props.deadline) * 60)],
+        "swapExactETHForTokens": [props.factory.address, props.path, props.amountOutMin, props.walletOwner, moment().unix() + (Number(props.deadline) * 60)],
+        "swapExactTokensForETH": [props.factory.address, props.path, props.tokenOneInputValue, props.amountOutMin, props.walletOwner, moment().unix() + (Number(props.deadline) * 60)],
+        "swapExactTokensForTokens": [props.factory.address, props.path, props.tokenOneInputValue, props.amountOutMin, props.walletOwner, moment().unix() + (Number(props.deadline) * 60)],
+        "swapTokensForExactETH": [props.factory.address, props.path, props.tokenTwoInputValue, props.amountInMax, props.walletOwner, moment().unix() + (Number(props.deadline) * 60)],
+        "swapTokensForExactTokens": [props.factory.address, props.path, props.tokenTwoInputValue, props.amountInMax, props.walletOwner, moment().unix() + (Number(props.deadline) * 60)],
+    }
+
+    useEffect(() => {
+        setSwapArgs(swapTypeArgs[props.swapType as keyof typeof swapTypeArgs])
+    }, [props.swapType])
 
     const checkApproved: boolean = props.walletOwner ? Allowance({
         token: props.path[0],
@@ -61,7 +81,40 @@ export const SwapSummary = (props: SwapSummary) => {
         setSpenderApproved(checkApproved)
     }, [checkApproved])
 
-    if (props.amountOutMin && props.amountInMax && props.walletOwner) {
+    console.log("spenderApproved", spenderApproved)
+
+    const { config, isLoading: configIsLoading, isError: configIsError, isSuccess: configIsSuccess } = usePrepareContractWrite({
+        address: swapRouterAddress as `0x${string}`,
+        abi: IPolybitSwapRouter,
+        functionName: props.swapType,
+        args: swapArgs,
+        onError(error) {
+            console.log('swapTokensForExactTokens Config Error', error)
+        },
+        onSuccess(data) {
+            console.log('swapTokensForExactTokens Config Success', data)
+        },
+    })
+
+    const { data, write } = useContractWrite(config)
+
+    const { data: waitForTransaction, isError: transactionError, isLoading: transactionLoading, isSuccess: transactionSuccess } = useWaitForTransaction({
+        hash: data?.hash,
+        onError(error) {
+            console.log('write swap Error', error)
+        },
+        onSettled(data, error) {
+            console.log("write swap data", data)
+            setTxHash(data?.transactionHash as string)
+            props.setShowTitle(false)
+        },
+    })
+
+    if (props.amountOutMin &&
+        props.amountInMax &&
+        props.walletOwner &&
+        !transactionSuccess &&
+        !transactionLoading) {
         return (
             <div className="swap-summary">
                 <div className="swap-summary-container">
@@ -197,110 +250,29 @@ export const SwapSummary = (props: SwapSummary) => {
                             </tbody>
                         </table>
                     </div>
-                    {props.swapType === "swapETHForExactTokens" && <SwapETHForExactTokens
-                        swapRouterAddress={swapRouterAddress}
-                        tokenOneInputValue={props.tokenOneInputValue}
-                        tokenTwoInputValue={props.tokenTwoInputValue}
-                        factory={props.factory}
-                        path={props.path}
-                        amountOutMin={props.amountOutMin}
-                        amountInMax={props.amountInMax}
-                        deadline={props.deadline}
-                        walletOwner={props.walletOwner}
-                        walletBalance={props.walletBalance} />}
-                    {props.swapType === "swapExactETHForTokens" && <SwapExactETHForTokens
-                        swapRouterAddress={swapRouterAddress}
-                        tokenOneInputValue={props.tokenOneInputValue}
-                        tokenTwoInputValue={props.tokenTwoInputValue}
-                        factory={props.factory}
-                        path={props.path}
-                        amountOutMin={props.amountOutMin}
-                        amountInMax={props.amountInMax}
-                        deadline={props.deadline}
-                        walletOwner={props.walletOwner}
-                        walletBalance={props.walletBalance} />}
-
-                    {props.swapType === "swapExactTokensForETH" && spenderApproved && <SwapExactTokensForETH
-                        swapRouterAddress={swapRouterAddress}
-                        tokenOneInputValue={props.tokenOneInputValue}
-                        tokenTwoInputValue={props.tokenTwoInputValue}
-                        factory={props.factory}
-                        path={props.path}
-                        amountOutMin={props.amountOutMin}
-                        amountInMax={props.amountInMax}
-                        deadline={props.deadline}
-                        walletOwner={props.walletOwner}
-                        walletBalance={props.walletBalance} />}
-                    {props.swapType === "swapExactTokensForETH" && !spenderApproved && <Approve
-                        token={props.path[0]}
-                        user={props.walletOwner}
-                        spender={swapRouterAddress as `0x${string}`}
-                        amount={props.tokenOneInputValue} />}
-
-                    {props.swapType === "swapExactTokensForTokens" && spenderApproved && <SwapExactTokensForTokens
-                        swapRouterAddress={swapRouterAddress}
-                        tokenOneInputValue={props.tokenOneInputValue}
-                        tokenTwoInputValue={props.tokenTwoInputValue}
-                        factory={props.factory}
-                        path={props.path}
-                        amountOutMin={props.amountOutMin}
-                        amountInMax={props.amountInMax}
-                        deadline={props.deadline}
-                        walletOwner={props.walletOwner}
-                        walletBalance={props.walletBalance} />}
-                    {props.swapType === "swapExactTokensForTokens" && !spenderApproved && <Approve
-                        token={props.path[0]}
-                        user={props.walletOwner}
-                        spender={swapRouterAddress as `0x${string}`}
-                        amount={props.tokenOneInputValue} />}
-
-                    {props.swapType === "swapTokensForExactETH" && spenderApproved && <SwapTokensForExactETH
-                        swapRouterAddress={swapRouterAddress}
-                        tokenOneInputValue={props.tokenOneInputValue}
-                        tokenTwoInputValue={props.tokenTwoInputValue}
-                        factory={props.factory}
-                        path={props.path}
-                        amountOutMin={props.amountOutMin}
-                        amountInMax={props.amountInMax}
-                        deadline={props.deadline}
-                        walletOwner={props.walletOwner}
-                        walletBalance={props.walletBalance} />}
-                    {props.swapType === "swapTokensForExactETH" && !spenderApproved && <Approve
-                        token={props.path[0]}
-                        user={props.walletOwner}
-                        spender={swapRouterAddress as `0x${string}`}
-                        amount={props.tokenOneInputValue} />}
-
-                    {props.swapType === "swapTokensForExactTokens" && spenderApproved && <SwapTokensForExactTokens
-                        swapRouterAddress={swapRouterAddress}
-                        tokenOneInputValue={props.tokenOneInputValue}
-                        tokenTwoInputValue={props.tokenTwoInputValue}
-                        factory={props.factory}
-                        path={props.path}
-                        amountOutMin={props.amountOutMin}
-                        amountInMax={props.amountInMax}
-                        deadline={props.deadline}
-                        walletOwner={props.walletOwner}
-                        walletBalance={props.walletBalance} />}
-                    {props.swapType === "swapTokensForExactTokens" && !spenderApproved && <Approve
-                        token={props.path[0]}
-                        user={props.walletOwner}
-                        spender={swapRouterAddress as `0x${string}`}
-                        amount={props.tokenOneInputValue} />}
-
+                    <div className="swap-summary-button-wrapper" >
+                        {props.swapType !== "swapETHForExactTokens" &&
+                            props.swapType !== "swapExactETHForTokens" &&
+                            !spenderApproved && <Approve
+                                token={props.path[0]}
+                                user={props.walletOwner}
+                                spender={swapRouterAddress as `0x${string}`}
+                                amount={props.tokenOneInputValue} />}
+                        {!configIsSuccess && spenderApproved && <Button text="Confirm Swap" buttonSize="standard" buttonStyle="primary" status="disabled" />}
+                        {configIsSuccess && spenderApproved && <Button text="Confirm Swap" buttonSize="standard" buttonStyle="primary" onClick={() => write?.()} />}
+                    </div>
                     <TextLink to="" text="Make changes" arrowDirection="back" onClick={() => { props.setShowSwapBox(true); props.setShowSwapSummary(false) }} />
                 </div>
             </div>
         )
     }
+    if (transactionLoading && !transactionSuccess) {
+        return (<Loading loadingMsg="Sending transaction to the blockchain" />)
+    }
 
-    return (<></>)
+    if (!transactionLoading && transactionSuccess) {
+        return (<SwapSuccess tokenOne={props.tokenOne} tokenTwo={props.tokenTwo} txHash={txHash} walletOwner={props.walletOwner} />)
+    }
 
-
-
-    /*   if (transactionLoading) {
-          return (
-              <Loading loadingMsg="Sending transaction to the blockchain" />
-          )
-      }  */
+    return (<Loading />)
 }

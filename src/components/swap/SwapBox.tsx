@@ -17,6 +17,7 @@ import { GetBalances } from './GetBalances'
 import { FormatCurrency } from '../utils/Currency'
 import { Button, TextLink } from '../Buttons'
 import { DEX } from './Types/DEX'
+import { IPolybitLiquidPath } from '../../chain_info/abi/IPolybitLiquidPath'
 
 interface SwapBoxProps {
     chainId: string;
@@ -90,50 +91,7 @@ export const SwapBox = (props: SwapBoxProps) => {
 
     const { data, isError, isLoading } = useContractRead({
         address: liquidPathAddress as `0x${string}`,
-        abi: [{
-            "inputs": [
-                {
-                    "internalType": "address",
-                    "name": "tokenIn",
-                    "type": "address"
-                },
-                {
-                    "internalType": "address",
-                    "name": "tokenOut",
-                    "type": "address"
-                },
-                {
-                    "internalType": "uint256",
-                    "name": "tokenAmount",
-                    "type": "uint256"
-                },
-                {
-                    "internalType": "uint8",
-                    "name": "amountType",
-                    "type": "uint8"
-                }
-            ],
-            "name": "getLiquidPath",
-            "outputs": [
-                {
-                    "internalType": "address",
-                    "name": "",
-                    "type": "address"
-                },
-                {
-                    "internalType": "address[]",
-                    "name": "",
-                    "type": "address[]"
-                },
-                {
-                    "internalType": "uint256",
-                    "name": "",
-                    "type": "uint256"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
-        },] as const,
+        abi: IPolybitLiquidPath,
         functionName: "getLiquidPath",
         args: [props.tokenOne.address as `0x${string}`, props.tokenTwo.address as `0x${string}`, props.amountType == 0 ? BigNumber.from(props.tokenOneInputValue) : BigNumber.from(props.tokenTwoInputValue), props.amountType],
         watch: true,

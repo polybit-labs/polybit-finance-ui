@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { useContractRead } from "wagmi"
+import { IFactory } from "../../chain_info/abi/IFactory"
 
 interface PairAddressProps {
     factory: string | undefined
@@ -12,32 +13,7 @@ export const GetPairAddress = (props: PairAddressProps) => {
 
     const pairData = useContractRead({
         address: props.factory as `0x${string}`,
-        abi: [{
-            "constant": true,
-            "inputs": [
-                {
-                    "internalType": "address",
-                    "name": "",
-                    "type": "address"
-                },
-                {
-                    "internalType": "address",
-                    "name": "",
-                    "type": "address"
-                }
-            ],
-            "name": "getPair",
-            "outputs": [
-                {
-                    "internalType": "address",
-                    "name": "",
-                    "type": "address"
-                }
-            ],
-            "payable": false,
-            "stateMutability": "view",
-            "type": "function"
-        }] as const,
+        abi: IFactory,
         functionName: "getPair",
         args: [props.tokenOne as `0x${string}`, props.tokenTwo as `0x${string}`],
         onSettled(data, error) {
