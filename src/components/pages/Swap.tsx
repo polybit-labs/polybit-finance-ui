@@ -2,19 +2,15 @@ import { useContext, useEffect, useState } from 'react'
 import Footer from './Footer'
 import { Helmet } from 'react-helmet-async'
 import TitleContainer from '../containers/Title'
-import { Loading } from '../Loading'
 import { SwapBox } from '../swap/SwapBox'
-import { useAccount, useBalance, useContractWrite, useNetwork, useWaitForTransaction } from 'wagmi'
+import { useAccount, useBalance, useNetwork } from 'wagmi'
 import { CurrencyContext } from '../utils/Currency'
 import { useLocation } from 'react-router-dom'
 import { initialiseGA4 } from '../utils/Analytics'
 import ReactGA from "react-ga4"
-import { GetPriceVsCurrency } from '../api/GetPriceVsCurrency'
-import wethAddress from "../../chain_info/weth.json"
 import { BigNumber } from 'ethers'
 import { ERC20Token } from '../utils/ERC20Utils'
 import { SwapSummary } from '../swap/SwapSummary'
-import { SwapSuccess } from '../swap/SwapSuccess'
 import { Connect } from '../Connect'
 import SubTitleContainer from '../containers/SubTitle'
 import ChainInfo from "../../chain_info/ChainInfo.json"
@@ -80,8 +76,8 @@ function Swap() {
 
     const [tokenOne, setTokenOne] = useState<ERC20Token>(BNB)
     const [tokenTwo, setTokenTwo] = useState<ERC20Token>(CAKE)
-    const [tokenOneInputValue, setTokenOneInputValue] = useState<BigNumber>(BigNumber.from(0))
-    const [tokenTwoInputValue, setTokenTwoInputValue] = useState<BigNumber>(BigNumber.from(0))
+    const [tokenOneInputValue, setTokenOneInputValue] = useState<BigNumber>()
+    const [tokenTwoInputValue, setTokenTwoInputValue] = useState<BigNumber>()
 
     const [factory, setFactory] = useState<DEX>({ address: "", name: "", logoURI: "", swapFee: 0 })
     const [path, setPath] = useState<readonly `0x${string}`[]>([])

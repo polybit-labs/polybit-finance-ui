@@ -1,5 +1,4 @@
 import { useContext, useEffect, useState } from "react"
-import { useNetwork } from "wagmi"
 import { CurrencyContext } from "../Currency"
 import { GetPriceVsCurrency } from "../../api/GetPriceVsCurrency"
 import { BigNumber } from "ethers"
@@ -35,12 +34,11 @@ export const BigNumberToCurrency = (props: BigNumberToCurrencyProps) => {
             setPriceData(data);
         };
         fetchData();
-    }, []);
+    }, [props.address]);
 
     let BigNumberToCurrency: number = 0
 
     if (priceData) {
-
         BigNumberToCurrency = (Number(props.amount)
             / 10 ** props.decimals *
             (() => {
@@ -61,3 +59,36 @@ export const BigNumberToCurrency = (props: BigNumberToCurrencyProps) => {
 
     return BigNumberToCurrency
 }
+
+/* export const BigNumberToCurrency = (props: BigNumberToCurrencyProps) => {
+    const currency = useContext(CurrencyContext).currency
+    const { response: prices, isLoading: pricesLoading, isSuccess: pricesSuccess } = GetPriceVsCurrency(props.address)
+    const [vsPrices, setVsPrices] = useState<any>({})
+
+    useEffect(() => {
+        setVsPrices(prices ? prices : {})
+    }, [pricesLoading, pricesSuccess])
+
+    let BigNumberToCurrency: number = 0
+
+    if (vsPrices) {
+        BigNumberToCurrency = (Number(props.amount)
+            / 10 ** props.decimals *
+            (() => {
+                switch (currency) {
+                    case "AUD": return (vsPrices.aud)
+                    case "BNB": return (vsPrices.bnb)
+                    case "CNY": return (vsPrices.cny)
+                    case "EURO": return (vsPrices.eur)
+                    case "IDR": return (vsPrices.idr)
+                    case "JPY": return (vsPrices.jpy)
+                    case "KRW": return (vsPrices.krw)
+                    case "RUB": return (vsPrices.rub)
+                    case "TWD": return (vsPrices.twd)
+                    case "USD": return (vsPrices.usd)
+                }
+            })())
+    }
+
+    return BigNumberToCurrency
+} */

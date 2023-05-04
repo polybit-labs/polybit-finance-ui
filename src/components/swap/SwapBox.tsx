@@ -19,6 +19,7 @@ import { Button, TextLink } from '../Buttons'
 import { DEX } from './Types/DEX'
 import { IPolybitLiquidPath } from '../../chain_info/abi/IPolybitLiquidPath'
 import { BigNumberToCurrency } from '../utils/Currency/BigNumberToCurrency'
+import { hexValue } from 'ethers/lib/utils.js'
 
 interface SwapBoxProps {
     isConnected: boolean;
@@ -29,9 +30,9 @@ interface SwapBoxProps {
     setTokenOne: Function;
     tokenTwo: ERC20Token;
     setTokenTwo: Function;
-    tokenOneInputValue: BigNumber;
+    tokenOneInputValue: BigNumber | undefined;
     setTokenOneInputValue: Function;
-    tokenTwoInputValue: BigNumber;
+    tokenTwoInputValue: BigNumber | undefined;
     setTokenTwoInputValue: Function;
     factory: DEX;
     setFactory: Function;
@@ -69,53 +70,26 @@ export const SwapBox = (props: SwapBoxProps) => {
     const [showAssetListTokenTwo, setShowAssetListTokenTwo] = useState(false)
     const [showSwapSettings, setShowSwapSettings] = useState(false)
     const liquidPathAddress: string = PolybitInfo[props.chainId as keyof typeof PolybitInfo]["addresses"]["liquid_path"]
-    const wethAddress: string = ChainInfo[props.chainId as keyof typeof ChainInfo]["weth_address"]
+    //const wethAddress: string = ChainInfo[props.chainId as keyof typeof ChainInfo]["weth_address"]
     const polybitSwapFee: number = PolybitInfo[props.chainId as keyof typeof PolybitInfo]["fees"]["swap_fee"]
-
     const [tokenOneBalance, setTokenOneBalance] = useState<BigNumber>(BigNumber.from(0))
     const [tokenTwoBalance, setTokenTwoBalance] = useState<BigNumber>(BigNumber.from(0))
-
     const [currencyConvertedPrice, setCurrencyConvertedPrice] = useState<number>(0)
-
-    const onChangeTokenOneInput = (e: ChangeEvent<HTMLInputElement>) => {
-        props.setTokenOneInputValue(FloatToBigNumber(Number(e.target.value), props.tokenOne.decimals))
-        props.setAmountType(0)
-    }
-
-    const onChangeTokenTwoInput = (e: ChangeEvent<HTMLInputElement>) => {
-        props.setTokenTwoInputValue(FloatToBigNumber(Number(e.target.value), props.tokenTwo.decimals))
-        props.setAmountType(1)
-    }
-
-    useEffect(() => {
-        props.amountType === 0 && props.setTokenTwoInputValue(props.amountsOut)
-        props.amountType === 1 && props.setTokenOneInputValue(props.amountsOut)
-
-    }, [props.amountsOut])
-
+    const dexPriceResponse = GetDEXPrice({ factory: props.factory.address, tokenOne: props.tokenOne, tokenTwo: props.tokenTwo })
+    let price: number = 0
     const convertPrice = async () => {
-        const price = await BigNumberToCurrency({
+        await Promise.resolve(BigNumberToCurrency({
             address: props.tokenOne.address,
-            amount: props.tokenOneInputValue,
+            amount: props.tokenOneInputValue ? props.tokenOneInputValue : BigNumber.from(0),
             decimals: props.tokenOne.decimals
-
+        })).then((value) => {
+            price = value
+            console.log(price)
+            return price
         })
-        console.log(price)
-        console.log(props.tokenOne.address)
-        //setCurrencyConvertedPrice(price)
-        return price
     }
-    const price = convertPrice()
-
-    //refresh price every 2 seconds
-
-
-    useEffect(() => {
-        console.log("address", props.tokenOne.address)
-        console.log(price)
-    }, [props.tokenOneInputValue])
-
-    //"0x0000000000000000000000000000000000000000"
+    convertPrice()
+    console.log(props.tokenOneInputValue)
     const balanceOne = GetBalances({
         walletOwner: props.walletOwner as `0x${string}`,
         tokenOne: props.tokenOne,
@@ -131,16 +105,31 @@ export const SwapBox = (props: SwapBoxProps) => {
         walletBalance: props.walletBalance
     })[1]
 
+    const onChangeTokenOneInput = (e: ChangeEvent<HTMLInputElement>) => {
+        props.setTokenOneInputValue(FloatToBigNumber(Number(e.target.value), props.tokenOne.decimals))
+        props.setAmountType(0)
+    }
+
+    const onChangeTokenTwoInput = (e: ChangeEvent<HTMLInputElement>) => {
+        props.setTokenTwoInputValue(FloatToBigNumber(Number(e.target.value), props.tokenTwo.decimals))
+        props.setAmountType(1)
+    }
+
+    //update price, balanceOne, balanceTwo, dexPriceResponse
     useEffect(() => {
-        setTokenOneBalance(balanceOne)
-        setTokenTwoBalance(balanceTwo)
-    }, [props.tokenOne, props.tokenTwo, props.walletBalance, props.walletOwner])
+        props.amountType === 0 && props.setTokenTwoInputValue(props.amountsOut)
+        props.amountType === 1 && props.setTokenOneInputValue(props.amountsOut)
+        dexPriceResponse && props.setDexPrice(dexPriceResponse)
+        balanceOne && setTokenOneBalance(balanceOne)
+        balanceTwo && setTokenTwoBalance(balanceTwo)
+        price && setCurrencyConvertedPrice(price)
+    }, [props.amountsOut, price])
 
     const { data, isError, isLoading } = useContractRead({
         address: liquidPathAddress as `0x${string}`,
         abi: IPolybitLiquidPath,
         functionName: "getLiquidPath",
-        args: [props.tokenOne.address as `0x${string}`, props.tokenTwo.address as `0x${string}`, props.amountType == 0 ? BigNumber.from(props.tokenOneInputValue) : BigNumber.from(props.tokenTwoInputValue), props.amountType],
+        args: [props.tokenOne.address as `0x${string}`, props.tokenTwo.address as `0x${string}`, props.amountType == 0 ? BigNumber.from(props.tokenOneInputValue ? props.tokenOneInputValue : BigNumber.from(0)) : BigNumber.from(props.tokenTwoInputValue ? props.tokenTwoInputValue : BigNumber.from(0)), props.amountType],
         watch: true,
         onSettled(data, error) {
             //console.log('Settled', { data, error })
@@ -154,7 +143,7 @@ export const SwapBox = (props: SwapBoxProps) => {
             props.setAmountOutMin(data[2].sub(data[2].mul(10000 * props.slippage).div(10000)))
             props.setAmountInMax(data[2].add(data[2].mul(10000 * props.slippage).div(10000)))
             props.setTradingFee((data[1].length - 1) * (props.factory.swapFee + polybitSwapFee))
-            props.setTradingFeeAmount(props.tokenOneInputValue.mul(10000 * ((data[1].length - 1) * props.factory.swapFee)).div(10000))
+            props.tokenOneInputValue && props.setTradingFeeAmount(props.tokenOneInputValue.mul(10000 * ((data[1].length - 1) * props.factory.swapFee)).div(10000))
 
             props.amountType === 0 && props.tokenOne.symbol === props.nativeSymbol && props.setSwapType("swapExactETHForTokens")
             props.amountType === 0 && props.tokenTwo.symbol === props.nativeSymbol && props.setSwapType("swapExactTokensForETH")
@@ -166,12 +155,6 @@ export const SwapBox = (props: SwapBoxProps) => {
             props.amountType === 1 && props.tokenTwo.symbol === props.nativeSymbol && props.setSwapType("swapTokensForExactETH")
         }
     })
-
-    const dexPriceResponse = GetDEXPrice({ factory: props.factory.address, tokenOne: props.tokenOne, tokenTwo: props.tokenTwo })
-
-    useEffect(() => {
-        dexPriceResponse && props.setDexPrice(dexPriceResponse)
-    }, [dexPriceResponse])
 
     const SwitchToken = () => {
         const tempTokenOne: ERC20Token = props.tokenOne
@@ -221,7 +204,11 @@ export const SwapBox = (props: SwapBoxProps) => {
                         </div>
                         {showSwapSettings && <SwapSettings setSlippage={props.setSlippage} slippage={props.slippage} setDeadline={props.setDeadline} deadline={props.deadline} setShowSwapSettings={setShowSwapSettings} />}
                         <div className="swap-box-token-input">
-                            <input type="number" min="0" placeholder="Enter an amount" value={Number(props.tokenOneInputValue) > 0 ? FormatDecimals(BigNumberToFloat(props.tokenOneInputValue, props.tokenOne.decimals)) : ""} onChange={onChangeTokenOneInput} />
+                            <input type="number" min="0" step="any"
+                                placeholder="Enter an amount"
+                                value={props.tokenOneInputValue ?
+                                    FormatDecimals(BigNumberToFloat(props.tokenOneInputValue, props.tokenOne.decimals)) : ""}
+                                onChange={onChangeTokenOneInput} />
                             <div className="swap-box-pair-price">
                                 <p>{`(${FormatCurrency(currencyConvertedPrice, 2)})`}</p>
                             </div>
@@ -252,7 +239,10 @@ export const SwapBox = (props: SwapBoxProps) => {
                             </div>
                         </div>
                         <div className="swap-box-token-input">
-                            <input type="number" min="0" value={Number(props.tokenTwoInputValue) > 0 ? FormatDecimals(BigNumberToFloat(props.tokenTwoInputValue, props.tokenTwo.decimals)) : ""} onChange={onChangeTokenTwoInput} />
+                            <input type="number" min="0" step="0.1"
+                                value={props.tokenTwoInputValue ?
+                                    FormatDecimals(BigNumberToFloat(props.tokenTwoInputValue, props.tokenTwo.decimals)) : ""}
+                                onChange={onChangeTokenTwoInput} />
                             <div className="swap-box-pair-price">
                                 <p>{`1 ${props.tokenOne.symbol} = ${FormatDecimals(GetDEXPrice({ factory: props.factory.address, tokenOne: props.tokenOne, tokenTwo: props.tokenTwo }))} ${props.tokenTwo.symbol}`}</p>
                             </div>

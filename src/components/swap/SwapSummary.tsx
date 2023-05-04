@@ -33,8 +33,8 @@ interface SwapSummary {
     nativeSymbol: string;
     tokenOne: ERC20Token;
     tokenTwo: ERC20Token;
-    tokenOneInputValue: BigNumber;
-    tokenTwoInputValue: BigNumber;
+    tokenOneInputValue: BigNumber | undefined;
+    tokenTwoInputValue: BigNumber | undefined;
     factory: DEX;
     path: readonly `0x${string}`[];
     amountsOut: BigNumber;
@@ -81,7 +81,7 @@ export const SwapSummary = (props: SwapSummary) => {
         token: props.path[0],
         user: props.walletOwner,
         spender: swapRouterAddress as `0x${string}`,
-        amount: props.tokenOneInputValue
+        amount: props.tokenOneInputValue ? props.tokenOneInputValue : BigNumber.from(0)
     })
         : false
 
@@ -136,11 +136,11 @@ export const SwapSummary = (props: SwapSummary) => {
                                 <tr>
                                     {props.amountType === 0 && <td className="swap-summary-table-cell-title">Sending</td>}
                                     {props.amountType === 1 && <td className="swap-summary-table-cell-title">Estimated Sending</td>}
-                                    <td className="swap-summary-table-cell-contents">{`${FormatDecimals(BigNumberToFloat(props.tokenOneInputValue, props.tokenOne.decimals))} ${props.tokenOne.symbol}`}</td>
+                                    <td className="swap-summary-table-cell-contents">{`${props.tokenOneInputValue && FormatDecimals(BigNumberToFloat(props.tokenOneInputValue, props.tokenOne.decimals))} ${props.tokenOne.symbol}`}</td>
                                 </tr>
                                 <tr>
                                     <td className="swap-summary-table-cell-title">Swap fee</td>
-                                    <td className="swap-summary-table-cell-contents">{`${FormatDecimals(BigNumberToFloat(props.tokenOneInputValue.mul(10000 * ((props.path.length - 1) * props.tradingFee)).div(10000), props.tokenOne.decimals))}  ${props.tokenOne.symbol}`}</td>
+                                    <td className="swap-summary-table-cell-contents">{`${props.tokenOneInputValue && FormatDecimals(BigNumberToFloat(props.tokenOneInputValue.mul(10000 * ((props.path.length - 1) * props.tradingFee)).div(10000), props.tokenOne.decimals))}  ${props.tokenOne.symbol}`}</td>
                                 </tr>
                                 <tr>
                                     <td className="swap-summary-table-cell-title">Price impact</td>
@@ -189,11 +189,11 @@ export const SwapSummary = (props: SwapSummary) => {
                                 </tr>}
                                 {props.amountType === 0 && <tr>
                                     <td className="swap-summary-table-cell-title-final">Estimated receiving</td>
-                                    <td className="swap-summary-table-cell-contents-final">{`${FormatDecimals(BigNumberToFloat(props.tokenTwoInputValue, props.tokenTwo.decimals))} ${props.tokenTwo.symbol}`}</td>
+                                    <td className="swap-summary-table-cell-contents-final">{`${props.tokenTwoInputValue && FormatDecimals(BigNumberToFloat(props.tokenTwoInputValue, props.tokenTwo.decimals))} ${props.tokenTwo.symbol}`}</td>
                                 </tr>}
                                 {props.amountType === 1 && <tr>
                                     <td className="swap-summary-table-cell-title-final">Receiving</td>
-                                    <td className="swap-summary-table-cell-contents-final">{`${FormatDecimals(BigNumberToFloat(props.tokenTwoInputValue, props.tokenTwo.decimals))} ${props.tokenTwo.symbol}`}</td>
+                                    <td className="swap-summary-table-cell-contents-final">{`${props.tokenTwoInputValue && FormatDecimals(BigNumberToFloat(props.tokenTwoInputValue, props.tokenTwo.decimals))} ${props.tokenTwo.symbol}`}</td>
                                 </tr>}
                             </tbody>
                         </table>
@@ -204,9 +204,9 @@ export const SwapSummary = (props: SwapSummary) => {
                             <tbody>
                                 {props.amountType === 0 && <tr><td className="swap-summary-table-cell-title">Sending</td></tr>}
                                 {props.amountType === 1 && <tr><td className="swap-summary-table-cell-title">Estimated Sending</td></tr>}
-                                <tr><td className="swap-summary-table-cell-contents">{`${FormatDecimals(BigNumberToFloat(props.tokenOneInputValue, props.tokenOne.decimals))} ${props.tokenOne.symbol}`}</td></tr>
+                                <tr><td className="swap-summary-table-cell-contents">{`${props.tokenOneInputValue && FormatDecimals(BigNumberToFloat(props.tokenOneInputValue, props.tokenOne.decimals))} ${props.tokenOne.symbol}`}</td></tr>
                                 <tr><td className="swap-summary-table-cell-title">Swap fee</td></tr>
-                                <tr><td className="swap-summary-table-cell-contents">{`${FormatDecimals(BigNumberToFloat(props.tokenOneInputValue.mul(10000 * ((props.path.length - 1) * props.tradingFee)).div(10000), props.tokenOne.decimals))}  ${props.tokenOne.symbol}`}</td></tr>
+                                <tr><td className="swap-summary-table-cell-contents">{`${props.tokenOneInputValue && FormatDecimals(BigNumberToFloat(props.tokenOneInputValue.mul(10000 * ((props.path.length - 1) * props.tradingFee)).div(10000), props.tokenOne.decimals))}  ${props.tokenOne.symbol}`}</td></tr>
                                 <tr><td className="swap-summary-table-cell-title">Price impact</td></tr>
                                 <tr><td className="swap-summary-table-cell-contents">
                                     <PriceImpact dexPrice={props.dexPrice}
@@ -251,12 +251,12 @@ export const SwapSummary = (props: SwapSummary) => {
                                 {props.amountType === 0 &&
                                     <>
                                         <tr><td className="swap-summary-table-cell-title-final">Estimated receiving</td></tr>
-                                        <tr><td className="swap-summary-table-cell-contents-final">{`${FormatDecimals(BigNumberToFloat(props.tokenTwoInputValue, props.tokenTwo.decimals))} ${props.tokenTwo.symbol}`}</td></tr>
+                                        <tr><td className="swap-summary-table-cell-contents-final">{`${props.tokenTwoInputValue && FormatDecimals(BigNumberToFloat(props.tokenTwoInputValue, props.tokenTwo.decimals))} ${props.tokenTwo.symbol}`}</td></tr>
                                     </>}
                                 {props.amountType === 1 &&
                                     <>
                                         <tr><td className="swap-summary-table-cell-title-final">Receiving</td></tr>
-                                        <tr><td className="swap-summary-table-cell-contents-final">{`${FormatDecimals(BigNumberToFloat(props.tokenTwoInputValue, props.tokenTwo.decimals))} ${props.tokenTwo.symbol}`}</td></tr>
+                                        <tr><td className="swap-summary-table-cell-contents-final">{`${props.tokenTwoInputValue && FormatDecimals(BigNumberToFloat(props.tokenTwoInputValue, props.tokenTwo.decimals))} ${props.tokenTwo.symbol}`}</td></tr>
                                     </>}
                             </tbody>
                         </table>
@@ -264,7 +264,8 @@ export const SwapSummary = (props: SwapSummary) => {
                     <div className="swap-summary-button-wrapper" >
                         {props.swapType !== "swapETHForExactTokens" &&
                             props.swapType !== "swapExactETHForTokens" &&
-                            !spenderApproved && <Approve
+                            !spenderApproved &&
+                            props.tokenOneInputValue && <Approve
                                 token={props.path[0]}
                                 user={props.walletOwner}
                                 spender={swapRouterAddress as `0x${string}`}
