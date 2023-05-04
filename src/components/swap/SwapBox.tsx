@@ -18,10 +18,13 @@ import { FormatCurrency } from '../utils/Currency'
 import { Button, TextLink } from '../Buttons'
 import { DEX } from './Types/DEX'
 import { IPolybitLiquidPath } from '../../chain_info/abi/IPolybitLiquidPath'
+import { BigNumberToCurrency } from '../utils/Currency/BigNumberToCurrency'
 
 interface SwapBoxProps {
+    isConnected: boolean;
     chainId: string;
     approvedList: Array<ERC20Token>;
+    nativeSymbol: string;
     tokenOne: ERC20Token;
     setTokenOne: Function;
     tokenTwo: ERC20Token;
@@ -52,12 +55,12 @@ interface SwapBoxProps {
     setTradingFeeAmount: Function;
     walletOwner: `0x${string}` | undefined;
     walletBalance: BigNumber;
-    connector: any;
     currency: string;
-    vsPrices: any;
+    connector: any;
     setShowSwapBox: Function;
     setShowSwapSummary: Function;
     setSwapType: Function;
+    setShowConnectWallet: Function;
 }
 
 export const SwapBox = (props: SwapBoxProps) => {
@@ -65,14 +68,15 @@ export const SwapBox = (props: SwapBoxProps) => {
     const [showAssetListTokenOne, setShowAssetListTokenOne] = useState(false)
     const [showAssetListTokenTwo, setShowAssetListTokenTwo] = useState(false)
     const [showSwapSettings, setShowSwapSettings] = useState(false)
-
-    const [priceColor, setPriceColor] = useState("")
     const liquidPathAddress: string = PolybitInfo[props.chainId as keyof typeof PolybitInfo]["addresses"]["liquid_path"]
-    const nativeSymbol: string = ChainInfo[props.chainId as keyof typeof ChainInfo]["native_symbol"]
     const wethAddress: string = ChainInfo[props.chainId as keyof typeof ChainInfo]["weth_address"]
     const polybitSwapFee: number = PolybitInfo[props.chainId as keyof typeof PolybitInfo]["fees"]["swap_fee"]
 
-    console.log("swap fee", polybitSwapFee)
+    const [tokenOneBalance, setTokenOneBalance] = useState<BigNumber>(BigNumber.from(0))
+    const [tokenTwoBalance, setTokenTwoBalance] = useState<BigNumber>(BigNumber.from(0))
+
+    const [currencyConvertedPrice, setCurrencyConvertedPrice] = useState<number>(0)
+
     const onChangeTokenOneInput = (e: ChangeEvent<HTMLInputElement>) => {
         props.setTokenOneInputValue(FloatToBigNumber(Number(e.target.value), props.tokenOne.decimals))
         props.setAmountType(0)
@@ -88,6 +92,49 @@ export const SwapBox = (props: SwapBoxProps) => {
         props.amountType === 1 && props.setTokenOneInputValue(props.amountsOut)
 
     }, [props.amountsOut])
+
+    const convertPrice = async () => {
+        const price = await BigNumberToCurrency({
+            address: props.tokenOne.address,
+            amount: props.tokenOneInputValue,
+            decimals: props.tokenOne.decimals
+
+        })
+        console.log(price)
+        console.log(props.tokenOne.address)
+        //setCurrencyConvertedPrice(price)
+        return price
+    }
+    const price = convertPrice()
+
+    //refresh price every 2 seconds
+
+
+    useEffect(() => {
+        console.log("address", props.tokenOne.address)
+        console.log(price)
+    }, [props.tokenOneInputValue])
+
+    //"0x0000000000000000000000000000000000000000"
+    const balanceOne = GetBalances({
+        walletOwner: props.walletOwner as `0x${string}`,
+        tokenOne: props.tokenOne,
+        tokenTwo: props.tokenTwo,
+        nativeSymbol: props.nativeSymbol,
+        walletBalance: props.walletBalance
+    })[0]
+    const balanceTwo = GetBalances({
+        walletOwner: props.walletOwner as `0x${string}`,
+        tokenOne: props.tokenOne,
+        tokenTwo: props.tokenTwo,
+        nativeSymbol: props.nativeSymbol,
+        walletBalance: props.walletBalance
+    })[1]
+
+    useEffect(() => {
+        setTokenOneBalance(balanceOne)
+        setTokenTwoBalance(balanceTwo)
+    }, [props.tokenOne, props.tokenTwo, props.walletBalance, props.walletOwner])
 
     const { data, isError, isLoading } = useContractRead({
         address: liquidPathAddress as `0x${string}`,
@@ -106,35 +153,31 @@ export const SwapBox = (props: SwapBoxProps) => {
             props.setAmountsOut(BigNumber.from(data[2]))
             props.setAmountOutMin(data[2].sub(data[2].mul(10000 * props.slippage).div(10000)))
             props.setAmountInMax(data[2].add(data[2].mul(10000 * props.slippage).div(10000)))
-            props.setDexPrice(dexPriceResponse)
-
             props.setTradingFee((data[1].length - 1) * (props.factory.swapFee + polybitSwapFee))
-            //props.setTradingFeeAmount(BigNumber.from(((data[1].length - 1) * (Number(props.tokenOneInputValue) * props.factory.swapFee)).toString()))
-            console.log(data[1].length)
-            console.log((data[1].length - 1) * props.factory.swapFee)
-            console.log(props.factory.swapFee)
             props.setTradingFeeAmount(props.tokenOneInputValue.mul(10000 * ((data[1].length - 1) * props.factory.swapFee)).div(10000))
 
-            props.amountType === 0 && props.tokenOne.symbol === nativeSymbol && props.setSwapType("swapExactETHForTokens")
-            props.amountType === 0 && props.tokenTwo.symbol === nativeSymbol && props.setSwapType("swapExactTokensForETH")
+            props.amountType === 0 && props.tokenOne.symbol === props.nativeSymbol && props.setSwapType("swapExactETHForTokens")
+            props.amountType === 0 && props.tokenTwo.symbol === props.nativeSymbol && props.setSwapType("swapExactTokensForETH")
 
-            props.amountType === 0 && props.tokenOne.symbol !== nativeSymbol && props.tokenTwo.symbol !== nativeSymbol && props.setSwapType("swapExactTokensForTokens")
-            props.amountType === 1 && props.tokenOne.symbol !== nativeSymbol && props.tokenTwo.symbol !== nativeSymbol && props.setSwapType("swapTokensForExactTokens")
+            props.amountType === 0 && props.tokenOne.symbol !== props.nativeSymbol && props.tokenTwo.symbol !== props.nativeSymbol && props.setSwapType("swapExactTokensForTokens")
+            props.amountType === 1 && props.tokenOne.symbol !== props.nativeSymbol && props.tokenTwo.symbol !== props.nativeSymbol && props.setSwapType("swapTokensForExactTokens")
 
-            props.amountType === 1 && props.tokenOne.symbol === nativeSymbol && props.setSwapType("swapETHForExactTokens")
-            props.amountType === 1 && props.tokenTwo.symbol === nativeSymbol && props.setSwapType("swapTokensForExactETH")
+            props.amountType === 1 && props.tokenOne.symbol === props.nativeSymbol && props.setSwapType("swapETHForExactTokens")
+            props.amountType === 1 && props.tokenTwo.symbol === props.nativeSymbol && props.setSwapType("swapTokensForExactETH")
         }
     })
-    console.log(props.amountOutMin.toString())
-    console.log(props.amountInMax.toString())
 
     const dexPriceResponse = GetDEXPrice({ factory: props.factory.address, tokenOne: props.tokenOne, tokenTwo: props.tokenTwo })
+
+    useEffect(() => {
+        dexPriceResponse && props.setDexPrice(dexPriceResponse)
+    }, [dexPriceResponse])
 
     const SwitchToken = () => {
         const tempTokenOne: ERC20Token = props.tokenOne
         const tempTokenTwo: ERC20Token = props.tokenTwo
         props.setTokenOne(tempTokenTwo)
-        props.setTokenOneInputValue(BigNumber.from(0))
+        props.setTokenOneInputValue(props.tokenTwoInputValue)
         props.setTokenTwo(tempTokenOne)
         props.setTokenTwoInputValue(BigNumber.from(0))
     }
@@ -143,66 +186,50 @@ export const SwapBox = (props: SwapBoxProps) => {
         <div className="swap-box">
             <div className="swap-box-wrapper">
                 <div className="swap-box-wrapper-header" >
-                    <p style={{ color: "#909090" }}>Wallet:
+                    {props.isConnected && <p style={{ color: "#909090" }}>Wallet:
                         {props.connector?.name === "MetaMask" && <img width="20px" height="20px" src={require("../../assets/images/metamask_icon.png")} />}
                         {props.connector?.name === "Coinbase Wallet" && <img width="20px" height="20px" src={require("../../assets/images/coinbasewallet_icon.png")} />}
                         {props.connector?.name === "WalletConnect" && <img width="20px" height="20px" src={require("../../assets/images/walletconnect_icon.png")} />}
                         {props.connector?.name === "WalletConnectLegacy" && <img width="20px" height="20px" src={require("../../assets/images/walletconnect_icon.png")} />}
-                        {` ${TruncateAddress(props.walletOwner ? props.walletOwner : "")}`}</p>
-                    <TextLink to="" text="Disconnect Wallet" arrowDirection="forward-logout" onClick={() => disconnect()} /></div>
+                        {` ${TruncateAddress(props.walletOwner ? props.walletOwner : "")}`}</p>}
+                    {!props.isConnected && <p style={{ color: "#909090" }}>Wallet: Not Connected</p>}
+                    {props.isConnected && <TextLink to="" text="Disconnect Wallet" arrowDirection="forward-logout" onClick={() => disconnect()} />}
+                    {/* {!props.isConnected && <TextLink to="" text="Connect Wallet" onClick={() => props.setShowConnectWallet(true)} />} */}
+                </div>
                 <div className="swap-box-container">
                     {showAssetListTokenOne && props.approvedList && <AssetList setShowAssetList={setShowAssetListTokenOne} setTokenOne={props.setTokenOne} setTokenTwo={props.setTokenTwo} tokenOne={props.tokenOne} tokenTwo={props.tokenTwo} whichToken="tokenOne" approvedList={props.approvedList} setTokenOneInputValue={props.setTokenOneInputValue} setTokenTwoInputValue={props.setTokenTwoInputValue} />}
                     {showAssetListTokenTwo && props.approvedList && <AssetList setShowAssetList={setShowAssetListTokenTwo} setTokenOne={props.setTokenOne} setTokenTwo={props.setTokenTwo} tokenOne={props.tokenOne} tokenTwo={props.tokenTwo} whichToken="tokenTwo" approvedList={props.approvedList} setTokenOneInputValue={props.setTokenOneInputValue} setTokenTwoInputValue={props.setTokenTwoInputValue} />}
-                    {showSwapSettings && <SwapSettings setSlippage={props.setSlippage} slippage={props.slippage} setShowSwapSettings={setShowSwapSettings} />}
                     <div className="swap-box-token">
                         <div className="swap-box-token-header" >
                             <div className="swap-box-token-header-token">
                                 <div className="swap-box-token-header-token-button" onClick={() => setShowAssetListTokenOne(true)}>
                                     <img className="swap-box-token-header-token-logo" src={props.tokenOne.logoURI ? props.tokenOne.logoURI : require("../../assets/images/placeholder.png")}></img>
-                                    <div className="swap-box-token-header-token-name">{props.tokenOne.symbol}</div>
-                                    <div style={{ transform: "translateY(-18%)", fontSize: "24px" }}><FontAwesomeIcon icon={icon({ name: "sort-down", style: "solid" })} /></div>
+                                    <div className="swap-box-token-header-token-name-wrapper">
+                                        <div className="swap-box-token-header-token-name">{props.tokenOne.symbol}</div>
+                                        <div style={{ transform: "translateY(-18%)", fontSize: "24px" }}><FontAwesomeIcon icon={icon({ name: "sort-down", style: "solid" })} /></div>
+                                    </div>
                                 </div>
                                 {props.tokenOne.symbol !== "BNB" && <Link className="swap-box-token-header-token-link" to={`/tokens/${props.tokenOne.name.replaceAll(" ", "-").replaceAll(".", "-").replaceAll("(", "-").replaceAll(")", "-").toLocaleLowerCase()}`}>
                                     <div style={{ transform: "translateY(0%)", fontSize: "12px" }}><FontAwesomeIcon icon={icon({ name: "up-right-from-square", style: "solid" })} /></div>
                                 </Link>}
+                                {props.isConnected && <div className="swap-box-token-header-balance">
+                                    {`Balance: ${props.walletOwner && FormatDecimals(BigNumberToFloat(tokenOneBalance, props.tokenOne.decimals))}`}
+                                </div>}
+                                {!props.isConnected && <div className="swap-box-token-header-balance"></div>}
                             </div>
-                            <div className="swap-box-token-header-balance">
-                                {`Balance: ${props.walletOwner && FormatDecimals(BigNumberToFloat(GetBalances({
-                                    walletOwner: props.walletOwner,
-                                    tokenOne: props.tokenOne,
-                                    tokenTwo: props.tokenTwo,
-                                    nativeSymbol: nativeSymbol,
-                                    walletBalance: props.walletBalance
-                                })[0], props.tokenOne.decimals))}`}
-                            </div>
-                            <div onClick={() => setShowSwapSettings(true)} style={{ transform: "translateY(0%)", fontSize: "16px", color: "#909090", cursor: "pointer" }}><FontAwesomeIcon icon={icon({ name: "gear", style: "solid" })} /></div>
+                            <img className="swap-box-settings-icon" src={require("../../assets/icons/settings.png")} alt="settings" onClick={() => setShowSwapSettings(!showSwapSettings)} />
                         </div>
+                        {showSwapSettings && <SwapSettings setSlippage={props.setSlippage} slippage={props.slippage} setDeadline={props.setDeadline} deadline={props.deadline} setShowSwapSettings={setShowSwapSettings} />}
                         <div className="swap-box-token-input">
-                            <input style={{ color: priceColor }} type="number" min="0" placeholder="Enter an amount" value={Number(props.tokenOneInputValue) > 0 ? FormatDecimals(BigNumberToFloat(props.tokenOneInputValue, props.tokenOne.decimals)) : ""} onChange={onChangeTokenOneInput} />
+                            <input type="number" min="0" placeholder="Enter an amount" value={Number(props.tokenOneInputValue) > 0 ? FormatDecimals(BigNumberToFloat(props.tokenOneInputValue, props.tokenOne.decimals)) : ""} onChange={onChangeTokenOneInput} />
                             <div className="swap-box-pair-price">
-                                <p>{`(${props.currency} ${FormatCurrency(props.walletBalance ?
-                                    (Number(props.walletBalance)
-                                        / 10 ** 18 *
-                                        (() => {
-                                            switch (props.currency) {
-                                                case "AUD": return (props.vsPrices.aud)
-                                                case "BNB": return (props.vsPrices.bnb)
-                                                case "CNY": return (props.vsPrices.cny)
-                                                case "EURO": return (props.vsPrices.eur)
-                                                case "IDR": return (props.vsPrices.idr)
-                                                case "JPY": return (props.vsPrices.jpy)
-                                                case "KRW": return (props.vsPrices.krw)
-                                                case "RUB": return (props.vsPrices.rub)
-                                                case "TWD": return (props.vsPrices.twd)
-                                                case "USD": return (props.vsPrices.usd)
-                                            }
-                                        })()) : 0, 2)})`}</p>
+                                <p>{`(${FormatCurrency(currencyConvertedPrice, 2)})`}</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div className="swap-box-token-switch" onClick={() => SwitchToken()}>
-                    <img src={require("../../assets/icons/swap-switch.png")} alt="swap switch" />
+                <div className="swap-box-token-switch" >
+                    <img src={require("../../assets/icons/swap-switch.png")} alt="swap switch" onClick={() => SwitchToken()} />
                 </div>
                 <div className="swap-box-container">
                     <div className="swap-box-token">
@@ -210,25 +237,22 @@ export const SwapBox = (props: SwapBoxProps) => {
                             <div className="swap-box-token-header-token-button" onClick={() => setShowAssetListTokenTwo(true)}>
                                 <div className="swap-box-token-header-token">
                                     <img className="swap-box-token-header-token-logo" src={props.tokenTwo.logoURI ? props.tokenTwo.logoURI : require("../../assets/images/placeholder.png")}></img>
-                                    <div className="swap-box-token-header-token-name">{props.tokenTwo.symbol}</div>
-                                    <div style={{ transform: "translateY(-18%)", fontSize: "24px" }}><FontAwesomeIcon icon={icon({ name: "sort-down", style: "solid" })} /></div>
+                                    <div className="swap-box-token-header-token-name-wrapper">
+                                        <div className="swap-box-token-header-token-name">{props.tokenTwo.symbol}</div>
+                                        <div className="swap-box-token-header-token-arrow" style={{ transform: "translateY(-18%)", fontSize: "24px" }}><FontAwesomeIcon icon={icon({ name: "sort-down", style: "solid" })} /></div>
+                                    </div>
                                     {props.tokenTwo.symbol !== "BNB" && <Link className="swap-box-token-header-token-link" to={`/tokens/${props.tokenTwo.name.replaceAll(" ", "-").replaceAll(".", "-").replaceAll("(", "-").replaceAll(")", "-").toLocaleLowerCase()}`}>
                                         <div style={{ transform: "translateY(0%)", fontSize: "12px" }}><FontAwesomeIcon icon={icon({ name: "up-right-from-square", style: "solid" })} /></div>
                                     </Link>}
+                                    {props.isConnected && <div className="swap-box-token-header-balance">
+                                        {`Balance: ${props.walletOwner && FormatDecimals(BigNumberToFloat(tokenTwoBalance, props.tokenTwo.decimals))}`}
+                                    </div>}
+                                    {!props.isConnected && <div className="swap-box-token-header-balance"></div>}
                                 </div>
-                            </div>
-                            <div className="swap-box-token-header-balance">
-                                {`Balance: ${props.walletOwner && FormatDecimals(BigNumberToFloat(GetBalances({
-                                    walletOwner: props.walletOwner,
-                                    tokenOne: props.tokenOne,
-                                    tokenTwo: props.tokenTwo,
-                                    nativeSymbol: nativeSymbol,
-                                    walletBalance: props.walletBalance
-                                })[1], props.tokenTwo.decimals))}`}
                             </div>
                         </div>
                         <div className="swap-box-token-input">
-                            <input style={{ color: priceColor }} type="number" min="0" value={Number(props.tokenTwoInputValue) > 0 ? FormatDecimals(BigNumberToFloat(props.tokenTwoInputValue, props.tokenTwo.decimals)) : ""} onChange={onChangeTokenTwoInput} />
+                            <input type="number" min="0" value={Number(props.tokenTwoInputValue) > 0 ? FormatDecimals(BigNumberToFloat(props.tokenTwoInputValue, props.tokenTwo.decimals)) : ""} onChange={onChangeTokenTwoInput} />
                             <div className="swap-box-pair-price">
                                 <p>{`1 ${props.tokenOne.symbol} = ${FormatDecimals(GetDEXPrice({ factory: props.factory.address, tokenOne: props.tokenOne, tokenTwo: props.tokenTwo }))} ${props.tokenTwo.symbol}`}</p>
                             </div>
@@ -236,7 +260,23 @@ export const SwapBox = (props: SwapBoxProps) => {
                     </div>
                 </div>
                 <div className="swap-box-button-wrapper">
-                    <Button text={Number(props.tokenOneInputValue) === 0 ? "Enter an amount" : "View Swap Summary"} buttonSize="standard-long" buttonStyle="primary" onClick={() => { props.setShowSwapBox(false); props.setShowSwapSummary(true) }} />
+                    {!props.isConnected &&
+                        <Button text={"Connect Wallet"} buttonSize="standard-long" buttonStyle="primary" onClick={() => props.setShowConnectWallet(true)} />
+                    }
+                    {props.isConnected &&
+                        Number(props.tokenOneInputValue) === 0 &&
+                        <Button text={"Enter an amount"} buttonSize="standard-long" buttonStyle="primary" status='disabled' />
+                    }
+                    {props.isConnected &&
+                        Number(props.tokenOneInputValue) > Number(balanceOne) &&
+                        <Button text={"Insufficient balance"} buttonSize="standard-long" buttonStyle="primary" status='disabled' />
+                    }
+                    {props.isConnected &&
+                        Number(props.tokenOneInputValue) > 0 &&
+                        Number(props.tokenOneInputValue) <= Number(balanceOne) &&
+                        <Button text={"View Swap Summary"} buttonSize="standard-long" buttonStyle="primary" onClick={() => { props.setShowSwapBox(false); props.setShowSwapSummary(true) }} />
+                    }
+
                 </div>
             </div>
         </div >

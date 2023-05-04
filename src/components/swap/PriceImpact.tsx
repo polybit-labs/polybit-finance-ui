@@ -18,20 +18,25 @@ interface PriceImpactProps {
 }
 export const PriceImpact = (props: PriceImpactProps) => {
     const [priceImpact, setPriceImpact] = useState<any>(<div style={{ color: "black" }}>0%</div>)
-    /* useEffect(() => {
+
+    useEffect(() => {
         const tradingFeeAmount = Number(props.tradingFee) * BigNumberToFloat(props.tokenTwoInputValue, props.tokenTwo.decimals)
         const amountLessFee = BigNumberToFloat(props.tokenTwoInputValue, props.tokenTwo.decimals) + tradingFeeAmount
         const swapPrice = amountLessFee / BigNumberToFloat(props.tokenOneInputValue, props.tokenOne.decimals)
-        const priceImpact = 1 - (swapPrice / props.dexPrice)
+
+        console.log("swapPrice", swapPrice)
+        console.log("props.dexPrice", props.dexPrice)
+        const priceImpact = (swapPrice - props.dexPrice) / props.dexPrice
+        console.log("priceImpact", priceImpact)
 
         if (priceImpact > 0.05) {
-            setPriceImpact(<div style={{ color: "red" }}>{`${parseFloat((priceImpact * 100).toString()).toFixed(2)}%`}</div>)
+            setPriceImpact(<div style={{ color: "#F74040" }}>{`${parseFloat((priceImpact * 100).toString()).toFixed(2)}%`}</div>)
         }
-        if (priceImpact < 0.0001) {
-            setPriceImpact(<div style={{ color: "black" }}>{`<0.1%`}</div>)
+        if (priceImpact < -0.0001) {
+            setPriceImpact(<div style={{ color: "#000000" }}>{`<0.1%`}</div>)
         }
-        setPriceImpact(<div style={{ color: "black" }}>{`${parseFloat((priceImpact * 100).toString()).toFixed(2)}%`}</div>)
-    }, [props.amountType, props.tokenOneInputValue, props.tokenTwoInputValue, props.dexPrice]) */
+        setPriceImpact(<div style={{ color: "#000000" }}>{`${parseFloat((priceImpact * 100).toString()).toFixed(2)}%`}</div>)
+    }, [props.amountType, props.tokenOneInputValue, props.tokenTwoInputValue, props.dexPrice, props.tokenOne, props.tokenTwo])
 
     return priceImpact
 }

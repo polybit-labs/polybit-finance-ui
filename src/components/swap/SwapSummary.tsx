@@ -23,10 +23,14 @@ import { useEffect, useState } from "react"
 import { SwapSuccess } from "./SwapSuccess"
 import { IPolybitSwapRouter } from "../../chain_info/abi/IPolybitSwapRouter"
 import moment from 'moment'
+import { Connect } from "../Connect"
+import SubTitleContainer from "../containers/SubTitle"
 
 interface SwapSummary {
+    isConnected: boolean;
     chainId: string;
     approvedList: Array<ERC20Token>
+    nativeSymbol: string;
     tokenOne: ERC20Token;
     tokenTwo: ERC20Token;
     tokenOneInputValue: BigNumber;
@@ -55,6 +59,7 @@ export const SwapSummary = (props: SwapSummary) => {
     const [spenderApproved, setSpenderApproved] = useState<boolean>(false)
     const [txHash, setTxHash] = useState<string>("")
     const [swapArgs, setSwapArgs] = useState<any>({})
+    const [swapOverrideArgs, setSwapOverrideArgs] = useState<any>({})
 
     const swapTypeArgs = {
         "swapETHForExactTokens": [props.factory.address, props.path, props.tokenTwoInputValue, props.walletOwner, moment().unix() + (Number(props.deadline) * 60)],
@@ -67,7 +72,10 @@ export const SwapSummary = (props: SwapSummary) => {
 
     useEffect(() => {
         setSwapArgs(swapTypeArgs[props.swapType as keyof typeof swapTypeArgs])
-    }, [props.swapType])
+        if (props.tokenOne.symbol === "BNB") {
+            setSwapOverrideArgs({ "from": props.walletOwner, "value": props.tokenOneInputValue })
+        }
+    }, [props.swapType, props.tokenOne])
 
     const checkApproved: boolean = props.walletOwner ? Allowance({
         token: props.path[0],
@@ -88,6 +96,7 @@ export const SwapSummary = (props: SwapSummary) => {
         abi: IPolybitSwapRouter,
         functionName: props.swapType,
         args: swapArgs,
+        overrides: swapOverrideArgs,
         onError(error) {
             console.log('swapTokensForExactTokens Config Error', error)
         },
@@ -110,7 +119,8 @@ export const SwapSummary = (props: SwapSummary) => {
         },
     })
 
-    if (props.amountOutMin &&
+    if (props.isConnected &&
+        props.amountOutMin &&
         props.amountInMax &&
         props.walletOwner &&
         !transactionSuccess &&
@@ -165,8 +175,8 @@ export const SwapSummary = (props: SwapSummary) => {
                                 <tr>
                                     <td className="swap-summary-table-cell-title">Wallet recipient</td>
                                     <td className="swap-summary-table-cell-contents">
-                                        {props.chainId === "97" && <a href={`https://testnet.bscscan.com/address/${props.walletOwner}`} target="_blank" rel="noopener noreferrer"><p>{props.walletOwner}</p></a>}
-                                        {props.chainId !== "97" && <a href={`https://testnet.bscscan.com/address/${props.walletOwner}`} target="_blank" rel="noopener noreferrer"><p>{props.walletOwner}</p></a>}
+                                        {props.chainId === "97" && <a href={`https://testnet.bscscan.com/address/${props.walletOwner}`} target="_blank" rel="noopener noreferrer"><p>{TruncateAddress(props.walletOwner)}</p></a>}
+                                        {props.chainId !== "97" && <a href={`https://testnet.bscscan.com/address/${props.walletOwner}`} target="_blank" rel="noopener noreferrer"><p>{TruncateAddress(props.walletOwner)}</p></a>}
                                     </td>
                                 </tr>
                                 {props.amountType === 0 && <tr>
@@ -228,10 +238,11 @@ export const SwapSummary = (props: SwapSummary) => {
                                     {props.chainId === "97" && <a href={`https://testnet.bscscan.com/address/${props.walletOwner}`} target="_blank" rel="noopener noreferrer"><p>{TruncateAddress(props.walletOwner)}</p></a>}
                                     {props.chainId !== "97" && <a href={`https://testnet.bscscan.com/address/${props.walletOwner}`} target="_blank" rel="noopener noreferrer"><p>{TruncateAddress(props.walletOwner)}</p></a>}
                                 </td></tr>
-                                {props.amountType === 0 && <tr>
-                                    <td className="swap-summary-table-cell-title">Minimum receiving</td>
-                                    <td className="swap-summary-table-cell-contents">{`${FormatDecimals(BigNumberToFloat(props.amountOutMin, props.tokenTwo.decimals))} ${props.tokenTwo.symbol}`} </td>
-                                </tr>}
+                                {props.amountType === 0 &&
+                                    <>
+                                        <tr><td className="swap-summary-table-cell-title">Minimum receiving</td></tr>
+                                        <tr><td className="swap-summary-table-cell-contents">{`${FormatDecimals(BigNumberToFloat(props.amountOutMin, props.tokenTwo.decimals))} ${props.tokenTwo.symbol}`} </td></tr>
+                                    </>}
                                 {props.amountType === 1 &&
                                     <>
                                         <tr><td className="swap-summary-table-cell-title">Maximum sending</td></tr>

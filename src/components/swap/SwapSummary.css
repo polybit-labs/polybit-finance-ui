@@ -26,6 +26,7 @@
     display: flex;
     flex-direction: row;
     margin-top: 60px;
+    width: 60%;
 }
 
 .swap-summary-info-bar {
@@ -34,6 +35,7 @@
 }
 
 .swap-summary-table {
+    width: 100%;
     margin-top: 10px;
     border-collapse: collapse;
     font-size: 20px;
@@ -224,6 +226,10 @@
     .swap-summary-info-mobile {
         display: none;
     }
+
+    .swap-summary-info {
+        width: 80%;
+    }
 }
 
 /* Large devices (desktops, 992px and up) */
@@ -232,6 +238,7 @@
     .swap-summary-info-mobile {
         display: none;
     }
+
 }
 
 /*Extra large devices (large desktops, 1200px and up)*/
@@ -243,5 +250,9 @@
 
     .swap-summary {
         max-width: 1280px;
+    }
+
+    .swap-summary-info {
+        width: 60%;
     }
 }
