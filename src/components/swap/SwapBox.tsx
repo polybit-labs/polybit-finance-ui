@@ -12,14 +12,12 @@ import { BigNumber } from 'ethers'
 import { GetDEXPrice } from './GetDEXPrice'
 import { BigNumberToFloat, FloatToBigNumber, FormatDecimals, TruncateAddress } from '../utils/Formatting'
 import DEXInfo from "../../chain_info/DEXInfo.json"
-import ChainInfo from "../../chain_info/ChainInfo.json"
 import { GetBalances } from './GetBalances'
 import { FormatCurrency } from '../utils/Currency'
 import { Button, TextLink } from '../Buttons'
 import { DEX } from './Types/DEX'
 import { IPolybitLiquidPath } from '../../chain_info/abi/IPolybitLiquidPath'
 import { BigNumberToCurrency } from '../utils/Currency/BigNumberToCurrency'
-import { hexValue } from 'ethers/lib/utils.js'
 
 interface SwapBoxProps {
     isConnected: boolean;
@@ -84,12 +82,10 @@ export const SwapBox = (props: SwapBoxProps) => {
             decimals: props.tokenOne.decimals
         })).then((value) => {
             price = value
-            console.log(price)
             return price
         })
     }
     convertPrice()
-    console.log(props.tokenOneInputValue)
     const balanceOne = GetBalances({
         walletOwner: props.walletOwner as `0x${string}`,
         tokenOne: props.tokenOne,
@@ -115,7 +111,6 @@ export const SwapBox = (props: SwapBoxProps) => {
         props.setAmountType(1)
     }
 
-    //update price, balanceOne, balanceTwo, dexPriceResponse
     useEffect(() => {
         props.amountType === 0 && props.setTokenTwoInputValue(props.amountsOut)
         props.amountType === 1 && props.setTokenOneInputValue(props.amountsOut)
@@ -123,7 +118,7 @@ export const SwapBox = (props: SwapBoxProps) => {
         balanceOne && setTokenOneBalance(balanceOne)
         balanceTwo && setTokenTwoBalance(balanceTwo)
         price && setCurrencyConvertedPrice(price)
-    }, [props.amountsOut, price])
+    }, [props.tokenOne, props.tokenTwo, props.tokenOneInputValue, props.tokenOneInputValue, props.amountsOut, price])
 
     const { data, isError, isLoading } = useContractRead({
         address: liquidPathAddress as `0x${string}`,
@@ -192,7 +187,7 @@ export const SwapBox = (props: SwapBoxProps) => {
                                         <div style={{ transform: "translateY(-18%)", fontSize: "24px" }}><FontAwesomeIcon icon={icon({ name: "sort-down", style: "solid" })} /></div>
                                     </div>
                                 </div>
-                                {props.tokenOne.symbol !== "BNB" && <Link className="swap-box-token-header-token-link" to={`/tokens/${props.tokenOne.name.replaceAll(" ", "-").replaceAll(".", "-").replaceAll("(", "-").replaceAll(")", "-").toLocaleLowerCase()}`}>
+                                {props.tokenOne.symbol !== "BNB" && <Link className="swap-box-token-header-token-link" to={`/assets/${props.tokenOne.name.replaceAll(" ", "-").replaceAll(".", "-").replaceAll("(", "-").replaceAll(")", "-").toLocaleLowerCase()}`}>
                                     <div style={{ transform: "translateY(0%)", fontSize: "12px" }}><FontAwesomeIcon icon={icon({ name: "up-right-from-square", style: "solid" })} /></div>
                                 </Link>}
                                 {props.isConnected && <div className="swap-box-token-header-balance">
@@ -228,7 +223,7 @@ export const SwapBox = (props: SwapBoxProps) => {
                                         <div className="swap-box-token-header-token-name">{props.tokenTwo.symbol}</div>
                                         <div className="swap-box-token-header-token-arrow" style={{ transform: "translateY(-18%)", fontSize: "24px" }}><FontAwesomeIcon icon={icon({ name: "sort-down", style: "solid" })} /></div>
                                     </div>
-                                    {props.tokenTwo.symbol !== "BNB" && <Link className="swap-box-token-header-token-link" to={`/tokens/${props.tokenTwo.name.replaceAll(" ", "-").replaceAll(".", "-").replaceAll("(", "-").replaceAll(")", "-").toLocaleLowerCase()}`}>
+                                    {props.tokenTwo.symbol !== "BNB" && <Link className="swap-box-token-header-token-link" to={`/assets/${props.tokenTwo.name.replaceAll(" ", "-").replaceAll(".", "-").replaceAll("(", "-").replaceAll(")", "-").toLocaleLowerCase()}`}>
                                         <div style={{ transform: "translateY(0%)", fontSize: "12px" }}><FontAwesomeIcon icon={icon({ name: "up-right-from-square", style: "solid" })} /></div>
                                     </Link>}
                                     {props.isConnected && <div className="swap-box-token-header-balance">

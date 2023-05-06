@@ -15,7 +15,7 @@ const HowItWorks = () => {
         ReactGA.send({ hitType: "pageview", page: location.pathname })
     }, [])
     const title = "How it works"
-    const subTitle = "Polybit’s Decentralised ETFs (DETFs) make the process of investing in digital assets easier, through discovery, investment and risk management."
+    const subTitle = "Polybit’s investment themes make the process of investing in digital assets easier, through discovery, investment and risk management."
 
     return (
         <>
@@ -68,7 +68,7 @@ const HowItWorks = () => {
                                         <div className="text-header-title">Risk management</div>
                                     </div>
                                     <div className="light-grey-section-text-description">
-                                        <p>DETFs are automatically rebalanced every 90 days to manage risk as the market moves. Each DETF is rebalanced by a different weighting such as total liquidity, total market cap or equally balanced.</p>
+                                        <p>Themes are automatically rebalanced every 90 days to manage risk as the market moves. Each theme is rebalanced by a different weighting such as total liquidity, total market cap or equally balanced.</p>
                                     </div>
                                 </div>
                                 <div className="light-grey-section-image">
@@ -85,7 +85,7 @@ const HowItWorks = () => {
                                         <div className="text-header-title">Risk management</div>
                                     </div>
                                     <div className="light-grey-section-text-description">
-                                        <p>DETFs are automatically rebalanced every 90 days to manage risk as the market moves. Each DETF is rebalanced by a different weighting such as total liquidity, total market cap or equally balanced.</p>
+                                        <p>Themes are automatically rebalanced every 90 days to manage risk as the market moves. Each theme is rebalanced by a different weighting such as total liquidity, total market cap or equally balanced.</p>
                                     </div>
                                 </div>
                             </div>
@@ -132,7 +132,7 @@ const HowItWorks = () => {
                                         <div className="text-header-title">Self-custodial</div>
                                     </div>
                                     <div className="light-grey-section-text-description">
-                                        <p>Each DETF is a self-custodial smart contract, connected to and controlled by your wallet. Assets are never pooled or centralised and their ownership can be proven on the blockchain at any time.</p>
+                                        <p>Each theme is a self-custodial smart contract, connected to and controlled by your wallet. Assets are never pooled or centralised and their ownership can be proven on the blockchain at any time.</p>
                                     </div>
                                 </div>
                                 <div className="light-grey-section-image">
@@ -149,7 +149,7 @@ const HowItWorks = () => {
                                         <div className="text-header-title">Self-custodial</div>
                                     </div>
                                     <div className="light-grey-section-text-description">
-                                        <p>Each DETF is a self-custodial smart contract, connected to and controlled by your wallet. Assets are never pooled or centralised and their ownership can be proven on the blockchain at any time.</p>
+                                        <p>Each theme is a self-custodial smart contract, connected to and controlled by your wallet. Assets are never pooled or centralised and their ownership can be proven on the blockchain at any time.</p>
                                     </div>
                                 </div>
                             </div>

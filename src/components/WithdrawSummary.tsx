@@ -349,8 +349,8 @@ export const WithdrawSummary = (props: WithdrawSummary) => {
                                 </div>
                                 <div>I acknowledge that I am exiting this investment and withdrawing the balance, minus fees, to my connected wallet.</div>
                             </div>
-                            {checkboxTick && <Button buttonStyle="primary" buttonSize="standard" text="Confirm DETF exit" onClick={() => detfSellToClose?.()} />}
-                            {!checkboxTick && <Button buttonStyle="primary" buttonSize="standard" text="Confirm DETF exit" status="disabled" />}
+                            {checkboxTick && <Button buttonStyle="primary" buttonSize="standard" text="Confirm exit" onClick={() => detfSellToClose?.()} />}
+                            {!checkboxTick && <Button buttonStyle="primary" buttonSize="standard" text="Confirm exit" status="disabled" />}
                         </div>
                         <TextLink text="Cancel withdrawal" to="/account" arrowDirection="back" />
                     </div>

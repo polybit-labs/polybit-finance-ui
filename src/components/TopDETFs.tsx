@@ -44,7 +44,7 @@ export const TopDETFs = () => {
     }
 
     const periods = ["this week", "this month", "this year"]
-    const title = <div><h2>Top DETF strategies  <button
+    const title = <div><h2>Top investment themes  <button
         className="inline-dropdown"
         onClick={(): void => toggleTimePeriodDropDown()}
         onBlur={(e: React.FocusEvent<HTMLButtonElement>): void =>
@@ -107,8 +107,8 @@ export const TopDETFs = () => {
                 </li>
             </ul>
             <div className="top-detfs-container-button-wrapper">
-                <Link to="/detfs" >
-                    <Button buttonStyle="primary" buttonSize="standard" text="View the full DETF Index" />
+                <Link to="/themes" >
+                    <Button buttonStyle="primary" buttonSize="standard" text="View the full Investment Theme Index" />
                 </Link>
             </div>
         </div>

@@ -16,7 +16,7 @@ export const DepositSuccess = (props: DepositSuccess) => {
     return (
         <div className="deposit-success">
             <img className="deposit-success-tick" src={require("../../assets/icons/success_tick.png")}></img>
-            <div className="deposit-success-text">Congratulations, your investment into the {props.category} {props.dimension} DETF was successful.</div>
+            <div className="deposit-success-text">Congratulations, your investment into the {props.category} {props.dimension} investment theme was successful.</div>
             <TextLink to="/account" text="View my account" arrowDirection="forward" />
         </div>
     )

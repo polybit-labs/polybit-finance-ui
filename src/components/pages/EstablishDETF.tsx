@@ -26,7 +26,7 @@ function EstablishDETF() {
     const { address: walletOwner, connector, isConnected } = useAccount()
     const [activeStage, setActiveStage] = useState("establish")
     const title = "Establishing your DETF"
-    const titleInfo = `You have chosen to invest in the ${category} ${dimension} DETF from your address ${TruncateAddress(walletOwner ? walletOwner : "")} using ${connector?.name}.`
+    const titleInfo = `You have chosen to invest in the ${category} ${dimension} investment theme from your address ${TruncateAddress(walletOwner ? walletOwner : "")} using ${connector?.name}.`
     const [detfAddress, setDETFAddress] = useState("")
     const [depositSuccess, setDepositSuccess] = useState(false)
 

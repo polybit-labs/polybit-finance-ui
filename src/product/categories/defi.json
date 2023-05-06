@@ -10,7 +10,7 @@
             "category": "DeFi",
             "dimension": "Market Cap",
             "description": [
-                "DeFi Market Cap DETF tracks DeFi themed tokens on the Binance Smart Chain, weighted by the total global market cap, across all centralised and decentralised exchanges."
+                "DeFi Market Cap investment theme tracks DeFi themed tokens on the Binance Smart Chain, weighted by the total global market cap, across all centralised and decentralised exchanges."
             ]
         },
         {
@@ -20,7 +20,7 @@
             "category": "DeFi",
             "dimension": "Liquidity",
             "description": [
-                "DeFi Liquidity DETF tracks DeFi themed tokens on the Binance Smart Chain, weighted by the total liquidity available in the decentralised exchanges that Polybit aggregates."
+                "DeFi Liquidity investment theme tracks DeFi themed tokens on the Binance Smart Chain, weighted by the total liquidity available in the decentralised exchanges that Polybit aggregates."
             ]
         },
         {
@@ -30,7 +30,7 @@
             "category": "DeFi",
             "dimension": "Equally Balanced",
             "description": [
-                "DeFi Equally Balanced DETF tracks DeFi themed tokens on the Binance Smart Chain, equally weighted by the total number of tokens in the DETF."
+                "DeFi Equally Balanced investment theme tracks DeFi themed tokens on the Binance Smart Chain, equally weighted by the total number of tokens in the DETF."
             ]
         }
     ]

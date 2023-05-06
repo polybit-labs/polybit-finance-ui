@@ -15,7 +15,7 @@ interface TokenDETFBoxProps {
 export const TokenDETFBox = (props: TokenDETFBoxProps) => {
     const { chain } = useNetwork()
     const chainId: string = chain ? chain.id.toString() : "56"
-    const productContent = require(`../product/detfs/${chainId}/${props.urlCategoryId}/${props.urlDimensionId}/content.json`)
+    const productContent = require(`../product/themes/${chainId}/${props.urlCategoryId}/${props.urlDimensionId}/content.json`)
 
     if (productContent && props.performanceData) {
         return (
@@ -31,7 +31,7 @@ export const TokenDETFBox = (props: TokenDETFBoxProps) => {
                     <div className="token-detf-box-header-return" style={{ color: ColourNumbers(props.return) }}>{`${parseFloat(props.return ? (props.return * 100).toString() : "").toFixed(2)} % this week`}</div>
                 </div>
                 <div className="token-detf-box-chart">{<ReturnChartMini height="80%" width="100%" performanceData={props.performanceData} />}</div>
-                <TextLink to={`/detfs/${props.urlChainId}/${props.urlCategoryId}/${props.urlDimensionId}`} text="Invest in this strategy" underline={true} />
+                <TextLink to={`/themes/${props.urlChainId}/${props.urlCategoryId}/${props.urlDimensionId}`} text="Invest in this theme" underline={true} />
             </div>)
     }
     return (

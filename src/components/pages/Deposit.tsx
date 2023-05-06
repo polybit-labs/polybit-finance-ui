@@ -33,7 +33,7 @@ function Deposit() {
             </Helmet>
             {!depositSuccess && <div>
                 <TitleContainer title={title} />
-                <SubTitleContainer info={`You are about to invest funds from your address ${TruncateAddress(walletOwner ? walletOwner : "")} into the ${category} ${dimension} DETF using ${connector?.name}.`} />
+                <SubTitleContainer info={`You are about to invest funds from your address ${TruncateAddress(walletOwner ? walletOwner : "")} into the ${category} ${dimension} investment theme using ${connector?.name}.`} />
                 <Progress activeStage={activeStage} />
             </div>}
             <DepositContainer

@@ -10,7 +10,7 @@
             "category": "BSC Index Top 10",
             "dimension": "Market Cap",
             "description": [
-                "BSC Index Top 10 Equally Balanced DETF tracks the top 10 tokens on the Binance Smart Chain, weighted by the total global market cap, across all centralised and decentralised exchanges."
+                "BSC Index Top 10 Equally Balanced investment theme tracks the top 10 tokens on the Binance Smart Chain, weighted by the total global market cap, across all centralised and decentralised exchanges."
             ]
         },
         {
@@ -20,7 +20,7 @@
             "category": "BSC Index Top 10",
             "dimension": "Liquidity",
             "description": [
-                "BSC Index Top 10 Equally Balanced DETF tracks the top 10 tokens on the Binance Smart Chain, weighted by the total liquidity available in the decentralised exchanges that Polybit aggregates."
+                "BSC Index Top 10 Equally Balanced investment theme tracks the top 10 tokens on the Binance Smart Chain, weighted by the total liquidity available in the decentralised exchanges that Polybit aggregates."
             ]
         },
         {
@@ -30,7 +30,7 @@
             "category": "BSC Index Top 10",
             "dimension": "Equally Balanced",
             "description": [
-                "BSC Index Top 10 Equally Balanced DETF tracks the top 10 tokens on the Binance Smart Chain, equally weighted by the total number of tokens in the DETF."
+                "BSC Index Top 10 Equally Balanced investment theme tracks the top 10 tokens on the Binance Smart Chain, equally weighted by the total number of tokens in the DETF."
             ]
         }
     ]

@@ -337,7 +337,7 @@ export const EstablishDepositSummary = (props: EstablishDepositSummary) => {
         return (
             <div className="deposit-summary">
                 <div className="deposit-summary-container">
-                    <h2>Your DETF investment summary</h2>
+                    <h2>Your investment theme summary</h2>
                     <div className="deposit-summary-info">
                         <div className="deposit-summary-info-bar"></div>
                         <table className="deposit-summary-table">

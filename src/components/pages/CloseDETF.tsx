@@ -25,12 +25,12 @@ export const CloseDETF = () => {
         return (
             <>
                 <Helmet>
-                    <title>{`Exit DETF | Polybit Finance`}</title>
+                    <title>{`Exit Investment Theme | Polybit Finance`}</title>
                     <meta name="description" content="Exit and withdraw funds" />
                     <meta name="robots" content="noindex" />
                 </Helmet>
                 <TitleContainer title="Exit and withdraw funds" />
-                <SubTitleContainer info="By exiting this DETF, the balance of your funds will be returned to your connected wallet in BNB."
+                <SubTitleContainer info="By exiting this investment theme, the balance of your funds will be returned to your connected wallet in BNB."
                 />
                 <WithdrawSummary
                     detfAddress={detfAddress}

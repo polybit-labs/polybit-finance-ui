@@ -29,7 +29,7 @@ const DETF = () => {
     const chainId: string = chain ? chain.id.toString() : "56"
     const productUrl = `${chainId}/${urlCategoryId}/${urlDimensionId}`
     const performanceUrl = `${chainId}/${urlCategoryId}/${urlDimensionId}`
-    const productContent = require(`../../product/detfs/${chainId}/${urlCategoryId}/${urlDimensionId}/content.json`)
+    const productContent = require(`../../product/themes/${chainId}/${urlCategoryId}/${urlDimensionId}/content.json`)
     const currency = useContext(CurrencyContext).currency
     const { response: prices, isLoading: pricesLoading, isSuccess: pricesSuccess } = GetPriceVsCurrency("0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c")
     const [vsPrices, setVsPrices] = useState<any>({})
@@ -62,7 +62,7 @@ const DETF = () => {
         return (
             <>
                 <Helmet>
-                    <title>{`${category} ${dimension} DETF | Polybit Finance`}</title>
+                    <title>{`${category} ${dimension} investment theme | Polybit Finance`}</title>
                     <meta name="description" content={descriptionTitle} />
                 </Helmet>
                 <div className="detf">
@@ -81,7 +81,7 @@ const DETF = () => {
                             </div>
                             <div className="detf-button-wrapper">
                                 <Link className="detf-invest-button" to="/establish-deposit" state={{ productId: productId, category: category, dimension: dimension }}>
-                                    <Button buttonStyle="primary" buttonSize="standard" text="Invest in this DETF" />
+                                    <Button buttonStyle="primary" buttonSize="standard" text="Invest in this theme" />
                                 </Link>
                             </div>
                         </div>
@@ -91,7 +91,7 @@ const DETF = () => {
                                     <h2>{descriptionTitle}</h2>
                                     <div className="detf-button-wrapper-mobile">
                                         <Link to="/establish-deposit" state={{ productId: productId, category: category, dimension: dimension }}>
-                                            <Button buttonStyle="primary" buttonSize="standard" text="Invest in this DETF" />
+                                            <Button buttonStyle="primary" buttonSize="standard" text="Invest in this theme" />
                                         </Link>
                                     </div>
                                     {description.map((line: string) =>
@@ -102,7 +102,7 @@ const DETF = () => {
                                     )}
                                 </div>
                                 <div className="detf-chart">
-                                    <div className="detf-chart-title"><p>{category} {dimension} DETF Index Value - 3 Months</p></div>
+                                    <div className="detf-chart-title"><p>{category} {dimension} investment theme Index Value - 3 Months</p></div>
                                     <DETFReturnChart height={300} width="100%" performanceData={performanceData} />
                                 </div>
                                 <DETFSummary
@@ -114,7 +114,7 @@ const DETF = () => {
                             </li>
                             <li className="detf-content-b">
                                 <div className="detf-assets-box">
-                                    <h2>Assets in DETF</h2>
+                                    <h2>Assets in investment theme</h2>
                                     {/* <p>{assetTableDescription}</p> */}
                                     <DETFAssetsTable tokens={tokens} />
                                 </div>
@@ -123,12 +123,12 @@ const DETF = () => {
                                 </div>
                                 <div className="detf-button-wrapper">
                                     <Link to="/establish-deposit" state={{ productId: productId, category: category, dimension: dimension }}>
-                                        <Button buttonStyle="primary" buttonSize="standard" text="Invest in this DETF" />
+                                        <Button buttonStyle="primary" buttonSize="standard" text="Invest in this theme" />
                                     </Link>
                                 </div>
                                 <div className="detf-button-wrapper-mobile">
                                     <Link to="/establish-deposit" state={{ productId: productId, category: category, dimension: dimension }}>
-                                        <Button buttonStyle="primary" buttonSize="standard" text="Invest in this DETF" />
+                                        <Button buttonStyle="primary" buttonSize="standard" text="Invest in this theme" />
                                     </Link>
                                 </div>
                             </li>

@@ -38,7 +38,7 @@ const DETFIndexList = (props: DETFIndexListProps) => {
                 "urlChainId": detf.url_chain_id,
                 "urlCategoryId": detf.url_category_id,
                 "urlDimensionId": detf.url_dimension_id,
-                "url": `/detfs/${detf.url_chain_id}/${detf.url_category_id}/${detf.url_dimension_id}`,
+                "url": `/themes/${detf.url_chain_id}/${detf.url_category_id}/${detf.url_dimension_id}`,
                 "liquidity": FormatCurrency((Number(detf.total_liquidity) *
                     (() => {
                         switch (props.currency) {
@@ -145,7 +145,7 @@ const DETFIndexList = (props: DETFIndexListProps) => {
                     <div>
                         {detfIndex.map((detf: any) =>
                             <div key={detf.url}>
-                                <Link className="detf-index-row-item-link" to={`/detfs/${detf.urlChainId}/${detf.urlCategoryId}/${detf.urlDimensionId}`} >
+                                <Link className="detf-index-row-item-link" to={`/themes/${detf.urlChainId}/${detf.urlCategoryId}/${detf.urlDimensionId}`} >
                                     <div className="detf-index-row-items" key={detf.url}>
                                         <div className="detf-index-row-item-detf">
                                             <img className="detf-index-row-item-logo" src={require(`../assets/icons/${DETFIconFilename(detf.category, detf.dimension)}`)}></img>
@@ -198,7 +198,7 @@ const DETFIndexList = (props: DETFIndexListProps) => {
                     <div>
                         {detfIndex.map((detf: any) =>
                             <div key={detf.url}>
-                                <Link className="detf-index-row-item-link" to={`/detfs/${detf.urlChainId}/${detf.urlCategoryId}/${detf.urlDimensionId}`} >
+                                <Link className="detf-index-row-item-link" to={`/themes/${detf.urlChainId}/${detf.urlCategoryId}/${detf.urlDimensionId}`} >
                                     <div className="detf-index-row-items-mobile" key={detf.url}>
                                         <div className="detf-index-row-item-detf-header-mobile">
                                             <div className="detf-index-row-item-detf-mobile">

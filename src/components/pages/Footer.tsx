@@ -13,15 +13,18 @@ const Footer = () => {
                         </Link>
                     </div>
                     <div className="footer-link-items">
-                        <h2>DETF Categories</h2>
-                        <Link reloadDocument to="/detfs/category/bsc-index-top-10"><u>BSC Index Top 10</u></Link>
-                        <Link reloadDocument to="/detfs/category/defi"><u>DeFi</u></Link>
-                        <Link reloadDocument to="/detfs/category/governance"><u>Governance</u></Link>
-                        <Link reloadDocument to="/detfs/category/metaverse"><u>Metaverse</u></Link>
+                        <h2>Investment Themes</h2>
+                        <Link to="/themes"><u>Theme Index</u></Link>
+                        <Link to="/themes/how-it-works"><u>How it works</u></Link>
+                        <Link reloadDocument to="/themes/bsc-index-top-10"><u>BSC Index Top 10</u></Link>
+                        <Link reloadDocument to="/themes/defi"><u>DeFi</u></Link>
+                        <Link reloadDocument to="/themes/governance"><u>Governance</u></Link>
+                        <Link reloadDocument to="/themes/metaverse"><u>Metaverse</u></Link>
                     </div>
                     <div className="footer-link-items">
-                        <h2>Tokens</h2>
-                        <Link reloadDocument to="/tokens"><u>Token Index</u></Link>
+                        <h2>Digital Assets</h2>
+                        <Link reloadDocument to="/assets"><u>Asset Index</u></Link>
+                        <Link reloadDocument to="/swap"><u>Swap</u></Link>
                     </div>
                     <div className="footer-link-items">
                         <h2>Legal</h2>

@@ -1,7 +1,7 @@
 {
     "category": "Governance",
     "descriptionTitle": "Governance: Empowering the Community to Drive Financial Innovation",
-    "description": "In the world of DeFi, governance is not just a buzzword, it's a fundamental principle that drives innovation and growth. Decentralised finance platforms are governed by the community, giving individuals the power to make decisions that shape the future of the platform and the wider DeFi ecosystem.\n\nUnlike traditional financial institutions, where decisions are made by a small group of executives, DeFi platforms are governed by the community of users. This means that decisions about the direction of the platform, such as new features or changes to the protocol, are made through a decentralised decision-making process, where anyone can propose and vote on changes.\n\nThis community-driven governance model has the potential to create a more inclusive and democratic financial system, where everyone has a voice and a stake in the future of the platform. It also ensures that decisions are made in the best interests of the platform and its users, rather than just the interests of a small group of executives.\n\nBut DeFi governance is more than just a theoretical concept, it's a reality that is already shaping the future of finance. From decentralised autonomous organisations (DAOs) to community-governed protocols, DeFi governance is empowering the community to drive financial innovation and create a more equitable and accessible financial system.\n\nIn the world of DeFi, governance is a powerful force for change. By giving the community a voice and a stake in the platform, we can create a financial system that is truly inclusive and that empowers everyone to participate in the future of finance.",
+    "description": "In the world of DeFi is a fundamental principle that drives innovation and growth. Decentralised finance platforms are governed by the community, giving individuals the power to make decisions that shape the future of the platform and the wider DeFi ecosystem.\n\nUnlike traditional financial institutions, where decisions are made by a small group of executives, DeFi platforms are governed by the community of users. This means that decisions about the direction of the platform, such as new features or changes to the protocol, are made through a decentralised decision-making process, where anyone can propose and vote on changes.\n\nThis community-driven governance model has the potential to create a more inclusive and democratic financial system, where everyone has a voice and a stake in the future of the platform. It also ensures that decisions are made in the best interests of the platform and its users, rather than just the interests of a small group of executives.\n\nBut DeFi governance is more than just a theoretical concept, it's a reality that is already shaping the future of finance. From decentralised autonomous organisations (DAOs) to community-governed protocols, DeFi governance is empowering the community to drive financial innovation and create a more equitable and accessible financial system.\n\nIn the world of DeFi, governance is a powerful force for change. By giving the community a voice and a stake in the platform, we can create a financial system that is truly inclusive and that empowers everyone to participate in the future of finance.",
     "detfs": [
         {
             "chainId": 56,
@@ -10,7 +10,7 @@
             "category": "Governance",
             "dimension": "Market Cap",
             "description": [
-                "Governance Market Cap DETF tracks governance tokens on the Binance Smart Chain, weighted by the total global market cap, across all centralised and decentralised exchanges."
+                "Governance Market Cap investment theme tracks governance tokens on the Binance Smart Chain, weighted by the total global market cap, across all centralised and decentralised exchanges."
             ]
         },
         {
@@ -20,7 +20,7 @@
             "category": "Governance",
             "dimension": "Liquidity",
             "description": [
-                "Governance Liquidity DETF tracks governance tokens on the Binance Smart Chain, weighted by the total liquidity available in the decentralised exchanges that Polybit aggregates."
+                "Governance Liquidity investment theme tracks governance tokens on the Binance Smart Chain, weighted by the total liquidity available in the decentralised exchanges that Polybit aggregates."
             ]
         },
         {
@@ -30,7 +30,7 @@
             "category": "Governance",
             "dimension": "Equally Balanced",
             "description": [
-                "Governance Equally Balanced DETF tracks governance tokens on the Binance Smart Chain, equally weighted by the total number of tokens in the DETF."
+                "Governance Equally Balanced investment theme tracks governance tokens on the Binance Smart Chain, equally weighted by the total number of tokens in the DETF."
             ]
         }
     ]

@@ -32,7 +32,7 @@ export const TopDETFBox = (props: TopDETFBoxProps) => {
                     <div className="top-detfs-box-header-return" style={{ color: ColourNumbers(props.returnValue) }}>{parseFloat(props.returnValue ? (props.returnValue * 100).toString() : "").toFixed(2) + "%"}</div>
                 </div>
                 <div className="top-detfs-box-chart">{<ReturnChartMini height="80%" width="100%" performanceData={props.performanceData} />}</div>
-                <TextLink to={`/detfs/${props.urlChainId}/${props.urlCategoryId}/${props.urlDimensionId}`} text="Invest in this strategy" underline={true} />
+                <TextLink to={`/themes/${props.urlChainId}/${props.urlCategoryId}/${props.urlDimensionId}`} text="Invest in this theme" underline={true} />
             </div>)
     }
     return (

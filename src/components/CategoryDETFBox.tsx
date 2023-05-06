@@ -38,8 +38,8 @@ export const CategoryDETFBox = (props: DETFBoxProps) => {
             <div className="category-detf-chart">
                 <ReturnChartMini height="90%" width="100%" performanceData={props.performanceData} />
             </div>
-            <Link className="detf-invest-button" to={`/detfs/${props.chainName.replaceAll(" ", "-").toLowerCase()}/${props.category.replaceAll(" ", "-").toLowerCase()}/${props.dimension.replaceAll(" ", "-").toLowerCase()}`} >
-                <Button buttonStyle="primary" buttonSize="standard" text="Invest in this DETF" />
+            <Link className="detf-invest-button" to={`/themes/${props.chainName.replaceAll(" ", "-").toLowerCase()}/${props.category.replaceAll(" ", "-").toLowerCase()}/${props.dimension.replaceAll(" ", "-").toLowerCase()}`} >
+                <Button buttonStyle="primary" buttonSize="standard" text="Invest in this theme" />
             </Link>
         </>)
     }

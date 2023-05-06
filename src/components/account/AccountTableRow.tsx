@@ -224,7 +224,7 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
                             </div>
                             <div className="account-table-row-item-dimension" style={{ color: "#000000" }}>
                                 {props.dimension}
-                                <Link className="account-table-row-item-link-to-detf" to={`/detfs/bnb-smart-chain/${props.category.replaceAll(" ", "-").toLocaleLowerCase()}/${props.dimension.replaceAll(" ", "-").toLocaleLowerCase()}`}>
+                                <Link className="account-table-row-item-link-to-detf" to={`/themes/bnb-smart-chain/${props.category.replaceAll(" ", "-").toLocaleLowerCase()}/${props.dimension.replaceAll(" ", "-").toLocaleLowerCase()}`}>
                                     <FontAwesomeIcon icon={icon({ name: "up-right-from-square", style: "solid" })} /></Link>
                             </div>
                         </div>
@@ -361,7 +361,7 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
                             </div>
                             <div className="account-table-expanded-content-right">
                                 <div className="account-table-expanded-content-right-owned-assets">
-                                    <h2>Assets in DETF</h2>
+                                    <h2>Assets in investment theme</h2>
                                     {isDETFActive && isDETFDeposited && props.owned_assets_table_data && <DETFOwnedAssetsTable tokens={props.owned_assets_table_data} vsPrices={props.vsPrices} currency={props.currency} />}
                                     {isDETFActive && isDETFDeposited && !props.owned_assets_table_data && tableLoading}
                                     {isDETFActive && !isDETFDeposited && productData && <DETFAssetsTable tokens={productData ? productData.tokens : []} />}
@@ -551,7 +551,7 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
                                     }
                                 </div>
                                 <div className="account-table-expanded-content-owned-assets-mobile">
-                                    <h2>Assets in DETF</h2>
+                                    <h2>Assets in investment theme</h2>
                                     {isDETFActive && isDETFDeposited && props.owned_assets_table_data && <DETFOwnedAssetsTable tokens={props.owned_assets_table_data} vsPrices={props.vsPrices} currency={props.currency} />}
                                     {isDETFActive && isDETFDeposited && !props.owned_assets_table_data && tableLoading}
                                     {isDETFActive && !isDETFDeposited && productData && <DETFAssetsTable tokens={productData ? productData.tokens : []} />}

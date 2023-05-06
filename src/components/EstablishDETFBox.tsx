@@ -121,7 +121,7 @@ export const EstablishDETFBox = (props: EstablishDETFBox) => {
                 <div className="establish-detf-container">
                     <h2>You are one step closer to investing in diversified assets.</h2>
                     <br />
-                    <p>Establishing a DETF will cost a small amount of BNB that will be paid to the network for gas. Polybit does not profit from this cost. Once the DETF has been established, you are ready to invest.</p>
+                    <p>Establishing an investment theme will cost a small amount of BNB that will be paid to the network for gas. Polybit does not profit from this cost. Once the DETF has been established, you are ready to invest.</p>
                     <div className="establish-detf-button-wrapper">
                         {!prepareConfigLoading && !contractWriteLoading && <Button buttonStyle="primary" buttonSize="standard" text="Establish DETF on the blockchain" onClick={async () => createNewDETF?.()} />}
                         {contractWriteLoading && <Button buttonStyle="primary" buttonSize="standard" text="Establish DETF on the blockchain" status="loading" loadingMsg={`waiting for ${connector?.name}`} />}

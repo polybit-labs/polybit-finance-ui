@@ -16,6 +16,7 @@ interface TokenData {
 }
 
 const fetchTokenData = async (address: string): Promise<number> => {
+    //const API_KEY = process.env.REACT_APP_COINGECKO_API_KEY
     const url = "https://api.coingecko.com/api/v3/coins/binance-smart-chain/contract/" + address
     console.log(url)
     const response = await fetch(url);

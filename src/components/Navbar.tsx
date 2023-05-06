@@ -57,13 +57,18 @@ const Navbar = (props: NavbarProps) => {
                 <div className="navbar-container">
                     <ul className={"nav-menu"}>
                         <li className="nav-item">
-                            <Link to="/detfs" className="nav-links" onClick={closeMobileMenu}>
-                                DETF Index
+                            <Link to="/themes" className="nav-links" onClick={closeMobileMenu}>
+                                Themes
                             </Link>
                         </li>
                         <li className="nav-item">
-                            <Link to="/how-it-works" className="nav-links" onClick={closeMobileMenu}>
-                                How it works
+                            <Link to="/assets" className="nav-links" onClick={closeMobileMenu}>
+                                Assets
+                            </Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link to="/swap" className="nav-links" onClick={closeMobileMenu}>
+                                Swap
                             </Link>
                         </li>
                         <li className="nav-item">
@@ -125,13 +130,18 @@ const Navbar = (props: NavbarProps) => {
                 {click && <div className="nav-menu-mobile"></div>}
                 {click && <ul className="nav-menu-mobile-items">
                     <li className="nav-item-mobile">
-                        <Link to="/detfs" className="nav-links-mobile" onClick={closeMobileMenu}>
-                            DETF Index
+                        <Link to="/themes" className="nav-links-mobile" onClick={closeMobileMenu}>
+                            Themes
                         </Link>
                     </li>
                     <li className="nav-item-mobile">
-                        <Link to="/how-it-works" className="nav-links-mobile" onClick={closeMobileMenu}>
-                            How it works
+                        <Link to="/assets" className="nav-links-mobile" onClick={closeMobileMenu}>
+                            Assets
+                        </Link>
+                    </li>
+                    <li className="nav-item-mobile">
+                        <Link to="/swap" className="nav-links-mobile" onClick={closeMobileMenu}>
+                            Swap
                         </Link>
                     </li>
                     <li className="nav-item-mobile">

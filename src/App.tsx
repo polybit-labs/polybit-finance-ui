@@ -35,18 +35,18 @@ const App = () => {
               <Navbar setCurrency={setCurrency} />
               <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/detfs" element={<DETFIndex />} />
-                <Route path="/how-it-works" element={<HowItWorks />} />
+                <Route path="/themes" element={<DETFIndex />} />
+                <Route path="/themes/how-it-works" element={<HowItWorks />} />
                 <Route path="/account" element={<Account />} />
                 <Route path="/establish-detf" element={<EstablishDETF />} />
                 <Route path="/establish-deposit" element={<EstablishDeposit />} />
                 <Route path="/deposit" element={<Deposit />} />
                 <Route path="/close-detf" element={<CloseDETF />} />
                 <Route path="/privacy-policy" element={<Privacy />} />
-                <Route path="/detfs/:urlChainId/:urlCategoryId/:urlDimensionId" element={<DETF />} />
-                <Route path="/detfs/category/:urlCategoryId/" element={<Category />} />
-                <Route path="/tokens" element={<TokenIndex />} />
-                <Route path="/tokens/:urlTokenName/" element={<Token />} />
+                <Route path="/themes/:urlChainId/:urlCategoryId/:urlDimensionId" element={<DETF />} />
+                <Route path="/themes/:urlCategoryId/" element={<Category />} />
+                <Route path="/assets" element={<TokenIndex />} />
+                <Route path="/assets/:urlTokenName/" element={<Token />} />
                 <Route path="/swap" element={<Swap />} />
               </Routes>
             </CurrencyContext.Provider>
