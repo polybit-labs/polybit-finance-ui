@@ -4,11 +4,11 @@ import { useLocation } from 'react-router-dom'
 import TitleContainer from "../containers/Title"
 import SubTitleContainer from '../containers/SubTitle'
 import { useAccount, useNetwork } from "wagmi"
-import Footer from './Footer'
+import { Footer } from '../Footer/Footer'
 import { Progress } from '../Progress'
 import { EstablishDepositContainer } from '../deposit/EstablishDepositContainer'
-import { SwitchNetwork } from '../SwitchNetwork'
-import { Connect } from '../Connect'
+import { SwitchNetwork } from '../SwitchNetwork/SwitchNetwork'
+import { Connect } from '../Connect/Connect'
 import { LockedBeta } from '../LockedBeta'
 import { Helmet } from 'react-helmet-async'
 

@@ -5,11 +5,11 @@ import SubTitleContainer from '../containers/SubTitle'
 import { Progress } from '../Progress'
 import { TruncateAddress } from '../utils/Formatting'
 import { useAccount, useNetwork } from 'wagmi'
-import Footer from "./Footer"
+import { Footer } from "../Footer/Footer"
 import { EstablishDETFBox } from "../EstablishDETFBox"
-import { Connect } from "../Connect"
+import { Connect } from "../Connect/Connect"
 import { DepositContainer } from "../deposit/DepositContainer"
-import { SwitchNetwork } from "../SwitchNetwork"
+import { SwitchNetwork } from "../SwitchNetwork/SwitchNetwork"
 import ReactGA from "react-ga4"
 import { initialiseGA4 } from '../utils/Analytics'
 import { LockedBeta } from '../LockedBeta'

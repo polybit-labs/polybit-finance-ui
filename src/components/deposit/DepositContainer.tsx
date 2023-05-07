@@ -6,7 +6,7 @@ import { CurrencyContext } from '../utils/Currency'
 import { GetPriceVsCurrency } from '../api/GetPriceVsCurrency'
 import { DepositSuccess } from '../deposit/DepositSuccess'
 import { DepositSummary } from '../deposit/DepositSummary'
-import { Loading } from '../Loading'
+import { Loading } from '../Loading/Loading'
 import { BigNumber } from 'ethers'
 
 interface Deposit {

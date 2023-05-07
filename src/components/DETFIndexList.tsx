@@ -3,7 +3,7 @@ import "./DETFIndexList.css"
 import { ColourCategories, ColourNumbers, DETFIconFilename, FormatPercentages } from './utils/Formatting'
 import { Link } from "react-router-dom"
 import { FormatCurrency } from "./utils/Currency"
-import { Loading } from './Loading'
+import { Loading } from './Loading/Loading'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { icon } from '@fortawesome/fontawesome-svg-core/import.macro'
 

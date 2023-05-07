@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import { Button } from "./Buttons"
+import { Button } from "./Buttons/Buttons"
 import "./LockedBeta.css"
 
 export const LockedBeta = () => {

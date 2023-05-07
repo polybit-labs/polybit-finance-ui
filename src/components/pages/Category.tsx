@@ -5,7 +5,7 @@ import { CategoryData, GetCategoryData } from "../api/GetCategoryData"
 import { CategoryDETFBox } from "../CategoryDETFBox"
 import { ColourCategories } from "../utils/Formatting"
 import "./Category.css"
-import Footer from "./Footer"
+import { Footer } from "../Footer/Footer"
 
 export type CategoryProductContent = {
     "category": string;

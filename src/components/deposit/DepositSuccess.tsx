@@ -1,6 +1,6 @@
 
 import { useEffect } from 'react'
-import { TextLink } from '../Buttons'
+import { TextLink } from '../Buttons/TextLink';
 import "./DepositSuccess.css"
 
 interface DepositSuccess {

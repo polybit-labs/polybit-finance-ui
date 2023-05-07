@@ -1,12 +1,12 @@
 import DETFIndexList from '../DETFIndexList'
 import TitleContainer from '../containers/Title'
 import SubTitleContainer from '../containers/SubTitle'
-import Footer from './Footer'
+import { Footer } from '../Footer/Footer'
 import { useState, useContext, useEffect } from 'react'
 import detfIndexInfo from "../../product/detfIndex.json"
 import { CurrencyContext } from "../utils/Currency"
 import { GetPriceVsCurrency } from '../api/GetPriceVsCurrency'
-import { Loading } from '../Loading'
+import { Loading } from '../Loading/Loading'
 import { InlineDropDown } from '../dropdowns/InlineDropDown'
 import sortDown from "../../assets/icons/sort-down-solid.svg"
 import { GetDETFIndexData } from '../api/GetDETFIndexData'

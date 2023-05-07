@@ -1,7 +1,7 @@
 import { ColourCategories, ColourNumbers, DETFIconFilename } from "./utils/Formatting";
 import "./pages/Category.css"
 import { ReturnChartMini } from "./charts/ReturnChartMini";
-import { Button } from "./Buttons";
+import { Button } from "./Buttons/Buttons";
 import { Link } from "react-router-dom";
 
 interface DETFBoxProps {

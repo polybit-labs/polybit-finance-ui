@@ -1,7 +1,7 @@
 import "./TokenDETFBox.css"
 import { ReturnChartMini } from "./charts/ReturnChartMini"
 import { ColourCategories, ColourNumbers, DETFIconFilename } from "./utils/Formatting"
-import { TextLink } from "./Buttons"
+import { TextLink } from "./Buttons/TextLink"
 import { useNetwork } from "wagmi";
 
 interface TokenDETFBoxProps {

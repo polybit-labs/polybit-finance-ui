@@ -1,10 +1,10 @@
 import './App.css';
-import Navbar from './components/Navbar';
+import Navbar from './components/Navbar/Navbar';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
-import Home from "./components/pages/Home"
+import Home from "./scenes/Home/Home"
 import ScrollToTop from './components/ScrollToTop'
 import DETFIndex from './components/pages/DETFIndex'
-import Account from './components/pages/Account'
+import Account from './scenes/Account/Account'
 import Deposit from './components/pages/Deposit'
 import EstablishDETF from './components/pages/EstablishDETF'
 import DETF from './components/pages/DETF'
@@ -12,14 +12,14 @@ import { CurrencyContext, CurrencyState } from "./components/utils/Currency"
 import { useEffect, useState } from 'react'
 import { CloseDETF } from './components/pages/CloseDETF'
 import HowItWorks from './components/pages/HowItWorks'
-import Privacy from './components/pages/Privacy'
+import Privacy from './scenes/Privacy/Privacy'
 import { Category } from './components/pages/Category'
 import { initialiseGA4 } from './components/utils/Analytics';
 import EstablishDeposit from './components/pages/EstablishDeposit';
 import { HelmetProvider } from "react-helmet-async"
 import { Token } from './components/pages/Token';
 import { TokenIndex } from './components/pages/TokenIndex';
-import Swap from './components/pages/Swap';
+import Swap from './scenes/Swap/Swap';
 
 
 const App = () => {

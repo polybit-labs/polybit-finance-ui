@@ -1,13 +1,12 @@
 import { useAccount, usePrepareContractWrite, useContractWrite, useWaitForTransaction, useNetwork } from 'wagmi'
-import { useEffect, useState } from 'react'
-import PolybitInfo from "../chain_info/PolybitInfo.json"
-import PolybitDETFFactoryInterface from "../chain_info/IPolybitDETFFactory.json"
+import { useEffect } from 'react'
+import PolybitInfo from "../context/PolybitInfo.json"
+import PolybitDETFFactoryInterface from "../context/IPolybitDETFFactory.json"
 import { Interface } from 'ethers/lib/utils'
-import { Link, useNavigate } from 'react-router-dom'
-import { Button } from './Buttons'
-import { Loading } from './Loading'
+import { useNavigate } from 'react-router-dom'
+import { Button } from "./Buttons/Buttons";
+import { Loading } from './Loading/Loading'
 import "./EstablishDETFBox.css"
-import { BigNumber } from 'ethers'
 
 interface EstablishDETFBox {
     category: string;

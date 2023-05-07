@@ -4,7 +4,7 @@ import { useLocation } from 'react-router-dom'
 import TitleContainer from "../containers/Title"
 import SubTitleContainer from '../containers/SubTitle'
 import { useAccount } from "wagmi"
-import Footer from './Footer'
+import { Footer } from '../Footer/Footer'
 import { Progress } from '../Progress'
 import { DepositContainer } from '../deposit/DepositContainer'
 import { Helmet } from 'react-helmet-async'

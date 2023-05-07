@@ -6,10 +6,10 @@ import { useContext, useEffect, useState } from "react"
 import { CurrencyContext } from "../utils/Currency"
 import TitleContainer from "../containers/Title"
 import SubTitleContainer from "../containers/SubTitle"
-import Footer from "./Footer"
+import { Footer } from "../Footer/Footer"
 import { TokenIndexList } from "../TokenIndexList"
 import { GetTokenIndexData, TokenIndexData } from "../api/GetTokenIndexData"
-import { Loading } from "../Loading"
+import { Loading } from "../Loading/Loading"
 
 export const TokenIndex = () => {
     const location = useLocation()

@@ -1,7 +1,7 @@
 import { useState, ChangeEvent, useEffect } from 'react'
 import DateTypeDropDown from '../dropdowns/DateTypeDropdown'
 import { FormatCurrency } from '../utils/Currency'
-import { Button } from '../Buttons'
+import { Button } from '../Buttons/Buttons'
 import "./DepositDetails.css"
 
 interface DepositDetails {

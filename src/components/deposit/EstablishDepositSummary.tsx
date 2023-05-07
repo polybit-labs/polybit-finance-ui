@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import "./DepositSummary.css"
-import PolybitDETFInterface from "../../chain_info/IPolybitDETF.json"
+import PolybitDETFInterface from "../../context/IPolybitDETF.json"
 import { Interface } from 'ethers/lib/utils'
 import {
     useAccount,
@@ -11,12 +11,13 @@ import {
     useWaitForTransaction
 } from "wagmi"
 import { FormatCurrency } from '../utils/Currency'
-import { Button, TextLink } from '../Buttons'
-import { Loading } from '../Loading'
+import { Button } from '../Buttons/Buttons'
+import { TextLink } from '../Buttons/TextLink'
+import { Loading } from '../Loading/Loading'
 import { TruncateAddress } from '../utils/Formatting'
 import { BigNumber } from 'ethers'
 import { GetEstablishDepositOrderData } from '../api/GetEstablishDepositOrderData'
-import PolybitInfo from "../../chain_info/PolybitInfo.json"
+import PolybitInfo from "../../context/PolybitInfo.json"
 
 interface EstablishDepositSummary {
     productId: number;

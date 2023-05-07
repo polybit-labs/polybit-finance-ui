@@ -3,7 +3,7 @@ import { useLocation, useParams } from "react-router-dom"
 import { initialiseGA4 } from "../utils/Analytics"
 import ReactGA from "react-ga4"
 import { Helmet } from 'react-helmet-async'
-import Footer from "./Footer"
+import { Footer } from "../Footer/Footer"
 import "./Token.css"
 import { GetTokenData } from "../api/GetTokenData"
 import { TokenIndexData } from "../api/GetTokenIndexData"
@@ -11,7 +11,7 @@ import { TokenSummary } from "../TokenSummary"
 import { CurrencyContext } from "../utils/Currency"
 import { FormatTokenIndex, TokenIndexDataFormatted } from "../FormatTokenIndex"
 import { TokenDETFBox } from "../TokenDETFBox"
-import { Loading } from "../Loading"
+import { Loading } from "../Loading/Loading"
 
 export const Token = () => {
     const location = useLocation()

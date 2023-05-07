@@ -1,8 +1,6 @@
 import { useEffect } from 'react';
-import { Link } from 'react-router-dom'
-import { TextLink } from './Buttons';
-import MainContainer from './containers/Main';
-import Footer from './pages/Footer';
+import { TextLink } from './Buttons/TextLink';
+import { Footer } from './Footer/Footer';
 import "./WithdrawSuccess.css"
 
 interface WithdrawSuccess {

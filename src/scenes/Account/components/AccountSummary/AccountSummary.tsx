@@ -1,0 +1,217 @@
+import "./AccountSummary.css"
+import { ColourNumbers } from "../../../../components/utils/Formatting"
+import { FormatCurrency } from "../../../../components/utils/Currency"
+import { useEffect, useState } from "react"
+import { FormatPercentages } from "../../../../components/utils/Formatting"
+import { DETFAccountData } from "../../../../components/api/GetDETFAccountData"
+
+type AccountSummaryProps = {
+    detfAccountsData: Array<DETFAccountData>;
+    detfAccountsDataSuccess: boolean;
+    vsPrices: any;
+    currency: string;
+}
+
+const AccountSummary = (props: AccountSummaryProps) => {
+    const detfAccountsData: Array<DETFAccountData> = props.detfAccountsData
+    const [currentBalance, setCurrentBalance] = useState<number>(0)
+    const [currentReturn, setCurrentReturn] = useState<number>(0)
+    const [currentReturnPercentage, setCurrentReturnPercentage] = useState<number>(0)
+    const [lifetimeReturn, setLifetimeReturn] = useState<number>(0)
+    const [lifetimeReturnPercentage, setLifetimeReturnPercentage] = useState<number>(0)
+    const CurrentPortfolio = () => {
+        const active = detfAccountsData.filter(detf => {
+            return detf.status === 1
+        })
+        let deposits = 0
+        for (let i = 0; i < active.length; i++) {
+            deposits = deposits + Number(active[i].total_deposited)
+        }
+        let totalBalance = 0
+        let totalReturn = 0
+        let totalReturnPercentage = 0
+        if (deposits > 0) {
+            for (let i = 0; i < active.length; i++) {
+                totalBalance = totalBalance + Number(active[i].balance_in_weth)
+            }
+            totalReturn = (totalBalance - deposits)
+            totalReturnPercentage = totalReturn / deposits
+        }
+        return { deposits, totalBalance, totalReturn, totalReturnPercentage }
+    }
+    const { deposits: currentPortfolioDeposits,
+        totalBalance: currentPortfolioBalance,
+        totalReturn: currentPortfolioReturn,
+        totalReturnPercentage: currentPortfolioReturnPercentage } = CurrentPortfolio()
+
+    const LifetimePortfolio = (currentPortfolioDeposits: number, currentPortfolioReturn: number) => {
+        const inactive = detfAccountsData.filter(detf => {
+            return detf.status === 0
+        })
+        let deposits = 0
+        for (let i = 0; i < inactive.length; i++) {
+            deposits = deposits + Number(inactive[i].total_deposited)
+        }
+        let totalReturn = 0
+        let totalReturnBNB = 0
+        for (let i = 0; i < inactive.length; i++) {
+            const detfReturn = Number((() => {
+                switch (props.currency) {
+                    case "AUD": return (inactive[i].final_return.aud)
+                    case "BNB": return (inactive[i].final_return.bnb)
+                    case "CNY": return (inactive[i].final_return.cny)
+                    case "EURO": return (inactive[i].final_return.eur)
+                    case "IDR": return (inactive[i].final_return.idr)
+                    case "JPY": return (inactive[i].final_return.jpy)
+                    case "KRW": return (inactive[i].final_return.krw)
+                    case "RUB": return (inactive[i].final_return.rub)
+                    case "TWD": return (inactive[i].final_return.twd)
+                    case "USD": return (inactive[i].final_return.usd)
+                }
+            })())
+            totalReturn = totalReturn + detfReturn
+            totalReturnBNB = totalReturnBNB + (10 ** 18 * inactive[i].final_return.bnb)
+        }
+        let lifetimePortfolioReturn: number = 0
+        let lifetimePortfolioReturnBNB: number = 0
+        let lifetimePortfolioReturnPercentage: number = 0
+        lifetimePortfolioReturn = totalReturn + (Number(currentPortfolioReturn)
+            / 10 ** 18 *
+            (() => {
+                switch (props.currency) {
+                    case "AUD": return (props.vsPrices.aud)
+                    case "BNB": return (props.vsPrices.bnb)
+                    case "CNY": return (props.vsPrices.cny)
+                    case "EURO": return (props.vsPrices.eur)
+                    case "IDR": return (props.vsPrices.idr)
+                    case "JPY": return (props.vsPrices.jpy)
+                    case "KRW": return (props.vsPrices.krw)
+                    case "RUB": return (props.vsPrices.rub)
+                    case "TWD": return (props.vsPrices.twd)
+                    case "USD": return (props.vsPrices.usd)
+                }
+            })())
+        lifetimePortfolioReturnBNB = totalReturnBNB + currentPortfolioReturn
+        lifetimePortfolioReturnPercentage = lifetimePortfolioReturnBNB / (currentPortfolioDeposits + deposits)
+        return { lifetimePortfolioReturn, lifetimePortfolioReturnPercentage }
+    }
+    const { lifetimePortfolioReturn, lifetimePortfolioReturnPercentage } = LifetimePortfolio(currentPortfolioDeposits, currentPortfolioReturn)
+
+    useEffect(() => {
+        setCurrentReturn(currentPortfolioReturn)
+        setCurrentReturnPercentage(currentPortfolioReturnPercentage)
+        setCurrentBalance(currentPortfolioBalance)
+        setLifetimeReturn(lifetimePortfolioReturn ? lifetimePortfolioReturn : 0)
+        setLifetimeReturnPercentage(lifetimePortfolioReturnPercentage ? lifetimePortfolioReturnPercentage : 0)
+    }, [props.currency, detfAccountsData, currentPortfolioReturn])
+
+    const currentBalanceFormatted = FormatCurrency((Number(currentBalance)
+        / 10 ** 18 *
+        (() => {
+            switch (props.currency) {
+                case "AUD": return (props.vsPrices.aud)
+                case "BNB": return (props.vsPrices.bnb)
+                case "CNY": return (props.vsPrices.cny)
+                case "EURO": return (props.vsPrices.eur)
+                case "IDR": return (props.vsPrices.idr)
+                case "JPY": return (props.vsPrices.jpy)
+                case "KRW": return (props.vsPrices.krw)
+                case "RUB": return (props.vsPrices.rub)
+                case "TWD": return (props.vsPrices.twd)
+                case "USD": return (props.vsPrices.usd)
+            }
+        })()), 2)
+    const currentReturnFormatted = FormatCurrency((Number(currentReturn)
+        / 10 ** 18 *
+        (() => {
+            switch (props.currency) {
+                case "AUD": return (props.vsPrices.aud)
+                case "BNB": return (props.vsPrices.bnb)
+                case "CNY": return (props.vsPrices.cny)
+                case "EURO": return (props.vsPrices.eur)
+                case "IDR": return (props.vsPrices.idr)
+                case "JPY": return (props.vsPrices.jpy)
+                case "KRW": return (props.vsPrices.krw)
+                case "RUB": return (props.vsPrices.rub)
+                case "TWD": return (props.vsPrices.twd)
+                case "USD": return (props.vsPrices.usd)
+            }
+        })()), 2)
+    const lifetimeReturnFormatted = FormatCurrency((Number(lifetimeReturn)), 2)
+
+    if (detfAccountsData) {
+        return (
+            <>
+                <div className="account-summary-container">
+                    <ul className="account-summary-items">
+                        <li className="account-summary-item">
+                            <div className="portfolio-box-title">
+                                <div className="portfolio-box-title-text">Current portfolio worth</div>
+                            </div>
+                            <div className="portfolio-box-balance">
+                                {(!props.detfAccountsDataSuccess) && <img src={require("../../../../assets/images/polybit-loader-60px.gif")} />}
+                                {props.detfAccountsDataSuccess && <div>{currentBalanceFormatted}</div>}
+                            </div>
+                        </li>
+                        <li className="account-summary-item">
+                            <div className="return-box-title">
+                                <div className="return-box-title-text">Current portfolio return</div>
+                                <div className="return-box-title-percentage" >
+                                    {(props.detfAccountsDataSuccess) && FormatPercentages(currentReturnPercentage)}
+                                </div>
+                            </div>
+                            <div className="return-box-balance" style={{ color: ColourNumbers(currentReturn) }}>
+                                {(!props.detfAccountsDataSuccess) && <img src={require("../../../../assets/images/polybit-loader-60px.gif")} />}
+                                {props.detfAccountsDataSuccess && <div>{currentReturnFormatted}</div>}
+                            </div>
+                        </li>
+                        <li className="account-summary-item">
+                            <div className="return-box-title">
+                                <div className="return-box-title-text">Total lifetime return</div>
+                                <div className="return-box-title-percentage" >
+                                    {props.detfAccountsDataSuccess && FormatPercentages(lifetimeReturnPercentage)}
+                                </div>
+                            </div>
+                            <div className="return-box-balance" style={{ color: ColourNumbers(lifetimeReturn) }}>
+                                {(!props.detfAccountsDataSuccess) && <img src={require("../../../../assets/images/polybit-loader-60px.gif")} />}
+                                {props.detfAccountsDataSuccess && <div>{lifetimeReturnFormatted}</div>}
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div className="account-summary-container-mobile">
+                    <ul className="account-summary-items-mobile">
+                        <li className="account-summary-item-mobile">
+                            <div className="title-text-mobile">Current portfolio worth</div>
+                            <div className="portfolio-box-balance">
+                                {(!props.detfAccountsDataSuccess) && <img src={require("../../../../assets/images/polybit-loader-60px.gif")} />}
+                                {props.detfAccountsDataSuccess && <div>{currentBalanceFormatted}</div>}
+                            </div>
+                        </li>
+                        <li className="account-summary-item-mobile">
+                            <div className="title-text-mobile">Current portfolio return</div>
+                            <div >
+                                {(!props.detfAccountsDataSuccess) && <img src={require("../../../../assets/images/polybit-loader-60px.gif")} />}
+                                {props.detfAccountsDataSuccess && <div className="return-box-balance-mobile" style={{ color: ColourNumbers(currentReturn) }}>
+                                    {currentReturnFormatted}&nbsp; ({FormatPercentages(currentReturnPercentage)})</div>}
+                                {/* {(props.detfAccountsSuccess && props.detfAccountsDataSuccess) && FormatPercentages(currentReturnPercentage)} */}
+                            </div>
+                        </li>
+                        <li className="account-summary-item-mobile">
+                            <div className="title-text-mobile">Total lifetime return</div>
+                            <div >
+                                {(!props.detfAccountsDataSuccess) && <img src={require("../../../../assets/images/polybit-loader-60px.gif")} />}
+                                {props.detfAccountsDataSuccess && <div className="return-box-balance-mobile" style={{ color: ColourNumbers(lifetimeReturn) }}>
+                                    {lifetimeReturnFormatted}&nbsp; ({FormatPercentages(lifetimeReturnPercentage)})</div>}
+                                {/* {props.detfAccountsSuccess && props.detfAccountsDataSuccess && FormatPercentages(lifetimeReturnPercentage)} */}
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </>
+        )
+    }
+    return (<></>)
+}
+
+export default AccountSummary
