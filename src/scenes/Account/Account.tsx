@@ -9,7 +9,6 @@ import { useEffect, useState, useContext } from 'react'
 import { CurrencyContext, FormatCurrency } from "../../components/utils/Currency"
 import { GetPriceVsCurrency } from '../../components/api/GetPriceVsCurrency'
 import { GetHistoricalPrices } from '../../components/api/GetHistoricalPrices'
-import wethAddress from "../../context/weth.json"
 import { Connect } from '../../components/Connect/Connect'
 import { SwitchNetwork } from '../../components/SwitchNetwork/SwitchNetwork'
 import { TextLink } from '../../components/Buttons/TextLink'
@@ -17,9 +16,13 @@ import { initialiseGA4 } from '../../components/utils/Analytics'
 import ReactGA from "react-ga4"
 import { useLocation } from 'react-router-dom'
 import { LockedBeta } from '../../components/LockedBeta'
-import { GetDETFAccountsDataAll } from '../../components/api/GetDETFAccountsDataAll'
-import { DETFAccountData } from '../../components/api/GetDETFAccountData'
+import { GetAccountDataAll } from '../../components/api/GetAccountDataAll'
+import { AccountData } from '../../components/api/GetAccountData'
 import { Helmet } from 'react-helmet-async'
+import ChainInfo from '../../context/ChainInfo.json'
+import { AccountSummaryPlaceholder } from './components/AccountSummary/AccountSummaryPlaceholder'
+import { AccountTablePlaceholder } from './components/AccountTable/AccountTablePlaceholder'
+import { ConnectHeader } from './components/ConnectAccount/ConnectHeader'
 
 type Currencies = {
     "date": string;
@@ -37,31 +40,49 @@ type Currencies = {
 
 const Account = () => {
     const location = useLocation()
+
     useEffect(() => {
         initialiseGA4()
         ReactGA.send({ hitType: "pageview", page: location.pathname })
     }, [])
+
     const { address: walletOwner, connector, isConnected } = useAccount()
     const [previousWalletOwner, setPreviousWalletOwner] = useState(walletOwner)
     const { disconnect } = useDisconnect()
+    const { chain } = useNetwork()
+    const chainId: string = chain ? chain.id.toString() : "56"
+    const wethAddress: string = ChainInfo[chainId as keyof typeof ChainInfo]["weth_address"]
+    const [showConnect, setShowConnect] = useState<boolean>(false)
+    const [showBetaMessage, setShowBetaMessage] = useState<boolean>(false)
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [showBetaMessage, showConnect]);
+
     useEffect(() => {
         if (previousWalletOwner !== walletOwner) {
             window.location.reload()
         }
     }, [walletOwner])
+
+    useEffect(() => {
+        if (isConnected) {
+            setShowConnect(false)
+        }
+    }, [isConnected])
+
     const { data: walletBalance } = useBalance({
         address: walletOwner,
     })
-    const { chain } = useNetwork()
-    const [detfAccountsData, setDETFAccountsData] = useState<Array<DETFAccountData>>([])
-    const { response: detfAccountsListData, isLoading: detfAccountsDataLoading, isSuccess: detfAccountsDataSuccess } = GetDETFAccountsDataAll(walletOwner ? walletOwner : "")
+    const [detfAccountsData, setDETFAccountsData] = useState<Array<AccountData>>([])
+    const { response: detfAccountsListData, isLoading: detfAccountsDataLoading, isSuccess: detfAccountsDataSuccess } = GetAccountDataAll(walletOwner ? walletOwner : "")
 
     useEffect(() => {
         detfAccountsListData && detfAccountsDataSuccess && setDETFAccountsData(detfAccountsListData)
     }, [detfAccountsDataSuccess])
 
     const currency = useContext(CurrencyContext).currency
-    const { response: prices, isLoading: pricesLoading, isSuccess: pricesSuccess } = GetPriceVsCurrency(wethAddress["56"]["wethAddress"])
+    const { response: prices, isLoading: pricesLoading, isSuccess: pricesSuccess } = GetPriceVsCurrency(wethAddress)
     const [vsPrices, setVsPrices] = useState<any>({})
 
     useEffect(() => {
@@ -104,18 +125,8 @@ const Account = () => {
                     })()) : 0, 2)})`}</b></p>
             <TextLink to="" text="Disconnect and log out" arrowDirection="forward-logout" onClick={() => disconnect()} /></div>
     </div>
-    const subTitleNotConnected = <div><h2>You are not currently connected to a wallet. Please connect your wallet to access all of the features of this app.</h2></div>
 
-    if (window.location.href.includes("polybit.finance")) {
-        return (
-            <>
-                <LockedBeta />
-                <Footer />
-            </>
-        )
-    }
-
-    if (isConnected && !chain?.unsupported) {
+    if (isConnected && walletOwner && !chain?.unsupported) {
         return (
             <>
                 <Helmet>
@@ -131,6 +142,7 @@ const Account = () => {
                     currency={currency}
                 />
                 <AccountTable
+                    walletOwner={walletOwner}
                     detfAccountsData={detfAccountsData}
                     detfAccountsDataSuccess={detfAccountsDataSuccess}
                     vsPrices={vsPrices}
@@ -149,12 +161,24 @@ const Account = () => {
 
     return (
         <>
-            <TitleContainer title="Account" />
-            <SubTitleContainer info={subTitleNotConnected} />
-            <Connect />
+            {!showConnect && !showBetaMessage && <TitleContainer title="Account" />}
+            {/* <SubTitleContainer info={subTitleNotConnected} /> */}
+            {!showConnect && !showBetaMessage && <ConnectHeader
+                setShowConnect={setShowConnect}
+                setShowBetaMessage={setShowBetaMessage} />}
+            {showConnect && <Connect />}
+            {showBetaMessage && <LockedBeta
+                setShowBetaMessage={setShowBetaMessage}
+                sourcePage="Account" />}
+            {!showConnect && !showBetaMessage && <AccountSummaryPlaceholder
+                vsPrices={vsPrices}
+                currency={currency}
+            />}
+            {!showConnect && !showBetaMessage && <AccountTablePlaceholder />}
             <Footer />
         </>
     )
+
 }
 
 export default Account

@@ -3,6 +3,7 @@ import { PerformanceData } from "./api/GetPerformanceData"
 import { ProductData } from "./api/GetProductData"
 import { FormatCurrency } from "./utils/Currency"
 import "./DETFSummary.css"
+import PolybitInfo from "../context/PolybitInfo.json"
 
 interface DETFSumaryProps {
     productContent: any;
@@ -21,8 +22,7 @@ export const DETFSummary = (props: DETFSumaryProps) => {
     const tokens: Array<any> = [] = props.productData.tokens
     const tokenCount: number = tokens.length
     const totalLiquidity = props.productData.total_liquidity.liquidity_bnb
-    const entryFee = "0.5%"
-    const exitFee = "0.5%"
+    const entryFee: number = PolybitInfo["56" as keyof typeof PolybitInfo]["fees"]["thematic_fee"]
 
     return (
         <div>
@@ -82,10 +82,6 @@ export const DETFSummary = (props: DETFSumaryProps) => {
                             <tr>
                                 <td className="detf-summary-info-table-cell-title">Entry Fee</td>
                                 <td className="detf-summary-info-table-cell-contents">{parseFloat((entryFee).toString()).toFixed(1)}%</td>
-                            </tr>
-                            <tr>
-                                <td className="detf-summary-info-table-cell-title">Exit Fee</td>
-                                <td className="detf-summary-info-table-cell-contents">{parseFloat((exitFee).toString()).toFixed(1)}%</td>
                             </tr>
                         </tbody>
                     </table>

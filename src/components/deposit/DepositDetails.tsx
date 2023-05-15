@@ -3,6 +3,7 @@ import DateTypeDropDown from '../dropdowns/DateTypeDropdown'
 import { FormatCurrency } from '../utils/Currency'
 import { Button } from '../Buttons/Buttons'
 import "./DepositDetails.css"
+import { FloatToBigNumber } from '../utils/Formatting'
 
 interface DepositDetails {
     detfAddress: string;
@@ -132,6 +133,8 @@ export const DepositDetails = (props: DepositDetails) => {
         return timeLock
     }
 
+    console.log(Number(FloatToBigNumber(Number(depositInputValue), 18)), Number(props.walletBalance.value))
+
     return (
         <div className="deposit-box">
             <div className="deposit-box-container">
@@ -220,12 +223,19 @@ export const DepositDetails = (props: DepositDetails) => {
                         </div>}
                     </div>
                     <div className="deposit-details-button">
-                        {(Number(depositInputValue) >= 0 && Number(timeLockInputValue) >= 0) && <Button buttonStyle="primary" buttonSize="standard-long" text="View investment summary" onClick={() => {
-                            props.setDepositAmount(ConvertDepositValue());
-                            props.setTimeLockAmount(ConvertTimeLockValue());
-                            props.setShowDepositDetails(false);
-                            props.setActiveStage(props.activeStage === "establish-deposit-details" ? "establish-deposit-summary" : "deposit-summary")
-                        }} />}
+                        {Number(depositInputValue) === 0 &&
+                            <Button buttonStyle="primary" buttonSize="standard-long" text="Enter amount" status="disabled" />}
+                        {Number(depositInputValue) > 0 &&
+                            Number(FloatToBigNumber(Number(depositInputValue), 18)) < Number(props.walletBalance.value) &&
+                            <Button buttonStyle="primary" buttonSize="standard-long" text="View investment summary" onClick={() => {
+                                props.setDepositAmount(ConvertDepositValue());
+                                props.setTimeLockAmount(ConvertTimeLockValue());
+                                props.setShowDepositDetails(false);
+                                props.setActiveStage(props.activeStage === "establish-deposit-details" ? "establish-deposit-summary" : "deposit-summary")
+                            }} />}
+                        {Number(depositInputValue) > 0 &&
+                            Number(FloatToBigNumber(Number(depositInputValue), 18)) >= Number(props.walletBalance.value) &&
+                            <Button buttonStyle="primary" buttonSize="standard-long" text="Insufficient amount" status="disabled" />}
                         {(Number(depositInputValue) < 0 || Number(timeLockInputValue) < 0) && <Button buttonStyle="primary" buttonSize="standard-long" text="View investment summary" status="disabled" />}
                     </div>
                 </div>

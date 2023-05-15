@@ -3,17 +3,17 @@ import { ColourNumbers } from "../../../../components/utils/Formatting"
 import { FormatCurrency } from "../../../../components/utils/Currency"
 import { useEffect, useState } from "react"
 import { FormatPercentages } from "../../../../components/utils/Formatting"
-import { DETFAccountData } from "../../../../components/api/GetDETFAccountData"
+import { AccountData } from "../../../../components/api/GetAccountData"
 
 type AccountSummaryProps = {
-    detfAccountsData: Array<DETFAccountData>;
+    detfAccountsData: Array<AccountData>;
     detfAccountsDataSuccess: boolean;
     vsPrices: any;
     currency: string;
 }
 
 const AccountSummary = (props: AccountSummaryProps) => {
-    const detfAccountsData: Array<DETFAccountData> = props.detfAccountsData
+    const detfAccountsData: Array<AccountData> = props.detfAccountsData
     const [currentBalance, setCurrentBalance] = useState<number>(0)
     const [currentReturn, setCurrentReturn] = useState<number>(0)
     const [currentReturnPercentage, setCurrentReturnPercentage] = useState<number>(0)

@@ -2,10 +2,9 @@ import { useState, useEffect } from "react"
 import { useNetwork } from "wagmi"
 import axios from "axios"
 import apiURLJSON from "./api-info.json"
-import { DETFAccountData } from "./GetDETFAccountData"
 
-export const GetDETFAccountsDataAll = (wallet_owner: string) => {
-    const [response, setResponse] = useState<Array<DETFAccountData>>()
+export const GetEntryFee = () => {
+    const [response, setResponse] = useState<number>()
     const network = useNetwork()
     const { chain } = useNetwork()
     const chainId: string = chain ? chain.id.toString() : ""
@@ -24,9 +23,9 @@ export const GetDETFAccountsDataAll = (wallet_owner: string) => {
 
     useEffect(() => {
         if (apiURL !== "") {
-            axios.post(apiURL + "/api/get_detf_accounts_data_all", { "rpc_provider": rpc, "chain_id": chainId, "wallet_owner": wallet_owner })
+            axios.post(apiURL + "/api/get_entry_fee", { "rpc_provider": rpc, "chain_id": chainId })
                 .then(res => {
-                    setResponse(res.data)
+                    setResponse(Number(res.data.entry_fee) / 10000);
                 })
                 .catch((err) => {
                     console.log(err.response)

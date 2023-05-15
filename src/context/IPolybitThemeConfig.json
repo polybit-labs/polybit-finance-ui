@@ -27,6 +27,25 @@
             },
             {
                 "indexed": false,
+                "internalType": "uint256",
+                "name": "entryFee",
+                "type": "uint256"
+            }
+        ],
+        "name": "FeeSet",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": false,
+                "internalType": "string",
+                "name": "message",
+                "type": "string"
+            },
+            {
+                "indexed": false,
                 "internalType": "address",
                 "name": "newFeeAddress",
                 "type": "address"
@@ -51,48 +70,17 @@
                 "internalType": "string",
                 "name": "_dimension",
                 "type": "string"
-            },
-            {
-                "internalType": "uint256",
-                "name": "_entryFee",
-                "type": "uint256"
-            },
-            {
-                "internalType": "uint256",
-                "name": "_exitFee",
-                "type": "uint256"
             }
         ],
-        "name": "createDETFProduct",
+        "name": "createInvestmentTheme",
         "outputs": [],
         "stateMutability": "nonpayable",
         "type": "function"
     },
     {
-        "inputs": [
-            {
-                "internalType": "uint256",
-                "name": "_productId",
-                "type": "uint256"
-            }
-        ],
-        "name": "getDETFProductInfo",
+        "inputs": [],
+        "name": "getFee",
         "outputs": [
-            {
-                "internalType": "string",
-                "name": "",
-                "type": "string"
-            },
-            {
-                "internalType": "string",
-                "name": "",
-                "type": "string"
-            },
-            {
-                "internalType": "uint256",
-                "name": "",
-                "type": "uint256"
-            },
             {
                 "internalType": "uint256",
                 "name": "",
@@ -117,7 +105,7 @@
     },
     {
         "inputs": [],
-        "name": "getPolybitDETFFactoryAddress",
+        "name": "getPolybitLiquidPathAddress",
         "outputs": [
             {
                 "internalType": "address",
@@ -143,12 +131,49 @@
     },
     {
         "inputs": [],
-        "name": "getPolybitRouterAddress",
+        "name": "getPolybitSwapRouterAddress",
         "outputs": [
             {
                 "internalType": "address",
                 "name": "",
                 "type": "address"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "getPolybitThemeFactoryAddress",
+        "outputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "_productId",
+                "type": "uint256"
+            }
+        ],
+        "name": "getThemeProductInfo",
+        "outputs": [
+            {
+                "internalType": "string",
+                "name": "",
+                "type": "string"
+            },
+            {
+                "internalType": "string",
+                "name": "",
+                "type": "string"
             }
         ],
         "stateMutability": "view",
@@ -183,6 +208,19 @@
     {
         "inputs": [
             {
+                "internalType": "uint256",
+                "name": "_entryFee",
+                "type": "uint256"
+            }
+        ],
+        "name": "setEntryFee",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
                 "internalType": "address",
                 "name": "_feeAddress",
                 "type": "address"
@@ -197,11 +235,11 @@
         "inputs": [
             {
                 "internalType": "address",
-                "name": "detfFactoryAddress",
+                "name": "liquidPathAddress",
                 "type": "address"
             }
         ],
-        "name": "setPolybitDETFFactoryAddress",
+        "name": "setPolybitLiquidPathAddress",
         "outputs": [],
         "stateMutability": "nonpayable",
         "type": "function"
@@ -223,11 +261,24 @@
         "inputs": [
             {
                 "internalType": "address",
-                "name": "routerAddress",
+                "name": "swapRouterAddress",
                 "type": "address"
             }
         ],
-        "name": "setPolybitRouterAddress",
+        "name": "setPolybitSwapRouterAddress",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "themeFactoryAddress",
+                "type": "address"
+            }
+        ],
+        "name": "setPolybitThemeFactoryAddress",
         "outputs": [],
         "stateMutability": "nonpayable",
         "type": "function"

@@ -9,7 +9,7 @@ import { GetPriceVsCurrency } from '../api/GetPriceVsCurrency'
 import { Loading } from '../Loading/Loading'
 import { InlineDropDown } from '../dropdowns/InlineDropDown'
 import sortDown from "../../assets/icons/sort-down-solid.svg"
-import { GetDETFIndexData } from '../api/GetDETFIndexData'
+import { GetThemeIndexData } from '../api/GetThemeIndexData'
 import { useLocation } from 'react-router-dom'
 import { initialiseGA4 } from '../utils/Analytics'
 import ReactGA from "react-ga4"
@@ -22,7 +22,7 @@ const DETFIndex = () => {
         ReactGA.send({ hitType: "pageview", page: location.pathname })
     }, [])
     const title = "Invest in familiar themes"
-    const info = "Displaying investment themes in all categories with all dimensions"
+    const info = "Displaying Investment Themes in all categories with all dimensions"
     const currency = useContext(CurrencyContext).currency
     const { response: prices, isLoading: pricesLoading, isSuccess: pricesSuccess } = GetPriceVsCurrency("0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c")
     const [vsPrices, setVsPrices] = useState({})
@@ -53,7 +53,7 @@ const DETFIndex = () => {
         setVsPrices(prices ? prices : {})
     }, [pricesLoading, pricesSuccess])
 
-    const { response: detfIndexData, isSuccess: detfIndexDataSuccess } = GetDETFIndexData()
+    const { response: detfIndexData, isSuccess: detfIndexDataSuccess } = GetThemeIndexData()
     const [detfData, setDETFData] = useState<Array<any>>([])
 
     useEffect(() => {
@@ -64,7 +64,7 @@ const DETFIndex = () => {
 
     const categories = ["All Categories"]
     const dimensions = ["All Dimensions"]
-    const subTitle = <div><h2>Displaying investment themes in <button
+    const subTitle = <div><h2>Displaying Investment Themes in <button
         className="inline-dropdown"
         onClick={(): void => { toggleCategoryDropDown(); setDimensionFilter("All Dimensions") }}
         onBlur={(e: React.FocusEvent<HTMLButtonElement>): void =>
@@ -126,7 +126,7 @@ const DETFIndex = () => {
             <>
                 <Helmet>
                     <title>{`DETF Index | Polybit Finance`}</title>
-                    <meta name="description" content="Displaying investment themes in all categories with all dimensions" />
+                    <meta name="description" content="Displaying Investment Themes in all categories with all dimensions" />
                 </Helmet>
                 <TitleContainer title={title} />
                 <SubTitleContainer info={subTitle} />
@@ -139,7 +139,7 @@ const DETFIndex = () => {
     return (<>
         <Helmet>
             <title>{`DETF Index | Polybit Finance`}</title>
-            <meta name="description" content="Displaying investment themes in all categories with all dimensions" />
+            <meta name="description" content="Displaying Investment Themes in all categories with all dimensions" />
         </Helmet>
         <TitleContainer title={title} />
         <SubTitleContainer info={info} />

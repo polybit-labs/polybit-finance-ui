@@ -2,7 +2,7 @@ import "./TopDETFs.css"
 import { useEffect, useState } from "react"
 import { InlineDropDown } from "../../../../components/dropdowns/InlineDropDown"
 import sortDown from "./images/sort-down-solid.svg"
-import { GetTopDETFData } from "../../../../components/api/GetTopDETFData"
+import { GetTopThemeData } from "../../../../components/api/GetTopThemeData"
 import { TopDETFBox } from "./TopDETFBox"
 import { Button } from "../../../../components/Buttons/Buttons"
 import { Link } from "react-router-dom"
@@ -10,9 +10,9 @@ import { Link } from "react-router-dom"
 export const TopDETFs = () => {
     const [showTimePeriodDropDown, setShowTimePeriodDropDown] = useState<boolean>(false)
     const [timePeriodFilter, setTimePeriodFilter] = useState<string>("this week")
-    const { response: detfDataOneWeek, isSuccess: detfDataSuccessOneWeek } = GetTopDETFData("one_week")
-    const { response: detfDataOneMonth, isSuccess: detfDataSuccessOneMonth } = GetTopDETFData("one_month")
-    const { response: detfDataOneYear, isSuccess: detfDataSuccessOneYear } = GetTopDETFData("one_year")
+    const { response: detfDataOneWeek, isSuccess: detfDataSuccessOneWeek } = GetTopThemeData("one_week")
+    const { response: detfDataOneMonth, isSuccess: detfDataSuccessOneMonth } = GetTopThemeData("one_month")
+    const { response: detfDataOneYear, isSuccess: detfDataSuccessOneYear } = GetTopThemeData("one_year")
     const [topDETFData, setTopDETFData] = useState<Array<any>>()
     const firstResult = topDETFData ? topDETFData[0] : []
     const secondResult = topDETFData ? topDETFData[1] : []
@@ -43,7 +43,7 @@ export const TopDETFs = () => {
     }
 
     const periods = ["this week", "this month", "this year"]
-    const title = <div><h2>Top investment themes  <button
+    const title = <div><h2>Top Investment Themes  <button
         className="inline-dropdown"
         onClick={(): void => toggleTimePeriodDropDown()}
         onBlur={(e: React.FocusEvent<HTMLButtonElement>): void =>

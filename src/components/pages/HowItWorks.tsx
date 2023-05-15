@@ -15,7 +15,7 @@ const HowItWorks = () => {
         ReactGA.send({ hitType: "pageview", page: location.pathname })
     }, [])
     const title = "How it works"
-    const subTitle = "Polybit’s investment themes make the process of investing in digital assets easier, through discovery, investment and risk management."
+    const subTitle = "Polybit’s Investment Themes make the process of investing in digital assets easier, through discovery, investment and risk management."
 
     return (
         <>

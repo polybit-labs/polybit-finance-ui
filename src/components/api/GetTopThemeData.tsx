@@ -1,14 +1,9 @@
 import { useState, useEffect } from "react"
-import { useNetwork } from "wagmi"
 import axios from "axios"
 import apiURLJSON from "./api-info.json"
 
-export const GetOwnedAssetsDetailed = (theme_contract_address: string) => {
+export const GetTopThemeData = (period: string) => {
     const [response, setResponse] = useState<Array<any>>()
-    const network = useNetwork()
-    const { chain } = useNetwork()
-    const chainId: string = chain ? chain.id.toString() : ""
-    const rpc = network.chain?.rpcUrls.default.http[0]
     let isLoading: boolean
     let isSuccess: boolean
     const [apiURL, setapiURL] = useState("")
@@ -23,9 +18,9 @@ export const GetOwnedAssetsDetailed = (theme_contract_address: string) => {
 
     useEffect(() => {
         if (apiURL !== "") {
-            axios.post(apiURL + "/api/get_owned_assets_detailed", { "rpc_provider": rpc, "chain_id": chainId, "theme_contract_address": theme_contract_address })
+            axios.post(apiURL + "/api/get_top_theme_data", { "period": period })
                 .then(res => {
-                    setResponse(res.data)
+                    setResponse(res.data);
                 })
                 .catch((err) => {
                     console.log(err.response)

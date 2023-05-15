@@ -12,7 +12,7 @@ import { Helmet } from 'react-helmet-async'
 function Deposit() {
     const location = useLocation()
     const [title, setTitle] = useState("Your investment amount")
-    const { category, dimension, detfAddress } = location.state
+    const { category, dimension, theme_contract_address } = location.state
     const [activeStage, setActiveStage] = useState("deposit-details")
     const [depositSuccess, setDepositSuccess] = useState(false)
     const { address: walletOwner, connector, isConnected } = useAccount()
@@ -39,7 +39,7 @@ function Deposit() {
             <DepositContainer
                 category={category}
                 dimension={dimension}
-                detfAddress={detfAddress}
+                theme_contract_address={theme_contract_address}
                 setActiveStage={setActiveStage}
                 activeStage={activeStage}
                 setDepositSuccess={setDepositSuccess}

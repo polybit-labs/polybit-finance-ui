@@ -1,9 +1,15 @@
 import { useState, useEffect } from "react"
+import { useNetwork } from "wagmi"
 import axios from "axios"
 import apiURLJSON from "./api-info.json"
+import { AccountData } from "./GetAccountData"
 
-export const GetTopDETFData = (period: string) => {
-    const [response, setResponse] = useState<Array<any>>()
+export const GetAccountDataAll = (wallet_owner: string) => {
+    const [response, setResponse] = useState<Array<AccountData>>()
+    const network = useNetwork()
+    const { chain } = useNetwork()
+    const chainId: string = chain ? chain.id.toString() : ""
+    const rpc = network.chain?.rpcUrls.default.http[0]
     let isLoading: boolean
     let isSuccess: boolean
     const [apiURL, setapiURL] = useState("")
@@ -18,9 +24,9 @@ export const GetTopDETFData = (period: string) => {
 
     useEffect(() => {
         if (apiURL !== "") {
-            axios.post(apiURL + "/api/get_top_detf_data", { "period": period })
+            axios.post(apiURL + "/api/get_theme_account_data_all", { "rpc_provider": rpc, "chain_id": chainId, "wallet_owner": wallet_owner })
                 .then(res => {
-                    setResponse(res.data);
+                    setResponse(res.data)
                 })
                 .catch((err) => {
                     console.log(err.response)

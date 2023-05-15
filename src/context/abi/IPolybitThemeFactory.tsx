@@ -1,19 +1,19 @@
-[
+export const IPolybitThemeFactory = [
     {
         "inputs": [
             {
                 "internalType": "address",
-                "name": "_polybitAccessAddress",
+                "name": "_polybitThemeAccessAddress",
                 "type": "address"
             },
             {
                 "internalType": "address",
-                "name": "_polybitConfigAddress",
+                "name": "_polybitThemeConfigAddress",
                 "type": "address"
             },
             {
                 "internalType": "address",
-                "name": "_polybitDETFAddress",
+                "name": "_polybitThemeAddress",
                 "type": "address"
             }
         ],
@@ -37,7 +37,7 @@
                 "type": "address"
             }
         ],
-        "name": "DETFCreated",
+        "name": "ThemeContractCreated",
         "type": "event"
     },
     {
@@ -94,7 +94,7 @@
                                         "type": "uint256[]"
                                     }
                                 ],
-                                "internalType": "struct PolybitDETF.SwapOrder[]",
+                                "internalType": "struct PolybitTheme.SwapOrder[]",
                                 "name": "sellOrders",
                                 "type": "tuple[]"
                             },
@@ -141,7 +141,7 @@
                                         "type": "uint256[]"
                                     }
                                 ],
-                                "internalType": "struct PolybitDETF.SwapOrder[]",
+                                "internalType": "struct PolybitTheme.SwapOrder[]",
                                 "name": "adjustToSellOrders",
                                 "type": "tuple[]"
                             },
@@ -183,7 +183,7 @@
                                         "type": "uint256[]"
                                     }
                                 ],
-                                "internalType": "struct PolybitDETF.SwapOrder[]",
+                                "internalType": "struct PolybitTheme.SwapOrder[]",
                                 "name": "adjustToBuyOrders",
                                 "type": "tuple[]"
                             },
@@ -225,24 +225,37 @@
                                         "type": "uint256[]"
                                     }
                                 ],
-                                "internalType": "struct PolybitDETF.SwapOrder[]",
+                                "internalType": "struct PolybitTheme.SwapOrder[]",
                                 "name": "buyOrders",
                                 "type": "tuple[]"
                             }
                         ],
-                        "internalType": "struct PolybitDETF.SwapOrders[]",
+                        "internalType": "struct PolybitTheme.SwapOrders[]",
                         "name": "_orderData",
                         "type": "tuple[]"
                     }
                 ],
-                "internalType": "struct PolybitDETFFactory.CreateDEFParameters",
+                "internalType": "struct PolybitThemeFactory.CreateThemeParameters",
                 "name": "createParams",
                 "type": "tuple"
             }
         ],
-        "name": "createDETF",
+        "name": "createThemeContract",
         "outputs": [],
         "stateMutability": "payable",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "getListOfThemeContracts",
+        "outputs": [
+            {
+                "internalType": "address[]",
+                "name": "",
+                "type": "address[]"
+            }
+        ],
+        "stateMutability": "view",
         "type": "function"
     },
     {
@@ -253,7 +266,7 @@
                 "type": "address"
             }
         ],
-        "name": "getDETFAccounts",
+        "name": "getThemeContracts",
         "outputs": [
             {
                 "internalType": "address[]",
@@ -266,20 +279,7 @@
     },
     {
         "inputs": [],
-        "name": "getListOfDETFs",
-        "outputs": [
-            {
-                "internalType": "address[]",
-                "name": "",
-                "type": "address[]"
-            }
-        ],
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "inputs": [],
-        "name": "polybitAccessAddress",
+        "name": "polybitThemeAccessAddress",
         "outputs": [
             {
                 "internalType": "address",
@@ -292,7 +292,7 @@
     },
     {
         "inputs": [],
-        "name": "polybitConfigAddress",
+        "name": "polybitThemeAddress",
         "outputs": [
             {
                 "internalType": "address",
@@ -305,7 +305,7 @@
     },
     {
         "inputs": [],
-        "name": "polybitDETFAddress",
+        "name": "polybitThemeConfigAddress",
         "outputs": [
             {
                 "internalType": "address",
@@ -316,4 +316,4 @@
         "stateMutability": "view",
         "type": "function"
     }
-]
+] as const

@@ -3,7 +3,7 @@ import { useNetwork } from "wagmi"
 import axios from "axios"
 import apiURLJSON from "./api-info.json"
 
-export const GetOwner = (detfAddress: string) => {
+export const GetOwner = (theme_contract_address: string) => {
     const [response, setResponse] = useState<string>()
     const network = useNetwork()
     const rpc = network.chain?.rpcUrls.default.http[0]
@@ -21,7 +21,7 @@ export const GetOwner = (detfAddress: string) => {
 
     useEffect(() => {
         if (apiURL !== "") {
-            axios.post(apiURL + "/api/get_owner", { "rpc_provider": rpc, "detf_address": detfAddress })
+            axios.post(apiURL + "/api/get_owner", { "rpc_provider": rpc, "theme_contract_address": theme_contract_address })
                 .then(res => {
                     setResponse(res.data.owner)
                 })

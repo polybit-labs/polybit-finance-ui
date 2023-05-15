@@ -16,7 +16,7 @@ function EstablishDeposit() {
     const location = useLocation()
     const { chain } = useNetwork()
     const [title, setTitle] = useState("Your investment amount")
-    const { category, dimension, detfAddress } = location.state
+    const { productId, category, dimension } = location.state
     const [activeStage, setActiveStage] = useState("deposit-details")
     const [depositSuccess, setDepositSuccess] = useState(false)
     const { address: walletOwner, connector, isConnected } = useAccount()
@@ -28,19 +28,19 @@ function EstablishDeposit() {
         }
     }, [activeStage])
 
-    if (window.location.href.includes("polybit.finance")) {
-        return (
-            <>
-                <Helmet>
-                    <title>Deposit | Polybit Finance</title>
-                    <meta name="description" content="" />
-                    <meta name="robots" content="noindex" />
-                </Helmet>
-                <LockedBeta />
-                <Footer />
-            </>
-        )
-    }
+    /*     if (window.location.href.includes("polybit.finance")) {
+            return (
+                <>
+                    <Helmet>
+                        <title>Deposit | Polybit Finance</title>
+                        <meta name="description" content="" />
+                        <meta name="robots" content="noindex" />
+                    </Helmet>
+                    <LockedBeta />
+                    <Footer />
+                </>
+            )
+        } */
 
     if (isConnected && !chain?.unsupported) {
         return (
@@ -56,9 +56,9 @@ function EstablishDeposit() {
                     <Progress activeStage={activeStage} />
                 </div>}
                 <EstablishDepositContainer
+                    productId={productId}
                     category={category}
                     dimension={dimension}
-                    detfAddress={detfAddress}
                     setActiveStage={setActiveStage}
                     activeStage={activeStage}
                     setDepositSuccess={setDepositSuccess}
@@ -82,8 +82,8 @@ function EstablishDeposit() {
                 <meta name="description" content="" />
                 <meta name="robots" content="noindex" />
             </Helmet>
-            <TitleContainer title={title} />
-            <SubTitleContainer info={subTitleNotConnected} />
+            {/* <TitleContainer title={title} />
+            <SubTitleContainer info={subTitleNotConnected} /> */}
             <Connect />
             <Footer />
         </>

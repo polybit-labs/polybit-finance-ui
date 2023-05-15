@@ -16,6 +16,8 @@ import { Button } from '../Buttons/Buttons'
 import ReactGA from "react-ga4"
 import { initialiseGA4 } from '../utils/Analytics'
 import { Helmet } from 'react-helmet-async'
+import { LockedBeta } from '../LockedBeta'
+import { DETFInvestButton } from '../DETFInvestButton'
 
 const DETF = () => {
     const location = useLocation()
@@ -23,6 +25,7 @@ const DETF = () => {
         initialiseGA4()
         ReactGA.send({ hitType: "pageview", page: location.pathname })
     }, [])
+
     const urlCategoryId = useParams().urlCategoryId
     const urlDimensionId = useParams().urlDimensionId
     const { chain } = useNetwork()
@@ -33,6 +36,11 @@ const DETF = () => {
     const currency = useContext(CurrencyContext).currency
     const { response: prices, isLoading: pricesLoading, isSuccess: pricesSuccess } = GetPriceVsCurrency("0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c")
     const [vsPrices, setVsPrices] = useState<any>({})
+    const [showBetaMessage, setShowBetaMessage] = useState<boolean>(false)
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [showBetaMessage]);
 
     useEffect(() => {
         setVsPrices(prices ? prices : {})
@@ -58,7 +66,7 @@ const DETF = () => {
     const assetTableDescription: string = productContent.assetTableDescription
     const tokens: Array<any> = [] = productData ? productData.tokens : []
 
-    if (productContent && productData && performanceData) {
+    if (productContent && productData && performanceData && !showBetaMessage) {
         return (
             <>
                 <Helmet>
@@ -80,9 +88,11 @@ const DETF = () => {
                                 </div>
                             </div>
                             <div className="detf-button-wrapper">
-                                <Link className="detf-invest-button" to="/establish-deposit" state={{ productId: productId, category: category, dimension: dimension }}>
-                                    <Button buttonStyle="primary" buttonSize="standard" text="Invest in this theme" />
-                                </Link>
+                                <DETFInvestButton
+                                    setShowBetaMessage={setShowBetaMessage}
+                                    productId={productId}
+                                    category={category}
+                                    dimension={dimension} />
                             </div>
                         </div>
                         <ul className="detf-content">
@@ -90,9 +100,11 @@ const DETF = () => {
                                 <div className="detf-description">
                                     <h2>{descriptionTitle}</h2>
                                     <div className="detf-button-wrapper-mobile">
-                                        <Link to="/establish-deposit" state={{ productId: productId, category: category, dimension: dimension }}>
-                                            <Button buttonStyle="primary" buttonSize="standard" text="Invest in this theme" />
-                                        </Link>
+                                        <DETFInvestButton
+                                            setShowBetaMessage={setShowBetaMessage}
+                                            productId={productId}
+                                            category={category}
+                                            dimension={dimension} />
                                     </div>
                                     {description.map((line: string) =>
                                         <div key={line}>
@@ -122,14 +134,18 @@ const DETF = () => {
                                     <p>BNB is the native currency used for investment in to this DETF. Please ensure you have sufficient BNB in your wallet before investing.</p>
                                 </div>
                                 <div className="detf-button-wrapper">
-                                    <Link to="/establish-deposit" state={{ productId: productId, category: category, dimension: dimension }}>
-                                        <Button buttonStyle="primary" buttonSize="standard" text="Invest in this theme" />
-                                    </Link>
+                                    <DETFInvestButton
+                                        setShowBetaMessage={setShowBetaMessage}
+                                        productId={productId}
+                                        category={category}
+                                        dimension={dimension} />
                                 </div>
                                 <div className="detf-button-wrapper-mobile">
-                                    <Link to="/establish-deposit" state={{ productId: productId, category: category, dimension: dimension }}>
-                                        <Button buttonStyle="primary" buttonSize="standard" text="Invest in this theme" />
-                                    </Link>
+                                    <DETFInvestButton
+                                        setShowBetaMessage={setShowBetaMessage}
+                                        productId={productId}
+                                        category={category}
+                                        dimension={dimension} />
                                 </div>
                             </li>
                         </ul>
@@ -139,6 +155,21 @@ const DETF = () => {
                         </div>
                     </div>
                 </div>
+                <Footer />
+            </>
+        )
+    }
+
+    if (showBetaMessage) {
+        return (
+            <>
+                <Helmet>
+                    <title>{`${category} ${dimension} investment theme | Polybit Finance`}</title>
+                    <meta name="description" content={descriptionTitle} />
+                </Helmet>
+                <LockedBeta
+                    setShowBetaMessage={setShowBetaMessage}
+                    sourcePage="Investment Theme" />
                 <Footer />
             </>
         )

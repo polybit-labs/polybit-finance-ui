@@ -2,7 +2,12 @@ import { Link } from "react-router-dom"
 import { Button } from "./Buttons/Buttons"
 import "./LockedBeta.css"
 
-export const LockedBeta = () => {
+interface LockedBetaProps {
+    setShowBetaMessage: Function;
+    sourcePage: string;
+}
+
+export const LockedBeta = (props: LockedBetaProps) => {
     return (
         <div className="locked-beta">
             <div className="locked-beta-top-container">
@@ -19,9 +24,7 @@ export const LockedBeta = () => {
                 </div>
             </div>
             <div className="locked-beta-bottom-container">
-                <Link className="detf-index-row-item-link" to="/how-it-works" >
-                    <Button text="Learn more about how Polybit works" buttonSize="standard" buttonStyle="primary" />
-                </Link>
+                <Button text={`Back to ${props.sourcePage}`} buttonSize="standard" buttonStyle="primary" onClick={() => props.setShowBetaMessage(false)} />
             </div>
         </div>
     )

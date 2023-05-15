@@ -32,15 +32,9 @@
                 "internalType": "uint256",
                 "name": "amount",
                 "type": "uint256"
-            },
-            {
-                "indexed": false,
-                "internalType": "uint256",
-                "name": "feeAmount",
-                "type": "uint256"
             }
         ],
-        "name": "EmergencyWithdrawal",
+        "name": "EmergencyWithdrawToken",
         "type": "event"
     },
     {
@@ -60,25 +54,6 @@
             }
         ],
         "name": "EthBalance",
-        "type": "event"
-    },
-    {
-        "anonymous": false,
-        "inputs": [
-            {
-                "indexed": false,
-                "internalType": "string",
-                "name": "msg",
-                "type": "string"
-            },
-            {
-                "indexed": false,
-                "internalType": "uint256",
-                "name": "amount",
-                "type": "uint256"
-            }
-        ],
-        "name": "EthWrap",
         "type": "event"
     },
     {
@@ -193,7 +168,7 @@
                                 "type": "uint256[]"
                             }
                         ],
-                        "internalType": "struct PolybitDETF.SwapOrder[]",
+                        "internalType": "struct PolybitTheme.SwapOrder[]",
                         "name": "sellOrders",
                         "type": "tuple[]"
                     },
@@ -240,7 +215,7 @@
                                 "type": "uint256[]"
                             }
                         ],
-                        "internalType": "struct PolybitDETF.SwapOrder[]",
+                        "internalType": "struct PolybitTheme.SwapOrder[]",
                         "name": "adjustToSellOrders",
                         "type": "tuple[]"
                     },
@@ -282,7 +257,7 @@
                                 "type": "uint256[]"
                             }
                         ],
-                        "internalType": "struct PolybitDETF.SwapOrder[]",
+                        "internalType": "struct PolybitTheme.SwapOrder[]",
                         "name": "adjustToBuyOrders",
                         "type": "tuple[]"
                     },
@@ -324,12 +299,12 @@
                                 "type": "uint256[]"
                             }
                         ],
-                        "internalType": "struct PolybitDETF.SwapOrder[]",
+                        "internalType": "struct PolybitTheme.SwapOrder[]",
                         "name": "buyOrders",
                         "type": "tuple[]"
                     }
                 ],
-                "internalType": "struct PolybitDETF.SwapOrders[]",
+                "internalType": "struct PolybitTheme.SwapOrders[]",
                 "name": "orderData",
                 "type": "tuple[]"
             }
@@ -341,7 +316,7 @@
     },
     {
         "inputs": [],
-        "name": "emergencyWithdrawal",
+        "name": "emergencyWithdrawTokens",
         "outputs": [],
         "stateMutability": "nonpayable",
         "type": "function"
@@ -621,12 +596,12 @@
         "inputs": [
             {
                 "internalType": "address",
-                "name": "_polybitAccessAddress",
+                "name": "_polybitThemeAccessAddress",
                 "type": "address"
             },
             {
                 "internalType": "address",
-                "name": "_polybitConfigAddress",
+                "name": "_polybitThemeConfigAddress",
                 "type": "address"
             },
             {
@@ -636,7 +611,7 @@
             },
             {
                 "internalType": "address",
-                "name": "_polybitDETFFactoryAddress",
+                "name": "_polybitThemeFactoryAddress",
                 "type": "address"
             },
             {
@@ -653,16 +628,6 @@
                 "internalType": "string",
                 "name": "_productDimension",
                 "type": "string"
-            },
-            {
-                "internalType": "uint256",
-                "name": "_entryFee",
-                "type": "uint256"
-            },
-            {
-                "internalType": "uint256",
-                "name": "_exitFee",
-                "type": "uint256"
             },
             {
                 "components": [
@@ -699,7 +664,7 @@
                                 "type": "uint256[]"
                             }
                         ],
-                        "internalType": "struct PolybitDETF.SwapOrder[]",
+                        "internalType": "struct PolybitTheme.SwapOrder[]",
                         "name": "sellOrders",
                         "type": "tuple[]"
                     },
@@ -746,7 +711,7 @@
                                 "type": "uint256[]"
                             }
                         ],
-                        "internalType": "struct PolybitDETF.SwapOrder[]",
+                        "internalType": "struct PolybitTheme.SwapOrder[]",
                         "name": "adjustToSellOrders",
                         "type": "tuple[]"
                     },
@@ -788,7 +753,7 @@
                                 "type": "uint256[]"
                             }
                         ],
-                        "internalType": "struct PolybitDETF.SwapOrder[]",
+                        "internalType": "struct PolybitTheme.SwapOrder[]",
                         "name": "adjustToBuyOrders",
                         "type": "tuple[]"
                     },
@@ -830,14 +795,19 @@
                                 "type": "uint256[]"
                             }
                         ],
-                        "internalType": "struct PolybitDETF.SwapOrder[]",
+                        "internalType": "struct PolybitTheme.SwapOrder[]",
                         "name": "buyOrders",
                         "type": "tuple[]"
                     }
                 ],
-                "internalType": "struct PolybitDETF.SwapOrders[]",
+                "internalType": "struct PolybitTheme.SwapOrders[]",
                 "name": "_orderData",
                 "type": "tuple[]"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_lockTimestamp",
+                "type": "uint256"
             }
         ],
         "name": "init",
@@ -847,7 +817,7 @@
     },
     {
         "inputs": [],
-        "name": "polybitAccessAddress",
+        "name": "polybitThemeAccessAddress",
         "outputs": [
             {
                 "internalType": "address",
@@ -860,7 +830,7 @@
     },
     {
         "inputs": [],
-        "name": "polybitConfigAddress",
+        "name": "polybitThemeConfigAddress",
         "outputs": [
             {
                 "internalType": "address",
@@ -873,7 +843,7 @@
     },
     {
         "inputs": [],
-        "name": "polybitDETFFactoryAddress",
+        "name": "polybitThemeFactoryAddress",
         "outputs": [
             {
                 "internalType": "address",
@@ -921,7 +891,7 @@
                                 "type": "uint256[]"
                             }
                         ],
-                        "internalType": "struct PolybitDETF.SwapOrder[]",
+                        "internalType": "struct PolybitTheme.SwapOrder[]",
                         "name": "sellOrders",
                         "type": "tuple[]"
                     },
@@ -968,7 +938,7 @@
                                 "type": "uint256[]"
                             }
                         ],
-                        "internalType": "struct PolybitDETF.SwapOrder[]",
+                        "internalType": "struct PolybitTheme.SwapOrder[]",
                         "name": "adjustToSellOrders",
                         "type": "tuple[]"
                     },
@@ -1010,7 +980,7 @@
                                 "type": "uint256[]"
                             }
                         ],
-                        "internalType": "struct PolybitDETF.SwapOrder[]",
+                        "internalType": "struct PolybitTheme.SwapOrder[]",
                         "name": "adjustToBuyOrders",
                         "type": "tuple[]"
                     },
@@ -1052,17 +1022,17 @@
                                 "type": "uint256[]"
                             }
                         ],
-                        "internalType": "struct PolybitDETF.SwapOrder[]",
+                        "internalType": "struct PolybitTheme.SwapOrder[]",
                         "name": "buyOrders",
                         "type": "tuple[]"
                     }
                 ],
-                "internalType": "struct PolybitDETF.SwapOrders[]",
+                "internalType": "struct PolybitTheme.SwapOrders[]",
                 "name": "orderData",
                 "type": "tuple[]"
             }
         ],
-        "name": "rebalanceDETF",
+        "name": "rebalanceThemeContract",
         "outputs": [],
         "stateMutability": "nonpayable",
         "type": "function"
@@ -1130,7 +1100,7 @@
                                 "type": "uint256[]"
                             }
                         ],
-                        "internalType": "struct PolybitDETF.SwapOrder[]",
+                        "internalType": "struct PolybitTheme.SwapOrder[]",
                         "name": "sellOrders",
                         "type": "tuple[]"
                     },
@@ -1177,7 +1147,7 @@
                                 "type": "uint256[]"
                             }
                         ],
-                        "internalType": "struct PolybitDETF.SwapOrder[]",
+                        "internalType": "struct PolybitTheme.SwapOrder[]",
                         "name": "adjustToSellOrders",
                         "type": "tuple[]"
                     },
@@ -1219,7 +1189,7 @@
                                 "type": "uint256[]"
                             }
                         ],
-                        "internalType": "struct PolybitDETF.SwapOrder[]",
+                        "internalType": "struct PolybitTheme.SwapOrder[]",
                         "name": "adjustToBuyOrders",
                         "type": "tuple[]"
                     },
@@ -1261,12 +1231,12 @@
                                 "type": "uint256[]"
                             }
                         ],
-                        "internalType": "struct PolybitDETF.SwapOrder[]",
+                        "internalType": "struct PolybitTheme.SwapOrder[]",
                         "name": "buyOrders",
                         "type": "tuple[]"
                     }
                 ],
-                "internalType": "struct PolybitDETF.SwapOrders[]",
+                "internalType": "struct PolybitTheme.SwapOrders[]",
                 "name": "orderData",
                 "type": "tuple[]"
             }

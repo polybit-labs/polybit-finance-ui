@@ -18,7 +18,8 @@ import { TruncateAddress } from "../../../../components/utils/Formatting"
 import { BigNumber } from "ethers"
 
 type AccountTableRowItems = {
-    detf_address: string;
+    walletOwner: `0x${string}`;
+    theme_contract_address: string;
     status: number;
     creation_timestamp: number;
     category: string;
@@ -75,7 +76,6 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
     }, [])
 
     //const { response: ownedAssetsTableData, isSuccess: ownedAssetsTableDataSuccess } = GetOwnedAssetsTableData(props.detf_address, props.status, props.total_deposited.toString())
-    const { response: owner } = GetOwner(props.detf_address)
     const { response: performanceDataRange, isSuccess: performanceDataRangeSuccess } = GetPerformanceDataRange(performanceUrl, props.creation_timestamp, props.close_timestamp > 0 ? props.close_timestamp : moment.now())
     const [performanceData, setPerformanceData] = useState<Array<PerformanceDataRange>>([])
     const [validDateRange, setValidDateRange] = useState(false)
@@ -265,7 +265,7 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
                         {isDETFActive && <Link className="account-table-row-item-link" to="/deposit" state={{
                             category: props.category,
                             dimension: props.dimension,
-                            detfAddress: props.detf_address,
+                            theme_contract_address: props.theme_contract_address,
                             processOrigin: "deposit",
                             activeStage: 1
                         }}>Invest</Link>}
@@ -303,7 +303,7 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
                                         <Link className="account-table-row-item-link" to="/deposit" state={{
                                             category: props.category,
                                             dimension: props.dimension,
-                                            detfAddress: props.detf_address,
+                                            theme_contract_address: props.theme_contract_address,
                                             processOrigin: "deposit",
                                             activeStage: 1
                                         }}>
@@ -314,7 +314,7 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
                                         <Link className="account-table-row-item-link" to="/deposit" state={{
                                             category: props.category,
                                             dimension: props.dimension,
-                                            detfAddress: props.detf_address,
+                                            theme_contract_address: props.theme_contract_address,
                                             processOrigin: "deposit",
                                             activeStage: 1
                                         }}>
@@ -332,7 +332,7 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
                                         < Link className="account-table-row-item-link" to="/close-detf" state={{
                                             category: props.category,
                                             dimension: props.dimension,
-                                            detfAddress: props.detf_address,
+                                            detfAddress: props.theme_contract_address,
                                             totalValue: props.balance_in_weth,
                                             currentTotalValue: currentTotalValue,
                                             currentReturn: currentReturn,
@@ -373,15 +373,15 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
                                     <h2>Proof of assets</h2>
                                     <p>Polybit’s DETFs are self-custodial, which means your assets are held in a smart contract that is controlled by your wallet and are not pooled or centralised. You can prove this at any time with the information below.</p>
                                     <br />
-                                    <p><b>DETF Address:</b></p>
-                                    {chainId === "97" && <a href={`https://testnet.bscscan.com/address/${props.detf_address}`} target="_blank" rel="noopener noreferrer"><p>{TruncateAddress(props.detf_address)}</p></a>}
-                                    {chainId !== "97" && <a href={`https://bscscan.com/address/${props.detf_address}`} target="_blank" rel="noopener noreferrer"><p>{TruncateAddress(props.detf_address)}</p></a>}
-                                    <p><b>DETF Owner Address:</b></p>
-                                    {chainId === "97" && <a href={`https://testnet.bscscan.com/address/${owner}`} target="_blank" rel="noopener noreferrer"><p>{TruncateAddress(owner ? owner : "")}</p></a>}
-                                    {chainId !== "97" && <a href={`https://testnet.bscscan.com/address/${owner}`} target="_blank" rel="noopener noreferrer"><p>{TruncateAddress(owner ? owner : "")}</p></a>}
+                                    <p><b>Theme Address:</b></p>
+                                    {chainId === "97" && <a href={`https://testnet.bscscan.com/address/${props.theme_contract_address}`} target="_blank" rel="noopener noreferrer"><p>{TruncateAddress(props.theme_contract_address)}</p></a>}
+                                    {chainId === "56" && <a href={`https://bscscan.com/address/${props.theme_contract_address}`} target="_blank" rel="noopener noreferrer"><p>{TruncateAddress(props.theme_contract_address)}</p></a>}
+                                    <p><b>Owner Address:</b></p>
+                                    {chainId === "97" && <a href={`https://testnet.bscscan.com/address/${props.walletOwner}`} target="_blank" rel="noopener noreferrer"><p>{TruncateAddress(props.walletOwner)}</p></a>}
+                                    {chainId === "56" && <a href={`https://bscscan.com/address/${props.walletOwner}`} target="_blank" rel="noopener noreferrer"><p>{TruncateAddress(props.walletOwner)}</p></a>}
                                     <br />
-                                    {chainId === "97" && <p><b><a href={`https://testnet.bscscan.com/address/${props.detf_address}`} target="_blank" rel="noopener noreferrer">{`Validate this DETF's assets at BscScan ->`}</a></b></p>}
-                                    {chainId !== "97" && <p><b><a href={`https://bscscan.com/address/${props.detf_address}`} target="_blank" rel="noopener noreferrer">{`Validate this DETF's assets at BscScan ->`}</a></b></p>}
+                                    {chainId === "97" && <p><b><a href={`https://testnet.bscscan.com/address/${props.theme_contract_address}`} target="_blank" rel="noopener noreferrer">{`Validate this DETF's assets at BscScan ->`}</a></b></p>}
+                                    {chainId === "56" && <p><b><a href={`https://bscscan.com/address/${props.theme_contract_address}`} target="_blank" rel="noopener noreferrer">{`Validate this DETF's assets at BscScan ->`}</a></b></p>}
                                     <img className="account-table-expanded-content-right-proof-of-assets-diamond" src={require("../../../../assets/images/silver_diamond.png")}></img>
                                 </div>
                             </div>
@@ -490,7 +490,7 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
                                         <Link className="account-table-row-item-link" to="/deposit" state={{
                                             category: props.category,
                                             dimension: props.dimension,
-                                            detfAddress: props.detf_address,
+                                            theme_contract_address: props.theme_contract_address,
                                             processOrigin: "deposit",
                                             activeStage: 1
                                         }}>
@@ -501,7 +501,7 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
                                         <Link className="account-table-row-item-link-mobile" to="/deposit" state={{
                                             category: props.category,
                                             dimension: props.dimension,
-                                            detfAddress: props.detf_address,
+                                            theme_contract_address: props.theme_contract_address,
                                             processOrigin: "deposit",
                                             activeStage: 1
                                         }}>
@@ -524,7 +524,7 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
                                         < Link className="account-table-row-item-link-mobile" to="/close-detf" state={{
                                             category: props.category,
                                             dimension: props.dimension,
-                                            detfAddress: props.detf_address,
+                                            detfAddress: props.theme_contract_address,
                                             totalValue: props.balance_in_weth,
                                             currentTotalValue: currentTotalValue,
                                             currentReturn: currentReturn,
@@ -567,12 +567,12 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
                             <p>Polybit’s DETFs are self-custodial, which means your assets are held in a smart contract that is controlled by your wallet and are not pooled or centralised. You can prove this at any time with the information below.</p>
                             <br />
                             <p><b>DETF Address:</b></p>
-                            <p>{TruncateAddress(props.detf_address)}</p>
+                            <p>{TruncateAddress(props.theme_contract_address)}</p>
                             <p><b>DETF Owner Address:</b></p>
-                            <p>{TruncateAddress(owner ? owner : "")}</p>
+                            <p>{TruncateAddress(props.walletOwner)}</p>
                             <br />
-                            {chainId === "97" && <p><b><a href={`https://testnet.bscscan.com/address/${props.detf_address}`} target="_blank" rel="noopener noreferrer">{`Validate this DETF's assets at BscScan ->`}</a></b></p>}
-                            {chainId !== "97" && <p><b><a href={`https://bscscan.com/address/${props.detf_address}`} target="_blank" rel="noopener noreferrer">{`Validate this DETF's assets at BscScan ->`}</a></b></p>}
+                            {chainId === "97" && <p><b><a href={`https://testnet.bscscan.com/address/${props.theme_contract_address}`} target="_blank" rel="noopener noreferrer">{`Validate this DETF's assets at BscScan ->`}</a></b></p>}
+                            {chainId == "56" && <p><b><a href={`https://bscscan.com/address/${props.theme_contract_address}`} target="_blank" rel="noopener noreferrer">{`Validate this DETF's assets at BscScan ->`}</a></b></p>}
                         </div>
                     </div>
                 }

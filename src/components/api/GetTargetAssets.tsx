@@ -3,7 +3,7 @@ import { useNetwork } from "wagmi"
 import axios from "axios"
 import apiURLJSON from "./api-info.json"
 
-export const GetTargetAssets = (detfAddress: string) => {
+export const GetTargetAssets = (theme_contract_address: string) => {
     const [response, setResponse] = useState<Array<any>>()
     const network = useNetwork()
     const rpc = network.chain?.rpcUrls.default.http[0]
@@ -21,7 +21,7 @@ export const GetTargetAssets = (detfAddress: string) => {
 
     useEffect(() => {
         if (apiURL !== "") {
-            axios.post(apiURL + "/api/get_target_assets", { "rpc_provider": rpc, "detf_address": detfAddress })
+            axios.post(apiURL + "/api/get_target_assets", { "rpc_provider": rpc, "theme_contract_address": theme_contract_address })
                 .then(res => {
                     setResponse(res.data);
                 })

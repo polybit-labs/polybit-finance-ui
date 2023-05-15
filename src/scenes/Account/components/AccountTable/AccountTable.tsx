@@ -5,7 +5,8 @@ import { Button } from '../../../../components/Buttons/Buttons'
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { icon } from '@fortawesome/fontawesome-svg-core/import.macro'
-import { DETFAccountData } from '../../../../components/api/GetDETFAccountData'
+import { AccountData } from '../../../../components/api/GetAccountData'
+import { AccountTablePlaceholder } from './AccountTablePlaceholder'
 
 type DETFSummary = {
     "category": string;
@@ -30,8 +31,9 @@ type Currencies = {
 }
 
 type AccountTableProps = {
+    walletOwner: `0x${string}`;
     detfAccountsDataSuccess: boolean;
-    detfAccountsData: Array<DETFAccountData>;
+    detfAccountsData: Array<AccountData>;
     vsPrices: any;
     currency: string;
     historicalPrices: Array<any>;
@@ -39,7 +41,7 @@ type AccountTableProps = {
 }
 
 export const AccountTable = (props: AccountTableProps) => {
-    const detfAccountsData: Array<DETFAccountData> = props.detfAccountsData
+    const detfAccountsData: Array<AccountData> = props.detfAccountsData
     const [activeSort, setActiveSort] = useState("")
     const [detfData, setDETFData] = useState<Array<any>>(detfAccountsData)
     useEffect(() => {
@@ -121,7 +123,8 @@ export const AccountTable = (props: AccountTableProps) => {
                         {detfData.length > 0 ? detfData.map((data) =>
                             <div key={data.detf_address}>
                                 <AccountTableRow
-                                    detf_address={data.detf_address}
+                                    walletOwner={props.walletOwner}
+                                    theme_contract_address={data.theme_contract_address}
                                     status={data.status}
                                     creation_timestamp={data.creation_timestamp}
                                     category={data.category}
@@ -188,22 +191,7 @@ export const AccountTable = (props: AccountTableProps) => {
     }
     if (props.detfAccountsDataSuccess && detfAccountsData.length === 0) {
         return (
-            <><div className="account-detf-container">
-                <div className="account-detf-title">
-                    <h1>Your portfolio</h1>
-                </div>
-                <div className="account-detf-container-placeholder">
-                    {/* <img src={require("../../assets/images/account_table_row_placeholder.png")}></img> */}
-                    <div className="account-detf-container-placeholder-overlay">
-                    </div>
-                    <div className="account-detf-container-placeholder-overlay-info">
-                        Ready to invest in a digital asset theme?
-                        <div><br /></div>
-                        <Link to="/themes"><Button text="Explore Polybit DETFs" buttonStyle="primary" buttonSize="standard" /></Link>
-                    </div>
-                </div>
-            </div>
-            </>
+            <AccountTablePlaceholder />
         )
     }
     return (

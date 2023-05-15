@@ -43,7 +43,7 @@ import { BigNumber } from "ethers"
     }[];
 } */
 
-export const GetOrderData = (detfAddress: string, weth_input_amount: string) => {
+export const GetOrderData = (theme_contract_address: string, weth_input_amount: string) => {
     const [response, setResponse] = useState<Array<any>>()
     const network = useNetwork()
     const { chain } = useNetwork()
@@ -63,7 +63,7 @@ export const GetOrderData = (detfAddress: string, weth_input_amount: string) => 
 
     useEffect(() => {
         if (apiURL !== "") {
-            axios.post(apiURL + "/api/get_deposit_order_data", { "rpc_provider": rpc, "chain_id": chainId, "detf_address": detfAddress, "weth_input_amount": weth_input_amount })
+            axios.post(apiURL + "/api/get_deposit_order_data", { "rpc_provider": rpc, "chain_id": chainId, "theme_contract_address": theme_contract_address, "weth_input_amount": weth_input_amount })
                 .then(res => {
                     setResponse(res.data)
                 })

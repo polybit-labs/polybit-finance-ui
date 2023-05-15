@@ -6,10 +6,9 @@ import ScrollToTop from './components/ScrollToTop'
 import DETFIndex from './components/pages/DETFIndex'
 import Account from './scenes/Account/Account'
 import Deposit from './components/pages/Deposit'
-import EstablishDETF from './components/pages/EstablishDETF'
 import DETF from './components/pages/DETF'
 import { CurrencyContext, CurrencyState } from "./components/utils/Currency"
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { CloseDETF } from './components/pages/CloseDETF'
 import HowItWorks from './components/pages/HowItWorks'
 import Privacy from './scenes/Privacy/Privacy'
@@ -38,7 +37,6 @@ const App = () => {
                 <Route path="/themes" element={<DETFIndex />} />
                 <Route path="/themes/how-it-works" element={<HowItWorks />} />
                 <Route path="/account" element={<Account />} />
-                <Route path="/establish-detf" element={<EstablishDETF />} />
                 <Route path="/establish-deposit" element={<EstablishDeposit />} />
                 <Route path="/deposit" element={<Deposit />} />
                 <Route path="/close-detf" element={<CloseDETF />} />

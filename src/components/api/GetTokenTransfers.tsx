@@ -1,9 +1,22 @@
 import { useState, useEffect } from "react"
+import { useNetwork } from "wagmi"
 import axios from "axios"
 import apiURLJSON from "./api-info.json"
+import { BigNumber } from "ethers"
 
-export const GetDETFIndexData = () => {
-    const [response, setResponse] = useState<Array<any>>()
+export type TokenTransfersData = {
+
+}
+
+export type TokenTransfersSummary = {
+    tokenTransfers: Array<TokenTransfersData>;
+    totalPurchasePrice: number;
+    totalCurrentPrice: number;
+    totalCurrentReturn: number;
+}
+
+export const GetTokenTransfers = (wallet_owner: string) => {
+    const [response, setResponse] = useState<TokenTransfersSummary>()
     let isLoading: boolean
     let isSuccess: boolean
     const [apiURL, setapiURL] = useState("")
@@ -18,9 +31,9 @@ export const GetDETFIndexData = () => {
 
     useEffect(() => {
         if (apiURL !== "") {
-            axios.get(apiURL + "/api/get_detf_index_data")
+            axios.post(apiURL + "/api/get_token_transfers", { "wallet_owner": wallet_owner })
                 .then(res => {
-                    setResponse(res.data);
+                    setResponse(res.data)
                 })
                 .catch((err) => {
                     console.log(err.response)

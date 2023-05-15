@@ -3,7 +3,7 @@
         "inputs": [
             {
                 "internalType": "address",
-                "name": "_polybitConfigAddress",
+                "name": "_polybitThemeConfigAddress",
                 "type": "address"
             }
         ],
@@ -15,46 +15,17 @@
         "inputs": [
             {
                 "internalType": "address",
-                "name": "_detfAddress",
-                "type": "address"
-            },
-            {
-                "internalType": "address[]",
-                "name": "_tokenAddresses",
-                "type": "address[]"
-            },
-            {
-                "internalType": "uint256[]",
-                "name": "_tokenPrices",
-                "type": "uint256[]"
-            }
-        ],
-        "name": "getAllTokenBalancesInWeth",
-        "outputs": [
-            {
-                "internalType": "uint256[]",
-                "name": "",
-                "type": "uint256[]"
-            }
-        ],
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "inputs": [
-            {
-                "internalType": "address",
-                "name": "_detfAddress",
+                "name": "_themeContractAddress",
                 "type": "address"
             }
         ],
-        "name": "getDETFAccountDetail",
+        "name": "getAccountDetail",
         "outputs": [
             {
                 "components": [
                     {
                         "internalType": "address",
-                        "name": "detfAddress",
+                        "name": "themeContractAddress",
                         "type": "address"
                     },
                     {
@@ -138,7 +109,7 @@
                         "type": "uint256[]"
                     }
                 ],
-                "internalType": "struct PolybitMulticall.DETFAccountDetail",
+                "internalType": "struct PolybitThemeMulticall.ThemeContractDetail",
                 "name": "",
                 "type": "tuple"
             }
@@ -150,11 +121,11 @@
         "inputs": [
             {
                 "internalType": "address[]",
-                "name": "_detfAddresses",
+                "name": "_themeContractAddresses",
                 "type": "address[]"
             }
         ],
-        "name": "getDETFAccountDetailAll",
+        "name": "getAccountDetailAll",
         "outputs": [
             {
                 "components": [
@@ -162,7 +133,7 @@
                         "components": [
                             {
                                 "internalType": "address",
-                                "name": "detfAddress",
+                                "name": "themeContractAddress",
                                 "type": "address"
                             },
                             {
@@ -246,12 +217,12 @@
                                 "type": "uint256[]"
                             }
                         ],
-                        "internalType": "struct PolybitMulticall.DETFAccountDetail",
-                        "name": "detfData",
+                        "internalType": "struct PolybitThemeMulticall.ThemeContractDetail",
+                        "name": "data",
                         "type": "tuple"
                     }
                 ],
-                "internalType": "struct PolybitMulticall.DETFAccountDetailAll[]",
+                "internalType": "struct PolybitThemeMulticall.ThemeContractDetailAll[]",
                 "name": "",
                 "type": "tuple[]"
             }
@@ -267,7 +238,7 @@
                 "type": "address"
             }
         ],
-        "name": "getDETFAccountDetailFromWalletOwner",
+        "name": "getAccountDetailFromWalletOwner",
         "outputs": [
             {
                 "components": [
@@ -275,7 +246,7 @@
                         "components": [
                             {
                                 "internalType": "address",
-                                "name": "detfAddress",
+                                "name": "themeContractAddress",
                                 "type": "address"
                             },
                             {
@@ -359,12 +330,12 @@
                                 "type": "uint256[]"
                             }
                         ],
-                        "internalType": "struct PolybitMulticall.DETFAccountDetail",
-                        "name": "detfData",
+                        "internalType": "struct PolybitThemeMulticall.ThemeContractDetail",
+                        "name": "data",
                         "type": "tuple"
                     }
                 ],
-                "internalType": "struct PolybitMulticall.DETFAccountDetailAll[]",
+                "internalType": "struct PolybitThemeMulticall.ThemeContractDetailAll[]",
                 "name": "",
                 "type": "tuple[]"
             }
@@ -373,8 +344,37 @@
         "type": "function"
     },
     {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "_themeContractAddress",
+                "type": "address"
+            },
+            {
+                "internalType": "address[]",
+                "name": "_tokenAddresses",
+                "type": "address[]"
+            },
+            {
+                "internalType": "uint256[]",
+                "name": "_tokenPrices",
+                "type": "uint256[]"
+            }
+        ],
+        "name": "getAllTokenBalancesInWeth",
+        "outputs": [
+            {
+                "internalType": "uint256[]",
+                "name": "",
+                "type": "uint256[]"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
         "inputs": [],
-        "name": "polybitConfigAddress",
+        "name": "polybitThemeConfigAddress",
         "outputs": [
             {
                 "internalType": "address",

@@ -4,8 +4,8 @@ import axios from "axios"
 import apiURLJSON from "./api-info.json"
 import { BigNumber } from "ethers"
 
-export type DETFAccountData = {
-    "detf_address": string;
+export type AccountData = {
+    "theme_contract_address": string;
     "status": number;
     "creation_timestamp": number;
     "category": string;
@@ -34,8 +34,8 @@ export type DETFAccountData = {
     "final_assets_table_data": Array<any>;
 }
 
-export const GetDETFAccountData = (detf_address: string) => {
-    const [response, setResponse] = useState<DETFAccountData>()
+export const GetAccountData = (theme_contract_address: string) => {
+    const [response, setResponse] = useState<AccountData>()
     const network = useNetwork()
     const { chain } = useNetwork()
     const chainId: string = chain ? chain.id.toString() : ""
@@ -54,7 +54,7 @@ export const GetDETFAccountData = (detf_address: string) => {
 
     useEffect(() => {
         if (apiURL !== "") {
-            axios.post(apiURL + "/api/get_detf_accounts_data", { "rpc_provider": rpc, "chain_id": chainId, "detf_address": detf_address })
+            axios.post(apiURL + "/api/get_theme_account_data", { "rpc_provider": rpc, "chain_id": chainId, "theme_contract_address": theme_contract_address })
                 .then(res => {
                     setResponse(res.data)
                 })

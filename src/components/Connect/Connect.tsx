@@ -1,6 +1,7 @@
 import { useAccount, useConnect, useDisconnect } from "wagmi"
 import "./Connect.css"
 import { Button } from "../Buttons/Buttons";
+import { LockedBeta } from "../LockedBeta";
 
 export const Connect = () => {
     const { address, connector, isConnected } = useAccount()

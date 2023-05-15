@@ -1,9 +1,12 @@
 {
   "56": {
     "addresses": {
-      "router": "0xF30A4c1069f261c65b8b32538De4a39CCf973706",
-      "rebalancer": "0xa0C403477152FFD3525AC3debc17768173C91B8D",
-      "detf_factory": "0x62b72504552594ac919217638D10De28A1Ced63f",
+      "rebalancer": "0xF969941d5D48ff05FD942D8BD329454daE20253b",
+      "theme": "0x74b9e7656781452D20d13EFBaA30cBCd2276EE3F",
+      "theme_factory": "0xb4EA34033292B925E2ed8858d4B7Ec555DD0dCD1",
+      "theme_config": "0xCCc3756F53CECFF9e5EF435dB2b828D371A8A5a4",
+      "theme_access": "0x6bAF1A9EEd3E824303E085d085a7665551957CF3",
+      "theme_multicall": "0x57C088983C7F2C7E3a9500Bc4BbD8DaBfEeCE6f4",
       "swap_router": "0x445720A49A1558c5ea463E69Ec8FB108DdaB80A8",
       "liquid_path": "0x31Fa516E3451944c3707efA963e9ADfC58844d09"
     },
@@ -14,15 +17,14 @@
   },
   "97": {
     "addresses": {
-      "router": "0xA32A358eA56Bf9292ee1989F539CfbAaCE7E46be",
-      "rebalancer": "0x498915c4f09f8E698eC8e50Cde3789F575A4F4Df",
-      "detf": "0xD7183A878F332f8Ed07f8e0e2b072c9A9df85698",
-      "detf_factory": "0x3498B83e14Dcd96a531c14DA706b3C17660789ff",
-      "config": "0x22790914EECC7EBF769C9ddD995DE607b9CcC964",
-      "access": "0xf74DABbd36DBb55D3c22f783537505143FecedE9",
-      "multicall": "0x69a4E26ffE2CCde086248CF581A190Fb6cF17893",
-      "liquid_path": "",
-      "swap_router": ""
+      "rebalancer": "0x445ACB1ce8dC76C04D23dd49FF76143307ED7275",
+      "theme": "0x1a97f2FF081d034EB0f086278a3a8D2A57036a76",
+      "theme_factory": "0xA8b16E5B97a64B36D6dbE3DCd09AAFb255AC0712",
+      "theme_config": "0x81120485B5945aD10d154fe6893ca43BF303A962",
+      "theme_access": "0x3Da8398d53a2c77bDBd0a63D301a67cd4d3cD000",
+      "theme_multicall": "0x2C41A0A950eE97781FacA651150eA707e244E7d5",
+      "liquid_path": "0x40a961cd0d9896b59635E48fFCAEf6aDD5b7dE79",
+      "swap_router": "0xb248aB8a5DbF40102c605DA57cF2B3E5c5D60916"
     },
     "fees": {
       "swap_fee": 0.00,
