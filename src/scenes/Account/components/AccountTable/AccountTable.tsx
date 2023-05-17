@@ -5,8 +5,8 @@ import { Button } from '../../../../components/Buttons/Buttons'
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { icon } from '@fortawesome/fontawesome-svg-core/import.macro'
-import { AccountData } from '../../../../components/api/GetAccountData'
 import { AccountTablePlaceholder } from './AccountTablePlaceholder'
+import { GetAccountDataAll, AccountData, AccountDataAll } from '../../../../components/api/GetAccountDataAll'
 
 type DETFSummary = {
     "category": string;
@@ -32,23 +32,31 @@ type Currencies = {
 
 type AccountTableProps = {
     walletOwner: `0x${string}`;
-    detfAccountsDataSuccess: boolean;
-    detfAccountsData: Array<AccountData>;
     vsPrices: any;
     currency: string;
     historicalPrices: Array<any>;
     currentPrices: Currencies | undefined;
+    setTotalInvestmentThemeValue: Function;
+    setTotalInvestmentThemeReturn: Function;
 }
 
 export const AccountTable = (props: AccountTableProps) => {
-    const detfAccountsData: Array<AccountData> = props.detfAccountsData
-    const [activeSort, setActiveSort] = useState("")
-    const [detfData, setDETFData] = useState<Array<any>>(detfAccountsData)
+    const [accountsData, setaccountsData] = useState<Array<AccountData>>()
+    const { response: accountsListData, isLoading: accountsDataLoading, isSuccess: accountsDataSuccess } = GetAccountDataAll(props.walletOwner ? props.walletOwner : "")
     useEffect(() => {
-        if (detfData.length !== detfAccountsData.length) {
-            setDETFData(((detfData) => detfAccountsData))
+        accountsListData && accountsDataSuccess && setaccountsData(accountsListData.account_data)
+        props.setTotalInvestmentThemeValue(accountsListData?.total_current_value)
+        props.setTotalInvestmentThemeReturn(accountsListData?.total_current_return)
+    }, [accountsDataSuccess])
+
+    const [activeSort, setActiveSort] = useState("")
+    const [detfData, setDETFData] = useState<Array<any>>(accountsData ? accountsData : [])
+    useEffect(() => {
+        if (accountsData &&
+            detfData.length !== accountsData.length) {
+            setDETFData(((detfData) => accountsData))
         }
-    }, [detfAccountsData])
+    }, [accountsData])
 
     const [order, setOrder] = useState("asc")
     const sorting = (column: any) => {
@@ -66,12 +74,12 @@ export const AccountTable = (props: AccountTableProps) => {
         }
     }
 
-    if (detfAccountsData.length > 0) {
+    if (accountsData && accountsData.length > 0) {
         return (
             <>
                 <div className="account-detf-container">
                     <div className="account-detf-title">
-                        <h1>Your portfolio</h1>
+                        <h1>Investment Themes</h1>
                     </div>
                     <div className="account-detf-header">
                         <div className="account-detf-header-item-detf" onClick={() => { sorting("category"); setActiveSort("category") }}>DETF&nbsp;
@@ -140,17 +148,17 @@ export const AccountTable = (props: AccountTableProps) => {
                                     time_lock={data.time_lock}
                                     time_lock_remaining={data.time_lock_remaining}
                                     close_timestamp={data.close_timestamp}
-                                    return_weth={data.return_weth}
-                                    return_percentage={data.return_percentage}
-                                    final_return_weth={data.final_return_weth}
-                                    final_return_percentage={data.final_return_percentage}
-                                    final_return={data.final_return}
                                     final_balance_in_weth={data.final_balance_in_weth}
                                     final_assets={data.final_assets}
                                     final_assets_prices={data.final_assets_prices}
                                     final_assets_balances={data.final_assets_balances}
                                     final_assets_balances_in_weth={data.final_assets_balances_in_weth}
                                     final_assets_table_data={data.final_assets_table_data}
+                                    total_purchase_value_currency_adjusted={data.total_purchase_value_currency_adjusted}
+                                    total_current_value_currency_adjusted={data.total_current_value_currency_adjusted}
+                                    total_current_return_currency_adjusted={data.total_current_return_currency_adjusted}
+                                    total_final_value_currency_adjusted={data.total_final_value_currency_adjusted}
+                                    total_final_return_currency_adjusted={data.total_final_return_currency_adjusted}
                                     vsPrices={props.vsPrices}
                                     currency={props.currency}
                                     historicalPrices={props.historicalPrices}
@@ -189,7 +197,7 @@ export const AccountTable = (props: AccountTableProps) => {
             </>
         )
     }
-    if (props.detfAccountsDataSuccess && detfAccountsData.length === 0) {
+    if (accountsDataSuccess && accountsData && accountsData.length === 0) {
         return (
             <AccountTablePlaceholder />
         )
@@ -197,7 +205,7 @@ export const AccountTable = (props: AccountTableProps) => {
     return (
         <div className="account-detf-container">
             <div className="account-detf-title">
-                <h1>Your portfolio</h1>
+                <h1>Investment Themes</h1>
             </div>
             <div>
                 <div className="account-detf-header">

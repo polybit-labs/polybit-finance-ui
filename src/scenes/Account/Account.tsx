@@ -16,13 +16,12 @@ import { initialiseGA4 } from '../../components/utils/Analytics'
 import ReactGA from "react-ga4"
 import { useLocation } from 'react-router-dom'
 import { LockedBeta } from '../../components/LockedBeta'
-import { GetAccountDataAll } from '../../components/api/GetAccountDataAll'
-import { AccountData } from '../../components/api/GetAccountData'
 import { Helmet } from 'react-helmet-async'
 import ChainInfo from '../../context/ChainInfo.json'
 import { AccountSummaryPlaceholder } from './components/AccountSummary/AccountSummaryPlaceholder'
 import { AccountTablePlaceholder } from './components/AccountTable/AccountTablePlaceholder'
 import { ConnectHeader } from './components/ConnectAccount/ConnectHeader'
+import { TokenTable } from './components/TokenTable/TokenTable'
 
 type Currencies = {
     "date": string;
@@ -54,6 +53,10 @@ const Account = () => {
     const wethAddress: string = ChainInfo[chainId as keyof typeof ChainInfo]["weth_address"]
     const [showConnect, setShowConnect] = useState<boolean>(false)
     const [showBetaMessage, setShowBetaMessage] = useState<boolean>(false)
+    const [totalDigitalAssetValue, setTotalDigitalAssetValue] = useState<number | undefined>()
+    const [totalDigitalAssetReturn, setTotalDigitalAssetReturn] = useState<number | undefined>()
+    const [totalInvestmentThemeValue, setTotalInvestmentThemeValue] = useState<number | undefined>()
+    const [totalInvestmentThemeReturn, setTotalInvestmentThemeReturn] = useState<number | undefined>()
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -74,16 +77,21 @@ const Account = () => {
     const { data: walletBalance } = useBalance({
         address: walletOwner,
     })
-    const [detfAccountsData, setDETFAccountsData] = useState<Array<AccountData>>([])
-    const { response: detfAccountsListData, isLoading: detfAccountsDataLoading, isSuccess: detfAccountsDataSuccess } = GetAccountDataAll(walletOwner ? walletOwner : "")
-
-    useEffect(() => {
-        detfAccountsListData && detfAccountsDataSuccess && setDETFAccountsData(detfAccountsListData)
-    }, [detfAccountsDataSuccess])
 
     const currency = useContext(CurrencyContext).currency
+    //const [previousCurrency, setPreviousCurrency] = useState(currency)
     const { response: prices, isLoading: pricesLoading, isSuccess: pricesSuccess } = GetPriceVsCurrency(wethAddress)
     const [vsPrices, setVsPrices] = useState<any>({})
+
+
+    const [reloader, setReloader] = useState(0);
+    const reset = () => {
+        setReloader(Math.random());
+    }
+
+    useEffect(() => {
+        reset();
+    }, [currency]);
 
     useEffect(() => {
         setVsPrices(prices ? prices : {})
@@ -136,19 +144,31 @@ const Account = () => {
                 <TitleContainer title="Your account" />
                 <SubTitleContainer info={subTitle} />
                 <AccountSummary
-                    detfAccountsData={detfAccountsData}
-                    detfAccountsDataSuccess={detfAccountsDataSuccess}
+                    key={reloader}
                     vsPrices={vsPrices}
                     currency={currency}
+                    totalDigitalAssetValue={totalDigitalAssetValue}
+                    totalDigitalAssetReturn={totalDigitalAssetReturn}
+                    totalInvestmentThemeValue={totalInvestmentThemeValue}
+                    totalInvestmentThemeReturn={totalInvestmentThemeReturn}
+                />
+                <TokenTable
+                    key={reloader + 1}
+                    wallet_owner={walletOwner}
+                    currency={currency}
+                    vsPrices={vsPrices}
+                    setTotalDigitalAssetValue={setTotalDigitalAssetValue}
+                    setTotalDigitalAssetReturn={setTotalDigitalAssetReturn}
                 />
                 <AccountTable
+                    key={reloader + 2}
                     walletOwner={walletOwner}
-                    detfAccountsData={detfAccountsData}
-                    detfAccountsDataSuccess={detfAccountsDataSuccess}
                     vsPrices={vsPrices}
                     currency={currency}
                     historicalPrices={historicalPrices}
                     currentPrices={currentPrices}
+                    setTotalInvestmentThemeValue={setTotalInvestmentThemeValue}
+                    setTotalInvestmentThemeReturn={setTotalInvestmentThemeReturn}
                 />
                 <Footer />
             </>

@@ -334,7 +334,7 @@ export const DepositSummary = (props: DepositSummaryProps) => {
                         <table className="deposit-summary-table">
                             <tbody>
                                 <tr>
-                                    <td className="deposit-summary-table-cell-title">DETF</td>
+                                    <td className="deposit-summary-table-cell-title">Investment Theme</td>
                                     <td className="deposit-summary-table-cell-contents">{props.category} {props.dimension}</td>
                                 </tr>
                                 <tr>
@@ -365,7 +365,7 @@ export const DepositSummary = (props: DepositSummaryProps) => {
                         <table className="deposit-summary-table-mobile">
                             <tbody>
                                 <tr>
-                                    <td className="deposit-summary-table-cell-title">DETF</td>
+                                    <td className="deposit-summary-table-cell-title">Investment Theme</td>
                                 </tr>
                                 <tr><td className="deposit-summary-table-cell-contents">{props.category} {props.dimension}</td>
                                 </tr>
@@ -379,7 +379,7 @@ export const DepositSummary = (props: DepositSummaryProps) => {
                                     <td className="deposit-summary-table-cell-title">Entry Fee</td>
                                 </tr>
                                 <tr>
-                                    <td className="deposit-summary-table-cell-contents">0.5%</td>
+                                    <td className="deposit-summary-table-cell-contents">{`${parseFloat(entryFee.toString()).toFixed(2)}%`}</td>
                                 </tr>
                                 <tr>
                                     <td className="deposit-summary-table-cell-title">Time Locked</td>

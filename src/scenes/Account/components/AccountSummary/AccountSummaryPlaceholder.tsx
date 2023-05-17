@@ -1,9 +1,7 @@
 import "./AccountSummary.css"
 import { ColourNumbers } from "../../../../components/utils/Formatting"
 import { FormatCurrency } from "../../../../components/utils/Currency"
-import { useEffect, useState } from "react"
 import { FormatPercentages } from "../../../../components/utils/Formatting"
-import { AccountData } from "../../../../components/api/GetAccountData"
 
 interface AccountSummaryPlaceholderProps {
     vsPrices: any;

@@ -7,6 +7,9 @@ interface ApproveProps {
     user: `0x${string}`;
     spender: `0x${string}`;
     amount: BigNumber;
+    setSpenderApproved: Function;
+    spenderApproved: boolean;
+    refetch: Function;
 }
 
 export const Approve = (props: ApproveProps) => {
@@ -25,7 +28,7 @@ export const Approve = (props: ApproveProps) => {
 
     const { data, write } = useContractWrite(config)
 
-    const { data: waitForTransaction, isError: transactionError, isLoading: transactionLoading, isSuccess: transactionSuccess } = useWaitForTransaction({
+    const { data: waitForTransaction, isError: transactionError, isLoading: approveLoading, isSuccess: approveSuccess } = useWaitForTransaction({
         hash: data?.hash,
         onSettled(data, error) {
             //const response = data ? data.logs[2].data : []
@@ -34,8 +37,16 @@ export const Approve = (props: ApproveProps) => {
         onError(error) {
             console.log('approve Error', error)
         },
+        onSuccess(data) {
+            console.log('approve Success', data)
+            props.setSpenderApproved(true)
+            props.refetch()
+        }
     })
     return (
-        <Button text="Approve Swap" buttonSize="standard" buttonStyle="primary" onClick={() => write?.()} />
+        <>
+            {approveLoading && <Button text="Approve Swap" buttonSize="standard" buttonStyle="primary" status="loading" />}
+            {!approveLoading && <Button text="Approve Swap" buttonSize="standard" buttonStyle="primary" onClick={() => write?.()} />}
+        </>
     )
 }

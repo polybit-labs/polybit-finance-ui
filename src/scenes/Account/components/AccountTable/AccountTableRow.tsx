@@ -3,7 +3,6 @@ import "./AccountTableRow.css"
 import { useEffect, useState } from "react"
 import { DETFOwnedAssetsTable } from "../../../../components/DETFOwnedAssetsTable"
 import { Currencies, FormatCurrency } from "../../../../components/utils/Currency"
-import { GetOwner } from "../../../../components/api/GetOwner"
 import { ColourCategories, ColourNumbers, DETFIconFilename, FormatPercentages } from "../../../../components/utils/Formatting"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { icon } from '@fortawesome/fontawesome-svg-core/import.macro'
@@ -35,17 +34,17 @@ type AccountTableRowItems = {
     time_lock: number;
     time_lock_remaining: number;
     close_timestamp: number;
-    return_weth: BigNumber;
-    return_percentage: number;
-    final_return_weth: BigNumber;
-    final_return_percentage: number;
-    final_return: any;
     final_balance_in_weth: BigNumber;
     final_assets: Array<string>;
     final_assets_prices: Array<BigNumber>;
     final_assets_balances: Array<BigNumber>;
     final_assets_balances_in_weth: BigNumber;
     final_assets_table_data: Array<any>;
+    total_purchase_value_currency_adjusted: number;
+    total_current_value_currency_adjusted: number;
+    total_current_return_currency_adjusted: number;
+    total_final_value_currency_adjusted: number;
+    total_final_return_currency_adjusted: number;
     vsPrices: any;
     currency: string;
     historicalPrices: Array<any>;
@@ -75,7 +74,6 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
         }
     }, [])
 
-    //const { response: ownedAssetsTableData, isSuccess: ownedAssetsTableDataSuccess } = GetOwnedAssetsTableData(props.detf_address, props.status, props.total_deposited.toString())
     const { response: performanceDataRange, isSuccess: performanceDataRangeSuccess } = GetPerformanceDataRange(performanceUrl, props.creation_timestamp, props.close_timestamp > 0 ? props.close_timestamp : moment.now())
     const [performanceData, setPerformanceData] = useState<Array<PerformanceDataRange>>([])
     const [validDateRange, setValidDateRange] = useState(false)
@@ -95,93 +93,11 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
         setProductData(productDataResponse)
     }, [productDataResponse, productDataSuccess])
 
-    const GetHistoricalPriceCurrency = (timestamp: number) => {
-        let price = 0
-        const latestPrices: Currencies = props.historicalPrices[props.historicalPrices.length - 1]
-        //Check if the timestamp is > the historical price data. If so, use real time prices.
-        if (latestPrices) {
-            const lastHistoricalPriceDate = moment(latestPrices.date)
-            if (moment.unix(timestamp) > lastHistoricalPriceDate) {
-                price = Number((() => {
-                    switch (props.currency) {
-                        case "AUD": return (props.currentPrices ? props.currentPrices.aud : 0)
-                        case "BNB": return (props.currentPrices ? props.currentPrices.bnb : 0)
-                        case "CNY": return (props.currentPrices ? props.currentPrices.cny : 0)
-                        case "EURO": return (props.currentPrices ? props.currentPrices.eur : 0)
-                        case "IDR": return (props.currentPrices ? props.currentPrices.idr : 0)
-                        case "JPY": return (props.currentPrices ? props.currentPrices.jpy : 0)
-                        case "KRW": return (props.currentPrices ? props.currentPrices.krw : 0)
-                        case "RUB": return (props.currentPrices ? props.currentPrices.rub : 0)
-                        case "TWD": return (props.currentPrices ? props.currentPrices.twd : 0)
-                        case "USD": return (props.currentPrices ? props.currentPrices.usd : 0)
-                    }
-                })())
-            }
-            if (moment.unix(timestamp) < lastHistoricalPriceDate) {
-                const historicalPricesFiltered = props.historicalPrices.filter(date => {
-                    return date.date === moment.unix(timestamp).local().format("YYYY-MM-DD")
-                })
-                if (historicalPricesFiltered.length > 0) {
-                    price = Number((() => {
-                        switch (props.currency) {
-                            case "AUD": return (historicalPricesFiltered[0].aud)
-                            case "BNB": return (historicalPricesFiltered[0].bnb)
-                            case "CNY": return (historicalPricesFiltered[0].cny)
-                            case "EURO": return (historicalPricesFiltered[0].eur)
-                            case "IDR": return (historicalPricesFiltered[0].idr)
-                            case "JPY": return (historicalPricesFiltered[0].jpy)
-                            case "KRW": return (historicalPricesFiltered[0].krw)
-                            case "RUB": return (historicalPricesFiltered[0].rub)
-                            case "TWD": return (historicalPricesFiltered[0].twd)
-                            case "USD": return (historicalPricesFiltered[0].usd)
-                        }
-                    })())
-                }
-            }
-        }
-        return price
-    }
-
-    const GetCurrentTotalDepositedCurrency = () => {
-        let deposits = 0
-        for (let i = 0; i < props.deposits.length; i++) {
-            const price = Number(props.deposits[i][1]) / 10 ** 18 * GetHistoricalPriceCurrency(Number(props.deposits[i][0]))
-            deposits = deposits + price
-        }
-        return deposits
-    }
-    const currentTotalDeposited = GetCurrentTotalDepositedCurrency()
-    const currentTotalDepositedFormatted = FormatCurrency(currentTotalDeposited, 2)
-    const currentTotalValue = (Number(props.balance_in_weth)
-        / 10 ** 18 *
-        (() => {
-            switch (props.currency) {
-                case "AUD": return (props.vsPrices.aud)
-                case "BNB": return (props.vsPrices.bnb)
-                case "CNY": return (props.vsPrices.cny)
-                case "EURO": return (props.vsPrices.eur)
-                case "IDR": return (props.vsPrices.idr)
-                case "JPY": return (props.vsPrices.jpy)
-                case "KRW": return (props.vsPrices.krw)
-                case "RUB": return (props.vsPrices.rub)
-                case "TWD": return (props.vsPrices.twd)
-                case "USD": return (props.vsPrices.usd)
-            }
-        })())
-
-    const currentTotalValueFormatted = FormatCurrency(currentTotalValue, 2)
-    const currentReturn = currentTotalValue - currentTotalDeposited
-    const currentReturnFormatted = FormatCurrency(moment().unix() > (props.creation_timestamp + (60 * 60)) ? currentReturn : 0, 2)
-    const currentReturnPercentage = currentReturn / currentTotalDeposited
-    const currentReturnPercentageFormatted = FormatPercentages(moment().unix() > (props.creation_timestamp + (60 * 60)) ? (currentReturnPercentage ? currentReturnPercentage * 100 : 0) : 0)
-
-    const finalTotalDeposited = FormatCurrency(Number(props.total_deposited) / 10 ** 18 * GetHistoricalPriceCurrency(Number(props.close_timestamp)), 2)
-    let totalDepositHistoricalPrices: number = 0
-    props.deposits?.map((deposit) => {
-        totalDepositHistoricalPrices = totalDepositHistoricalPrices + (Number(deposit[1]) / 10 ** 18 * GetHistoricalPriceCurrency(Number(deposit[0])))
-    })
-    const finalMarketValue = FormatCurrency(Number(props.final_balance_in_weth) / 10 ** 18 * GetHistoricalPriceCurrency(Number(props.close_timestamp)), 2)
-    const finalReturnWeth = FormatCurrency(Number(props.final_return_weth) / 10 ** 18 * GetHistoricalPriceCurrency(Number(props.close_timestamp)), 2)
+    const totalPurchaseValueCurrencyAdjusted: string = FormatCurrency(props.total_purchase_value_currency_adjusted, 2)
+    const totalCurrentValueCurrencyAdjustedFormatted: string = FormatCurrency(props.total_current_value_currency_adjusted, 2)
+    const totalCurrentReturnAmountCurrencyAdjustedFormatted: string = FormatCurrency(props.total_current_value_currency_adjusted - props.total_purchase_value_currency_adjusted, 2)
+    const totalFinalValueCurrencyAdjusted: string = FormatCurrency(props.total_final_value_currency_adjusted, 2)
+    const totalFinalReturnAmountCurrencyAdjustedFormatted: string = FormatCurrency(props.total_final_value_currency_adjusted - props.total_purchase_value_currency_adjusted, 2)
 
     const transactionHistory = <table className="transaction-history" >
         <tbody>
@@ -190,19 +106,16 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
                     <tr key={transaction}>
                         <td><p>{moment.unix(transaction[0]).local().format("D MMM YYYY")}</p></td>
                         <td>
-                            {transaction[2] === "Deposit" && <p>+{FormatCurrency((Number(transaction[1])
-                                / 10 ** 18 * GetHistoricalPriceCurrency(Number(transaction[0]))), 2)}</p>
+                            {transaction[2] === "Deposit" && <p>+{FormatCurrency(transaction[1], 2)}</p>
                             }
-                            {transaction[2] === "Fee" && <p>-{FormatCurrency((Number(transaction[1])
-                                / 10 ** 18 * GetHistoricalPriceCurrency(Number(transaction[0]))), 2)?.replaceAll("-", "")}</p>
+                            {transaction[2] === "Fee" && <p>-{FormatCurrency(transaction[1], 2)?.replaceAll("-", "")}</p>
                             }</td>
                         <td><p>{transaction[2]}</p></td>
                     </tr>)
             })}
             {!isDETFActive && <tr>
                 <td><p>{moment.unix(props.close_timestamp).local().format("D MMM YYYY")}</p></td>
-                <td><p>-{FormatCurrency((Number(props.final_balance_in_weth)
-                    / 10 ** 18 * GetHistoricalPriceCurrency(Number(props.close_timestamp))), 2)}</p></td>
+                <td><p>-{totalFinalValueCurrencyAdjusted}</p></td>
                 <td><p>Withdraw</p></td>
             </tr>}
         </tbody>
@@ -230,25 +143,10 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
                         </div>
                     </div>
                     <div className="account-table-row-item-value">
-                        {FormatCurrency((Number(props.balance_in_weth)
-                            / 10 ** 18 *
-                            (() => {
-                                switch (props.currency) {
-                                    case "AUD": return (props.vsPrices.aud)
-                                    case "BNB": return (props.vsPrices.bnb)
-                                    case "CNY": return (props.vsPrices.cny)
-                                    case "EURO": return (props.vsPrices.eur)
-                                    case "IDR": return (props.vsPrices.idr)
-                                    case "JPY": return (props.vsPrices.jpy)
-                                    case "KRW": return (props.vsPrices.krw)
-                                    case "RUB": return (props.vsPrices.rub)
-                                    case "TWD": return (props.vsPrices.twd)
-                                    case "USD": return (props.vsPrices.usd)
-                                }
-                            })()), 2)}
+                        {totalCurrentValueCurrencyAdjustedFormatted}
                     </div>
-                    {isDETFActive && <div className="account-table-row-item-return" >{currentReturnPercentageFormatted}</div>}
-                    {!isDETFActive && <div className="account-table-row-item-return" >{FormatPercentages(props.final_return_percentage)}</div>}
+                    {isDETFActive && <div className="account-table-row-item-return" >{FormatPercentages(props.total_current_return_currency_adjusted * 100)}</div>}
+                    {!isDETFActive && <div className="account-table-row-item-return" >{FormatPercentages(props.total_final_return_currency_adjusted * 100)}</div>}
                     {isDETFActive && !isDETFDeposited &&
                         <div className="account-table-row-item-status">Investment Required</div>
                     }
@@ -283,15 +181,14 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
                         <div className="account-table-expanded-content">
                             <div className="account-table-expanded-content-left">
                                 <div className="account-table-expanded-content-left-invested">
-                                    {isDETFActive && <h2>Total invested: {currentTotalDepositedFormatted}</h2>}
-                                    {!isDETFActive && <h2>Total invested: {finalTotalDeposited}</h2>}
+                                    {isDETFActive && <h2>Total invested: {totalPurchaseValueCurrencyAdjusted}</h2>}
+                                    {!isDETFActive && <h2>Total invested: {totalPurchaseValueCurrencyAdjusted}</h2>}
                                     {isDETFDeposited && <div className="account-table-expanded-content-left-invested-summary">
                                         <div className="account-table-expanded-content-left-invested-summary-line">
                                         </div>
                                         <div className="account-table-expanded-content-left-invested-summary-table">
                                             <p><b>Transaction history</b></p>
                                             {transactionHistory}
-
                                         </div>
                                     </div>}
                                     {!isDETFDeposited && <div className="account-table-expanded-content-left-invested-no-deposits">
@@ -321,8 +218,8 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
                                             <Button text="Top up investment" buttonStyle="primary" buttonSize="standard" /></Link>
                                     </div>}
                                 <div className="account-table-expanded-content-left-current-value">
-                                    {isDETFActive && <h2>Total market value: {currentTotalValueFormatted} ({currentReturnFormatted})</h2>}
-                                    {!isDETFActive && <h2>Final market value: {finalMarketValue} ({finalReturnWeth})</h2>}
+                                    {isDETFActive && <h2>Total market value: {totalCurrentValueCurrencyAdjustedFormatted} ({totalCurrentReturnAmountCurrencyAdjustedFormatted})</h2>}
+                                    {!isDETFActive && <h2>Final market value: {totalFinalValueCurrencyAdjusted} ({totalFinalReturnAmountCurrencyAdjustedFormatted})</h2>}
                                     <div className="account-table-chart-title"><p><b>Market value over time ({props.currency})</b></p></div>
                                     {validDateRange && <DETFReturnChart height={300} width="100%" performanceData={performanceData} />}
                                     {!validDateRange && <InvalidChartRange height={300} width="100%" />}
@@ -334,12 +231,12 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
                                             dimension: props.dimension,
                                             detfAddress: props.theme_contract_address,
                                             totalValue: props.balance_in_weth,
-                                            currentTotalValue: currentTotalValue,
-                                            currentReturn: currentReturn,
-                                            currentReturnPercentage: currentReturnPercentage,
+                                            currentTotalValue: props.total_current_value_currency_adjusted,
+                                            currentReturn: props.total_current_value_currency_adjusted - props.total_purchase_value_currency_adjusted,
+                                            currentReturnPercentage: props.total_current_return_currency_adjusted * 100,
                                             currency: props.currency,
                                             vsPrices: props.vsPrices,
-                                            totalDeposited: currentTotalDeposited
+                                            totalDeposited: props.total_purchase_value_currency_adjusted
                                         }}>
                                             <Button text="Exit and withdraw" buttonStyle="primary" buttonSize="standard" /></Link>}
                                     {isDETFActive && !isDETFDeposited &&
@@ -371,17 +268,17 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
                                 </div>
                                 <div className="account-table-expanded-content-right-proof-of-assets">
                                     <h2>Proof of assets</h2>
-                                    <p>Polybit’s DETFs are self-custodial, which means your assets are held in a smart contract that is controlled by your wallet and are not pooled or centralised. You can prove this at any time with the information below.</p>
+                                    <p>Polybit’s Investment Themes are self-custodial, which means your assets are held in a smart contract that is controlled by your wallet and are not pooled or centralised. You can prove this at any time with the information below.</p>
                                     <br />
-                                    <p><b>Theme Address:</b></p>
+                                    <p><b>Theme Contract Address:</b></p>
                                     {chainId === "97" && <a href={`https://testnet.bscscan.com/address/${props.theme_contract_address}`} target="_blank" rel="noopener noreferrer"><p>{TruncateAddress(props.theme_contract_address)}</p></a>}
                                     {chainId === "56" && <a href={`https://bscscan.com/address/${props.theme_contract_address}`} target="_blank" rel="noopener noreferrer"><p>{TruncateAddress(props.theme_contract_address)}</p></a>}
                                     <p><b>Owner Address:</b></p>
                                     {chainId === "97" && <a href={`https://testnet.bscscan.com/address/${props.walletOwner}`} target="_blank" rel="noopener noreferrer"><p>{TruncateAddress(props.walletOwner)}</p></a>}
                                     {chainId === "56" && <a href={`https://bscscan.com/address/${props.walletOwner}`} target="_blank" rel="noopener noreferrer"><p>{TruncateAddress(props.walletOwner)}</p></a>}
                                     <br />
-                                    {chainId === "97" && <p><b><a href={`https://testnet.bscscan.com/address/${props.theme_contract_address}`} target="_blank" rel="noopener noreferrer">{`Validate this DETF's assets at BscScan ->`}</a></b></p>}
-                                    {chainId === "56" && <p><b><a href={`https://bscscan.com/address/${props.theme_contract_address}`} target="_blank" rel="noopener noreferrer">{`Validate this DETF's assets at BscScan ->`}</a></b></p>}
+                                    {chainId === "97" && <p><b><a href={`https://testnet.bscscan.com/address/${props.theme_contract_address}`} target="_blank" rel="noopener noreferrer">{`Validate your assets at BscScan ->`}</a></b></p>}
+                                    {chainId === "56" && <p><b><a href={`https://bscscan.com/address/${props.theme_contract_address}`} target="_blank" rel="noopener noreferrer">{`Validate your assets at BscScan ->`}</a></b></p>}
                                     <img className="account-table-expanded-content-right-proof-of-assets-diamond" src={require("../../../../assets/images/silver_diamond.png")}></img>
                                 </div>
                             </div>
@@ -420,27 +317,12 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
                         <tbody>
                             <tr>
                                 <td className="account-table-row-item-table-header-mobile">Value:</td>
-                                <td className="account-table-row-item-table-cell-mobile">{FormatCurrency((Number(props.balance_in_weth)
-                                    / 10 ** 18 *
-                                    (() => {
-                                        switch (props.currency) {
-                                            case "AUD": return (props.vsPrices.aud)
-                                            case "BNB": return (props.vsPrices.bnb)
-                                            case "CNY": return (props.vsPrices.cny)
-                                            case "EURO": return (props.vsPrices.eur)
-                                            case "IDR": return (props.vsPrices.idr)
-                                            case "JPY": return (props.vsPrices.jpy)
-                                            case "KRW": return (props.vsPrices.krw)
-                                            case "RUB": return (props.vsPrices.rub)
-                                            case "TWD": return (props.vsPrices.twd)
-                                            case "USD": return (props.vsPrices.usd)
-                                        }
-                                    })()), 2)}</td>
+                                <td className="account-table-row-item-table-cell-mobile">{totalCurrentValueCurrencyAdjustedFormatted}</td>
                             </tr>
                             <tr>
                                 <td className="account-table-row-item-table-header-mobile">Return:</td>
-                                {isDETFActive && <td className="account-table-row-item-table-cell-mobile" style={{ color: ColourNumbers(currentReturnPercentage) }}>{currentReturnPercentageFormatted}</td>}
-                                {!isDETFActive && <td className="account-table-row-item-table-cell-mobile" style={{ color: ColourNumbers(props.final_return_percentage) }}>{FormatPercentages(props.final_return_percentage)}</td>}
+                                {isDETFActive && <td className="account-table-row-item-table-cell-mobile" style={{ color: ColourNumbers(props.total_current_return_currency_adjusted) }}>{FormatPercentages(props.total_current_return_currency_adjusted * 100)}</td>}
+                                {!isDETFActive && <td className="account-table-row-item-table-cell-mobile" style={{ color: ColourNumbers(props.total_final_return_currency_adjusted) }}>{FormatPercentages(props.total_final_return_currency_adjusted * 100)}</td>}
                             </tr>
                             <tr>
                                 <td className="account-table-row-item-table-header-mobile">Status:</td>
@@ -468,10 +350,10 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
                             <div className="account-table-expanded-content-mobile">
                                 <div className="account-table-expanded-content-invested-mobile">
                                     {isDETFActive && <div><h2>Total invested:</h2>
-                                        <h2>{currentTotalDepositedFormatted}</h2>
+                                        <h2>{totalPurchaseValueCurrencyAdjusted}</h2>
                                     </div>}
                                     {!isDETFActive && <div><h2>Total invested:</h2>
-                                        <h2>{finalTotalDeposited}</h2>
+                                        <h2>{totalPurchaseValueCurrencyAdjusted}</h2>
                                     </div>}
                                     {isDETFDeposited && <div className="account-table-expanded-content-invested-summary-mobile">
                                         <div className="account-table-expanded-content-invested-summary-line-mobile">
@@ -509,10 +391,10 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
                                     </div>}
                                 <div className="account-table-expanded-content-current-value-mobile">
                                     {isDETFActive && <div><h2>Total market value:</h2>
-                                        <h2>{currentTotalValueFormatted} ({currentReturnFormatted})</h2>
+                                        <h2>{totalCurrentValueCurrencyAdjustedFormatted} ({totalCurrentReturnAmountCurrencyAdjustedFormatted})</h2>
                                     </div>}
                                     {!isDETFActive && <div><h2>Final market value:</h2>
-                                        <h2>{finalMarketValue} ({finalReturnWeth})</h2>
+                                        <h2>{totalFinalValueCurrencyAdjusted} ({totalFinalReturnAmountCurrencyAdjustedFormatted})</h2>
                                     </div>}
                                     <br />
                                     <div className="account-table-chart-title"><p><b>Market value over time ({props.currency})</b></p></div>
@@ -526,12 +408,12 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
                                             dimension: props.dimension,
                                             detfAddress: props.theme_contract_address,
                                             totalValue: props.balance_in_weth,
-                                            currentTotalValue: currentTotalValue,
-                                            currentReturn: currentReturn,
-                                            currentReturnPercentage: currentReturnPercentage,
+                                            currentTotalValue: props.total_current_value_currency_adjusted,
+                                            currentReturn: props.total_current_value_currency_adjusted - props.total_purchase_value_currency_adjusted,
+                                            currentReturnPercentage: props.total_current_return_currency_adjusted * 100,
                                             currency: props.currency,
                                             vsPrices: props.vsPrices,
-                                            totalDeposited: currentTotalDeposited
+                                            totalDeposited: props.total_purchase_value_currency_adjusted
                                         }}>
                                             <Button text="Exit and withdraw" buttonStyle="primary" buttonSize="standard" /></Link>}
                                     {isDETFActive && !isDETFDeposited &&
@@ -564,15 +446,15 @@ export const AccountTableRow = (props: AccountTableRowItems) => {
                         <div className="account-table-expanded-content-proof-of-assets-mobile">
                             <img className="account-table-expanded-content-proof-of-assets-diamond-mobile" src={require("../../../../assets/images/silver_diamond.png")}></img>
                             <h2>Proof of assets</h2>
-                            <p>Polybit’s DETFs are self-custodial, which means your assets are held in a smart contract that is controlled by your wallet and are not pooled or centralised. You can prove this at any time with the information below.</p>
+                            <p>Polybit’s Investment Themes are self-custodial, which means your assets are held in a smart contract that is controlled by your wallet and are not pooled or centralised. You can prove this at any time with the information below.</p>
                             <br />
-                            <p><b>DETF Address:</b></p>
+                            <p><b>Theme Contract Address:</b></p>
                             <p>{TruncateAddress(props.theme_contract_address)}</p>
-                            <p><b>DETF Owner Address:</b></p>
+                            <p><b>Owner Address:</b></p>
                             <p>{TruncateAddress(props.walletOwner)}</p>
                             <br />
-                            {chainId === "97" && <p><b><a href={`https://testnet.bscscan.com/address/${props.theme_contract_address}`} target="_blank" rel="noopener noreferrer">{`Validate this DETF's assets at BscScan ->`}</a></b></p>}
-                            {chainId == "56" && <p><b><a href={`https://bscscan.com/address/${props.theme_contract_address}`} target="_blank" rel="noopener noreferrer">{`Validate this DETF's assets at BscScan ->`}</a></b></p>}
+                            {chainId === "97" && <p><b><a href={`https://testnet.bscscan.com/address/${props.theme_contract_address}`} target="_blank" rel="noopener noreferrer">{`Validate your assets at BscScan ->`}</a></b></p>}
+                            {chainId === "56" && <p><b><a href={`https://bscscan.com/address/${props.theme_contract_address}`} target="_blank" rel="noopener noreferrer">{`Validate your assets at BscScan ->`}</a></b></p>}
                         </div>
                     </div>
                 }

@@ -9,11 +9,12 @@ import { useLocation } from 'react-router-dom'
 import { initialiseGA4 } from '../../components/utils/Analytics'
 import ReactGA from "react-ga4"
 import { BigNumber } from 'ethers'
-import { ERC20Token } from '../../components/utils/ERC20Utils'
+import { BNB, CAKE, ERC20Token } from '../../components/utils/ERC20Utils'
 import { SwapSummary } from './SwapSummary'
 import { Connect } from '../../components/Connect/Connect'
 import SubTitleContainer from '../../components/containers/SubTitle'
 import ChainInfo from "../../context/ChainInfo.json"
+import { useSearchParams } from 'react-router-dom'
 
 interface DEX {
     address: string;
@@ -28,6 +29,10 @@ function Swap() {
         initialiseGA4()
         ReactGA.send({ hitType: "pageview", page: location.pathname })
     }, [])
+    const [tokenOne, setTokenOne] = useState<ERC20Token>(BNB)
+    const [tokenTwo, setTokenTwo] = useState<ERC20Token>(CAKE)
+    const [searchParams, setSearchParams] = useSearchParams()
+    const address = searchParams.get("address")
     const { address: walletOwner, connector, isConnected } = useAccount()
     const { data: walletBalance } = useBalance({
         address: walletOwner,
@@ -54,31 +59,9 @@ function Swap() {
     }, [isConnected])
 
     const title: string = "Swap"
-
-    const BNB: ERC20Token = {
-        symbol: "BNB",
-        name: "Binance",
-        logoURI: "https://assets.coingecko.com/coins/images/12591/small/binance-coin-logo.png?1600947313",
-        address: "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
-        chainId: 56,
-        decimals: 18
-    }
-    const CAKE: ERC20Token = {
-        symbol: "CAKE",
-        name: "PancakeSwap",
-        logoURI: "https://polybit-finance.s3.ap-southeast-1.amazonaws.com/assets/tokens/images/56/0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82.png",
-        address: "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
-        chainId: 56,
-        decimals: 18
-    }
-
     const [approvedList, setApprovedList] = useState<Array<ERC20Token>>([])
-
-    const [tokenOne, setTokenOne] = useState<ERC20Token>(BNB)
-    const [tokenTwo, setTokenTwo] = useState<ERC20Token>(CAKE)
     const [tokenOneInputValue, setTokenOneInputValue] = useState<BigNumber>()
     const [tokenTwoInputValue, setTokenTwoInputValue] = useState<BigNumber>()
-
     const [factory, setFactory] = useState<DEX>({ address: "", name: "", logoURI: "", swapFee: 0 })
     const [path, setPath] = useState<readonly `0x${string}`[]>([])
     const [amountsOut, setAmountsOut] = useState<BigNumber>(BigNumber.from(0))
@@ -96,6 +79,26 @@ function Swap() {
     const [showSwapBox, setShowSwapBox] = useState<boolean>(true)
     const [showSwapSummary, setShowSwapSummary] = useState<boolean>(false)
     const [showConnectWallet, setShowConnectWallet] = useState(false)
+
+    const searchAddress = (address: string) => {
+        if (address === "") {
+            setTokenOne(BNB)
+            setTokenTwo(CAKE)
+        } else {
+            const filtered = approvedList.filter((asset) => {
+                return asset.address.toLowerCase() === address.toLowerCase()
+            })
+            const searchToken: ERC20Token = filtered[0]
+            approvedList && setTokenOne(searchToken)
+            approvedList && setTokenTwo(BNB)
+        }
+    }
+
+    useEffect(() => {
+        if (address && approvedList.length !== 0) {
+            searchAddress(address)
+        }
+    }, [address, approvedList])
 
     return (
         <>

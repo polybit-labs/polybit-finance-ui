@@ -52,10 +52,11 @@ interface SwapSummaryProps {
 
 export const SwapSummary = (props: SwapSummaryProps) => {
     const swapRouterAddress: string = PolybitInfo[props.chainId as keyof typeof PolybitInfo]["addresses"]["swap_router"]
-    const [spenderApproved, setSpenderApproved] = useState<boolean>(false)
     const [txHash, setTxHash] = useState<string>("")
     const [swapArgs, setSwapArgs] = useState<any>({})
     const [swapOverrideArgs, setSwapOverrideArgs] = useState<any>({})
+    const [spenderApproved, setSpenderApproved] = useState<boolean>(false)
+    console.log(spenderApproved)
 
     const swapTypeArgs = {
         "swapETHForExactTokens": [props.factory.address, props.path, props.tokenTwoInputValue, props.walletOwner, moment().unix() + (Number(props.deadline) * 60)],
@@ -81,16 +82,7 @@ export const SwapSummary = (props: SwapSummaryProps) => {
     })
         : false
 
-    useEffect(() => {
-        if (props.tokenOne.symbol === props.nativeSymbol) {
-            setSpenderApproved(true)
-        }
-        else { setSpenderApproved(checkApproved) }
-    }, [checkApproved])
-
-    console.log("spenderApproved", spenderApproved)
-
-    const { config, isSuccess: configIsSuccess } = usePrepareContractWrite({
+    const { config, isSuccess: configIsSuccess, refetch } = usePrepareContractWrite({
         address: swapRouterAddress as `0x${string}`,
         abi: IPolybitSwapRouter,
         functionName: props.swapType,
@@ -104,7 +96,7 @@ export const SwapSummary = (props: SwapSummaryProps) => {
         },
     })
 
-    const { data, write } = useContractWrite(config)
+    const { data, write, reset } = useContractWrite(config)
 
     const { data: waitForTransaction, isError: transactionError, isLoading: transactionLoading, isSuccess: transactionSuccess } = useWaitForTransaction({
         hash: data?.hash,
@@ -268,7 +260,11 @@ export const SwapSummary = (props: SwapSummaryProps) => {
                                 token={props.path[0]}
                                 user={props.walletOwner}
                                 spender={swapRouterAddress as `0x${string}`}
-                                amount={props.tokenOneInputValue} />}
+                                amount={props.tokenOneInputValue}
+                                setSpenderApproved={setSpenderApproved}
+                                spenderApproved={spenderApproved}
+                                refetch={refetch}
+                            />}
                         {!configIsSuccess && spenderApproved && <Button text="Confirm Swap" buttonSize="standard" buttonStyle="primary" status="disabled" />}
                         {configIsSuccess && spenderApproved && <Button text="Confirm Swap" buttonSize="standard" buttonStyle="primary" onClick={() => write?.()} />}
                     </div>

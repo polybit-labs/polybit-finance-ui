@@ -1,4 +1,4 @@
-import { createRef, useContext, useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { useLocation, useParams } from "react-router-dom"
 import { initialiseGA4 } from "../utils/Analytics"
 import ReactGA from "react-ga4"
@@ -6,7 +6,6 @@ import { Helmet } from 'react-helmet-async'
 import { Footer } from "../Footer/Footer"
 import "./Token.css"
 import { GetTokenData } from "../api/GetTokenData"
-import { TokenIndexData } from "../api/GetTokenIndexData"
 import { TokenSummary } from "../TokenSummary"
 import { CurrencyContext } from "../utils/Currency"
 import { FormatTokenIndex, TokenIndexDataFormatted } from "../FormatTokenIndex"
@@ -22,7 +21,7 @@ export const Token = () => {
     const urlTokenName = useParams().urlTokenName
     const tokenContent = require(`../../product/tokens/${urlTokenName}.json`)
     const currency = useContext(CurrencyContext).currency
-
+    console.log(tokenContent)
     const { response: token, isSuccess: tokenDataSuccess } = GetTokenData(urlTokenName ? urlTokenName : "")
     const [tokenData, setTokenData] = useState<TokenIndexDataFormatted>()
 

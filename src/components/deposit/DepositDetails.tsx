@@ -175,7 +175,7 @@ export const DepositDetails = (props: DepositDetails) => {
                                     </button>
                                 </div>
                                 <div className={Number(timeLockInputValue) > 0 ? "deposit-lock-set" : "deposit-lock-set-inactive"}>
-                                    <p>Withdrawals from your investment theme will be locked until:</p>
+                                    <p>Withdrawals from your Investment Theme will be locked until:</p>
                                     <b>{GetTimeToUnlock(Number(GetTimeLockInputValueInSeconds()))}</b>
                                 </div>
                             </div>
@@ -216,7 +216,7 @@ export const DepositDetails = (props: DepositDetails) => {
                                     </button></li>
                                 </ul>
                                 <div className={Number(timeLockInputValue) > 0 ? "deposit-lock-set" : "deposit-lock-set-inactive"}>
-                                    <p>Withdrawals from your investment theme will be locked until:</p>
+                                    <p>Withdrawals from your Investment Theme will be locked until:</p>
                                     <div className="deposit-lock-set-lock-date">{GetTimeLockUnlockIncrease(Number(GetTimeLockInputValueInSeconds()))}</div>
                                 </div>
                             </div>

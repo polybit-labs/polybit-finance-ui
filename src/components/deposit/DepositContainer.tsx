@@ -1,6 +1,7 @@
 import { useState, useEffect, useContext } from 'react'
 import { useAccount, useBalance } from "wagmi"
-import { AccountData, GetAccountData } from '../api/GetAccountData'
+import { GetAccountData } from '../api/GetAccountData'
+import { AccountData } from '../api/GetAccountDataAll'
 import { DepositDetails } from '../deposit/DepositDetails'
 import { CurrencyContext } from '../utils/Currency'
 import { GetPriceVsCurrency } from '../api/GetPriceVsCurrency'
