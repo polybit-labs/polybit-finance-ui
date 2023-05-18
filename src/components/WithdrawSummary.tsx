@@ -1,16 +1,14 @@
-import { Button, TextLink } from "./Buttons"
+import { Button } from "./Buttons/Buttons"
+import { TextLink } from "./Buttons/TextLink"
 import { Currencies, FormatCurrency } from "./utils/Currency"
 import { ColourNumbers, FormatPercentages, TruncateAddress } from "./utils/Formatting"
 import { usePrepareContractWrite, useContractWrite, useWaitForTransaction, useAccount } from "wagmi"
-import { GetSellToCloseOrderData } from "./api/GetSellToCloseOrderData"
-import PolybitDETFInterface from "./../chain_info/IPolybitDETF.json"
-import { Interface } from 'ethers/lib/utils'
-import { Loading } from "./Loading"
+import { Loading } from './Loading/Loading'
 import "./WithdrawSummary.css"
 import { useState } from "react"
 import { GetWithdrawOrderData } from "./api/GetWithdrawOrderData"
 
-interface WithdrawSummary {
+interface WithdrawSummaryProps {
     detfAddress: string;
     category: string;
     dimension: string;
@@ -24,8 +22,7 @@ interface WithdrawSummary {
     setWithdrawSuccess: Function;
 }
 
-export const WithdrawSummary = (props: WithdrawSummary) => {
-    const IPolybitDETF = new Interface(PolybitDETFInterface)
+export const WithdrawSummary = (props: WithdrawSummaryProps) => {
     const { address: walletOwner } = useAccount()
     const { response: orderData, isLoading: orderDataLoading, isSuccess: orderDataSuccess } = GetWithdrawOrderData(props.detfAddress)
     console.log(orderData)
@@ -349,8 +346,8 @@ export const WithdrawSummary = (props: WithdrawSummary) => {
                                 </div>
                                 <div>I acknowledge that I am exiting this investment and withdrawing the balance, minus fees, to my connected wallet.</div>
                             </div>
-                            {checkboxTick && <Button buttonStyle="primary" buttonSize="standard" text="Confirm DETF exit" onClick={() => detfSellToClose?.()} />}
-                            {!checkboxTick && <Button buttonStyle="primary" buttonSize="standard" text="Confirm DETF exit" status="disabled" />}
+                            {checkboxTick && <Button buttonStyle="primary" buttonSize="standard" text="Confirm exit" onClick={() => detfSellToClose?.()} />}
+                            {!checkboxTick && <Button buttonStyle="primary" buttonSize="standard" text="Confirm exit" status="disabled" />}
                         </div>
                         <TextLink text="Cancel withdrawal" to="/account" arrowDirection="back" />
                     </div>

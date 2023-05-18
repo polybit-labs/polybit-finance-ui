@@ -1,0 +1,147 @@
+.swap-settings {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    transition: all 1s ease-in-out;
+    background-color: #EEEEEE;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 20px;
+    padding-left: 24px;
+    padding-right: 24px;
+    border-bottom: 1px solid #000000;
+}
+
+.swap-settings-header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.swap-settings-header-close {
+    font-size: 24px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.swap-settings-slippage {
+    width: 100%;
+    margin-top: 5px;
+}
+
+.swap-settings-slippage-header {
+    width: 100%;
+    text-align: left;
+    font-weight: 500
+}
+
+.swap-settings-slippage-main {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    margin-top: 10px;
+}
+
+.swap-settings-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70px;
+    height: 44px;
+    padding: 10px;
+    margin-right: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.swap-settings-slippage-input {
+    display: flex;
+    width: 70px;
+    height: 44px;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 700;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 4px solid #000000;
+    border-radius: 4px;
+    background-color: #ffffff;
+}
+
+.swap-settings-slippage-input input {
+    width: 50%;
+    height: 100%;
+    border: 0;
+    outline: 0;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+
+.swap-settings-slippage-input input::-webkit-outer-spin-button,
+.swap-settings-slippage-input input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
+.swap-settings-deadline {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.swap-settings-deadline-header {
+    width: 100%;
+    text-align: left;
+    font-weight: 500
+}
+
+
+.swap-settings-deadline-main {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    margin-top: 10px;
+}
+
+.swap-settings-deadline-input {
+    display: flex;
+    width: 100%;
+    height: 40px;
+    margin-left: 24px;
+    padding-right: 24px;
+    font-size: 16px;
+    font-weight: 700;
+    align-items: center;
+    justify-content: right;
+    text-align: right;
+    border-bottom: 4px solid #000000;
+    border-radius: 4px;
+    background-color: #ffffff;
+}
+
+.swap-settings-deadline-input input {
+    width: 50%;
+    height: 100%;
+    border: 0;
+    outline: 0;
+    text-align: right;
+    font-size: 16px;
+    font-weight: 700;
+    margin-right: 4px;
+}
+
+
+.swap-settings-deadline-input input::-webkit-outer-spin-button,
+.swap-settings-deadline-input input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}

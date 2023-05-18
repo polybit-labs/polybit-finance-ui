@@ -1,0 +1,157 @@
+.asset-list {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    transition: all 1s ease;
+    background-color: #9090905a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.asset-list-container {
+    min-width: 420px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    border-radius: 8px;
+    background-color: #eeeeee;
+    margin-bottom: 20px;
+    border: 1px solid #ffffff;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    z-index: 11;
+}
+
+.asset-list-header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 24px;
+    padding-right: 24px;
+}
+
+.asset-list-header-close {
+    font-size: 24px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.asset-list-search {
+    width: 100%;
+    margin-top: 20px;
+    padding-left: 24px;
+    padding-right: 24px;
+}
+
+.asset-list-search input {
+    width: 100%;
+    border: 0;
+    outline: 0;
+    background-color: #ffffff;
+    text-align: start;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 4px;
+    padding: 12px;
+}
+
+.asset-list-common {
+    width: 100%;
+    margin-top: 20px;
+    padding-left: 24px;
+    padding-right: 24px;
+}
+
+.asset-list-common-header {
+    font-size: 14px;
+}
+
+.asset-list-common-selector {
+    width: 100%;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.asset-list-common-asset {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    /* border: 1px solid #ffffff; */
+    padding: 5px;
+    cursor: pointer;
+}
+
+.asset-list-common-asset:hover {
+    background-color: #875CFF;
+    color: #ffffff;
+}
+
+
+.asset-list-common-asset-logo {
+    width: 24px;
+    height: 24px;
+    margin-right: 6px;
+    background-color: #ffffff;
+    border-radius: 50px;
+}
+
+.asset-list-common-asset-name {
+    font-size: 16px;
+}
+
+.asset-list-scrollable-list {
+    overflow-y: scroll;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 300px;
+    margin-top: 20px;
+}
+
+.asset-list-scrollable-list-asset {
+    display: flex;
+    align-items: left;
+    justify-content: left;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    cursor: pointer;
+}
+
+.asset-list-scrollable-list-asset:hover {
+    background-color: #875CFF;
+    color: #ffffff;
+}
+
+.asset-list-scrollable-list-asset-title {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: left;
+}
+
+.asset-list-scrollable-list-asset-name {
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.asset-list-scrollable-list-asset-symbol {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.asset-list-scrollable-list-asset-logo {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    margin-right: 10px;
+    margin-left: 24px;
+}

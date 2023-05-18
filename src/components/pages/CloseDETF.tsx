@@ -2,9 +2,9 @@ import { useAccount } from "wagmi"
 import { useLocation } from "react-router-dom"
 import TitleContainer from "../containers/Title"
 import SubTitleContainer from "../containers/SubTitle"
-import Footer from "./Footer"
+import { Footer } from "../Footer/Footer"
 import { useEffect, useState } from "react"
-import { Loading } from "../Loading"
+import { Loading } from "../Loading/Loading"
 import { WithdrawSummary } from "../WithdrawSummary"
 import { WithdrawSuccess } from "../WithdrawSuccess"
 import { initialiseGA4 } from "../utils/Analytics"
@@ -25,12 +25,12 @@ export const CloseDETF = () => {
         return (
             <>
                 <Helmet>
-                    <title>{`Exit DETF | Polybit Finance`}</title>
+                    <title>{`Exit Investment Theme | Polybit Finance`}</title>
                     <meta name="description" content="Exit and withdraw funds" />
                     <meta name="robots" content="noindex" />
                 </Helmet>
                 <TitleContainer title="Exit and withdraw funds" />
-                <SubTitleContainer info="By exiting this DETF, the balance of your funds will be returned to your connected wallet in BNB."
+                <SubTitleContainer info="By exiting this investment theme, the balance of your funds will be returned to your connected wallet in BNB."
                 />
                 <WithdrawSummary
                     detfAddress={detfAddress}

@@ -3,7 +3,7 @@ import { useNetwork } from "wagmi"
 import axios from "axios"
 import apiURLJSON from "./api-info.json"
 
-export const GetWithdrawOrderData = (detf_address: string) => {
+export const GetWithdrawOrderData = (theme_contract_address: string) => {
     const [response, setResponse] = useState<Array<any>>()
     const network = useNetwork()
     const rpc = network.chain?.rpcUrls.default.http[0]
@@ -23,7 +23,7 @@ export const GetWithdrawOrderData = (detf_address: string) => {
 
     useEffect(() => {
         if (apiURL !== "") {
-            axios.post(apiURL + "/api/get_withdraw_order_data", { "provider": rpc, "chain_id": chainId, "detf_address": detf_address })
+            axios.post(apiURL + "/api/get_withdraw_order_data", { "provider": rpc, "chain_id": chainId, "theme_contract_address": theme_contract_address })
                 .then(res => {
                     setResponse(res.data)
                 })

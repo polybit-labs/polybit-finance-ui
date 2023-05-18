@@ -1,0 +1,15 @@
+{
+    "chainId": 56,
+    "chainName": "BNB Smart Chain",
+    "productId": 5610001000,
+    "category": "BSC Index Top 10",
+    "dimension": "Market Cap",
+    "descriptionTitle": "The Binance Smart Chain is a blockchain launched by Binance, one of the world’s largest digital asset exchanges.",
+    "description": [
+        "It is designed to offer fast and low-cost transactions for decentralised applications (DApps) and other blockchain-based services. BSC is compatible with Ethereum and features a native token called Binance Coin (BNB).",
+        "Since launch, the Binance Smart Chain has become the second largest blockchain ecosystem in the world, valued at almost one trillion dollars, due to its fast, low-cost, and flexible blockchain infrastructure that is ideal for developers and users looking to build and use decentralised applications and other blockchain-based services.",
+        "Polybit’s BSC Index Top 10 Equally Balanced investment theme tracks the top 10 tokens on the Binance Smart Chain, weighted by the total global market cap, across all centralised and decentralised exchanges."
+    ],
+    "assetTableDescription": "",
+    "rebalancingPeriod": "90 days"
+}

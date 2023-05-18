@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
 import "./DepositSummary.css"
-import PolybitDETFInterface from "../../chain_info/IPolybitDETF.json"
 import { Interface } from 'ethers/lib/utils'
 import {
     useAccount,
@@ -10,15 +9,17 @@ import {
     useContractWrite,
     useWaitForTransaction
 } from "wagmi"
-import { GetOrderData } from '../api/GetOrderData'
 import { FormatCurrency } from '../utils/Currency'
-import { Button, TextLink } from '../Buttons'
-import { Loading } from '../Loading'
+import { Button } from '../Buttons/Buttons'
+import { TextLink } from '../Buttons/TextLink'
+import { Loading } from '../Loading/Loading'
 import { TruncateAddress } from '../utils/Formatting'
 import { BigNumber } from 'ethers'
 import { GetDepositOrderData } from '../api/GetDepositOrderData'
+import { IPolybitTheme } from '../../context/abi/IPolybitTheme'
+import { GetEntryFee } from '../api/GetEntryFee'
 
-interface DepositSummary {
+interface DepositSummaryProps {
     detfAddress: string;
     category: string;
     dimension: string;
@@ -35,11 +36,10 @@ interface DepositSummary {
     activeStage: string;
 }
 
-export const DepositSummary = (props: DepositSummary) => {
+export const DepositSummary = (props: DepositSummaryProps) => {
     const ethers = require("ethers")
     const utils = ethers.utils
     const moment = require('moment')
-    const IPolybitDETF = new Interface(PolybitDETFInterface)
     const { address: walletOwner, connector, isConnected } = useAccount()
     const { chain } = useNetwork()
     const { data: walletBalance } = useBalance({
@@ -48,10 +48,14 @@ export const DepositSummary = (props: DepositSummary) => {
 
     const [orderData, setOrderData] = useState<Array<any>>();
     const { response: detfOrderData, isLoading: orderDataLoading, isSuccess: orderDataSuccess } = GetDepositOrderData(props.detfAddress, props.depositAmount)
-    console.log(detfOrderData)
+
     useEffect(() => {
         setOrderData(detfOrderData ? detfOrderData : [])
     }, [detfOrderData, orderDataSuccess])
+
+    const { response: fee } = GetEntryFee()
+    const [entryFee, setEntryFee] = useState<number>(0)
+    fee && setEntryFee(fee)
 
     const PrettyTimeLockValue = () => {
         // Set lock value for the first time
@@ -280,14 +284,18 @@ export const DepositSummary = (props: DepositSummary) => {
     const { data: waitForTransaction, isError: transactionError, isLoading: transactionLoading, isSuccess: transactionSuccess } = useWaitForTransaction({
         hash: data?.hash,
         onSettled(data, error) {
-            const response = data ? data.logs[2].data : []
+            /* const response = data ? data.logs[2].data : []
             const confirmedAmount = utils.defaultAbiCoder.decode(["uint256"], response)[0].toString()
             if (confirmedAmount === props.depositAmount) {
                 props.setDepositSuccess(true)
-            }
+            } */
         },
         onError(error) {
             console.log('useWaitForTransaction Error', error)
+        },
+        onSuccess(data) {
+            console.log('useWaitForTransaction Success', data)
+            props.setDepositSuccess(true)
         },
     })
 
@@ -320,13 +328,13 @@ export const DepositSummary = (props: DepositSummary) => {
         return (
             <div className="deposit-summary">
                 <div className="deposit-summary-container">
-                    <h2>Your DETF investment summary</h2>
+                    <h2>Your investment theme summary</h2>
                     <div className="deposit-summary-info">
                         <div className="deposit-summary-info-bar"></div>
                         <table className="deposit-summary-table">
                             <tbody>
                                 <tr>
-                                    <td className="deposit-summary-table-cell-title">DETF</td>
+                                    <td className="deposit-summary-table-cell-title">Investment Theme</td>
                                     <td className="deposit-summary-table-cell-contents">{props.category} {props.dimension}</td>
                                 </tr>
                                 <tr>
@@ -335,11 +343,7 @@ export const DepositSummary = (props: DepositSummary) => {
                                 </tr>
                                 <tr>
                                     <td className="deposit-summary-table-cell-title">Entry Fee</td>
-                                    <td className="deposit-summary-table-cell-contents">0.5%</td>
-                                </tr>
-                                <tr>
-                                    <td className="deposit-summary-table-cell-title">Exit Fee</td>
-                                    <td className="deposit-summary-table-cell-contents">0.5%</td>
+                                    <td className="deposit-summary-table-cell-contents">{`${parseFloat(entryFee.toString()).toFixed(2)}%`}</td>
                                 </tr>
                                 <tr>
                                     <td className="deposit-summary-table-cell-title">Time Locked</td>
@@ -361,7 +365,7 @@ export const DepositSummary = (props: DepositSummary) => {
                         <table className="deposit-summary-table-mobile">
                             <tbody>
                                 <tr>
-                                    <td className="deposit-summary-table-cell-title">DETF</td>
+                                    <td className="deposit-summary-table-cell-title">Investment Theme</td>
                                 </tr>
                                 <tr><td className="deposit-summary-table-cell-contents">{props.category} {props.dimension}</td>
                                 </tr>
@@ -375,13 +379,7 @@ export const DepositSummary = (props: DepositSummary) => {
                                     <td className="deposit-summary-table-cell-title">Entry Fee</td>
                                 </tr>
                                 <tr>
-                                    <td className="deposit-summary-table-cell-contents">0.5%</td>
-                                </tr>
-                                <tr>
-                                    <td className="deposit-summary-table-cell-title">Exit Fee</td>
-                                </tr>
-                                <tr>
-                                    <td className="deposit-summary-table-cell-contents">0.5%</td>
+                                    <td className="deposit-summary-table-cell-contents">{`${parseFloat(entryFee.toString()).toFixed(2)}%`}</td>
                                 </tr>
                                 <tr>
                                     <td className="deposit-summary-table-cell-title">Time Locked</td>

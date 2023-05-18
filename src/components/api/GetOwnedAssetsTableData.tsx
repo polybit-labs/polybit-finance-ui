@@ -3,7 +3,7 @@ import { useNetwork } from "wagmi"
 import axios from "axios"
 import apiURLJSON from "./api-info.json"
 
-export const GetOwnedAssetsTableData = (detfAddress: string, status: number, totalDeposits: string) => {
+export const GetOwnedAssetsTableData = (theme_contract_address: string, status: number, totalDeposits: string) => {
     const [response, setResponse] = useState<Array<any>>()
     const network = useNetwork()
     const { chain } = useNetwork()
@@ -23,7 +23,7 @@ export const GetOwnedAssetsTableData = (detfAddress: string, status: number, tot
 
     useEffect(() => {
         if (apiURL !== "") {
-            axios.post(apiURL + "/api/get_owned_assets_table_data", { "rpc_provider": rpc, "chain_id": chainId, "detf_address": detfAddress, "status": status, "total_deposits": totalDeposits })
+            axios.post(apiURL + "/api/get_owned_assets_table_data", { "rpc_provider": rpc, "chain_id": chainId, "theme_contract_address": theme_contract_address, "status": status, "total_deposits": totalDeposits })
                 .then(res => {
                     setResponse(res.data)
                 })

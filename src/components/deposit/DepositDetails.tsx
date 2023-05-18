@@ -1,8 +1,9 @@
 import { useState, ChangeEvent, useEffect } from 'react'
 import DateTypeDropDown from '../dropdowns/DateTypeDropdown'
 import { FormatCurrency } from '../utils/Currency'
-import { Button } from '../Buttons'
+import { Button } from '../Buttons/Buttons'
 import "./DepositDetails.css"
+import { FloatToBigNumber } from '../utils/Formatting'
 
 interface DepositDetails {
     detfAddress: string;
@@ -132,13 +133,15 @@ export const DepositDetails = (props: DepositDetails) => {
         return timeLock
     }
 
+    console.log(Number(FloatToBigNumber(Number(depositInputValue), 18)), Number(props.walletBalance.value))
+
     return (
         <div className="deposit-box">
             <div className="deposit-box-container">
                 <h2>Available {props.walletBalance?.symbol} in your {props.connector?.name} is {parseFloat((props.walletBalance.formatted).toString()).toFixed(4)} ({walletBalanceCurrency})</h2>
                 <div className="deposit-box-form">
                     <div className="deposit-amount-input-title">{props.walletBalance?.symbol} amount:</div>
-                    <div><input className="deposit-amount-input" type="number" value={depositInputValue} onChange={onChangeDeposit} placeholder="BNB 10.000" /></div>
+                    <div><input className="deposit-amount-input" type="number" value={depositInputValue} onChange={onChangeDeposit} placeholder="BNB 10.000" min="0" /></div>
                     <div className="timelock">
                         {props.timeLockRemaining === 0 && <div className="timelock-new">
                             <div className="timelock-selector">
@@ -152,7 +155,7 @@ export const DepositDetails = (props: DepositDetails) => {
                             <div className={checkboxTickNew ? "timelock-new-inputs" : "timelock-new-inputs-inactive"}>
                                 <div className="timelock-amount-input-title">Lock term:</div>
                                 <div className="timelock-amount-input-group">
-                                    <input className="timelock-amount-input" type="number" value={timeLockInputValue} onChange={onChangeTimeLock} placeholder="12 months" />
+                                    <input className="timelock-amount-input" type="number" value={timeLockInputValue} onChange={onChangeTimeLock} placeholder="12 months" min="0" />
                                     <button
                                         className="timelock-date-format"
                                         onClick={(): void => toggleDropDown()}
@@ -172,14 +175,14 @@ export const DepositDetails = (props: DepositDetails) => {
                                     </button>
                                 </div>
                                 <div className={Number(timeLockInputValue) > 0 ? "deposit-lock-set" : "deposit-lock-set-inactive"}>
-                                    <p>Withdrawals from your DETF will be locked until:</p>
+                                    <p>Withdrawals from your Investment Theme will be locked until:</p>
                                     <b>{GetTimeToUnlock(Number(GetTimeLockInputValueInSeconds()))}</b>
                                 </div>
                             </div>
                         </div>}
                         {props.timeLockRemaining > 0 && <div className="timelock-existing">
                             <div className="timelock-existing-message">
-                                Your DETF is currently locked from withdrawals until:
+                                Your investment theme is currently locked from withdrawals until:
                                 <b>{GetTimeToUnlock(props.timeLockRemaining)}</b>
                             </div>
                             <div className="timelock-selector">
@@ -193,7 +196,7 @@ export const DepositDetails = (props: DepositDetails) => {
                             <div className={checkboxTickExisting ? "timelock-existing-inputs" : "timelock-existing-inputs-inactive"}>
                                 <div className="timelock-amount-input-title">Lock term:</div>
                                 <ul className="timelock-amount-input-group">
-                                    <li><input className="timelock-amount-input" type="number" value={timeLockInputValue} onChange={onChangeTimeLock} placeholder="12 months" /></li>
+                                    <li><input className="timelock-amount-input" type="number" value={timeLockInputValue} onChange={onChangeTimeLock} placeholder="12 months" min="0" /></li>
                                     <li><button
                                         className="timelock-date-format"
                                         onClick={(): void => toggleDropDown()}
@@ -213,19 +216,26 @@ export const DepositDetails = (props: DepositDetails) => {
                                     </button></li>
                                 </ul>
                                 <div className={Number(timeLockInputValue) > 0 ? "deposit-lock-set" : "deposit-lock-set-inactive"}>
-                                    <p>Withdrawals from your DETF will be locked until:</p>
+                                    <p>Withdrawals from your Investment Theme will be locked until:</p>
                                     <div className="deposit-lock-set-lock-date">{GetTimeLockUnlockIncrease(Number(GetTimeLockInputValueInSeconds()))}</div>
                                 </div>
                             </div>
                         </div>}
                     </div>
                     <div className="deposit-details-button">
-                        {(Number(depositInputValue) >= 0 && Number(timeLockInputValue) >= 0) && <Button buttonStyle="primary" buttonSize="standard-long" text="View investment summary" onClick={() => {
-                            props.setDepositAmount(ConvertDepositValue());
-                            props.setTimeLockAmount(ConvertTimeLockValue());
-                            props.setShowDepositDetails(false);
-                            props.setActiveStage(props.activeStage === "establish-deposit-details" ? "establish-deposit-summary" : "deposit-summary")
-                        }} />}
+                        {Number(depositInputValue) === 0 &&
+                            <Button buttonStyle="primary" buttonSize="standard-long" text="Enter amount" status="disabled" />}
+                        {Number(depositInputValue) > 0 &&
+                            Number(FloatToBigNumber(Number(depositInputValue), 18)) < Number(props.walletBalance.value) &&
+                            <Button buttonStyle="primary" buttonSize="standard-long" text="View investment summary" onClick={() => {
+                                props.setDepositAmount(ConvertDepositValue());
+                                props.setTimeLockAmount(ConvertTimeLockValue());
+                                props.setShowDepositDetails(false);
+                                props.setActiveStage(props.activeStage === "establish-deposit-details" ? "establish-deposit-summary" : "deposit-summary")
+                            }} />}
+                        {Number(depositInputValue) > 0 &&
+                            Number(FloatToBigNumber(Number(depositInputValue), 18)) >= Number(props.walletBalance.value) &&
+                            <Button buttonStyle="primary" buttonSize="standard-long" text="Insufficient amount" status="disabled" />}
                         {(Number(depositInputValue) < 0 || Number(timeLockInputValue) < 0) && <Button buttonStyle="primary" buttonSize="standard-long" text="View investment summary" status="disabled" />}
                     </div>
                 </div>

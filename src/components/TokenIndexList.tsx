@@ -78,7 +78,7 @@ export const TokenIndexList = (props: TokenIndexListProps) => {
                 <div>
                     {tokenIndexData.map((token: any, index: number) =>
                         <div key={index}>
-                            <Link className="token-index-row-item-link" to={`/tokens/${token.token_name.replaceAll(".", "-").replaceAll(" ", "-").replaceAll("(", "").replaceAll(")", "").toLowerCase()}`} >
+                            <Link className="token-index-row-item-link" to={`/assets/${token.token_name.replaceAll(".", "-").replaceAll(" ", "-").replaceAll("(", "").replaceAll(")", "").toLowerCase()}`} >
                                 <div className="token-index-row-items" key={index}>
                                     <div className="token-index-row-item-token">
                                         <img className="token-index-row-item-logo" src={token.token_logo}></img>
@@ -114,7 +114,7 @@ export const TokenIndexList = (props: TokenIndexListProps) => {
                 <div>
                     {tokenIndexData.map((token: any, index: number) =>
                         <div key={index}>
-                            <Link className="token-index-row-item-link" to={`/tokens/${token.token_name.replaceAll(".", "-").replaceAll(" ", "-").replaceAll("(", "").replaceAll(")", "").toLowerCase()}`} >
+                            <Link className="token-index-row-item-link" to={`/assets/${token.token_name.replaceAll(".", "-").replaceAll(" ", "-").replaceAll("(", "").replaceAll(")", "").toLowerCase()}`} >
                                 <div className="token-index-row-items-mobile" key={index}>
                                     <div className="token-index-row-item-token-header-mobile">
                                         <div className="token-index-row-item-token-mobile">

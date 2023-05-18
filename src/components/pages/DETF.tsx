@@ -3,19 +3,21 @@ import { DETFReturnChart } from '../charts/DETFReturnChart'
 import "./DETF.css"
 import { DETFAssetsTable } from '../DETFAssetsTable'
 import { CurrencyContext } from '../utils/Currency'
-import Footer from './Footer'
+import { Footer } from '../Footer/Footer'
 import { useEffect, useContext, useState } from 'react'
 import { GetProductData, ProductData } from '../api/GetProductData'
 import { GetPerformanceData, PerformanceData } from '../api/GetPerformanceData'
-import { Loading } from '../Loading'
+import { Loading } from '../Loading/Loading'
 import { GetPriceVsCurrency } from '../api/GetPriceVsCurrency'
 import { DETFSummary } from '../DETFSummary'
 import { ColourCategories, DETFIconFilename } from '../utils/Formatting'
 import { useNetwork } from 'wagmi'
-import { Button } from '../Buttons'
+import { Button } from '../Buttons/Buttons'
 import ReactGA from "react-ga4"
 import { initialiseGA4 } from '../utils/Analytics'
 import { Helmet } from 'react-helmet-async'
+import { LockedBeta } from '../LockedBeta'
+import { DETFInvestButton } from '../DETFInvestButton'
 
 const DETF = () => {
     const location = useLocation()
@@ -23,16 +25,22 @@ const DETF = () => {
         initialiseGA4()
         ReactGA.send({ hitType: "pageview", page: location.pathname })
     }, [])
+
     const urlCategoryId = useParams().urlCategoryId
     const urlDimensionId = useParams().urlDimensionId
     const { chain } = useNetwork()
     const chainId: string = chain ? chain.id.toString() : "56"
     const productUrl = `${chainId}/${urlCategoryId}/${urlDimensionId}`
     const performanceUrl = `${chainId}/${urlCategoryId}/${urlDimensionId}`
-    const productContent = require(`../../product/detfs/${chainId}/${urlCategoryId}/${urlDimensionId}/content.json`)
+    const productContent = require(`../../product/themes/${chainId}/${urlCategoryId}/${urlDimensionId}/content.json`)
     const currency = useContext(CurrencyContext).currency
     const { response: prices, isLoading: pricesLoading, isSuccess: pricesSuccess } = GetPriceVsCurrency("0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c")
     const [vsPrices, setVsPrices] = useState<any>({})
+    const [showBetaMessage, setShowBetaMessage] = useState<boolean>(false)
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [showBetaMessage]);
 
     useEffect(() => {
         setVsPrices(prices ? prices : {})
@@ -58,11 +66,11 @@ const DETF = () => {
     const assetTableDescription: string = productContent.assetTableDescription
     const tokens: Array<any> = [] = productData ? productData.tokens : []
 
-    if (productContent && productData && performanceData) {
+    if (productContent && productData && performanceData && !showBetaMessage) {
         return (
             <>
                 <Helmet>
-                    <title>{`${category} ${dimension} DETF | Polybit Finance`}</title>
+                    <title>{`${category} ${dimension} investment theme | Polybit Finance`}</title>
                     <meta name="description" content={descriptionTitle} />
                 </Helmet>
                 <div className="detf">
@@ -80,9 +88,11 @@ const DETF = () => {
                                 </div>
                             </div>
                             <div className="detf-button-wrapper">
-                                <Link className="detf-invest-button" to="/establish-deposit" state={{ productId: productId, category: category, dimension: dimension }}>
-                                    <Button buttonStyle="primary" buttonSize="standard" text="Invest in this DETF" />
-                                </Link>
+                                <DETFInvestButton
+                                    setShowBetaMessage={setShowBetaMessage}
+                                    productId={productId}
+                                    category={category}
+                                    dimension={dimension} />
                             </div>
                         </div>
                         <ul className="detf-content">
@@ -90,9 +100,11 @@ const DETF = () => {
                                 <div className="detf-description">
                                     <h2>{descriptionTitle}</h2>
                                     <div className="detf-button-wrapper-mobile">
-                                        <Link to="/establish-deposit" state={{ productId: productId, category: category, dimension: dimension }}>
-                                            <Button buttonStyle="primary" buttonSize="standard" text="Invest in this DETF" />
-                                        </Link>
+                                        <DETFInvestButton
+                                            setShowBetaMessage={setShowBetaMessage}
+                                            productId={productId}
+                                            category={category}
+                                            dimension={dimension} />
                                     </div>
                                     {description.map((line: string) =>
                                         <div key={line}>
@@ -102,7 +114,7 @@ const DETF = () => {
                                     )}
                                 </div>
                                 <div className="detf-chart">
-                                    <div className="detf-chart-title"><p>{category} {dimension} DETF Index Value - 3 Months</p></div>
+                                    <div className="detf-chart-title"><p>{category} {dimension} investment theme Index Value - 3 Months</p></div>
                                     <DETFReturnChart height={300} width="100%" performanceData={performanceData} />
                                 </div>
                                 <DETFSummary
@@ -114,7 +126,7 @@ const DETF = () => {
                             </li>
                             <li className="detf-content-b">
                                 <div className="detf-assets-box">
-                                    <h2>Assets in DETF</h2>
+                                    <h2>Assets in investment theme</h2>
                                     {/* <p>{assetTableDescription}</p> */}
                                     <DETFAssetsTable tokens={tokens} />
                                 </div>
@@ -122,14 +134,18 @@ const DETF = () => {
                                     <p>BNB is the native currency used for investment in to this DETF. Please ensure you have sufficient BNB in your wallet before investing.</p>
                                 </div>
                                 <div className="detf-button-wrapper">
-                                    <Link to="/establish-deposit" state={{ productId: productId, category: category, dimension: dimension }}>
-                                        <Button buttonStyle="primary" buttonSize="standard" text="Invest in this DETF" />
-                                    </Link>
+                                    <DETFInvestButton
+                                        setShowBetaMessage={setShowBetaMessage}
+                                        productId={productId}
+                                        category={category}
+                                        dimension={dimension} />
                                 </div>
                                 <div className="detf-button-wrapper-mobile">
-                                    <Link to="/establish-deposit" state={{ productId: productId, category: category, dimension: dimension }}>
-                                        <Button buttonStyle="primary" buttonSize="standard" text="Invest in this DETF" />
-                                    </Link>
+                                    <DETFInvestButton
+                                        setShowBetaMessage={setShowBetaMessage}
+                                        productId={productId}
+                                        category={category}
+                                        dimension={dimension} />
                                 </div>
                             </li>
                         </ul>
@@ -139,6 +155,21 @@ const DETF = () => {
                         </div>
                     </div>
                 </div>
+                <Footer />
+            </>
+        )
+    }
+
+    if (showBetaMessage) {
+        return (
+            <>
+                <Helmet>
+                    <title>{`${category} ${dimension} investment theme | Polybit Finance`}</title>
+                    <meta name="description" content={descriptionTitle} />
+                </Helmet>
+                <LockedBeta
+                    setShowBetaMessage={setShowBetaMessage}
+                    sourcePage="Investment Theme" />
                 <Footer />
             </>
         )

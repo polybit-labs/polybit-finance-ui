@@ -4,11 +4,11 @@ import { useLocation } from 'react-router-dom'
 import TitleContainer from "../containers/Title"
 import SubTitleContainer from '../containers/SubTitle'
 import { useAccount, useNetwork } from "wagmi"
-import Footer from './Footer'
+import { Footer } from '../Footer/Footer'
 import { Progress } from '../Progress'
 import { EstablishDepositContainer } from '../deposit/EstablishDepositContainer'
-import { SwitchNetwork } from '../SwitchNetwork'
-import { Connect } from '../Connect'
+import { SwitchNetwork } from '../SwitchNetwork/SwitchNetwork'
+import { Connect } from '../Connect/Connect'
 import { LockedBeta } from '../LockedBeta'
 import { Helmet } from 'react-helmet-async'
 
@@ -16,7 +16,7 @@ function EstablishDeposit() {
     const location = useLocation()
     const { chain } = useNetwork()
     const [title, setTitle] = useState("Your investment amount")
-    const { category, dimension, detfAddress } = location.state
+    const { productId, category, dimension } = location.state
     const [activeStage, setActiveStage] = useState("deposit-details")
     const [depositSuccess, setDepositSuccess] = useState(false)
     const { address: walletOwner, connector, isConnected } = useAccount()
@@ -28,19 +28,19 @@ function EstablishDeposit() {
         }
     }, [activeStage])
 
-    if (window.location.href.includes("polybit.finance")) {
-        return (
-            <>
-                <Helmet>
-                    <title>Deposit | Polybit Finance</title>
-                    <meta name="description" content="" />
-                    <meta name="robots" content="noindex" />
-                </Helmet>
-                <LockedBeta />
-                <Footer />
-            </>
-        )
-    }
+    /*     if (window.location.href.includes("polybit.finance")) {
+            return (
+                <>
+                    <Helmet>
+                        <title>Deposit | Polybit Finance</title>
+                        <meta name="description" content="" />
+                        <meta name="robots" content="noindex" />
+                    </Helmet>
+                    <LockedBeta />
+                    <Footer />
+                </>
+            )
+        } */
 
     if (isConnected && !chain?.unsupported) {
         return (
@@ -52,13 +52,13 @@ function EstablishDeposit() {
                 </Helmet>
                 {!depositSuccess && <div>
                     <TitleContainer title={title} />
-                    <SubTitleContainer info={`You are about to invest funds from your address ${TruncateAddress(walletOwner ? walletOwner : "")} into the ${category} ${dimension} DETF using ${connector?.name}.`} />
+                    <SubTitleContainer info={`You are about to invest funds from your address ${TruncateAddress(walletOwner ? walletOwner : "")} into the ${category} ${dimension} investment theme using ${connector?.name}.`} />
                     <Progress activeStage={activeStage} />
                 </div>}
                 <EstablishDepositContainer
+                    productId={productId}
                     category={category}
                     dimension={dimension}
-                    detfAddress={detfAddress}
                     setActiveStage={setActiveStage}
                     activeStage={activeStage}
                     setDepositSuccess={setDepositSuccess}
@@ -82,8 +82,8 @@ function EstablishDeposit() {
                 <meta name="description" content="" />
                 <meta name="robots" content="noindex" />
             </Helmet>
-            <TitleContainer title={title} />
-            <SubTitleContainer info={subTitleNotConnected} />
+            {/* <TitleContainer title={title} />
+            <SubTitleContainer info={subTitleNotConnected} /> */}
             <Connect />
             <Footer />
         </>

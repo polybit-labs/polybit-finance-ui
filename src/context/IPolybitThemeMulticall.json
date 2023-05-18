@@ -1,0 +1,388 @@
+[
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "_polybitThemeConfigAddress",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "nonpayable",
+        "type": "constructor",
+        "name": "constructor"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "_themeContractAddress",
+                "type": "address"
+            }
+        ],
+        "name": "getAccountDetail",
+        "outputs": [
+            {
+                "components": [
+                    {
+                        "internalType": "address",
+                        "name": "themeContractAddress",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "status",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "creationTimestamp",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "productCategory",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "productDimension",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "uint256[][]",
+                        "name": "deposits",
+                        "type": "uint256[][]"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "totalDeposited",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256[][]",
+                        "name": "feesPaid",
+                        "type": "uint256[][]"
+                    },
+                    {
+                        "internalType": "address[]",
+                        "name": "ownedAssets",
+                        "type": "address[]"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "timeLock",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "timeLockRemaining",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "closeTimestamp",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "finalBalanceInWeth",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "address[]",
+                        "name": "finalAssets",
+                        "type": "address[]"
+                    },
+                    {
+                        "internalType": "uint256[]",
+                        "name": "finalAssetsPrices",
+                        "type": "uint256[]"
+                    },
+                    {
+                        "internalType": "uint256[]",
+                        "name": "finalAssetsBalances",
+                        "type": "uint256[]"
+                    },
+                    {
+                        "internalType": "uint256[]",
+                        "name": "finalAssetsBalancesInWeth",
+                        "type": "uint256[]"
+                    }
+                ],
+                "internalType": "struct PolybitThemeMulticall.ThemeContractDetail",
+                "name": "",
+                "type": "tuple"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address[]",
+                "name": "_themeContractAddresses",
+                "type": "address[]"
+            }
+        ],
+        "name": "getAccountDetailAll",
+        "outputs": [
+            {
+                "components": [
+                    {
+                        "components": [
+                            {
+                                "internalType": "address",
+                                "name": "themeContractAddress",
+                                "type": "address"
+                            },
+                            {
+                                "internalType": "uint256",
+                                "name": "status",
+                                "type": "uint256"
+                            },
+                            {
+                                "internalType": "uint256",
+                                "name": "creationTimestamp",
+                                "type": "uint256"
+                            },
+                            {
+                                "internalType": "string",
+                                "name": "productCategory",
+                                "type": "string"
+                            },
+                            {
+                                "internalType": "string",
+                                "name": "productDimension",
+                                "type": "string"
+                            },
+                            {
+                                "internalType": "uint256[][]",
+                                "name": "deposits",
+                                "type": "uint256[][]"
+                            },
+                            {
+                                "internalType": "uint256",
+                                "name": "totalDeposited",
+                                "type": "uint256"
+                            },
+                            {
+                                "internalType": "uint256[][]",
+                                "name": "feesPaid",
+                                "type": "uint256[][]"
+                            },
+                            {
+                                "internalType": "address[]",
+                                "name": "ownedAssets",
+                                "type": "address[]"
+                            },
+                            {
+                                "internalType": "uint256",
+                                "name": "timeLock",
+                                "type": "uint256"
+                            },
+                            {
+                                "internalType": "uint256",
+                                "name": "timeLockRemaining",
+                                "type": "uint256"
+                            },
+                            {
+                                "internalType": "uint256",
+                                "name": "closeTimestamp",
+                                "type": "uint256"
+                            },
+                            {
+                                "internalType": "uint256",
+                                "name": "finalBalanceInWeth",
+                                "type": "uint256"
+                            },
+                            {
+                                "internalType": "address[]",
+                                "name": "finalAssets",
+                                "type": "address[]"
+                            },
+                            {
+                                "internalType": "uint256[]",
+                                "name": "finalAssetsPrices",
+                                "type": "uint256[]"
+                            },
+                            {
+                                "internalType": "uint256[]",
+                                "name": "finalAssetsBalances",
+                                "type": "uint256[]"
+                            },
+                            {
+                                "internalType": "uint256[]",
+                                "name": "finalAssetsBalancesInWeth",
+                                "type": "uint256[]"
+                            }
+                        ],
+                        "internalType": "struct PolybitThemeMulticall.ThemeContractDetail",
+                        "name": "data",
+                        "type": "tuple"
+                    }
+                ],
+                "internalType": "struct PolybitThemeMulticall.ThemeContractDetailAll[]",
+                "name": "",
+                "type": "tuple[]"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "_walletOwner",
+                "type": "address"
+            }
+        ],
+        "name": "getAccountDetailFromWalletOwner",
+        "outputs": [
+            {
+                "components": [
+                    {
+                        "components": [
+                            {
+                                "internalType": "address",
+                                "name": "themeContractAddress",
+                                "type": "address"
+                            },
+                            {
+                                "internalType": "uint256",
+                                "name": "status",
+                                "type": "uint256"
+                            },
+                            {
+                                "internalType": "uint256",
+                                "name": "creationTimestamp",
+                                "type": "uint256"
+                            },
+                            {
+                                "internalType": "string",
+                                "name": "productCategory",
+                                "type": "string"
+                            },
+                            {
+                                "internalType": "string",
+                                "name": "productDimension",
+                                "type": "string"
+                            },
+                            {
+                                "internalType": "uint256[][]",
+                                "name": "deposits",
+                                "type": "uint256[][]"
+                            },
+                            {
+                                "internalType": "uint256",
+                                "name": "totalDeposited",
+                                "type": "uint256"
+                            },
+                            {
+                                "internalType": "uint256[][]",
+                                "name": "feesPaid",
+                                "type": "uint256[][]"
+                            },
+                            {
+                                "internalType": "address[]",
+                                "name": "ownedAssets",
+                                "type": "address[]"
+                            },
+                            {
+                                "internalType": "uint256",
+                                "name": "timeLock",
+                                "type": "uint256"
+                            },
+                            {
+                                "internalType": "uint256",
+                                "name": "timeLockRemaining",
+                                "type": "uint256"
+                            },
+                            {
+                                "internalType": "uint256",
+                                "name": "closeTimestamp",
+                                "type": "uint256"
+                            },
+                            {
+                                "internalType": "uint256",
+                                "name": "finalBalanceInWeth",
+                                "type": "uint256"
+                            },
+                            {
+                                "internalType": "address[]",
+                                "name": "finalAssets",
+                                "type": "address[]"
+                            },
+                            {
+                                "internalType": "uint256[]",
+                                "name": "finalAssetsPrices",
+                                "type": "uint256[]"
+                            },
+                            {
+                                "internalType": "uint256[]",
+                                "name": "finalAssetsBalances",
+                                "type": "uint256[]"
+                            },
+                            {
+                                "internalType": "uint256[]",
+                                "name": "finalAssetsBalancesInWeth",
+                                "type": "uint256[]"
+                            }
+                        ],
+                        "internalType": "struct PolybitThemeMulticall.ThemeContractDetail",
+                        "name": "data",
+                        "type": "tuple"
+                    }
+                ],
+                "internalType": "struct PolybitThemeMulticall.ThemeContractDetailAll[]",
+                "name": "",
+                "type": "tuple[]"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "_themeContractAddress",
+                "type": "address"
+            },
+            {
+                "internalType": "address[]",
+                "name": "_tokenAddresses",
+                "type": "address[]"
+            },
+            {
+                "internalType": "uint256[]",
+                "name": "_tokenPrices",
+                "type": "uint256[]"
+            }
+        ],
+        "name": "getAllTokenBalancesInWeth",
+        "outputs": [
+            {
+                "internalType": "uint256[]",
+                "name": "",
+                "type": "uint256[]"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "polybitThemeConfigAddress",
+        "outputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    }
+]

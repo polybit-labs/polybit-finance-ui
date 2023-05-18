@@ -1,0 +1,242 @@
+.swap-box {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #E3E3E3;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-bottom: 160px;
+    position: relative;
+}
+
+.swap-box-wrapper {
+    width: 430px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight: 700;
+}
+
+.swap-box-wrapper-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.swap-box-settings-icon {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.swap-box-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    background-color: #eeeeee;
+    padding-top: 15px;
+}
+
+.swap-box-token {
+    width: 100%;
+}
+
+.swap-box-token-header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 24px;
+    padding-right: 24px;
+    margin-bottom: 15px;
+}
+
+.swap-box-token-header-token {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.swap-box-token-header-token-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.swap-box-token-header-token-link {
+    margin-left: 10px;
+    text-decoration: none;
+    color: #000000;
+}
+
+.swap-box-token-header-token-logo {
+    width: 28px;
+    height: 28px;
+    border-radius: 50px;
+    margin-right: 10px;
+    background-color: #ffffff;
+}
+
+.swap-box-token-header-token-name-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 2px solid #000000;
+}
+
+.swap-box-token-header-token-name {
+    font-size: 16px;
+    font-weight: 700;
+    margin-right: 10px;
+}
+
+.swap-box-token-header-balance {
+    font-size: 14px;
+    font-weight: 500;
+    color: #909090;
+    margin-left: 10px;
+    cursor: default;
+}
+
+.swap-box-token-input {
+    width: 100%;
+    height: 130px;
+    /* margin-top: 15px; */
+    background-color: #ffffff;
+    border-bottom: 4px solid #000000;
+}
+
+.swap-box-token-input input {
+    width: 100%;
+    height: 70px;
+    border: 0;
+    outline: 0;
+    font-size: 40px;
+    line-height: 40px;
+    font-weight: 700;
+    padding-left: 24px;
+    padding-top: 30px;
+    color: #000000;
+}
+
+.swap-box-pair-price {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: top;
+    justify-content: left;
+    padding-top: 12px;
+    font-size: 14px;
+    color: #909090;
+    padding-left: 24px;
+    font-weight: 500;
+}
+
+.swap-box-token-input input::-webkit-outer-spin-button,
+.swap-box-token-input input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+::-webkit-input-placeholder {
+    /* Edge */
+    color: #000000;
+}
+
+:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: #000000;
+}
+
+::placeholder {
+    color: #000000;
+}
+
+.swap-box-token-switch {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
+
+.swap-box-token-switch img {
+    width: 57.75px;
+    height: 61px;
+    cursor: pointer;
+}
+
+.swap-box-button-wrapper {
+    width: 100%;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* Small devices (landscape phones, 576px and up) */
+
+@media (max-width: 719px) {
+    .swap-box {
+        width: 100%;
+        padding-left: 24px;
+        padding-right: 24px;
+        padding-bottom: 80px;
+    }
+
+    .swap-box-wrapper {
+        width: 100%;
+
+    }
+
+    .swap-box-wrapper-header {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        margin-bottom: 30px;
+    }
+
+    .swap-box-token-switch {
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+
+    .swap-box-token-input input {
+        font-size: 30px;
+    }
+}
+
+/* Medium devices (tablets, 768px and up) */
+
+@media (min-width: 720px) {
+    .swap-box-wrapper {
+        width: 430px;
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+
+@media (min-width: 960px) {
+    .swap-box-wrapper {
+        width: 430px;
+    }
+}
+
+/*Extra large devices (large desktops, 1200px and up)*/
+
+@media (min-width: 1025px) {
+    .swap-box-wrapper {
+        width: 430px;
+    }
+}

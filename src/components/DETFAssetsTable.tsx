@@ -56,7 +56,7 @@ export const DETFAssetsTable = (props: DETFAssetsTableProps) => {
                                     <td className="detf-assets-body-item-token">
                                         <div className="detf-assets-token-logo">
                                             <img className="detf-token-logo" src={token.tokenLogo ? token.tokenLogo : FallbackLogo} alt={token.tokenName}></img>
-                                            <Link className="detf-assets-token-link" to={`/tokens/${token.tokenName.toLowerCase().replaceAll(" ", "-").replaceAll(".", "-")}`} >
+                                            <Link className="detf-assets-token-link" to={`/assets/${token.tokenName.toLowerCase().replaceAll(" ", "-").replaceAll(".", "-")}`} >
                                                 <b>{token.tokenName}</b>
                                             </Link>
                                         </div>
@@ -97,7 +97,7 @@ export const DETFAssetsTable = (props: DETFAssetsTableProps) => {
                                     <td className="detf-assets-body-item-token-mobile">
                                         <div className="detf-assets-token-logo-mobile">
                                             <img className="detf-token-logo-mobile" src={token.tokenLogo ? token.tokenLogo : FallbackLogo} alt={token.tokenName}></img>
-                                            <Link className="detf-assets-token-link" to={`/tokens/${token.tokenName.toLowerCase().replaceAll(" ", "-").replaceAll(".", "-")}`} >
+                                            <Link className="detf-assets-token-link" to={`/assets/${token.tokenName.toLowerCase().replaceAll(" ", "-").replaceAll(".", "-")}`} >
                                                 <b>{token.tokenName}</b>
                                             </Link>
                                         </div>

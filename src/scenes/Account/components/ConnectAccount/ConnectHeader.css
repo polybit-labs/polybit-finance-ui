@@ -1,0 +1,65 @@
+.connect-header-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.connect-header-container h2 {
+    width: 100%;
+    text-decoration: none;
+}
+
+.connect-header-container p {
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.connect-header-link {
+    text-decoration: none;
+    border-bottom: 2px solid #000000;
+}
+
+.connect-header-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Small devices (landscape phones, 576px and up) */
+
+@media (max-width: 719px) {
+    .connect-header-container {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+
+    .connect-header-container h2 {
+        font-size: 24px;
+    }
+
+    .connect-header-info {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+    }
+}
+
+/* Medium devices (tablets, 768px and up) */
+
+@media (min-width: 720px) {}
+
+
+/* Large devices (desktops, 992px and up) */
+
+@media (min-width: 960px) {}
+
+/*Extra large devices (large desktops, 1200px and up)*/
+
+@media (min-width: 1025px) {
+    .connect-header-container {
+        max-width: 1280px;
+    }
+}

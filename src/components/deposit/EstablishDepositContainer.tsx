@@ -4,23 +4,22 @@ import { DepositDetails } from '../deposit/DepositDetails'
 import { CurrencyContext } from '../utils/Currency'
 import { GetPriceVsCurrency } from '../api/GetPriceVsCurrency'
 import { DepositSuccess } from '../deposit/DepositSuccess'
-import { DepositSummary } from '../deposit/DepositSummary'
-import { Loading } from '../Loading'
+import { Loading } from '../Loading/Loading'
 import { useLocation } from 'react-router-dom'
 import { EstablishDepositSummary } from './EstablishDepositSummary'
 import { BigNumber } from 'ethers'
 
-interface Deposit {
+interface EstablishDepositContainerProps {
+    productId: number;
     category: string;
     dimension: string;
-    detfAddress: string;
     setActiveStage: Function;
     activeStage: string;
     setDepositSuccess: Function;
     depositSuccess: boolean;
 }
 
-export const EstablishDepositContainer = (props: Deposit) => {
+export const EstablishDepositContainer = (props: EstablishDepositContainerProps) => {
     const location = useLocation()
     const { productId, category, dimension } = location.state
     const currency = useContext(CurrencyContext).currency
@@ -29,8 +28,6 @@ export const EstablishDepositContainer = (props: Deposit) => {
     const [depositAmount, setDepositAmount] = useState(BigNumber.from(0))
     const [timeLockAmount, setTimeLockAmount] = useState(0)
     const [showDepositDetails, setShowDepositDetails] = useState(true)
-
-    console.log(productId, category, dimension)
 
     useEffect(() => {
         setVsPrices(prices ? prices : {})

@@ -4,7 +4,7 @@ import { useLocation } from 'react-router-dom'
 import TitleContainer from "../containers/Title"
 import SubTitleContainer from '../containers/SubTitle'
 import { useAccount } from "wagmi"
-import Footer from './Footer'
+import { Footer } from '../Footer/Footer'
 import { Progress } from '../Progress'
 import { DepositContainer } from '../deposit/DepositContainer'
 import { Helmet } from 'react-helmet-async'
@@ -12,7 +12,7 @@ import { Helmet } from 'react-helmet-async'
 function Deposit() {
     const location = useLocation()
     const [title, setTitle] = useState("Your investment amount")
-    const { category, dimension, detfAddress } = location.state
+    const { category, dimension, theme_contract_address } = location.state
     const [activeStage, setActiveStage] = useState("deposit-details")
     const [depositSuccess, setDepositSuccess] = useState(false)
     const { address: walletOwner, connector, isConnected } = useAccount()
@@ -33,13 +33,13 @@ function Deposit() {
             </Helmet>
             {!depositSuccess && <div>
                 <TitleContainer title={title} />
-                <SubTitleContainer info={`You are about to invest funds from your address ${TruncateAddress(walletOwner ? walletOwner : "")} into the ${category} ${dimension} DETF using ${connector?.name}.`} />
+                <SubTitleContainer info={`You are about to invest funds from your address ${TruncateAddress(walletOwner ? walletOwner : "")} into the ${category} ${dimension} investment theme using ${connector?.name}.`} />
                 <Progress activeStage={activeStage} />
             </div>}
             <DepositContainer
                 category={category}
                 dimension={dimension}
-                detfAddress={detfAddress}
+                theme_contract_address={theme_contract_address}
                 setActiveStage={setActiveStage}
                 activeStage={activeStage}
                 setDepositSuccess={setDepositSuccess}
