@@ -6,7 +6,7 @@ export const AccountTablePlaceholder = () => {
     return (
         <><div className="account-detf-container">
             <div className="account-detf-title">
-                <h1>Your portfolio</h1>
+                <h1>Investment Themes</h1>
             </div>
             <div className="account-detf-container-placeholder">
                 <div className="account-detf-container-placeholder-overlay">
