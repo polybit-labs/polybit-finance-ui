@@ -22,6 +22,7 @@ import { AccountSummaryPlaceholder } from './components/AccountSummary/AccountSu
 import { AccountTablePlaceholder } from './components/AccountTable/AccountTablePlaceholder'
 import { ConnectHeader } from './components/ConnectAccount/ConnectHeader'
 import { TokenTable } from './components/TokenTable/TokenTable'
+import { TokenTablePlaceholder } from './components/TokenTable/TokenTablePlaceholder'
 
 type Currencies = {
     "date": string;
@@ -79,7 +80,6 @@ const Account = () => {
     })
 
     const currency = useContext(CurrencyContext).currency
-    //const [previousCurrency, setPreviousCurrency] = useState(currency)
     const { response: prices, isLoading: pricesLoading, isSuccess: pricesSuccess } = GetPriceVsCurrency(wethAddress)
     const [vsPrices, setVsPrices] = useState<any>({})
 
@@ -194,6 +194,7 @@ const Account = () => {
                 vsPrices={vsPrices}
                 currency={currency}
             />}
+            {!showConnect && !showBetaMessage && <TokenTablePlaceholder />}
             {!showConnect && !showBetaMessage && <AccountTablePlaceholder />}
             <Footer />
         </>

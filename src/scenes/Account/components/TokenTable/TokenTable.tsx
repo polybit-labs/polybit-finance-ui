@@ -2,6 +2,8 @@ import { useEffect, useState } from "react"
 import { GetTokenTransfers } from "../../../../components/api/GetTokenTransfers"
 import "./TokenTable.css"
 import { TokenTableRow } from "./TokenTableRow"
+import { AccountTablePlaceholder } from "../AccountTable/AccountTablePlaceholder"
+import { TokenTablePlaceholder } from "./TokenTablePlaceholder"
 
 interface TokenTableProps {
     wallet_owner: string
@@ -83,8 +85,7 @@ export const TokenTable = (props: TokenTableProps) => {
     }
     if (tokenTransfersDataSuccess && tokenTransfersData && tokenTransfersData.tokens.length === 0) {
         return (
-            <div>nada</div>
-            //<AccountTablePlaceholder />
+            <TokenTablePlaceholder />
         )
     }
     return (
