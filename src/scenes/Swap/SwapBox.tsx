@@ -19,6 +19,7 @@ import { TextLink } from '../../components/Buttons/TextLink'
 import { DEX } from './Types/DEX'
 import { IPolybitLiquidPath } from '../../context/abi/IPolybitLiquidPath'
 import { BigNumberToCurrency } from '../../components/utils/Currency/BigNumberToCurrency'
+import { GetAmountInCurrency } from './GetAmountInCurrency'
 
 interface SwapBoxProps {
     isConnected: boolean;
@@ -73,20 +74,9 @@ export const SwapBox = (props: SwapBoxProps) => {
     const polybitSwapFee: number = PolybitInfo[props.chainId as keyof typeof PolybitInfo]["fees"]["swap_fee"]
     const [tokenOneBalance, setTokenOneBalance] = useState<BigNumber>(BigNumber.from(0))
     const [tokenTwoBalance, setTokenTwoBalance] = useState<BigNumber>(BigNumber.from(0))
-    const [currencyConvertedPrice, setCurrencyConvertedPrice] = useState<number>(0)
     const dexPriceResponse = GetDEXPrice({ factory: props.factory.address, tokenOne: props.tokenOne, tokenTwo: props.tokenTwo })
-    let price: number = 0
-    const convertPrice = async () => {
-        await Promise.resolve(BigNumberToCurrency({
-            address: props.tokenOne.address,
-            amount: props.tokenOneInputValue ? props.tokenOneInputValue : BigNumber.from(0),
-            decimals: props.tokenOne.decimals
-        })).then((value) => {
-            price = value
-            return price
-        })
-    }
-    convertPrice()
+    const [lastAmountInCurrency, setLastAmountInCurrency] = useState<number>(0)
+
     const balanceOne = GetBalances({
         walletOwner: props.walletOwner as `0x${string}`,
         tokenOne: props.tokenOne,
@@ -118,8 +108,7 @@ export const SwapBox = (props: SwapBoxProps) => {
         dexPriceResponse && props.setDexPrice(dexPriceResponse)
         balanceOne && setTokenOneBalance(balanceOne)
         balanceTwo && setTokenTwoBalance(balanceTwo)
-        price && setCurrencyConvertedPrice(price)
-    }, [props.tokenOne, props.tokenTwo, props.tokenOneInputValue, props.tokenOneInputValue, props.amountsOut, price])
+    }, [props.tokenOne, props.tokenTwo, props.tokenOneInputValue, props.tokenOneInputValue, props.amountsOut])
 
     const { data, isError, isLoading } = useContractRead({
         address: liquidPathAddress as `0x${string}`,
@@ -152,6 +141,11 @@ export const SwapBox = (props: SwapBoxProps) => {
         }
     })
 
+    const [reloader, setReloader] = useState(0);
+    const reset = () => {
+        setReloader(Math.random());
+    }
+
     const SwitchToken = () => {
         const tempTokenOne: ERC20Token = props.tokenOne
         const tempTokenTwo: ERC20Token = props.tokenTwo
@@ -159,6 +153,7 @@ export const SwapBox = (props: SwapBoxProps) => {
         props.setTokenOneInputValue(props.tokenTwoInputValue)
         props.setTokenTwo(tempTokenOne)
         props.setTokenTwoInputValue(BigNumber.from(0))
+        reset()
     }
 
     return (
@@ -206,7 +201,14 @@ export const SwapBox = (props: SwapBoxProps) => {
                                     FormatDecimals(BigNumberToFloat(props.tokenOneInputValue, props.tokenOne.decimals)) : ""}
                                 onChange={onChangeTokenOneInput} />
                             <div className="swap-box-pair-price">
-                                <p>{`(${FormatCurrency(currencyConvertedPrice, 2)})`}</p>
+                                <GetAmountInCurrency
+                                    key={reloader + Math.random()}
+                                    tokenAddress={props.tokenOne.address}
+                                    tokenAmount={props.tokenOneInputValue ? Number(props.tokenOneInputValue) : 0}
+                                    tokenDecimals={props.tokenOne.decimals}
+                                    currency={props.currency}
+                                    lastAmountInCurrency={lastAmountInCurrency}
+                                    setLastAmountInCurrency={setLastAmountInCurrency} />
                             </div>
                         </div>
                     </div>

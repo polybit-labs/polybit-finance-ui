@@ -67,10 +67,10 @@ export const GetTokenBalance = (tokenAddress: `0x${string}`, walletOwner: `0x${s
         functionName: "balanceOf",
         args: [walletOwner],
         onSettled(data, error) {
-            //console.log('GetTokenBalance', { data, error })
+            console.log('GetTokenBalance', { data, error })
         },
         onSuccess(data) {
-            //console.log('GetTokenBalance', data)
+            console.log('GetTokenBalance', data)
         }
     })
     if (data) {
