@@ -265,8 +265,20 @@ export const SwapSummary = (props: SwapSummaryProps) => {
                                 spenderApproved={spenderApproved}
                                 refetch={refetch}
                             />}
-                        {!configIsSuccess && spenderApproved && <Button text="Confirm Swap" buttonSize="standard" buttonStyle="primary" status="disabled" />}
-                        {configIsSuccess && spenderApproved && <Button text="Confirm Swap" buttonSize="standard" buttonStyle="primary" onClick={() => write?.()} />}
+                        {props.swapType !== "swapETHForExactTokens" &&
+                            props.swapType !== "swapExactETHForTokens" &&
+                            !configIsSuccess &&
+                            spenderApproved &&
+                            <Button text="Confirm Swap" buttonSize="standard" buttonStyle="primary" status="disabled" />}
+                        {props.swapType !== "swapETHForExactTokens" &&
+                            props.swapType !== "swapExactETHForTokens" &&
+                            configIsSuccess &&
+                            spenderApproved &&
+                            <Button text="Confirm Swap" buttonSize="standard" buttonStyle="primary" onClick={() => write?.()} />}
+                        {(props.swapType === "swapETHForExactTokens" ||
+                            props.swapType === "swapExactETHForTokens") &&
+                            configIsSuccess &&
+                            <Button text="Confirm Swap" buttonSize="standard" buttonStyle="primary" onClick={() => write?.()} />}
                     </div>
                     <TextLink to="" text="Make changes" arrowDirection="back" onClick={() => { props.setShowSwapBox(true); props.setShowSwapSummary(false) }} />
                 </div>
